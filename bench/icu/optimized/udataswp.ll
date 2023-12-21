@@ -56,35 +56,32 @@ lor.lhs.false6:                                   ; preds = %if.end
   br i1 %or.cond2, label %if.then9, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %lor.lhs.false6
-  %1 = zext nneg i32 %length to i64
-  br label %while.cond
+  %invariant.gep = getelementptr i8, ptr %inData, i64 -1
+  %cmp1131.not = icmp eq i32 %length, 0
+  br i1 %cmp1131.not, label %while.end, label %land.rhs
 
 if.then9:                                         ; preds = %lor.lhs.false6, %if.end
   store i32 1, ptr %pErrorCode, align 4
   br label %return
 
-while.cond:                                       ; preds = %while.cond.preheader, %land.rhs
-  %indvars.iv = phi i64 [ %1, %while.cond.preheader ], [ %indvars.iv.next, %land.rhs ]
-  %cmp11 = icmp sgt i64 %indvars.iv, 0
-  br i1 %cmp11, label %land.rhs, label %while.end
-
-land.rhs:                                         ; preds = %while.cond
-  %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %idxprom = and i64 %indvars.iv.next, 4294967295
-  %arrayidx = getelementptr inbounds i8, ptr %inData, i64 %idxprom
-  %2 = load i8, ptr %arrayidx, align 1
+land.rhs:                                         ; preds = %while.cond.preheader, %while.body
+  %stringsLength.032 = phi i32 [ %dec, %while.body ], [ %length, %while.cond.preheader ]
+  %1 = zext nneg i32 %stringsLength.032 to i64
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %1
+  %2 = load i8, ptr %gep, align 1
   %cmp12.not = icmp eq i8 %2, 0
-  br i1 %cmp12.not, label %while.end.split.loop.exit32, label %while.cond, !llvm.loop !4
+  br i1 %cmp12.not, label %while.end, label %while.body
 
-while.end.split.loop.exit32:                      ; preds = %land.rhs
-  %3 = trunc i64 %indvars.iv to i32
-  br label %while.end
+while.body:                                       ; preds = %land.rhs
+  %dec = add nsw i32 %stringsLength.032, -1
+  %cmp11 = icmp sgt i32 %stringsLength.032, 1
+  br i1 %cmp11, label %land.rhs, label %while.end, !llvm.loop !4
 
-while.end:                                        ; preds = %while.cond, %while.end.split.loop.exit32
-  %stringsLength.0.lcssa = phi i32 [ %3, %while.end.split.loop.exit32 ], [ 0, %while.cond ]
+while.end:                                        ; preds = %land.rhs, %while.body, %while.cond.preheader
+  %stringsLength.0.lcssa = phi i32 [ 0, %while.cond.preheader ], [ 0, %while.body ], [ %stringsLength.032, %land.rhs ]
   %swapInvChars = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 12
-  %4 = load ptr, ptr %swapInvChars, align 8
-  %call13 = tail call noundef i32 %4(ptr noundef %ds, ptr noundef nonnull %inData, i32 noundef %stringsLength.0.lcssa, ptr noundef %outData, ptr noundef nonnull %pErrorCode)
+  %3 = load ptr, ptr %swapInvChars, align 8
+  %call13 = tail call noundef i32 %3(ptr noundef %ds, ptr noundef nonnull %inData, i32 noundef %stringsLength.0.lcssa, ptr noundef %outData, ptr noundef nonnull %pErrorCode)
   %cmp14.not = icmp ne ptr %inData, %outData
   %cmp16 = icmp slt i32 %stringsLength.0.lcssa, %length
   %or.cond28 = and i1 %cmp14.not, %cmp16
@@ -100,8 +97,8 @@ do.body:                                          ; preds = %while.end
   br label %if.end22
 
 if.end22:                                         ; preds = %do.body, %while.end
-  %5 = load i32, ptr %pErrorCode, align 4
-  %cmp.i29 = icmp sgt i32 %5, 0
+  %4 = load i32, ptr %pErrorCode, align 4
+  %cmp.i29 = icmp sgt i32 %4, 0
   %.length = select i1 %cmp.i29, i32 0, i32 %length
   br label %return
 

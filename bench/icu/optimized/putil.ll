@@ -2375,16 +2375,18 @@ entry:
 
 if.end:                                           ; preds = %entry
   %cmp1 = icmp eq ptr %versionArray, null
-  br i1 %cmp1, label %return.sink.split, label %land.rhs
+  br i1 %cmp1, label %return.sink.split, label %for.cond.preheader
 
-land.rhs:                                         ; preds = %if.end, %for.inc
-  %count.032 = phi i16 [ %dec, %for.inc ], [ 4, %if.end ]
-  %conv = zext i16 %count.032 to i64
-  %sub = add nuw nsw i64 %conv, 4294967295
-  %idxprom = and i64 %sub, 4294967295
-  %arrayidx6 = getelementptr inbounds i8, ptr %versionArray, i64 %idxprom
-  %0 = load i8, ptr %arrayidx6, align 1
-  %cmp8 = icmp eq i8 %0, 0
+for.cond.preheader:                               ; preds = %if.end
+  %invariant.gep = getelementptr i8, ptr %versionArray, i64 -1
+  br label %land.rhs
+
+land.rhs:                                         ; preds = %for.cond.preheader, %for.inc
+  %count.032 = phi i16 [ 4, %for.cond.preheader ], [ %dec, %for.inc ]
+  %0 = zext i16 %count.032 to i64
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %0
+  %1 = load i8, ptr %gep, align 1
+  %cmp8 = icmp eq i8 %1, 0
   br i1 %cmp8, label %for.inc, label %for.end
 
 for.inc:                                          ; preds = %land.rhs
@@ -2395,21 +2397,21 @@ for.inc:                                          ; preds = %land.rhs
 for.end:                                          ; preds = %for.inc, %land.rhs
   %count.0.lcssa = phi i16 [ 0, %for.inc ], [ %count.032, %land.rhs ]
   %spec.store.select = tail call i16 @llvm.umax.i16(i16 %count.0.lcssa, i16 2)
-  %1 = load i8, ptr %versionArray, align 1
-  %cmp15 = icmp ugt i8 %1, 99
+  %2 = load i8, ptr %versionArray, align 1
+  %cmp15 = icmp ugt i8 %2, 99
   br i1 %cmp15, label %if.then16, label %if.end21
 
 if.then16:                                        ; preds = %for.end
-  %div = udiv i8 %1, 100
+  %div = udiv i8 %2, 100
   %add = or disjoint i8 %div, 48
   %incdec.ptr = getelementptr inbounds i8, ptr %versionString, i64 1
   store i8 %add, ptr %versionString, align 1
-  %2 = urem i8 %1, 100
+  %3 = urem i8 %2, 100
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then16, %for.end
   %versionString.addr.0 = phi ptr [ %incdec.ptr, %if.then16 ], [ %versionString, %for.end ]
-  %field.0 = phi i8 [ %2, %if.then16 ], [ %1, %for.end ]
+  %field.0 = phi i8 [ %3, %if.then16 ], [ %2, %for.end ]
   %cmp23 = icmp ugt i8 %field.0, 9
   br i1 %cmp23, label %if.then24, label %if.end33
 
@@ -2418,14 +2420,14 @@ if.then24:                                        ; preds = %if.end21
   %add27 = or disjoint i8 %div26, 48
   %incdec.ptr29 = getelementptr inbounds i8, ptr %versionString.addr.0, i64 1
   store i8 %add27, ptr %versionString.addr.0, align 1
-  %3 = urem i8 %field.0, 10
+  %4 = urem i8 %field.0, 10
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then24, %if.end21
   %versionString.addr.1 = phi ptr [ %incdec.ptr29, %if.then24 ], [ %versionString.addr.0, %if.end21 ]
-  %field.1 = phi i8 [ %3, %if.then24 ], [ %field.0, %if.end21 ]
-  %4 = or disjoint i8 %field.1, 48
-  store i8 %4, ptr %versionString.addr.1, align 1
+  %field.1 = phi i8 [ %4, %if.then24 ], [ %field.0, %if.end21 ]
+  %5 = or disjoint i8 %field.1, 48
+  store i8 %5, ptr %versionString.addr.1, align 1
   %versionString.addr.233 = getelementptr inbounds i8, ptr %versionString.addr.1, i64 1
   %wide.trip.count = zext i16 %spec.store.select to i64
   br label %for.body42
@@ -2437,21 +2439,21 @@ for.body42:                                       ; preds = %if.end33, %if.end69
   %incdec.ptr43 = getelementptr inbounds i8, ptr %versionString.addr.1.pn34, i64 2
   store i8 46, ptr %versionString.addr.236, align 1
   %arrayidx45 = getelementptr inbounds i8, ptr %versionArray, i64 %indvars.iv
-  %5 = load i8, ptr %arrayidx45, align 1
-  %cmp47 = icmp ugt i8 %5, 99
+  %6 = load i8, ptr %arrayidx45, align 1
+  %cmp47 = icmp ugt i8 %6, 99
   br i1 %cmp47, label %if.then48, label %if.end57
 
 if.then48:                                        ; preds = %for.body42
-  %div50 = udiv i8 %5, 100
+  %div50 = udiv i8 %6, 100
   %add51 = or disjoint i8 %div50, 48
   %incdec.ptr53 = getelementptr inbounds i8, ptr %versionString.addr.1.pn34, i64 3
   store i8 %add51, ptr %incdec.ptr43, align 1
-  %6 = urem i8 %5, 100
+  %7 = urem i8 %6, 100
   br label %if.end57
 
 if.end57:                                         ; preds = %if.then48, %for.body42
   %versionString.addr.3 = phi ptr [ %incdec.ptr53, %if.then48 ], [ %incdec.ptr43, %for.body42 ]
-  %field.2 = phi i8 [ %6, %if.then48 ], [ %5, %for.body42 ]
+  %field.2 = phi i8 [ %7, %if.then48 ], [ %6, %for.body42 ]
   %cmp59 = icmp ugt i8 %field.2, 9
   br i1 %cmp59, label %if.then60, label %if.end69
 
@@ -2460,14 +2462,14 @@ if.then60:                                        ; preds = %if.end57
   %add63 = or disjoint i8 %div62, 48
   %incdec.ptr65 = getelementptr inbounds i8, ptr %versionString.addr.3, i64 1
   store i8 %add63, ptr %versionString.addr.3, align 1
-  %7 = urem i8 %field.2, 10
+  %8 = urem i8 %field.2, 10
   br label %if.end69
 
 if.end69:                                         ; preds = %if.then60, %if.end57
   %versionString.addr.4 = phi ptr [ %incdec.ptr65, %if.then60 ], [ %versionString.addr.3, %if.end57 ]
-  %field.3 = phi i8 [ %7, %if.then60 ], [ %field.2, %if.end57 ]
-  %8 = or disjoint i8 %field.3, 48
-  store i8 %8, ptr %versionString.addr.4, align 1
+  %field.3 = phi i8 [ %8, %if.then60 ], [ %field.2, %if.end57 ]
+  %9 = or disjoint i8 %field.3, 48
+  store i8 %9, ptr %versionString.addr.4, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %versionString.addr.2 = getelementptr inbounds i8, ptr %versionString.addr.4, i64 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

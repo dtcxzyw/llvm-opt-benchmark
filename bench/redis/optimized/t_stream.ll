@@ -8502,17 +8502,17 @@ if.then29:                                        ; preds = %if.end25
 if.end31:                                         ; preds = %if.end25.if.end31_crit_edge, %if.then15
   %11 = phi ptr [ %1, %if.then15 ], [ %.pre, %if.end25.if.end31_crit_edge ]
   %startidx.0 = phi i32 [ 3, %if.then15 ], [ 5, %if.end25.if.end31_crit_edge ]
-  %add33 = add nuw nsw i32 %startidx.0, 2
-  %idxprom = zext nneg i32 %add33 to i64
-  %arrayidx34 = getelementptr inbounds ptr, ptr %11, i64 %idxprom
-  %12 = load ptr, ptr %arrayidx34, align 8
-  %call35 = call i32 @getLongLongFromObjectOrReply(ptr noundef nonnull %c, ptr noundef %12, ptr noundef nonnull %count, ptr noundef null) #16
+  %12 = zext nneg i32 %startidx.0 to i64
+  %13 = getelementptr ptr, ptr %11, i64 %12
+  %arrayidx34 = getelementptr ptr, ptr %13, i64 2
+  %14 = load ptr, ptr %arrayidx34, align 8
+  %call35 = call i32 @getLongLongFromObjectOrReply(ptr noundef nonnull %c, ptr noundef %14, ptr noundef nonnull %count, ptr noundef null) #16
   %cmp36 = icmp eq i32 %call35, -1
   br i1 %cmp36, label %if.end190, label %if.end39
 
 if.end39:                                         ; preds = %if.end31
-  %13 = load i64, ptr %count, align 8
-  %cmp40 = icmp slt i64 %13, 0
+  %15 = load i64, ptr %count, align 8
+  %cmp40 = icmp slt i64 %15, 0
   br i1 %cmp40, label %if.then42, label %if.end43
 
 if.then42:                                        ; preds = %if.end39
@@ -8520,37 +8520,36 @@ if.then42:                                        ; preds = %if.end39
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then42, %if.end39
-  %14 = load ptr, ptr %argv, align 8
-  %idxprom45 = zext nneg i32 %startidx.0 to i64
-  %arrayidx46 = getelementptr inbounds ptr, ptr %14, i64 %idxprom45
-  %15 = load ptr, ptr %arrayidx46, align 8
-  %call47 = call i32 @streamParseIntervalIDOrReply(ptr noundef nonnull %c, ptr noundef %15, ptr noundef nonnull %startid, ptr noundef nonnull %startex, i64 noundef 0), !range !31
+  %16 = load ptr, ptr %argv, align 8
+  %arrayidx46 = getelementptr inbounds ptr, ptr %16, i64 %12
+  %17 = load ptr, ptr %arrayidx46, align 8
+  %call47 = call i32 @streamParseIntervalIDOrReply(ptr noundef nonnull %c, ptr noundef %17, ptr noundef nonnull %startid, ptr noundef nonnull %startex, i64 noundef 0), !range !31
   %cmp48.not = icmp eq i32 %call47, 0
   br i1 %cmp48.not, label %if.end51, label %if.end190
 
 if.end51:                                         ; preds = %if.end43
-  %16 = load i32, ptr %startex, align 4
-  %tobool52.not = icmp eq i32 %16, 0
+  %18 = load i32, ptr %startex, align 4
+  %tobool52.not = icmp eq i32 %18, 0
   br i1 %tobool52.not, label %if.end58, label %land.lhs.true53
 
 land.lhs.true53:                                  ; preds = %if.end51
   %seq.i = getelementptr inbounds %struct.streamID, ptr %startid, i64 0, i32 1
-  %17 = load i64, ptr %seq.i, align 8
-  %cmp.i = icmp eq i64 %17, -1
+  %19 = load i64, ptr %seq.i, align 8
+  %cmp.i = icmp eq i64 %19, -1
   br i1 %cmp.i, label %if.then.i, label %if.else7.i
 
 if.then.i:                                        ; preds = %land.lhs.true53
-  %18 = load i64, ptr %startid, align 8
-  %cmp1.i = icmp eq i64 %18, -1
+  %20 = load i64, ptr %startid, align 8
+  %cmp1.i = icmp eq i64 %20, -1
   br i1 %cmp1.i, label %if.then57, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %inc.i = add nuw i64 %18, 1
+  %inc.i = add nuw i64 %20, 1
   store i64 %inc.i, ptr %startid, align 8
   br label %if.end58.sink.split
 
 if.else7.i:                                       ; preds = %land.lhs.true53
-  %inc9.i = add nuw i64 %17, 1
+  %inc9.i = add nuw i64 %19, 1
   br label %if.end58.sink.split
 
 if.then57:                                        ; preds = %if.then.i
@@ -8563,38 +8562,37 @@ if.end58.sink.split:                              ; preds = %if.else.i, %if.else
   br label %if.end58
 
 if.end58:                                         ; preds = %if.end58.sink.split, %if.end51
-  %19 = load ptr, ptr %argv, align 8
-  %add60 = add nuw nsw i32 %startidx.0, 1
-  %idxprom61 = zext nneg i32 %add60 to i64
-  %arrayidx62 = getelementptr inbounds ptr, ptr %19, i64 %idxprom61
-  %20 = load ptr, ptr %arrayidx62, align 8
-  %call63 = call i32 @streamParseIntervalIDOrReply(ptr noundef nonnull %c, ptr noundef %20, ptr noundef nonnull %endid, ptr noundef nonnull %endex, i64 noundef -1), !range !31
+  %21 = load ptr, ptr %argv, align 8
+  %22 = getelementptr ptr, ptr %21, i64 %12
+  %arrayidx62 = getelementptr ptr, ptr %22, i64 1
+  %23 = load ptr, ptr %arrayidx62, align 8
+  %call63 = call i32 @streamParseIntervalIDOrReply(ptr noundef nonnull %c, ptr noundef %23, ptr noundef nonnull %endid, ptr noundef nonnull %endex, i64 noundef -1), !range !31
   %cmp64.not = icmp eq i32 %call63, 0
   br i1 %cmp64.not, label %if.end67, label %if.end190
 
 if.end67:                                         ; preds = %if.end58
-  %21 = load i32, ptr %endex, align 4
-  %tobool68.not = icmp eq i32 %21, 0
+  %24 = load i32, ptr %endex, align 4
+  %tobool68.not = icmp eq i32 %24, 0
   br i1 %tobool68.not, label %if.end74, label %land.lhs.true69
 
 land.lhs.true69:                                  ; preds = %if.end67
   %seq.i73 = getelementptr inbounds %struct.streamID, ptr %endid, i64 0, i32 1
-  %22 = load i64, ptr %seq.i73, align 8
-  %cmp.i74 = icmp eq i64 %22, 0
+  %25 = load i64, ptr %seq.i73, align 8
+  %cmp.i74 = icmp eq i64 %25, 0
   br i1 %cmp.i74, label %if.then.i77, label %if.else7.i75
 
 if.then.i77:                                      ; preds = %land.lhs.true69
-  %23 = load i64, ptr %endid, align 8
-  %cmp1.i78 = icmp eq i64 %23, 0
+  %26 = load i64, ptr %endid, align 8
+  %cmp1.i78 = icmp eq i64 %26, 0
   br i1 %cmp1.i78, label %if.then73, label %if.else.i79
 
 if.else.i79:                                      ; preds = %if.then.i77
-  %dec.i = add i64 %23, -1
+  %dec.i = add i64 %26, -1
   store i64 %dec.i, ptr %endid, align 8
   br label %if.end74.sink.split
 
 if.else7.i75:                                     ; preds = %land.lhs.true69
-  %dec9.i = add i64 %22, -1
+  %dec9.i = add i64 %25, -1
   br label %if.end74.sink.split
 
 if.then73:                                        ; preds = %if.then.i77
@@ -8608,25 +8606,25 @@ if.end74.sink.split:                              ; preds = %if.else.i79, %if.el
 
 if.end74:                                         ; preds = %if.end74.sink.split, %if.end67
   %add75 = add nuw nsw i32 %startidx.0, 3
-  %24 = load i32, ptr %argc, align 8
-  %cmp77 = icmp slt i32 %add75, %24
+  %27 = load i32, ptr %argc, align 8
+  %cmp77 = icmp slt i32 %add75, %27
   %.pre113 = load ptr, ptr %argv, align 8
   br i1 %cmp77, label %if.then79, label %if.end85
 
 if.then79:                                        ; preds = %if.end74
   %idxprom82 = zext nneg i32 %add75 to i64
   %arrayidx83 = getelementptr inbounds ptr, ptr %.pre113, i64 %idxprom82
-  %25 = load ptr, ptr %arrayidx83, align 8
+  %28 = load ptr, ptr %arrayidx83, align 8
   br label %if.end85
 
 if.end85:                                         ; preds = %entry, %if.end74, %if.then79
-  %26 = phi ptr [ %.pre113, %if.then79 ], [ %.pre113, %if.end74 ], [ %1, %entry ]
-  %consumername.0 = phi ptr [ %25, %if.then79 ], [ null, %if.end74 ], [ null, %entry ]
+  %29 = phi ptr [ %.pre113, %if.then79 ], [ %.pre113, %if.end74 ], [ %1, %entry ]
+  %consumername.0 = phi ptr [ %28, %if.then79 ], [ null, %if.end74 ], [ null, %entry ]
   %db = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 4
-  %27 = load ptr, ptr %db, align 8
-  %arrayidx87 = getelementptr inbounds ptr, ptr %26, i64 1
-  %28 = load ptr, ptr %arrayidx87, align 8
-  %call88 = call ptr @lookupKeyRead(ptr noundef %27, ptr noundef %28) #16
+  %30 = load ptr, ptr %db, align 8
+  %arrayidx87 = getelementptr inbounds ptr, ptr %29, i64 1
+  %31 = load ptr, ptr %arrayidx87, align 8
+  %call88 = call ptr @lookupKeyRead(ptr noundef %30, ptr noundef %31) #16
   %call89 = call i32 @checkType(ptr noundef nonnull %c, ptr noundef %call88, i32 noundef 6) #16
   %tobool90.not = icmp eq i32 %call89, 0
   br i1 %tobool90.not, label %if.end92, label %if.end190
@@ -8637,13 +8635,13 @@ if.end92:                                         ; preds = %if.end85
 
 lor.lhs.false95:                                  ; preds = %if.end92
   %ptr96 = getelementptr inbounds %struct.redisObject, ptr %call88, i64 0, i32 2
-  %29 = load ptr, ptr %ptr96, align 8
+  %32 = load ptr, ptr %ptr96, align 8
   %ptr97 = getelementptr inbounds %struct.redisObject, ptr %3, i64 0, i32 2
-  %30 = load ptr, ptr %ptr97, align 8
+  %33 = load ptr, ptr %ptr97, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cg.i)
-  %cgroups.i = getelementptr inbounds %struct.stream, ptr %29, i64 0, i32 6
-  %31 = load ptr, ptr %cgroups.i, align 8
-  %cmp.i81 = icmp eq ptr %31, null
+  %cgroups.i = getelementptr inbounds %struct.stream, ptr %32, i64 0, i32 6
+  %34 = load ptr, ptr %cgroups.i, align 8
+  %cmp.i81 = icmp eq ptr %34, null
   br i1 %cmp.i81, label %streamLookupCG.exit.thread, label %if.end.i
 
 streamLookupCG.exit.thread:                       ; preds = %lor.lhs.false95
@@ -8652,9 +8650,9 @@ streamLookupCG.exit.thread:                       ; preds = %lor.lhs.false95
 
 if.end.i:                                         ; preds = %lor.lhs.false95
   store ptr null, ptr %cg.i, align 8
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %30, i64 -1
-  %32 = load i8, ptr %arrayidx.i.i, align 1
-  %conv.i.i = zext i8 %32 to i32
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %33, i64 -1
+  %35 = load i8, ptr %arrayidx.i.i, align 1
+  %conv.i.i = zext i8 %35 to i32
   %and.i.i = and i32 %conv.i.i, 7
   switch i32 %and.i.i, label %streamLookupCG.exit [
     i32 0, label %sw.bb.i.i
@@ -8670,42 +8668,42 @@ sw.bb.i.i:                                        ; preds = %if.end.i
   br label %streamLookupCG.exit
 
 sw.bb3.i.i:                                       ; preds = %if.end.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %30, i64 -3
-  %33 = load i8, ptr %add.ptr.i.i, align 1
-  %conv4.i.i = zext i8 %33 to i64
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %33, i64 -3
+  %36 = load i8, ptr %add.ptr.i.i, align 1
+  %conv4.i.i = zext i8 %36 to i64
   br label %streamLookupCG.exit
 
 sw.bb5.i.i:                                       ; preds = %if.end.i
-  %add.ptr6.i.i = getelementptr inbounds i8, ptr %30, i64 -5
-  %34 = load i16, ptr %add.ptr6.i.i, align 1
-  %conv8.i.i = zext i16 %34 to i64
+  %add.ptr6.i.i = getelementptr inbounds i8, ptr %33, i64 -5
+  %37 = load i16, ptr %add.ptr6.i.i, align 1
+  %conv8.i.i = zext i16 %37 to i64
   br label %streamLookupCG.exit
 
 sw.bb9.i.i:                                       ; preds = %if.end.i
-  %add.ptr10.i.i = getelementptr inbounds i8, ptr %30, i64 -9
-  %35 = load i32, ptr %add.ptr10.i.i, align 1
-  %conv12.i.i = zext i32 %35 to i64
+  %add.ptr10.i.i = getelementptr inbounds i8, ptr %33, i64 -9
+  %38 = load i32, ptr %add.ptr10.i.i, align 1
+  %conv12.i.i = zext i32 %38 to i64
   br label %streamLookupCG.exit
 
 sw.bb13.i.i:                                      ; preds = %if.end.i
-  %add.ptr14.i.i = getelementptr inbounds i8, ptr %30, i64 -17
-  %36 = load i64, ptr %add.ptr14.i.i, align 1
+  %add.ptr14.i.i = getelementptr inbounds i8, ptr %33, i64 -17
+  %39 = load i64, ptr %add.ptr14.i.i, align 1
   br label %streamLookupCG.exit
 
 streamLookupCG.exit:                              ; preds = %if.end.i, %sw.bb.i.i, %sw.bb3.i.i, %sw.bb5.i.i, %sw.bb9.i.i, %sw.bb13.i.i
-  %retval.0.i.i = phi i64 [ %36, %sw.bb13.i.i ], [ %conv12.i.i, %sw.bb9.i.i ], [ %conv8.i.i, %sw.bb5.i.i ], [ %conv4.i.i, %sw.bb3.i.i ], [ %conv2.i.i, %sw.bb.i.i ], [ 0, %if.end.i ]
-  %call2.i = call i32 @raxFind(ptr noundef nonnull %31, ptr noundef nonnull %30, i64 noundef %retval.0.i.i, ptr noundef nonnull %cg.i) #16
-  %37 = load ptr, ptr %cg.i, align 8
+  %retval.0.i.i = phi i64 [ %39, %sw.bb13.i.i ], [ %conv12.i.i, %sw.bb9.i.i ], [ %conv8.i.i, %sw.bb5.i.i ], [ %conv4.i.i, %sw.bb3.i.i ], [ %conv2.i.i, %sw.bb.i.i ], [ 0, %if.end.i ]
+  %call2.i = call i32 @raxFind(ptr noundef nonnull %34, ptr noundef nonnull %33, i64 noundef %retval.0.i.i, ptr noundef nonnull %cg.i) #16
+  %40 = load ptr, ptr %cg.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cg.i)
-  %cmp99 = icmp eq ptr %37, null
+  %cmp99 = icmp eq ptr %40, null
   br i1 %cmp99, label %if.then101, label %if.end104
 
 if.then101:                                       ; preds = %streamLookupCG.exit.thread, %streamLookupCG.exit, %if.end92
   %ptr102 = getelementptr inbounds %struct.redisObject, ptr %2, i64 0, i32 2
-  %38 = load ptr, ptr %ptr102, align 8
+  %41 = load ptr, ptr %ptr102, align 8
   %ptr103 = getelementptr inbounds %struct.redisObject, ptr %3, i64 0, i32 2
-  %39 = load ptr, ptr %ptr103, align 8
-  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %c, ptr noundef nonnull @.str.81, ptr noundef %38, ptr noundef %39) #16
+  %42 = load ptr, ptr %ptr103, align 8
+  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %c, ptr noundef nonnull @.str.81, ptr noundef %41, ptr noundef %42) #16
   br label %if.end190
 
 if.end104:                                        ; preds = %streamLookupCG.exit
@@ -8713,12 +8711,12 @@ if.end104:                                        ; preds = %streamLookupCG.exit
 
 if.then106:                                       ; preds = %if.end104
   call void @addReplyArrayLen(ptr noundef nonnull %c, i64 noundef 4) #16
-  %pel = getelementptr inbounds %struct.streamCG, ptr %37, i64 0, i32 2
-  %40 = load ptr, ptr %pel, align 8
-  %call107 = call i64 @raxSize(ptr noundef %40) #16
+  %pel = getelementptr inbounds %struct.streamCG, ptr %40, i64 0, i32 2
+  %43 = load ptr, ptr %pel, align 8
+  %call107 = call i64 @raxSize(ptr noundef %43) #16
   call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %call107) #16
-  %41 = load ptr, ptr %pel, align 8
-  %call109 = call i64 @raxSize(ptr noundef %41) #16
+  %44 = load ptr, ptr %pel, align 8
+  %call109 = call i64 @raxSize(ptr noundef %44) #16
   %cmp110 = icmp eq i64 %call109, 0
   br i1 %cmp110, label %if.then112, label %if.else
 
@@ -8729,14 +8727,14 @@ if.then112:                                       ; preds = %if.then106
   br label %if.end190
 
 if.else:                                          ; preds = %if.then106
-  %42 = load ptr, ptr %pel, align 8
-  call void @raxStart(ptr noundef nonnull %ri, ptr noundef %42) #16
+  %45 = load ptr, ptr %pel, align 8
+  call void @raxStart(ptr noundef nonnull %ri, ptr noundef %45) #16
   %call114 = call i32 @raxSeek(ptr noundef nonnull %ri, ptr noundef nonnull @.str.3, ptr noundef null, i64 noundef 0) #16
   %call115 = call i32 @raxNext(ptr noundef nonnull %ri) #16
   %key116 = getelementptr inbounds %struct.raxIterator, ptr %ri, i64 0, i32 2
-  %43 = load ptr, ptr %key116, align 8
-  %e.sroa.0.0.copyload.i = load i64, ptr %43, align 1
-  %e.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %43, i64 8
+  %46 = load ptr, ptr %key116, align 8
+  %e.sroa.0.0.copyload.i = load i64, ptr %46, align 1
+  %e.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %46, i64 8
   %e.sroa.2.0.copyload.i = load i64, ptr %e.sroa.2.0..sroa_idx.i, align 1
   %call.i = call i64 @intrev64(i64 noundef %e.sroa.0.0.copyload.i) #16
   store i64 %call.i, ptr %startid, align 8
@@ -8746,9 +8744,9 @@ if.else:                                          ; preds = %if.then106
   call void @addReplyStreamID(ptr noundef nonnull %c, ptr noundef nonnull %startid)
   %call117 = call i32 @raxSeek(ptr noundef nonnull %ri, ptr noundef nonnull @.str.7, ptr noundef null, i64 noundef 0) #16
   %call118 = call i32 @raxNext(ptr noundef nonnull %ri) #16
-  %44 = load ptr, ptr %key116, align 8
-  %e.sroa.0.0.copyload.i84 = load i64, ptr %44, align 1
-  %e.sroa.2.0..sroa_idx.i85 = getelementptr inbounds i8, ptr %44, i64 8
+  %47 = load ptr, ptr %key116, align 8
+  %e.sroa.0.0.copyload.i84 = load i64, ptr %47, align 1
+  %e.sroa.2.0..sroa_idx.i85 = getelementptr inbounds i8, ptr %47, i64 8
   %e.sroa.2.0.copyload.i86 = load i64, ptr %e.sroa.2.0..sroa_idx.i85, align 1
   %call.i87 = call i64 @intrev64(i64 noundef %e.sroa.0.0.copyload.i84) #16
   store i64 %call.i87, ptr %endid, align 8
@@ -8757,9 +8755,9 @@ if.else:                                          ; preds = %if.then106
   store i64 %call2.i88, ptr %seq.i89, align 8
   call void @addReplyStreamID(ptr noundef nonnull %c, ptr noundef nonnull %endid)
   call void @raxStop(ptr noundef nonnull %ri) #16
-  %consumers = getelementptr inbounds %struct.streamCG, ptr %37, i64 0, i32 3
-  %45 = load ptr, ptr %consumers, align 8
-  call void @raxStart(ptr noundef nonnull %ri, ptr noundef %45) #16
+  %consumers = getelementptr inbounds %struct.streamCG, ptr %40, i64 0, i32 3
+  %48 = load ptr, ptr %consumers, align 8
+  call void @raxStart(ptr noundef nonnull %ri, ptr noundef %48) #16
   %call120 = call i32 @raxSeek(ptr noundef nonnull %ri, ptr noundef nonnull @.str.3, ptr noundef null, i64 noundef 0) #16
   %call121 = call ptr @addReplyDeferredLen(ptr noundef nonnull %c) #16
   %data = getelementptr inbounds %struct.raxIterator, ptr %ri, i64 0, i32 3
@@ -8776,21 +8774,21 @@ while.cond:                                       ; preds = %while.cond.outer, %
   br i1 %tobool123.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %46 = load ptr, ptr %data, align 8
-  %pel124 = getelementptr inbounds %struct.streamConsumer, ptr %46, i64 0, i32 3
-  %47 = load ptr, ptr %pel124, align 8
-  %call125 = call i64 @raxSize(ptr noundef %47) #16
+  %49 = load ptr, ptr %data, align 8
+  %pel124 = getelementptr inbounds %struct.streamConsumer, ptr %49, i64 0, i32 3
+  %50 = load ptr, ptr %pel124, align 8
+  %call125 = call i64 @raxSize(ptr noundef %50) #16
   %cmp126 = icmp eq i64 %call125, 0
   br i1 %cmp126, label %while.cond, label %if.end129, !llvm.loop !43
 
 if.end129:                                        ; preds = %while.body
-  %pel124.le = getelementptr inbounds %struct.streamConsumer, ptr %46, i64 0, i32 3
+  %pel124.le = getelementptr inbounds %struct.streamConsumer, ptr %49, i64 0, i32 3
   call void @addReplyArrayLen(ptr noundef %c, i64 noundef 2) #16
-  %48 = load ptr, ptr %key116, align 8
-  %49 = load i64, ptr %key_len, align 8
-  call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef %48, i64 noundef %49) #16
-  %50 = load ptr, ptr %pel124.le, align 8
-  %call132 = call i64 @raxSize(ptr noundef %50) #16
+  %51 = load ptr, ptr %key116, align 8
+  %52 = load i64, ptr %key_len, align 8
+  call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef %51, i64 noundef %52) #16
+  %53 = load ptr, ptr %pel124.le, align 8
+  %call132 = call i64 @raxSize(ptr noundef %53) #16
   call void @addReplyBulkLongLong(ptr noundef %c, i64 noundef %call132) #16
   %inc = add i64 %arraylen.0.ph, 1
   br label %while.cond.outer, !llvm.loop !43
@@ -8806,8 +8804,8 @@ if.else134:                                       ; preds = %if.end104
 
 if.then137:                                       ; preds = %if.else134
   %ptr138 = getelementptr inbounds %struct.redisObject, ptr %consumername.0, i64 0, i32 2
-  %51 = load ptr, ptr %ptr138, align 8
-  %call139 = call ptr @streamLookupConsumer(ptr noundef nonnull %37, ptr noundef %51)
+  %54 = load ptr, ptr %ptr138, align 8
+  %call139 = call ptr @streamLookupConsumer(ptr noundef nonnull %40, ptr noundef %54)
   %cmp140 = icmp eq ptr %call139, null
   br i1 %cmp140, label %if.then142, label %if.end144
 
@@ -8819,23 +8817,23 @@ if.end144:                                        ; preds = %if.then137, %if.els
   %consumer135.0 = phi ptr [ %call139, %if.then137 ], [ null, %if.else134 ]
   %tobool146.not = icmp eq ptr %consumer135.0, null
   %pel147 = getelementptr inbounds %struct.streamConsumer, ptr %consumer135.0, i64 0, i32 3
-  %pel148 = getelementptr inbounds %struct.streamCG, ptr %37, i64 0, i32 2
+  %pel148 = getelementptr inbounds %struct.streamCG, ptr %40, i64 0, i32 2
   %cond.in = select i1 %tobool146.not, ptr %pel148, ptr %pel147
   %cond = load ptr, ptr %cond.in, align 8
   %call150 = call i64 @commandTimeSnapshot() #16
-  %52 = load i64, ptr %startid, align 8
-  %call.i90 = call i64 @intrev64(i64 noundef %52) #16
+  %55 = load i64, ptr %startid, align 8
+  %call.i90 = call i64 @intrev64(i64 noundef %55) #16
   %seq.i91 = getelementptr inbounds %struct.streamID, ptr %startid, i64 0, i32 1
-  %53 = load i64, ptr %seq.i91, align 8
-  %call1.i = call i64 @intrev64(i64 noundef %53) #16
+  %56 = load i64, ptr %seq.i91, align 8
+  %call1.i = call i64 @intrev64(i64 noundef %56) #16
   store i64 %call.i90, ptr %startkey, align 16
   %e.sroa.2.0..sroa_idx.i92 = getelementptr inbounds i8, ptr %startkey, i64 8
   store i64 %call1.i, ptr %e.sroa.2.0..sroa_idx.i92, align 8
-  %54 = load i64, ptr %endid, align 8
-  %call.i93 = call i64 @intrev64(i64 noundef %54) #16
+  %57 = load i64, ptr %endid, align 8
+  %call.i93 = call i64 @intrev64(i64 noundef %57) #16
   %seq.i94 = getelementptr inbounds %struct.streamID, ptr %endid, i64 0, i32 1
-  %55 = load i64, ptr %seq.i94, align 8
-  %call1.i95 = call i64 @intrev64(i64 noundef %55) #16
+  %58 = load i64, ptr %seq.i94, align 8
+  %call1.i95 = call i64 @intrev64(i64 noundef %58) #16
   store i64 %call.i93, ptr %endkey, align 16
   %e.sroa.2.0..sroa_idx.i96 = getelementptr inbounds i8, ptr %endkey, i64 8
   store i64 %call1.i95, ptr %e.sroa.2.0..sroa_idx.i96, align 8
@@ -8852,8 +8850,8 @@ while.cond157.outer:                              ; preds = %sdslen.exit, %if.en
   br label %while.cond157
 
 while.cond157:                                    ; preds = %while.cond157.outer, %if.then171
-  %56 = load i64, ptr %count, align 8
-  %tobool158.not = icmp eq i64 %56, 0
+  %59 = load i64, ptr %count, align 8
+  %tobool158.not = icmp eq i64 %59, 0
   br i1 %tobool158.not, label %while.end189, label %land.lhs.true159
 
 land.lhs.true159:                                 ; preds = %while.cond157
@@ -8862,42 +8860,42 @@ land.lhs.true159:                                 ; preds = %while.cond157
   br i1 %tobool161.not, label %while.end189, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true159
-  %57 = load ptr, ptr %key162, align 8
-  %58 = load i64, ptr %key_len164, align 8
-  %call165 = call i32 @memcmp(ptr noundef %57, ptr noundef nonnull %endkey, i64 noundef %58) #18
+  %60 = load ptr, ptr %key162, align 8
+  %61 = load i64, ptr %key_len164, align 8
+  %call165 = call i32 @memcmp(ptr noundef %60, ptr noundef nonnull %endkey, i64 noundef %61) #18
   %cmp166 = icmp slt i32 %call165, 1
   br i1 %cmp166, label %while.body168, label %while.end189
 
 while.body168:                                    ; preds = %land.rhs
-  %59 = load ptr, ptr %data169, align 8
-  %60 = load i64, ptr %minidle, align 8
-  %tobool170.not = icmp eq i64 %60, 0
+  %62 = load ptr, ptr %data169, align 8
+  %63 = load i64, ptr %minidle, align 8
+  %tobool170.not = icmp eq i64 %63, 0
   br i1 %tobool170.not, label %if.end176, label %if.then171
 
 if.then171:                                       ; preds = %while.body168
-  %61 = load i64, ptr %59, align 8
-  %sub = sub nsw i64 %call150, %61
-  %cmp172 = icmp slt i64 %sub, %60
+  %64 = load i64, ptr %62, align 8
+  %sub = sub nsw i64 %call150, %64
+  %cmp172 = icmp slt i64 %sub, %63
   br i1 %cmp172, label %while.cond157, label %if.end176, !llvm.loop !44
 
 if.end176:                                        ; preds = %if.then171, %while.body168
   %inc177 = add i64 %arraylen156.0.ph, 1
-  %62 = load i64, ptr %count, align 8
-  %dec = add nsw i64 %62, -1
+  %65 = load i64, ptr %count, align 8
+  %dec = add nsw i64 %65, -1
   store i64 %dec, ptr %count, align 8
   call void @addReplyArrayLen(ptr noundef %c, i64 noundef 4) #16
-  %63 = load ptr, ptr %key162, align 8
-  %e.sroa.0.0.copyload.i97 = load i64, ptr %63, align 1
-  %e.sroa.2.0..sroa_idx.i98 = getelementptr inbounds i8, ptr %63, i64 8
+  %66 = load ptr, ptr %key162, align 8
+  %e.sroa.0.0.copyload.i97 = load i64, ptr %66, align 1
+  %e.sroa.2.0..sroa_idx.i98 = getelementptr inbounds i8, ptr %66, i64 8
   %e.sroa.2.0.copyload.i99 = load i64, ptr %e.sroa.2.0..sroa_idx.i98, align 1
   %call.i100 = call i64 @intrev64(i64 noundef %e.sroa.0.0.copyload.i97) #16
   %call2.i101 = call i64 @intrev64(i64 noundef %e.sroa.2.0.copyload.i99) #16
-  %64 = load ptr, ptr @SDS_NOINIT, align 8
-  %call.i.i = call ptr @sdsnewlen(ptr noundef %64, i64 noundef 44) #16
+  %67 = load ptr, ptr @SDS_NOINIT, align 8
+  %call.i.i = call ptr @sdsnewlen(ptr noundef %67, i64 noundef 44) #16
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 -1
-  %65 = load i8, ptr %arrayidx.i.i.i, align 1
-  %66 = and i8 %65, 7
-  %and.i.i.i = zext nneg i8 %66 to i32
+  %68 = load i8, ptr %arrayidx.i.i.i, align 1
+  %69 = and i8 %68, 7
+  %and.i.i.i = zext nneg i8 %69 to i32
   switch i32 %and.i.i.i, label %addReplyStreamID.exit [
     i32 0, label %sw.bb.i.i.i
     i32 1, label %sw.bb2.i.i.i
@@ -8933,13 +8931,13 @@ sw.bb13.i.i.i:                                    ; preds = %if.end176
 addReplyStreamID.exit:                            ; preds = %if.end176, %sw.bb.i.i.i, %sw.bb2.i.i.i, %sw.bb5.i.i.i, %sw.bb9.i.i.i, %sw.bb13.i.i.i
   %call1.i.i = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %call.i.i, ptr noundef nonnull @.str.15, i64 noundef %call.i100, i64 noundef %call2.i101) #16
   call void @addReplyBulkSds(ptr noundef %c, ptr noundef %call1.i.i) #16
-  %consumer179 = getelementptr inbounds %struct.streamNACK, ptr %59, i64 0, i32 2
-  %67 = load ptr, ptr %consumer179, align 8
-  %name = getelementptr inbounds %struct.streamConsumer, ptr %67, i64 0, i32 2
-  %68 = load ptr, ptr %name, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %68, i64 -1
-  %69 = load i8, ptr %arrayidx.i, align 1
-  %conv.i = zext i8 %69 to i32
+  %consumer179 = getelementptr inbounds %struct.streamNACK, ptr %62, i64 0, i32 2
+  %70 = load ptr, ptr %consumer179, align 8
+  %name = getelementptr inbounds %struct.streamConsumer, ptr %70, i64 0, i32 2
+  %71 = load ptr, ptr %name, align 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %71, i64 -1
+  %72 = load i8, ptr %arrayidx.i, align 1
+  %conv.i = zext i8 %72 to i32
   %and.i = and i32 %conv.i, 7
   switch i32 %and.i, label %sdslen.exit [
     i32 0, label %sw.bb.i
@@ -8955,38 +8953,38 @@ sw.bb.i:                                          ; preds = %addReplyStreamID.ex
   br label %sdslen.exit
 
 sw.bb3.i:                                         ; preds = %addReplyStreamID.exit
-  %add.ptr.i = getelementptr inbounds i8, ptr %68, i64 -3
-  %70 = load i8, ptr %add.ptr.i, align 1
-  %conv4.i = zext i8 %70 to i64
+  %add.ptr.i = getelementptr inbounds i8, ptr %71, i64 -3
+  %73 = load i8, ptr %add.ptr.i, align 1
+  %conv4.i = zext i8 %73 to i64
   br label %sdslen.exit
 
 sw.bb5.i:                                         ; preds = %addReplyStreamID.exit
-  %add.ptr6.i = getelementptr inbounds i8, ptr %68, i64 -5
-  %71 = load i16, ptr %add.ptr6.i, align 1
-  %conv8.i = zext i16 %71 to i64
+  %add.ptr6.i = getelementptr inbounds i8, ptr %71, i64 -5
+  %74 = load i16, ptr %add.ptr6.i, align 1
+  %conv8.i = zext i16 %74 to i64
   br label %sdslen.exit
 
 sw.bb9.i:                                         ; preds = %addReplyStreamID.exit
-  %add.ptr10.i = getelementptr inbounds i8, ptr %68, i64 -9
-  %72 = load i32, ptr %add.ptr10.i, align 1
-  %conv12.i = zext i32 %72 to i64
+  %add.ptr10.i = getelementptr inbounds i8, ptr %71, i64 -9
+  %75 = load i32, ptr %add.ptr10.i, align 1
+  %conv12.i = zext i32 %75 to i64
   br label %sdslen.exit
 
 sw.bb13.i:                                        ; preds = %addReplyStreamID.exit
-  %add.ptr14.i = getelementptr inbounds i8, ptr %68, i64 -17
-  %73 = load i64, ptr %add.ptr14.i, align 1
+  %add.ptr14.i = getelementptr inbounds i8, ptr %71, i64 -17
+  %76 = load i64, ptr %add.ptr14.i, align 1
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %addReplyStreamID.exit, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
-  %retval.0.i103 = phi i64 [ %73, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %addReplyStreamID.exit ]
-  call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef nonnull %68, i64 noundef %retval.0.i103) #16
-  %74 = load i64, ptr %59, align 8
-  %sub184 = sub nsw i64 %call150, %74
+  %retval.0.i103 = phi i64 [ %76, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %addReplyStreamID.exit ]
+  call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef nonnull %71, i64 noundef %retval.0.i103) #16
+  %77 = load i64, ptr %62, align 8
+  %sub184 = sub nsw i64 %call150, %77
   %spec.store.select = call i64 @llvm.smax.i64(i64 %sub184, i64 0)
   call void @addReplyLongLong(ptr noundef %c, i64 noundef %spec.store.select) #16
-  %delivery_count = getelementptr inbounds %struct.streamNACK, ptr %59, i64 0, i32 1
-  %75 = load i64, ptr %delivery_count, align 8
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %75) #16
+  %delivery_count = getelementptr inbounds %struct.streamNACK, ptr %62, i64 0, i32 1
+  %78 = load i64, ptr %delivery_count, align 8
+  call void @addReplyLongLong(ptr noundef %c, i64 noundef %78) #16
   br label %while.cond157.outer, !llvm.loop !44
 
 while.end189:                                     ; preds = %land.lhs.true159, %while.cond157, %land.rhs

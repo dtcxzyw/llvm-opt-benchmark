@@ -42,11 +42,11 @@ cond.false13:                                     ; preds = %cond.false
 
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
-  %add21 = add nuw nsw i32 %shr20, 2080
-  %idxprom22 = zext nneg i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom22
-  %0 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %0 to i32
+  %0 = zext nneg i32 %shr20 to i64
+  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %2 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nuw nsw i32 %and26, %conv24
@@ -56,20 +56,20 @@ cond.end39.sink.split:                            ; preds = %cond.true, %cond.fa
   %add6.sink = phi i32 [ %add6, %cond.true3 ], [ %add27, %cond.false19 ], [ %shr, %cond.true ]
   %idxprom7 = zext nneg i32 %add6.sink to i64
   %arrayidx8 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom7
-  %1 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %1 to i32
+  %3 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %3 to i32
   %shl10 = shl nuw nsw i32 %conv9, 2
   %and11 = and i32 %c, 31
   %add12 = add nuw nsw i32 %shl10, %and11
-  %2 = zext nneg i32 %add12 to i64
+  %4 = zext nneg i32 %add12 to i64
   br label %cond.end39
 
 cond.end39:                                       ; preds = %cond.end39.sink.split, %cond.false13
-  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %2, %cond.end39.sink.split ]
+  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %4, %cond.end39.sink.split ]
   %arrayidx42 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %cond40
-  %3 = load i16, ptr %arrayidx42, align 2
-  %4 = trunc i16 %3 to i8
-  %conv45 = and i8 %4, 31
+  %5 = load i16, ptr %arrayidx42, align 2
+  %6 = trunc i16 %5 to i8
+  %conv45 = and i8 %6, 31
   ret i8 %conv45
 }
 
@@ -138,11 +138,11 @@ cond.false13:                                     ; preds = %cond.false
 
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
-  %add21 = add nuw nsw i32 %shr20, 2080
-  %idxprom22 = zext nneg i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom22
-  %0 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %0 to i32
+  %0 = zext nneg i32 %shr20 to i64
+  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %2 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nuw nsw i32 %and26, %conv24
@@ -152,20 +152,20 @@ cond.end39.sink.split:                            ; preds = %cond.true, %cond.fa
   %add6.sink = phi i32 [ %add6, %cond.true3 ], [ %add27, %cond.false19 ], [ %shr, %cond.true ]
   %idxprom7 = zext nneg i32 %add6.sink to i64
   %arrayidx8 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom7
-  %1 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %1 to i32
+  %3 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %3 to i32
   %shl10 = shl nuw nsw i32 %conv9, 2
   %and11 = and i32 %c, 31
   %add12 = add nuw nsw i32 %shl10, %and11
-  %2 = zext nneg i32 %add12 to i64
+  %4 = zext nneg i32 %add12 to i64
   br label %cond.end39
 
 cond.end39:                                       ; preds = %cond.end39.sink.split, %cond.false13
-  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %2, %cond.end39.sink.split ]
+  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %4, %cond.end39.sink.split ]
   %arrayidx42 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %cond40
-  %3 = load i16, ptr %arrayidx42, align 2
-  %4 = and i16 %3, 31
-  %cmp45 = icmp eq i16 %4, 2
+  %5 = load i16, ptr %arrayidx42, align 2
+  %6 = and i16 %5, 31
+  %cmp45 = icmp eq i16 %6, 2
   %conv46 = zext i1 %cmp45 to i8
   ret i8 %conv46
 }
@@ -197,11 +197,11 @@ cond.false13:                                     ; preds = %cond.false
 
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
-  %add21 = add nuw nsw i32 %shr20, 2080
-  %idxprom22 = zext nneg i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom22
-  %0 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %0 to i32
+  %0 = zext nneg i32 %shr20 to i64
+  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %2 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nuw nsw i32 %and26, %conv24
@@ -211,20 +211,20 @@ cond.end39.sink.split:                            ; preds = %cond.true, %cond.fa
   %add6.sink = phi i32 [ %add6, %cond.true3 ], [ %add27, %cond.false19 ], [ %shr, %cond.true ]
   %idxprom7 = zext nneg i32 %add6.sink to i64
   %arrayidx8 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom7
-  %1 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %1 to i32
+  %3 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %3 to i32
   %shl10 = shl nuw nsw i32 %conv9, 2
   %and11 = and i32 %c, 31
   %add12 = add nuw nsw i32 %shl10, %and11
-  %2 = zext nneg i32 %add12 to i64
+  %4 = zext nneg i32 %add12 to i64
   br label %cond.end39
 
 cond.end39:                                       ; preds = %cond.end39.sink.split, %cond.false13
-  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %2, %cond.end39.sink.split ]
+  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %4, %cond.end39.sink.split ]
   %arrayidx42 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %cond40
-  %3 = load i16, ptr %arrayidx42, align 2
-  %4 = and i16 %3, 31
-  %cmp45 = icmp eq i16 %4, 1
+  %5 = load i16, ptr %arrayidx42, align 2
+  %6 = and i16 %5, 31
+  %cmp45 = icmp eq i16 %6, 1
   %conv46 = zext i1 %cmp45 to i8
   ret i8 %conv46
 }
@@ -256,11 +256,11 @@ cond.false13:                                     ; preds = %cond.false
 
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
-  %add21 = add nuw nsw i32 %shr20, 2080
-  %idxprom22 = zext nneg i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom22
-  %0 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %0 to i32
+  %0 = zext nneg i32 %shr20 to i64
+  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %2 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nuw nsw i32 %and26, %conv24
@@ -270,20 +270,20 @@ cond.end39.sink.split:                            ; preds = %cond.true, %cond.fa
   %add6.sink = phi i32 [ %add6, %cond.true3 ], [ %add27, %cond.false19 ], [ %shr, %cond.true ]
   %idxprom7 = zext nneg i32 %add6.sink to i64
   %arrayidx8 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom7
-  %1 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %1 to i32
+  %3 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %3 to i32
   %shl10 = shl nuw nsw i32 %conv9, 2
   %and11 = and i32 %c, 31
   %add12 = add nuw nsw i32 %shl10, %and11
-  %2 = zext nneg i32 %add12 to i64
+  %4 = zext nneg i32 %add12 to i64
   br label %cond.end39
 
 cond.end39:                                       ; preds = %cond.end39.sink.split, %cond.false13
-  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %2, %cond.end39.sink.split ]
+  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %4, %cond.end39.sink.split ]
   %arrayidx42 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %cond40
-  %3 = load i16, ptr %arrayidx42, align 2
-  %4 = and i16 %3, 31
-  %cmp45 = icmp eq i16 %4, 3
+  %5 = load i16, ptr %arrayidx42, align 2
+  %6 = and i16 %5, 31
+  %cmp45 = icmp eq i16 %6, 3
   %conv46 = zext i1 %cmp45 to i8
   ret i8 %conv46
 }
@@ -315,11 +315,11 @@ cond.false13:                                     ; preds = %cond.false
 
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
-  %add21 = add nuw nsw i32 %shr20, 2080
-  %idxprom22 = zext nneg i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom22
-  %0 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %0 to i32
+  %0 = zext nneg i32 %shr20 to i64
+  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %2 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nuw nsw i32 %and26, %conv24
@@ -329,20 +329,20 @@ cond.end39.sink.split:                            ; preds = %cond.true, %cond.fa
   %add6.sink = phi i32 [ %add6, %cond.true3 ], [ %add27, %cond.false19 ], [ %shr, %cond.true ]
   %idxprom7 = zext nneg i32 %add6.sink to i64
   %arrayidx8 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom7
-  %1 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %1 to i32
+  %3 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %3 to i32
   %shl10 = shl nuw nsw i32 %conv9, 2
   %and11 = and i32 %c, 31
   %add12 = add nuw nsw i32 %shl10, %and11
-  %2 = zext nneg i32 %add12 to i64
+  %4 = zext nneg i32 %add12 to i64
   br label %cond.end39
 
 cond.end39:                                       ; preds = %cond.end39.sink.split, %cond.false13
-  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %2, %cond.end39.sink.split ]
+  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %4, %cond.end39.sink.split ]
   %arrayidx42 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %cond40
-  %3 = load i16, ptr %arrayidx42, align 2
-  %4 = and i16 %3, 31
-  %cmp45 = icmp eq i16 %4, 9
+  %5 = load i16, ptr %arrayidx42, align 2
+  %6 = and i16 %5, 31
+  %cmp45 = icmp eq i16 %6, 9
   %conv46 = zext i1 %cmp45 to i8
   ret i8 %conv46
 }
@@ -390,11 +390,11 @@ cond.false26:                                     ; preds = %cond.false
 
 cond.false32:                                     ; preds = %cond.false26
   %shr33 = lshr i32 %c, 11
-  %add34 = add nuw nsw i32 %shr33, 2080
-  %idxprom35 = zext nneg i32 %add34 to i64
-  %arrayidx36 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom35
-  %4 = load i16, ptr %arrayidx36, align 2
-  %conv37 = zext i16 %4 to i32
+  %4 = zext nneg i32 %shr33 to i64
+  %5 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %4
+  %arrayidx36 = getelementptr i16, ptr %5, i64 2080
+  %6 = load i16, ptr %arrayidx36, align 2
+  %conv37 = zext i16 %6 to i32
   %shr38 = lshr i32 %c, 5
   %and39 = and i32 %shr38, 63
   %add40 = add nuw nsw i32 %and39, %conv37
@@ -404,20 +404,20 @@ cond.end52.sink.split:                            ; preds = %cond.true, %cond.fa
   %add19.sink = phi i32 [ %add19, %cond.true16 ], [ %add40, %cond.false32 ], [ %shr, %cond.true ]
   %idxprom20 = zext nneg i32 %add19.sink to i64
   %arrayidx21 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom20
-  %5 = load i16, ptr %arrayidx21, align 2
-  %conv22 = zext i16 %5 to i32
+  %7 = load i16, ptr %arrayidx21, align 2
+  %conv22 = zext i16 %7 to i32
   %shl23 = shl nuw nsw i32 %conv22, 2
   %and24 = and i32 %c, 31
   %add25 = add nuw nsw i32 %shl23, %and24
-  %6 = zext nneg i32 %add25 to i64
+  %8 = zext nneg i32 %add25 to i64
   br label %cond.end52
 
 cond.end52:                                       ; preds = %cond.end52.sink.split, %cond.false26
-  %cond53 = phi i64 [ 4820, %cond.false26 ], [ %6, %cond.end52.sink.split ]
+  %cond53 = phi i64 [ 4820, %cond.false26 ], [ %8, %cond.end52.sink.split ]
   %arrayidx55 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %cond53
-  %7 = load i16, ptr %arrayidx55, align 2
-  %8 = and i16 %7, 31
-  %cmp58 = icmp eq i16 %8, 9
+  %9 = load i16, ptr %arrayidx55, align 2
+  %10 = and i16 %9, 31
+  %cmp58 = icmp eq i16 %10, 9
   %conv59 = zext i1 %cmp58 to i8
   br label %return
 
@@ -453,11 +453,11 @@ cond.false13:                                     ; preds = %cond.false
 
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
-  %add21 = add nuw nsw i32 %shr20, 2080
-  %idxprom22 = zext nneg i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom22
-  %0 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %0 to i32
+  %0 = zext nneg i32 %shr20 to i64
+  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %2 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nuw nsw i32 %and26, %conv24
@@ -467,20 +467,20 @@ cond.end39.sink.split:                            ; preds = %cond.true, %cond.fa
   %add6.sink = phi i32 [ %add6, %cond.true3 ], [ %add27, %cond.false19 ], [ %shr, %cond.true ]
   %idxprom7 = zext nneg i32 %add6.sink to i64
   %arrayidx8 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom7
-  %1 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %1 to i32
+  %3 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %3 to i32
   %shl10 = shl nuw nsw i32 %conv9, 2
   %and11 = and i32 %c, 31
   %add12 = add nuw nsw i32 %shl10, %and11
-  %2 = zext nneg i32 %add12 to i64
+  %4 = zext nneg i32 %add12 to i64
   br label %cond.end39
 
 cond.end39:                                       ; preds = %cond.end39.sink.split, %cond.false13
-  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %2, %cond.end39.sink.split ]
+  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %4, %cond.end39.sink.split ]
   %arrayidx42 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %cond40
-  %3 = load i16, ptr %arrayidx42, align 2
-  %4 = and i16 %3, 31
-  %and44 = zext nneg i16 %4 to i32
+  %5 = load i16, ptr %arrayidx42, align 2
+  %6 = and i16 %5, 31
+  %and44 = zext nneg i16 %6 to i32
   %shl45 = shl nuw i32 1, %and44
   %and46 = and i32 %shl45, 62
   %cmp47 = icmp ne i32 %and46, 0
@@ -515,11 +515,11 @@ cond.false14.i:                                   ; preds = %cond.false.i
 
 cond.false20.i:                                   ; preds = %cond.false14.i
   %shr21.i = lshr i32 %c, 11
-  %add22.i = add nuw nsw i32 %shr21.i, 2080
-  %idxprom23.i = zext nneg i32 %add22.i to i64
-  %arrayidx24.i = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %idxprom23.i
-  %0 = load i16, ptr %arrayidx24.i, align 2
-  %conv25.i = zext i16 %0 to i32
+  %0 = zext nneg i32 %shr21.i to i64
+  %1 = getelementptr i16, ptr @_ZL22propsVectorsTrie_index, i64 %0
+  %arrayidx24.i = getelementptr i16, ptr %1, i64 2080
+  %2 = load i16, ptr %arrayidx24.i, align 2
+  %conv25.i = zext i16 %2 to i32
   %shr26.i = lshr i32 %c, 5
   %and27.i = and i32 %shr26.i, 63
   %add28.i = add nuw nsw i32 %and27.i, %conv25.i
@@ -529,25 +529,25 @@ cond.end40.sink.split.i:                          ; preds = %cond.false20.i, %co
   %add7.sink.i = phi i32 [ %add7.i, %cond.true4.i ], [ %add28.i, %cond.false20.i ], [ %shr.i, %cond.true.i ]
   %idxprom8.i = zext nneg i32 %add7.sink.i to i64
   %arrayidx9.i = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %idxprom8.i
-  %1 = load i16, ptr %arrayidx9.i, align 2
-  %conv10.i = zext i16 %1 to i32
+  %3 = load i16, ptr %arrayidx9.i, align 2
+  %conv10.i = zext i16 %3 to i32
   %shl11.i = shl nuw nsw i32 %conv10.i, 2
   %and12.i = and i32 %c, 31
   %add13.i = add nuw nsw i32 %shl11.i, %and12.i
-  %2 = zext nneg i32 %add13.i to i64
+  %4 = zext nneg i32 %add13.i to i64
   br label %u_getUnicodeProperties_75.exit
 
 u_getUnicodeProperties_75.exit:                   ; preds = %cond.false14.i, %cond.end40.sink.split.i
-  %cond41.i = phi i64 [ 5496, %cond.false14.i ], [ %2, %cond.end40.sink.split.i ]
+  %cond41.i = phi i64 [ 5496, %cond.false14.i ], [ %4, %cond.end40.sink.split.i ]
   %arrayidx43.i = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %cond41.i
-  %3 = load i16, ptr %arrayidx43.i, align 2
-  %conv44.i = zext i16 %3 to i64
+  %5 = load i16, ptr %arrayidx43.i, align 2
+  %conv44.i = zext i16 %5 to i64
   %add45.i = add nuw nsw i64 %conv44.i, 1
   %arrayidx47.i = getelementptr inbounds [7260 x i32], ptr @_ZL12propsVectors, i64 0, i64 %add45.i
-  %4 = load i32, ptr %arrayidx47.i, align 4
-  %and = lshr i32 %4, 8
-  %5 = trunc i32 %and to i8
-  %conv = and i8 %5, 1
+  %6 = load i32, ptr %arrayidx47.i, align 4
+  %and = lshr i32 %6, 8
+  %7 = trunc i32 %and to i8
+  %conv = and i8 %7, 1
   ret i8 %conv
 }
 
@@ -582,11 +582,11 @@ cond.false14:                                     ; preds = %cond.false
 
 cond.false20:                                     ; preds = %cond.false14
   %shr21 = lshr i32 %c, 11
-  %add22 = add nuw nsw i32 %shr21, 2080
-  %idxprom23 = zext nneg i32 %add22 to i64
-  %arrayidx24 = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %idxprom23
-  %0 = load i16, ptr %arrayidx24, align 2
-  %conv25 = zext i16 %0 to i32
+  %0 = zext nneg i32 %shr21 to i64
+  %1 = getelementptr i16, ptr @_ZL22propsVectorsTrie_index, i64 %0
+  %arrayidx24 = getelementptr i16, ptr %1, i64 2080
+  %2 = load i16, ptr %arrayidx24, align 2
+  %conv25 = zext i16 %2 to i32
   %shr26 = lshr i32 %c, 5
   %and27 = and i32 %shr26, 63
   %add28 = add nuw nsw i32 %and27, %conv25
@@ -596,27 +596,27 @@ cond.end40.sink.split:                            ; preds = %cond.true, %cond.fa
   %add7.sink = phi i32 [ %add7, %cond.true4 ], [ %add28, %cond.false20 ], [ %shr, %cond.true ]
   %idxprom8 = zext nneg i32 %add7.sink to i64
   %arrayidx9 = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %idxprom8
-  %1 = load i16, ptr %arrayidx9, align 2
-  %conv10 = zext i16 %1 to i32
+  %3 = load i16, ptr %arrayidx9, align 2
+  %conv10 = zext i16 %3 to i32
   %shl11 = shl nuw nsw i32 %conv10, 2
   %and12 = and i32 %c, 31
   %add13 = add nuw nsw i32 %shl11, %and12
-  %2 = zext nneg i32 %add13 to i64
+  %4 = zext nneg i32 %add13 to i64
   br label %cond.end40
 
 cond.end40:                                       ; preds = %cond.end40.sink.split, %cond.false14
-  %cond41 = phi i64 [ 5496, %cond.false14 ], [ %2, %cond.end40.sink.split ]
+  %cond41 = phi i64 [ 5496, %cond.false14 ], [ %4, %cond.end40.sink.split ]
   %arrayidx43 = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %cond41
-  %3 = load i16, ptr %arrayidx43, align 2
-  %conv44 = zext i16 %3 to i32
+  %5 = load i16, ptr %arrayidx43, align 2
+  %conv44 = zext i16 %5 to i32
   %add45 = add nsw i32 %conv44, %column
   %idxprom46 = sext i32 %add45 to i64
   %arrayidx47 = getelementptr inbounds [7260 x i32], ptr @_ZL12propsVectors, i64 0, i64 %idxprom46
-  %4 = load i32, ptr %arrayidx47, align 4
+  %6 = load i32, ptr %arrayidx47, align 4
   br label %return
 
 return:                                           ; preds = %entry, %cond.end40
-  %retval.0 = phi i32 [ %4, %cond.end40 ], [ 0, %entry ]
+  %retval.0 = phi i32 [ %6, %cond.end40 ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -647,11 +647,11 @@ cond.false13:                                     ; preds = %cond.false
 
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
-  %add21 = add nuw nsw i32 %shr20, 2080
-  %idxprom22 = zext nneg i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom22
-  %0 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %0 to i32
+  %0 = zext nneg i32 %shr20 to i64
+  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %2 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nuw nsw i32 %and26, %conv24
@@ -661,20 +661,20 @@ cond.end39.sink.split:                            ; preds = %cond.true, %cond.fa
   %add6.sink = phi i32 [ %add6, %cond.true3 ], [ %add27, %cond.false19 ], [ %shr, %cond.true ]
   %idxprom7 = zext nneg i32 %add6.sink to i64
   %arrayidx8 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom7
-  %1 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %1 to i32
+  %3 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %3 to i32
   %shl10 = shl nuw nsw i32 %conv9, 2
   %and11 = and i32 %c, 31
   %add12 = add nuw nsw i32 %shl10, %and11
-  %2 = zext nneg i32 %add12 to i64
+  %4 = zext nneg i32 %add12 to i64
   br label %cond.end39
 
 cond.end39:                                       ; preds = %cond.end39.sink.split, %cond.false13
-  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %2, %cond.end39.sink.split ]
+  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %4, %cond.end39.sink.split ]
   %arrayidx42 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %cond40
-  %3 = load i16, ptr %arrayidx42, align 2
-  %4 = and i16 %3, 31
-  %and44 = zext nneg i16 %4 to i32
+  %5 = load i16, ptr %arrayidx42, align 2
+  %6 = and i16 %5, 31
+  %and44 = zext nneg i16 %6 to i32
   %shl45 = shl nuw i32 1, %and44
   %and46 = and i32 %shl45, 574
   %cmp47 = icmp ne i32 %and46, 0
@@ -709,11 +709,11 @@ cond.false14.i.i:                                 ; preds = %cond.false.i.i
 
 cond.false20.i.i:                                 ; preds = %cond.false14.i.i
   %shr21.i.i = lshr i32 %c, 11
-  %add22.i.i = add nuw nsw i32 %shr21.i.i, 2080
-  %idxprom23.i.i = zext nneg i32 %add22.i.i to i64
-  %arrayidx24.i.i = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %idxprom23.i.i
-  %0 = load i16, ptr %arrayidx24.i.i, align 2
-  %conv25.i.i = zext i16 %0 to i32
+  %0 = zext nneg i32 %shr21.i.i to i64
+  %1 = getelementptr i16, ptr @_ZL22propsVectorsTrie_index, i64 %0
+  %arrayidx24.i.i = getelementptr i16, ptr %1, i64 2080
+  %2 = load i16, ptr %arrayidx24.i.i, align 2
+  %conv25.i.i = zext i16 %2 to i32
   %shr26.i.i = lshr i32 %c, 5
   %and27.i.i = and i32 %shr26.i.i, 63
   %add28.i.i = add nuw nsw i32 %and27.i.i, %conv25.i.i
@@ -723,20 +723,20 @@ u_isUAlphabetic_75.exit:                          ; preds = %cond.true.i.i, %con
   %add7.sink.i.i = phi i32 [ %add7.i.i, %cond.true4.i.i ], [ %add28.i.i, %cond.false20.i.i ], [ %shr.i.i, %cond.true.i.i ]
   %idxprom8.i.i = zext nneg i32 %add7.sink.i.i to i64
   %arrayidx9.i.i = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %idxprom8.i.i
-  %1 = load i16, ptr %arrayidx9.i.i, align 2
-  %conv10.i.i = zext i16 %1 to i32
+  %3 = load i16, ptr %arrayidx9.i.i, align 2
+  %conv10.i.i = zext i16 %3 to i32
   %shl11.i.i = shl nuw nsw i32 %conv10.i.i, 2
   %and12.i.i = and i32 %c, 31
   %add13.i.i = add nuw nsw i32 %shl11.i.i, %and12.i.i
-  %2 = zext nneg i32 %add13.i.i to i64
-  %arrayidx43.i.i = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %2
-  %3 = load i16, ptr %arrayidx43.i.i, align 2
-  %conv44.i.i = zext i16 %3 to i64
+  %4 = zext nneg i32 %add13.i.i to i64
+  %arrayidx43.i.i = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %4
+  %5 = load i16, ptr %arrayidx43.i.i, align 2
+  %conv44.i.i = zext i16 %5 to i64
   %add45.i.i = add nuw nsw i64 %conv44.i.i, 1
   %arrayidx47.i.i = getelementptr inbounds [7260 x i32], ptr @_ZL12propsVectors, i64 0, i64 %add45.i.i
-  %4 = load i32, ptr %arrayidx47.i.i, align 4
-  %5 = and i32 %4, 256
-  %tobool.not = icmp eq i32 %5, 0
+  %6 = load i32, ptr %arrayidx47.i.i, align 4
+  %7 = and i32 %6, 256
+  %tobool.not = icmp eq i32 %7, 0
   br i1 %tobool.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %u_isUAlphabetic_75.exit
@@ -759,11 +759,11 @@ cond.true3.i:                                     ; preds = %cond.false.i
 
 cond.false19.i:                                   ; preds = %cond.false.i
   %shr20.i = lshr i32 %c, 11
-  %add21.i = add nuw nsw i32 %shr20.i, 2080
-  %idxprom22.i = zext nneg i32 %add21.i to i64
-  %arrayidx23.i = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom22.i
-  %6 = load i16, ptr %arrayidx23.i, align 2
-  %conv24.i = zext i16 %6 to i32
+  %8 = zext nneg i32 %shr20.i to i64
+  %9 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %8
+  %arrayidx23.i = getelementptr i16, ptr %9, i64 2080
+  %10 = load i16, ptr %arrayidx23.i, align 2
+  %conv24.i = zext i16 %10 to i32
   %shr25.i = lshr i32 %c, 5
   %and26.i = and i32 %shr25.i, 63
   %add27.i = add nuw nsw i32 %and26.i, %conv24.i
@@ -773,19 +773,19 @@ cond.end39.sink.split.i:                          ; preds = %cond.false19.i, %co
   %add6.sink.i = phi i32 [ %add6.i, %cond.true3.i ], [ %add27.i, %cond.false19.i ], [ %shr.i, %cond.true.i ]
   %idxprom7.i = zext nneg i32 %add6.sink.i to i64
   %arrayidx8.i = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom7.i
-  %7 = load i16, ptr %arrayidx8.i, align 2
-  %conv9.i = zext i16 %7 to i32
+  %11 = load i16, ptr %arrayidx8.i, align 2
+  %conv9.i = zext i16 %11 to i32
   %shl10.i = shl nuw nsw i32 %conv9.i, 2
   %add12.i = add nuw nsw i32 %shl10.i, %and12.i.i
-  %8 = zext nneg i32 %add12.i to i64
+  %12 = zext nneg i32 %add12.i to i64
   br label %u_isdigit_75.exit
 
 u_isdigit_75.exit:                                ; preds = %cond.false14.i.i, %cond.end39.sink.split.i
-  %cond40.i = phi i64 [ %8, %cond.end39.sink.split.i ], [ 4820, %cond.false14.i.i ]
+  %cond40.i = phi i64 [ %12, %cond.end39.sink.split.i ], [ 4820, %cond.false14.i.i ]
   %arrayidx42.i = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %cond40.i
-  %9 = load i16, ptr %arrayidx42.i, align 2
-  %10 = and i16 %9, 31
-  %cmp45.i = icmp eq i16 %10, 9
+  %13 = load i16, ptr %arrayidx42.i, align 2
+  %14 = and i16 %13, 31
+  %cmp45.i = icmp eq i16 %14, 9
   %conv46.i = zext i1 %cmp45.i to i8
   br label %lor.end
 
@@ -821,11 +821,11 @@ cond.false13:                                     ; preds = %cond.false
 
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
-  %add21 = add nuw nsw i32 %shr20, 2080
-  %idxprom22 = zext nneg i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom22
-  %0 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %0 to i32
+  %0 = zext nneg i32 %shr20 to i64
+  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %2 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nuw nsw i32 %and26, %conv24
@@ -835,20 +835,20 @@ cond.end39.sink.split:                            ; preds = %cond.true, %cond.fa
   %add6.sink = phi i32 [ %add6, %cond.true3 ], [ %add27, %cond.false19 ], [ %shr, %cond.true ]
   %idxprom7 = zext nneg i32 %add6.sink to i64
   %arrayidx8 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom7
-  %1 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %1 to i32
+  %3 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %3 to i32
   %shl10 = shl nuw nsw i32 %conv9, 2
   %and11 = and i32 %c, 31
   %add12 = add nuw nsw i32 %shl10, %and11
-  %2 = zext nneg i32 %add12 to i64
+  %4 = zext nneg i32 %add12 to i64
   br label %cond.end39
 
 cond.end39:                                       ; preds = %cond.end39.sink.split, %cond.false13
-  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %2, %cond.end39.sink.split ]
+  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %4, %cond.end39.sink.split ]
   %arrayidx42 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %cond40
-  %3 = load i16, ptr %arrayidx42, align 2
-  %4 = and i16 %3, 31
-  %cmp45 = icmp ne i16 %4, 0
+  %5 = load i16, ptr %arrayidx42, align 2
+  %6 = and i16 %5, 31
+  %cmp45 = icmp ne i16 %6, 0
   %conv46 = zext i1 %cmp45 to i8
   ret i8 %conv46
 }
@@ -880,11 +880,11 @@ cond.false13:                                     ; preds = %cond.false
 
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
-  %add21 = add nuw nsw i32 %shr20, 2080
-  %idxprom22 = zext nneg i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom22
-  %0 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %0 to i32
+  %0 = zext nneg i32 %shr20 to i64
+  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %2 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nuw nsw i32 %and26, %conv24
@@ -894,20 +894,20 @@ cond.end39.sink.split:                            ; preds = %cond.true, %cond.fa
   %add6.sink = phi i32 [ %add6, %cond.true3 ], [ %add27, %cond.false19 ], [ %shr, %cond.true ]
   %idxprom7 = zext nneg i32 %add6.sink to i64
   %arrayidx8 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom7
-  %1 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %1 to i32
+  %3 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %3 to i32
   %shl10 = shl nuw nsw i32 %conv9, 2
   %and11 = and i32 %c, 31
   %add12 = add nuw nsw i32 %shl10, %and11
-  %2 = zext nneg i32 %add12 to i64
+  %4 = zext nneg i32 %add12 to i64
   br label %cond.end39
 
 cond.end39:                                       ; preds = %cond.end39.sink.split, %cond.false13
-  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %2, %cond.end39.sink.split ]
+  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %4, %cond.end39.sink.split ]
   %arrayidx42 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %cond40
-  %3 = load i16, ptr %arrayidx42, align 2
-  %4 = and i16 %3, 31
-  %and44 = zext nneg i16 %4 to i32
+  %5 = load i16, ptr %arrayidx42, align 2
+  %6 = and i16 %5, 31
+  %and44 = zext nneg i16 %6 to i32
   %shl45 = shl nuw i32 1, %and44
   %and46 = and i32 %shl45, 4030
   %cmp47 = icmp ne i32 %and46, 0
@@ -942,11 +942,11 @@ cond.false13:                                     ; preds = %cond.false
 
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
-  %add21 = add nuw nsw i32 %shr20, 2080
-  %idxprom22 = zext nneg i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom22
-  %0 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %0 to i32
+  %0 = zext nneg i32 %shr20 to i64
+  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %2 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nuw nsw i32 %and26, %conv24
@@ -956,20 +956,20 @@ cond.end39.sink.split:                            ; preds = %cond.true, %cond.fa
   %add6.sink = phi i32 [ %add6, %cond.true3 ], [ %add27, %cond.false19 ], [ %shr, %cond.true ]
   %idxprom7 = zext nneg i32 %add6.sink to i64
   %arrayidx8 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom7
-  %1 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %1 to i32
+  %3 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %3 to i32
   %shl10 = shl nuw nsw i32 %conv9, 2
   %and11 = and i32 %c, 31
   %add12 = add nuw nsw i32 %shl10, %and11
-  %2 = zext nneg i32 %add12 to i64
+  %4 = zext nneg i32 %add12 to i64
   br label %cond.end39
 
 cond.end39:                                       ; preds = %cond.end39.sink.split, %cond.false13
-  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %2, %cond.end39.sink.split ]
+  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %4, %cond.end39.sink.split ]
   %arrayidx42 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %cond40
-  %3 = load i16, ptr %arrayidx42, align 2
-  %4 = and i16 %3, 31
-  %and44 = zext nneg i16 %4 to i32
+  %5 = load i16, ptr %arrayidx42, align 2
+  %6 = and i16 %5, 31
+  %and44 = zext nneg i16 %6 to i32
   %shl45 = shl nuw i32 1, %and44
   %and46 = and i32 %shl45, 122880
   %cmp47 = icmp ne i32 %and46, 0
@@ -1015,11 +1015,11 @@ cond.false13:                                     ; preds = %cond.false
 
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
-  %add21 = add nuw nsw i32 %shr20, 2080
-  %idxprom22 = zext nneg i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom22
-  %0 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %0 to i32
+  %0 = zext nneg i32 %shr20 to i64
+  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %2 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nuw nsw i32 %and26, %conv24
@@ -1029,20 +1029,20 @@ cond.end39.sink.split:                            ; preds = %cond.true, %cond.fa
   %add6.sink = phi i32 [ %add6, %cond.true3 ], [ %add27, %cond.false19 ], [ %shr, %cond.true ]
   %idxprom7 = zext nneg i32 %add6.sink to i64
   %arrayidx8 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom7
-  %1 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %1 to i32
+  %3 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %3 to i32
   %shl10 = shl nuw nsw i32 %conv9, 2
   %and11 = and i32 %c, 31
   %add12 = add nuw nsw i32 %shl10, %and11
-  %2 = zext nneg i32 %add12 to i64
+  %4 = zext nneg i32 %add12 to i64
   br label %cond.end39
 
 cond.end39:                                       ; preds = %cond.end39.sink.split, %cond.false13
-  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %2, %cond.end39.sink.split ]
+  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %4, %cond.end39.sink.split ]
   %arrayidx42 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %cond40
-  %3 = load i16, ptr %arrayidx42, align 2
-  %4 = and i16 %3, 31
-  %and44 = zext nneg i16 %4 to i32
+  %5 = load i16, ptr %arrayidx42, align 2
+  %6 = and i16 %5, 31
+  %and44 = zext nneg i16 %6 to i32
   %shl45 = shl nuw i32 1, %and44
   %and46 = and i32 %shl45, 28672
   %cmp47.not = icmp eq i32 %and46, 0
@@ -1053,20 +1053,20 @@ lor.rhs:                                          ; preds = %cond.end39
   br i1 %cmp48, label %land.rhs, label %lor.end56
 
 land.rhs:                                         ; preds = %lor.rhs
-  %5 = add i32 %c, -9
-  %or.cond = icmp ult i32 %5, 5
-  %6 = and i32 %c, -4
-  %or.cond1 = icmp eq i32 %6, 28
+  %7 = add i32 %c, -9
+  %or.cond = icmp ult i32 %7, 5
+  %8 = and i32 %c, -4
+  %or.cond1 = icmp eq i32 %8, 28
   %or.cond19 = or i1 %or.cond, %or.cond1
   br i1 %or.cond19, label %lor.end56, label %lor.rhs54
 
 lor.rhs54:                                        ; preds = %land.rhs
   %cmp55 = icmp eq i32 %c, 133
-  %7 = zext i1 %cmp55 to i8
+  %9 = zext i1 %cmp55 to i8
   br label %lor.end56
 
 lor.end56:                                        ; preds = %lor.rhs, %land.rhs, %lor.rhs54, %cond.end39
-  %conv57 = phi i8 [ 1, %cond.end39 ], [ 0, %lor.rhs ], [ %7, %lor.rhs54 ], [ 1, %land.rhs ]
+  %conv57 = phi i8 [ 1, %cond.end39 ], [ 0, %lor.rhs ], [ %9, %lor.rhs54 ], [ 1, %land.rhs ]
   ret i8 %conv57
 }
 
@@ -1097,11 +1097,11 @@ cond.false13:                                     ; preds = %cond.false
 
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
-  %add21 = add nuw nsw i32 %shr20, 2080
-  %idxprom22 = zext nneg i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom22
-  %0 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %0 to i32
+  %0 = zext nneg i32 %shr20 to i64
+  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %2 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nuw nsw i32 %and26, %conv24
@@ -1111,20 +1111,20 @@ cond.end39.sink.split:                            ; preds = %cond.true, %cond.fa
   %add6.sink = phi i32 [ %add6, %cond.true3 ], [ %add27, %cond.false19 ], [ %shr, %cond.true ]
   %idxprom7 = zext nneg i32 %add6.sink to i64
   %arrayidx8 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom7
-  %1 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %1 to i32
+  %3 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %3 to i32
   %shl10 = shl nuw nsw i32 %conv9, 2
   %and11 = and i32 %c, 31
   %add12 = add nuw nsw i32 %shl10, %and11
-  %2 = zext nneg i32 %add12 to i64
+  %4 = zext nneg i32 %add12 to i64
   br label %cond.end39
 
 cond.end39:                                       ; preds = %cond.end39.sink.split, %cond.false13
-  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %2, %cond.end39.sink.split ]
+  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %4, %cond.end39.sink.split ]
   %arrayidx42 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %cond40
-  %3 = load i16, ptr %arrayidx42, align 2
-  %4 = and i16 %3, 31
-  %and44 = zext nneg i16 %4 to i32
+  %5 = load i16, ptr %arrayidx42, align 2
+  %6 = and i16 %5, 31
+  %and44 = zext nneg i16 %6 to i32
   %shl45 = shl nuw i32 1, %and44
   %and46 = and i32 %shl45, 28672
   %cmp47 = icmp ne i32 %and46, 0
@@ -1159,11 +1159,11 @@ cond.false13:                                     ; preds = %cond.false
 
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
-  %add21 = add nuw nsw i32 %shr20, 2080
-  %idxprom22 = zext nneg i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom22
-  %0 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %0 to i32
+  %0 = zext nneg i32 %shr20 to i64
+  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %2 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nuw nsw i32 %and26, %conv24
@@ -1173,20 +1173,20 @@ cond.end39.sink.split:                            ; preds = %cond.true, %cond.fa
   %add6.sink = phi i32 [ %add6, %cond.true3 ], [ %add27, %cond.false19 ], [ %shr, %cond.true ]
   %idxprom7 = zext nneg i32 %add6.sink to i64
   %arrayidx8 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom7
-  %1 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %1 to i32
+  %3 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %3 to i32
   %shl10 = shl nuw nsw i32 %conv9, 2
   %and11 = and i32 %c, 31
   %add12 = add nuw nsw i32 %shl10, %and11
-  %2 = zext nneg i32 %add12 to i64
+  %4 = zext nneg i32 %add12 to i64
   br label %cond.end39
 
 cond.end39:                                       ; preds = %cond.end39.sink.split, %cond.false13
-  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %2, %cond.end39.sink.split ]
+  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %4, %cond.end39.sink.split ]
   %arrayidx42 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %cond40
-  %3 = load i16, ptr %arrayidx42, align 2
-  %4 = and i16 %3, 31
-  %and44 = zext nneg i16 %4 to i32
+  %5 = load i16, ptr %arrayidx42, align 2
+  %6 = and i16 %5, 31
+  %and44 = zext nneg i16 %6 to i32
   %shl45 = shl nuw i32 1, %and44
   %shl45.fr = freeze i32 %shl45
   %and46 = and i32 %shl45.fr, 28672
@@ -1204,18 +1204,18 @@ lor.rhs.thread:                                   ; preds = %switch.early.test, 
   br label %lor.end59
 
 lor.rhs:                                          ; preds = %cond.end39
-  %5 = add i32 %c, -9
-  %or.cond3 = icmp ult i32 %5, 23
+  %7 = add i32 %c, -9
+  %or.cond3 = icmp ult i32 %7, 23
   br i1 %or.cond3, label %land.rhs, label %lor.end59
 
 land.rhs:                                         ; preds = %lor.rhs
-  %6 = add nsw i32 %c, -28
-  %7 = icmp ult i32 %6, -14
-  %8 = zext i1 %7 to i8
+  %8 = add nsw i32 %c, -28
+  %9 = icmp ult i32 %8, -14
+  %10 = zext i1 %9 to i8
   br label %lor.end59
 
 lor.end59:                                        ; preds = %lor.rhs.thread, %switch.early.test, %lor.rhs, %land.rhs
-  %conv60 = phi i8 [ 1, %switch.early.test ], [ 0, %lor.rhs ], [ %8, %land.rhs ], [ 0, %lor.rhs.thread ]
+  %conv60 = phi i8 [ 1, %switch.early.test ], [ 0, %lor.rhs ], [ %10, %land.rhs ], [ 0, %lor.rhs.thread ]
   ret i8 %conv60
 }
 
@@ -1256,11 +1256,11 @@ cond.false17:                                     ; preds = %cond.false
 
 cond.false23:                                     ; preds = %cond.false17
   %shr24 = lshr i32 %c, 11
-  %add25 = add nuw nsw i32 %shr24, 2080
-  %idxprom26 = zext nneg i32 %add25 to i64
-  %arrayidx27 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom26
-  %1 = load i16, ptr %arrayidx27, align 2
-  %conv28 = zext i16 %1 to i32
+  %1 = zext nneg i32 %shr24 to i64
+  %2 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %1
+  %arrayidx27 = getelementptr i16, ptr %2, i64 2080
+  %3 = load i16, ptr %arrayidx27, align 2
+  %conv28 = zext i16 %3 to i32
   %shr29 = lshr i32 %c, 5
   %and30 = and i32 %shr29, 63
   %add31 = add nuw nsw i32 %and30, %conv28
@@ -1270,20 +1270,20 @@ cond.end43.sink.split:                            ; preds = %cond.true, %cond.fa
   %add10.sink = phi i32 [ %add10, %cond.true7 ], [ %add31, %cond.false23 ], [ %shr, %cond.true ]
   %idxprom11 = zext nneg i32 %add10.sink to i64
   %arrayidx12 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom11
-  %2 = load i16, ptr %arrayidx12, align 2
-  %conv13 = zext i16 %2 to i32
+  %4 = load i16, ptr %arrayidx12, align 2
+  %conv13 = zext i16 %4 to i32
   %shl14 = shl nuw nsw i32 %conv13, 2
   %and15 = and i32 %c, 31
   %add16 = add nuw nsw i32 %shl14, %and15
-  %3 = zext nneg i32 %add16 to i64
+  %5 = zext nneg i32 %add16 to i64
   br label %cond.end43
 
 cond.end43:                                       ; preds = %cond.end43.sink.split, %cond.false17
-  %cond44 = phi i64 [ 4820, %cond.false17 ], [ %3, %cond.end43.sink.split ]
+  %cond44 = phi i64 [ 4820, %cond.false17 ], [ %5, %cond.end43.sink.split ]
   %arrayidx46 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %cond44
-  %4 = load i16, ptr %arrayidx46, align 2
-  %5 = and i16 %4, 31
-  %cmp49 = icmp eq i16 %5, 12
+  %6 = load i16, ptr %arrayidx46, align 2
+  %7 = and i16 %6, 31
+  %cmp49 = icmp eq i16 %7, 12
   br label %return
 
 return:                                           ; preds = %cond.end43, %if.then
@@ -1319,11 +1319,11 @@ cond.false14.i:                                   ; preds = %cond.false.i
 
 cond.false20.i:                                   ; preds = %cond.false14.i
   %shr21.i = lshr i32 %c, 11
-  %add22.i = add nuw nsw i32 %shr21.i, 2080
-  %idxprom23.i = zext nneg i32 %add22.i to i64
-  %arrayidx24.i = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %idxprom23.i
-  %0 = load i16, ptr %arrayidx24.i, align 2
-  %conv25.i = zext i16 %0 to i32
+  %0 = zext nneg i32 %shr21.i to i64
+  %1 = getelementptr i16, ptr @_ZL22propsVectorsTrie_index, i64 %0
+  %arrayidx24.i = getelementptr i16, ptr %1, i64 2080
+  %2 = load i16, ptr %arrayidx24.i, align 2
+  %conv25.i = zext i16 %2 to i32
   %shr26.i = lshr i32 %c, 5
   %and27.i = and i32 %shr26.i, 63
   %add28.i = add nuw nsw i32 %and27.i, %conv25.i
@@ -1333,24 +1333,24 @@ cond.end40.sink.split.i:                          ; preds = %cond.false20.i, %co
   %add7.sink.i = phi i32 [ %add7.i, %cond.true4.i ], [ %add28.i, %cond.false20.i ], [ %shr.i, %cond.true.i ]
   %idxprom8.i = zext nneg i32 %add7.sink.i to i64
   %arrayidx9.i = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %idxprom8.i
-  %1 = load i16, ptr %arrayidx9.i, align 2
-  %conv10.i = zext i16 %1 to i32
+  %3 = load i16, ptr %arrayidx9.i, align 2
+  %conv10.i = zext i16 %3 to i32
   %shl11.i = shl nuw nsw i32 %conv10.i, 2
   %and12.i = and i32 %c, 31
   %add13.i = add nuw nsw i32 %shl11.i, %and12.i
-  %2 = zext nneg i32 %add13.i to i64
+  %4 = zext nneg i32 %add13.i to i64
   br label %u_getUnicodeProperties_75.exit
 
 u_getUnicodeProperties_75.exit:                   ; preds = %cond.false14.i, %cond.end40.sink.split.i
-  %cond41.i = phi i64 [ 5496, %cond.false14.i ], [ %2, %cond.end40.sink.split.i ]
+  %cond41.i = phi i64 [ 5496, %cond.false14.i ], [ %4, %cond.end40.sink.split.i ]
   %arrayidx43.i = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %cond41.i
-  %3 = load i16, ptr %arrayidx43.i, align 2
-  %conv44.i = zext i16 %3 to i64
+  %5 = load i16, ptr %arrayidx43.i, align 2
+  %conv44.i = zext i16 %5 to i64
   %add45.i = add nuw nsw i64 %conv44.i, 1
   %arrayidx47.i = getelementptr inbounds [7260 x i32], ptr @_ZL12propsVectors, i64 0, i64 %add45.i
-  %4 = load i32, ptr %arrayidx47.i, align 4
-  %5 = trunc i32 %4 to i8
-  %conv = and i8 %5, 1
+  %6 = load i32, ptr %arrayidx47.i, align 4
+  %7 = trunc i32 %6 to i8
+  %conv = and i8 %7, 1
   ret i8 %conv
 }
 
@@ -1381,11 +1381,11 @@ cond.false13:                                     ; preds = %cond.false
 
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
-  %add21 = add nuw nsw i32 %shr20, 2080
-  %idxprom22 = zext nneg i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom22
-  %0 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %0 to i32
+  %0 = zext nneg i32 %shr20 to i64
+  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %2 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nuw nsw i32 %and26, %conv24
@@ -1395,20 +1395,20 @@ cond.end39.sink.split:                            ; preds = %cond.true, %cond.fa
   %add6.sink = phi i32 [ %add6, %cond.true3 ], [ %add27, %cond.false19 ], [ %shr, %cond.true ]
   %idxprom7 = zext nneg i32 %add6.sink to i64
   %arrayidx8 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom7
-  %1 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %1 to i32
+  %3 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %3 to i32
   %shl10 = shl nuw nsw i32 %conv9, 2
   %and11 = and i32 %c, 31
   %add12 = add nuw nsw i32 %shl10, %and11
-  %2 = zext nneg i32 %add12 to i64
+  %4 = zext nneg i32 %add12 to i64
   br label %cond.end39
 
 cond.end39:                                       ; preds = %cond.end39.sink.split, %cond.false13
-  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %2, %cond.end39.sink.split ]
+  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %4, %cond.end39.sink.split ]
   %arrayidx42 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %cond40
-  %3 = load i16, ptr %arrayidx42, align 2
-  %4 = and i16 %3, 31
-  %and44 = zext nneg i16 %4 to i32
+  %5 = load i16, ptr %arrayidx42, align 2
+  %6 = and i16 %5, 31
+  %and44 = zext nneg i16 %6 to i32
   %shl45 = shl nuw i32 1, %and44
   %and46 = and i32 %shl45, 491521
   %cmp47 = icmp eq i32 %and46, 0
@@ -1432,30 +1432,30 @@ cond.false13:                                     ; preds = %cond.false
 
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
-  %add21 = add nuw nsw i32 %shr20, 2080
-  %idxprom22 = zext nneg i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom22
-  %0 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %0 to i32
+  %0 = zext nneg i32 %shr20 to i64
+  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %2 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nuw nsw i32 %and26, %conv24
   %idxprom28 = zext nneg i32 %add27 to i64
   %arrayidx29 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom28
-  %1 = load i16, ptr %arrayidx29, align 2
-  %conv30 = zext i16 %1 to i32
+  %3 = load i16, ptr %arrayidx29, align 2
+  %conv30 = zext i16 %3 to i32
   %shl31 = shl nuw nsw i32 %conv30, 2
   %and32 = and i32 %c, 31
   %add33 = add nuw nsw i32 %shl31, %and32
-  %2 = zext nneg i32 %add33 to i64
+  %4 = zext nneg i32 %add33 to i64
   br label %cond.end39
 
 cond.end39:                                       ; preds = %cond.false19, %cond.false13
-  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %2, %cond.false19 ]
+  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %4, %cond.false19 ]
   %arrayidx42 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %cond40
-  %3 = load i16, ptr %arrayidx42, align 2
-  %4 = and i16 %3, 31
-  %cmp45 = icmp eq i16 %4, 12
+  %5 = load i16, ptr %arrayidx42, align 2
+  %6 = and i16 %5, 31
+  %cmp45 = icmp eq i16 %6, 12
   br i1 %cmp45, label %lor.end, label %cond.false.i
 
 cond.end39.thread17:                              ; preds = %cond.false
@@ -1465,32 +1465,32 @@ cond.end39.thread17:                              ; preds = %cond.false
   %add6 = add nuw nsw i32 %cond, %shr5
   %idxprom7 = zext nneg i32 %add6 to i64
   %arrayidx8 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom7
-  %5 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %5 to i32
+  %7 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %7 to i32
   %shl10 = shl nuw nsw i32 %conv9, 2
   %and11 = and i32 %c, 31
   %add12 = add nuw nsw i32 %shl10, %and11
   %idxprom4119 = zext nneg i32 %add12 to i64
   %arrayidx4220 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom4119
-  %6 = load i16, ptr %arrayidx4220, align 2
-  %7 = and i16 %6, 31
-  %cmp4521 = icmp eq i16 %7, 12
+  %8 = load i16, ptr %arrayidx4220, align 2
+  %9 = and i16 %8, 31
+  %cmp4521 = icmp eq i16 %9, 12
   br i1 %cmp4521, label %lor.end, label %cond.true3.i
 
 cond.end39.thread:                                ; preds = %entry
   %shr = lshr i32 %c, 5
   %idxprom = zext nneg i32 %shr to i64
   %arrayidx = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom
-  %8 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %8 to i32
+  %10 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %10 to i32
   %shl = shl nuw nsw i32 %conv, 2
   %and = and i32 %c, 31
   %add1 = add nuw nsw i32 %shl, %and
   %idxprom4114 = zext nneg i32 %add1 to i64
   %arrayidx4215 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom4114
-  %9 = load i16, ptr %arrayidx4215, align 2
-  %10 = and i16 %9, 31
-  %cmp4516 = icmp eq i16 %10, 12
+  %11 = load i16, ptr %arrayidx4215, align 2
+  %12 = and i16 %11, 31
+  %cmp4516 = icmp eq i16 %12, 12
   br i1 %cmp4516, label %lor.end, label %cond.end39.sink.split.i
 
 cond.false.i:                                     ; preds = %cond.end39
@@ -1509,11 +1509,11 @@ cond.false13.i:                                   ; preds = %cond.false.i
 
 cond.false19.i:                                   ; preds = %cond.false13.i
   %shr20.i = lshr i32 %c, 11
-  %add21.i = add nuw nsw i32 %shr20.i, 2080
-  %idxprom22.i = zext nneg i32 %add21.i to i64
-  %arrayidx23.i = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom22.i
-  %11 = load i16, ptr %arrayidx23.i, align 2
-  %conv24.i = zext i16 %11 to i32
+  %13 = zext nneg i32 %shr20.i to i64
+  %14 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %13
+  %arrayidx23.i = getelementptr i16, ptr %14, i64 2080
+  %15 = load i16, ptr %arrayidx23.i, align 2
+  %conv24.i = zext i16 %15 to i32
   %shr25.i = lshr i32 %c, 5
   %and26.i = and i32 %shr25.i, 63
   %add27.i = add nuw nsw i32 %and26.i, %conv24.i
@@ -1523,20 +1523,20 @@ cond.end39.sink.split.i:                          ; preds = %cond.end39.thread, 
   %add6.sink.i = phi i32 [ %add6.i, %cond.true3.i ], [ %add27.i, %cond.false19.i ], [ %shr, %cond.end39.thread ]
   %idxprom7.i = zext nneg i32 %add6.sink.i to i64
   %arrayidx8.i = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom7.i
-  %12 = load i16, ptr %arrayidx8.i, align 2
-  %conv9.i = zext i16 %12 to i32
+  %16 = load i16, ptr %arrayidx8.i, align 2
+  %conv9.i = zext i16 %16 to i32
   %shl10.i = shl nuw nsw i32 %conv9.i, 2
   %and11.i = and i32 %c, 31
   %add12.i = add nuw nsw i32 %shl10.i, %and11.i
-  %13 = zext nneg i32 %add12.i to i64
+  %17 = zext nneg i32 %add12.i to i64
   br label %u_isgraphPOSIX_75.exit
 
 u_isgraphPOSIX_75.exit:                           ; preds = %cond.false13.i, %cond.end39.sink.split.i
-  %cond40.i = phi i64 [ 4820, %cond.false13.i ], [ %13, %cond.end39.sink.split.i ]
+  %cond40.i = phi i64 [ 4820, %cond.false13.i ], [ %17, %cond.end39.sink.split.i ]
   %arrayidx42.i = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %cond40.i
-  %14 = load i16, ptr %arrayidx42.i, align 2
-  %15 = and i16 %14, 31
-  %and44.i = zext nneg i16 %15 to i32
+  %18 = load i16, ptr %arrayidx42.i, align 2
+  %19 = and i16 %18, 31
+  %and44.i = zext nneg i16 %19 to i32
   %shl45.i = shl nuw i32 1, %and44.i
   %and46.i = and i32 %shl45.i, 323585
   %cmp47.i = icmp eq i32 %and46.i, 0
@@ -1575,11 +1575,11 @@ cond.false13:                                     ; preds = %cond.false
 
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
-  %add21 = add nuw nsw i32 %shr20, 2080
-  %idxprom22 = zext nneg i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom22
-  %0 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %0 to i32
+  %0 = zext nneg i32 %shr20 to i64
+  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %2 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nuw nsw i32 %and26, %conv24
@@ -1589,20 +1589,20 @@ cond.end39.sink.split:                            ; preds = %cond.true, %cond.fa
   %add6.sink = phi i32 [ %add6, %cond.true3 ], [ %add27, %cond.false19 ], [ %shr, %cond.true ]
   %idxprom7 = zext nneg i32 %add6.sink to i64
   %arrayidx8 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom7
-  %1 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %1 to i32
+  %3 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %3 to i32
   %shl10 = shl nuw nsw i32 %conv9, 2
   %and11 = and i32 %c, 31
   %add12 = add nuw nsw i32 %shl10, %and11
-  %2 = zext nneg i32 %add12 to i64
+  %4 = zext nneg i32 %add12 to i64
   br label %cond.end39
 
 cond.end39:                                       ; preds = %cond.end39.sink.split, %cond.false13
-  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %2, %cond.end39.sink.split ]
+  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %4, %cond.end39.sink.split ]
   %arrayidx42 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %cond40
-  %3 = load i16, ptr %arrayidx42, align 2
-  %4 = and i16 %3, 31
-  %and44 = zext nneg i16 %4 to i32
+  %5 = load i16, ptr %arrayidx42, align 2
+  %6 = and i16 %5, 31
+  %and44 = zext nneg i16 %6 to i32
   %shl45 = shl nuw i32 1, %and44
   %and46 = and i32 %shl45, 323585
   %cmp47 = icmp eq i32 %and46, 0
@@ -1637,11 +1637,11 @@ cond.false13:                                     ; preds = %cond.false
 
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
-  %add21 = add nuw nsw i32 %shr20, 2080
-  %idxprom22 = zext nneg i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom22
-  %0 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %0 to i32
+  %0 = zext nneg i32 %shr20 to i64
+  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %2 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nuw nsw i32 %and26, %conv24
@@ -1651,20 +1651,20 @@ cond.end39.sink.split:                            ; preds = %cond.true, %cond.fa
   %add6.sink = phi i32 [ %add6, %cond.true3 ], [ %add27, %cond.false19 ], [ %shr, %cond.true ]
   %idxprom7 = zext nneg i32 %add6.sink to i64
   %arrayidx8 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom7
-  %1 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %1 to i32
+  %3 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %3 to i32
   %shl10 = shl nuw nsw i32 %conv9, 2
   %and11 = and i32 %c, 31
   %add12 = add nuw nsw i32 %shl10, %and11
-  %2 = zext nneg i32 %add12 to i64
+  %4 = zext nneg i32 %add12 to i64
   br label %cond.end39
 
 cond.end39:                                       ; preds = %cond.end39.sink.split, %cond.false13
-  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %2, %cond.end39.sink.split ]
+  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %4, %cond.end39.sink.split ]
   %arrayidx42 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %cond40
-  %3 = load i16, ptr %arrayidx42, align 2
-  %4 = and i16 %3, 31
-  %and44 = zext nneg i16 %4 to i32
+  %5 = load i16, ptr %arrayidx42, align 2
+  %6 = and i16 %5, 31
+  %and44 = zext nneg i16 %6 to i32
   %shl45 = shl nuw i32 1, %and44
   %and46 = and i32 %shl45, 389121
   %cmp47 = icmp eq i32 %and46, 0
@@ -1699,11 +1699,11 @@ cond.false13:                                     ; preds = %cond.false
 
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
-  %add21 = add nuw nsw i32 %shr20, 2080
-  %idxprom22 = zext nneg i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom22
-  %0 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %0 to i32
+  %0 = zext nneg i32 %shr20 to i64
+  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %2 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nuw nsw i32 %and26, %conv24
@@ -1713,20 +1713,20 @@ cond.end39.sink.split:                            ; preds = %cond.true, %cond.fa
   %add6.sink = phi i32 [ %add6, %cond.true3 ], [ %add27, %cond.false19 ], [ %shr, %cond.true ]
   %idxprom7 = zext nneg i32 %add6.sink to i64
   %arrayidx8 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom7
-  %1 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %1 to i32
+  %3 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %3 to i32
   %shl10 = shl nuw nsw i32 %conv9, 2
   %and11 = and i32 %c, 31
   %add12 = add nuw nsw i32 %shl10, %and11
-  %2 = zext nneg i32 %add12 to i64
+  %4 = zext nneg i32 %add12 to i64
   br label %cond.end39
 
 cond.end39:                                       ; preds = %cond.end39.sink.split, %cond.false13
-  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %2, %cond.end39.sink.split ]
+  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %4, %cond.end39.sink.split ]
   %arrayidx42 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %cond40
-  %3 = load i16, ptr %arrayidx42, align 2
-  %4 = and i16 %3, 31
-  %and44 = zext nneg i16 %4 to i32
+  %5 = load i16, ptr %arrayidx42, align 2
+  %6 = and i16 %5, 31
+  %and44 = zext nneg i16 %6 to i32
   %shl45 = shl nuw i32 1, %and44
   %and46 = and i32 %shl45, 821559296
   %cmp47 = icmp ne i32 %and46, 0
@@ -1779,11 +1779,11 @@ cond.false21:                                     ; preds = %cond.false
 
 cond.false27:                                     ; preds = %cond.false21
   %shr28 = lshr i32 %c, 11
-  %add29 = add nuw nsw i32 %shr28, 2080
-  %idxprom30 = zext nneg i32 %add29 to i64
-  %arrayidx31 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom30
-  %4 = load i16, ptr %arrayidx31, align 2
-  %conv32 = zext i16 %4 to i32
+  %4 = zext nneg i32 %shr28 to i64
+  %5 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %4
+  %arrayidx31 = getelementptr i16, ptr %5, i64 2080
+  %6 = load i16, ptr %arrayidx31, align 2
+  %conv32 = zext i16 %6 to i32
   %shr33 = lshr i32 %c, 5
   %and34 = and i32 %shr33, 63
   %add35 = add nuw nsw i32 %and34, %conv32
@@ -1793,20 +1793,20 @@ cond.end47.sink.split:                            ; preds = %cond.true, %cond.fa
   %add14.sink = phi i32 [ %add14, %cond.true11 ], [ %add35, %cond.false27 ], [ %shr, %cond.true ]
   %idxprom15 = zext nneg i32 %add14.sink to i64
   %arrayidx16 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom15
-  %5 = load i16, ptr %arrayidx16, align 2
-  %conv17 = zext i16 %5 to i32
+  %7 = load i16, ptr %arrayidx16, align 2
+  %conv17 = zext i16 %7 to i32
   %shl18 = shl nuw nsw i32 %conv17, 2
   %and19 = and i32 %c, 31
   %add20 = add nuw nsw i32 %shl18, %and19
-  %6 = zext nneg i32 %add20 to i64
+  %8 = zext nneg i32 %add20 to i64
   br label %cond.end47
 
 cond.end47:                                       ; preds = %cond.end47.sink.split, %cond.false21
-  %cond48 = phi i64 [ 4820, %cond.false21 ], [ %6, %cond.end47.sink.split ]
+  %cond48 = phi i64 [ 4820, %cond.false21 ], [ %8, %cond.end47.sink.split ]
   %arrayidx50 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %cond48
-  %7 = load i16, ptr %arrayidx50, align 2
-  %8 = and i16 %7, 31
-  %cmp53 = icmp eq i16 %8, 16
+  %9 = load i16, ptr %arrayidx50, align 2
+  %10 = and i16 %9, 31
+  %cmp53 = icmp eq i16 %10, 16
   br label %return
 
 return:                                           ; preds = %if.then, %land.rhs, %cond.end47
@@ -1842,11 +1842,11 @@ cond.false13:                                     ; preds = %cond.false
 
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
-  %add21 = add nuw nsw i32 %shr20, 2080
-  %idxprom22 = zext nneg i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom22
-  %0 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %0 to i32
+  %0 = zext nneg i32 %shr20 to i64
+  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %2 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nuw nsw i32 %and26, %conv24
@@ -1856,20 +1856,20 @@ cond.end39.sink.split:                            ; preds = %cond.true, %cond.fa
   %add6.sink = phi i32 [ %add6, %cond.true3 ], [ %add27, %cond.false19 ], [ %shr, %cond.true ]
   %idxprom7 = zext nneg i32 %add6.sink to i64
   %arrayidx8 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom7
-  %1 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %1 to i32
+  %3 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %3 to i32
   %shl10 = shl nuw nsw i32 %conv9, 2
   %and11 = and i32 %c, 31
   %add12 = add nuw nsw i32 %shl10, %and11
-  %2 = zext nneg i32 %add12 to i64
+  %4 = zext nneg i32 %add12 to i64
   br label %cond.end39
 
 cond.end39:                                       ; preds = %cond.end39.sink.split, %cond.false13
-  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %2, %cond.end39.sink.split ]
+  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %4, %cond.end39.sink.split ]
   %arrayidx42 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %cond40
-  %3 = load i16, ptr %arrayidx42, align 2
-  %4 = and i16 %3, 31
-  %and44 = zext nneg i16 %4 to i32
+  %5 = load i16, ptr %arrayidx42, align 2
+  %6 = and i16 %5, 31
+  %and44 = zext nneg i16 %6 to i32
   %shl45 = shl nuw i32 1, %and44
   %and46 = and i32 %shl45, 37748798
   %cmp47 = icmp ne i32 %and46, 0
@@ -1904,11 +1904,11 @@ cond.false13:                                     ; preds = %cond.false
 
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
-  %add21 = add nuw nsw i32 %shr20, 2080
-  %idxprom22 = zext nneg i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom22
-  %0 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %0 to i32
+  %0 = zext nneg i32 %shr20 to i64
+  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %2 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nuw nsw i32 %and26, %conv24
@@ -1918,20 +1918,20 @@ cond.end39.sink.split:                            ; preds = %cond.true, %cond.fa
   %add6.sink = phi i32 [ %add6, %cond.true3 ], [ %add27, %cond.false19 ], [ %shr, %cond.true ]
   %idxprom7 = zext nneg i32 %add6.sink to i64
   %arrayidx8 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom7
-  %1 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %1 to i32
+  %3 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %3 to i32
   %shl10 = shl nuw nsw i32 %conv9, 2
   %and11 = and i32 %c, 31
   %add12 = add nuw nsw i32 %shl10, %and11
-  %2 = zext nneg i32 %add12 to i64
+  %4 = zext nneg i32 %add12 to i64
   br label %cond.end39
 
 cond.end39:                                       ; preds = %cond.end39.sink.split, %cond.false13
-  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %2, %cond.end39.sink.split ]
+  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %4, %cond.end39.sink.split ]
   %arrayidx42 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %cond40
-  %3 = load i16, ptr %arrayidx42, align 2
-  %4 = and i16 %3, 31
-  %and44 = zext nneg i16 %4 to i32
+  %5 = load i16, ptr %arrayidx42, align 2
+  %6 = and i16 %5, 31
+  %and44 = zext nneg i16 %6 to i32
   %shl45 = shl nuw i32 1, %and44
   %and46 = and i32 %shl45, 37750654
   %cmp47.not = icmp eq i32 %and46, 0
@@ -1943,16 +1943,16 @@ lor.rhs:                                          ; preds = %cond.end39
 
 if.then.i:                                        ; preds = %lor.rhs
   %cmp.i.i = icmp ugt i32 %c, 159
-  %5 = add i32 %c, -32
-  %6 = icmp ult i32 %5, 95
-  %narrow.i.not.i = or i1 %cmp.i.i, %6
+  %7 = add i32 %c, -32
+  %8 = icmp ult i32 %7, 95
+  %narrow.i.not.i = or i1 %cmp.i.i, %8
   br i1 %narrow.i.not.i, label %u_isIDIgnorable_75.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.then.i
-  %or.cond.i = icmp ult i32 %5, -23
-  %7 = add nsw i32 %c, -14
-  %8 = icmp ult i32 %7, 14
-  %narrow.i = select i1 %or.cond.i, i1 true, i1 %8
+  %or.cond.i = icmp ult i32 %7, -23
+  %9 = add nsw i32 %c, -14
+  %10 = icmp ult i32 %9, 14
+  %narrow.i = select i1 %or.cond.i, i1 true, i1 %10
   br label %u_isIDIgnorable_75.exit
 
 if.else.i:                                        ; preds = %lor.rhs
@@ -1979,11 +1979,11 @@ cond.false21.i:                                   ; preds = %cond.false.i
 
 cond.false27.i:                                   ; preds = %cond.false21.i
   %shr28.i = lshr i32 %c, 11
-  %add29.i = add nuw nsw i32 %shr28.i, 2080
-  %idxprom30.i = zext nneg i32 %add29.i to i64
-  %arrayidx31.i = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom30.i
-  %9 = load i16, ptr %arrayidx31.i, align 2
-  %conv32.i = zext i16 %9 to i32
+  %11 = zext nneg i32 %shr28.i to i64
+  %12 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %11
+  %arrayidx31.i = getelementptr i16, ptr %12, i64 2080
+  %13 = load i16, ptr %arrayidx31.i, align 2
+  %conv32.i = zext i16 %13 to i32
   %shr33.i = lshr i32 %c, 5
   %and34.i = and i32 %shr33.i, 63
   %add35.i = add nuw nsw i32 %and34.i, %conv32.i
@@ -1993,20 +1993,20 @@ cond.end47.sink.split.i:                          ; preds = %cond.false27.i, %co
   %add14.sink.i = phi i32 [ %add14.i, %cond.true11.i ], [ %add35.i, %cond.false27.i ], [ %shr.i, %cond.true.i ]
   %idxprom15.i = zext nneg i32 %add14.sink.i to i64
   %arrayidx16.i = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom15.i
-  %10 = load i16, ptr %arrayidx16.i, align 2
-  %conv17.i = zext i16 %10 to i32
+  %14 = load i16, ptr %arrayidx16.i, align 2
+  %conv17.i = zext i16 %14 to i32
   %shl18.i = shl nuw nsw i32 %conv17.i, 2
   %and19.i = and i32 %c, 31
   %add20.i = add nuw nsw i32 %shl18.i, %and19.i
-  %11 = zext nneg i32 %add20.i to i64
+  %15 = zext nneg i32 %add20.i to i64
   br label %cond.end47.i
 
 cond.end47.i:                                     ; preds = %cond.end47.sink.split.i, %cond.false21.i
-  %cond48.i = phi i64 [ 4820, %cond.false21.i ], [ %11, %cond.end47.sink.split.i ]
+  %cond48.i = phi i64 [ 4820, %cond.false21.i ], [ %15, %cond.end47.sink.split.i ]
   %arrayidx50.i = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %cond48.i
-  %12 = load i16, ptr %arrayidx50.i, align 2
-  %13 = and i16 %12, 31
-  %cmp53.i = icmp eq i16 %13, 16
+  %16 = load i16, ptr %arrayidx50.i, align 2
+  %17 = and i16 %16, 31
+  %cmp53.i = icmp eq i16 %17, 16
   br label %u_isIDIgnorable_75.exit
 
 u_isIDIgnorable_75.exit:                          ; preds = %if.then.i, %land.rhs.i, %cond.end47.i
@@ -2046,11 +2046,11 @@ cond.false13:                                     ; preds = %cond.false
 
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
-  %add21 = add nuw nsw i32 %shr20, 2080
-  %idxprom22 = zext nneg i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom22
-  %0 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %0 to i32
+  %0 = zext nneg i32 %shr20 to i64
+  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %2 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nuw nsw i32 %and26, %conv24
@@ -2060,21 +2060,21 @@ cond.end39.sink.split:                            ; preds = %cond.true, %cond.fa
   %add6.sink = phi i32 [ %add6, %cond.true3 ], [ %add27, %cond.false19 ], [ %shr, %cond.true ]
   %idxprom7 = zext nneg i32 %add6.sink to i64
   %arrayidx8 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom7
-  %1 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %1 to i32
+  %3 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %3 to i32
   %shl10 = shl nuw nsw i32 %conv9, 2
   %and11 = and i32 %c, 31
   %add12 = add nuw nsw i32 %shl10, %and11
-  %2 = zext nneg i32 %add12 to i64
+  %4 = zext nneg i32 %add12 to i64
   br label %cond.end39
 
 cond.end39:                                       ; preds = %cond.end39.sink.split, %cond.false13
-  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %2, %cond.end39.sink.split ]
+  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %4, %cond.end39.sink.split ]
   %arrayidx42 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %cond40
-  %3 = load i16, ptr %arrayidx42, align 2
-  %cmp45 = icmp ult i16 %3, 704
-  %4 = lshr i16 %3, 6
-  %shr44 = zext nneg i16 %4 to i32
+  %5 = load i16, ptr %arrayidx42, align 2
+  %cmp45 = icmp ult i16 %5, 704
+  %6 = lshr i16 %5, 6
+  %shr44 = zext nneg i16 %6 to i32
   %sub = add nsw i32 %shr44, -1
   %retval.0 = select i1 %cmp45, i32 %sub, i32 -1
   ret i32 %retval.0
@@ -2107,11 +2107,11 @@ cond.false13:                                     ; preds = %cond.false
 
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
-  %add21 = add nuw nsw i32 %shr20, 2080
-  %idxprom22 = zext nneg i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom22
-  %0 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %0 to i32
+  %0 = zext nneg i32 %shr20 to i64
+  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %2 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nuw nsw i32 %and26, %conv24
@@ -2121,25 +2121,25 @@ cond.end39.sink.split:                            ; preds = %cond.true, %cond.fa
   %add6.sink = phi i32 [ %add6, %cond.true3 ], [ %add27, %cond.false19 ], [ %shr, %cond.true ]
   %idxprom7 = zext nneg i32 %add6.sink to i64
   %arrayidx8 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom7
-  %1 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %1 to i32
+  %3 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %3 to i32
   %shl10 = shl nuw nsw i32 %conv9, 2
   %and11 = and i32 %c, 31
   %add12 = add nuw nsw i32 %shl10, %and11
-  %2 = zext nneg i32 %add12 to i64
+  %4 = zext nneg i32 %add12 to i64
   br label %cond.end39
 
 cond.end39:                                       ; preds = %cond.end39.sink.split, %cond.false13
-  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %2, %cond.end39.sink.split ]
+  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %4, %cond.end39.sink.split ]
   %arrayidx42 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %cond40
-  %3 = load i16, ptr %arrayidx42, align 2
-  %4 = lshr i16 %3, 6
-  %shr44 = zext nneg i16 %4 to i32
-  %cmp45 = icmp ult i16 %3, 64
+  %5 = load i16, ptr %arrayidx42, align 2
+  %6 = lshr i16 %5, 6
+  %shr44 = zext nneg i16 %6 to i32
+  %cmp45 = icmp ult i16 %5, 64
   br i1 %cmp45, label %return, label %if.else
 
 if.else:                                          ; preds = %cond.end39
-  %cmp46 = icmp ult i16 %3, 704
+  %cmp46 = icmp ult i16 %5, 704
   br i1 %cmp46, label %if.then47, label %if.else49
 
 if.then47:                                        ; preds = %if.else
@@ -2148,7 +2148,7 @@ if.then47:                                        ; preds = %if.else
   br label %return
 
 if.else49:                                        ; preds = %if.else
-  %cmp50 = icmp ult i16 %3, 1344
+  %cmp50 = icmp ult i16 %5, 1344
   br i1 %cmp50, label %if.then51, label %if.else54
 
 if.then51:                                        ; preds = %if.else49
@@ -2157,7 +2157,7 @@ if.then51:                                        ; preds = %if.else49
   br label %return
 
 if.else54:                                        ; preds = %if.else49
-  %cmp55 = icmp ult i16 %3, 11264
+  %cmp55 = icmp ult i16 %5, 11264
   br i1 %cmp55, label %if.then56, label %if.else59
 
 if.then56:                                        ; preds = %if.else54
@@ -2166,7 +2166,7 @@ if.then56:                                        ; preds = %if.else54
   br label %return
 
 if.else59:                                        ; preds = %if.else54
-  %cmp60 = icmp ult i16 %3, 30720
+  %cmp60 = icmp ult i16 %5, 30720
   br i1 %cmp60, label %if.then61, label %if.else68
 
 if.then61:                                        ; preds = %if.else59
@@ -2180,7 +2180,7 @@ if.then61:                                        ; preds = %if.else59
   br label %return
 
 if.else68:                                        ; preds = %if.else59
-  %cmp69 = icmp ult i16 %3, -16384
+  %cmp69 = icmp ult i16 %5, -16384
   br i1 %cmp69, label %if.then70, label %if.else84
 
 if.then70:                                        ; preds = %if.else68
@@ -2222,22 +2222,22 @@ sw.bb81:                                          ; preds = %while.end
   br label %return
 
 if.else84:                                        ; preds = %if.else68
-  %cmp85 = icmp ult i16 %3, -14080
+  %cmp85 = icmp ult i16 %5, -14080
   br i1 %cmp85, label %if.then86, label %if.else105
 
 if.then86:                                        ; preds = %if.else84
   %shr88 = lshr i32 %shr44, 2
   %sub89 = add nsw i32 %shr88, -191
   %and91 = and i32 %shr44, 3
-  %5 = zext nneg i32 %and91 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.u_getNumericValue_75, i64 0, i64 %5
+  %7 = zext nneg i32 %and91 to i64
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.u_getNumericValue_75, i64 0, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   %mul100 = mul nuw nsw i32 %sub89, %switch.load
   %conv104 = sitofp i32 %mul100 to double
   br label %return
 
 if.else105:                                       ; preds = %if.else84
-  %cmp106 = icmp ult i16 %3, -12544
+  %cmp106 = icmp ult i16 %5, -12544
   br i1 %cmp106, label %if.then107, label %if.else119
 
 if.then107:                                       ; preds = %if.else105
@@ -2253,7 +2253,7 @@ if.then107:                                       ; preds = %if.else105
   br label %return
 
 if.else119:                                       ; preds = %if.else105
-  %cmp120 = icmp ult i16 %3, -11520
+  %cmp120 = icmp ult i16 %5, -11520
   br i1 %cmp120, label %if.then121, label %return
 
 if.then121:                                       ; preds = %if.else119
@@ -2305,11 +2305,11 @@ cond.false13.i:                                   ; preds = %cond.false.i
 
 cond.false19.i:                                   ; preds = %cond.false13.i
   %shr20.i = lshr i32 %ch, 11
-  %add21.i = add nuw nsw i32 %shr20.i, 2080
-  %idxprom22.i = zext nneg i32 %add21.i to i64
-  %arrayidx23.i = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom22.i
-  %0 = load i16, ptr %arrayidx23.i, align 2
-  %conv24.i = zext i16 %0 to i32
+  %0 = zext nneg i32 %shr20.i to i64
+  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23.i = getelementptr i16, ptr %1, i64 2080
+  %2 = load i16, ptr %arrayidx23.i, align 2
+  %conv24.i = zext i16 %2 to i32
   %shr25.i = lshr i32 %ch, 5
   %and26.i = and i32 %shr25.i, 63
   %add27.i = add nuw nsw i32 %and26.i, %conv24.i
@@ -2319,21 +2319,21 @@ cond.end39.sink.split.i:                          ; preds = %cond.false19.i, %co
   %add6.sink.i = phi i32 [ %add6.i, %cond.true3.i ], [ %add27.i, %cond.false19.i ], [ %shr.i, %cond.true.i ]
   %idxprom7.i = zext nneg i32 %add6.sink.i to i64
   %arrayidx8.i = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom7.i
-  %1 = load i16, ptr %arrayidx8.i, align 2
-  %conv9.i = zext i16 %1 to i32
+  %3 = load i16, ptr %arrayidx8.i, align 2
+  %conv9.i = zext i16 %3 to i32
   %shl10.i = shl nuw nsw i32 %conv9.i, 2
   %and11.i = and i32 %ch, 31
   %add12.i = add nuw nsw i32 %shl10.i, %and11.i
-  %2 = zext nneg i32 %add12.i to i64
+  %4 = zext nneg i32 %add12.i to i64
   br label %u_charDigitValue_75.exit
 
 u_charDigitValue_75.exit:                         ; preds = %cond.false13.i, %cond.end39.sink.split.i
-  %cond40.i = phi i64 [ 4820, %cond.false13.i ], [ %2, %cond.end39.sink.split.i ]
+  %cond40.i = phi i64 [ 4820, %cond.false13.i ], [ %4, %cond.end39.sink.split.i ]
   %arrayidx42.i = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %cond40.i
-  %3 = load i16, ptr %arrayidx42.i, align 2
-  %cmp45.i = icmp ult i16 %3, 704
-  %4 = lshr i16 %3, 6
-  %shr44.i = zext nneg i16 %4 to i32
+  %5 = load i16, ptr %arrayidx42.i, align 2
+  %cmp45.i = icmp ult i16 %5, 704
+  %6 = lshr i16 %5, 6
+  %shr44.i = zext nneg i16 %6 to i32
   %sub.i = add nsw i32 %shr44.i, -1
   %retval.0.i = select i1 %cmp45.i, i32 %sub.i, i32 -1
   %sext.mask = and i32 %retval.0.i, 128
@@ -2341,8 +2341,8 @@ u_charDigitValue_75.exit:                         ; preds = %cond.false13.i, %co
   br i1 %cmp5.not, label %if.end37, label %if.then6
 
 if.then6:                                         ; preds = %u_charDigitValue_75.exit
-  %5 = add i32 %ch, -97
-  %or.cond = icmp ult i32 %5, 26
+  %7 = add i32 %ch, -97
+  %or.cond = icmp ult i32 %7, 26
   br i1 %or.cond, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.then6
@@ -2350,8 +2350,8 @@ if.then9:                                         ; preds = %if.then6
   br label %if.end37
 
 if.else:                                          ; preds = %if.then6
-  %6 = add i32 %ch, -65
-  %or.cond1 = icmp ult i32 %6, 26
+  %8 = add i32 %ch, -65
+  %or.cond1 = icmp ult i32 %8, 26
   br i1 %or.cond1, label %if.then15, label %if.else18
 
 if.then15:                                        ; preds = %if.else
@@ -2359,8 +2359,8 @@ if.then15:                                        ; preds = %if.else
   br label %if.end37
 
 if.else18:                                        ; preds = %if.else
-  %7 = add i32 %ch, -65345
-  %or.cond2 = icmp ult i32 %7, 26
+  %9 = add i32 %ch, -65345
+  %or.cond2 = icmp ult i32 %9, 26
   br i1 %or.cond2, label %if.then22, label %if.else25
 
 if.then22:                                        ; preds = %if.else18
@@ -2368,8 +2368,8 @@ if.then22:                                        ; preds = %if.else18
   br label %if.end37
 
 if.else25:                                        ; preds = %if.else18
-  %8 = add i32 %ch, -65313
-  %or.cond3 = icmp ult i32 %8, 26
+  %10 = add i32 %ch, -65313
+  %or.cond3 = icmp ult i32 %10, 26
   %conv31 = add nsw i32 %ch, -23
   %spec.select = select i1 %or.cond3, i32 %conv31, i32 %retval.0.i
   br label %if.end37
@@ -2452,11 +2452,11 @@ cond.false13:                                     ; preds = %cond.false
 
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
-  %add21 = add nuw nsw i32 %shr20, 2080
-  %idxprom22 = zext nneg i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom22
-  %0 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %0 to i32
+  %0 = zext nneg i32 %shr20 to i64
+  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %2 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nuw nsw i32 %and26, %conv24
@@ -2466,19 +2466,19 @@ cond.end39.sink.split:                            ; preds = %cond.true, %cond.fa
   %add6.sink = phi i32 [ %add6, %cond.true3 ], [ %add27, %cond.false19 ], [ %shr, %cond.true ]
   %idxprom7 = zext nneg i32 %add6.sink to i64
   %arrayidx8 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %idxprom7
-  %1 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %1 to i32
+  %3 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %3 to i32
   %shl10 = shl nuw nsw i32 %conv9, 2
   %and11 = and i32 %c, 31
   %add12 = add nuw nsw i32 %shl10, %and11
-  %2 = zext nneg i32 %add12 to i64
+  %4 = zext nneg i32 %add12 to i64
   br label %cond.end39
 
 cond.end39:                                       ; preds = %cond.end39.sink.split, %cond.false13
-  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %2, %cond.end39.sink.split ]
+  %cond40 = phi i64 [ 4820, %cond.false13 ], [ %4, %cond.end39.sink.split ]
   %arrayidx42 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %cond40
-  %3 = load i16, ptr %arrayidx42, align 2
-  %conv43 = zext i16 %3 to i32
+  %5 = load i16, ptr %arrayidx42, align 2
+  %conv43 = zext i16 %5 to i32
   ret i32 %conv43
 }
 
@@ -2523,11 +2523,11 @@ cond.false14.i:                                   ; preds = %cond.false.i
 
 cond.false20.i:                                   ; preds = %cond.false14.i
   %shr21.i = lshr i32 %c, 11
-  %add22.i = add nuw nsw i32 %shr21.i, 2080
-  %idxprom23.i = zext nneg i32 %add22.i to i64
-  %arrayidx24.i = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %idxprom23.i
-  %0 = load i16, ptr %arrayidx24.i, align 2
-  %conv25.i = zext i16 %0 to i32
+  %0 = zext nneg i32 %shr21.i to i64
+  %1 = getelementptr i16, ptr @_ZL22propsVectorsTrie_index, i64 %0
+  %arrayidx24.i = getelementptr i16, ptr %1, i64 2080
+  %2 = load i16, ptr %arrayidx24.i, align 2
+  %conv25.i = zext i16 %2 to i32
   %shr26.i = lshr i32 %c, 5
   %and27.i = and i32 %shr26.i, 63
   %add28.i = add nuw nsw i32 %and27.i, %conv25.i
@@ -2537,27 +2537,27 @@ cond.end40.sink.split.i:                          ; preds = %cond.false20.i, %co
   %add7.sink.i = phi i32 [ %add7.i, %cond.true4.i ], [ %add28.i, %cond.false20.i ], [ %shr.i, %cond.true.i ]
   %idxprom8.i = zext nneg i32 %add7.sink.i to i64
   %arrayidx9.i = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %idxprom8.i
-  %1 = load i16, ptr %arrayidx9.i, align 2
-  %conv10.i = zext i16 %1 to i32
+  %3 = load i16, ptr %arrayidx9.i, align 2
+  %conv10.i = zext i16 %3 to i32
   %shl11.i = shl nuw nsw i32 %conv10.i, 2
   %and12.i = and i32 %c, 31
   %add13.i = add nuw nsw i32 %shl11.i, %and12.i
-  %2 = zext nneg i32 %add13.i to i64
+  %4 = zext nneg i32 %add13.i to i64
   br label %u_getUnicodeProperties_75.exit
 
 u_getUnicodeProperties_75.exit:                   ; preds = %cond.false14.i, %cond.end40.sink.split.i
-  %cond41.i = phi i64 [ 5496, %cond.false14.i ], [ %2, %cond.end40.sink.split.i ]
+  %cond41.i = phi i64 [ 5496, %cond.false14.i ], [ %4, %cond.end40.sink.split.i ]
   %arrayidx43.i = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %cond41.i
-  %3 = load i16, ptr %arrayidx43.i, align 2
-  %idxprom46.i = zext i16 %3 to i64
+  %5 = load i16, ptr %arrayidx43.i, align 2
+  %idxprom46.i = zext i16 %5 to i64
   %arrayidx47.i = getelementptr inbounds [7260 x i32], ptr @_ZL12propsVectors, i64 0, i64 %idxprom46.i
-  %4 = load i32, ptr %arrayidx47.i, align 4
-  %shr = lshr i32 %4, 24
-  %shr1 = lshr i32 %4, 28
+  %6 = load i32, ptr %arrayidx47.i, align 4
+  %shr = lshr i32 %6, 24
+  %shr1 = lshr i32 %6, 28
   %conv = trunc i32 %shr1 to i8
   store i8 %conv, ptr %versionArray, align 1
-  %5 = trunc i32 %shr to i8
-  %conv2 = and i8 %5, 15
+  %7 = trunc i32 %shr to i8
+  %conv2 = and i8 %7, 15
   %arrayidx3 = getelementptr inbounds i8, ptr %versionArray, i64 1
   store i8 %conv2, ptr %arrayidx3, align 1
   %arrayidx4 = getelementptr inbounds i8, ptr %versionArray, i64 3
@@ -2610,11 +2610,11 @@ cond.true4.i:                                     ; preds = %cond.false.i
 
 cond.false20.i:                                   ; preds = %cond.false.i
   %shr21.i = lshr i32 %c, 11
-  %add22.i = add nuw nsw i32 %shr21.i, 2080
-  %idxprom23.i = zext nneg i32 %add22.i to i64
-  %arrayidx24.i = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %idxprom23.i
-  %1 = load i16, ptr %arrayidx24.i, align 2
-  %conv25.i = zext i16 %1 to i32
+  %1 = zext nneg i32 %shr21.i to i64
+  %2 = getelementptr i16, ptr @_ZL22propsVectorsTrie_index, i64 %1
+  %arrayidx24.i = getelementptr i16, ptr %2, i64 2080
+  %3 = load i16, ptr %arrayidx24.i, align 2
+  %conv25.i = zext i16 %3 to i32
   %shr26.i = lshr i32 %c, 5
   %and27.i = and i32 %shr26.i, 63
   %add28.i = add nuw nsw i32 %and27.i, %conv25.i
@@ -2624,21 +2624,21 @@ u_getUnicodeProperties_75.exit:                   ; preds = %cond.true.i, %cond.
   %add7.sink.i = phi i32 [ %add7.i, %cond.true4.i ], [ %add28.i, %cond.false20.i ], [ %shr.i, %cond.true.i ]
   %idxprom8.i = zext nneg i32 %add7.sink.i to i64
   %arrayidx9.i = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %idxprom8.i
-  %2 = load i16, ptr %arrayidx9.i, align 2
-  %conv10.i = zext i16 %2 to i32
+  %4 = load i16, ptr %arrayidx9.i, align 2
+  %conv10.i = zext i16 %4 to i32
   %shl11.i = shl nuw nsw i32 %conv10.i, 2
   %and12.i = and i32 %c, 31
   %add13.i = add nuw nsw i32 %shl11.i, %and12.i
-  %3 = zext nneg i32 %add13.i to i64
-  %arrayidx43.i = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %3
-  %4 = load i16, ptr %arrayidx43.i, align 2
-  %idxprom46.i = zext i16 %4 to i64
+  %5 = zext nneg i32 %add13.i to i64
+  %arrayidx43.i = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %5
+  %6 = load i16, ptr %arrayidx43.i, align 2
+  %idxprom46.i = zext i16 %6 to i64
   %arrayidx47.i = getelementptr inbounds [7260 x i32], ptr @_ZL12propsVectors, i64 0, i64 %idxprom46.i
-  %5 = load i32, ptr %arrayidx47.i, align 4
-  %and = and i32 %5, 15728895
-  %and.i = lshr i32 %5, 12
+  %7 = load i32, ptr %arrayidx47.i, align 4
+  %and = and i32 %7, 15728895
+  %and.i = lshr i32 %7, 12
   %shr.i8 = and i32 %and.i, 768
-  %and1.i = and i32 %5, 255
+  %and1.i = and i32 %7, 255
   %or.i = or disjoint i32 %shr.i8, %and1.i
   %cmp6 = icmp ult i32 %and, 4194304
   br i1 %cmp6, label %return, label %if.else
@@ -2654,8 +2654,8 @@ if.else10:                                        ; preds = %if.else
 if.else13:                                        ; preds = %if.else10
   %idxprom = zext nneg i32 %or.i to i64
   %arrayidx = getelementptr inbounds [298 x i16], ptr @_ZL16scriptExtensions, i64 0, i64 %idxprom
-  %6 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %6 to i32
+  %8 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %8 to i32
   br label %return
 
 return:                                           ; preds = %if.else10, %if.else, %u_getUnicodeProperties_75.exit, %entry, %lor.lhs.false, %if.else13, %if.then2
@@ -2690,11 +2690,11 @@ cond.false14.i:                                   ; preds = %cond.false.i
 
 cond.false20.i:                                   ; preds = %cond.false14.i
   %shr21.i = lshr i32 %c, 11
-  %add22.i = add nuw nsw i32 %shr21.i, 2080
-  %idxprom23.i = zext nneg i32 %add22.i to i64
-  %arrayidx24.i = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %idxprom23.i
-  %0 = load i16, ptr %arrayidx24.i, align 2
-  %conv25.i = zext i16 %0 to i32
+  %0 = zext nneg i32 %shr21.i to i64
+  %1 = getelementptr i16, ptr @_ZL22propsVectorsTrie_index, i64 %0
+  %arrayidx24.i = getelementptr i16, ptr %1, i64 2080
+  %2 = load i16, ptr %arrayidx24.i, align 2
+  %conv25.i = zext i16 %2 to i32
   %shr26.i = lshr i32 %c, 5
   %and27.i = and i32 %shr26.i, 63
   %add28.i = add nuw nsw i32 %and27.i, %conv25.i
@@ -2704,25 +2704,25 @@ cond.end40.sink.split.i:                          ; preds = %cond.false20.i, %co
   %add7.sink.i = phi i32 [ %add7.i, %cond.true4.i ], [ %add28.i, %cond.false20.i ], [ %shr.i, %cond.true.i ]
   %idxprom8.i = zext nneg i32 %add7.sink.i to i64
   %arrayidx9.i = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %idxprom8.i
-  %1 = load i16, ptr %arrayidx9.i, align 2
-  %conv10.i = zext i16 %1 to i32
+  %3 = load i16, ptr %arrayidx9.i, align 2
+  %conv10.i = zext i16 %3 to i32
   %shl11.i = shl nuw nsw i32 %conv10.i, 2
   %and12.i = and i32 %c, 31
   %add13.i = add nuw nsw i32 %shl11.i, %and12.i
-  %2 = zext nneg i32 %add13.i to i64
+  %4 = zext nneg i32 %add13.i to i64
   br label %u_getUnicodeProperties_75.exit
 
 u_getUnicodeProperties_75.exit:                   ; preds = %cond.false14.i, %cond.end40.sink.split.i
-  %cond41.i = phi i64 [ 5496, %cond.false14.i ], [ %2, %cond.end40.sink.split.i ]
+  %cond41.i = phi i64 [ 5496, %cond.false14.i ], [ %4, %cond.end40.sink.split.i ]
   %arrayidx43.i = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %cond41.i
-  %3 = load i16, ptr %arrayidx43.i, align 2
-  %idxprom46.i = zext i16 %3 to i64
+  %5 = load i16, ptr %arrayidx43.i, align 2
+  %idxprom46.i = zext i16 %5 to i64
   %arrayidx47.i = getelementptr inbounds [7260 x i32], ptr @_ZL12propsVectors, i64 0, i64 %idxprom46.i
-  %4 = load i32, ptr %arrayidx47.i, align 4
-  %and = and i32 %4, 15728895
-  %and.i = lshr i32 %4, 12
+  %6 = load i32, ptr %arrayidx47.i, align 4
+  %and = and i32 %6, 15728895
+  %and.i = lshr i32 %6, 12
   %shr.i10 = and i32 %and.i, 768
-  %and1.i = and i32 %4, 255
+  %and1.i = and i32 %6, 255
   %or.i = or disjoint i32 %shr.i10, %and1.i
   %cmp = icmp ult i32 %and, 4194304
   br i1 %cmp, label %if.then, label %if.end
@@ -2739,8 +2739,8 @@ if.end:                                           ; preds = %u_getUnicodePropert
 
 if.then4:                                         ; preds = %if.end
   %arrayidx = getelementptr inbounds i16, ptr %add.ptr, i64 1
-  %5 = load i16, ptr %arrayidx, align 2
-  %idx.ext6 = zext i16 %5 to i64
+  %7 = load i16, ptr %arrayidx, align 2
+  %idx.ext6 = zext i16 %7 to i64
   %add.ptr7 = getelementptr inbounds i16, ptr @_ZL16scriptExtensions, i64 %idx.ext6
   br label %if.end8
 
@@ -2751,8 +2751,8 @@ if.end8:                                          ; preds = %if.then4, %if.end
 
 while.cond:                                       ; preds = %if.end8, %while.cond
   %scx.1 = phi ptr [ %incdec.ptr, %while.cond ], [ %scx.0, %if.end8 ]
-  %6 = load i16, ptr %scx.1, align 2
-  %conv12 = zext i16 %6 to i32
+  %8 = load i16, ptr %scx.1, align 2
+  %conv12 = zext i16 %8 to i32
   %cmp13 = icmp ult i32 %conv12, %sc
   %incdec.ptr = getelementptr inbounds i16, ptr %scx.1, i64 1
   br i1 %cmp13, label %while.cond, label %while.end, !llvm.loop !6
@@ -2818,11 +2818,11 @@ cond.false14.i:                                   ; preds = %cond.false.i
 
 cond.false20.i:                                   ; preds = %cond.false14.i
   %shr21.i = lshr i32 %c, 11
-  %add22.i = add nuw nsw i32 %shr21.i, 2080
-  %idxprom23.i = zext nneg i32 %add22.i to i64
-  %arrayidx24.i = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %idxprom23.i
-  %1 = load i16, ptr %arrayidx24.i, align 2
-  %conv25.i = zext i16 %1 to i32
+  %1 = zext nneg i32 %shr21.i to i64
+  %2 = getelementptr i16, ptr @_ZL22propsVectorsTrie_index, i64 %1
+  %arrayidx24.i = getelementptr i16, ptr %2, i64 2080
+  %3 = load i16, ptr %arrayidx24.i, align 2
+  %conv25.i = zext i16 %3 to i32
   %shr26.i = lshr i32 %c, 5
   %and27.i = and i32 %shr26.i, 63
   %add28.i = add nuw nsw i32 %and27.i, %conv25.i
@@ -2832,25 +2832,25 @@ cond.end40.sink.split.i:                          ; preds = %cond.false20.i, %co
   %add7.sink.i = phi i32 [ %add7.i, %cond.true4.i ], [ %add28.i, %cond.false20.i ], [ %shr.i, %cond.true.i ]
   %idxprom8.i = zext nneg i32 %add7.sink.i to i64
   %arrayidx9.i = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %idxprom8.i
-  %2 = load i16, ptr %arrayidx9.i, align 2
-  %conv10.i = zext i16 %2 to i32
+  %4 = load i16, ptr %arrayidx9.i, align 2
+  %conv10.i = zext i16 %4 to i32
   %shl11.i = shl nuw nsw i32 %conv10.i, 2
   %and12.i = and i32 %c, 31
   %add13.i = add nuw nsw i32 %shl11.i, %and12.i
-  %3 = zext nneg i32 %add13.i to i64
+  %5 = zext nneg i32 %add13.i to i64
   br label %u_getUnicodeProperties_75.exit
 
 u_getUnicodeProperties_75.exit:                   ; preds = %cond.false14.i, %cond.end40.sink.split.i
-  %cond41.i = phi i64 [ 5496, %cond.false14.i ], [ %3, %cond.end40.sink.split.i ]
+  %cond41.i = phi i64 [ 5496, %cond.false14.i ], [ %5, %cond.end40.sink.split.i ]
   %arrayidx43.i = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %cond41.i
-  %4 = load i16, ptr %arrayidx43.i, align 2
-  %idxprom46.i = zext i16 %4 to i64
+  %6 = load i16, ptr %arrayidx43.i, align 2
+  %idxprom46.i = zext i16 %6 to i64
   %arrayidx47.i = getelementptr inbounds [7260 x i32], ptr @_ZL12propsVectors, i64 0, i64 %idxprom46.i
-  %5 = load i32, ptr %arrayidx47.i, align 4
-  %and = and i32 %5, 15728895
-  %and.i = lshr i32 %5, 12
+  %7 = load i32, ptr %arrayidx47.i, align 4
+  %and = and i32 %7, 15728895
+  %and.i = lshr i32 %7, 12
   %shr.i20 = and i32 %and.i, 768
-  %and1.i = and i32 %5, 255
+  %and1.i = and i32 %7, 255
   %or.i = or disjoint i32 %shr.i20, %and1.i
   %cmp9 = icmp ult i32 %and, 4194304
   br i1 %cmp9, label %if.then10, label %if.end14
@@ -2875,8 +2875,8 @@ if.end14:                                         ; preds = %u_getUnicodePropert
 
 if.then16:                                        ; preds = %if.end14
   %arrayidx17 = getelementptr inbounds i16, ptr %add.ptr, i64 1
-  %6 = load i16, ptr %arrayidx17, align 2
-  %idx.ext18 = zext i16 %6 to i64
+  %8 = load i16, ptr %arrayidx17, align 2
+  %idx.ext18 = zext i16 %8 to i64
   %add.ptr19 = getelementptr inbounds i16, ptr @_ZL16scriptExtensions, i64 %idx.ext18
   br label %do.body.preheader
 
@@ -2888,18 +2888,18 @@ do.body:                                          ; preds = %do.body.backedge, %
   %scx.1 = phi ptr [ %scx.1.ph, %do.body.preheader ], [ %incdec.ptr, %do.body.backedge ]
   %length.0 = phi i32 [ 0, %do.body.preheader ], [ %length.0.be, %do.body.backedge ]
   %incdec.ptr = getelementptr inbounds i16, ptr %scx.1, i64 1
-  %7 = load i16, ptr %scx.1, align 2
+  %9 = load i16, ptr %scx.1, align 2
   %cmp21 = icmp slt i32 %length.0, %capacity
   br i1 %cmp21, label %if.end26, label %if.end26.thread
 
 if.end26:                                         ; preds = %do.body
-  %8 = and i16 %7, 32767
-  %and24 = zext nneg i16 %8 to i32
+  %10 = and i16 %9, 32767
+  %and24 = zext nneg i16 %10 to i32
   %idxprom = zext nneg i32 %length.0 to i64
   %arrayidx25 = getelementptr inbounds i32, ptr %scripts, i64 %idxprom
   store i32 %and24, ptr %arrayidx25, align 4
   %inc = add nuw nsw i32 %length.0, 1
-  %cmp28 = icmp sgt i16 %7, -1
+  %cmp28 = icmp sgt i16 %9, -1
   br i1 %cmp28, label %do.body.backedge, label %return
 
 do.body.backedge:                                 ; preds = %if.end26, %if.end26.thread
@@ -2908,7 +2908,7 @@ do.body.backedge:                                 ; preds = %if.end26, %if.end26
 
 if.end26.thread:                                  ; preds = %do.body
   %inc21 = add nuw nsw i32 %length.0, 1
-  %cmp2822 = icmp sgt i16 %7, -1
+  %cmp2822 = icmp sgt i16 %9, -1
   br i1 %cmp2822, label %do.body.backedge, label %if.then30
 
 if.then30:                                        ; preds = %if.end26.thread
@@ -2947,11 +2947,11 @@ cond.false14.i:                                   ; preds = %cond.false.i
 
 cond.false20.i:                                   ; preds = %cond.false14.i
   %shr21.i = lshr i32 %c, 11
-  %add22.i = add nuw nsw i32 %shr21.i, 2080
-  %idxprom23.i = zext nneg i32 %add22.i to i64
-  %arrayidx24.i = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %idxprom23.i
-  %0 = load i16, ptr %arrayidx24.i, align 2
-  %conv25.i = zext i16 %0 to i32
+  %0 = zext nneg i32 %shr21.i to i64
+  %1 = getelementptr i16, ptr @_ZL22propsVectorsTrie_index, i64 %0
+  %arrayidx24.i = getelementptr i16, ptr %1, i64 2080
+  %2 = load i16, ptr %arrayidx24.i, align 2
+  %conv25.i = zext i16 %2 to i32
   %shr26.i = lshr i32 %c, 5
   %and27.i = and i32 %shr26.i, 63
   %add28.i = add nuw nsw i32 %and27.i, %conv25.i
@@ -2961,22 +2961,22 @@ cond.end40.sink.split.i:                          ; preds = %cond.false20.i, %co
   %add7.sink.i = phi i32 [ %add7.i, %cond.true4.i ], [ %add28.i, %cond.false20.i ], [ %shr.i, %cond.true.i ]
   %idxprom8.i = zext nneg i32 %add7.sink.i to i64
   %arrayidx9.i = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %idxprom8.i
-  %1 = load i16, ptr %arrayidx9.i, align 2
-  %conv10.i = zext i16 %1 to i32
+  %3 = load i16, ptr %arrayidx9.i, align 2
+  %conv10.i = zext i16 %3 to i32
   %shl11.i = shl nuw nsw i32 %conv10.i, 2
   %and12.i = and i32 %c, 31
   %add13.i = add nuw nsw i32 %shl11.i, %and12.i
-  %2 = zext nneg i32 %add13.i to i64
+  %4 = zext nneg i32 %add13.i to i64
   br label %u_getUnicodeProperties_75.exit
 
 u_getUnicodeProperties_75.exit:                   ; preds = %cond.false14.i, %cond.end40.sink.split.i
-  %cond41.i = phi i64 [ 5496, %cond.false14.i ], [ %2, %cond.end40.sink.split.i ]
+  %cond41.i = phi i64 [ 5496, %cond.false14.i ], [ %4, %cond.end40.sink.split.i ]
   %arrayidx43.i = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %cond41.i
-  %3 = load i16, ptr %arrayidx43.i, align 2
-  %idxprom46.i = zext i16 %3 to i64
+  %5 = load i16, ptr %arrayidx43.i, align 2
+  %idxprom46.i = zext i16 %5 to i64
   %arrayidx47.i = getelementptr inbounds [7260 x i32], ptr @_ZL12propsVectors, i64 0, i64 %idxprom46.i
-  %4 = load i32, ptr %arrayidx47.i, align 4
-  %and = lshr i32 %4, 8
+  %6 = load i32, ptr %arrayidx47.i, align 4
+  %and = lshr i32 %6, 8
   %shr = and i32 %and, 511
   ret i32 %shr
 }

@@ -730,7 +730,7 @@ if.then23:                                        ; preds = %land.lhs.true
 for.body.us.preheader:                            ; preds = %if.end12
   %tracks31.phi.trans.insert = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet, ptr %cue_sheet, i64 0, i32 4
   %.pre = load ptr, ptr %tracks31.phi.trans.insert, align 8
-  %.pre102 = add i32 %1, -1
+  %.pre100 = add i32 %1, -1
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc176.us
@@ -742,7 +742,7 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   br i1 %cmp36.us, label %if.then38, label %if.end42.us
 
 if.end42.us:                                      ; preds = %for.body.us
-  %cmp94.us = icmp ult i32 %i.076.us, %.pre102
+  %cmp94.us = icmp ult i32 %i.076.us, %.pre100
   %num_indices.us = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %.pre, i64 %idxprom32.us, i32 4
   %6 = load i8, ptr %num_indices.us, align 1
   %cmp101.us = icmp eq i8 %6, 0
@@ -764,27 +764,26 @@ if.end121.us:                                     ; preds = %if.end42.us
 
 for.inc176.us:                                    ; preds = %for.inc.us.us, %if.end121.us
   %inc177.us = add nuw i32 %i.076.us, 1
-  %exitcond99.not = icmp eq i32 %inc177.us, %1
-  br i1 %exitcond99.not, label %return, label %for.body.us, !llvm.loop !14
+  %exitcond97.not = icmp eq i32 %inc177.us, %1
+  br i1 %exitcond97.not, label %return, label %for.body.us, !llvm.loop !14
 
 for.body130.lr.ph.us:                             ; preds = %if.end107.us, %if.end121.us
   %indices154.us = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %.pre, i64 %idxprom32.us, i32 5
-  %wide.trip.count96 = zext i8 %6 to i64
+  %wide.trip.count94 = zext i8 %6 to i64
   br label %for.body130.us.us
 
 for.body130.us.us:                                ; preds = %for.inc.us.us, %for.body130.lr.ph.us
-  %indvars.iv92 = phi i64 [ %indvars.iv.next93, %for.inc.us.us ], [ 0, %for.body130.lr.ph.us ]
-  %cmp148.not.us.us = icmp eq i64 %indvars.iv92, 0
+  %indvars.iv91 = phi i64 [ %indvars.iv.next92, %for.inc.us.us ], [ 0, %for.body130.lr.ph.us ]
+  %cmp148.not.us.us = icmp eq i64 %indvars.iv91, 0
   br i1 %cmp148.not.us.us, label %for.inc.us.us, label %if.then150.us.us
 
 if.then150.us.us:                                 ; preds = %for.body130.us.us
   %9 = load ptr, ptr %indices154.us, align 8
-  %number157.us.us = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %9, i64 %indvars.iv92, i32 1
+  %number157.us.us = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %9, i64 %indvars.iv91, i32 1
   %10 = load i8, ptr %number157.us.us, align 8
   %conv158.us.us = zext i8 %10 to i32
-  %11 = add nuw i64 %indvars.iv92, 4294967295
-  %idxprom164.us.us = and i64 %11, 4294967295
-  %number166.us.us = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %9, i64 %idxprom164.us.us, i32 1
+  %11 = getelementptr %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %9, i64 %indvars.iv91
+  %number166.us.us = getelementptr %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %11, i64 -1, i32 1
   %12 = load i8, ptr %number166.us.us, align 8
   %conv167.us.us = zext i8 %12 to i32
   %add.us.us = add nuw nsw i32 %conv167.us.us, 1
@@ -792,9 +791,9 @@ if.then150.us.us:                                 ; preds = %for.body130.us.us
   br i1 %cmp168.not.us.us, label %for.inc.us.us, label %if.then170
 
 for.inc.us.us:                                    ; preds = %if.then150.us.us, %for.body130.us.us
-  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
-  %exitcond97.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count96
-  br i1 %exitcond97.not, label %for.inc176.us, label %for.body130.us.us, !llvm.loop !15
+  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
+  %exitcond95.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count94
+  br i1 %exitcond95.not, label %for.inc176.us, label %for.body130.us.us, !llvm.loop !15
 
 for.body:                                         ; preds = %land.lhs.true, %for.inc176
   %i.076 = phi i32 [ %inc177, %for.inc176 ], [ 0, %land.lhs.true ]
@@ -871,7 +870,7 @@ for.body130.lr.ph:                                ; preds = %if.end107, %if.end1
 
 for.body130:                                      ; preds = %for.body130.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body130.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx138 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %18, i64 %indvars.iv
+  %arrayidx138 = getelementptr %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %18, i64 %indvars.iv
   %19 = load i64, ptr %arrayidx138, align 8
   %rem140 = urem i64 %19, 588
   %cmp141.not = icmp eq i64 %rem140, 0
@@ -889,11 +888,9 @@ if.then150:                                       ; preds = %if.end147
   %number157 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %18, i64 %indvars.iv, i32 1
   %20 = load i8, ptr %number157, align 8
   %conv158 = zext i8 %20 to i32
-  %21 = add nuw i64 %indvars.iv, 4294967295
-  %idxprom164 = and i64 %21, 4294967295
-  %number166 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %18, i64 %idxprom164, i32 1
-  %22 = load i8, ptr %number166, align 8
-  %conv167 = zext i8 %22 to i32
+  %number166 = getelementptr %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %arrayidx138, i64 -1, i32 1
+  %21 = load i8, ptr %number166, align 8
+  %conv167 = zext i8 %21 to i32
   %add = add nuw nsw i32 %conv167, 1
   %cmp168.not = icmp eq i32 %add, %conv158
   br i1 %cmp168.not, label %for.inc, label %if.then170
@@ -909,8 +906,8 @@ for.inc:                                          ; preds = %if.end147, %if.then
 
 for.inc176:                                       ; preds = %for.inc, %if.end121
   %inc177 = add nuw i32 %i.076, 1
-  %exitcond91.not = icmp eq i32 %inc177, %2
-  br i1 %exitcond91.not, label %return, label %for.body, !llvm.loop !14
+  %exitcond90.not = icmp eq i32 %inc177, %2
+  br i1 %exitcond90.not, label %return, label %for.body, !llvm.loop !14
 
 return.sink.split:                                ; preds = %if.then170, %if.then143, %if.then116, %if.then103, %if.then83, %if.then67, %if.then38, %if.then23, %if.then14, %if.then7, %if.then1
   %.str.53.sink = phi ptr [ @.str.42, %if.then1 ], [ @.str.43, %if.then7 ], [ @.str.44, %if.then14 ], [ @.str.45, %if.then23 ], [ @.str.46, %if.then38 ], [ @.str.47, %if.then67 ], [ %.str.48..str.49, %if.then83 ], [ @.str.50, %if.then103 ], [ @.str.51, %if.then116 ], [ @.str.52, %if.then143 ], [ @.str.53, %if.then170 ]

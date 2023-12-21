@@ -216,7 +216,6 @@ for.cond30.preheader:                             ; preds = %if.end2
   br i1 %cmp3353, label %for.body34.preheader, label %if.end67
 
 for.body34.preheader:                             ; preds = %for.cond30.preheader
-  %1 = zext nneg i32 %numChannels to i64
   %wide.trip.count = zext nneg i32 %mul32 to i64
   br label %for.body34
 
@@ -227,65 +226,58 @@ for.cond.preheader:                               ; preds = %if.end2
   br i1 %cmp655, label %for.body.preheader, label %if.end67
 
 for.body.preheader:                               ; preds = %for.cond.preheader
-  %2 = zext nneg i32 %numChannels to i64
-  %wide.trip.count68 = zext nneg i32 %mul5 to i64
+  %wide.trip.count64 = zext nneg i32 %mul5 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv62 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next63, %for.body ]
-  %3 = trunc i64 %indvars.iv62 to i32
-  %rem = srem i32 %3, %edgeLen
+  %indvars.iv60 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next61, %for.body ]
+  %1 = trunc i64 %indvars.iv60 to i32
+  %rem = srem i32 %1, %edgeLen
   %conv7 = sitofp i32 %rem to float
   %mul8 = fmul float %div, %conv7
-  %4 = mul i64 %indvars.iv62, %2
-  %idxprom = and i64 %4, 4294967295
+  %2 = trunc i64 %indvars.iv60 to i32
+  %3 = mul i32 %2, %numChannels
+  %idxprom = zext nneg i32 %3 to i64
   %arrayidx = getelementptr inbounds float, ptr %img, i64 %idxprom
   store float %mul8, ptr %arrayidx, align 4
-  %div10 = sdiv i32 %3, %edgeLen
+  %div10 = sdiv i32 %1, %edgeLen
   %rem11 = srem i32 %div10, %edgeLen
   %conv12 = sitofp i32 %rem11 to float
   %mul13 = fmul float %div, %conv12
-  %5 = add i64 %4, 1
-  %idxprom16 = and i64 %5, 4294967295
-  %arrayidx17 = getelementptr inbounds float, ptr %img, i64 %idxprom16
+  %arrayidx17 = getelementptr float, ptr %arrayidx, i64 1
   store float %mul13, ptr %arrayidx17, align 4
   %div19 = sdiv i32 %div10, %edgeLen
   %rem20 = srem i32 %div19, %edgeLen
   %conv21 = sitofp i32 %rem20 to float
   %mul22 = fmul float %div, %conv21
-  %6 = add i64 %4, 2
-  %idxprom25 = and i64 %6, 4294967295
-  %arrayidx26 = getelementptr inbounds float, ptr %img, i64 %idxprom25
+  %arrayidx26 = getelementptr float, ptr %arrayidx, i64 2
   store float %mul22, ptr %arrayidx26, align 4
-  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count68
-  br i1 %exitcond69.not, label %if.end67, label %for.body, !llvm.loop !4
+  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
+  %exitcond65.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count64
+  br i1 %exitcond65.not, label %if.end67, label %for.body, !llvm.loop !4
 
 for.body34:                                       ; preds = %for.body34.preheader, %for.body34
   %indvars.iv = phi i64 [ 0, %for.body34.preheader ], [ %indvars.iv.next, %for.body34 ]
-  %7 = trunc i64 %indvars.iv to i32
-  %div35 = sdiv i32 %7, %edgeLen
+  %4 = trunc i64 %indvars.iv to i32
+  %div35 = sdiv i32 %4, %edgeLen
   %div36 = sdiv i32 %div35, %edgeLen
   %rem37 = srem i32 %div36, %edgeLen
   %conv38 = sitofp i32 %rem37 to float
   %mul39 = fmul float %div, %conv38
-  %8 = mul i64 %indvars.iv, %1
-  %idxprom42 = and i64 %8, 4294967295
+  %5 = trunc i64 %indvars.iv to i32
+  %6 = mul i32 %5, %numChannels
+  %idxprom42 = zext nneg i32 %6 to i64
   %arrayidx43 = getelementptr inbounds float, ptr %img, i64 %idxprom42
   store float %mul39, ptr %arrayidx43, align 4
   %rem45 = srem i32 %div35, %edgeLen
   %conv46 = sitofp i32 %rem45 to float
   %mul47 = fmul float %div, %conv46
-  %9 = add i64 %8, 1
-  %idxprom50 = and i64 %9, 4294967295
-  %arrayidx51 = getelementptr inbounds float, ptr %img, i64 %idxprom50
+  %arrayidx51 = getelementptr float, ptr %arrayidx43, i64 1
   store float %mul47, ptr %arrayidx51, align 4
-  %rem52 = srem i32 %7, %edgeLen
+  %rem52 = srem i32 %4, %edgeLen
   %conv53 = sitofp i32 %rem52 to float
   %mul54 = fmul float %div, %conv53
-  %10 = add i64 %8, 2
-  %idxprom57 = and i64 %10, 4294967295
-  %arrayidx58 = getelementptr inbounds float, ptr %img, i64 %idxprom57
+  %arrayidx58 = getelementptr float, ptr %arrayidx43, i64 2
   store float %mul54, ptr %arrayidx58, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -301,7 +293,7 @@ invoke.cont65:                                    ; preds = %if.else62
   unreachable
 
 lpad64:                                           ; preds = %if.else62
-  %11 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -310,7 +302,7 @@ if.end67:                                         ; preds = %for.body34, %for.bo
 
 eh.resume:                                        ; preds = %lpad64, %lpad
   %exception63.sink = phi ptr [ %exception63, %lpad64 ], [ %exception, %lpad ]
-  %.pn = phi { ptr, i32 } [ %11, %lpad64 ], [ %0, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad64 ], [ %0, %lpad ]
   tail call void @__cxa_free_exception(ptr %exception63.sink) #19
   resume { ptr, i32 } %.pn
 }

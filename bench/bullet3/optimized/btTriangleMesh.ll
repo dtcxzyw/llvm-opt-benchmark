@@ -746,6 +746,8 @@ if.else:                                          ; preds = %entry
 for.body26.lr.ph:                                 ; preds = %if.else
   %m_data.i23 = getelementptr inbounds %class.btTriangleMesh, ptr %this, i64 0, i32 3, i32 5
   %29 = load ptr, ptr %m_data.i23, align 8
+  %invariant.gep = getelementptr float, ptr %29, i64 1
+  %invariant.gep183 = getelementptr float, ptr %29, i64 2
   %30 = load float, ptr %vertex, align 4
   %arrayidx7.i36 = getelementptr inbounds [4 x float], ptr %vertex, i64 0, i64 1
   %31 = load float, ptr %arrayidx7.i36, align 4
@@ -753,18 +755,16 @@ for.body26.lr.ph:                                 ; preds = %if.else
   %32 = load float, ptr %arrayidx13.i39, align 4
   %m_weldingThreshold38 = getelementptr inbounds %class.btTriangleMesh, ptr %this, i64 0, i32 8
   %33 = load float, ptr %m_weldingThreshold38, align 4
-  %invariant.gep = getelementptr float, ptr %29, i64 1
-  %invariant.gep193 = getelementptr float, ptr %29, i64 2
   br label %for.body26
 
 for.body26:                                       ; preds = %for.body26.lr.ph, %for.inc42
-  %indvars.iv186 = phi i64 [ 0, %for.body26.lr.ph ], [ %indvars.iv.next187, %for.inc42 ]
-  %arrayidx.i25 = getelementptr inbounds float, ptr %29, i64 %indvars.iv186
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv186
-  %gep194 = getelementptr float, ptr %invariant.gep193, i64 %indvars.iv186
+  %indvars.iv188 = phi i64 [ 0, %for.body26.lr.ph ], [ %indvars.iv.next189, %for.inc42 ]
+  %arrayidx.i25 = getelementptr inbounds float, ptr %29, i64 %indvars.iv188
+  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv188
+  %gep184 = getelementptr float, ptr %invariant.gep183, i64 %indvars.iv188
   %34 = load float, ptr %arrayidx.i25, align 4
   %35 = load float, ptr %gep, align 4
-  %36 = load float, ptr %gep194, align 4
+  %36 = load float, ptr %gep184, align 4
   %sub.i34 = fsub float %34, %30
   %sub8.i37 = fsub float %35, %31
   %sub14.i40 = fsub float %36, %32
@@ -775,13 +775,13 @@ for.body26:                                       ; preds = %for.body26.lr.ph, %
   br i1 %cmp39, label %for.inc42, label %if.then40
 
 if.then40:                                        ; preds = %for.body26
-  %39 = trunc i64 %indvars.iv186 to i32
+  %39 = trunc i64 %indvars.iv188 to i32
   %div = udiv i32 %39, 3
   br label %return
 
 for.inc42:                                        ; preds = %for.body26
-  %indvars.iv.next187 = add nuw i64 %indvars.iv186, 3
-  %40 = trunc i64 %indvars.iv.next187 to i32
+  %indvars.iv.next189 = add nuw i64 %indvars.iv188, 3
+  %40 = trunc i64 %indvars.iv.next189 to i32
   %cmp25 = icmp sgt i32 %28, %40
   br i1 %cmp25, label %for.body26, label %if.end45, !llvm.loop !11
 

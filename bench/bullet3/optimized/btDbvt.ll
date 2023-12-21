@@ -475,6 +475,7 @@ _ZN20btAlignedObjectArrayIP10btDbvtNodeE9push_backERKS1_.exit: ; preds = %if.els
 define internal fastcc void @_ZL8bottomupP6btDbvtPP10btDbvtNodei(ptr nocapture noundef %pdbvt, ptr nocapture noundef %leaves, i32 noundef %count) unnamed_addr #5 {
 entry:
   %ref.tmp = alloca %struct.btDbvtAabbMm, align 4
+  %invariant.gep = getelementptr ptr, ptr %leaves, i64 -1
   %cmp56 = icmp sgt i32 %count, 1
   br i1 %cmp56, label %for.cond.preheader.lr.ph, label %while.end
 
@@ -633,10 +634,10 @@ _ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmS5_Pv.exit: ; preds = %for.b
   %parent31 = getelementptr inbounds %struct.btDbvtNode, ptr %20, i64 0, i32 1
   store ptr %node.0.i.i, ptr %parent31, align 8
   store ptr %node.0.i.i, ptr %arrayidx16, align 8
-  %indvars.iv.next65 = add nsw i64 %indvars.iv64, -1
-  %arrayidx36 = getelementptr inbounds ptr, ptr %leaves, i64 %indvars.iv.next65
-  %28 = load ptr, ptr %arrayidx36, align 8
+  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv64
+  %28 = load ptr, ptr %gep, align 8
   store ptr %28, ptr %arrayidx19, align 8
+  %indvars.iv.next65 = add nsw i64 %indvars.iv64, -1
   %cmp = icmp sgt i64 %indvars.iv64, 2
   br i1 %cmp, label %for.cond.preheader, label %while.end, !llvm.loop !13
 

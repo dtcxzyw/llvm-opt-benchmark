@@ -4803,15 +4803,14 @@ for.body17.lr.ph:                                 ; preds = %_ZNSt6vectorIN4pbrt
   store ptr %scevgep.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
   %ptr.i25 = getelementptr inbounds %"class.pbrt::ParsedParameter", ptr %3, i64 0, i32 3, i32 1
   %.pre = load ptr, ptr %ptr.i25, align 8
-  %invariant.gep47 = getelementptr float, ptr %.pre, i64 2
   br label %for.body17
 
 for.body17:                                       ; preds = %for.body17.lr.ph, %for.body17
   %indvars.iv = phi i64 [ 0, %for.body17.lr.ph ], [ %indvars.iv.next, %for.body17 ]
   %7 = mul nuw nsw i64 %indvars.iv, 3
-  %arrayidx.i = getelementptr inbounds float, ptr %.pre, i64 %7
-  %gep48 = getelementptr float, ptr %invariant.gep47, i64 %7
-  %8 = load float, ptr %gep48, align 4
+  %arrayidx.i = getelementptr float, ptr %.pre, i64 %7
+  %arrayidx.i29 = getelementptr float, ptr %arrayidx.i, i64 2
+  %8 = load float, ptr %arrayidx.i29, align 4
   %add.ptr.i30 = getelementptr inbounds %"class.pbrt::RGB", ptr %call5.i.i.i.i2.i.i23, i64 %indvars.iv
   %9 = load <2 x float>, ptr %arrayidx.i, align 4
   store <2 x float> %9, ptr %add.ptr.i30, align 4

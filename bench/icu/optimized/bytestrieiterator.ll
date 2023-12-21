@@ -817,70 +817,70 @@ if.end6:                                          ; preds = %if.then2
 
 _ZNK6icu_759UVector3210elementAtiEi.exit.thread:  ; preds = %if.end6
   %4 = load ptr, ptr %this, align 8
-  %sub12109 = add nsw i32 %3, -2
-  br label %_ZNK6icu_759UVector3210elementAtiEi.exit49
+  %sub1297 = add nsw i32 %3, -2
+  br label %_ZNK6icu_759UVector3210elementAtiEi.exit47
 
 _ZNK6icu_759UVector3210elementAtiEi.exit:         ; preds = %if.end6
-  %sub = add nsw i32 %3, -1
   %elements.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %2, i64 0, i32 4
   %5 = load ptr, ptr %elements.i, align 8
-  %idxprom.i = zext nneg i32 %sub to i64
-  %arrayidx.i = getelementptr inbounds i32, ptr %5, i64 %idxprom.i
-  %6 = load i32, ptr %arrayidx.i, align 4
-  %7 = load ptr, ptr %this, align 8
+  %6 = zext nneg i32 %3 to i64
+  %7 = getelementptr i32, ptr %5, i64 %6
+  %arrayidx.i = getelementptr i32, ptr %7, i64 -1
+  %8 = load i32, ptr %arrayidx.i, align 4
+  %9 = load ptr, ptr %this, align 8
   %cmp.i38.not = icmp eq i32 %3, 1
-  br i1 %cmp.i38.not, label %_ZNK6icu_759UVector3210elementAtiEi.exit49, label %cond.true.i45
+  br i1 %cmp.i38.not, label %_ZNK6icu_759UVector3210elementAtiEi.exit47, label %cond.true.i43
 
-cond.true.i45:                                    ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit
+cond.true.i43:                                    ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit
   %sub12 = add nsw i32 %3, -2
-  %elements.i46 = getelementptr inbounds %"class.icu_75::UVector32", ptr %2, i64 0, i32 4
-  %8 = load ptr, ptr %elements.i46, align 8
-  %idxprom.i47 = zext nneg i32 %sub12 to i64
-  %arrayidx.i48 = getelementptr inbounds i32, ptr %8, i64 %idxprom.i47
-  %9 = load i32, ptr %arrayidx.i48, align 4
-  %10 = sext i32 %9 to i64
-  br label %_ZNK6icu_759UVector3210elementAtiEi.exit49
+  %elements.i44 = getelementptr inbounds %"class.icu_75::UVector32", ptr %2, i64 0, i32 4
+  %10 = load ptr, ptr %elements.i44, align 8
+  %idxprom.i45 = zext nneg i32 %sub12 to i64
+  %arrayidx.i46 = getelementptr inbounds i32, ptr %10, i64 %idxprom.i45
+  %11 = load i32, ptr %arrayidx.i46, align 4
+  %12 = sext i32 %11 to i64
+  br label %_ZNK6icu_759UVector3210elementAtiEi.exit47
 
-_ZNK6icu_759UVector3210elementAtiEi.exit49:       ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit.thread, %_ZNK6icu_759UVector3210elementAtiEi.exit, %cond.true.i45
-  %sub12112 = phi i32 [ %sub12, %cond.true.i45 ], [ -1, %_ZNK6icu_759UVector3210elementAtiEi.exit ], [ %sub12109, %_ZNK6icu_759UVector3210elementAtiEi.exit.thread ]
-  %11 = phi ptr [ %7, %cond.true.i45 ], [ %7, %_ZNK6icu_759UVector3210elementAtiEi.exit ], [ %4, %_ZNK6icu_759UVector3210elementAtiEi.exit.thread ]
-  %cond.i111 = phi i32 [ %6, %cond.true.i45 ], [ %6, %_ZNK6icu_759UVector3210elementAtiEi.exit ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit.thread ]
-  %cond.i39 = phi i64 [ %10, %cond.true.i45 ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit.thread ]
-  %add.ptr = getelementptr inbounds i8, ptr %11, i64 %cond.i39
-  tail call void @_ZN6icu_759UVector327setSizeEi(ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %sub12112)
+_ZNK6icu_759UVector3210elementAtiEi.exit47:       ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit.thread, %_ZNK6icu_759UVector3210elementAtiEi.exit, %cond.true.i43
+  %sub12100 = phi i32 [ %sub12, %cond.true.i43 ], [ -1, %_ZNK6icu_759UVector3210elementAtiEi.exit ], [ %sub1297, %_ZNK6icu_759UVector3210elementAtiEi.exit.thread ]
+  %13 = phi ptr [ %9, %cond.true.i43 ], [ %9, %_ZNK6icu_759UVector3210elementAtiEi.exit ], [ %4, %_ZNK6icu_759UVector3210elementAtiEi.exit.thread ]
+  %cond.i99 = phi i32 [ %8, %cond.true.i43 ], [ %8, %_ZNK6icu_759UVector3210elementAtiEi.exit ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit.thread ]
+  %cond.i42 = phi i64 [ %12, %cond.true.i43 ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit.thread ]
+  %add.ptr = getelementptr inbounds i8, ptr %13, i64 %cond.i42
+  tail call void @_ZN6icu_759UVector327setSizeEi(ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %sub12100)
   %str_ = getelementptr inbounds %"class.icu_75::BytesTrie::Iterator", ptr %this, i64 0, i32 5
-  %12 = load ptr, ptr %str_, align 8
-  %and = and i32 %cond.i111, 65535
-  %call16 = tail call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString8truncateEi(ptr noundef nonnull align 8 dereferenceable(60) %12, i32 noundef %and)
-  %cmp17 = icmp ugt i32 %cond.i111, 131071
+  %14 = load ptr, ptr %str_, align 8
+  %and = and i32 %cond.i99, 65535
+  %call16 = tail call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString8truncateEi(ptr noundef nonnull align 8 dereferenceable(60) %14, i32 noundef %and)
+  %cmp17 = icmp ugt i32 %cond.i99, 131071
   br i1 %cmp17, label %if.then18, label %if.else
 
-if.then18:                                        ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit49
-  %shr = lshr i32 %cond.i111, 16
+if.then18:                                        ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit47
+  %shr = lshr i32 %cond.i99, 16
   %call19 = tail call noundef ptr @_ZN6icu_759BytesTrie8Iterator10branchNextEPKhiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %add.ptr, i32 noundef %shr, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %cmp20 = icmp eq ptr %call19, null
   br i1 %cmp20, label %return, label %if.end26
 
-if.else:                                          ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit49
-  %13 = load ptr, ptr %str_, align 8
+if.else:                                          ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit47
+  %15 = load ptr, ptr %str_, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 1
-  %14 = load i8, ptr %add.ptr, align 1
-  %call24 = tail call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %13, i8 noundef signext %14, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %16 = load i8, ptr %add.ptr, align 1
+  %call24 = tail call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %15, i8 noundef signext %16, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %if.end26
 
 if.end26:                                         ; preds = %if.else, %if.then18, %if.end
   %pos.0 = phi ptr [ %call19, %if.then18 ], [ %incdec.ptr, %if.else ], [ %1, %if.end ]
   %remainingMatchLength_ = getelementptr inbounds %"class.icu_75::BytesTrie::Iterator", ptr %this, i64 0, i32 3
-  %15 = load i32, ptr %remainingMatchLength_, align 8
-  %cmp27 = icmp sgt i32 %15, -1
+  %17 = load i32, ptr %remainingMatchLength_, align 8
+  %cmp27 = icmp sgt i32 %17, -1
   br i1 %cmp27, label %if.then28, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end26
-  %incdec.ptr3188 = getelementptr inbounds i8, ptr %pos.0, i64 1
-  %16 = load i8, ptr %pos.0, align 1
-  %conv89 = zext i8 %16 to i32
-  %cmp3290 = icmp ugt i8 %16, 31
-  br i1 %cmp3290, label %if.then33, label %if.end50.lr.ph
+  %incdec.ptr3176 = getelementptr inbounds i8, ptr %pos.0, i64 1
+  %18 = load i8, ptr %pos.0, align 1
+  %conv77 = zext i8 %18 to i32
+  %cmp3278 = icmp ugt i8 %18, 31
+  br i1 %cmp3278, label %if.then33, label %if.end50.lr.ph
 
 if.end50.lr.ph:                                   ; preds = %for.cond.preheader
   %maxLength_51 = getelementptr inbounds %"class.icu_75::BytesTrie::Iterator", ptr %this, i64 0, i32 6
@@ -895,10 +895,10 @@ if.then28:                                        ; preds = %if.end26
 
 if.then33:                                        ; preds = %if.end97, %for.cond.preheader
   %pos.1.lcssa = phi ptr [ %pos.0, %for.cond.preheader ], [ %pos.3, %if.end97 ]
-  %incdec.ptr31.lcssa = phi ptr [ %incdec.ptr3188, %for.cond.preheader ], [ %incdec.ptr31, %if.end97 ]
-  %.lcssa75 = phi i8 [ %16, %for.cond.preheader ], [ %26, %if.end97 ]
-  %conv.lcssa = phi i32 [ %conv89, %for.cond.preheader ], [ %conv, %if.end97 ]
-  %and34 = and i8 %.lcssa75, 1
+  %incdec.ptr31.lcssa = phi ptr [ %incdec.ptr3176, %for.cond.preheader ], [ %incdec.ptr31, %if.end97 ]
+  %.lcssa63 = phi i8 [ %18, %for.cond.preheader ], [ %30, %if.end97 ]
+  %conv.lcssa = phi i32 [ %conv77, %for.cond.preheader ], [ %conv, %if.end97 ]
+  %and34 = and i8 %.lcssa63, 1
   %shr36 = lshr i32 %conv.lcssa, 1
   %call37 = tail call noundef i32 @_ZN6icu_759BytesTrie9readValueEPKhi(ptr noundef nonnull %incdec.ptr31.lcssa, i32 noundef %shr36)
   %value_ = getelementptr inbounds %"class.icu_75::BytesTrie::Iterator", ptr %this, i64 0, i32 7
@@ -908,24 +908,24 @@ if.then33:                                        ; preds = %if.end97, %for.cond
 
 lor.lhs.false:                                    ; preds = %if.then33
   %maxLength_ = getelementptr inbounds %"class.icu_75::BytesTrie::Iterator", ptr %this, i64 0, i32 6
-  %17 = load i32, ptr %maxLength_, align 8
-  %cmp39 = icmp sgt i32 %17, 0
+  %19 = load i32, ptr %maxLength_, align 8
+  %cmp39 = icmp sgt i32 %19, 0
   br i1 %cmp39, label %land.lhs.true, label %if.else46
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
   %str_40 = getelementptr inbounds %"class.icu_75::BytesTrie::Iterator", ptr %this, i64 0, i32 5
-  %18 = load ptr, ptr %str_40, align 8
-  %len.i = getelementptr inbounds %"class.icu_75::CharString", ptr %18, i64 0, i32 1
-  %19 = load i32, ptr %len.i, align 8
-  %cmp43 = icmp eq i32 %19, %17
+  %20 = load ptr, ptr %str_40, align 8
+  %len.i = getelementptr inbounds %"class.icu_75::CharString", ptr %20, i64 0, i32 1
+  %21 = load i32, ptr %len.i, align 8
+  %cmp43 = icmp eq i32 %21, %19
   br i1 %cmp43, label %if.end49, label %if.else46
 
 if.else46:                                        ; preds = %land.lhs.true, %lor.lhs.false
-  %cmp.i50 = icmp ugt i8 %.lcssa75, -95
-  br i1 %cmp.i50, label %if.then.i, label %if.end49
+  %cmp.i48 = icmp ugt i8 %.lcssa63, -95
+  br i1 %cmp.i48, label %if.then.i, label %if.end49
 
 if.then.i:                                        ; preds = %if.else46
-  %cmp1.i = icmp ult i8 %.lcssa75, -40
+  %cmp1.i = icmp ult i8 %.lcssa63, -40
   br i1 %cmp1.i, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -933,7 +933,7 @@ if.then2.i:                                       ; preds = %if.then.i
   br label %if.end49
 
 if.else.i:                                        ; preds = %if.then.i
-  %cmp3.i = icmp ult i8 %.lcssa75, -4
+  %cmp3.i = icmp ult i8 %.lcssa63, -4
   br i1 %cmp3.i, label %if.then4.i, label %if.else5.i
 
 if.then4.i:                                       ; preds = %if.else.i
@@ -942,9 +942,9 @@ if.then4.i:                                       ; preds = %if.else.i
 
 if.else5.i:                                       ; preds = %if.else.i
   %and.i = and i32 %shr36, 1
-  %add.i = add nuw nsw i32 %and.i, 3
-  %idx.ext.i = zext nneg i32 %add.i to i64
-  %add.ptr6.i = getelementptr inbounds i8, ptr %incdec.ptr31.lcssa, i64 %idx.ext.i
+  %22 = zext nneg i32 %and.i to i64
+  %23 = getelementptr i8, ptr %incdec.ptr31.lcssa, i64 %22
+  %add.ptr6.i = getelementptr i8, ptr %23, i64 3
   br label %if.end49
 
 if.end49:                                         ; preds = %if.else5.i, %if.then4.i, %if.then2.i, %if.else46, %if.then33, %land.lhs.true
@@ -953,86 +953,86 @@ if.end49:                                         ; preds = %if.else5.i, %if.the
   br label %return
 
 if.end50:                                         ; preds = %if.end50.lr.ph, %if.end97
-  %conv93 = phi i32 [ %conv89, %if.end50.lr.ph ], [ %conv, %if.end97 ]
-  %20 = phi i8 [ %16, %if.end50.lr.ph ], [ %26, %if.end97 ]
-  %incdec.ptr3192 = phi ptr [ %incdec.ptr3188, %if.end50.lr.ph ], [ %incdec.ptr31, %if.end97 ]
-  %pos.191 = phi ptr [ %pos.0, %if.end50.lr.ph ], [ %pos.3, %if.end97 ]
-  %21 = load i32, ptr %maxLength_51, align 8
-  %cmp52 = icmp sgt i32 %21, 0
+  %conv81 = phi i32 [ %conv77, %if.end50.lr.ph ], [ %conv, %if.end97 ]
+  %24 = phi i8 [ %18, %if.end50.lr.ph ], [ %30, %if.end97 ]
+  %incdec.ptr3180 = phi ptr [ %incdec.ptr3176, %if.end50.lr.ph ], [ %incdec.ptr31, %if.end97 ]
+  %pos.179 = phi ptr [ %pos.0, %if.end50.lr.ph ], [ %pos.3, %if.end97 ]
+  %25 = load i32, ptr %maxLength_51, align 8
+  %cmp52 = icmp sgt i32 %25, 0
   br i1 %cmp52, label %land.lhs.true53, label %if.end60.thread
 
 land.lhs.true53:                                  ; preds = %if.end50
-  %22 = load ptr, ptr %str_54, align 8
-  %len.i51 = getelementptr inbounds %"class.icu_75::CharString", ptr %22, i64 0, i32 1
-  %23 = load i32, ptr %len.i51, align 8
-  %cmp57 = icmp eq i32 %23, %21
+  %26 = load ptr, ptr %str_54, align 8
+  %len.i49 = getelementptr inbounds %"class.icu_75::CharString", ptr %26, i64 0, i32 1
+  %27 = load i32, ptr %len.i49, align 8
+  %cmp57 = icmp eq i32 %27, %25
   br i1 %cmp57, label %if.then58, label %if.end60
 
 if.then58:                                        ; preds = %land.lhs.true53
   store ptr null, ptr %pos_, align 8
-  %value_.i53 = getelementptr inbounds %"class.icu_75::BytesTrie::Iterator", ptr %this, i64 0, i32 7
-  store i32 -1, ptr %value_.i53, align 4
+  %value_.i51 = getelementptr inbounds %"class.icu_75::BytesTrie::Iterator", ptr %this, i64 0, i32 7
+  store i32 -1, ptr %value_.i51, align 4
   br label %return
 
 if.end60:                                         ; preds = %land.lhs.true53
-  %cmp61 = icmp ult i8 %20, 16
+  %cmp61 = icmp ult i8 %24, 16
   br i1 %cmp61, label %if.then62, label %land.lhs.true78
 
 if.end60.thread:                                  ; preds = %if.end50
-  %cmp6168 = icmp ult i8 %20, 16
-  br i1 %cmp6168, label %if.then62, label %if.else72.thread
+  %cmp6156 = icmp ult i8 %24, 16
+  br i1 %cmp6156, label %if.then62, label %if.else72.thread
 
 if.else72.thread:                                 ; preds = %if.end60.thread
-  %add7569 = add nsw i32 %conv93, -15
+  %add7557 = add nsw i32 %conv81, -15
   %.pre = load ptr, ptr %str_54, align 8
   br label %if.end92
 
 if.then62:                                        ; preds = %if.end60.thread, %if.end60
-  %cmp63 = icmp eq i8 %20, 0
+  %cmp63 = icmp eq i8 %24, 0
   br i1 %cmp63, label %if.then64, label %if.end67
 
 if.then64:                                        ; preds = %if.then62
-  %incdec.ptr65 = getelementptr inbounds i8, ptr %pos.191, i64 2
-  %24 = load i8, ptr %incdec.ptr3192, align 1
-  %conv66 = zext i8 %24 to i32
+  %incdec.ptr65 = getelementptr inbounds i8, ptr %pos.179, i64 2
+  %28 = load i8, ptr %incdec.ptr3180, align 1
+  %conv66 = zext i8 %28 to i32
   br label %if.end67
 
 if.end67:                                         ; preds = %if.then64, %if.then62
-  %node.0 = phi i32 [ %conv66, %if.then64 ], [ %conv93, %if.then62 ]
-  %pos.2 = phi ptr [ %incdec.ptr65, %if.then64 ], [ %incdec.ptr3192, %if.then62 ]
+  %node.0 = phi i32 [ %conv66, %if.then64 ], [ %conv81, %if.then62 ]
+  %pos.2 = phi ptr [ %incdec.ptr65, %if.then64 ], [ %incdec.ptr3180, %if.then62 ]
   %add = add nuw nsw i32 %node.0, 1
   %call68 = tail call noundef ptr @_ZN6icu_759BytesTrie8Iterator10branchNextEPKhiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull %pos.2, i32 noundef %add, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %cmp69 = icmp eq ptr %call68, null
   br i1 %cmp69, label %return, label %if.end97
 
 land.lhs.true78:                                  ; preds = %if.end60
-  %add75 = add nsw i32 %conv93, -15
-  %add81 = add nsw i32 %23, %add75
-  %cmp83 = icmp sgt i32 %add81, %21
+  %add75 = add nsw i32 %conv81, -15
+  %add81 = add nsw i32 %27, %add75
+  %cmp83 = icmp sgt i32 %add81, %25
   br i1 %cmp83, label %if.then84, label %if.end92
 
 if.then84:                                        ; preds = %land.lhs.true78
-  %sub89 = sub nsw i32 %21, %23
-  %call90 = tail call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %22, ptr noundef nonnull %incdec.ptr3192, i32 noundef %sub89, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %sub89 = sub nsw i32 %25, %27
+  %call90 = tail call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %26, ptr noundef nonnull %incdec.ptr3180, i32 noundef %sub89, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   store ptr null, ptr %pos_, align 8
-  %value_.i57 = getelementptr inbounds %"class.icu_75::BytesTrie::Iterator", ptr %this, i64 0, i32 7
-  store i32 -1, ptr %value_.i57, align 4
+  %value_.i55 = getelementptr inbounds %"class.icu_75::BytesTrie::Iterator", ptr %this, i64 0, i32 7
+  store i32 -1, ptr %value_.i55, align 4
   br label %return
 
 if.end92:                                         ; preds = %if.else72.thread, %land.lhs.true78
-  %25 = phi ptr [ %.pre, %if.else72.thread ], [ %22, %land.lhs.true78 ]
-  %add7570 = phi i32 [ %add7569, %if.else72.thread ], [ %add75, %land.lhs.true78 ]
-  %call94 = tail call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %25, ptr noundef nonnull %incdec.ptr3192, i32 noundef %add7570, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-  %idx.ext95 = zext nneg i32 %add7570 to i64
-  %add.ptr96 = getelementptr inbounds i8, ptr %incdec.ptr3192, i64 %idx.ext95
+  %29 = phi ptr [ %.pre, %if.else72.thread ], [ %26, %land.lhs.true78 ]
+  %add7558 = phi i32 [ %add7557, %if.else72.thread ], [ %add75, %land.lhs.true78 ]
+  %call94 = tail call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %29, ptr noundef nonnull %incdec.ptr3180, i32 noundef %add7558, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %idx.ext95 = zext nneg i32 %add7558 to i64
+  %add.ptr96 = getelementptr inbounds i8, ptr %incdec.ptr3180, i64 %idx.ext95
   br label %if.end97
 
 if.end97:                                         ; preds = %if.end67, %if.end92
   %pos.3 = phi ptr [ %call68, %if.end67 ], [ %add.ptr96, %if.end92 ]
   %incdec.ptr31 = getelementptr inbounds i8, ptr %pos.3, i64 1
-  %26 = load i8, ptr %pos.3, align 1
-  %conv = zext i8 %26 to i32
-  %cmp32 = icmp ugt i8 %26, 31
+  %30 = load i8, ptr %pos.3, align 1
+  %conv = zext i8 %30 to i32
+  %cmp32 = icmp ugt i8 %30, 31
   br i1 %cmp32, label %if.then33, label %if.end50, !llvm.loop !4
 
 return:                                           ; preds = %if.end67, %if.then18, %if.then2, %entry, %if.then84, %if.then58, %if.end49, %if.then28
@@ -1043,8 +1043,8 @@ return:                                           ; preds = %if.end67, %if.then1
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6icu_759BytesTrie8Iterator10branchNextEPKhiR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %pos, i32 noundef %length, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
-  %cmp83 = icmp sgt i32 %length, 5
-  br i1 %cmp83, label %while.body.lr.ph, label %while.end
+  %cmp81 = icmp sgt i32 %length, 5
+  br i1 %cmp81, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
   %stack_ = getelementptr inbounds %"class.icu_75::BytesTrie::Iterator", ptr %this, i64 0, i32 8
@@ -1052,11 +1052,11 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit37
-  %pos.addr.085 = phi ptr [ %pos, %while.body.lr.ph ], [ %call5, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit37 ]
-  %length.addr.084 = phi i32 [ %length, %while.body.lr.ph ], [ %shr, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit37 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %pos.addr.085, i64 1
+  %pos.addr.083 = phi ptr [ %pos, %while.body.lr.ph ], [ %call5, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit37 ]
+  %length.addr.082 = phi i32 [ %length, %while.body.lr.ph ], [ %shr, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit37 ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %pos.addr.083, i64 1
   %0 = load ptr, ptr %stack_, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %pos.addr.085, i64 2
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %pos.addr.083, i64 2
   %1 = load i8, ptr %incdec.ptr, align 1
   %cmp.i = icmp ugt i8 %1, -65
   br i1 %cmp.i, label %if.then.i, label %_ZN6icu_759BytesTrie9skipDeltaEPKh.exit
@@ -1066,7 +1066,7 @@ if.then.i:                                        ; preds = %while.body
   br i1 %cmp1.i, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %incdec.ptr3.i = getelementptr inbounds i8, ptr %pos.addr.085, i64 3
+  %incdec.ptr3.i = getelementptr inbounds i8, ptr %pos.addr.083, i64 3
   br label %_ZN6icu_759BytesTrie9skipDeltaEPKh.exit
 
 if.else.i:                                        ; preds = %if.then.i
@@ -1074,34 +1074,34 @@ if.else.i:                                        ; preds = %if.then.i
   br i1 %cmp4.i, label %if.then5.i, label %if.else6.i
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %pos.addr.085, i64 4
+  %add.ptr.i = getelementptr inbounds i8, ptr %pos.addr.083, i64 4
   br label %_ZN6icu_759BytesTrie9skipDeltaEPKh.exit
 
 if.else6.i:                                       ; preds = %if.else.i
   %2 = and i8 %1, 1
-  %narrow.i = add nuw nsw i8 %2, 3
-  %idx.ext.i = zext nneg i8 %narrow.i to i64
-  %add.ptr7.i = getelementptr inbounds i8, ptr %incdec.ptr.i, i64 %idx.ext.i
+  %3 = zext nneg i8 %2 to i64
+  %4 = getelementptr i8, ptr %incdec.ptr.i, i64 %3
+  %add.ptr7.i = getelementptr i8, ptr %4, i64 3
   br label %_ZN6icu_759BytesTrie9skipDeltaEPKh.exit
 
 _ZN6icu_759BytesTrie9skipDeltaEPKh.exit:          ; preds = %while.body, %if.then2.i, %if.then5.i, %if.else6.i
   %pos.addr.0.i = phi ptr [ %incdec.ptr3.i, %if.then2.i ], [ %add.ptr.i, %if.then5.i ], [ %add.ptr7.i, %if.else6.i ], [ %incdec.ptr.i, %while.body ]
-  %3 = load ptr, ptr %this, align 8
+  %5 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %pos.addr.0.i to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %3 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %5 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv = trunc i64 %sub.ptr.sub to i32
   %count.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %0, i64 0, i32 1
-  %4 = load i32, ptr %count.i, align 8
-  %cmp.i.i = icmp slt i32 %4, -1
+  %6 = load i32, ptr %count.i, align 8
+  %cmp.i.i = icmp slt i32 %6, -1
   %capacity.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %0, i64 0, i32 2
-  %5 = load i32, ptr %capacity.i.i, align 4
-  %cmp2.not.i.i = icmp sle i32 %5, %4
+  %7 = load i32, ptr %capacity.i.i, align 4
+  %cmp2.not.i.i = icmp sle i32 %7, %6
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp2.not.i.i
   br i1 %or.cond.i.i, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i, label %if.then.i20
 
 _ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_759BytesTrie9skipDeltaEPKh.exit
-  %add.i = add nsw i32 %4, 1
+  %add.i = add nsw i32 %6, 1
   %call.i.i = tail call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %add.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %tobool.not.i = icmp eq i8 %call.i.i, 0
   br i1 %tobool.not.i, label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i
@@ -1111,38 +1111,38 @@ _ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i: ; 
   br label %if.then.i20
 
 if.then.i20:                                      ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i, %_ZN6icu_759BytesTrie9skipDeltaEPKh.exit
-  %6 = phi i32 [ %.pre.i, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i ], [ %4, %_ZN6icu_759BytesTrie9skipDeltaEPKh.exit ]
+  %8 = phi i32 [ %.pre.i, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i ], [ %6, %_ZN6icu_759BytesTrie9skipDeltaEPKh.exit ]
   %elements.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %0, i64 0, i32 4
-  %7 = load ptr, ptr %elements.i, align 8
-  %idxprom.i = sext i32 %6 to i64
-  %arrayidx.i = getelementptr inbounds i32, ptr %7, i64 %idxprom.i
+  %9 = load ptr, ptr %elements.i, align 8
+  %idxprom.i = sext i32 %8 to i64
+  %arrayidx.i = getelementptr inbounds i32, ptr %9, i64 %idxprom.i
   store i32 %conv, ptr %arrayidx.i, align 4
-  %8 = load i32, ptr %count.i, align 8
-  %inc.i = add nsw i32 %8, 1
+  %10 = load i32, ptr %count.i, align 8
+  %inc.i = add nsw i32 %10, 1
   store i32 %inc.i, ptr %count.i, align 8
   br label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit
 
 _ZN6icu_759UVector3210addElementEiR10UErrorCode.exit: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i, %if.then.i20
-  %9 = load ptr, ptr %stack_, align 8
-  %shr = lshr i32 %length.addr.084, 1
-  %sub = sub nsw i32 %length.addr.084, %shr
+  %11 = load ptr, ptr %stack_, align 8
+  %shr = lshr i32 %length.addr.082, 1
+  %sub = sub nsw i32 %length.addr.082, %shr
   %shl = shl i32 %sub, 16
-  %10 = load ptr, ptr %str_, align 8
-  %len.i = getelementptr inbounds %"class.icu_75::CharString", ptr %10, i64 0, i32 1
-  %11 = load i32, ptr %len.i, align 8
-  %or = or i32 %11, %shl
-  %count.i21 = getelementptr inbounds %"class.icu_75::UVector32", ptr %9, i64 0, i32 1
-  %12 = load i32, ptr %count.i21, align 8
-  %cmp.i.i22 = icmp slt i32 %12, -1
-  %capacity.i.i23 = getelementptr inbounds %"class.icu_75::UVector32", ptr %9, i64 0, i32 2
-  %13 = load i32, ptr %capacity.i.i23, align 4
-  %cmp2.not.i.i24 = icmp sle i32 %13, %12
+  %12 = load ptr, ptr %str_, align 8
+  %len.i = getelementptr inbounds %"class.icu_75::CharString", ptr %12, i64 0, i32 1
+  %13 = load i32, ptr %len.i, align 8
+  %or = or i32 %13, %shl
+  %count.i21 = getelementptr inbounds %"class.icu_75::UVector32", ptr %11, i64 0, i32 1
+  %14 = load i32, ptr %count.i21, align 8
+  %cmp.i.i22 = icmp slt i32 %14, -1
+  %capacity.i.i23 = getelementptr inbounds %"class.icu_75::UVector32", ptr %11, i64 0, i32 2
+  %15 = load i32, ptr %capacity.i.i23, align 4
+  %cmp2.not.i.i24 = icmp sle i32 %15, %14
   %or.cond.i.i25 = select i1 %cmp.i.i22, i1 true, i1 %cmp2.not.i.i24
   br i1 %or.cond.i.i25, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i31, label %if.then.i26
 
 _ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i31: ; preds = %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit
-  %add.i32 = add nsw i32 %12, 1
-  %call.i.i33 = tail call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef %add.i32, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %add.i32 = add nsw i32 %14, 1
+  %call.i.i33 = tail call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef %add.i32, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %tobool.not.i34 = icmp eq i8 %call.i.i33, 0
   br i1 %tobool.not.i34, label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit37, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i35
 
@@ -1151,153 +1151,153 @@ _ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i35: 
   br label %if.then.i26
 
 if.then.i26:                                      ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i35, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit
-  %14 = phi i32 [ %.pre.i36, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i35 ], [ %12, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit ]
-  %elements.i27 = getelementptr inbounds %"class.icu_75::UVector32", ptr %9, i64 0, i32 4
-  %15 = load ptr, ptr %elements.i27, align 8
-  %idxprom.i28 = sext i32 %14 to i64
-  %arrayidx.i29 = getelementptr inbounds i32, ptr %15, i64 %idxprom.i28
+  %16 = phi i32 [ %.pre.i36, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i35 ], [ %14, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit ]
+  %elements.i27 = getelementptr inbounds %"class.icu_75::UVector32", ptr %11, i64 0, i32 4
+  %17 = load ptr, ptr %elements.i27, align 8
+  %idxprom.i28 = sext i32 %16 to i64
+  %arrayidx.i29 = getelementptr inbounds i32, ptr %17, i64 %idxprom.i28
   store i32 %or, ptr %arrayidx.i29, align 4
-  %16 = load i32, ptr %count.i21, align 8
-  %inc.i30 = add nsw i32 %16, 1
+  %18 = load i32, ptr %count.i21, align 8
+  %inc.i30 = add nsw i32 %18, 1
   store i32 %inc.i30, ptr %count.i21, align 8
   br label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit37
 
 _ZN6icu_759UVector3210addElementEiR10UErrorCode.exit37: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i31, %if.then.i26
   %call5 = tail call noundef ptr @_ZN6icu_759BytesTrie11jumpByDeltaEPKh(ptr noundef nonnull %incdec.ptr)
-  %cmp = icmp ugt i32 %length.addr.084, 11
+  %cmp = icmp ugt i32 %length.addr.082, 11
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !6
 
 while.end:                                        ; preds = %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit37, %entry
   %length.addr.0.lcssa = phi i32 [ %length, %entry ], [ %shr, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit37 ]
   %pos.addr.0.lcssa = phi ptr [ %pos, %entry ], [ %call5, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit37 ]
   %incdec.ptr6 = getelementptr inbounds i8, ptr %pos.addr.0.lcssa, i64 1
-  %17 = load i8, ptr %pos.addr.0.lcssa, align 1
+  %19 = load i8, ptr %pos.addr.0.lcssa, align 1
   %incdec.ptr7 = getelementptr inbounds i8, ptr %pos.addr.0.lcssa, i64 2
-  %18 = load i8, ptr %incdec.ptr6, align 1
-  %and = and i8 %18, 1
-  %19 = lshr i8 %18, 1
-  %shr10 = zext nneg i8 %19 to i32
+  %20 = load i8, ptr %incdec.ptr6, align 1
+  %and = and i8 %20, 1
+  %21 = lshr i8 %20, 1
+  %shr10 = zext nneg i8 %21 to i32
   %call11 = tail call noundef i32 @_ZN6icu_759BytesTrie9readValueEPKhi(ptr noundef nonnull %incdec.ptr7, i32 noundef %shr10)
-  %cmp.i38 = icmp ugt i8 %18, -95
+  %cmp.i38 = icmp ugt i8 %20, -95
   br i1 %cmp.i38, label %if.then.i40, label %_ZN6icu_759BytesTrie9skipValueEPKhi.exit
 
 if.then.i40:                                      ; preds = %while.end
-  %cmp1.i41 = icmp ult i8 %18, -40
-  br i1 %cmp1.i41, label %if.then2.i46, label %if.else.i42
+  %cmp1.i41 = icmp ult i8 %20, -40
+  br i1 %cmp1.i41, label %if.then2.i44, label %if.else.i42
 
-if.then2.i46:                                     ; preds = %if.then.i40
-  %incdec.ptr.i47 = getelementptr inbounds i8, ptr %pos.addr.0.lcssa, i64 3
+if.then2.i44:                                     ; preds = %if.then.i40
+  %incdec.ptr.i45 = getelementptr inbounds i8, ptr %pos.addr.0.lcssa, i64 3
   br label %_ZN6icu_759BytesTrie9skipValueEPKhi.exit
 
 if.else.i42:                                      ; preds = %if.then.i40
-  %cmp3.i = icmp ult i8 %18, -4
+  %cmp3.i = icmp ult i8 %20, -4
   br i1 %cmp3.i, label %if.then4.i, label %if.else5.i
 
 if.then4.i:                                       ; preds = %if.else.i42
-  %add.ptr.i45 = getelementptr inbounds i8, ptr %pos.addr.0.lcssa, i64 4
+  %add.ptr.i43 = getelementptr inbounds i8, ptr %pos.addr.0.lcssa, i64 4
   br label %_ZN6icu_759BytesTrie9skipValueEPKhi.exit
 
 if.else5.i:                                       ; preds = %if.else.i42
   %and.i = and i32 %shr10, 1
-  %add.i43 = add nuw nsw i32 %and.i, 3
-  %idx.ext.i44 = zext nneg i32 %add.i43 to i64
-  %add.ptr6.i = getelementptr inbounds i8, ptr %incdec.ptr7, i64 %idx.ext.i44
+  %22 = zext nneg i32 %and.i to i64
+  %23 = getelementptr i8, ptr %incdec.ptr7, i64 %22
+  %add.ptr6.i = getelementptr i8, ptr %23, i64 3
   br label %_ZN6icu_759BytesTrie9skipValueEPKhi.exit
 
-_ZN6icu_759BytesTrie9skipValueEPKhi.exit:         ; preds = %while.end, %if.then2.i46, %if.then4.i, %if.else5.i
-  %pos.addr.0.i39 = phi ptr [ %incdec.ptr.i47, %if.then2.i46 ], [ %add.ptr.i45, %if.then4.i ], [ %add.ptr6.i, %if.else5.i ], [ %incdec.ptr7, %while.end ]
+_ZN6icu_759BytesTrie9skipValueEPKhi.exit:         ; preds = %while.end, %if.then2.i44, %if.then4.i, %if.else5.i
+  %pos.addr.0.i39 = phi ptr [ %incdec.ptr.i45, %if.then2.i44 ], [ %add.ptr.i43, %if.then4.i ], [ %add.ptr6.i, %if.else5.i ], [ %incdec.ptr7, %while.end ]
   %stack_13 = getelementptr inbounds %"class.icu_75::BytesTrie::Iterator", ptr %this, i64 0, i32 8
-  %20 = load ptr, ptr %stack_13, align 8
-  %21 = load ptr, ptr %this, align 8
+  %24 = load ptr, ptr %stack_13, align 8
+  %25 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast15 = ptrtoint ptr %pos.addr.0.i39 to i64
-  %sub.ptr.rhs.cast16 = ptrtoint ptr %21 to i64
+  %sub.ptr.rhs.cast16 = ptrtoint ptr %25 to i64
   %sub.ptr.sub17 = sub i64 %sub.ptr.lhs.cast15, %sub.ptr.rhs.cast16
   %conv18 = trunc i64 %sub.ptr.sub17 to i32
-  %count.i48 = getelementptr inbounds %"class.icu_75::UVector32", ptr %20, i64 0, i32 1
-  %22 = load i32, ptr %count.i48, align 8
-  %cmp.i.i49 = icmp slt i32 %22, -1
-  %capacity.i.i50 = getelementptr inbounds %"class.icu_75::UVector32", ptr %20, i64 0, i32 2
-  %23 = load i32, ptr %capacity.i.i50, align 4
-  %cmp2.not.i.i51 = icmp sle i32 %23, %22
-  %or.cond.i.i52 = select i1 %cmp.i.i49, i1 true, i1 %cmp2.not.i.i51
-  br i1 %or.cond.i.i52, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i58, label %if.then.i53
+  %count.i46 = getelementptr inbounds %"class.icu_75::UVector32", ptr %24, i64 0, i32 1
+  %26 = load i32, ptr %count.i46, align 8
+  %cmp.i.i47 = icmp slt i32 %26, -1
+  %capacity.i.i48 = getelementptr inbounds %"class.icu_75::UVector32", ptr %24, i64 0, i32 2
+  %27 = load i32, ptr %capacity.i.i48, align 4
+  %cmp2.not.i.i49 = icmp sle i32 %27, %26
+  %or.cond.i.i50 = select i1 %cmp.i.i47, i1 true, i1 %cmp2.not.i.i49
+  br i1 %or.cond.i.i50, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i56, label %if.then.i51
 
-_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i58: ; preds = %_ZN6icu_759BytesTrie9skipValueEPKhi.exit
-  %add.i59 = add nsw i32 %22, 1
-  %call.i.i60 = tail call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %20, i32 noundef %add.i59, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-  %tobool.not.i61 = icmp eq i8 %call.i.i60, 0
-  br i1 %tobool.not.i61, label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit64, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i62
+_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i56: ; preds = %_ZN6icu_759BytesTrie9skipValueEPKhi.exit
+  %add.i57 = add nsw i32 %26, 1
+  %call.i.i58 = tail call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef %add.i57, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %tobool.not.i59 = icmp eq i8 %call.i.i58, 0
+  br i1 %tobool.not.i59, label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit62, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i60
 
-_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i62: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i58
-  %.pre.i63 = load i32, ptr %count.i48, align 8
-  br label %if.then.i53
+_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i60: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i56
+  %.pre.i61 = load i32, ptr %count.i46, align 8
+  br label %if.then.i51
 
-if.then.i53:                                      ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i62, %_ZN6icu_759BytesTrie9skipValueEPKhi.exit
-  %24 = phi i32 [ %.pre.i63, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i62 ], [ %22, %_ZN6icu_759BytesTrie9skipValueEPKhi.exit ]
-  %elements.i54 = getelementptr inbounds %"class.icu_75::UVector32", ptr %20, i64 0, i32 4
-  %25 = load ptr, ptr %elements.i54, align 8
-  %idxprom.i55 = sext i32 %24 to i64
-  %arrayidx.i56 = getelementptr inbounds i32, ptr %25, i64 %idxprom.i55
-  store i32 %conv18, ptr %arrayidx.i56, align 4
-  %26 = load i32, ptr %count.i48, align 8
-  %inc.i57 = add nsw i32 %26, 1
-  store i32 %inc.i57, ptr %count.i48, align 8
-  br label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit64
+if.then.i51:                                      ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i60, %_ZN6icu_759BytesTrie9skipValueEPKhi.exit
+  %28 = phi i32 [ %.pre.i61, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i60 ], [ %26, %_ZN6icu_759BytesTrie9skipValueEPKhi.exit ]
+  %elements.i52 = getelementptr inbounds %"class.icu_75::UVector32", ptr %24, i64 0, i32 4
+  %29 = load ptr, ptr %elements.i52, align 8
+  %idxprom.i53 = sext i32 %28 to i64
+  %arrayidx.i54 = getelementptr inbounds i32, ptr %29, i64 %idxprom.i53
+  store i32 %conv18, ptr %arrayidx.i54, align 4
+  %30 = load i32, ptr %count.i46, align 8
+  %inc.i55 = add nsw i32 %30, 1
+  store i32 %inc.i55, ptr %count.i46, align 8
+  br label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit62
 
-_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit64: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i58, %if.then.i53
-  %27 = load ptr, ptr %stack_13, align 8
+_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit62: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i56, %if.then.i51
+  %31 = load ptr, ptr %stack_13, align 8
   %sub20 = shl i32 %length.addr.0.lcssa, 16
   %shl21 = add i32 %sub20, -65536
   %str_22 = getelementptr inbounds %"class.icu_75::BytesTrie::Iterator", ptr %this, i64 0, i32 5
-  %28 = load ptr, ptr %str_22, align 8
-  %len.i65 = getelementptr inbounds %"class.icu_75::CharString", ptr %28, i64 0, i32 1
-  %29 = load i32, ptr %len.i65, align 8
-  %or24 = or i32 %29, %shl21
-  %count.i66 = getelementptr inbounds %"class.icu_75::UVector32", ptr %27, i64 0, i32 1
-  %30 = load i32, ptr %count.i66, align 8
-  %cmp.i.i67 = icmp slt i32 %30, -1
-  %capacity.i.i68 = getelementptr inbounds %"class.icu_75::UVector32", ptr %27, i64 0, i32 2
-  %31 = load i32, ptr %capacity.i.i68, align 4
-  %cmp2.not.i.i69 = icmp sle i32 %31, %30
-  %or.cond.i.i70 = select i1 %cmp.i.i67, i1 true, i1 %cmp2.not.i.i69
-  br i1 %or.cond.i.i70, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i76, label %if.then.i71
+  %32 = load ptr, ptr %str_22, align 8
+  %len.i63 = getelementptr inbounds %"class.icu_75::CharString", ptr %32, i64 0, i32 1
+  %33 = load i32, ptr %len.i63, align 8
+  %or24 = or i32 %33, %shl21
+  %count.i64 = getelementptr inbounds %"class.icu_75::UVector32", ptr %31, i64 0, i32 1
+  %34 = load i32, ptr %count.i64, align 8
+  %cmp.i.i65 = icmp slt i32 %34, -1
+  %capacity.i.i66 = getelementptr inbounds %"class.icu_75::UVector32", ptr %31, i64 0, i32 2
+  %35 = load i32, ptr %capacity.i.i66, align 4
+  %cmp2.not.i.i67 = icmp sle i32 %35, %34
+  %or.cond.i.i68 = select i1 %cmp.i.i65, i1 true, i1 %cmp2.not.i.i67
+  br i1 %or.cond.i.i68, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i74, label %if.then.i69
 
-_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i76: ; preds = %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit64
-  %add.i77 = add nsw i32 %30, 1
-  %call.i.i78 = tail call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef %add.i77, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-  %tobool.not.i79 = icmp eq i8 %call.i.i78, 0
-  br i1 %tobool.not.i79, label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit82, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i80
+_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i74: ; preds = %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit62
+  %add.i75 = add nsw i32 %34, 1
+  %call.i.i76 = tail call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %31, i32 noundef %add.i75, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %tobool.not.i77 = icmp eq i8 %call.i.i76, 0
+  br i1 %tobool.not.i77, label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit80, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i78
 
-_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i80: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i76
-  %.pre.i81 = load i32, ptr %count.i66, align 8
-  br label %if.then.i71
+_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i78: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i74
+  %.pre.i79 = load i32, ptr %count.i64, align 8
+  br label %if.then.i69
 
-if.then.i71:                                      ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i80, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit64
-  %32 = phi i32 [ %.pre.i81, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i80 ], [ %30, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit64 ]
-  %elements.i72 = getelementptr inbounds %"class.icu_75::UVector32", ptr %27, i64 0, i32 4
-  %33 = load ptr, ptr %elements.i72, align 8
-  %idxprom.i73 = sext i32 %32 to i64
-  %arrayidx.i74 = getelementptr inbounds i32, ptr %33, i64 %idxprom.i73
-  store i32 %or24, ptr %arrayidx.i74, align 4
-  %34 = load i32, ptr %count.i66, align 8
-  %inc.i75 = add nsw i32 %34, 1
-  store i32 %inc.i75, ptr %count.i66, align 8
-  br label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit82
+if.then.i69:                                      ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i78, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit62
+  %36 = phi i32 [ %.pre.i79, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i78 ], [ %34, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit62 ]
+  %elements.i70 = getelementptr inbounds %"class.icu_75::UVector32", ptr %31, i64 0, i32 4
+  %37 = load ptr, ptr %elements.i70, align 8
+  %idxprom.i71 = sext i32 %36 to i64
+  %arrayidx.i72 = getelementptr inbounds i32, ptr %37, i64 %idxprom.i71
+  store i32 %or24, ptr %arrayidx.i72, align 4
+  %38 = load i32, ptr %count.i64, align 8
+  %inc.i73 = add nsw i32 %38, 1
+  store i32 %inc.i73, ptr %count.i64, align 8
+  br label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit80
 
-_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit82: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i76, %if.then.i71
-  %35 = load ptr, ptr %str_22, align 8
-  %call26 = tail call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %35, i8 noundef signext %17, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit80: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i74, %if.then.i69
+  %39 = load ptr, ptr %str_22, align 8
+  %call26 = tail call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %39, i8 noundef signext %19, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %tobool.not = icmp eq i8 %and, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
-if.then:                                          ; preds = %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit82
+if.then:                                          ; preds = %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit80
   %pos_ = getelementptr inbounds %"class.icu_75::BytesTrie::Iterator", ptr %this, i64 0, i32 1
   store ptr null, ptr %pos_, align 8
   %value_ = getelementptr inbounds %"class.icu_75::BytesTrie::Iterator", ptr %this, i64 0, i32 7
   store i32 %call11, ptr %value_, align 4
   br label %return
 
-if.else:                                          ; preds = %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit82
+if.else:                                          ; preds = %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit80
   %idx.ext = sext i32 %call11 to i64
   %add.ptr = getelementptr inbounds i8, ptr %pos.addr.0.i39, i64 %idx.ext
   br label %return

@@ -2722,15 +2722,15 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sub = add nsw i32 %line, -1
   %1 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 10), align 8
-  %idxprom = zext nneg i32 %sub to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %idxprom
-  %2 = load ptr, ptr %arrayidx, align 8
+  %2 = zext nneg i32 %line to i64
+  %3 = getelementptr ptr, ptr %1, i64 %2
+  %arrayidx = getelementptr ptr, ptr %3, i64 -1
+  %4 = load ptr, ptr %arrayidx, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end
-  %retval.0 = phi ptr [ %2, %if.end ], [ @.str.68, %entry ]
+  %retval.0 = phi ptr [ %4, %if.end ], [ @.str.68, %entry ]
   ret ptr %retval.0
 }
 
@@ -3073,21 +3073,21 @@ entry:
   br i1 %or.cond.i, label %ldbGetSourceLine.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %sub.i = add nsw i32 %lnum, -1
   %1 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 10), align 8
-  %idxprom.i = zext nneg i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %1, i64 %idxprom.i
-  %2 = load ptr, ptr %arrayidx.i, align 8
+  %2 = zext nneg i32 %lnum to i64
+  %3 = getelementptr ptr, ptr %1, i64 %2
+  %arrayidx.i = getelementptr ptr, ptr %3, i64 -1
+  %4 = load ptr, ptr %arrayidx.i, align 8
   br label %ldbGetSourceLine.exit
 
 ldbGetSourceLine.exit:                            ; preds = %entry, %if.end.i
-  %retval.0.i = phi ptr [ %2, %if.end.i ], [ @.str.68, %entry ]
-  %3 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 7), align 8
-  %cmp3.i = icmp sgt i32 %3, 0
+  %retval.0.i = phi ptr [ %4, %if.end.i ], [ @.str.68, %entry ]
+  %5 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 7), align 8
+  %cmp3.i = icmp sgt i32 %5, 0
   br i1 %cmp3.i, label %for.body.preheader.i, label %.loopexit
 
 for.body.preheader.i:                             ; preds = %ldbGetSourceLine.exit
-  %wide.trip.count.i = zext nneg i32 %3 to i64
+  %wide.trip.count.i = zext nneg i32 %5 to i64
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
@@ -3098,20 +3098,20 @@ for.cond.i:                                       ; preds = %for.body.i
 for.body.i:                                       ; preds = %for.cond.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.cond.i ]
   %arrayidx.i7 = getelementptr inbounds %struct.ldbState, ptr @ldb, i64 0, i32 6, i64 %indvars.iv.i
-  %4 = load i32, ptr %arrayidx.i7, align 4
-  %cmp1.i = icmp eq i32 %4, %lnum
+  %6 = load i32, ptr %arrayidx.i7, align 4
+  %cmp1.i = icmp eq i32 %6, %lnum
   br i1 %cmp1.i, label %.loopexit, label %for.cond.i
 
 .loopexit:                                        ; preds = %for.body.i, %for.cond.i, %ldbGetSourceLine.exit
-  %5 = phi ptr [ @.str.73, %ldbGetSourceLine.exit ], [ @.str.73, %for.cond.i ], [ @.str.72, %for.body.i ]
-  %6 = phi ptr [ @.str.71, %ldbGetSourceLine.exit ], [ @.str.71, %for.cond.i ], [ @.str.70, %for.body.i ]
-  %7 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 12), align 4
-  %cmp9 = icmp eq i32 %7, %lnum
-  %prefix.0 = select i1 %cmp9, ptr %6, ptr %5
+  %7 = phi ptr [ @.str.73, %ldbGetSourceLine.exit ], [ @.str.73, %for.cond.i ], [ @.str.72, %for.body.i ]
+  %8 = phi ptr [ @.str.71, %ldbGetSourceLine.exit ], [ @.str.71, %for.cond.i ], [ @.str.70, %for.body.i ]
+  %9 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 12), align 4
+  %cmp9 = icmp eq i32 %9, %lnum
+  %prefix.0 = select i1 %cmp9, ptr %8, ptr %7
   %call11 = tail call ptr @sdsempty() #18
   %call12 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call11, ptr noundef nonnull @.str.74, ptr noundef nonnull %prefix.0, i32 noundef %lnum, ptr noundef %retval.0.i) #18
-  %8 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i = tail call ptr @listAddNodeTail(ptr noundef %8, ptr noundef %call12) #18
+  %10 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
+  %call.i = tail call ptr @listAddNodeTail(ptr noundef %10, ptr noundef %call12) #18
   ret void
 }
 
@@ -3127,9 +3127,9 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp1.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %ldbLogSourceLine.exit.us
-  %indvars.iv17 = phi i64 [ %indvars.iv.next18, %ldbLogSourceLine.exit.us ], [ 1, %for.body.lr.ph ]
+  %indvars.iv16 = phi i64 [ %indvars.iv.next17, %ldbLogSourceLine.exit.us ], [ 1, %for.body.lr.ph ]
   %1 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 10), align 8
-  %2 = getelementptr ptr, ptr %1, i64 %indvars.iv17
+  %2 = getelementptr ptr, ptr %1, i64 %indvars.iv16
   %arrayidx.i.i.us = getelementptr ptr, ptr %2, i64 -1
   %3 = load ptr, ptr %arrayidx.i.i.us, align 8
   %4 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 7), align 8
@@ -3145,7 +3145,7 @@ for.body.i.i.us:                                  ; preds = %for.cond.i.i.us, %f
   %arrayidx.i7.i.us = getelementptr inbounds %struct.ldbState, ptr @ldb, i64 0, i32 6, i64 %indvars.iv.i.i.us
   %5 = load i32, ptr %arrayidx.i7.i.us, align 4
   %6 = zext i32 %5 to i64
-  %cmp1.i.i.us = icmp eq i64 %indvars.iv17, %6
+  %cmp1.i.i.us = icmp eq i64 %indvars.iv16, %6
   br i1 %cmp1.i.i.us, label %ldbLogSourceLine.exit.us, label %for.cond.i.i.us
 
 for.cond.i.i.us:                                  ; preds = %for.body.i.i.us
@@ -3158,17 +3158,17 @@ ldbLogSourceLine.exit.us:                         ; preds = %for.body.i.i.us, %f
   %8 = phi ptr [ @.str.71, %for.body.us ], [ @.str.70, %for.body.i.i.us ], [ @.str.71, %for.cond.i.i.us ]
   %9 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 12), align 4
   %10 = zext i32 %9 to i64
-  %cmp9.i.us = icmp eq i64 %indvars.iv17, %10
+  %cmp9.i.us = icmp eq i64 %indvars.iv16, %10
   %prefix.0.i.us = select i1 %cmp9.i.us, ptr %8, ptr %7
   %call11.i.us = tail call ptr @sdsempty() #18
-  %11 = trunc i64 %indvars.iv17 to i32
+  %11 = trunc i64 %indvars.iv16 to i32
   %call12.i.us = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call11.i.us, ptr noundef nonnull @.str.74, ptr noundef nonnull %prefix.0.i.us, i32 noundef %11, ptr noundef %3) #18
   %12 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
   %call.i.i.us = tail call ptr @listAddNodeTail(ptr noundef %12, ptr noundef %call12.i.us) #18
-  %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
+  %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %13 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 11), align 8
   %14 = sext i32 %13 to i64
-  %cmp.not.us.not = icmp slt i64 %indvars.iv17, %14
+  %cmp.not.us.not = icmp slt i64 %indvars.iv16, %14
   br i1 %cmp.not.us.not, label %for.body.us, label %for.end, !llvm.loop !22
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -4122,7 +4122,7 @@ if.else:                                          ; preds = %if.then
 
 for.body:                                         ; preds = %if.else, %ldbLogSourceLine.exit
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %ldbLogSourceLine.exit ], [ 0, %if.else ]
-  %5 = phi i32 [ %15, %ldbLogSourceLine.exit ], [ %4, %if.else ]
+  %5 = phi i32 [ %17, %ldbLogSourceLine.exit ], [ %4, %if.else ]
   %arrayidx = getelementptr inbounds %struct.ldbState, ptr @ldb, i64 0, i32 6, i64 %indvars.iv47
   %6 = load i32, ptr %arrayidx, align 4
   %cmp.i.i = icmp slt i32 %6, 1
@@ -4132,15 +4132,15 @@ for.body:                                         ; preds = %if.else, %ldbLogSou
   br i1 %or.cond.i.i, label %ldbGetSourceLine.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body
-  %sub.i.i = add nsw i32 %6, -1
   %8 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 10), align 8
-  %idxprom.i.i = zext nneg i32 %sub.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %8, i64 %idxprom.i.i
-  %9 = load ptr, ptr %arrayidx.i.i, align 8
+  %9 = zext nneg i32 %6 to i64
+  %10 = getelementptr ptr, ptr %8, i64 %9
+  %arrayidx.i.i = getelementptr ptr, ptr %10, i64 -1
+  %11 = load ptr, ptr %arrayidx.i.i, align 8
   br label %ldbGetSourceLine.exit.i
 
 ldbGetSourceLine.exit.i:                          ; preds = %if.end.i.i, %for.body
-  %retval.0.i.i = phi ptr [ %9, %if.end.i.i ], [ @.str.68, %for.body ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ @.str.68, %for.body ]
   %cmp3.i.i = icmp sgt i32 %5, 0
   br i1 %cmp3.i.i, label %for.body.preheader.i.i, label %ldbLogSourceLine.exit
 
@@ -4156,33 +4156,33 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
 for.body.i.i:                                     ; preds = %for.cond.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.cond.i.i ]
   %arrayidx.i7.i = getelementptr inbounds %struct.ldbState, ptr @ldb, i64 0, i32 6, i64 %indvars.iv.i.i
-  %10 = load i32, ptr %arrayidx.i7.i, align 4
-  %cmp1.i.i = icmp eq i32 %10, %6
+  %12 = load i32, ptr %arrayidx.i7.i, align 4
+  %cmp1.i.i = icmp eq i32 %12, %6
   br i1 %cmp1.i.i, label %ldbLogSourceLine.exit, label %for.cond.i.i
 
 ldbLogSourceLine.exit:                            ; preds = %for.cond.i.i, %for.body.i.i, %ldbGetSourceLine.exit.i
-  %11 = phi ptr [ @.str.73, %ldbGetSourceLine.exit.i ], [ @.str.72, %for.body.i.i ], [ @.str.73, %for.cond.i.i ]
-  %12 = phi ptr [ @.str.71, %ldbGetSourceLine.exit.i ], [ @.str.70, %for.body.i.i ], [ @.str.71, %for.cond.i.i ]
-  %13 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 12), align 4
-  %cmp9.i = icmp eq i32 %13, %6
-  %prefix.0.i = select i1 %cmp9.i, ptr %12, ptr %11
+  %13 = phi ptr [ @.str.73, %ldbGetSourceLine.exit.i ], [ @.str.72, %for.body.i.i ], [ @.str.73, %for.cond.i.i ]
+  %14 = phi ptr [ @.str.71, %ldbGetSourceLine.exit.i ], [ @.str.70, %for.body.i.i ], [ @.str.71, %for.cond.i.i ]
+  %15 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 12), align 4
+  %cmp9.i = icmp eq i32 %15, %6
+  %prefix.0.i = select i1 %cmp9.i, ptr %14, ptr %13
   %call11.i = tail call ptr @sdsempty() #18
   %call12.i = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call11.i, ptr noundef nonnull @.str.74, ptr noundef nonnull %prefix.0.i, i32 noundef %6, ptr noundef %retval.0.i.i) #18
-  %14 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i.i = tail call ptr @listAddNodeTail(ptr noundef %14, ptr noundef %call12.i) #18
+  %16 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
+  %call.i.i = tail call ptr @listAddNodeTail(ptr noundef %16, ptr noundef %call12.i) #18
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
-  %15 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 7), align 8
-  %16 = sext i32 %15 to i64
-  %cmp5 = icmp slt i64 %indvars.iv.next48, %16
+  %17 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 7), align 8
+  %18 = sext i32 %17 to i64
+  %cmp5 = icmp slt i64 %indvars.iv.next48, %18
   br i1 %cmp5, label %for.body, label %if.end56, !llvm.loop !30
 
 for.body10:                                       ; preds = %for.body10.preheader, %for.inc53
   %indvars.iv = phi i64 [ 1, %for.body10.preheader ], [ %indvars.iv.next, %for.inc53 ]
   %arrayidx12 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
-  %17 = load ptr, ptr %arrayidx12, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %17, i64 -1
-  %18 = load i8, ptr %arrayidx.i, align 1
-  %conv.i = zext i8 %18 to i32
+  %19 = load ptr, ptr %arrayidx12, align 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %19, i64 -1
+  %20 = load i8, ptr %arrayidx.i, align 1
+  %conv.i = zext i8 %20 to i32
   %and.i = and i32 %conv.i, 7
   switch i32 %and.i, label %sdslen.exit [
     i32 0, label %sw.bb.i
@@ -4198,82 +4198,82 @@ sw.bb.i:                                          ; preds = %for.body10
   br label %sdslen.exit
 
 sw.bb3.i:                                         ; preds = %for.body10
-  %add.ptr.i = getelementptr inbounds i8, ptr %17, i64 -3
-  %19 = load i8, ptr %add.ptr.i, align 1
-  %conv4.i = zext i8 %19 to i64
+  %add.ptr.i = getelementptr inbounds i8, ptr %19, i64 -3
+  %21 = load i8, ptr %add.ptr.i, align 1
+  %conv4.i = zext i8 %21 to i64
   br label %sdslen.exit
 
 sw.bb5.i:                                         ; preds = %for.body10
-  %add.ptr6.i = getelementptr inbounds i8, ptr %17, i64 -5
-  %20 = load i16, ptr %add.ptr6.i, align 1
-  %conv8.i = zext i16 %20 to i64
+  %add.ptr6.i = getelementptr inbounds i8, ptr %19, i64 -5
+  %22 = load i16, ptr %add.ptr6.i, align 1
+  %conv8.i = zext i16 %22 to i64
   br label %sdslen.exit
 
 sw.bb9.i:                                         ; preds = %for.body10
-  %add.ptr10.i = getelementptr inbounds i8, ptr %17, i64 -9
-  %21 = load i32, ptr %add.ptr10.i, align 1
-  %conv12.i = zext i32 %21 to i64
+  %add.ptr10.i = getelementptr inbounds i8, ptr %19, i64 -9
+  %23 = load i32, ptr %add.ptr10.i, align 1
+  %conv12.i = zext i32 %23 to i64
   br label %sdslen.exit
 
 sw.bb13.i:                                        ; preds = %for.body10
-  %add.ptr14.i = getelementptr inbounds i8, ptr %17, i64 -17
-  %22 = load i64, ptr %add.ptr14.i, align 1
+  %add.ptr14.i = getelementptr inbounds i8, ptr %19, i64 -17
+  %24 = load i64, ptr %add.ptr14.i, align 1
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %for.body10, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
-  %retval.0.i = phi i64 [ %22, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %for.body10 ]
-  %call14 = call i32 @string2l(ptr noundef nonnull %17, i64 noundef %retval.0.i, ptr noundef nonnull %line) #18
+  %retval.0.i = phi i64 [ %24, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %for.body10 ]
+  %call14 = call i32 @string2l(ptr noundef nonnull %19, i64 noundef %retval.0.i, ptr noundef nonnull %line) #18
   %tobool.not = icmp eq i32 %call14, 0
   br i1 %tobool.not, label %if.then15, label %if.else18
 
 if.then15:                                        ; preds = %sdslen.exit
   %call16 = call ptr @sdsempty() #18
-  %call17 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call16, ptr noundef nonnull @.str.111, ptr noundef nonnull %17) #18
-  %23 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i9 = call ptr @listAddNodeTail(ptr noundef %23, ptr noundef %call17) #18
+  %call17 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call16, ptr noundef nonnull @.str.111, ptr noundef nonnull %19) #18
+  %25 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
+  %call.i9 = call ptr @listAddNodeTail(ptr noundef %25, ptr noundef %call17) #18
   br label %for.inc53
 
 if.else18:                                        ; preds = %sdslen.exit
-  %24 = load i64, ptr %line, align 8
-  %cmp19 = icmp eq i64 %24, 0
+  %26 = load i64, ptr %line, align 8
+  %cmp19 = icmp eq i64 %26, 0
   br i1 %cmp19, label %if.then20, label %if.else22
 
 if.then20:                                        ; preds = %if.else18
   store i32 0, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 7), align 8
   %call21 = call ptr @sdsnew(ptr noundef nonnull @.str.112) #18
-  %25 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i10 = call ptr @listAddNodeTail(ptr noundef %25, ptr noundef %call21) #18
+  %27 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
+  %call.i10 = call ptr @listAddNodeTail(ptr noundef %27, ptr noundef %call21) #18
   br label %for.inc53
 
 if.else22:                                        ; preds = %if.else18
-  %cmp23 = icmp sgt i64 %24, 0
+  %cmp23 = icmp sgt i64 %26, 0
   br i1 %cmp23, label %if.then24, label %if.then40
 
 if.then24:                                        ; preds = %if.else22
-  %26 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 7), align 8
-  %cmp25 = icmp eq i32 %26, 64
+  %28 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 7), align 8
+  %cmp25 = icmp eq i32 %28, 64
   br i1 %cmp25, label %if.then26, label %if.else28
 
 if.then26:                                        ; preds = %if.then24
   %call27 = call ptr @sdsnew(ptr noundef nonnull @.str.113) #18
-  %27 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i11 = call ptr @listAddNodeTail(ptr noundef %27, ptr noundef %call27) #18
+  %29 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
+  %call.i11 = call ptr @listAddNodeTail(ptr noundef %29, ptr noundef %call27) #18
   br label %for.inc53
 
 if.else28:                                        ; preds = %if.then24
-  %conv = trunc i64 %24 to i32
+  %conv = trunc i64 %26 to i32
   %cmp.i = icmp slt i32 %conv, 1
-  %28 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 11), align 8
-  %cmp1.i = icmp slt i32 %28, %conv
+  %30 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 11), align 8
+  %cmp1.i = icmp slt i32 %30, %conv
   %or.cond4.i = select i1 %cmp.i, i1 true, i1 %cmp1.i
   br i1 %or.cond4.i, label %if.else33, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else28
-  %cmp3.i.i12 = icmp sgt i32 %26, 0
+  %cmp3.i.i12 = icmp sgt i32 %28, 0
   br i1 %cmp3.i.i12, label %for.body.preheader.i.i15, label %if.then31
 
 for.body.preheader.i.i15:                         ; preds = %if.end.i
-  %wide.trip.count.i.i16 = zext nneg i32 %26 to i64
+  %wide.trip.count.i.i16 = zext nneg i32 %28 to i64
   br label %for.body.i.i17
 
 for.cond.i.i21:                                   ; preds = %for.body.i.i17
@@ -4284,14 +4284,14 @@ for.cond.i.i21:                                   ; preds = %for.body.i.i17
 for.body.i.i17:                                   ; preds = %for.cond.i.i21, %for.body.preheader.i.i15
   %indvars.iv.i.i18 = phi i64 [ 0, %for.body.preheader.i.i15 ], [ %indvars.iv.next.i.i22, %for.cond.i.i21 ]
   %arrayidx.i.i19 = getelementptr inbounds %struct.ldbState, ptr @ldb, i64 0, i32 6, i64 %indvars.iv.i.i18
-  %29 = load i32, ptr %arrayidx.i.i19, align 4
-  %cmp1.i.i20 = icmp eq i32 %29, %conv
+  %31 = load i32, ptr %arrayidx.i.i19, align 4
+  %cmp1.i.i20 = icmp eq i32 %31, %conv
   br i1 %cmp1.i.i20, label %if.else33, label %for.cond.i.i21
 
 if.then31:                                        ; preds = %for.cond.i.i21, %if.end.i
-  %inc.i = add nsw i32 %26, 1
+  %inc.i = add nsw i32 %28, 1
   store i32 %inc.i, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 7), align 8
-  %idxprom.i = sext i32 %26 to i64
+  %idxprom.i = sext i32 %28 to i64
   %arrayidx.i13 = getelementptr inbounds %struct.ldbState, ptr @ldb, i64 0, i32 6, i64 %idxprom.i
   store i32 %conv, ptr %arrayidx.i13, align 4
   call void @ldbList(i32 noundef %conv, i32 noundef 1)
@@ -4299,26 +4299,26 @@ if.then31:                                        ; preds = %for.cond.i.i21, %if
 
 if.else33:                                        ; preds = %for.body.i.i17, %if.else28
   %call34 = call ptr @sdsnew(ptr noundef nonnull @.str.114) #18
-  %30 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i24 = call ptr @listAddNodeTail(ptr noundef %30, ptr noundef %call34) #18
+  %32 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
+  %call.i24 = call ptr @listAddNodeTail(ptr noundef %32, ptr noundef %call34) #18
   br label %for.inc53
 
 if.then40:                                        ; preds = %if.else22
-  %31 = trunc i64 %24 to i32
-  %conv41 = sub i32 0, %31
-  %32 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 7), align 8
-  %cmp8.i = icmp sgt i32 %32, 0
+  %33 = trunc i64 %26 to i32
+  %conv41 = sub i32 0, %33
+  %34 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 7), align 8
+  %cmp8.i = icmp sgt i32 %34, 0
   br i1 %cmp8.i, label %for.body.preheader.i, label %if.else46
 
 for.body.preheader.i:                             ; preds = %if.then40
-  %wide.trip.count.i = zext nneg i32 %32 to i64
+  %wide.trip.count.i = zext nneg i32 %34 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i26 = getelementptr inbounds %struct.ldbState, ptr @ldb, i64 0, i32 6, i64 %indvars.iv.i
-  %33 = load i32, ptr %arrayidx.i26, align 4
-  %cmp1.i27 = icmp eq i32 %33, %conv41
+  %35 = load i32, ptr %arrayidx.i26, align 4
+  %cmp1.i27 = icmp eq i32 %35, %conv41
   br i1 %cmp1.i27, label %if.then44, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
@@ -4327,23 +4327,23 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %if.else46, label %for.body.i, !llvm.loop !20
 
 if.then44:                                        ; preds = %for.body.i
-  %34 = trunc i64 %indvars.iv.i to i32
-  %dec.i = add nsw i32 %32, -1
+  %36 = trunc i64 %indvars.iv.i to i32
+  %dec.i = add nsw i32 %34, -1
   store i32 %dec.i, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 7), align 8
   %add.ptr.i28 = getelementptr inbounds i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 6), i64 %indvars.iv.i
   %add.ptr4.i = getelementptr inbounds i32, ptr %add.ptr.i28, i64 1
-  %sub.i = sub nsw i32 %dec.i, %34
+  %sub.i = sub nsw i32 %dec.i, %36
   %conv.i29 = sext i32 %sub.i to i64
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i28, ptr nonnull align 4 %add.ptr4.i, i64 %conv.i29, i1 false)
   %call45 = call ptr @sdsnew(ptr noundef nonnull @.str.115) #18
-  %35 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i30 = call ptr @listAddNodeTail(ptr noundef %35, ptr noundef %call45) #18
+  %37 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
+  %call.i30 = call ptr @listAddNodeTail(ptr noundef %37, ptr noundef %call45) #18
   br label %for.inc53
 
 if.else46:                                        ; preds = %for.inc.i, %if.then40
   %call47 = call ptr @sdsnew(ptr noundef nonnull @.str.116) #18
-  %36 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i31 = call ptr @listAddNodeTail(ptr noundef %36, ptr noundef %call47) #18
+  %38 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
+  %call.i31 = call ptr @listAddNodeTail(ptr noundef %38, ptr noundef %call47) #18
   br label %for.inc53
 
 for.inc53:                                        ; preds = %if.then15, %if.then31, %if.else33, %if.then26, %if.then44, %if.else46, %if.then20
@@ -4637,21 +4637,21 @@ if.then:                                          ; preds = %while.body
   br i1 %or.cond.i.i, label %ldbGetSourceLine.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then
-  %sub.i.i = add nsw i32 %2, -1
   %4 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 10), align 8
-  %idxprom.i.i = zext nneg i32 %sub.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %4, i64 %idxprom.i.i
-  %5 = load ptr, ptr %arrayidx.i.i, align 8
+  %5 = zext nneg i32 %2 to i64
+  %6 = getelementptr ptr, ptr %4, i64 %5
+  %arrayidx.i.i = getelementptr ptr, ptr %6, i64 -1
+  %7 = load ptr, ptr %arrayidx.i.i, align 8
   br label %ldbGetSourceLine.exit.i
 
 ldbGetSourceLine.exit.i:                          ; preds = %if.end.i.i, %if.then
-  %retval.0.i.i = phi ptr [ %5, %if.end.i.i ], [ @.str.68, %if.then ]
-  %6 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 7), align 8
-  %cmp3.i.i = icmp sgt i32 %6, 0
+  %retval.0.i.i = phi ptr [ %7, %if.end.i.i ], [ @.str.68, %if.then ]
+  %8 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 7), align 8
+  %cmp3.i.i = icmp sgt i32 %8, 0
   br i1 %cmp3.i.i, label %for.body.preheader.i.i, label %ldbLogSourceLine.exit
 
 for.body.preheader.i.i:                           ; preds = %ldbGetSourceLine.exit.i
-  %wide.trip.count.i.i = zext nneg i32 %6 to i64
+  %wide.trip.count.i.i = zext nneg i32 %8 to i64
   br label %for.body.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
@@ -4662,20 +4662,20 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
 for.body.i.i:                                     ; preds = %for.cond.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.cond.i.i ]
   %arrayidx.i7.i = getelementptr inbounds %struct.ldbState, ptr @ldb, i64 0, i32 6, i64 %indvars.iv.i.i
-  %7 = load i32, ptr %arrayidx.i7.i, align 4
-  %cmp1.i.i = icmp eq i32 %7, %2
+  %9 = load i32, ptr %arrayidx.i7.i, align 4
+  %cmp1.i.i = icmp eq i32 %9, %2
   br i1 %cmp1.i.i, label %ldbLogSourceLine.exit, label %for.cond.i.i
 
 ldbLogSourceLine.exit:                            ; preds = %for.cond.i.i, %for.body.i.i, %ldbGetSourceLine.exit.i
-  %8 = phi ptr [ @.str.73, %ldbGetSourceLine.exit.i ], [ @.str.72, %for.body.i.i ], [ @.str.73, %for.cond.i.i ]
-  %9 = phi ptr [ @.str.71, %ldbGetSourceLine.exit.i ], [ @.str.70, %for.body.i.i ], [ @.str.71, %for.cond.i.i ]
-  %10 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 12), align 4
-  %cmp9.i = icmp eq i32 %10, %2
-  %prefix.0.i = select i1 %cmp9.i, ptr %9, ptr %8
+  %10 = phi ptr [ @.str.73, %ldbGetSourceLine.exit.i ], [ @.str.72, %for.body.i.i ], [ @.str.73, %for.cond.i.i ]
+  %11 = phi ptr [ @.str.71, %ldbGetSourceLine.exit.i ], [ @.str.70, %for.body.i.i ], [ @.str.71, %for.cond.i.i ]
+  %12 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 12), align 4
+  %cmp9.i = icmp eq i32 %12, %2
+  %prefix.0.i = select i1 %cmp9.i, ptr %11, ptr %10
   %call11.i = call ptr @sdsempty() #18
   %call12.i = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call11.i, ptr noundef nonnull @.str.74, ptr noundef nonnull %prefix.0.i, i32 noundef %2, ptr noundef %retval.0.i.i) #18
-  %11 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i.i = call ptr @listAddNodeTail(ptr noundef %11, ptr noundef %call12.i) #18
+  %13 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
+  %call.i.i = call ptr @listAddNodeTail(ptr noundef %13, ptr noundef %call12.i) #18
   br label %if.end
 
 if.end:                                           ; preds = %ldbLogSourceLine.exit, %while.body
@@ -4689,8 +4689,8 @@ while.end:                                        ; preds = %if.end
 
 if.then10:                                        ; preds = %entry, %while.end
   %call11 = call ptr @sdsnew(ptr noundef nonnull @.str.130) #18
-  %12 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i5 = call ptr @listAddNodeTail(ptr noundef %12, ptr noundef %call11) #18
+  %14 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
+  %call.i5 = call ptr @listAddNodeTail(ptr noundef %14, ptr noundef %call11) #18
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then10, %while.end
@@ -5306,21 +5306,21 @@ if.then30:                                        ; preds = %if.then17, %if.end2
   br i1 %or.cond.i.i, label %ldbGetSourceLine.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then30
-  %sub.i.i18 = add nsw i32 %14, -1
   %16 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 10), align 8
-  %idxprom.i.i = zext nneg i32 %sub.i.i18 to i64
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %16, i64 %idxprom.i.i
-  %17 = load ptr, ptr %arrayidx.i.i, align 8
+  %17 = zext nneg i32 %14 to i64
+  %18 = getelementptr ptr, ptr %16, i64 %17
+  %arrayidx.i.i = getelementptr ptr, ptr %18, i64 -1
+  %19 = load ptr, ptr %arrayidx.i.i, align 8
   br label %ldbGetSourceLine.exit.i
 
 ldbGetSourceLine.exit.i:                          ; preds = %if.end.i.i, %if.then30
-  %retval.0.i.i = phi ptr [ %17, %if.end.i.i ], [ @.str.68, %if.then30 ]
-  %18 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 7), align 8
-  %cmp3.i.i = icmp sgt i32 %18, 0
+  %retval.0.i.i = phi ptr [ %19, %if.end.i.i ], [ @.str.68, %if.then30 ]
+  %20 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 7), align 8
+  %cmp3.i.i = icmp sgt i32 %20, 0
   br i1 %cmp3.i.i, label %for.body.preheader.i.i, label %ldbLogSourceLine.exit
 
 for.body.preheader.i.i:                           ; preds = %ldbGetSourceLine.exit.i
-  %wide.trip.count.i.i = zext nneg i32 %18 to i64
+  %wide.trip.count.i.i = zext nneg i32 %20 to i64
   br label %for.body.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
@@ -5331,16 +5331,16 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
 for.body.i.i:                                     ; preds = %for.cond.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.cond.i.i ]
   %arrayidx.i7.i = getelementptr inbounds %struct.ldbState, ptr @ldb, i64 0, i32 6, i64 %indvars.iv.i.i
-  %19 = load i32, ptr %arrayidx.i7.i, align 4
-  %cmp1.i.i = icmp eq i32 %19, %14
+  %21 = load i32, ptr %arrayidx.i7.i, align 4
+  %cmp1.i.i = icmp eq i32 %21, %14
   br i1 %cmp1.i.i, label %ldbLogSourceLine.exit, label %for.cond.i.i
 
 ldbLogSourceLine.exit:                            ; preds = %for.cond.i.i, %for.body.i.i, %ldbGetSourceLine.exit.i
-  %20 = phi ptr [ @.str.71, %ldbGetSourceLine.exit.i ], [ @.str.70, %for.body.i.i ], [ @.str.71, %for.cond.i.i ]
+  %22 = phi ptr [ @.str.71, %ldbGetSourceLine.exit.i ], [ @.str.70, %for.body.i.i ], [ @.str.71, %for.cond.i.i ]
   %call11.i = tail call ptr @sdsempty() #18
-  %call12.i = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call11.i, ptr noundef nonnull @.str.74, ptr noundef nonnull %20, i32 noundef %14, ptr noundef %retval.0.i.i) #18
-  %21 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i.i19 = tail call ptr @listAddNodeTail(ptr noundef %21, ptr noundef %call12.i) #18
+  %call12.i = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call11.i, ptr noundef nonnull @.str.74, ptr noundef nonnull %22, i32 noundef %14, ptr noundef %retval.0.i.i) #18
+  %23 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
+  %call.i.i18 = tail call ptr @listAddNodeTail(ptr noundef %23, ptr noundef %call12.i) #18
   tail call void @ldbSendLogs()
   %call42 = tail call i32 @ldbRepl(ptr noundef %lua), !range !11
   %cmp43 = icmp ne i32 %call42, -1
@@ -5353,8 +5353,8 @@ if.then47:                                        ; preds = %ldbLogSourceLine.ex
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then47, %ldbLogSourceLine.exit
-  %22 = load ptr, ptr @getMonotonicUs, align 8
-  %call50 = tail call i64 %22() #18
+  %24 = load ptr, ptr @getMonotonicUs, align 8
+  %call50 = tail call i64 %24() #18
   %start_time51 = getelementptr inbounds %struct.scriptRunCtx, ptr %call, i64 0, i32 5
   store i64 %call50, ptr %start_time51, align 8
   br label %if.end52

@@ -11813,9 +11813,9 @@ if.end:                                           ; preds = %for.end, %do.body
 
 while.body.lr.ph:                                 ; preds = %if.end
   %15 = load ptr, ptr %m_current34, align 8
+  %invariant.gep = getelementptr i32, ptr %15, i64 1
   %16 = load ptr, ptr %m_enabled.i39, align 8
   %17 = zext nneg i32 %current_i.1 to i64
-  %invariant.gep = getelementptr i32, ptr %15, i64 1
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.else
@@ -11870,16 +11870,16 @@ do.body25:                                        ; preds = %do.body25.preheader
   %current_i.3 = phi i32 [ %current_i.595, %do.cond ], [ %current_i.3.ph, %do.body25.preheader ]
   %current_value.2 = phi i32 [ -1, %do.cond ], [ %current_value.2.ph, %do.body25.preheader ]
   %cmp26 = icmp eq i32 %current_value.2, -1
-  %.pre110 = load i32, ptr %m_current_size, align 8
+  %.pre109 = load i32, ptr %m_current_size, align 8
   br i1 %cmp26, label %if.then27, label %if.end44
 
 if.then27:                                        ; preds = %do.body25
   %25 = load i32, ptr %m_max_size29, align 4
-  %cmp30.not = icmp slt i32 %.pre110, %25
+  %cmp30.not = icmp slt i32 %.pre109, %25
   br i1 %cmp30.not, label %if.else32, label %return
 
 if.else32:                                        ; preds = %if.then27
-  %inc = add nsw i32 %.pre110, 1
+  %inc = add nsw i32 %.pre109, 1
   store i32 %inc, ptr %m_current_size, align 8
   %26 = load ptr, ptr %m_current34, align 8
   store i32 -1, ptr %26, align 4
@@ -11917,7 +11917,7 @@ if.else39:                                        ; preds = %_ZN11upolynomial39f
   br label %if.end44
 
 if.end44:                                         ; preds = %if.else39, %do.body25
-  %33 = phi i32 [ %.pre, %if.else39 ], [ %.pre110, %do.body25 ]
+  %33 = phi i32 [ %.pre, %if.else39 ], [ %.pre109, %do.body25 ]
   %current_i.4 = phi i32 [ 0, %if.else39 ], [ %current_i.3, %do.body25 ]
   %current_i.592 = add nsw i32 %current_i.4, 1
   %cmp4893 = icmp slt i32 %current_i.592, %33
@@ -11944,8 +11944,8 @@ for.body49:                                       ; preds = %if.end44, %if.else6
 
 while.cond.i62:                                   ; preds = %land.rhs.i69, %for.body49
   %current.0.in.i63 = phi i32 [ %37, %for.body49 ], [ %current.0.i64, %land.rhs.i69 ]
-  %exitcond109.not = icmp eq i32 %current.0.in.i63, %40
-  br i1 %exitcond109.not, label %_ZN11upolynomial39factorization_combination_iterator_baseINS_12core_manager7factorsEE4findEii.exit73, label %land.rhs.i69
+  %exitcond108.not = icmp eq i32 %current.0.in.i63, %40
+  br i1 %exitcond108.not, label %_ZN11upolynomial39factorization_combination_iterator_baseINS_12core_manager7factorsEE4findEii.exit73, label %land.rhs.i69
 
 land.rhs.i69:                                     ; preds = %while.cond.i62
   %current.0.i64 = add nsw i32 %current.0.in.i63, 1

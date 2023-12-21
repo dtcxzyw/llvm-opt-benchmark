@@ -935,24 +935,25 @@ lor.lhs.false.i.i:                                ; preds = %if.then.i
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %entry.if.then_crit_edge.i.i
   %decimal.val7.i.i = phi float [ %2, %entry.if.then_crit_edge.i.i ], [ 0.000000e+00, %lor.lhs.false.i.i ]
-  %4 = sub i32 76, %scale
+  %sub.i.i.i = sub nsw i32 0, %scale
+  %4 = add i32 %scale, 76
   %5 = icmp ult i32 %4, 153
   br i1 %5, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i
-  %idxprom.i.i.i.i = zext nneg i32 %4 to i64
-  %arrayidx.i.i.i5.i = getelementptr inbounds float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %idxprom.i.i.i.i
-  %6 = load float, ptr %arrayidx.i.i.i5.i, align 4
+  %6 = sext i32 %sub.i.i.i to i64
+  %7 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %6
+  %arrayidx.i.i.i5.i = getelementptr float, ptr %7, i64 76
+  %8 = load float, ptr %arrayidx.i.i.i5.i, align 4
   br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i
-  %sub.i.i.i = sub nsw i32 0, %scale
   %conv.i.i.i.i = sitofp i32 %sub.i.i.i to float
   %call.i.i.i.i.i = call noundef float @powf(float noundef 1.000000e+01, float noundef %conv.i.i.i.i) #19
   br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit.i.i
 
 _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit.i.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
-  %retval.0.i.i.i.i = phi float [ %6, %if.then.i.i.i.i ], [ %call.i.i.i.i.i, %if.else.i.i.i.i ]
+  %retval.0.i.i.i.i = phi float [ %8, %if.then.i.i.i.i ], [ %call.i.i.i.i.i, %if.else.i.i.i.i ]
   %conv3.i.i.i = uitofp i64 %decimal.val.pre.i.i to float
   %add.i.i.i = fadd float %decimal.val7.i.i, %conv3.i.i.i
   %mul.i.i.i = fmul float %add.i.i.i, %retval.0.i.i.i.i
@@ -972,24 +973,24 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %ref.tmp6.sroa.0.0.copyload.i.i = load i64, ptr %fraction_decimal.i.i, align 8
   %ref.tmp6.sroa.2.0.fraction_decimal.sroa_idx.i.i = getelementptr inbounds i8, ptr %fraction_decimal.i.i, i64 8
   %ref.tmp6.sroa.2.0.copyload.i.i = load i64, ptr %ref.tmp6.sroa.2.0.fraction_decimal.sroa_idx.i.i, align 8
-  %7 = sub nsw i32 76, %scale
-  %8 = icmp ult i32 %7, 153
-  br i1 %8, label %if.then.i.i27.i.i, label %if.else.i.i17.i.i
+  %sub.i17.i.i = sub nsw i32 0, %scale
+  %9 = icmp ult i32 %scale, 77
+  br i1 %9, label %if.then.i.i27.i.i, label %if.else.i.i18.i.i
 
 if.then.i.i27.i.i:                                ; preds = %if.end.i.i
-  %idxprom.i.i28.i.i = zext nneg i32 %7 to i64
-  %arrayidx.i.i29.i.i = getelementptr inbounds float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %idxprom.i.i28.i.i
-  %9 = load float, ptr %arrayidx.i.i29.i.i, align 4
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit30.i.i
+  %10 = sext i32 %sub.i17.i.i to i64
+  %11 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %10
+  %arrayidx.i.i28.i.i = getelementptr float, ptr %11, i64 76
+  %12 = load float, ptr %arrayidx.i.i28.i.i, align 4
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit29.i.i
 
-if.else.i.i17.i.i:                                ; preds = %if.end.i.i
-  %sub.i18.i.i = sub nsw i32 0, %scale
-  %conv.i.i19.i.i = sitofp i32 %sub.i18.i.i to float
+if.else.i.i18.i.i:                                ; preds = %if.end.i.i
+  %conv.i.i19.i.i = sitofp i32 %sub.i17.i.i to float
   %call.i.i.i20.i.i = call noundef float @powf(float noundef 1.000000e+01, float noundef %conv.i.i19.i.i) #19
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit30.i.i
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit29.i.i
 
-_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit30.i.i: ; preds = %if.else.i.i17.i.i, %if.then.i.i27.i.i
-  %retval.0.i.i21.i.i = phi float [ %9, %if.then.i.i27.i.i ], [ %call.i.i.i20.i.i, %if.else.i.i17.i.i ]
+_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit29.i.i: ; preds = %if.else.i.i18.i.i, %if.then.i.i27.i.i
+  %retval.0.i.i21.i.i = phi float [ %12, %if.then.i.i27.i.i ], [ %call.i.i.i20.i.i, %if.else.i.i18.i.i ]
   %conv.i22.i.i = sitofp i64 %ref.tmp6.sroa.2.0.copyload.i.i to float
   %mul.i.i23.i.i = fmul float %conv.i22.i.i, 0x43F0000000000000
   %conv3.i24.i.i = uitofp i64 %ref.tmp6.sroa.0.0.copyload.i.i to float
@@ -998,8 +999,8 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RK
   %add.i.i = fadd float %add.i15.i.i, %mul.i26.i.i
   br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIfEET_RKNS_10Decimal128Ei.exit.i
 
-_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIfEET_RKNS_10Decimal128Ei.exit.i: ; preds = %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit30.i.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit.i.i
-  %retval.0.i.i = phi float [ %mul.i.i.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit.i.i ], [ %add.i.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit30.i.i ]
+_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIfEET_RKNS_10Decimal128Ei.exit.i: ; preds = %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit29.i.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit.i.i
+  %retval.0.i.i = phi float [ %mul.i.i.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit.i.i ], [ %add.i.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit29.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %whole_decimal.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %fraction_decimal.i.i)
   %fneg.i = fneg float %retval.0.i.i
@@ -1010,43 +1011,44 @@ if.else.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %fraction_decimal.i7.i)
   %cmp.i8.i = icmp slt i32 %scale, 1
   %decimal.val.pre.i9.i = load i64, ptr %this, align 8
-  br i1 %cmp.i8.i, label %entry.if.then_crit_edge.i56.i, label %lor.lhs.false.i10.i
+  br i1 %cmp.i8.i, label %entry.if.then_crit_edge.i54.i, label %lor.lhs.false.i10.i
 
-entry.if.then_crit_edge.i56.i:                    ; preds = %if.else.i
-  %10 = sitofp i64 %0 to float
-  %11 = fmul float %10, 0x43F0000000000000
-  br label %if.then.i42.i
+entry.if.then_crit_edge.i54.i:                    ; preds = %if.else.i
+  %13 = sitofp i64 %0 to float
+  %14 = fmul float %13, 0x43F0000000000000
+  br label %if.then.i41.i
 
 lor.lhs.false.i10.i:                              ; preds = %if.else.i
   %cmp1.i12.i = icmp eq i64 %0, 0
   %cmp3.i13.i = icmp ult i64 %decimal.val.pre.i9.i, 16777216
   %or.cond.i14.i = select i1 %cmp1.i12.i, i1 %cmp3.i13.i, i1 false
-  br i1 %or.cond.i14.i, label %if.then.i42.i, label %if.end.i15.i
+  br i1 %or.cond.i14.i, label %if.then.i41.i, label %if.end.i15.i
 
-if.then.i42.i:                                    ; preds = %lor.lhs.false.i10.i, %entry.if.then_crit_edge.i56.i
-  %decimal.val7.i43.i = phi float [ %11, %entry.if.then_crit_edge.i56.i ], [ 0.000000e+00, %lor.lhs.false.i10.i ]
-  %12 = sub i32 76, %scale
-  %13 = icmp ult i32 %12, 153
-  br i1 %13, label %if.then.i.i.i53.i, label %if.else.i.i.i44.i
+if.then.i41.i:                                    ; preds = %lor.lhs.false.i10.i, %entry.if.then_crit_edge.i54.i
+  %decimal.val7.i42.i = phi float [ %14, %entry.if.then_crit_edge.i54.i ], [ 0.000000e+00, %lor.lhs.false.i10.i ]
+  %sub.i.i43.i = sub nsw i32 0, %scale
+  %15 = add i32 %scale, 76
+  %16 = icmp ult i32 %15, 153
+  br i1 %16, label %if.then.i.i.i52.i, label %if.else.i.i.i44.i
 
-if.then.i.i.i53.i:                                ; preds = %if.then.i42.i
-  %idxprom.i.i.i54.i = zext nneg i32 %12 to i64
-  %arrayidx.i.i.i55.i = getelementptr inbounds float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %idxprom.i.i.i54.i
-  %14 = load float, ptr %arrayidx.i.i.i55.i, align 4
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit.i48.i
+if.then.i.i.i52.i:                                ; preds = %if.then.i41.i
+  %17 = sext i32 %sub.i.i43.i to i64
+  %18 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %17
+  %arrayidx.i.i.i53.i = getelementptr float, ptr %18, i64 76
+  %19 = load float, ptr %arrayidx.i.i.i53.i, align 4
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit.i47.i
 
-if.else.i.i.i44.i:                                ; preds = %if.then.i42.i
-  %sub.i.i45.i = sub nsw i32 0, %scale
-  %conv.i.i.i46.i = sitofp i32 %sub.i.i45.i to float
-  %call.i.i.i.i47.i = tail call noundef float @powf(float noundef 1.000000e+01, float noundef %conv.i.i.i46.i) #19
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit.i48.i
+if.else.i.i.i44.i:                                ; preds = %if.then.i41.i
+  %conv.i.i.i45.i = sitofp i32 %sub.i.i43.i to float
+  %call.i.i.i.i46.i = tail call noundef float @powf(float noundef 1.000000e+01, float noundef %conv.i.i.i45.i) #19
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit.i47.i
 
-_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit.i48.i: ; preds = %if.else.i.i.i44.i, %if.then.i.i.i53.i
-  %retval.0.i.i.i49.i = phi float [ %14, %if.then.i.i.i53.i ], [ %call.i.i.i.i47.i, %if.else.i.i.i44.i ]
-  %conv3.i.i50.i = uitofp i64 %decimal.val.pre.i9.i to float
-  %add.i.i51.i = fadd float %decimal.val7.i43.i, %conv3.i.i50.i
-  %mul.i.i52.i = fmul float %add.i.i51.i, %retval.0.i.i.i49.i
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIfEET_RKNS_10Decimal128Ei.exit59.i
+_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit.i47.i: ; preds = %if.else.i.i.i44.i, %if.then.i.i.i52.i
+  %retval.0.i.i.i48.i = phi float [ %19, %if.then.i.i.i52.i ], [ %call.i.i.i.i46.i, %if.else.i.i.i44.i ]
+  %conv3.i.i49.i = uitofp i64 %decimal.val.pre.i9.i to float
+  %add.i.i50.i = fadd float %decimal.val7.i42.i, %conv3.i.i49.i
+  %mul.i.i51.i = fmul float %add.i.i50.i, %retval.0.i.i.i48.i
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIfEET_RKNS_10Decimal128Ei.exit57.i
 
 if.end.i15.i:                                     ; preds = %lor.lhs.false.i10.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %whole_decimal.i6.i, i8 0, i64 16, i1 false)
@@ -1062,40 +1064,40 @@ if.end.i15.i:                                     ; preds = %lor.lhs.false.i10.i
   %ref.tmp6.sroa.0.0.copyload.i23.i = load i64, ptr %fraction_decimal.i7.i, align 8
   %ref.tmp6.sroa.2.0.fraction_decimal.sroa_idx.i24.i = getelementptr inbounds i8, ptr %fraction_decimal.i7.i, i64 8
   %ref.tmp6.sroa.2.0.copyload.i25.i = load i64, ptr %ref.tmp6.sroa.2.0.fraction_decimal.sroa_idx.i24.i, align 8
-  %15 = sub nsw i32 76, %scale
-  %16 = icmp ult i32 %15, 153
-  br i1 %16, label %if.then.i.i27.i39.i, label %if.else.i.i17.i26.i
+  %sub.i17.i26.i = sub nsw i32 0, %scale
+  %20 = icmp ult i32 %scale, 77
+  br i1 %20, label %if.then.i.i27.i39.i, label %if.else.i.i18.i27.i
 
 if.then.i.i27.i39.i:                              ; preds = %if.end.i15.i
-  %idxprom.i.i28.i40.i = zext nneg i32 %15 to i64
-  %arrayidx.i.i29.i41.i = getelementptr inbounds float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %idxprom.i.i28.i40.i
-  %17 = load float, ptr %arrayidx.i.i29.i41.i, align 4
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit30.i30.i
+  %21 = sext i32 %sub.i17.i26.i to i64
+  %22 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %21
+  %arrayidx.i.i28.i40.i = getelementptr float, ptr %22, i64 76
+  %23 = load float, ptr %arrayidx.i.i28.i40.i, align 4
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit29.i30.i
 
-if.else.i.i17.i26.i:                              ; preds = %if.end.i15.i
-  %sub.i18.i27.i = sub nsw i32 0, %scale
-  %conv.i.i19.i28.i = sitofp i32 %sub.i18.i27.i to float
+if.else.i.i18.i27.i:                              ; preds = %if.end.i15.i
+  %conv.i.i19.i28.i = sitofp i32 %sub.i17.i26.i to float
   %call.i.i.i20.i29.i = call noundef float @powf(float noundef 1.000000e+01, float noundef %conv.i.i19.i28.i) #19
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit30.i30.i
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit29.i30.i
 
-_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit30.i30.i: ; preds = %if.else.i.i17.i26.i, %if.then.i.i27.i39.i
-  %retval.0.i.i21.i31.i = phi float [ %17, %if.then.i.i27.i39.i ], [ %call.i.i.i20.i29.i, %if.else.i.i17.i26.i ]
+_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit29.i30.i: ; preds = %if.else.i.i18.i27.i, %if.then.i.i27.i39.i
+  %retval.0.i.i21.i31.i = phi float [ %23, %if.then.i.i27.i39.i ], [ %call.i.i.i20.i29.i, %if.else.i.i18.i27.i ]
   %conv.i22.i32.i = sitofp i64 %ref.tmp6.sroa.2.0.copyload.i25.i to float
   %mul.i.i23.i33.i = fmul float %conv.i22.i32.i, 0x43F0000000000000
   %conv3.i24.i34.i = uitofp i64 %ref.tmp6.sroa.0.0.copyload.i23.i to float
   %add.i25.i35.i = fadd float %mul.i.i23.i33.i, %conv3.i24.i34.i
   %mul.i26.i36.i = fmul float %add.i25.i35.i, %retval.0.i.i21.i31.i
   %add.i37.i = fadd float %add.i15.i22.i, %mul.i26.i36.i
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIfEET_RKNS_10Decimal128Ei.exit59.i
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIfEET_RKNS_10Decimal128Ei.exit57.i
 
-_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIfEET_RKNS_10Decimal128Ei.exit59.i: ; preds = %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit30.i30.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit.i48.i
-  %retval.0.i38.i = phi float [ %mul.i.i52.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit.i48.i ], [ %add.i37.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit30.i30.i ]
+_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIfEET_RKNS_10Decimal128Ei.exit57.i: ; preds = %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit29.i30.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit.i47.i
+  %retval.0.i38.i = phi float [ %mul.i.i51.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit.i47.i ], [ %add.i37.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit29.i30.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %whole_decimal.i6.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %fraction_decimal.i7.i)
   br label %_ZN5arrow12_GLOBAL__N_121DecimalRealConversionINS_10Decimal128ENS0_24Decimal128RealConversionEE6ToRealIfEET_RKS2_i.exit
 
-_ZN5arrow12_GLOBAL__N_121DecimalRealConversionINS_10Decimal128ENS0_24Decimal128RealConversionEE6ToRealIfEET_RKS2_i.exit: ; preds = %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIfEET_RKNS_10Decimal128Ei.exit.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIfEET_RKNS_10Decimal128Ei.exit59.i
-  %retval.0.i = phi float [ %fneg.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIfEET_RKNS_10Decimal128Ei.exit.i ], [ %retval.0.i38.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIfEET_RKNS_10Decimal128Ei.exit59.i ]
+_ZN5arrow12_GLOBAL__N_121DecimalRealConversionINS_10Decimal128ENS0_24Decimal128RealConversionEE6ToRealIfEET_RKS2_i.exit: ; preds = %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIfEET_RKNS_10Decimal128Ei.exit.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIfEET_RKNS_10Decimal128Ei.exit57.i
+  %retval.0.i = phi float [ %fneg.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIfEET_RKNS_10Decimal128Ei.exit.i ], [ %retval.0.i38.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIfEET_RKNS_10Decimal128Ei.exit57.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %abs.i)
   ret float %retval.0.i
 }
@@ -1140,24 +1142,25 @@ lor.lhs.false.i.i:                                ; preds = %if.then.i
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %entry.if.then_crit_edge.i.i
   %decimal.val7.i.i = phi double [ %2, %entry.if.then_crit_edge.i.i ], [ 0.000000e+00, %lor.lhs.false.i.i ]
-  %4 = sub i32 76, %scale
+  %sub.i.i.i = sub nsw i32 0, %scale
+  %4 = add i32 %scale, 76
   %5 = icmp ult i32 %4, 153
   br i1 %5, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i
-  %idxprom.i.i.i.i = zext nneg i32 %4 to i64
-  %arrayidx.i.i.i5.i = getelementptr inbounds double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %idxprom.i.i.i.i
-  %6 = load double, ptr %arrayidx.i.i.i5.i, align 8
+  %6 = sext i32 %sub.i.i.i to i64
+  %7 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %6
+  %arrayidx.i.i.i5.i = getelementptr double, ptr %7, i64 76
+  %8 = load double, ptr %arrayidx.i.i.i5.i, align 8
   br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i
-  %sub.i.i.i = sub nsw i32 0, %scale
   %conv.i.i.i.i = sitofp i32 %sub.i.i.i to double
   %call3.i.i.i.i = call double @pow(double noundef 1.000000e+01, double noundef %conv.i.i.i.i) #19
   br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit.i.i
 
 _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit.i.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
-  %retval.0.i.i.i.i = phi double [ %6, %if.then.i.i.i.i ], [ %call3.i.i.i.i, %if.else.i.i.i.i ]
+  %retval.0.i.i.i.i = phi double [ %8, %if.then.i.i.i.i ], [ %call3.i.i.i.i, %if.else.i.i.i.i ]
   %conv3.i.i.i = uitofp i64 %decimal.val.pre.i.i to double
   %add.i.i.i = fadd double %decimal.val7.i.i, %conv3.i.i.i
   %mul.i.i.i = fmul double %add.i.i.i, %retval.0.i.i.i.i
@@ -1177,24 +1180,24 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %ref.tmp6.sroa.0.0.copyload.i.i = load i64, ptr %fraction_decimal.i.i, align 8
   %ref.tmp6.sroa.2.0.fraction_decimal.sroa_idx.i.i = getelementptr inbounds i8, ptr %fraction_decimal.i.i, i64 8
   %ref.tmp6.sroa.2.0.copyload.i.i = load i64, ptr %ref.tmp6.sroa.2.0.fraction_decimal.sroa_idx.i.i, align 8
-  %7 = sub nsw i32 76, %scale
-  %8 = icmp ult i32 %7, 153
-  br i1 %8, label %if.then.i.i27.i.i, label %if.else.i.i17.i.i
+  %sub.i17.i.i = sub nsw i32 0, %scale
+  %9 = icmp ult i32 %scale, 77
+  br i1 %9, label %if.then.i.i27.i.i, label %if.else.i.i18.i.i
 
 if.then.i.i27.i.i:                                ; preds = %if.end.i.i
-  %idxprom.i.i28.i.i = zext nneg i32 %7 to i64
-  %arrayidx.i.i29.i.i = getelementptr inbounds double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %idxprom.i.i28.i.i
-  %9 = load double, ptr %arrayidx.i.i29.i.i, align 8
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit30.i.i
+  %10 = sext i32 %sub.i17.i.i to i64
+  %11 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %10
+  %arrayidx.i.i28.i.i = getelementptr double, ptr %11, i64 76
+  %12 = load double, ptr %arrayidx.i.i28.i.i, align 8
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit29.i.i
 
-if.else.i.i17.i.i:                                ; preds = %if.end.i.i
-  %sub.i18.i.i = sub nsw i32 0, %scale
-  %conv.i.i19.i.i = sitofp i32 %sub.i18.i.i to double
+if.else.i.i18.i.i:                                ; preds = %if.end.i.i
+  %conv.i.i19.i.i = sitofp i32 %sub.i17.i.i to double
   %call3.i.i20.i.i = call double @pow(double noundef 1.000000e+01, double noundef %conv.i.i19.i.i) #19
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit30.i.i
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit29.i.i
 
-_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit30.i.i: ; preds = %if.else.i.i17.i.i, %if.then.i.i27.i.i
-  %retval.0.i.i21.i.i = phi double [ %9, %if.then.i.i27.i.i ], [ %call3.i.i20.i.i, %if.else.i.i17.i.i ]
+_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit29.i.i: ; preds = %if.else.i.i18.i.i, %if.then.i.i27.i.i
+  %retval.0.i.i21.i.i = phi double [ %12, %if.then.i.i27.i.i ], [ %call3.i.i20.i.i, %if.else.i.i18.i.i ]
   %conv.i22.i.i = sitofp i64 %ref.tmp6.sroa.2.0.copyload.i.i to double
   %mul.i.i23.i.i = fmul double %conv.i22.i.i, 0x43F0000000000000
   %conv3.i24.i.i = uitofp i64 %ref.tmp6.sroa.0.0.copyload.i.i to double
@@ -1203,8 +1206,8 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RK
   %add.i.i = fadd double %add.i15.i.i, %mul.i26.i.i
   br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIdEET_RKNS_10Decimal128Ei.exit.i
 
-_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIdEET_RKNS_10Decimal128Ei.exit.i: ; preds = %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit30.i.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit.i.i
-  %retval.0.i.i = phi double [ %mul.i.i.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit.i.i ], [ %add.i.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit30.i.i ]
+_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIdEET_RKNS_10Decimal128Ei.exit.i: ; preds = %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit29.i.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit.i.i
+  %retval.0.i.i = phi double [ %mul.i.i.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit.i.i ], [ %add.i.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit29.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %whole_decimal.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %fraction_decimal.i.i)
   %fneg.i = fneg double %retval.0.i.i
@@ -1215,43 +1218,44 @@ if.else.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %fraction_decimal.i7.i)
   %cmp.i8.i = icmp slt i32 %scale, 1
   %decimal.val.pre.i9.i = load i64, ptr %this, align 8
-  br i1 %cmp.i8.i, label %entry.if.then_crit_edge.i56.i, label %lor.lhs.false.i10.i
+  br i1 %cmp.i8.i, label %entry.if.then_crit_edge.i54.i, label %lor.lhs.false.i10.i
 
-entry.if.then_crit_edge.i56.i:                    ; preds = %if.else.i
-  %10 = sitofp i64 %0 to double
-  %11 = fmul double %10, 0x43F0000000000000
-  br label %if.then.i42.i
+entry.if.then_crit_edge.i54.i:                    ; preds = %if.else.i
+  %13 = sitofp i64 %0 to double
+  %14 = fmul double %13, 0x43F0000000000000
+  br label %if.then.i41.i
 
 lor.lhs.false.i10.i:                              ; preds = %if.else.i
   %cmp1.i12.i = icmp eq i64 %0, 0
   %cmp3.i13.i = icmp ult i64 %decimal.val.pre.i9.i, 9007199254740992
   %or.cond.i14.i = select i1 %cmp1.i12.i, i1 %cmp3.i13.i, i1 false
-  br i1 %or.cond.i14.i, label %if.then.i42.i, label %if.end.i15.i
+  br i1 %or.cond.i14.i, label %if.then.i41.i, label %if.end.i15.i
 
-if.then.i42.i:                                    ; preds = %lor.lhs.false.i10.i, %entry.if.then_crit_edge.i56.i
-  %decimal.val7.i43.i = phi double [ %11, %entry.if.then_crit_edge.i56.i ], [ 0.000000e+00, %lor.lhs.false.i10.i ]
-  %12 = sub i32 76, %scale
-  %13 = icmp ult i32 %12, 153
-  br i1 %13, label %if.then.i.i.i53.i, label %if.else.i.i.i44.i
+if.then.i41.i:                                    ; preds = %lor.lhs.false.i10.i, %entry.if.then_crit_edge.i54.i
+  %decimal.val7.i42.i = phi double [ %14, %entry.if.then_crit_edge.i54.i ], [ 0.000000e+00, %lor.lhs.false.i10.i ]
+  %sub.i.i43.i = sub nsw i32 0, %scale
+  %15 = add i32 %scale, 76
+  %16 = icmp ult i32 %15, 153
+  br i1 %16, label %if.then.i.i.i52.i, label %if.else.i.i.i44.i
 
-if.then.i.i.i53.i:                                ; preds = %if.then.i42.i
-  %idxprom.i.i.i54.i = zext nneg i32 %12 to i64
-  %arrayidx.i.i.i55.i = getelementptr inbounds double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %idxprom.i.i.i54.i
-  %14 = load double, ptr %arrayidx.i.i.i55.i, align 8
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit.i48.i
+if.then.i.i.i52.i:                                ; preds = %if.then.i41.i
+  %17 = sext i32 %sub.i.i43.i to i64
+  %18 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %17
+  %arrayidx.i.i.i53.i = getelementptr double, ptr %18, i64 76
+  %19 = load double, ptr %arrayidx.i.i.i53.i, align 8
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit.i47.i
 
-if.else.i.i.i44.i:                                ; preds = %if.then.i42.i
-  %sub.i.i45.i = sub nsw i32 0, %scale
-  %conv.i.i.i46.i = sitofp i32 %sub.i.i45.i to double
-  %call3.i.i.i47.i = tail call double @pow(double noundef 1.000000e+01, double noundef %conv.i.i.i46.i) #19
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit.i48.i
+if.else.i.i.i44.i:                                ; preds = %if.then.i41.i
+  %conv.i.i.i45.i = sitofp i32 %sub.i.i43.i to double
+  %call3.i.i.i46.i = tail call double @pow(double noundef 1.000000e+01, double noundef %conv.i.i.i45.i) #19
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit.i47.i
 
-_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit.i48.i: ; preds = %if.else.i.i.i44.i, %if.then.i.i.i53.i
-  %retval.0.i.i.i49.i = phi double [ %14, %if.then.i.i.i53.i ], [ %call3.i.i.i47.i, %if.else.i.i.i44.i ]
-  %conv3.i.i50.i = uitofp i64 %decimal.val.pre.i9.i to double
-  %add.i.i51.i = fadd double %decimal.val7.i43.i, %conv3.i.i50.i
-  %mul.i.i52.i = fmul double %add.i.i51.i, %retval.0.i.i.i49.i
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIdEET_RKNS_10Decimal128Ei.exit59.i
+_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit.i47.i: ; preds = %if.else.i.i.i44.i, %if.then.i.i.i52.i
+  %retval.0.i.i.i48.i = phi double [ %19, %if.then.i.i.i52.i ], [ %call3.i.i.i46.i, %if.else.i.i.i44.i ]
+  %conv3.i.i49.i = uitofp i64 %decimal.val.pre.i9.i to double
+  %add.i.i50.i = fadd double %decimal.val7.i42.i, %conv3.i.i49.i
+  %mul.i.i51.i = fmul double %add.i.i50.i, %retval.0.i.i.i48.i
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIdEET_RKNS_10Decimal128Ei.exit57.i
 
 if.end.i15.i:                                     ; preds = %lor.lhs.false.i10.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %whole_decimal.i6.i, i8 0, i64 16, i1 false)
@@ -1267,40 +1271,40 @@ if.end.i15.i:                                     ; preds = %lor.lhs.false.i10.i
   %ref.tmp6.sroa.0.0.copyload.i23.i = load i64, ptr %fraction_decimal.i7.i, align 8
   %ref.tmp6.sroa.2.0.fraction_decimal.sroa_idx.i24.i = getelementptr inbounds i8, ptr %fraction_decimal.i7.i, i64 8
   %ref.tmp6.sroa.2.0.copyload.i25.i = load i64, ptr %ref.tmp6.sroa.2.0.fraction_decimal.sroa_idx.i24.i, align 8
-  %15 = sub nsw i32 76, %scale
-  %16 = icmp ult i32 %15, 153
-  br i1 %16, label %if.then.i.i27.i39.i, label %if.else.i.i17.i26.i
+  %sub.i17.i26.i = sub nsw i32 0, %scale
+  %20 = icmp ult i32 %scale, 77
+  br i1 %20, label %if.then.i.i27.i39.i, label %if.else.i.i18.i27.i
 
 if.then.i.i27.i39.i:                              ; preds = %if.end.i15.i
-  %idxprom.i.i28.i40.i = zext nneg i32 %15 to i64
-  %arrayidx.i.i29.i41.i = getelementptr inbounds double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %idxprom.i.i28.i40.i
-  %17 = load double, ptr %arrayidx.i.i29.i41.i, align 8
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit30.i30.i
+  %21 = sext i32 %sub.i17.i26.i to i64
+  %22 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %21
+  %arrayidx.i.i28.i40.i = getelementptr double, ptr %22, i64 76
+  %23 = load double, ptr %arrayidx.i.i28.i40.i, align 8
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit29.i30.i
 
-if.else.i.i17.i26.i:                              ; preds = %if.end.i15.i
-  %sub.i18.i27.i = sub nsw i32 0, %scale
-  %conv.i.i19.i28.i = sitofp i32 %sub.i18.i27.i to double
+if.else.i.i18.i27.i:                              ; preds = %if.end.i15.i
+  %conv.i.i19.i28.i = sitofp i32 %sub.i17.i26.i to double
   %call3.i.i20.i29.i = call double @pow(double noundef 1.000000e+01, double noundef %conv.i.i19.i28.i) #19
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit30.i30.i
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit29.i30.i
 
-_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit30.i30.i: ; preds = %if.else.i.i17.i26.i, %if.then.i.i27.i39.i
-  %retval.0.i.i21.i31.i = phi double [ %17, %if.then.i.i27.i39.i ], [ %call3.i.i20.i29.i, %if.else.i.i17.i26.i ]
+_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit29.i30.i: ; preds = %if.else.i.i18.i27.i, %if.then.i.i27.i39.i
+  %retval.0.i.i21.i31.i = phi double [ %23, %if.then.i.i27.i39.i ], [ %call3.i.i20.i29.i, %if.else.i.i18.i27.i ]
   %conv.i22.i32.i = sitofp i64 %ref.tmp6.sroa.2.0.copyload.i25.i to double
   %mul.i.i23.i33.i = fmul double %conv.i22.i32.i, 0x43F0000000000000
   %conv3.i24.i34.i = uitofp i64 %ref.tmp6.sroa.0.0.copyload.i23.i to double
   %add.i25.i35.i = fadd double %mul.i.i23.i33.i, %conv3.i24.i34.i
   %mul.i26.i36.i = fmul double %add.i25.i35.i, %retval.0.i.i21.i31.i
   %add.i37.i = fadd double %add.i15.i22.i, %mul.i26.i36.i
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIdEET_RKNS_10Decimal128Ei.exit59.i
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIdEET_RKNS_10Decimal128Ei.exit57.i
 
-_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIdEET_RKNS_10Decimal128Ei.exit59.i: ; preds = %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit30.i30.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit.i48.i
-  %retval.0.i38.i = phi double [ %mul.i.i52.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit.i48.i ], [ %add.i37.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit30.i30.i ]
+_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIdEET_RKNS_10Decimal128Ei.exit57.i: ; preds = %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit29.i30.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit.i47.i
+  %retval.0.i38.i = phi double [ %mul.i.i51.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit.i47.i ], [ %add.i37.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit29.i30.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %whole_decimal.i6.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %fraction_decimal.i7.i)
   br label %_ZN5arrow12_GLOBAL__N_121DecimalRealConversionINS_10Decimal128ENS0_24Decimal128RealConversionEE6ToRealIdEET_RKS2_i.exit
 
-_ZN5arrow12_GLOBAL__N_121DecimalRealConversionINS_10Decimal128ENS0_24Decimal128RealConversionEE6ToRealIdEET_RKS2_i.exit: ; preds = %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIdEET_RKNS_10Decimal128Ei.exit.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIdEET_RKNS_10Decimal128Ei.exit59.i
-  %retval.0.i = phi double [ %fneg.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIdEET_RKNS_10Decimal128Ei.exit.i ], [ %retval.0.i38.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIdEET_RKNS_10Decimal128Ei.exit59.i ]
+_ZN5arrow12_GLOBAL__N_121DecimalRealConversionINS_10Decimal128ENS0_24Decimal128RealConversionEE6ToRealIdEET_RKS2_i.exit: ; preds = %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIdEET_RKNS_10Decimal128Ei.exit.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIdEET_RKNS_10Decimal128Ei.exit57.i
+  %retval.0.i = phi double [ %fneg.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIdEET_RKNS_10Decimal128Ei.exit.i ], [ %retval.0.i38.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIdEET_RKNS_10Decimal128Ei.exit57.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %abs.i)
   ret double %retval.0.i
 }
@@ -8943,35 +8947,36 @@ lor.lhs.false:                                    ; preds = %entry
   %3 = extractelement <2 x i1> %1, i64 1
   %or.cond = select i1 %3, i1 %2, i1 false
   %cmp6 = icmp eq i64 %parts_le.sroa.2.0.copyload, 0
-  %or.cond48 = select i1 %or.cond, i1 %cmp6, i1 false
+  %or.cond47 = select i1 %or.cond, i1 %cmp6, i1 false
   %cmp9 = icmp ult i64 %parts_le.sroa.0.0.copyload, 16777215
-  %or.cond49 = select i1 %or.cond48, i1 %cmp9, i1 false
-  br i1 %or.cond49, label %if.then, label %if.end
+  %or.cond48 = select i1 %or.cond47, i1 %cmp9, i1 false
+  br i1 %or.cond48, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %4 = sub i32 76, %scale
+  %sub.i = sub nsw i32 0, %scale
+  %4 = add i32 %scale, 76
   %5 = icmp ult i32 %4, 153
   br i1 %5, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %idxprom.i.i = zext nneg i32 %4 to i64
-  %arrayidx.i.i8 = getelementptr inbounds float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %idxprom.i.i
-  %6 = load float, ptr %arrayidx.i.i8, align 4
+  %6 = sext i32 %sub.i to i64
+  %7 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %6
+  %arrayidx.i.i8 = getelementptr float, ptr %7, i64 76
+  %8 = load float, ptr %arrayidx.i.i8, align 4
   br label %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit
 
 if.else.i.i:                                      ; preds = %if.then
-  %sub.i = sub nsw i32 0, %scale
   %conv.i.i = sitofp i32 %sub.i to float
   %call.i.i.i = tail call noundef float @powf(float noundef 1.000000e+01, float noundef %conv.i.i) #19
   br label %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit
 
 _ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %retval.0.i.i = phi float [ %6, %if.then.i.i ], [ %call.i.i.i, %if.else.i.i ]
-  %7 = icmp eq <2 x i64> %0, zeroinitializer
-  %8 = select <2 x i1> %7, <2 x float> zeroinitializer, <2 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000>
-  %shift = shufflevector <2 x float> %8, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %9 = fadd <2 x float> %8, %shift
-  %add13.i = extractelement <2 x float> %9, i64 0
+  %retval.0.i.i = phi float [ %8, %if.then.i.i ], [ %call.i.i.i, %if.else.i.i ]
+  %9 = icmp eq <2 x i64> %0, zeroinitializer
+  %10 = select <2 x i1> %9, <2 x float> zeroinitializer, <2 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000>
+  %shift = shufflevector <2 x float> %10, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %11 = fadd <2 x float> %10, %shift
+  %add13.i = extractelement <2 x float> %11, i64 0
   %conv15.i = uitofp i64 %parts_le.sroa.2.0.copyload to float
   %mul.i.i = fmul float %conv15.i, 0x43F0000000000000
   %add17.i = fadd float %mul.i.i, %add13.i
@@ -9005,30 +9010,30 @@ if.end:                                           ; preds = %lor.lhs.false
   %ref.tmp12.sroa.2.0.fraction_decimal.sroa_idx = getelementptr inbounds i8, ptr %fraction_decimal, i64 8
   %ref.tmp12.sroa.2.0.copyload = load i64, ptr %ref.tmp12.sroa.2.0.fraction_decimal.sroa_idx, align 8
   %ref.tmp12.sroa.3.0.fraction_decimal.sroa_idx = getelementptr inbounds i8, ptr %fraction_decimal, i64 16
-  %10 = load <2 x i64>, ptr %ref.tmp12.sroa.3.0.fraction_decimal.sroa_idx, align 8
-  %11 = sub nsw i32 76, %scale
-  %12 = icmp ult i32 %11, 153
-  br i1 %12, label %if.then.i.i44, label %if.else.i.i28
+  %12 = load <2 x i64>, ptr %ref.tmp12.sroa.3.0.fraction_decimal.sroa_idx, align 8
+  %sub.i28 = sub nsw i32 0, %scale
+  %13 = icmp ult i32 %scale, 77
+  br i1 %13, label %if.then.i.i44, label %if.else.i.i29
 
 if.then.i.i44:                                    ; preds = %if.end
-  %idxprom.i.i45 = zext nneg i32 %11 to i64
-  %arrayidx.i.i46 = getelementptr inbounds float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %idxprom.i.i45
-  %13 = load float, ptr %arrayidx.i.i46, align 4
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit47
+  %14 = sext i32 %sub.i28 to i64
+  %15 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %14
+  %arrayidx.i.i45 = getelementptr float, ptr %15, i64 76
+  %16 = load float, ptr %arrayidx.i.i45, align 4
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit46
 
-if.else.i.i28:                                    ; preds = %if.end
-  %sub.i29 = sub nsw i32 0, %scale
-  %conv.i.i30 = sitofp i32 %sub.i29 to float
+if.else.i.i29:                                    ; preds = %if.end
+  %conv.i.i30 = sitofp i32 %sub.i28 to float
   %call.i.i.i31 = call noundef float @powf(float noundef 1.000000e+01, float noundef %conv.i.i30) #19
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit47
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit46
 
-_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit47: ; preds = %if.then.i.i44, %if.else.i.i28
-  %retval.0.i.i32 = phi float [ %13, %if.then.i.i44 ], [ %call.i.i.i31, %if.else.i.i28 ]
-  %14 = icmp eq <2 x i64> %10, zeroinitializer
-  %15 = select <2 x i1> %14, <2 x float> zeroinitializer, <2 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000>
-  %shift50 = shufflevector <2 x float> %15, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %16 = fadd <2 x float> %15, %shift50
-  %add13.i37 = extractelement <2 x float> %16, i64 0
+_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit46: ; preds = %if.then.i.i44, %if.else.i.i29
+  %retval.0.i.i32 = phi float [ %16, %if.then.i.i44 ], [ %call.i.i.i31, %if.else.i.i29 ]
+  %17 = icmp eq <2 x i64> %12, zeroinitializer
+  %18 = select <2 x i1> %17, <2 x float> zeroinitializer, <2 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000>
+  %shift49 = shufflevector <2 x float> %18, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %19 = fadd <2 x float> %18, %shift49
+  %add13.i37 = extractelement <2 x float> %19, i64 0
   %conv15.i38 = uitofp i64 %ref.tmp12.sroa.2.0.copyload to float
   %mul.i.i39 = fmul float %conv15.i38, 0x43F0000000000000
   %add17.i40 = fadd float %mul.i.i39, %add13.i37
@@ -9038,8 +9043,8 @@ _ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RK
   %add = fadd float %add20.i23, %mul.i43
   br label %return
 
-return:                                           ; preds = %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit47, %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit
-  %retval.0 = phi float [ %mul.i, %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit ], [ %add, %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit47 ]
+return:                                           ; preds = %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit46, %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit
+  %retval.0 = phi float [ %mul.i, %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit ], [ %add, %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit46 ]
   ret float %retval.0
 }
 
@@ -9064,39 +9069,40 @@ lor.lhs.false:                                    ; preds = %entry
   %2 = extractelement <2 x i1> %1, i64 1
   %or.cond = select i1 %cmp1, i1 %2, i1 false
   %3 = extractelement <2 x i1> %1, i64 0
-  %or.cond50 = select i1 %or.cond, i1 %3, i1 false
+  %or.cond49 = select i1 %or.cond, i1 %3, i1 false
   %cmp9 = icmp ult i64 %parts_le.sroa.0.0.copyload, 9007199254740991
-  %or.cond51 = select i1 %or.cond50, i1 %cmp9, i1 false
-  br i1 %or.cond51, label %if.then, label %if.end
+  %or.cond50 = select i1 %or.cond49, i1 %cmp9, i1 false
+  br i1 %or.cond50, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %4 = sub i32 76, %scale
+  %sub.i = sub nsw i32 0, %scale
+  %4 = add i32 %scale, 76
   %5 = icmp ult i32 %4, 153
   br i1 %5, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %idxprom.i.i = zext nneg i32 %4 to i64
-  %arrayidx.i.i8 = getelementptr inbounds double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %idxprom.i.i
-  %6 = load double, ptr %arrayidx.i.i8, align 8
+  %6 = sext i32 %sub.i to i64
+  %7 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %6
+  %arrayidx.i.i8 = getelementptr double, ptr %7, i64 76
+  %8 = load double, ptr %arrayidx.i.i8, align 8
   br label %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit
 
 if.else.i.i:                                      ; preds = %if.then
-  %sub.i = sub nsw i32 0, %scale
   %conv.i.i = sitofp i32 %sub.i to double
   %call3.i.i = tail call double @pow(double noundef 1.000000e+01, double noundef %conv.i.i) #19
   br label %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit
 
 _ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %retval.0.i.i = phi double [ %6, %if.then.i.i ], [ %call3.i.i, %if.else.i.i ]
+  %retval.0.i.i = phi double [ %8, %if.then.i.i ], [ %call3.i.i, %if.else.i.i ]
   %conv.i = uitofp i64 %parts_le.sroa.4.0.copyload to double
   %mul.i.i = fmul double %conv.i, 0x4BF0000000000000
   %add.i = fadd double %mul.i.i, 0.000000e+00
-  %7 = uitofp <2 x i64> %0 to <2 x double>
-  %8 = fmul <2 x double> %7, <double 0x43F0000000000000, double 0x47F0000000000000>
-  %9 = extractelement <2 x double> %8, i64 1
-  %add13.i = fadd double %9, %add.i
-  %10 = extractelement <2 x double> %8, i64 0
-  %add17.i = fadd double %10, %add13.i
+  %9 = uitofp <2 x i64> %0 to <2 x double>
+  %10 = fmul <2 x double> %9, <double 0x43F0000000000000, double 0x47F0000000000000>
+  %11 = extractelement <2 x double> %10, i64 1
+  %add13.i = fadd double %11, %add.i
+  %12 = extractelement <2 x double> %10, i64 0
+  %add17.i = fadd double %12, %add13.i
   %conv19.i = uitofp i64 %parts_le.sroa.0.0.copyload to double
   %add20.i = fadd double %add17.i, %conv19.i
   %mul.i = fmul double %add20.i, %retval.0.i.i
@@ -9126,44 +9132,44 @@ if.end:                                           ; preds = %lor.lhs.false
   %add20.i24 = fadd double %add17.i22, %conv19.i23
   %ref.tmp12.sroa.0.0.copyload = load i64, ptr %fraction_decimal, align 8
   %ref.tmp12.sroa.2.0.fraction_decimal.sroa_idx = getelementptr inbounds i8, ptr %fraction_decimal, i64 8
-  %11 = load <2 x i64>, ptr %ref.tmp12.sroa.2.0.fraction_decimal.sroa_idx, align 8
+  %13 = load <2 x i64>, ptr %ref.tmp12.sroa.2.0.fraction_decimal.sroa_idx, align 8
   %ref.tmp12.sroa.4.0.fraction_decimal.sroa_idx = getelementptr inbounds i8, ptr %fraction_decimal, i64 24
   %ref.tmp12.sroa.4.0.copyload = load i64, ptr %ref.tmp12.sroa.4.0.fraction_decimal.sroa_idx, align 8
-  %12 = sub nsw i32 76, %scale
-  %13 = icmp ult i32 %12, 153
-  br i1 %13, label %if.then.i.i46, label %if.else.i.i29
+  %sub.i29 = sub nsw i32 0, %scale
+  %14 = icmp ult i32 %scale, 77
+  br i1 %14, label %if.then.i.i46, label %if.else.i.i30
 
 if.then.i.i46:                                    ; preds = %if.end
-  %idxprom.i.i47 = zext nneg i32 %12 to i64
-  %arrayidx.i.i48 = getelementptr inbounds double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %idxprom.i.i47
-  %14 = load double, ptr %arrayidx.i.i48, align 8
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit49
+  %15 = sext i32 %sub.i29 to i64
+  %16 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %15
+  %arrayidx.i.i47 = getelementptr double, ptr %16, i64 76
+  %17 = load double, ptr %arrayidx.i.i47, align 8
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit48
 
-if.else.i.i29:                                    ; preds = %if.end
-  %sub.i30 = sub nsw i32 0, %scale
-  %conv.i.i31 = sitofp i32 %sub.i30 to double
+if.else.i.i30:                                    ; preds = %if.end
+  %conv.i.i31 = sitofp i32 %sub.i29 to double
   %call3.i.i32 = call double @pow(double noundef 1.000000e+01, double noundef %conv.i.i31) #19
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit49
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit48
 
-_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit49: ; preds = %if.then.i.i46, %if.else.i.i29
-  %retval.0.i.i33 = phi double [ %14, %if.then.i.i46 ], [ %call3.i.i32, %if.else.i.i29 ]
+_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit48: ; preds = %if.then.i.i46, %if.else.i.i30
+  %retval.0.i.i33 = phi double [ %17, %if.then.i.i46 ], [ %call3.i.i32, %if.else.i.i30 ]
   %conv.i34 = uitofp i64 %ref.tmp12.sroa.4.0.copyload to double
   %mul.i.i35 = fmul double %conv.i34, 0x4BF0000000000000
   %add.i36 = fadd double %mul.i.i35, 0.000000e+00
-  %15 = uitofp <2 x i64> %11 to <2 x double>
-  %16 = fmul <2 x double> %15, <double 0x43F0000000000000, double 0x47F0000000000000>
-  %17 = extractelement <2 x double> %16, i64 1
-  %add13.i39 = fadd double %17, %add.i36
-  %18 = extractelement <2 x double> %16, i64 0
-  %add17.i42 = fadd double %18, %add13.i39
+  %18 = uitofp <2 x i64> %13 to <2 x double>
+  %19 = fmul <2 x double> %18, <double 0x43F0000000000000, double 0x47F0000000000000>
+  %20 = extractelement <2 x double> %19, i64 1
+  %add13.i39 = fadd double %20, %add.i36
+  %21 = extractelement <2 x double> %19, i64 0
+  %add17.i42 = fadd double %21, %add13.i39
   %conv19.i43 = uitofp i64 %ref.tmp12.sroa.0.0.copyload to double
   %add20.i44 = fadd double %add17.i42, %conv19.i43
   %mul.i45 = fmul double %add20.i44, %retval.0.i.i33
   %add = fadd double %add20.i24, %mul.i45
   br label %return
 
-return:                                           ; preds = %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit49, %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit
-  %retval.0 = phi double [ %mul.i, %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit ], [ %add, %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit49 ]
+return:                                           ; preds = %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit48, %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit
+  %retval.0 = phi double [ %mul.i, %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit ], [ %add, %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit48 ]
   ret double %retval.0
 }
 

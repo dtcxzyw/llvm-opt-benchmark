@@ -84,22 +84,22 @@ if.then3:                                         ; preds = %X509_TRUST_get_by_i
   br label %return
 
 if.then2.i:                                       ; preds = %if.end
-  %3 = add nsw i32 %id, -1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i)
-  %idx.ext.i = zext nneg i32 %3 to i64
-  %add.ptr.i = getelementptr inbounds %struct.x509_trust_st, ptr @trstandard, i64 %idx.ext.i
+  %3 = zext nneg i32 %id to i64
+  %4 = getelementptr %struct.x509_trust_st, ptr @trstandard, i64 %3
+  %add.ptr.i = getelementptr %struct.x509_trust_st, ptr %4, i64 -1
   br label %X509_TRUST_get0.exit
 
 if.end3.i:                                        ; preds = %X509_TRUST_get_by_id.exit
-  %4 = load ptr, ptr @trtable, align 8
-  %call5.i = call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef %call7.i) #6
+  %5 = load ptr, ptr @trtable, align 8
+  %call5.i = call ptr @OPENSSL_sk_value(ptr noundef %5, i32 noundef %call7.i) #6
   br label %X509_TRUST_get0.exit
 
 X509_TRUST_get0.exit:                             ; preds = %if.then2.i, %if.end3.i
   %retval.0.i10 = phi ptr [ %add.ptr.i, %if.then2.i ], [ %call5.i, %if.end3.i ]
   %check_trust = getelementptr inbounds %struct.x509_trust_st, ptr %retval.0.i10, i64 0, i32 2
-  %5 = load ptr, ptr %check_trust, align 8
-  %call7 = call i32 %5(ptr noundef %retval.0.i10, ptr noundef %x, i32 noundef %flags) #6
+  %6 = load ptr, ptr %check_trust, align 8
+  %call7 = call i32 %6(ptr noundef %retval.0.i10, ptr noundef %x, i32 noundef %flags) #6
   br label %return
 
 return:                                           ; preds = %X509_TRUST_get0.exit, %if.then3, %if.then

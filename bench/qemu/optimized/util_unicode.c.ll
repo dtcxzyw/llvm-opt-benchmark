@@ -61,9 +61,9 @@ if.end22:                                         ; preds = %for.end
 for.body27.preheader:                             ; preds = %if.end22
   %umax = tail call i64 @llvm.umax.i64(i64 %n, i64 1)
   %scevgep = getelementptr i8, ptr %s, i64 %umax
-  %narrow = add nuw nsw i32 %len.042, 1
-  %2 = zext nneg i32 %narrow to i64
-  %scevgep51 = getelementptr i8, ptr %s, i64 %2
+  %2 = zext nneg i32 %len.042 to i64
+  %3 = getelementptr i8, ptr %s, i64 %2
+  %scevgep51 = getelementptr i8, ptr %3, i64 1
   %wide.trip.count = zext nneg i32 %inc to i64
   br label %for.body27
 
@@ -75,8 +75,8 @@ for.body27:                                       ; preds = %for.body27.preheade
   br i1 %exitcond.not, label %return, label %cond.end
 
 cond.end:                                         ; preds = %for.body27
-  %3 = load i8, ptr %p.045, align 1
-  %conv31 = zext i8 %3 to i32
+  %4 = load i8, ptr %p.045, align 1
+  %conv31 = zext i8 %4 to i32
   %and32 = and i32 %conv31, 192
   %cmp33.not = icmp eq i32 %and32, 128
   br i1 %cmp33.not, label %if.end36, label %return
@@ -97,21 +97,21 @@ for.end41:                                        ; preds = %if.end36, %if.end22
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %for.end41
-  %4 = add nsw i32 %cp.0.lcssa, -65008
-  %or.cond.i = icmp ult i32 %4, -32
+  %5 = add nsw i32 %cp.0.lcssa, -65008
+  %or.cond.i = icmp ult i32 %5, -32
   %and.i = and i32 %cp.0.lcssa, 65534
   %cmp3.i = icmp ne i32 %and.i, 65534
   %or.cond7.i.not36 = and i1 %or.cond.i, %cmp3.i
-  %5 = and i32 %cp.0.lcssa, 2095104
-  %or.cond1.i = icmp ne i32 %5, 55296
+  %6 = and i32 %cp.0.lcssa, 2095104
+  %or.cond1.i = icmp ne i32 %6, 55296
   %or.cond35 = and i1 %or.cond7.i.not36, %or.cond1.i
   br i1 %or.cond35, label %if.else43, label %return
 
 if.else43:                                        ; preds = %if.end.i
   %idxprom = zext nneg i32 %1 to i64
   %arrayidx = getelementptr [5 x i32], ptr @mod_utf8_codepoint.min_cp, i64 0, i64 %idxprom
-  %6 = load i32, ptr %arrayidx, align 4
-  %cmp45 = icmp slt i32 %cp.0.lcssa, %6
+  %7 = load i32, ptr %arrayidx, align 4
+  %cmp45 = icmp slt i32 %cp.0.lcssa, %7
   br i1 %cmp45, label %land.lhs.true47, label %return
 
 land.lhs.true47:                                  ; preds = %if.else43

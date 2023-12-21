@@ -3431,15 +3431,15 @@ for.body.lr.ph:                                   ; preds = %if.end30
   %4 = load ptr, ptr %p, align 8
   %5 = load ptr, ptr %n, align 8
   %6 = load ptr, ptr %uv, align 8
-  %wide.trip.count111 = and i64 %0, 4294967295
+  %wide.trip.count114 = and i64 %0, 4294967295
   br i1 %cmp.i, label %for.body.lr.ph.split.us, label %for.body
 
 for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
   br i1 %cmp.i60, label %for.body.us.us, label %for.body.us
 
 for.body.us.us:                                   ; preds = %for.body.lr.ph.split.us, %for.body.us.us
-  %indvars.iv108 = phi i64 [ %indvars.iv.next109, %for.body.us.us ], [ 0, %for.body.lr.ph.split.us ]
-  %arrayidx.i.us.us = getelementptr inbounds %"class.pbrt::Point3", ptr %4, i64 %indvars.iv108
+  %indvars.iv111 = phi i64 [ %indvars.iv.next112, %for.body.us.us ], [ 0, %for.body.lr.ph.split.us ]
+  %arrayidx.i.us.us = getelementptr inbounds %"class.pbrt::Point3", ptr %4, i64 %indvars.iv111
   %7 = load float, ptr %arrayidx.i.us.us, align 4
   %conv34.us.us = fpext float %7 to double
   %call35.us.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv34.us.us)
@@ -3451,13 +3451,13 @@ for.body.us.us:                                   ; preds = %for.body.lr.ph.spli
   %9 = load float, ptr %z.us.us, align 4
   %conv42.us.us = fpext float %9 to double
   %call43.us.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv42.us.us)
-  %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
-  %exitcond112.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count111
-  br i1 %exitcond112.not, label %for.cond76.preheader, label %for.body.us.us, !llvm.loop !7
+  %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
+  %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
+  br i1 %exitcond115.not, label %for.cond76.preheader, label %for.body.us.us, !llvm.loop !7
 
 for.body.us:                                      ; preds = %for.body.lr.ph.split.us, %for.body.us
-  %indvars.iv103 = phi i64 [ %indvars.iv.next104, %for.body.us ], [ 0, %for.body.lr.ph.split.us ]
-  %arrayidx.i.us = getelementptr inbounds %"class.pbrt::Point3", ptr %4, i64 %indvars.iv103
+  %indvars.iv106 = phi i64 [ %indvars.iv.next107, %for.body.us ], [ 0, %for.body.lr.ph.split.us ]
+  %arrayidx.i.us = getelementptr inbounds %"class.pbrt::Point3", ptr %4, i64 %indvars.iv106
   %10 = load float, ptr %arrayidx.i.us, align 4
   %conv34.us = fpext float %10 to double
   %call35.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv34.us)
@@ -3469,7 +3469,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph.spli
   %12 = load float, ptr %z.us, align 4
   %conv42.us = fpext float %12 to double
   %call43.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv42.us)
-  %arrayidx.i74.us = getelementptr inbounds %"class.pbrt::Point2", ptr %6, i64 %indvars.iv103
+  %arrayidx.i74.us = getelementptr inbounds %"class.pbrt::Point2", ptr %6, i64 %indvars.iv106
   %13 = load float, ptr %arrayidx.i74.us, align 4
   %conv67.us = fpext float %13 to double
   %call68.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv67.us)
@@ -3477,148 +3477,161 @@ for.body.us:                                      ; preds = %for.body.lr.ph.spli
   %14 = load float, ptr %y71.us, align 4
   %conv72.us = fpext float %14 to double
   %call73.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv72.us)
-  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
-  %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count111
-  br i1 %exitcond107.not, label %for.cond76.preheader, label %for.body.us, !llvm.loop !7
+  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
+  %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count114
+  br i1 %exitcond110.not, label %for.cond76.preheader, label %for.body.us, !llvm.loop !7
 
 for.cond76.preheader:                             ; preds = %for.inc, %for.body.us, %for.body.us.us, %if.end30
-  %cmp7796 = icmp sgt i32 %conv20, 0
-  br i1 %cmp7796, label %for.body78.lr.ph, label %for.cond107.preheader
+  %invariant.gep = getelementptr i32, ptr %triIndices.coerce0, i64 1
+  %invariant.gep96 = getelementptr i32, ptr %triIndices.coerce0, i64 2
+  %cmp7798 = icmp sgt i32 %conv20, 0
+  br i1 %cmp7798, label %for.body78.lr.ph, label %for.cond107.preheader
 
 for.body78.lr.ph:                                 ; preds = %for.cond76.preheader
   %15 = load ptr, ptr %faceIndices, align 8
-  %wide.trip.count119 = and i64 %div, 4294967295
-  br label %for.body78
+  %wide.trip.count126 = and i64 %div, 4294967295
+  br i1 %cmp.i64, label %for.body78.us, label %for.body78
+
+for.body78.us:                                    ; preds = %for.body78.lr.ph, %for.body78.us
+  %indvars.iv122 = phi i64 [ %indvars.iv.next123, %for.body78.us ], [ 0, %for.body78.lr.ph ]
+  %call79.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef 3.000000e+00)
+  %16 = mul i64 %indvars.iv122, 3
+  %conv80.us = and i64 %16, 4294967295
+  %arrayidx.i76.us = getelementptr inbounds i32, ptr %triIndices.coerce0, i64 %conv80.us
+  %17 = load i32, ptr %arrayidx.i76.us, align 4
+  %conv82.us = sitofp i32 %17 to double
+  %call83.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv82.us)
+  %gep.us = getelementptr i32, ptr %invariant.gep, i64 %conv80.us
+  %18 = load i32, ptr %gep.us, align 4
+  %conv88.us = sitofp i32 %18 to double
+  %call89.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv88.us)
+  %gep97.us = getelementptr i32, ptr %invariant.gep96, i64 %conv80.us
+  %19 = load i32, ptr %gep97.us, align 4
+  %conv94.us = sitofp i32 %19 to double
+  %call95.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv94.us)
+  %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
+  %exitcond127.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count126
+  br i1 %exitcond127.not, label %for.cond107.preheader, label %for.body78.us, !llvm.loop !8
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.body.lr.ph ]
   %arrayidx.i = getelementptr inbounds %"class.pbrt::Point3", ptr %4, i64 %indvars.iv
-  %16 = load float, ptr %arrayidx.i, align 4
-  %conv34 = fpext float %16 to double
+  %20 = load float, ptr %arrayidx.i, align 4
+  %conv34 = fpext float %20 to double
   %call35 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv34)
   %y = getelementptr inbounds %"class.pbrt::Tuple3", ptr %arrayidx.i, i64 0, i32 1
-  %17 = load float, ptr %y, align 4
-  %conv38 = fpext float %17 to double
+  %21 = load float, ptr %y, align 4
+  %conv38 = fpext float %21 to double
   %call39 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv38)
   %z = getelementptr inbounds %"class.pbrt::Tuple3", ptr %arrayidx.i, i64 0, i32 2
-  %18 = load float, ptr %z, align 4
-  %conv42 = fpext float %18 to double
+  %22 = load float, ptr %z, align 4
+  %conv42 = fpext float %22 to double
   %call43 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv42)
   %arrayidx.i69 = getelementptr inbounds %"class.pbrt::Normal3", ptr %5, i64 %indvars.iv
-  %19 = load float, ptr %arrayidx.i69, align 4
-  %conv49 = fpext float %19 to double
+  %23 = load float, ptr %arrayidx.i69, align 4
+  %conv49 = fpext float %23 to double
   %call50 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv49)
   %y53 = getelementptr inbounds %"class.pbrt::Tuple3.73", ptr %arrayidx.i69, i64 0, i32 1
-  %20 = load float, ptr %y53, align 4
-  %conv54 = fpext float %20 to double
+  %24 = load float, ptr %y53, align 4
+  %conv54 = fpext float %24 to double
   %call55 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv54)
   %z58 = getelementptr inbounds %"class.pbrt::Tuple3.73", ptr %arrayidx.i69, i64 0, i32 2
-  %21 = load float, ptr %z58, align 4
-  %conv59 = fpext float %21 to double
+  %25 = load float, ptr %z58, align 4
+  %conv59 = fpext float %25 to double
   %call60 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv59)
   br i1 %cmp.i60, label %for.inc, label %if.then63
 
 if.then63:                                        ; preds = %for.body
   %arrayidx.i74 = getelementptr inbounds %"class.pbrt::Point2", ptr %6, i64 %indvars.iv
-  %22 = load float, ptr %arrayidx.i74, align 4
-  %conv67 = fpext float %22 to double
+  %26 = load float, ptr %arrayidx.i74, align 4
+  %conv67 = fpext float %26 to double
   %call68 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv67)
   %y71 = getelementptr inbounds %"class.pbrt::Tuple2", ptr %arrayidx.i74, i64 0, i32 1
-  %23 = load float, ptr %y71, align 4
-  %conv72 = fpext float %23 to double
+  %27 = load float, ptr %y71, align 4
+  %conv72 = fpext float %27 to double
   %call73 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv72)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count111
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count114
   br i1 %exitcond.not, label %for.cond76.preheader, label %for.body, !llvm.loop !7
 
-for.cond107.preheader:                            ; preds = %for.inc103, %for.cond76.preheader
-  %cmp10898 = icmp sgt i32 %conv23, 0
-  br i1 %cmp10898, label %for.body109.lr.ph, label %for.end143
+for.cond107.preheader:                            ; preds = %for.body78, %for.body78.us, %for.cond76.preheader
+  %cmp108100 = icmp sgt i32 %conv23, 0
+  br i1 %cmp108100, label %for.body109.lr.ph, label %for.end143
 
 for.body109.lr.ph:                                ; preds = %for.cond107.preheader
-  %24 = load ptr, ptr %faceIndices, align 8
-  %wide.trip.count124 = and i64 %div2257, 4294967295
+  %28 = load ptr, ptr %faceIndices, align 8
+  %wide.trip.count131 = and i64 %div2257, 4294967295
   br label %for.body109
 
-for.body78:                                       ; preds = %for.body78.lr.ph, %for.inc103
-  %indvars.iv113 = phi i64 [ 0, %for.body78.lr.ph ], [ %indvars.iv.next114, %for.inc103 ]
+for.body78:                                       ; preds = %for.body78.lr.ph, %for.body78
+  %indvars.iv116 = phi i64 [ %indvars.iv.next117, %for.body78 ], [ 0, %for.body78.lr.ph ]
   %call79 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef 3.000000e+00)
-  %25 = mul nuw nsw i64 %indvars.iv113, 3
-  %conv80 = and i64 %25, 4294967295
+  %29 = mul i64 %indvars.iv116, 3
+  %conv80 = and i64 %29, 4294967295
   %arrayidx.i76 = getelementptr inbounds i32, ptr %triIndices.coerce0, i64 %conv80
-  %26 = load i32, ptr %arrayidx.i76, align 4
-  %conv82 = sitofp i32 %26 to double
+  %30 = load i32, ptr %arrayidx.i76, align 4
+  %conv82 = sitofp i32 %30 to double
   %call83 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv82)
-  %27 = add nuw i64 %25, 1
-  %conv86 = and i64 %27, 4294967295
-  %arrayidx.i77 = getelementptr inbounds i32, ptr %triIndices.coerce0, i64 %conv86
-  %28 = load i32, ptr %arrayidx.i77, align 4
-  %conv88 = sitofp i32 %28 to double
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %conv80
+  %31 = load i32, ptr %gep, align 4
+  %conv88 = sitofp i32 %31 to double
   %call89 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv88)
-  %29 = add nuw i64 %25, 2
-  %conv92 = and i64 %29, 4294967295
-  %arrayidx.i78 = getelementptr inbounds i32, ptr %triIndices.coerce0, i64 %conv92
-  %30 = load i32, ptr %arrayidx.i78, align 4
-  %conv94 = sitofp i32 %30 to double
+  %gep97 = getelementptr i32, ptr %invariant.gep96, i64 %conv80
+  %32 = load i32, ptr %gep97, align 4
+  %conv94 = sitofp i32 %32 to double
   %call95 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv94)
-  br i1 %cmp.i64, label %for.inc103, label %if.then97
-
-if.then97:                                        ; preds = %for.body78
-  %arrayidx.i81 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv113
-  %31 = load i32, ptr %arrayidx.i81, align 4
-  %conv100 = sitofp i32 %31 to double
+  %arrayidx.i81 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv116
+  %33 = load i32, ptr %arrayidx.i81, align 4
+  %conv100 = sitofp i32 %33 to double
   %call101 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv100)
-  br label %for.inc103
-
-for.inc103:                                       ; preds = %for.body78, %if.then97
-  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
-  %exitcond120.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count119
-  br i1 %exitcond120.not, label %for.cond107.preheader, label %for.body78, !llvm.loop !8
+  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
+  %exitcond121.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count126
+  br i1 %exitcond121.not, label %for.cond107.preheader, label %for.body78, !llvm.loop !8
 
 for.body109:                                      ; preds = %for.body109.lr.ph, %for.inc141
-  %indvars.iv121 = phi i64 [ 0, %for.body109.lr.ph ], [ %indvars.iv.next122, %for.inc141 ]
+  %indvars.iv128 = phi i64 [ 0, %for.body109.lr.ph ], [ %indvars.iv.next129, %for.inc141 ]
   %call110 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef 4.000000e+00)
-  %32 = trunc i64 %indvars.iv121 to i32
-  %mul111 = shl nsw i32 %32, 2
+  %34 = trunc i64 %indvars.iv128 to i32
+  %mul111 = shl nsw i32 %34, 2
   %conv112 = zext nneg i32 %mul111 to i64
   %arrayidx.i82 = getelementptr inbounds i32, ptr %quadIndices.coerce0, i64 %conv112
-  %33 = load i32, ptr %arrayidx.i82, align 4
-  %conv114 = sitofp i32 %33 to double
+  %35 = load i32, ptr %arrayidx.i82, align 4
+  %conv114 = sitofp i32 %35 to double
   %call115 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv114)
   %add117 = or disjoint i32 %mul111, 1
   %conv118 = zext nneg i32 %add117 to i64
   %arrayidx.i83 = getelementptr inbounds i32, ptr %quadIndices.coerce0, i64 %conv118
-  %34 = load i32, ptr %arrayidx.i83, align 4
-  %conv120 = sitofp i32 %34 to double
+  %36 = load i32, ptr %arrayidx.i83, align 4
+  %conv120 = sitofp i32 %36 to double
   %call121 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv120)
   %add123 = or disjoint i32 %mul111, 2
   %conv124 = zext nneg i32 %add123 to i64
   %arrayidx.i84 = getelementptr inbounds i32, ptr %quadIndices.coerce0, i64 %conv124
-  %35 = load i32, ptr %arrayidx.i84, align 4
-  %conv126 = sitofp i32 %35 to double
+  %37 = load i32, ptr %arrayidx.i84, align 4
+  %conv126 = sitofp i32 %37 to double
   %call127 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv126)
   %add129 = or disjoint i32 %mul111, 3
   %conv130 = zext nneg i32 %add129 to i64
   %arrayidx.i85 = getelementptr inbounds i32, ptr %quadIndices.coerce0, i64 %conv130
-  %36 = load i32, ptr %arrayidx.i85, align 4
-  %conv132 = sitofp i32 %36 to double
+  %38 = load i32, ptr %arrayidx.i85, align 4
+  %conv132 = sitofp i32 %38 to double
   %call133 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv132)
   br i1 %cmp.i64, label %for.inc141, label %if.then135
 
 if.then135:                                       ; preds = %for.body109
-  %arrayidx.i88 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv121
-  %37 = load i32, ptr %arrayidx.i88, align 4
-  %conv138 = sitofp i32 %37 to double
+  %arrayidx.i88 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv128
+  %39 = load i32, ptr %arrayidx.i88, align 4
+  %conv138 = sitofp i32 %39 to double
   %call139 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv138)
   br label %for.inc141
 
 for.inc141:                                       ; preds = %for.body109, %if.then135
-  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %exitcond125.not = icmp eq i64 %indvars.iv.next122, %wide.trip.count124
-  br i1 %exitcond125.not, label %for.end143, label %for.body109, !llvm.loop !9
+  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
+  %exitcond132.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count131
+  br i1 %exitcond132.not, label %for.end143, label %for.body109, !llvm.loop !9
 
 for.end143:                                       ; preds = %for.inc141, %for.cond107.preheader
   %call144 = tail call noundef i32 @_Z9ply_closeP6t_ply_(ptr noundef %call1)

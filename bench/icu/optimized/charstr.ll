@@ -1406,12 +1406,12 @@ if.end4:                                          ; preds = %entry
   br i1 %cmp5, label %land.lhs.true, label %if.end16
 
 land.lhs.true:                                    ; preds = %if.end4
-  %sub = add nsw i32 %1, -1
-  %conv = zext nneg i32 %sub to i64
   %2 = load ptr, ptr %this, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %2, i64 %conv
-  %3 = load i8, ptr %arrayidx.i, align 1
-  %cmp9.not = icmp eq i8 %3, 47
+  %3 = zext nneg i32 %1 to i64
+  %4 = getelementptr i8, ptr %2, i64 %3
+  %arrayidx.i = getelementptr i8, ptr %4, i64 -1
+  %5 = load i8, ptr %arrayidx.i, align 1
+  %cmp9.not = icmp eq i8 %5, 47
   br i1 %cmp9.not, label %if.end16, label %if.then13
 
 if.then13:                                        ; preds = %land.lhs.true
@@ -1421,17 +1421,17 @@ if.then13:                                        ; preds = %land.lhs.true
   br i1 %tobool.not.i, label %if.end16, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then13
-  %4 = load i32, ptr %len, align 8
-  %inc.i = add nsw i32 %4, 1
-  store i32 %inc.i, ptr %len, align 8
-  %conv.i3 = sext i32 %4 to i64
-  %5 = load ptr, ptr %this, align 8
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %5, i64 %conv.i3
-  store i8 47, ptr %arrayidx.i.i, align 1
   %6 = load i32, ptr %len, align 8
-  %conv6.i = sext i32 %6 to i64
+  %inc.i = add nsw i32 %6, 1
+  store i32 %inc.i, ptr %len, align 8
+  %conv.i3 = sext i32 %6 to i64
   %7 = load ptr, ptr %this, align 8
-  %arrayidx.i1.i = getelementptr inbounds i8, ptr %7, i64 %conv6.i
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %7, i64 %conv.i3
+  store i8 47, ptr %arrayidx.i.i, align 1
+  %8 = load i32, ptr %len, align 8
+  %conv6.i = sext i32 %8 to i64
+  %9 = load ptr, ptr %this, align 8
+  %arrayidx.i1.i = getelementptr inbounds i8, ptr %9, i64 %conv6.i
   store i8 0, ptr %arrayidx.i1.i, align 1
   br label %if.end16
 
@@ -1463,12 +1463,12 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp, label %land.lhs.true2, label %if.end
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %sub = add nsw i32 %1, -1
-  %conv = zext nneg i32 %sub to i64
   %2 = load ptr, ptr %this, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %2, i64 %conv
-  %3 = load i8, ptr %arrayidx.i, align 1
-  %cmp6.not = icmp eq i8 %3, 47
+  %3 = zext nneg i32 %1 to i64
+  %4 = getelementptr i8, ptr %2, i64 %3
+  %arrayidx.i = getelementptr i8, ptr %4, i64 -1
+  %5 = load i8, ptr %arrayidx.i, align 1
+  %cmp6.not = icmp eq i8 %5, 47
   br i1 %cmp6.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true2
@@ -1478,17 +1478,17 @@ if.then:                                          ; preds = %land.lhs.true2
   br i1 %tobool.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %4 = load i32, ptr %len, align 8
-  %inc.i = add nsw i32 %4, 1
-  store i32 %inc.i, ptr %len, align 8
-  %conv.i2 = sext i32 %4 to i64
-  %5 = load ptr, ptr %this, align 8
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %5, i64 %conv.i2
-  store i8 47, ptr %arrayidx.i.i, align 1
   %6 = load i32, ptr %len, align 8
-  %conv6.i = sext i32 %6 to i64
+  %inc.i = add nsw i32 %6, 1
+  store i32 %inc.i, ptr %len, align 8
+  %conv.i2 = sext i32 %6 to i64
   %7 = load ptr, ptr %this, align 8
-  %arrayidx.i1.i = getelementptr inbounds i8, ptr %7, i64 %conv6.i
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %7, i64 %conv.i2
+  store i8 47, ptr %arrayidx.i.i, align 1
+  %8 = load i32, ptr %len, align 8
+  %conv6.i = sext i32 %8 to i64
+  %9 = load ptr, ptr %this, align 8
+  %arrayidx.i1.i = getelementptr inbounds i8, ptr %9, i64 %conv6.i
   store i8 0, ptr %arrayidx.i1.i, align 1
   br label %if.end
 

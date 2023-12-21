@@ -111,11 +111,11 @@ for.end:                                          ; preds = %for.body
 
 land.lhs.true:                                    ; preds = %for.end
   %6 = load ptr, ptr %a, align 8
-  %sub22 = add nsw i32 %.pre, -1
-  %idxprom23 = zext nneg i32 %sub22 to i64
-  %arrayidx24 = getelementptr inbounds i64, ptr %6, i64 %idxprom23
-  %7 = load i64, ptr %arrayidx24, align 8
-  %cmp25 = icmp eq i64 %7, 0
+  %7 = zext nneg i32 %.pre to i64
+  %8 = getelementptr i64, ptr %6, i64 %7
+  %arrayidx24 = getelementptr i64, ptr %8, i64 -1
+  %9 = load i64, ptr %arrayidx24, align 8
+  %cmp25 = icmp eq i64 %9, 0
   br i1 %cmp25, label %if.then26, label %if.end29.thread
 
 if.end29.thread:                                  ; preds = %land.lhs.true
@@ -123,14 +123,15 @@ if.end29.thread:                                  ; preds = %land.lhs.true
   br label %return
 
 if.then26:                                        ; preds = %land.lhs.true
-  store i32 %sub22, ptr %top, align 8
+  %dec28 = add nsw i32 %.pre, -1
+  store i32 %dec28, ptr %top, align 8
   br label %if.end29
 
 if.end29:                                         ; preds = %if.end6, %if.then26, %for.end
   %ret.0.lcssa33 = phi i64 [ %sub13, %if.then26 ], [ %sub13, %for.end ], [ 0, %if.end6 ]
-  %8 = phi i32 [ %sub22, %if.then26 ], [ %.pre, %for.end ], [ %1, %if.end6 ]
+  %10 = phi i32 [ %dec28, %if.then26 ], [ %.pre, %for.end ], [ %1, %if.end6 ]
   %shr = lshr i64 %ret.0.lcssa33, %sh_prom
-  %tobool32.not = icmp eq i32 %8, 0
+  %tobool32.not = icmp eq i32 %10, 0
   br i1 %tobool32.not, label %if.then33, label %return
 
 if.then33:                                        ; preds = %if.end29

@@ -1206,11 +1206,11 @@ if.then37:                                        ; preds = %if.else31.if.then37
   %8 = phi ptr [ %.pre44, %if.else31.if.then37_crit_edge ], [ %.pre45, %lor.lhs.false33 ]
   %9 = load ptr, ptr %8, align 8
   %shr42 = lshr i32 %conv20, 5
-  %add43 = add nuw nsw i32 %shr42, 320
-  %idxprom44 = zext nneg i32 %add43 to i64
-  %arrayidx45 = getelementptr inbounds i16, ptr %9, i64 %idxprom44
-  %10 = load i16, ptr %arrayidx45, align 2
-  %conv46 = zext i16 %10 to i32
+  %10 = zext nneg i32 %shr42 to i64
+  %11 = getelementptr i16, ptr %9, i64 %10
+  %arrayidx45 = getelementptr i16, ptr %11, i64 320
+  %12 = load i16, ptr %arrayidx45, align 2
+  %conv46 = zext i16 %12 to i32
   %shl47 = shl nuw nsw i32 %conv46, 2
   %and48 = and i32 %conv20, 31
   %add49 = add nuw nsw i32 %shl47, %and48
@@ -1223,59 +1223,59 @@ if.else52:                                        ; preds = %lor.lhs.false33
   %shl54 = shl nuw nsw i32 %conv20, 10
   %add56 = add nsw i32 %shl54, -56613888
   %sub = add nuw nsw i32 %add56, %conv34
-  %11 = load ptr, ptr %.pre45, align 8
+  %13 = load ptr, ptr %.pre45, align 8
   %highStart = getelementptr inbounds %struct.UTrie2, ptr %.pre45, i64 0, i32 9
-  %12 = load i32, ptr %highStart, align 4
-  %cmp60.not = icmp slt i32 %sub, %12
+  %14 = load i32, ptr %highStart, align 4
+  %cmp60.not = icmp slt i32 %sub, %14
   br i1 %cmp60.not, label %cond.false63, label %cond.true61
 
 cond.true61:                                      ; preds = %if.else52
   %highValueIndex = getelementptr inbounds %struct.UTrie2, ptr %.pre45, i64 0, i32 10
-  %13 = load i32, ptr %highValueIndex, align 8
+  %15 = load i32, ptr %highValueIndex, align 8
   br label %cond.end82
 
 cond.false63:                                     ; preds = %if.else52
   %shr68 = lshr i32 %sub, 11
-  %add69 = add nuw nsw i32 %shr68, 2080
-  %idxprom70 = zext nneg i32 %add69 to i64
-  %arrayidx71 = getelementptr inbounds i16, ptr %11, i64 %idxprom70
-  %14 = load i16, ptr %arrayidx71, align 2
-  %conv72 = zext i16 %14 to i32
+  %16 = zext nneg i32 %shr68 to i64
+  %17 = getelementptr i16, ptr %13, i64 %16
+  %arrayidx71 = getelementptr i16, ptr %17, i64 2080
+  %18 = load i16, ptr %arrayidx71, align 2
+  %conv72 = zext i16 %18 to i32
   %shr73 = lshr i32 %sub, 5
   %and74 = and i32 %shr73, 63
   %add75 = add nuw nsw i32 %and74, %conv72
   %idxprom76 = zext nneg i32 %add75 to i64
-  %arrayidx77 = getelementptr inbounds i16, ptr %11, i64 %idxprom76
-  %15 = load i16, ptr %arrayidx77, align 2
-  %conv78 = zext i16 %15 to i32
+  %arrayidx77 = getelementptr inbounds i16, ptr %13, i64 %idxprom76
+  %19 = load i16, ptr %arrayidx77, align 2
+  %conv78 = zext i16 %19 to i32
   %shl79 = shl nuw nsw i32 %conv78, 2
   %and80 = and i32 %conv34, 31
   %add81 = add nuw nsw i32 %shl79, %and80
   br label %cond.end82
 
 cond.end82:                                       ; preds = %cond.false63, %cond.true61
-  %cond83 = phi i32 [ %13, %cond.true61 ], [ %add81, %cond.false63 ]
+  %cond83 = phi i32 [ %15, %cond.true61 ], [ %add81, %cond.false63 ]
   %idxprom84 = sext i32 %cond83 to i64
-  %arrayidx85 = getelementptr inbounds i16, ptr %11, i64 %idxprom84
+  %arrayidx85 = getelementptr inbounds i16, ptr %13, i64 %idxprom84
   br label %do.end
 
 do.end:                                           ; preds = %if.then22, %cond.end82, %if.then37
   %s.addr.1 = phi ptr [ %incdec.ptr, %if.then37 ], [ %incdec.ptr53, %cond.end82 ], [ %incdec.ptr, %if.then22 ]
   %pvIndex.0.in = phi ptr [ %arrayidx51, %if.then37 ], [ %arrayidx85, %cond.end82 ], [ %arrayidx30, %if.then22 ]
   %pvIndex.0 = load i16, ptr %pvIndex.0.in, align 2
-  %16 = load ptr, ptr %pv, align 8
+  %20 = load ptr, ptr %pv, align 8
   %idx.ext89 = zext i16 %pvIndex.0 to i64
-  %add.ptr90 = getelementptr inbounds i32, ptr %16, i64 %idx.ext89
+  %add.ptr90 = getelementptr inbounds i32, ptr %20, i64 %idx.ext89
   br i1 %cmp5.i, label %for.body.i, label %if.end95
 
 for.body.i:                                       ; preds = %do.end, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %do.end ]
   %oredDest.07.i = phi i32 [ %or.i, %for.body.i ], [ 0, %do.end ]
   %arrayidx.i = getelementptr inbounds i32, ptr %add.ptr90, i64 %indvars.iv.i
-  %17 = load i32, ptr %arrayidx.i, align 4
+  %21 = load i32, ptr %arrayidx.i, align 4
   %arrayidx2.i = getelementptr inbounds i32, ptr %call5, i64 %indvars.iv.i
-  %18 = load i32, ptr %arrayidx2.i, align 4
-  %and.i = and i32 %18, %17
+  %22 = load i32, ptr %arrayidx2.i, align 4
+  %and.i = and i32 %22, %21
   store i32 %and.i, ptr %arrayidx2.i, align 4
   %or.i = or i32 %and.i, %oredDest.07.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1678,45 +1678,45 @@ if.then83:                                        ; preds = %land.lhs.true77
   %incdec.ptr84 = getelementptr inbounds i8, ptr %s.addr.0, i64 2
   %14 = load ptr, ptr %sel, align 8
   %15 = load ptr, ptr %14, align 8
-  %add90 = add nuw nsw i32 %conv19, 1888
-  %idxprom91 = zext nneg i32 %add90 to i64
-  %arrayidx92 = getelementptr inbounds i16, ptr %15, i64 %idxprom91
-  %16 = load i16, ptr %arrayidx92, align 2
-  %conv93 = zext i16 %16 to i64
-  %17 = getelementptr i16, ptr %15, i64 %conv93
-  %arrayidx97 = getelementptr i16, ptr %17, i64 %conv81
+  %16 = zext i8 %2 to i64
+  %17 = getelementptr i16, ptr %15, i64 %16
+  %arrayidx92 = getelementptr i16, ptr %17, i64 1888
+  %18 = load i16, ptr %arrayidx92, align 2
+  %conv93 = zext i16 %18 to i64
+  %19 = getelementptr i16, ptr %15, i64 %conv93
+  %arrayidx97 = getelementptr i16, ptr %19, i64 %conv81
   br label %do.end
 
 if.else98:                                        ; preds = %land.lhs.true27, %land.lhs.true30, %land.lhs.true39, %land.lhs.true77, %if.else69
-  %18 = load ptr, ptr %sel, align 8
-  %call101 = tail call i32 @utrie2_internalU8NextIndex_75(ptr noundef %18, i32 noundef %conv19, ptr noundef nonnull %incdec.ptr, ptr noundef nonnull %add.ptr)
+  %20 = load ptr, ptr %sel, align 8
+  %call101 = tail call i32 @utrie2_internalU8NextIndex_75(ptr noundef %20, i32 noundef %conv19, ptr noundef nonnull %incdec.ptr, ptr noundef nonnull %add.ptr)
   %and102 = and i32 %call101, 7
   %idx.ext103 = zext nneg i32 %and102 to i64
   %add.ptr104 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %idx.ext103
-  %19 = load ptr, ptr %sel, align 8
-  %20 = load ptr, ptr %19, align 8
+  %21 = load ptr, ptr %sel, align 8
+  %22 = load ptr, ptr %21, align 8
   %shr107 = ashr i32 %call101, 3
   %idxprom108 = sext i32 %shr107 to i64
-  %arrayidx109 = getelementptr inbounds i16, ptr %20, i64 %idxprom108
+  %arrayidx109 = getelementptr inbounds i16, ptr %22, i64 %idxprom108
   br label %do.end
 
 do.end:                                           ; preds = %if.then21, %if.then83, %if.else98, %if.then45
   %pvIndex.0.in = phi ptr [ %arrayidx, %if.then21 ], [ %arrayidx68, %if.then45 ], [ %arrayidx97, %if.then83 ], [ %arrayidx109, %if.else98 ]
   %s.addr.1 = phi ptr [ %incdec.ptr, %if.then21 ], [ %add.ptr46, %if.then45 ], [ %incdec.ptr84, %if.then83 ], [ %add.ptr104, %if.else98 ]
   %pvIndex.0 = load i16, ptr %pvIndex.0.in, align 2
-  %21 = load ptr, ptr %pv, align 8
+  %23 = load ptr, ptr %pv, align 8
   %idx.ext114 = zext i16 %pvIndex.0 to i64
-  %add.ptr115 = getelementptr inbounds i32, ptr %21, i64 %idx.ext114
+  %add.ptr115 = getelementptr inbounds i32, ptr %23, i64 %idx.ext114
   br i1 %cmp5.i, label %for.body.i, label %if.end120
 
 for.body.i:                                       ; preds = %do.end, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %do.end ]
   %oredDest.07.i = phi i32 [ %or.i, %for.body.i ], [ 0, %do.end ]
   %arrayidx.i = getelementptr inbounds i32, ptr %add.ptr115, i64 %indvars.iv.i
-  %22 = load i32, ptr %arrayidx.i, align 4
+  %24 = load i32, ptr %arrayidx.i, align 4
   %arrayidx2.i = getelementptr inbounds i32, ptr %call5, i64 %indvars.iv.i
-  %23 = load i32, ptr %arrayidx2.i, align 4
-  %and.i = and i32 %23, %22
+  %25 = load i32, ptr %arrayidx2.i, align 4
+  %and.i = and i32 %25, %24
   store i32 %and.i, ptr %arrayidx2.i, align 4
   %or.i = or i32 %and.i, %oredDest.07.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

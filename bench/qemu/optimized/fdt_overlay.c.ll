@@ -361,16 +361,14 @@ if.end13:                                         ; preds = %for.body
 lor.lhs.false:                                    ; preds = %if.end13
   %conv = zext nneg i32 %0 to i64
   %call15 = call ptr @memchr(ptr noundef nonnull %call11, i32 noundef 0, i64 noundef %conv) #9
-  %sub = add nsw i32 %0, -1
-  %idxprom = zext nneg i32 %sub to i64
-  %arrayidx = getelementptr i8, ptr %call11, i64 %idxprom
+  %1 = getelementptr i8, ptr %call11, i64 %conv
+  %arrayidx = getelementptr i8, ptr %1, i64 -1
   %cmp16.not = icmp eq ptr %call15, %arrayidx
   br i1 %cmp16.not, label %if.end19, label %return
 
 if.end19:                                         ; preds = %lor.lhs.false
-  %add.ptr = getelementptr i8, ptr %call11, i64 %conv
-  %1 = load i8, ptr %call11, align 1
-  %cmp21.not = icmp eq i8 %1, 47
+  %2 = load i8, ptr %call11, align 1
+  %cmp21.not = icmp eq i8 %2, 47
   br i1 %cmp21.not, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.end19
@@ -382,10 +380,10 @@ if.end24:                                         ; preds = %if.end19
 if.end29:                                         ; preds = %if.end24
   %sub.ptr.lhs.cast = ptrtoint ptr %call26 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %call11 to i64
-  %2 = xor i64 %sub.ptr.rhs.cast, -1
-  %sub31 = add i64 %sub.ptr.lhs.cast, %2
+  %3 = xor i64 %sub.ptr.rhs.cast, -1
+  %sub31 = add i64 %sub.ptr.lhs.cast, %3
   %conv32 = trunc i64 %sub31 to i32
-  %sub.ptr.lhs.cast33 = ptrtoint ptr %add.ptr to i64
+  %sub.ptr.lhs.cast33 = ptrtoint ptr %1 to i64
   %sub.ptr.sub35 = sub i64 %sub.ptr.lhs.cast33, %sub.ptr.lhs.cast
   %cmp37 = icmp sgt i64 %sub.ptr.sub35, 13
   br i1 %cmp37, label %land.lhs.true, label %if.else
@@ -398,8 +396,8 @@ land.lhs.true:                                    ; preds = %if.end29
 if.then43:                                        ; preds = %land.lhs.true
   %add.ptr45 = getelementptr i8, ptr %call26, i64 13
   %sub.ptr.rhs.cast47 = ptrtoint ptr %add.ptr45 to i64
-  %3 = xor i64 %sub.ptr.rhs.cast47, -1
-  %sub49 = add i64 %3, %sub.ptr.lhs.cast33
+  %4 = xor i64 %sub.ptr.rhs.cast47, -1
+  %sub49 = add i64 %4, %sub.ptr.lhs.cast33
   %conv50 = trunc i64 %sub49 to i32
   br label %if.end66
 
@@ -430,8 +428,8 @@ if.end76:                                         ; preds = %if.end71
   br i1 %cmp78, label %return, label %if.end81
 
 if.end81:                                         ; preds = %if.end76
-  %4 = load ptr, ptr %target_path, align 8
-  %tobool82.not = icmp eq ptr %4, null
+  %5 = load ptr, ptr %target_path, align 8
+  %tobool82.not = icmp eq ptr %5, null
   br i1 %tobool82.not, label %if.then83, label %if.else89
 
 if.then83:                                        ; preds = %if.end81
@@ -446,14 +444,14 @@ for.cond.preheader.i:                             ; preds = %if.then83
   br i1 %tobool.not12.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end10.i, %for.cond.preheader.i
-  %5 = load i32, ptr %namelen.i, align 4
+  %6 = load i32, ptr %namelen.i, align 4
   br label %get_path_len.exit
 
 if.end3.i:                                        ; preds = %for.cond.preheader.i, %if.end10.i
   %nodeoffset.addr.014.i = phi i32 [ %call7.i, %if.end10.i ], [ %call77, %for.cond.preheader.i ]
   %len.013.i = phi i32 [ %add11.i, %if.end10.i ], [ 0, %for.cond.preheader.i ]
-  %6 = load i32, ptr %namelen.i, align 4
-  %cmp4.i = icmp eq i32 %6, 0
+  %7 = load i32, ptr %namelen.i, align 4
+  %cmp4.i = icmp eq i32 %7, 0
   br i1 %cmp4.i, label %for.end.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end3.i
@@ -462,9 +460,9 @@ if.end6.i:                                        ; preds = %if.end3.i
   br i1 %cmp8.i, label %get_path_len.exit.thread, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end6.i
-  %7 = load i32, ptr %namelen.i, align 4
+  %8 = load i32, ptr %namelen.i, align 4
   %add.i = add i32 %len.013.i, 1
-  %add11.i = add i32 %add.i, %7
+  %add11.i = add i32 %add.i, %8
   %call1.i = call ptr @fdt_get_name(ptr noundef %fdt, i32 noundef %call7.i, ptr noundef nonnull %namelen.i) #8
   %tobool.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool.not.i, label %if.then2.i, label %if.end3.i
@@ -479,31 +477,31 @@ get_path_len.exit.thread:                         ; preds = %if.then83, %if.end6
   br label %return
 
 get_path_len.exit:                                ; preds = %if.then2.i, %for.end.i
-  %retval.0.i = phi i32 [ %spec.select.i, %for.end.i ], [ %5, %if.then2.i ]
+  %retval.0.i = phi i32 [ %spec.select.i, %for.end.i ], [ %6, %if.then2.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %namelen.i)
   %cmp85 = icmp slt i32 %retval.0.i, 0
   br i1 %cmp85, label %return, label %if.end92
 
 if.else89:                                        ; preds = %if.end81
-  %call90 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #9
+  %call90 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #9
   %conv91 = trunc i64 %call90 to i32
   br label %if.end92
 
 if.end92:                                         ; preds = %get_path_len.exit, %if.else89
   %len.0 = phi i32 [ %conv91, %if.else89 ], [ %retval.0.i, %get_path_len.exit ]
-  %8 = load ptr, ptr %name, align 8
+  %9 = load ptr, ptr %name, align 8
   %cmp93 = icmp sgt i32 %len.0, 1
   %conv94 = zext i1 %cmp93 to i32
   %add = add i32 %rel_path_len.0, 1
   %add95 = add i32 %add, %len.0
   %add96 = add i32 %add95, %conv94
-  %call97 = call i32 @fdt_setprop_placeholder(ptr noundef %fdt, i32 noundef %root_sym.0, ptr noundef %8, i32 noundef %add96, ptr noundef nonnull %p) #8
+  %call97 = call i32 @fdt_setprop_placeholder(ptr noundef %fdt, i32 noundef %root_sym.0, ptr noundef %9, i32 noundef %add96, ptr noundef nonnull %p) #8
   %cmp98 = icmp slt i32 %call97, 0
   br i1 %cmp98, label %return, label %if.end101
 
 if.end101:                                        ; preds = %if.end92
-  %9 = load ptr, ptr %target_path, align 8
-  %tobool102.not = icmp eq ptr %9, null
+  %10 = load ptr, ptr %target_path, align 8
+  %tobool102.not = icmp eq ptr %10, null
   br i1 %tobool102.not, label %if.then103, label %if.end109
 
 if.then103:                                       ; preds = %if.end101
@@ -513,23 +511,23 @@ if.then103:                                       ; preds = %if.end101
 
 if.end109:                                        ; preds = %if.then103, %if.end101
   %target.0 = phi i32 [ %call77, %if.end101 ], [ %call104, %if.then103 ]
-  %10 = load ptr, ptr %p, align 8
+  %11 = load ptr, ptr %p, align 8
   br i1 %cmp93, label %if.then112, label %if.else125
 
 if.then112:                                       ; preds = %if.end109
-  %11 = load ptr, ptr %target_path, align 8
-  %tobool113.not = icmp eq ptr %11, null
+  %12 = load ptr, ptr %target_path, align 8
+  %tobool113.not = icmp eq ptr %12, null
   %add115 = add nuw i32 %len.0, 1
   br i1 %tobool113.not, label %if.then114, label %if.else121
 
 if.then114:                                       ; preds = %if.then112
-  %call116 = call i32 @fdt_get_path(ptr noundef %fdt, i32 noundef %target.0, ptr noundef %10, i32 noundef %add115) #8
+  %call116 = call i32 @fdt_get_path(ptr noundef %fdt, i32 noundef %target.0, ptr noundef %11, i32 noundef %add115) #8
   %cmp117 = icmp slt i32 %call116, 0
   br i1 %cmp117, label %return, label %if.end126
 
 if.else121:                                       ; preds = %if.then112
   %conv123 = sext i32 %add115 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, i64 %conv123, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, i64 %conv123, i1 false)
   br label %if.end126
 
 if.else125:                                       ; preds = %if.end109
@@ -541,13 +539,13 @@ if.end126:                                        ; preds = %if.else121, %if.the
   %add134.pre-phi = phi i32 [ %add95, %if.else121 ], [ %add95, %if.then114 ], [ %.pre, %if.else125 ]
   %len.1 = phi i32 [ %len.0, %if.else121 ], [ %len.0, %if.then114 ], [ %dec, %if.else125 ]
   %idxprom127 = sext i32 %len.1 to i64
-  %arrayidx128 = getelementptr i8, ptr %10, i64 %idxprom127
+  %arrayidx128 = getelementptr i8, ptr %11, i64 %idxprom127
   store i8 47, ptr %arrayidx128, align 1
   %add.ptr131 = getelementptr i8, ptr %arrayidx128, i64 1
   %conv132 = sext i32 %rel_path_len.0 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr131, ptr align 1 %rel_path.0, i64 %conv132, i1 false)
   %idxprom135 = sext i32 %add134.pre-phi to i64
-  %arrayidx136 = getelementptr i8, ptr %10, i64 %idxprom135
+  %arrayidx136 = getelementptr i8, ptr %11, i64 %idxprom135
   store i8 0, ptr %arrayidx136, align 1
   br label %for.inc
 

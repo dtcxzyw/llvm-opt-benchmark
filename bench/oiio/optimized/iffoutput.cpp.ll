@@ -1943,10 +1943,10 @@ for.body181.preheader:                            ; preds = %if.end174
   %umax1235 = zext nneg i32 %sub.i176 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr177, i8 0, i64 %umax1235, i1 false)
   %scevgep1236 = getelementptr i8, ptr %53, i64 1
-  %54 = xor i32 %rem.i174, 3
-  %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr i8, ptr %scevgep1236, i64 %conv158
-  %scevgep1238 = getelementptr i8, ptr %56, i64 %55
+  %54 = getelementptr i8, ptr %scevgep1236, i64 %conv158
+  %55 = zext nneg i32 %sub.i176 to i64
+  %56 = getelementptr i8, ptr %54, i64 %55
+  %scevgep1238 = getelementptr i8, ptr %56, i64 -1
   %57 = add i32 %index.0.lcssa, %sub.i176
   br label %if.end188
 
@@ -2421,10 +2421,10 @@ for.body373.preheader:                            ; preds = %if.end365
   %umax = zext nneg i32 %sub.i390 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr368, i8 0, i64 %umax, i1 false)
   %scevgep = getelementptr i8, ptr %92, i64 1
-  %93 = xor i32 %rem.i388, 3
-  %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr i8, ptr %scevgep, i64 %conv347
-  %scevgep1228 = getelementptr i8, ptr %95, i64 %94
+  %93 = getelementptr i8, ptr %scevgep, i64 %conv347
+  %94 = zext nneg i32 %sub.i390 to i64
+  %95 = getelementptr i8, ptr %93, i64 %94
+  %scevgep1228 = getelementptr i8, ptr %95, i64 -1
   %96 = add i32 %index247.0.lcssa, %sub.i390
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit415
 

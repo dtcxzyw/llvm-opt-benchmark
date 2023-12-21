@@ -1435,6 +1435,7 @@ if.then25.i:                                      ; preds = %if.end12.i
   %conv29.i = add i16 %10, -2
   %iovec_count.i = getelementptr inbounds %struct.VirtIOBlockIoctlReq, ptr %call13.i, i64 0, i32 1, i32 4
   store i16 %conv29.i, ptr %iovec_count.i, align 2
+  %invariant.gep.i = getelementptr %struct.iovec, ptr %6, i64 2, i32 1
   %cmp3458.not.i = icmp eq i16 %conv29.i, 0
   br i1 %cmp3458.not.i, label %for.end.i, label %for.body.lr.ph.i
 
@@ -1445,11 +1446,10 @@ for.body.lr.ph.i:                                 ; preds = %if.then25.i
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv63.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next64.i, %for.body.i ]
   %conv4461.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %conv44.i, %for.body.i ]
-  %12 = add nuw nsw i64 %indvars.iv63.i, 2
-  %iov_len39.i = getelementptr %struct.iovec, ptr %6, i64 %12, i32 1
-  %13 = load i64, ptr %iov_len39.i, align 8
-  %14 = trunc i64 %13 to i32
-  %conv44.i = add i32 %conv4461.i, %14
+  %gep.i = getelementptr %struct.iovec, ptr %invariant.gep.i, i64 %indvars.iv63.i
+  %12 = load i64, ptr %gep.i, align 8
+  %13 = trunc i64 %12 to i32
+  %conv44.i = add i32 %conv4461.i, %13
   store i32 %conv44.i, ptr %dxfer_len.i, align 4
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %exitcond7.not = icmp eq i64 %indvars.iv.next64.i, %11
@@ -1459,19 +1459,19 @@ for.end.i:                                        ; preds = %for.body.i, %if.the
   %add.ptr.i = getelementptr %struct.iovec, ptr %6, i64 2
   %dxferp.i = getelementptr inbounds %struct.VirtIOBlockIoctlReq, ptr %call13.i, i64 0, i32 1, i32 6
   store ptr %add.ptr.i, ptr %dxferp.i, align 8
-  %.pre67.i = load i32, ptr %in_num.i, align 8
+  %.pre66.i = load i32, ptr %in_num.i, align 8
   br label %if.end84.i
 
 if.else.i:                                        ; preds = %if.end12.i
-  %15 = load i32, ptr %in_num.i, align 8
-  %cmp48.i = icmp ugt i32 %15, 3
+  %14 = load i32, ptr %in_num.i, align 8
+  %cmp48.i = icmp ugt i32 %14, 3
   %dxfer_direction52.i = getelementptr inbounds %struct.VirtIOBlockIoctlReq, ptr %call13.i, i64 0, i32 1, i32 1
   br i1 %cmp48.i, label %if.then50.i, label %if.else80.i
 
 if.then50.i:                                      ; preds = %if.else.i
   store i32 -3, ptr %dxfer_direction52.i, align 4
-  %16 = trunc i32 %15 to i16
-  %conv55.i = add i16 %16, -3
+  %15 = trunc i32 %14 to i16
+  %conv55.i = add i16 %15, -3
   %iovec_count57.i = getelementptr inbounds %struct.VirtIOBlockIoctlReq, ptr %call13.i, i64 0, i32 1, i32 4
   store i16 %conv55.i, ptr %iovec_count57.i, align 2
   %cmp6254.not.i = icmp eq i16 %conv55.i, 0
@@ -1479,19 +1479,19 @@ if.then50.i:                                      ; preds = %if.else.i
   br i1 %cmp6254.not.i, label %for.end76.i, label %for.body64.lr.ph.i
 
 for.body64.lr.ph.i:                               ; preds = %if.then50.i
-  %17 = zext i16 %conv55.i to i64
+  %16 = zext i16 %conv55.i to i64
   br label %for.body64.i
 
 for.body64.i:                                     ; preds = %for.body64.i, %for.body64.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body64.lr.ph.i ], [ %indvars.iv.next.i, %for.body64.i ]
   %conv7356.i = phi i32 [ 0, %for.body64.lr.ph.i ], [ %conv73.i, %for.body64.i ]
   %iov_len68.i = getelementptr %struct.iovec, ptr %.pre.i, i64 %indvars.iv.i, i32 1
-  %18 = load i64, ptr %iov_len68.i, align 8
-  %19 = trunc i64 %18 to i32
-  %conv73.i = add i32 %conv7356.i, %19
+  %17 = load i64, ptr %iov_len68.i, align 8
+  %18 = trunc i64 %17 to i32
+  %conv73.i = add i32 %conv7356.i, %18
   store i32 %conv73.i, ptr %dxfer_len.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %17
+  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %16
   br i1 %exitcond.not, label %for.end76.i, label %for.body64.i, !llvm.loop !12
 
 for.end76.i:                                      ; preds = %for.body64.i, %if.then50.i
@@ -1504,22 +1504,22 @@ if.else80.i:                                      ; preds = %if.else.i
   br label %if.end84.i
 
 if.end84.i:                                       ; preds = %if.else80.i, %for.end76.i, %for.end.i
-  %20 = phi i32 [ %15, %for.end76.i ], [ %15, %if.else80.i ], [ %.pre67.i, %for.end.i ]
-  %21 = load ptr, ptr %in_sg.i, align 8
-  %sub87.i = add i32 %20, -3
+  %19 = phi i32 [ %14, %for.end76.i ], [ %14, %if.else80.i ], [ %.pre66.i, %for.end.i ]
+  %20 = load ptr, ptr %in_sg.i, align 8
+  %sub87.i = add i32 %19, -3
   %idxprom88.i = zext i32 %sub87.i to i64
-  %arrayidx89.i = getelementptr %struct.iovec, ptr %21, i64 %idxprom88.i
-  %22 = load ptr, ptr %arrayidx89.i, align 8
+  %arrayidx89.i = getelementptr %struct.iovec, ptr %20, i64 %idxprom88.i
+  %21 = load ptr, ptr %arrayidx89.i, align 8
   %sbp.i = getelementptr inbounds %struct.VirtIOBlockIoctlReq, ptr %call13.i, i64 0, i32 1, i32 8
-  store ptr %22, ptr %sbp.i, align 8
-  %iov_len97.i = getelementptr %struct.iovec, ptr %21, i64 %idxprom88.i, i32 1
-  %23 = load i64, ptr %iov_len97.i, align 8
-  %conv98.i = trunc i64 %23 to i8
+  store ptr %21, ptr %sbp.i, align 8
+  %iov_len97.i = getelementptr %struct.iovec, ptr %20, i64 %idxprom88.i, i32 1
+  %22 = load i64, ptr %iov_len97.i, align 8
+  %conv98.i = trunc i64 %22 to i8
   %mx_sb_len.i = getelementptr inbounds %struct.VirtIOBlockIoctlReq, ptr %call13.i, i64 0, i32 1, i32 3
   store i8 %conv98.i, ptr %mx_sb_len.i, align 1
   %blk100.i = getelementptr inbounds %struct.VirtIOBlock, ptr %0, i64 0, i32 1
-  %24 = load ptr, ptr %blk100.i, align 8
-  %call102.i = tail call ptr @blk_aio_ioctl(ptr noundef %24, i64 noundef 8837, ptr noundef nonnull %hdr.i, ptr noundef nonnull @virtio_blk_ioctl_complete, ptr noundef nonnull %call13.i) #14
+  %23 = load ptr, ptr %blk100.i, align 8
+  %call102.i = tail call ptr @blk_aio_ioctl(ptr noundef %23, i64 noundef 8837, ptr noundef nonnull %hdr.i, ptr noundef nonnull @virtio_blk_ioctl_complete, ptr noundef nonnull %call13.i) #14
   %tobool.not.i = icmp eq ptr %call102.i, null
   br i1 %tobool.not.i, label %if.then103.i, label %if.end
 

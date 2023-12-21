@@ -1053,9 +1053,9 @@ if.end11.i:                                       ; preds = %sw.bb3.i.i, %sw.bb2
   %2 = sub i64 %call22733, %i.sroa.0.02634
   %scevgep = getelementptr i8, ptr %i.sroa.0.026, i64 %2
   %scevgep35 = getelementptr i8, ptr %i.sroa.0.026, i64 2
-  %3 = add nsw i32 %retval.0.i.ph.ph.i, -2
-  %4 = zext nneg i32 %3 to i64
-  %scevgep36 = getelementptr i8, ptr %scevgep35, i64 %4
+  %3 = zext nneg i32 %retval.0.i.ph.ph.i to i64
+  %4 = getelementptr i8, ptr %scevgep35, i64 %3
+  %scevgep36 = getelementptr i8, ptr %4, i64 -2
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end20.i, %if.end11.i
@@ -1305,9 +1305,9 @@ if.end11.i:                                       ; preds = %sw.bb3.i.i, %sw.bb2
   %2 = sub i64 %call27378, %i.sroa.0.07279
   %scevgep = getelementptr i8, ptr %i.sroa.0.072, i64 %2
   %scevgep80 = getelementptr i8, ptr %i.sroa.0.072, i64 2
-  %3 = add nsw i32 %retval.0.i.ph.ph.i, -2
-  %4 = zext nneg i32 %3 to i64
-  %scevgep81 = getelementptr i8, ptr %scevgep80, i64 %4
+  %3 = zext nneg i32 %retval.0.i.ph.ph.i to i64
+  %4 = getelementptr i8, ptr %scevgep80, i64 %3
+  %scevgep81 = getelementptr i8, ptr %4, i64 -2
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end20.i, %if.end11.i
@@ -1595,9 +1595,9 @@ if.end11.i:                                       ; preds = %sw.bb3.i.i, %sw.bb2
   %2 = sub i64 %call22832, %i.sroa.0.02733
   %scevgep = getelementptr i8, ptr %i.sroa.0.027, i64 %2
   %scevgep34 = getelementptr i8, ptr %i.sroa.0.027, i64 2
-  %3 = add nsw i32 %retval.0.i.ph.ph.i, -2
-  %4 = zext nneg i32 %3 to i64
-  %scevgep35 = getelementptr i8, ptr %scevgep34, i64 %4
+  %3 = zext nneg i32 %retval.0.i.ph.ph.i to i64
+  %4 = getelementptr i8, ptr %scevgep34, i64 %3
+  %scevgep35 = getelementptr i8, ptr %4, i64 -2
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end20.i, %if.end11.i
@@ -1834,9 +1834,9 @@ if.end11.i:                                       ; preds = %sw.bb3.i.i, %sw.bb2
   %3 = sub i64 %call44448, %i.sroa.0.04349
   %scevgep = getelementptr i8, ptr %i.sroa.0.043, i64 %3
   %scevgep50 = getelementptr i8, ptr %i.sroa.0.043, i64 2
-  %4 = add nsw i32 %retval.0.i.ph.ph.i, -2
-  %5 = zext nneg i32 %4 to i64
-  %scevgep51 = getelementptr i8, ptr %scevgep50, i64 %5
+  %4 = zext nneg i32 %retval.0.i.ph.ph.i to i64
+  %5 = getelementptr i8, ptr %scevgep50, i64 %4
+  %scevgep51 = getelementptr i8, ptr %5, i64 -2
   br label %for.body.i8
 
 for.body.i8:                                      ; preds = %if.end20.i, %if.end11.i
@@ -1994,9 +1994,9 @@ if.end11.i:                                       ; preds = %sw.bb3.i.i, %sw.bb2
   %2 = sub i64 %call14369, %i.sroa.0.04270
   %scevgep = getelementptr i8, ptr %i.sroa.0.042, i64 %2
   %scevgep71 = getelementptr i8, ptr %i.sroa.0.042, i64 2
-  %3 = add nsw i32 %retval.0.i.ph.ph.i, -2
-  %4 = zext nneg i32 %3 to i64
-  %scevgep72 = getelementptr i8, ptr %scevgep71, i64 %4
+  %3 = zext nneg i32 %retval.0.i.ph.ph.i to i64
+  %4 = getelementptr i8, ptr %scevgep71, i64 %3
+  %scevgep72 = getelementptr i8, ptr %4, i64 -2
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end20.i, %if.end11.i

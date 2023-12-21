@@ -8985,10 +8985,9 @@ if.then.preheader.i:                              ; preds = %if.then
   %3 = add nsw i32 %2, -1
   %4 = zext nneg i32 %3 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %lsu.i, i8 9, i64 %4, i1 false)
-  %5 = add nsw i32 %2, -2
-  %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr i8, ptr %res, i64 %6
-  %scevgep.i = getelementptr i8, ptr %7, i64 10
+  %5 = zext nneg i32 %2 to i64
+  %6 = getelementptr i8, ptr %res, i64 %5
+  %scevgep.i = getelementptr i8, ptr %6, i64 8
   br label %_ZL14decSetMaxValueP9decNumberP10decContext.exit
 
 _ZL14decSetMaxValueP9decNumberP10decContext.exit: ; preds = %if.then, %if.then.preheader.i
@@ -8996,17 +8995,17 @@ _ZL14decSetMaxValueP9decNumberP10decContext.exit: ; preds = %if.then, %if.then.p
   %count.0.lcssa.i = phi i32 [ %2, %if.then ], [ 1, %if.then.preheader.i ]
   %idxprom.i = sext i32 %count.0.lcssa.i to i64
   %arrayidx.i = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom.i
-  %8 = load i32, ptr %arrayidx.i, align 4
-  %9 = trunc i32 %8 to i8
-  %conv.i = add i8 %9, -1
+  %7 = load i32, ptr %arrayidx.i, align 4
+  %8 = trunc i32 %7 to i8
+  %conv.i = add i8 %8, -1
   store i8 %conv.i, ptr %up.0.lcssa.i, align 1
   %bits.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
   store i8 0, ptr %bits.i, align 4
   %emax.i = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 1
-  %10 = load i32, ptr %emax.i, align 4
-  %11 = load i32, ptr %set, align 4
-  %sub4.i = add i32 %10, 1
-  %add.i = sub i32 %sub4.i, %11
+  %9 = load i32, ptr %emax.i, align 4
+  %10 = load i32, ptr %set, align 4
+  %sub4.i = add i32 %9, 1
+  %add.i = sub i32 %sub4.i, %10
   %exponent.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
   store i32 %add.i, ptr %exponent.i, align 4
   br label %return
@@ -9022,18 +9021,18 @@ if.end:                                           ; preds = %entry
   %round = getelementptr inbounds %struct.decContext, ptr %workset, i64 0, i32 3
   store i32 6, ptr %round, align 4
   %call1 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef nonnull %rhs, ptr noundef nonnull %dtiny, ptr noundef nonnull %workset, i8 noundef zeroext -128, ptr noundef nonnull %status)
-  %12 = load i32, ptr %status, align 4
-  %and2 = and i32 %12, 1073741952
+  %11 = load i32, ptr %status, align 4
+  %and2 = and i32 %11, 1073741952
   %cmp3.not = icmp eq i32 %and2, 0
   br i1 %cmp3.not, label %return, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %and.i = and i32 %12, 128
+  %and.i = and i32 %11, 128
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %_ZL9decStatusP9decNumberjP10decContext.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then4
-  %and1.i = and i32 %12, 1073741824
+  %and1.i = and i32 %11, 1073741824
   %tobool2.not.i = icmp eq i32 %and1.i, 0
   br i1 %tobool2.not.i, label %if.else.i, label %_ZL9decStatusP9decNumberjP10decContext.exit
 
@@ -9054,46 +9053,6 @@ _ZL9decStatusP9decNumberjP10decContext.exit:      ; preds = %if.then.i, %if.then
 
 return:                                           ; preds = %if.end, %_ZL9decStatusP9decNumberjP10decContext.exit, %_ZL14decSetMaxValueP9decNumberP10decContext.exit
   ret ptr %res
-}
-
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL14decSetMaxValueP9decNumberP10decContext(ptr nocapture noundef writeonly %dn, ptr nocapture noundef readonly %set) unnamed_addr #7 {
-entry:
-  %0 = load i32, ptr %set, align 4
-  store i32 %0, ptr %dn, align 4
-  %lsu = getelementptr %struct.decNumber, ptr %dn, i64 0, i32 3
-  %cmp11 = icmp sgt i32 %0, 1
-  br i1 %cmp11, label %if.then.preheader, label %if.else
-
-if.then.preheader:                                ; preds = %entry
-  %1 = add nsw i32 %0, -1
-  %2 = zext nneg i32 %1 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %lsu, i8 9, i64 %2, i1 false)
-  %3 = add nsw i32 %0, -2
-  %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr i8, ptr %dn, i64 %4
-  %scevgep = getelementptr i8, ptr %5, i64 10
-  br label %if.else
-
-if.else:                                          ; preds = %if.then.preheader, %entry
-  %up.0.lcssa = phi ptr [ %lsu, %entry ], [ %scevgep, %if.then.preheader ]
-  %count.0.lcssa = phi i32 [ %0, %entry ], [ 1, %if.then.preheader ]
-  %idxprom = sext i32 %count.0.lcssa to i64
-  %arrayidx = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom
-  %6 = load i32, ptr %arrayidx, align 4
-  %7 = trunc i32 %6 to i8
-  %conv = add i8 %7, -1
-  store i8 %conv, ptr %up.0.lcssa, align 1
-  %bits = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
-  store i8 0, ptr %bits, align 4
-  %emax = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 1
-  %8 = load i32, ptr %emax, align 4
-  %9 = load i32, ptr %set, align 4
-  %sub4 = add i32 %8, 1
-  %add = sub i32 %sub4, %9
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 1
-  store i32 %add, ptr %exponent, align 4
-  ret void
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9120,10 +9079,9 @@ if.then.preheader.i:                              ; preds = %if.then
   %2 = add nsw i32 %1, -1
   %3 = zext nneg i32 %2 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %lsu.i, i8 9, i64 %3, i1 false)
-  %4 = add nsw i32 %1, -2
-  %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr i8, ptr %res, i64 %5
-  %scevgep.i = getelementptr i8, ptr %6, i64 10
+  %4 = zext nneg i32 %1 to i64
+  %5 = getelementptr i8, ptr %res, i64 %4
+  %scevgep.i = getelementptr i8, ptr %5, i64 8
   br label %_ZL14decSetMaxValueP9decNumberP10decContext.exit
 
 _ZL14decSetMaxValueP9decNumberP10decContext.exit: ; preds = %if.then, %if.then.preheader.i
@@ -9131,17 +9089,17 @@ _ZL14decSetMaxValueP9decNumberP10decContext.exit: ; preds = %if.then, %if.then.p
   %count.0.lcssa.i = phi i32 [ %1, %if.then ], [ 1, %if.then.preheader.i ]
   %idxprom.i = sext i32 %count.0.lcssa.i to i64
   %arrayidx.i = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom.i
-  %7 = load i32, ptr %arrayidx.i, align 4
-  %8 = trunc i32 %7 to i8
-  %conv.i = add i8 %8, -1
+  %6 = load i32, ptr %arrayidx.i, align 4
+  %7 = trunc i32 %6 to i8
+  %conv.i = add i8 %7, -1
   store i8 %conv.i, ptr %up.0.lcssa.i, align 1
   %bits.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
   store i8 0, ptr %bits.i, align 4
   %emax.i = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 1
-  %9 = load i32, ptr %emax.i, align 4
-  %10 = load i32, ptr %set, align 4
-  %sub4.i = add i32 %9, 1
-  %add.i = sub i32 %sub4.i, %10
+  %8 = load i32, ptr %emax.i, align 4
+  %9 = load i32, ptr %set, align 4
+  %sub4.i = add i32 %8, 1
+  %add.i = sub i32 %sub4.i, %9
   %exponent.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
   store i32 %add.i, ptr %exponent.i, align 4
   store i8 -128, ptr %bits.i, align 4
@@ -9158,18 +9116,18 @@ if.end:                                           ; preds = %entry
   %round = getelementptr inbounds %struct.decContext, ptr %workset, i64 0, i32 3
   store i32 0, ptr %round, align 4
   %call2 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef nonnull %rhs, ptr noundef nonnull %dtiny, ptr noundef nonnull %workset, i8 noundef zeroext 0, ptr noundef nonnull %status)
-  %11 = load i32, ptr %status, align 4
-  %and3 = and i32 %11, 1073741952
+  %10 = load i32, ptr %status, align 4
+  %and3 = and i32 %10, 1073741952
   %cmp4.not = icmp eq i32 %and3, 0
   br i1 %cmp4.not, label %return, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %and.i = and i32 %11, 128
+  %and.i = and i32 %10, 128
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %_ZL9decStatusP9decNumberjP10decContext.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then5
-  %and1.i = and i32 %11, 1073741824
+  %and1.i = and i32 %10, 1073741824
   %tobool2.not.i = icmp eq i32 %and1.i, 0
   br i1 %tobool2.not.i, label %if.else.i, label %_ZL9decStatusP9decNumberjP10decContext.exit
 
@@ -9295,18 +9253,81 @@ if.then14:                                        ; preds = %if.else12
   br i1 %cmp18, label %if.then19, label %if.end29
 
 if.then19:                                        ; preds = %if.then14
-  tail call fastcc void @_ZL14decSetMaxValueP9decNumberP10decContext(ptr noundef %res, ptr noundef nonnull %set)
-  %bits20 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  store i8 -128, ptr %bits20, align 4
+  %16 = load i32, ptr %set, align 4
+  store i32 %16, ptr %res, align 4
+  %lsu.i = getelementptr %struct.decNumber, ptr %res, i64 0, i32 3
+  %cmp11.i = icmp sgt i32 %16, 1
+  br i1 %cmp11.i, label %if.then.preheader.i, label %_ZL14decSetMaxValueP9decNumberP10decContext.exit
+
+if.then.preheader.i:                              ; preds = %if.then19
+  %17 = add nsw i32 %16, -1
+  %18 = zext nneg i32 %17 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %lsu.i, i8 9, i64 %18, i1 false)
+  %19 = zext nneg i32 %16 to i64
+  %20 = getelementptr i8, ptr %res, i64 %19
+  %scevgep.i = getelementptr i8, ptr %20, i64 8
+  br label %_ZL14decSetMaxValueP9decNumberP10decContext.exit
+
+_ZL14decSetMaxValueP9decNumberP10decContext.exit: ; preds = %if.then19, %if.then.preheader.i
+  %up.0.lcssa.i = phi ptr [ %lsu.i, %if.then19 ], [ %scevgep.i, %if.then.preheader.i ]
+  %count.0.lcssa.i = phi i32 [ %16, %if.then19 ], [ 1, %if.then.preheader.i ]
+  %idxprom.i = sext i32 %count.0.lcssa.i to i64
+  %arrayidx.i = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom.i
+  %21 = load i32, ptr %arrayidx.i, align 4
+  %22 = trunc i32 %21 to i8
+  %conv.i = add i8 %22, -1
+  store i8 %conv.i, ptr %up.0.lcssa.i, align 1
+  %bits.i27 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  store i8 0, ptr %bits.i27, align 4
+  %emax.i = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 1
+  %23 = load i32, ptr %emax.i, align 4
+  %24 = load i32, ptr %set, align 4
+  %sub4.i = add i32 %23, 1
+  %add.i = sub i32 %sub4.i, %24
+  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  store i32 %add.i, ptr %exponent.i, align 4
+  store i8 -128, ptr %bits.i27, align 4
   br label %return
 
 if.else21:                                        ; preds = %if.else12
-  %16 = and i8 %15, -64
-  %cmp25 = icmp eq i8 %16, 64
+  %25 = and i8 %15, -64
+  %cmp25 = icmp eq i8 %25, 64
   br i1 %cmp25, label %if.then26, label %if.end29
 
 if.then26:                                        ; preds = %if.else21
-  tail call fastcc void @_ZL14decSetMaxValueP9decNumberP10decContext(ptr noundef %res, ptr noundef nonnull %set)
+  %26 = load i32, ptr %set, align 4
+  store i32 %26, ptr %res, align 4
+  %lsu.i28 = getelementptr %struct.decNumber, ptr %res, i64 0, i32 3
+  %cmp11.i29 = icmp sgt i32 %26, 1
+  br i1 %cmp11.i29, label %if.then.preheader.i40, label %_ZL14decSetMaxValueP9decNumberP10decContext.exit42
+
+if.then.preheader.i40:                            ; preds = %if.then26
+  %27 = add nsw i32 %26, -1
+  %28 = zext nneg i32 %27 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %lsu.i28, i8 9, i64 %28, i1 false)
+  %29 = zext nneg i32 %26 to i64
+  %30 = getelementptr i8, ptr %res, i64 %29
+  %scevgep.i41 = getelementptr i8, ptr %30, i64 8
+  br label %_ZL14decSetMaxValueP9decNumberP10decContext.exit42
+
+_ZL14decSetMaxValueP9decNumberP10decContext.exit42: ; preds = %if.then26, %if.then.preheader.i40
+  %up.0.lcssa.i30 = phi ptr [ %lsu.i28, %if.then26 ], [ %scevgep.i41, %if.then.preheader.i40 ]
+  %count.0.lcssa.i31 = phi i32 [ %26, %if.then26 ], [ 1, %if.then.preheader.i40 ]
+  %idxprom.i32 = sext i32 %count.0.lcssa.i31 to i64
+  %arrayidx.i33 = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom.i32
+  %31 = load i32, ptr %arrayidx.i33, align 4
+  %32 = trunc i32 %31 to i8
+  %conv.i34 = add i8 %32, -1
+  store i8 %conv.i34, ptr %up.0.lcssa.i30, align 1
+  %bits.i35 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  store i8 0, ptr %bits.i35, align 4
+  %emax.i36 = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 1
+  %33 = load i32, ptr %emax.i36, align 4
+  %34 = load i32, ptr %set, align 4
+  %sub4.i37 = add i32 %33, 1
+  %add.i38 = sub i32 %sub4.i37, %34
+  %exponent.i39 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  store i32 %add.i38, ptr %exponent.i39, align 4
   br label %return
 
 if.end29:                                         ; preds = %if.else21, %if.then14
@@ -9314,36 +9335,36 @@ if.end29:                                         ; preds = %if.else21, %if.then
   %sub.0 = phi i8 [ 0, %if.then14 ], [ -128, %if.else21 ]
   %round28 = getelementptr inbounds %struct.decContext, ptr %workset, i64 0, i32 3
   store i32 %.sink, ptr %round28, align 4
-  %bits.i27 = getelementptr inbounds %struct.decNumber, ptr %dtiny, i64 0, i32 2
-  store i8 0, ptr %bits.i27, align 4
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %dtiny, i64 0, i32 1
+  %bits.i43 = getelementptr inbounds %struct.decNumber, ptr %dtiny, i64 0, i32 2
+  store i8 0, ptr %bits.i43, align 4
+  %exponent.i44 = getelementptr inbounds %struct.decNumber, ptr %dtiny, i64 0, i32 1
   store i32 1, ptr %dtiny, align 4
-  %lsu.i = getelementptr inbounds %struct.decNumber, ptr %dtiny, i64 0, i32 3
-  store i8 1, ptr %lsu.i, align 1
-  store i32 -1000000000, ptr %exponent.i, align 4
+  %lsu.i45 = getelementptr inbounds %struct.decNumber, ptr %dtiny, i64 0, i32 3
+  store i8 1, ptr %lsu.i45, align 1
+  store i32 -1000000000, ptr %exponent.i44, align 4
   %call31 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef nonnull %lhs, ptr noundef nonnull %dtiny, ptr noundef nonnull %workset, i8 noundef zeroext %sub.0, ptr noundef nonnull %status)
-  %bits.i28 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %17 = load i8, ptr %bits.i28, align 4
-  %18 = and i8 %17, 112
-  %cmp.not.i = icmp eq i8 %18, 0
+  %bits.i46 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %35 = load i8, ptr %bits.i46, align 4
+  %36 = and i8 %35, 112
+  %cmp.not.i = icmp eq i8 %36, 0
   br i1 %cmp.not.i, label %if.end.i, label %if.end37
 
 if.end.i:                                         ; preds = %if.end29
-  %lsu.i29 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
-  %19 = load i8, ptr %lsu.i29, align 1
-  %cmp2.i = icmp eq i8 %19, 0
+  %lsu.i47 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %37 = load i8, ptr %lsu.i47, align 1
+  %cmp2.i = icmp eq i8 %37, 0
   %.pre.i = load i32, ptr %res, align 4
   %cmp3.i = icmp eq i32 %.pre.i, 1
   %or.cond.i = select i1 %cmp2.i, i1 %cmp3.i, i1 false
   br i1 %or.cond.i, label %if.end37, label %uprv_decNumberIsNormal_75.exit
 
 uprv_decNumberIsNormal_75.exit:                   ; preds = %if.end.i
-  %exponent.i30 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
-  %20 = load i32, ptr %exponent.i30, align 4
-  %add.i = add nsw i32 %20, %.pre.i
+  %exponent.i48 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %38 = load i32, ptr %exponent.i48, align 4
+  %add.i49 = add nsw i32 %38, %.pre.i
   %emin.i = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 2
-  %21 = load i32, ptr %emin.i, align 4
-  %cmp12.not.i.not = icmp sgt i32 %add.i, %21
+  %39 = load i32, ptr %emin.i, align 4
+  %cmp12.not.i.not = icmp sgt i32 %add.i49, %39
   br i1 %cmp12.not.i.not, label %return, label %if.end37
 
 if.end37:                                         ; preds = %if.end.i, %if.end29, %uprv_decNumberIsNormal_75.exit, %uprv_decNumberCopySign_75.exit, %if.then
@@ -9366,22 +9387,22 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
 
 if.else.i:                                        ; preds = %if.else, %if.then.i
-  %22 = phi i32 [ %.pr, %if.then.i ], [ 16, %if.else ]
-  %bits.i.i31 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i32 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
-  store i32 0, ptr %exponent.i.i32, align 4
+  %40 = phi i32 [ %.pr, %if.then.i ], [ 16, %if.else ]
+  %bits.i.i50 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %exponent.i.i51 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  store i32 0, ptr %exponent.i.i51, align 4
   store i32 1, ptr %res, align 4
   %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
   store i8 0, ptr %lsu.i.i, align 1
-  store i8 32, ptr %bits.i.i31, align 4
+  store i8 32, ptr %bits.i.i50, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
 
 _ZL9decStatusP9decNumberjP10decContext.exit:      ; preds = %if.then39, %if.then3.i, %if.else.i
-  %status.addr.0.i = phi i32 [ %and4.i, %if.then3.i ], [ %22, %if.else.i ], [ %.pr, %if.then39 ]
+  %status.addr.0.i = phi i32 [ %and4.i, %if.then3.i ], [ %40, %if.else.i ], [ %.pr, %if.then39 ]
   %call6.i = call ptr @uprv_decContextSetStatus_75(ptr noundef %set, i32 noundef %status.addr.0.i)
   br label %return
 
-return:                                           ; preds = %uprv_decNumberIsNormal_75.exit, %if.end37, %_ZL9decStatusP9decNumberjP10decContext.exit, %if.then26, %if.then19
+return:                                           ; preds = %uprv_decNumberIsNormal_75.exit, %if.end37, %_ZL9decStatusP9decNumberjP10decContext.exit, %_ZL14decSetMaxValueP9decNumberP10decContext.exit42, %_ZL14decSetMaxValueP9decNumberP10decContext.exit
   ret ptr %res
 }
 
@@ -9634,7 +9655,7 @@ uprv_decNumberCopy_75.exit:                       ; preds = %for.body.i, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @uprv_decNumberIsNormal_75(ptr nocapture noundef readonly %dn, ptr nocapture noundef readonly %set) local_unnamed_addr #8 {
+define i32 @uprv_decNumberIsNormal_75(ptr nocapture noundef readonly %dn, ptr nocapture noundef readonly %set) local_unnamed_addr #7 {
 entry:
   %bits = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
   %0 = load i8, ptr %bits, align 4
@@ -10795,7 +10816,7 @@ return:                                           ; preds = %for.body90, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZL9decGetIntPK9decNumber(ptr nocapture noundef readonly %dn) unnamed_addr #9 {
+define internal fastcc noundef i32 @_ZL9decGetIntPK9decNumber(ptr nocapture noundef readonly %dn) unnamed_addr #8 {
 entry:
   %0 = load i32, ptr %dn, align 4
   %exponent = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 1
@@ -11992,7 +12013,7 @@ if.end199:                                        ; preds = %_ZL12decGetDigitsPh
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #10
+declare i32 @llvm.abs.i32(i32, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef i32 @_ZL15decShiftToLeastPhii(ptr noundef %uar, i32 noundef %units, i32 noundef %shift) unnamed_addr #1 {
@@ -12126,7 +12147,7 @@ return:                                           ; preds = %entry, %for.end82, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @uprv_decNumberSameQuantum_75(ptr noundef returned writeonly %res, ptr nocapture noundef readonly %lhs, ptr nocapture noundef readonly %rhs) local_unnamed_addr #11 {
+define ptr @uprv_decNumberSameQuantum_75(ptr noundef returned writeonly %res, ptr nocapture noundef readonly %lhs, ptr nocapture noundef readonly %rhs) local_unnamed_addr #10 {
 entry:
   %bits = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 2
   %0 = load i8, ptr %bits, align 4
@@ -12459,7 +12480,7 @@ if.end89:                                         ; preds = %lor.lhs.false47, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZL8decDecapP9decNumberi(ptr noundef returned %dn, i32 noundef %drop) unnamed_addr #12 {
+define internal fastcc noundef ptr @_ZL8decDecapP9decNumberi(ptr noundef returned %dn, i32 noundef %drop) unnamed_addr #11 {
 entry:
   %0 = load i32, ptr %dn, align 4
   %cmp.not = icmp sgt i32 %0, %drop
@@ -13883,7 +13904,7 @@ return:                                           ; preds = %_ZL12decGetDigitsPh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_Z22uprv_decNumberClass_75PK9decNumberP10decContext(ptr nocapture noundef readonly %dn, ptr nocapture noundef readonly %set) local_unnamed_addr #8 {
+define noundef i32 @_Z22uprv_decNumberClass_75PK9decNumberP10decContext(ptr nocapture noundef readonly %dn, ptr nocapture noundef readonly %set) local_unnamed_addr #7 {
 entry:
   %bits = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
   %0 = load i8, ptr %bits, align 4
@@ -13961,7 +13982,7 @@ return:                                           ; preds = %if.end42, %if.then3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @uprv_decNumberClassToString_75(i32 noundef %eclass) local_unnamed_addr #13 {
+define nonnull ptr @uprv_decNumberClassToString_75(i32 noundef %eclass) local_unnamed_addr #12 {
 entry:
   %0 = icmp ult i32 %eclass, 10
   br i1 %0, label %switch.lookup, label %return
@@ -14110,7 +14131,7 @@ for.end:                                          ; preds = %for.body, %cond.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @uprv_decNumberIsSubnormal_75(ptr nocapture noundef readonly %dn, ptr nocapture noundef readonly %set) local_unnamed_addr #8 {
+define i32 @uprv_decNumberIsSubnormal_75(ptr nocapture noundef readonly %dn, ptr nocapture noundef readonly %set) local_unnamed_addr #7 {
 entry:
   %bits = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
   %0 = load i8, ptr %bits, align 4
@@ -14153,7 +14174,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @uprv_decNumberVersion_75() local_unnamed_addr #13 {
+define nonnull ptr @uprv_decNumberVersion_75() local_unnamed_addr #12 {
 entry:
   ret ptr @.str.15
 }
@@ -14823,7 +14844,7 @@ return:                                           ; preds = %if.else, %sw.bb14, 
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL14decSetOverflowP9decNumberP10decContextPj(ptr nocapture noundef %dn, ptr nocapture noundef readonly %set, ptr nocapture noundef %status) unnamed_addr #7 {
+define internal fastcc void @_ZL14decSetOverflowP9decNumberP10decContextPj(ptr nocapture noundef %dn, ptr nocapture noundef readonly %set, ptr nocapture noundef %status) unnamed_addr #13 {
 entry:
   %bits = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
   %0 = load i8, ptr %bits, align 4
@@ -14899,10 +14920,9 @@ if.then.preheader.i:                              ; preds = %if.then28
   %10 = add nsw i32 %9, -1
   %11 = zext nneg i32 %10 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %lsu, i8 9, i64 %11, i1 false)
-  %12 = add nsw i32 %9, -2
-  %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr i8, ptr %dn, i64 %13
-  %scevgep.i = getelementptr i8, ptr %14, i64 10
+  %12 = zext nneg i32 %9 to i64
+  %13 = getelementptr i8, ptr %dn, i64 %12
+  %scevgep.i = getelementptr i8, ptr %13, i64 8
   br label %_ZL14decSetMaxValueP9decNumberP10decContext.exit
 
 _ZL14decSetMaxValueP9decNumberP10decContext.exit: ; preds = %if.then28, %if.then.preheader.i
@@ -14910,32 +14930,32 @@ _ZL14decSetMaxValueP9decNumberP10decContext.exit: ; preds = %if.then28, %if.then
   %count.0.lcssa.i = phi i32 [ %9, %if.then28 ], [ 1, %if.then.preheader.i ]
   %idxprom.i = sext i32 %count.0.lcssa.i to i64
   %arrayidx.i = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom.i
-  %15 = load i32, ptr %arrayidx.i, align 4
-  %16 = trunc i32 %15 to i8
-  %conv.i = add i8 %16, -1
+  %14 = load i32, ptr %arrayidx.i, align 4
+  %15 = trunc i32 %14 to i8
+  %conv.i = add i8 %15, -1
   store i8 %conv.i, ptr %up.0.lcssa.i, align 1
   store i8 0, ptr %bits, align 4
   %emax.i = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 1
-  %17 = load i32, ptr %emax.i, align 4
-  %18 = load i32, ptr %set, align 4
-  %sub4.i = add i32 %17, 1
-  %add.i = sub i32 %sub4.i, %18
+  %16 = load i32, ptr %emax.i, align 4
+  %17 = load i32, ptr %set, align 4
+  %sub4.i = add i32 %16, 1
+  %add.i = sub i32 %sub4.i, %17
   store i32 %add.i, ptr %exponent.i, align 4
   br label %if.end34
 
 if.else:                                          ; preds = %sw.bb19, %if.end17, %sw.epilog
-  %19 = or disjoint i8 %and, 64
+  %18 = or disjoint i8 %and, 64
   br label %if.end34
 
 if.end34:                                         ; preds = %if.else, %_ZL14decSetMaxValueP9decNumberP10decContext.exit
-  %storemerge = phi i8 [ %19, %if.else ], [ %and, %_ZL14decSetMaxValueP9decNumberP10decContext.exit ]
+  %storemerge = phi i8 [ %18, %if.else ], [ %and, %_ZL14decSetMaxValueP9decNumberP10decContext.exit ]
   store i8 %storemerge, ptr %bits, align 4
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end34, %if.then14
   %.sink25 = phi i32 [ 1024, %if.then14 ], [ 2592, %if.end34 ]
-  %20 = load i32, ptr %status, align 4
-  %or = or i32 %20, %.sink25
+  %19 = load i32, ptr %status, align 4
+  %or = or i32 %19, %.sink25
   store i32 %or, ptr %status, align 4
   br label %return
 
@@ -15154,13 +15174,13 @@ attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-w
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

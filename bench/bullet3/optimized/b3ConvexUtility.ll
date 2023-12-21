@@ -2777,8 +2777,8 @@ _ZN20b3AlignedObjectArrayI15b3GrahamVector3E9push_backERKS0_.exit96: ; preds = %
   br i1 %cmp43, label %for.body44, label %for.cond49.preheader, !llvm.loop !36
 
 land.rhs.preheader:                               ; preds = %land.rhs.preheader.lr.ph, %for.inc80
-  %76 = phi i32 [ %111, %for.inc80 ], [ %68, %land.rhs.preheader.lr.ph ]
-  %77 = phi i32 [ %112, %for.inc80 ], [ %inc.i90, %land.rhs.preheader.lr.ph ]
+  %76 = phi i32 [ %113, %for.inc80 ], [ %68, %land.rhs.preheader.lr.ph ]
+  %77 = phi i32 [ %114, %for.inc80 ], [ %inc.i90, %land.rhs.preheader.lr.ph ]
   %indvars.iv209 = phi i64 [ %indvars.iv.next210, %for.inc80 ], [ 2, %land.rhs.preheader.lr.ph ]
   %cmp54194 = icmp sgt i32 %77, 1
   br i1 %cmp54194, label %while.body.lr.ph, label %for.inc80
@@ -2794,56 +2794,56 @@ land.rhs.critedge:                                ; preds = %while.body
 
 while.body:                                       ; preds = %land.rhs.critedge, %while.body.lr.ph
   %79 = phi i32 [ %77, %while.body.lr.ph ], [ %sub59, %land.rhs.critedge ]
-  %sub56 = add nsw i32 %79, -2
-  %idxprom.i101 = zext nneg i32 %sub56 to i64
-  %arrayidx.i102 = getelementptr inbounds %struct.b3GrahamVector3, ptr %78, i64 %idxprom.i101
+  %80 = zext nneg i32 %79 to i64
+  %81 = getelementptr %struct.b3GrahamVector3, ptr %78, i64 %80
+  %arrayidx.i102 = getelementptr %struct.b3GrahamVector3, ptr %81, i64 -2
   %sub59 = add nsw i32 %79, -1
   %idxprom.i105 = zext nneg i32 %sub59 to i64
   %arrayidx.i106 = getelementptr inbounds %struct.b3GrahamVector3, ptr %78, i64 %idxprom.i105
-  %80 = load float, ptr %arrayidx.i102, align 16
-  %81 = load float, ptr %arrayidx.i106, align 16
-  %sub.i107 = fsub float %80, %81
-  %arrayidx2.i108 = getelementptr inbounds [4 x float], ptr %arrayidx.i102, i64 0, i64 1
-  %82 = load float, ptr %arrayidx2.i108, align 4
+  %82 = load float, ptr %arrayidx.i102, align 16
+  %83 = load float, ptr %arrayidx.i106, align 16
+  %sub.i107 = fsub float %82, %83
+  %arrayidx2.i108 = getelementptr %struct.b3GrahamVector3, ptr %81, i64 -2, i32 0, i32 0, i32 0, i64 1
+  %84 = load float, ptr %arrayidx2.i108, align 4
   %arrayidx3.i109 = getelementptr inbounds [4 x float], ptr %arrayidx.i106, i64 0, i64 1
-  %83 = load float, ptr %arrayidx3.i109, align 4
-  %sub4.i110 = fsub float %82, %83
-  %arrayidx5.i111 = getelementptr inbounds [4 x float], ptr %arrayidx.i102, i64 0, i64 2
-  %84 = load float, ptr %arrayidx5.i111, align 8
+  %85 = load float, ptr %arrayidx3.i109, align 4
+  %sub4.i110 = fsub float %84, %85
+  %arrayidx5.i111 = getelementptr %struct.b3GrahamVector3, ptr %81, i64 -2, i32 0, i32 0, i32 0, i64 2
+  %86 = load float, ptr %arrayidx5.i111, align 8
   %arrayidx6.i112 = getelementptr inbounds [4 x float], ptr %arrayidx.i106, i64 0, i64 2
-  %85 = load float, ptr %arrayidx6.i112, align 8
-  %sub7.i113 = fsub float %84, %85
-  %86 = load ptr, ptr %m_data.i62, align 8
-  %arrayidx.i121 = getelementptr inbounds %struct.b3GrahamVector3, ptr %86, i64 %indvars.iv209
-  %87 = load float, ptr %arrayidx.i121, align 16
-  %sub.i122 = fsub float %80, %87
+  %87 = load float, ptr %arrayidx6.i112, align 8
+  %sub7.i113 = fsub float %86, %87
+  %88 = load ptr, ptr %m_data.i62, align 8
+  %arrayidx.i121 = getelementptr inbounds %struct.b3GrahamVector3, ptr %88, i64 %indvars.iv209
+  %89 = load float, ptr %arrayidx.i121, align 16
+  %sub.i122 = fsub float %82, %89
   %arrayidx3.i124 = getelementptr inbounds [4 x float], ptr %arrayidx.i121, i64 0, i64 1
-  %88 = load float, ptr %arrayidx3.i124, align 4
-  %sub4.i125 = fsub float %82, %88
+  %90 = load float, ptr %arrayidx3.i124, align 4
+  %sub4.i125 = fsub float %84, %90
   %arrayidx6.i127 = getelementptr inbounds [4 x float], ptr %arrayidx.i121, i64 0, i64 2
-  %89 = load float, ptr %arrayidx6.i127, align 8
-  %sub7.i128 = fsub float %84, %89
-  %90 = fneg float %sub7.i113
-  %neg.i.i138 = fmul float %sub4.i125, %90
-  %91 = call float @llvm.fmuladd.f32(float %sub4.i110, float %sub7.i128, float %neg.i.i138)
-  %92 = fneg float %sub.i107
-  %neg11.i.i139 = fmul float %sub7.i128, %92
-  %93 = call float @llvm.fmuladd.f32(float %sub7.i113, float %sub.i122, float %neg11.i.i139)
-  %94 = fneg float %sub4.i110
-  %neg17.i.i140 = fmul float %sub.i122, %94
-  %95 = call float @llvm.fmuladd.f32(float %sub.i107, float %sub4.i125, float %neg17.i.i140)
-  %96 = load float, ptr %normalAxis, align 16
-  %97 = load float, ptr %arrayidx4.i147, align 4
-  %mul5.i148 = fmul float %97, %93
-  %98 = call float @llvm.fmuladd.f32(float %91, float %96, float %mul5.i148)
-  %99 = load float, ptr %arrayidx.i, align 8
-  %100 = call noundef float @llvm.fmuladd.f32(float %95, float %99, float %98)
-  %cmp75 = fcmp ule float %100, 0.000000e+00
+  %91 = load float, ptr %arrayidx6.i127, align 8
+  %sub7.i128 = fsub float %86, %91
+  %92 = fneg float %sub7.i113
+  %neg.i.i138 = fmul float %sub4.i125, %92
+  %93 = call float @llvm.fmuladd.f32(float %sub4.i110, float %sub7.i128, float %neg.i.i138)
+  %94 = fneg float %sub.i107
+  %neg11.i.i139 = fmul float %sub7.i128, %94
+  %95 = call float @llvm.fmuladd.f32(float %sub7.i113, float %sub.i122, float %neg11.i.i139)
+  %96 = fneg float %sub4.i110
+  %neg17.i.i140 = fmul float %sub.i122, %96
+  %97 = call float @llvm.fmuladd.f32(float %sub.i107, float %sub4.i125, float %neg17.i.i140)
+  %98 = load float, ptr %normalAxis, align 16
+  %99 = load float, ptr %arrayidx4.i147, align 4
+  %mul5.i148 = fmul float %99, %95
+  %100 = call float @llvm.fmuladd.f32(float %93, float %98, float %mul5.i148)
+  %101 = load float, ptr %arrayidx.i, align 8
+  %102 = call noundef float @llvm.fmuladd.f32(float %97, float %101, float %100)
+  %cmp75 = fcmp ule float %102, 0.000000e+00
   br i1 %cmp75, label %land.rhs.critedge, label %if.else
 
 if.else:                                          ; preds = %while.body
-  %101 = load i32, ptr %m_capacity.i.i85, align 8
-  %cmp.i157 = icmp eq i32 %79, %101
+  %103 = load i32, ptr %m_capacity.i.i85, align 8
+  %cmp.i157 = icmp eq i32 %79, %103
   br i1 %cmp.i157, label %if.then.i162, label %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E9push_backERKS0_.exit167
 
 if.then.i162:                                     ; preds = %if.else
@@ -2859,19 +2859,19 @@ _ZN20b3AlignedObjectArrayI15b3GrahamVector3E8allocateEi.exit.i: ; preds = %if.th
   br i1 %cmp3.i, label %_ZNK20b3AlignedObjectArrayI15b3GrahamVector3E4copyEiiPS0_.exit18.i, label %if.then.split.i
 
 if.then.split.i:                                  ; preds = %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E8allocateEi.exit.i
-  %102 = load i32, ptr %m_size.i.i84, align 4
-  %cmp4.i.i = icmp sgt i32 %102, 0
+  %104 = load i32, ptr %m_size.i.i84, align 4
+  %cmp4.i.i = icmp sgt i32 %104, 0
   br i1 %cmp4.i.i, label %for.body.lr.ph.i.i, label %if.end.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.then.split.i
-  %wide.trip.count.i.i = zext nneg i32 %102 to i64
+  %wide.trip.count.i.i = zext nneg i32 %104 to i64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %arrayidx.i.i173 = getelementptr inbounds %struct.b3GrahamVector3, ptr %call.i.i.i, i64 %indvars.iv.i.i
-  %103 = load ptr, ptr %m_data.i87, align 8
-  %arrayidx3.i.i174 = getelementptr inbounds %struct.b3GrahamVector3, ptr %103, i64 %indvars.iv.i.i
+  %105 = load ptr, ptr %m_data.i87, align 8
+  %arrayidx3.i.i174 = getelementptr inbounds %struct.b3GrahamVector3, ptr %105, i64 %indvars.iv.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %arrayidx.i.i173, ptr noundef nonnull align 16 dereferenceable(32) %arrayidx3.i.i174, i64 32, i1 false)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -2885,18 +2885,18 @@ _ZNK20b3AlignedObjectArrayI15b3GrahamVector3E4copyEiiPS0_.exit18.i: ; preds = %_
 
 if.end.i:                                         ; preds = %for.body.i.i, %_ZNK20b3AlignedObjectArrayI15b3GrahamVector3E4copyEiiPS0_.exit18.i, %if.then.split.i
   %_Count.addr.0.i = phi i32 [ 0, %_ZNK20b3AlignedObjectArrayI15b3GrahamVector3E4copyEiiPS0_.exit18.i ], [ %mul.i.i164, %if.then.split.i ], [ %mul.i.i164, %for.body.i.i ]
-  %104 = load ptr, ptr %m_data.i87, align 8
-  %tobool.not.i21.i = icmp eq ptr %104, null
+  %106 = load ptr, ptr %m_data.i87, align 8
+  %tobool.not.i21.i = icmp eq ptr %106, null
   br i1 %tobool.not.i21.i, label %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E10deallocateEv.exit.i, label %if.then.i22.i
 
 if.then.i22.i:                                    ; preds = %if.end.i
-  %105 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %106 = and i8 %105, 1
-  %tobool2.not.i.i = icmp eq i8 %106, 0
+  %107 = load i8, ptr %m_ownsMemory.i.i, align 8
+  %108 = and i8 %107, 1
+  %tobool2.not.i.i = icmp eq i8 %108, 0
   br i1 %tobool2.not.i.i, label %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E10deallocateEv.exit.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i22.i
-  call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %104)
+  call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %106)
   br label %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E10deallocateEv.exit.i
 
 _ZN20b3AlignedObjectArrayI15b3GrahamVector3E10deallocateEv.exit.i: ; preds = %if.then3.i.i, %if.then.i22.i, %if.end.i
@@ -2907,27 +2907,27 @@ _ZN20b3AlignedObjectArrayI15b3GrahamVector3E10deallocateEv.exit.i: ; preds = %if
   br label %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E9push_backERKS0_.exit167
 
 _ZN20b3AlignedObjectArrayI15b3GrahamVector3E9push_backERKS0_.exit167: ; preds = %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E10deallocateEv.exit.i, %if.then.i162, %if.else
-  %107 = phi ptr [ %78, %if.else ], [ %78, %if.then.i162 ], [ %call.i.i.i, %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E10deallocateEv.exit.i ]
-  %108 = phi i32 [ %79, %if.else ], [ %79, %if.then.i162 ], [ %.pre.i166.pre, %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E10deallocateEv.exit.i ]
-  %idxprom.i159 = sext i32 %108 to i64
-  %arrayidx.i160 = getelementptr inbounds %struct.b3GrahamVector3, ptr %107, i64 %idxprom.i159
+  %109 = phi ptr [ %78, %if.else ], [ %78, %if.then.i162 ], [ %call.i.i.i, %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E10deallocateEv.exit.i ]
+  %110 = phi i32 [ %79, %if.else ], [ %79, %if.then.i162 ], [ %.pre.i166.pre, %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E10deallocateEv.exit.i ]
+  %idxprom.i159 = sext i32 %110 to i64
+  %arrayidx.i160 = getelementptr inbounds %struct.b3GrahamVector3, ptr %109, i64 %idxprom.i159
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %arrayidx.i160, ptr noundef nonnull align 16 dereferenceable(32) %arrayidx.i121, i64 32, i1 false)
-  %109 = load i32, ptr %m_size.i.i84, align 4
-  %inc.i161 = add nsw i32 %109, 1
+  %111 = load i32, ptr %m_size.i.i84, align 4
+  %inc.i161 = add nsw i32 %111, 1
   store i32 %inc.i161, ptr %m_size.i.i84, align 4
   br label %for.inc80.loopexit
 
 for.inc80.loopexit:                               ; preds = %land.rhs.critedge, %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E9push_backERKS0_.exit167
-  %110 = phi i32 [ %inc.i161, %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E9push_backERKS0_.exit167 ], [ 1, %land.rhs.critedge ]
+  %112 = phi i32 [ %inc.i161, %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E9push_backERKS0_.exit167 ], [ 1, %land.rhs.critedge ]
   %.pre214 = load i32, ptr %m_size.i, align 4
   br label %for.inc80
 
 for.inc80:                                        ; preds = %for.inc80.loopexit, %land.rhs.preheader
-  %111 = phi i32 [ %.pre214, %for.inc80.loopexit ], [ %76, %land.rhs.preheader ]
-  %112 = phi i32 [ %110, %for.inc80.loopexit ], [ %77, %land.rhs.preheader ]
+  %113 = phi i32 [ %.pre214, %for.inc80.loopexit ], [ %76, %land.rhs.preheader ]
+  %114 = phi i32 [ %112, %for.inc80.loopexit ], [ %77, %land.rhs.preheader ]
   %indvars.iv.next210 = add nuw i64 %indvars.iv209, 1
-  %113 = zext i32 %111 to i64
-  %cmp51.not = icmp eq i64 %indvars.iv.next210, %113
+  %115 = zext i32 %113 to i64
+  %cmp51.not = icmp eq i64 %indvars.iv.next210, %115
   br i1 %cmp51.not, label %for.end82, label %land.rhs.preheader, !llvm.loop !37
 
 for.end82:                                        ; preds = %for.inc80, %_ZN20b3AlignedObjectArrayI15b3GrahamVector3E9push_backERKS0_.exit, %land.rhs.preheader.lr.ph, %for.cond49.preheader, %for.cond.preheader

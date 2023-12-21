@@ -224,26 +224,26 @@ entry:
   store i8 1, ptr %m_oneSided, align 8
   %cmp = icmp sgt i32 %index, 0
   %6 = load ptr, ptr %m_vertices, align 8
-  %sub = add nsw i32 %index, -1
-  %idxprom8 = zext nneg i32 %sub to i64
-  %arrayidx9 = getelementptr inbounds %struct.b2Vec2, ptr %6, i64 %idxprom8
+  %7 = zext nneg i32 %index to i64
+  %8 = getelementptr %struct.b2Vec2, ptr %6, i64 %7
+  %arrayidx9 = getelementptr %struct.b2Vec2, ptr %8, i64 -1
   %m_prevVertex = getelementptr inbounds %class.b2ChainShape, ptr %this, i64 0, i32 3
   %.sink.in = select i1 %cmp, ptr %arrayidx9, ptr %m_prevVertex
   %.sink = load i64, ptr %.sink.in, align 4
-  %7 = getelementptr inbounds %class.b2EdgeShape, ptr %edge, i64 0, i32 3
-  store i64 %.sink, ptr %7, align 8
+  %9 = getelementptr inbounds %class.b2EdgeShape, ptr %edge, i64 0, i32 3
+  store i64 %.sink, ptr %9, align 8
   %m_count = getelementptr inbounds %class.b2ChainShape, ptr %this, i64 0, i32 2
-  %8 = load i32, ptr %m_count, align 8
-  %sub11 = add nsw i32 %8, -2
+  %10 = load i32, ptr %m_count, align 8
+  %sub11 = add nsw i32 %10, -2
   %cmp12 = icmp sgt i32 %sub11, %index
-  %9 = load ptr, ptr %m_vertices, align 8
-  %10 = getelementptr %struct.b2Vec2, ptr %9, i64 %idxprom
-  %arrayidx17 = getelementptr %struct.b2Vec2, ptr %10, i64 2
+  %11 = load ptr, ptr %m_vertices, align 8
+  %12 = getelementptr %struct.b2Vec2, ptr %11, i64 %idxprom
+  %arrayidx17 = getelementptr %struct.b2Vec2, ptr %12, i64 2
   %m_nextVertex = getelementptr inbounds %class.b2ChainShape, ptr %this, i64 0, i32 4
   %.sink14.in = select i1 %cmp12, ptr %arrayidx17, ptr %m_nextVertex
   %.sink14 = load i64, ptr %.sink14.in, align 4
-  %11 = getelementptr inbounds %class.b2EdgeShape, ptr %edge, i64 0, i32 4
-  store i64 %.sink14, ptr %11, align 8
+  %13 = getelementptr inbounds %class.b2EdgeShape, ptr %edge, i64 0, i32 4
+  store i64 %.sink14, ptr %13, align 8
   ret void
 }
 

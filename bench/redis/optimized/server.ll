@@ -13462,12 +13462,13 @@ entry:
 
 for.end.thread:                                   ; preds = %entry
   store i32 0, ptr %numcmds, align 4
-  %call3140 = tail call ptr @addReplyDeferredLen(ptr noundef nonnull %c) #38
+  %call3139 = tail call ptr @addReplyDeferredLen(ptr noundef nonnull %c) #38
   br label %if.else34
 
 for.body.lr.ph:                                   ; preds = %entry
   %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
   %1 = load ptr, ptr %argv, align 8
+  %invariant.gep = getelementptr ptr, ptr %1, i64 2
   %arg = getelementptr inbounds %struct.commandListFilter, ptr %filter, i64 0, i32 1
   br label %for.body
 
@@ -13522,33 +13523,32 @@ if.else29:                                        ; preds = %for.body
   br label %return
 
 for.end:                                          ; preds = %if.end22
-  %12 = getelementptr ptr, ptr %1, i64 %indvars.iv
-  %arrayidx26.le = getelementptr ptr, ptr %12, i64 2
-  %13 = load ptr, ptr %arrayidx26.le, align 8
-  %ptr27.le = getelementptr inbounds %struct.redisObject, ptr %13, i64 0, i32 2
-  %14 = load ptr, ptr %ptr27.le, align 8
-  store ptr %14, ptr %arg, align 8
+  %gep.le = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
+  %12 = load ptr, ptr %gep.le, align 8
+  %ptr27.le = getelementptr inbounds %struct.redisObject, ptr %12, i64 0, i32 2
+  %13 = load ptr, ptr %ptr27.le, align 8
+  store ptr %13, ptr %arg, align 8
   store i32 %9, ptr %filter, align 8
   store i32 0, ptr %numcmds, align 4
   %call31 = tail call ptr @addReplyDeferredLen(ptr noundef nonnull %c) #38
   br i1 %cmp23, label %if.else34, label %if.then33
 
 if.then33:                                        ; preds = %for.end
-  %15 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 12), align 8
-  call void @commandListWithFilter(ptr noundef nonnull %c, ptr noundef %15, ptr noundef nonnull byval(%struct.commandListFilter) align 8 %filter, ptr noundef nonnull %numcmds)
+  %14 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 12), align 8
+  call void @commandListWithFilter(ptr noundef nonnull %c, ptr noundef %14, ptr noundef nonnull byval(%struct.commandListFilter) align 8 %filter, ptr noundef nonnull %numcmds)
   br label %if.end35
 
 if.else34:                                        ; preds = %for.end.thread, %for.end
-  %call3142 = phi ptr [ %call3140, %for.end.thread ], [ %call31, %for.end ]
-  %16 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 12), align 8
-  call void @commandListWithoutFilter(ptr noundef nonnull %c, ptr noundef %16, ptr noundef nonnull %numcmds)
+  %call3141 = phi ptr [ %call3139, %for.end.thread ], [ %call31, %for.end ]
+  %15 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 12), align 8
+  call void @commandListWithoutFilter(ptr noundef nonnull %c, ptr noundef %15, ptr noundef nonnull %numcmds)
   br label %if.end35
 
 if.end35:                                         ; preds = %if.else34, %if.then33
-  %call3141 = phi ptr [ %call3142, %if.else34 ], [ %call31, %if.then33 ]
-  %17 = load i32, ptr %numcmds, align 4
-  %conv = sext i32 %17 to i64
-  tail call void @setDeferredArrayLen(ptr noundef nonnull %c, ptr noundef %call3141, i64 noundef %conv) #38
+  %call3140 = phi ptr [ %call3141, %if.else34 ], [ %call31, %if.then33 ]
+  %16 = load i32, ptr %numcmds, align 4
+  %conv = sext i32 %16 to i64
+  tail call void @setDeferredArrayLen(ptr noundef nonnull %c, ptr noundef %call3140, i64 noundef %conv) #38
   br label %return
 
 return:                                           ; preds = %if.end35, %if.else29, %if.else20
@@ -17820,16 +17820,15 @@ while.body.lr.ph:                                 ; preds = %if.end111
   %sub = add nsw i32 %argc, -1
   %20 = zext nneg i32 %j.1 to i64
   %21 = zext nneg i32 %sub to i64
-  %wide.trip.count179 = zext nneg i32 %argc to i64
-  %invariant.gep = getelementptr ptr, ptr %argv, i64 1
+  %wide.trip.count178 = zext nneg i32 %argc to i64
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end255
-  %indvars.iv175 = phi i64 [ %20, %while.body.lr.ph ], [ %indvars.iv.next176, %if.end255 ]
+  %indvars.iv176 = phi i64 [ %20, %while.body.lr.ph ], [ %indvars.iv.next177, %if.end255 ]
   %config_from_stdin.0169 = phi i8 [ 0, %while.body.lr.ph ], [ %config_from_stdin.1, %if.end255 ]
   %handled_last_config_arg.0168 = phi i32 [ 1, %while.body.lr.ph ], [ %handled_last_config_arg.2, %if.end255 ]
   %options.0167 = phi ptr [ %call55, %while.body.lr.ph ], [ %options.3, %if.end255 ]
-  %arrayidx115 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv175
+  %arrayidx115 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv176
   %22 = load ptr, ptr %arrayidx115, align 8
   %23 = load i8, ptr %22, align 1
   %cmp118.not = icmp eq i8 %23, 45
@@ -17842,16 +17841,16 @@ land.lhs.true:                                    ; preds = %while.body
   br i1 %cmp124, label %land.lhs.true126, label %if.else133
 
 land.lhs.true126:                                 ; preds = %land.lhs.true
-  %cmp127 = icmp eq i64 %indvars.iv175, 1
-  %cmp130 = icmp eq i64 %indvars.iv175, %21
+  %cmp127 = icmp eq i64 %indvars.iv176, 1
+  %cmp130 = icmp eq i64 %indvars.iv176, %21
   %or.cond98 = select i1 %cmp127, i1 true, i1 %cmp130
   br i1 %or.cond98, label %if.end255, label %if.else246
 
 if.else133:                                       ; preds = %land.lhs.true
   %tobool134.not = icmp ne i32 %handled_last_config_arg.0168, 0
   %cmp147 = icmp eq i8 %24, 45
-  %or.cond189 = and i1 %tobool134.not, %cmp147
-  br i1 %or.cond189, label %if.then149, label %if.else246
+  %or.cond188 = and i1 %tobool134.not, %cmp147
+  br i1 %or.cond188, label %if.then149, label %if.else246
 
 if.then149:                                       ; preds = %if.else133
   %arrayidx.i101 = getelementptr inbounds i8, ptr %options.0167, i64 -1
@@ -17917,12 +17916,12 @@ if.end154:                                        ; preds = %if.then149, %if.the
   br i1 %cmp162, label %if.then164, label %if.end245
 
 if.then164:                                       ; preds = %if.end154
-  %cmp166.not = icmp eq i64 %indvars.iv175, %21
+  %cmp166.not = icmp eq i64 %indvars.iv176, %21
   br i1 %cmp166.not, label %land.lhs.true195, label %land.lhs.true168
 
 land.lhs.true168:                                 ; preds = %if.then164
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv175
-  %33 = load ptr, ptr %gep, align 8
+  %arrayidx171 = getelementptr ptr, ptr %arrayidx115, i64 1
+  %33 = load ptr, ptr %arrayidx171, align 8
   %34 = load i8, ptr %33, align 1
   %cmp174 = icmp eq i8 %34, 45
   br i1 %cmp174, label %land.lhs.true176, label %if.end245
@@ -17985,9 +17984,9 @@ if.end255:                                        ; preds = %land.lhs.true126, %
   %options.3 = phi ptr [ %options.2, %if.end245 ], [ %call253, %if.else246 ], [ %options.0167, %land.lhs.true126 ]
   %handled_last_config_arg.2 = phi i32 [ %handled_last_config_arg.1, %if.end245 ], [ 1, %if.else246 ], [ %handled_last_config_arg.0168, %land.lhs.true126 ]
   %config_from_stdin.1 = phi i8 [ %config_from_stdin.0169, %if.end245 ], [ %config_from_stdin.0169, %if.else246 ], [ 1, %land.lhs.true126 ]
-  %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
-  %exitcond180.not = icmp eq i64 %indvars.iv.next176, %wide.trip.count179
-  br i1 %exitcond180.not, label %while.end, label %while.body, !llvm.loop !82
+  %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
+  %exitcond179.not = icmp eq i64 %indvars.iv.next177, %wide.trip.count178
+  br i1 %exitcond179.not, label %while.end, label %while.body, !llvm.loop !82
 
 while.end:                                        ; preds = %if.end255, %if.end111
   %options.0.lcssa = phi ptr [ %call55, %if.end111 ], [ %options.3, %if.end255 ]
@@ -18232,13 +18231,13 @@ cond.false:                                       ; preds = %if.then343
   unreachable
 
 if.end351:                                        ; preds = %if.then343, %do.end340
-  %.pre186 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %.pre185 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
   br label %for.body355
 
 for.body355:                                      ; preds = %if.end351, %for.inc370
-  %67 = phi i32 [ %.pre186, %if.end351 ], [ %70, %for.inc370 ]
-  %indvars.iv181 = phi i64 [ 0, %if.end351 ], [ %indvars.iv.next182, %for.inc370 ]
-  %ct = getelementptr inbounds %struct.redisServer, ptr @server, i64 0, i32 52, i64 %indvars.iv181, i32 5
+  %67 = phi i32 [ %.pre185, %if.end351 ], [ %70, %for.inc370 ]
+  %indvars.iv180 = phi i64 [ 0, %if.end351 ], [ %indvars.iv.next181, %for.inc370 ]
+  %ct = getelementptr inbounds %struct.redisServer, ptr @server, i64 0, i32 52, i64 %indvars.iv180, i32 5
   %68 = load ptr, ptr %ct, align 8
   %cmp358 = icmp eq ptr %68, null
   %cmp363 = icmp sgt i32 %67, 2
@@ -18249,14 +18248,14 @@ if.end366:                                        ; preds = %for.body355
   %69 = load ptr, ptr %68, align 8
   %call368 = call ptr %69(ptr noundef null) #38
   call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.458, ptr noundef %call368)
-  %.pre185 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %.pre184 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
   br label %for.inc370
 
 for.inc370:                                       ; preds = %if.end366, %for.body355
-  %70 = phi i32 [ %.pre185, %if.end366 ], [ %67, %for.body355 ]
-  %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
-  %exitcond184.not = icmp eq i64 %indvars.iv.next182, 8
-  br i1 %exitcond184.not, label %for.end372, label %for.body355, !llvm.loop !83
+  %70 = phi i32 [ %.pre184, %if.end366 ], [ %67, %for.body355 ]
+  %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
+  %exitcond183.not = icmp eq i64 %indvars.iv.next181, 8
+  br i1 %exitcond183.not, label %for.end372, label %for.body355, !llvm.loop !83
 
 for.end372:                                       ; preds = %for.inc370
   %71 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 175), align 8

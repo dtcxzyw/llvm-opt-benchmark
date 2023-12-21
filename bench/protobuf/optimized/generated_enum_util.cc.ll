@@ -274,22 +274,22 @@ if.end20.i:                                       ; preds = %if.end.i
   %conv23.i = zext nneg i32 %shr22.i to i64
   %conv24.i = lshr i32 %1, 5
   %div25.i18 = and i32 %conv24.i, 2047
-  %add26.i = add nuw nsw i32 %div25.i18, 2
-  %idx.ext.i = zext nneg i32 %add26.i to i64
-  %add.ptr.i = getelementptr inbounds i32, ptr %data, i64 %idx.ext.i
+  %7 = zext nneg i32 %div25.i18 to i64
+  %8 = getelementptr i32, ptr %data, i64 %7
+  %add.ptr.i = getelementptr i32, ptr %8, i64 2
   %cmp28.i20.not = icmp ult i32 %1, 65536
   br i1 %cmp28.i20.not, label %_ZN6google8protobuf8internal19ValidateEnumInlinedEiPKj.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end20.i, %if.end32.i
   %pos.i.021 = phi i64 [ %add35.i, %if.end32.i ], [ 0, %if.end20.i ]
   %arrayidx29.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 %pos.i.021
-  %7 = load i32, ptr %arrayidx29.i, align 4
-  %cmp30.i = icmp eq i32 %7, %value
+  %9 = load i32, ptr %arrayidx29.i, align 4
+  %cmp30.i = icmp eq i32 %9, %value
   br i1 %cmp30.i, label %_ZN6google8protobuf8internal19ValidateEnumInlinedEiPKj.exit, label %if.end32.i
 
 if.end32.i:                                       ; preds = %while.body.i
   %mul.i = shl nuw nsw i64 %pos.i.021, 1
-  %cmp33.i = icmp sgt i32 %7, %value
+  %cmp33.i = icmp sgt i32 %9, %value
   %cond.i = select i1 %cmp33.i, i64 1, i64 2
   %add35.i = add nuw i64 %cond.i, %mul.i
   %cmp28.i = icmp ult i64 %add35.i, %conv23.i

@@ -1090,33 +1090,35 @@ for.cond.preheader:                               ; preds = %if.then
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %elements = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %6 = sext i32 %5 to i64
+  %7 = zext nneg i32 %index to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %i.015 = phi i32 [ %5, %for.body.lr.ph ], [ %sub, %for.body ]
-  %6 = load ptr, ptr %elements, align 8
-  %sub = add nsw i32 %i.015, -1
-  %idxprom = zext nneg i32 %sub to i64
-  %arrayidx = getelementptr inbounds %union.UElement, ptr %6, i64 %idxprom
-  %idxprom8 = zext nneg i32 %i.015 to i64
-  %arrayidx9 = getelementptr inbounds %union.UElement, ptr %6, i64 %idxprom8
-  %7 = load i64, ptr %arrayidx, align 8
-  store i64 %7, ptr %arrayidx9, align 8
-  %cmp6 = icmp sgt i32 %sub, %index
+  %indvars.iv = phi i64 [ %6, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
+  %8 = load ptr, ptr %elements, align 8
+  %9 = getelementptr %union.UElement, ptr %8, i64 %indvars.iv
+  %arrayidx = getelementptr %union.UElement, ptr %9, i64 -1
+  %idxprom8 = and i64 %indvars.iv, 4294967295
+  %arrayidx9 = getelementptr inbounds %union.UElement, ptr %8, i64 %idxprom8
+  %10 = load i64, ptr %arrayidx, align 8
+  store i64 %10, ptr %arrayidx9, align 8
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %cmp6 = icmp sgt i64 %indvars.iv.next, %7
   br i1 %cmp6, label %for.body, label %if.end14, !llvm.loop !11
 
 if.end14:                                         ; preds = %for.body, %for.cond.preheader
   %elements10 = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
-  %8 = load ptr, ptr %elements10, align 8
+  %11 = load ptr, ptr %elements10, align 8
   %idxprom11 = zext nneg i32 %index to i64
-  %arrayidx12 = getelementptr inbounds %union.UElement, ptr %8, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds %union.UElement, ptr %11, i64 %idxprom11
   store ptr %obj, ptr %arrayidx12, align 8
-  %9 = load i32, ptr %count, align 8
-  %inc = add nsw i32 %9, 1
+  %12 = load i32, ptr %count, align 8
+  %inc = add nsw i32 %12, 1
   store i32 %inc, ptr %count, align 8
-  %.pre16 = load i32, ptr %status, align 4
-  %10 = icmp slt i32 %.pre16, 1
-  br i1 %10, label %if.end21, label %land.lhs.true17
+  %.pre17 = load i32, ptr %status, align 4
+  %13 = icmp slt i32 %.pre17, 1
+  br i1 %13, label %if.end21, label %land.lhs.true17
 
 land.lhs.true17.sink.split:                       ; preds = %if.then, %if.end16.i, %if.end9.i, %if.then5.i, %if.end.i
   %.sink = phi i32 [ 1, %if.end.i ], [ 1, %if.then5.i ], [ 1, %if.end9.i ], [ 7, %if.end16.i ], [ 1, %if.then ]
@@ -1125,12 +1127,12 @@ land.lhs.true17.sink.split:                       ; preds = %if.then, %if.end16.
 
 land.lhs.true17:                                  ; preds = %land.lhs.true17.sink.split, %entry, %if.end14
   %deleter = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 4
-  %11 = load ptr, ptr %deleter, align 8
-  %cmp18.not = icmp eq ptr %11, null
+  %14 = load ptr, ptr %deleter, align 8
+  %cmp18.not = icmp eq ptr %14, null
   br i1 %cmp18.not, label %if.end21, label %if.then19
 
 if.then19:                                        ; preds = %land.lhs.true17
-  tail call void %11(ptr noundef %obj)
+  tail call void %14(ptr noundef %obj)
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then19, %land.lhs.true17, %if.end14
@@ -1211,32 +1213,34 @@ for.cond.preheader:                               ; preds = %if.then
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %elements = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %6 = sext i32 %5 to i64
+  %7 = zext nneg i32 %index to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %i.012 = phi i32 [ %5, %for.body.lr.ph ], [ %sub, %for.body ]
-  %6 = load ptr, ptr %elements, align 8
-  %sub = add nsw i32 %i.012, -1
-  %idxprom = zext nneg i32 %sub to i64
-  %arrayidx = getelementptr inbounds %union.UElement, ptr %6, i64 %idxprom
-  %idxprom8 = zext nneg i32 %i.012 to i64
-  %arrayidx9 = getelementptr inbounds %union.UElement, ptr %6, i64 %idxprom8
-  %7 = load i64, ptr %arrayidx, align 8
-  store i64 %7, ptr %arrayidx9, align 8
-  %cmp6 = icmp sgt i32 %sub, %index
+  %indvars.iv = phi i64 [ %6, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
+  %8 = load ptr, ptr %elements, align 8
+  %9 = getelementptr %union.UElement, ptr %8, i64 %indvars.iv
+  %arrayidx = getelementptr %union.UElement, ptr %9, i64 -1
+  %idxprom8 = and i64 %indvars.iv, 4294967295
+  %arrayidx9 = getelementptr inbounds %union.UElement, ptr %8, i64 %idxprom8
+  %10 = load i64, ptr %arrayidx, align 8
+  store i64 %10, ptr %arrayidx9, align 8
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %cmp6 = icmp sgt i64 %indvars.iv.next, %7
   br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %elements10 = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
-  %8 = load ptr, ptr %elements10, align 8
+  %11 = load ptr, ptr %elements10, align 8
   %idxprom11 = zext nneg i32 %index to i64
-  %arrayidx12 = getelementptr inbounds %union.UElement, ptr %8, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds %union.UElement, ptr %11, i64 %idxprom11
   store ptr null, ptr %arrayidx12, align 8
-  %9 = load ptr, ptr %elements10, align 8
-  %arrayidx15 = getelementptr inbounds %union.UElement, ptr %9, i64 %idxprom11
+  %12 = load ptr, ptr %elements10, align 8
+  %arrayidx15 = getelementptr inbounds %union.UElement, ptr %12, i64 %idxprom11
   store i32 %elem, ptr %arrayidx15, align 8
-  %10 = load i32, ptr %count, align 8
-  %inc = add nsw i32 %10, 1
+  %13 = load i32, ptr %count, align 8
+  %inc = add nsw i32 %13, 1
   store i32 %inc, ptr %count, align 8
   br label %if.end17
 

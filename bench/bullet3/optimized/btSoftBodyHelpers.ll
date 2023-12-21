@@ -4715,19 +4715,17 @@ for.body:                                         ; preds = %for.cond.preheader,
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.cond.preheader ]
   %3 = mul nuw nsw i64 %indvars.iv, 3
   %4 = load ptr, ptr %m_data.i.i2.i, align 8
-  %arrayidx.i = getelementptr inbounds i32, ptr %4, i64 %3
+  %arrayidx.i = getelementptr i32, ptr %4, i64 %3
   %5 = load i32, ptr %arrayidx.i, align 4
-  %6 = getelementptr i32, ptr %4, i64 %3
-  %arrayidx.i41 = getelementptr i32, ptr %6, i64 1
-  %7 = load i32, ptr %arrayidx.i41, align 4
-  %8 = getelementptr i32, ptr %4, i64 %3
-  %arrayidx.i44 = getelementptr i32, ptr %8, i64 2
-  %9 = load i32, ptr %arrayidx.i44, align 4
-  %cmp23 = icmp slt i32 %5, %7
+  %arrayidx.i41 = getelementptr i32, ptr %arrayidx.i, i64 1
+  %6 = load i32, ptr %arrayidx.i41, align 4
+  %arrayidx.i44 = getelementptr i32, ptr %arrayidx.i, i64 2
+  %7 = load i32, ptr %arrayidx.i44, align 4
+  %cmp23 = icmp slt i32 %5, %6
   br i1 %cmp23, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  invoke void @_ZN10btSoftBody10appendLinkEiiPNS_8MaterialEb(ptr noundef nonnull align 8 dereferenceable(2064) %call.i37, i32 noundef %5, i32 noundef %7, ptr noundef null, i1 noundef zeroext false)
+  invoke void @_ZN10btSoftBody10appendLinkEiiPNS_8MaterialEb(ptr noundef nonnull align 8 dereferenceable(2064) %call.i37, i32 noundef %5, i32 noundef %6, ptr noundef null, i1 noundef zeroext false)
           to label %if.end unwind label %lpad1.loopexit
 
 lpad1.loopexit:                                   ; preds = %if.then, %if.then30, %if.then38, %if.end42
@@ -4741,43 +4739,43 @@ lpad1.loopexit.split-lp:                          ; preds = %invoke.cont, %for.e
   br label %ehcleanup
 
 lpad5:                                            ; preds = %invoke.cont3
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i37)
           to label %ehcleanup unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad5
-  %11 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #23
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #23
   unreachable
 
 if.end:                                           ; preds = %if.then, %for.body
-  %cmp29 = icmp slt i32 %7, %9
+  %cmp29 = icmp slt i32 %6, %7
   br i1 %cmp29, label %if.then30, label %if.end34
 
 if.then30:                                        ; preds = %if.end
-  invoke void @_ZN10btSoftBody10appendLinkEiiPNS_8MaterialEb(ptr noundef nonnull align 8 dereferenceable(2064) %call.i37, i32 noundef %7, i32 noundef %9, ptr noundef null, i1 noundef zeroext false)
+  invoke void @_ZN10btSoftBody10appendLinkEiiPNS_8MaterialEb(ptr noundef nonnull align 8 dereferenceable(2064) %call.i37, i32 noundef %6, i32 noundef %7, ptr noundef null, i1 noundef zeroext false)
           to label %if.end34 unwind label %lpad1.loopexit
 
 if.end34:                                         ; preds = %if.then30, %if.end
-  %cmp37 = icmp slt i32 %9, %5
+  %cmp37 = icmp slt i32 %7, %5
   br i1 %cmp37, label %if.then38, label %if.end42
 
 if.then38:                                        ; preds = %if.end34
-  invoke void @_ZN10btSoftBody10appendLinkEiiPNS_8MaterialEb(ptr noundef nonnull align 8 dereferenceable(2064) %call.i37, i32 noundef %9, i32 noundef %5, ptr noundef null, i1 noundef zeroext false)
+  invoke void @_ZN10btSoftBody10appendLinkEiiPNS_8MaterialEb(ptr noundef nonnull align 8 dereferenceable(2064) %call.i37, i32 noundef %7, i32 noundef %5, ptr noundef null, i1 noundef zeroext false)
           to label %if.end42 unwind label %lpad1.loopexit
 
 if.end42:                                         ; preds = %if.then38, %if.end34
-  invoke void @_ZN10btSoftBody10appendFaceEiiiPNS_8MaterialE(ptr noundef nonnull align 8 dereferenceable(2064) %call.i37, i32 noundef %5, i32 noundef %7, i32 noundef %9, ptr noundef null)
+  invoke void @_ZN10btSoftBody10appendFaceEiiiPNS_8MaterialE(ptr noundef nonnull align 8 dereferenceable(2064) %call.i37, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef null)
           to label %for.inc unwind label %lpad1.loopexit
 
 for.inc:                                          ; preds = %if.end42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = load i32, ptr %mNumFaces.i, align 8
-  %14 = sext i32 %13 to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %14
+  %11 = load i32, ptr %mNumFaces.i, align 8
+  %12 = sext i32 %11 to i64
+  %cmp = icmp slt i64 %indvars.iv.next, %12
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !42
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
@@ -4792,25 +4790,25 @@ if.then49:                                        ; preds = %invoke.cont47
           to label %if.end51 unwind label %lpad1.loopexit.split-lp
 
 if.end51:                                         ; preds = %if.then49, %invoke.cont47
-  %15 = load ptr, ptr %m_data.i.i2.i34, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %15, null
+  %13 = load ptr, ptr %m_data.i.i2.i34, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i.i, label %_ZN20btAlignedObjectArrayIiED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end51
-  %16 = load i8, ptr %m_ownsMemory.i.i1.i33, align 8
-  %17 = and i8 %16, 1
-  %tobool2.not.i.i.i.i = icmp eq i8 %17, 0
+  %14 = load i8, ptr %m_ownsMemory.i.i1.i33, align 8
+  %15 = and i8 %14, 1
+  %tobool2.not.i.i.i.i = icmp eq i8 %15, 0
   br i1 %tobool2.not.i.i.i.i, label %_ZN20btAlignedObjectArrayIiED2Ev.exit.i, label %if.then3.i.i.i.i
 
 if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %15)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %13)
           to label %_ZN20btAlignedObjectArrayIiED2Ev.exit.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then3.i.i.i.i
-  %18 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #23
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #23
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit.i:          ; preds = %if.then3.i.i.i.i, %if.then.i.i.i.i, %if.end51
@@ -4818,25 +4816,25 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit.i:          ; preds = %if.then3.i.i.i.i, %
   store ptr null, ptr %m_data.i.i2.i34, align 8
   store i32 0, ptr %m_size.i.i3.i35, align 4
   store i32 0, ptr %m_capacity.i.i4.i36, align 8
-  %20 = load ptr, ptr %m_data.i.i.i30, align 8
-  %tobool.not.i.i.i2.i = icmp eq ptr %20, null
+  %18 = load ptr, ptr %m_data.i.i.i30, align 8
+  %tobool.not.i.i.i2.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i2.i, label %_ZN11HullLibraryD2Ev.exit, label %if.then.i.i.i3.i
 
 if.then.i.i.i3.i:                                 ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit.i
-  %21 = load i8, ptr %m_ownsMemory.i.i.i29, align 8
-  %22 = and i8 %21, 1
-  %tobool2.not.i.i.i5.i = icmp eq i8 %22, 0
+  %19 = load i8, ptr %m_ownsMemory.i.i.i29, align 8
+  %20 = and i8 %19, 1
+  %tobool2.not.i.i.i5.i = icmp eq i8 %20, 0
   br i1 %tobool2.not.i.i.i5.i, label %_ZN11HullLibraryD2Ev.exit, label %if.then3.i.i.i6.i
 
 if.then3.i.i.i6.i:                                ; preds = %if.then.i.i.i3.i
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %20)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %18)
           to label %_ZN11HullLibraryD2Ev.exit unwind label %terminate.lpad.i7.i
 
 terminate.lpad.i7.i:                              ; preds = %if.then3.i.i.i6.i
-  %23 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #23
+  %22 = extractvalue { ptr, i32 } %21, 0
+  call void @__clang_call_terminate(ptr %22) #23
   unreachable
 
 _ZN11HullLibraryD2Ev.exit:                        ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit.i, %if.then.i.i.i3.i, %if.then3.i.i.i6.i
@@ -4844,25 +4842,25 @@ _ZN11HullLibraryD2Ev.exit:                        ; preds = %_ZN20btAlignedObjec
   store ptr null, ptr %m_data.i.i.i30, align 8
   store i32 0, ptr %m_size.i.i.i31, align 4
   store i32 0, ptr %m_capacity.i.i.i32, align 8
-  %25 = load ptr, ptr %m_data.i.i2.i, align 8
-  %tobool.not.i.i.i.i46 = icmp eq ptr %25, null
+  %23 = load ptr, ptr %m_data.i.i2.i, align 8
+  %tobool.not.i.i.i.i46 = icmp eq ptr %23, null
   br i1 %tobool.not.i.i.i.i46, label %_ZN20btAlignedObjectArrayIjED2Ev.exit.i, label %if.then.i.i.i.i47
 
 if.then.i.i.i.i47:                                ; preds = %_ZN11HullLibraryD2Ev.exit
-  %26 = load i8, ptr %m_ownsMemory.i.i1.i, align 8
-  %27 = and i8 %26, 1
-  %tobool2.not.i.i.i.i49 = icmp eq i8 %27, 0
+  %24 = load i8, ptr %m_ownsMemory.i.i1.i, align 8
+  %25 = and i8 %24, 1
+  %tobool2.not.i.i.i.i49 = icmp eq i8 %25, 0
   br i1 %tobool2.not.i.i.i.i49, label %_ZN20btAlignedObjectArrayIjED2Ev.exit.i, label %if.then3.i.i.i.i50
 
 if.then3.i.i.i.i50:                               ; preds = %if.then.i.i.i.i47
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %25)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %23)
           to label %_ZN20btAlignedObjectArrayIjED2Ev.exit.i unwind label %terminate.lpad.i.i51
 
 terminate.lpad.i.i51:                             ; preds = %if.then3.i.i.i.i50
-  %28 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           catch ptr null
-  %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #23
+  %27 = extractvalue { ptr, i32 } %26, 0
+  call void @__clang_call_terminate(ptr %27) #23
   unreachable
 
 _ZN20btAlignedObjectArrayIjED2Ev.exit.i:          ; preds = %if.then3.i.i.i.i50, %if.then.i.i.i.i47, %_ZN11HullLibraryD2Ev.exit
@@ -4870,32 +4868,32 @@ _ZN20btAlignedObjectArrayIjED2Ev.exit.i:          ; preds = %if.then3.i.i.i.i50,
   store ptr null, ptr %m_data.i.i2.i, align 8
   store i32 0, ptr %m_size.i.i3.i, align 4
   store i32 0, ptr %m_capacity.i.i4.i, align 8
-  %30 = load ptr, ptr %m_data.i.i.i, align 8
-  %tobool.not.i.i.i2.i56 = icmp eq ptr %30, null
+  %28 = load ptr, ptr %m_data.i.i.i, align 8
+  %tobool.not.i.i.i2.i56 = icmp eq ptr %28, null
   br i1 %tobool.not.i.i.i2.i56, label %_ZN10HullResultD2Ev.exit, label %if.then.i.i.i3.i57
 
 if.then.i.i.i3.i57:                               ; preds = %_ZN20btAlignedObjectArrayIjED2Ev.exit.i
-  %31 = load i8, ptr %m_ownsMemory.i.i.i, align 8
-  %32 = and i8 %31, 1
-  %tobool2.not.i.i.i5.i59 = icmp eq i8 %32, 0
+  %29 = load i8, ptr %m_ownsMemory.i.i.i, align 8
+  %30 = and i8 %29, 1
+  %tobool2.not.i.i.i5.i59 = icmp eq i8 %30, 0
   br i1 %tobool2.not.i.i.i5.i59, label %_ZN10HullResultD2Ev.exit, label %if.then3.i.i.i6.i60
 
 if.then3.i.i.i6.i60:                              ; preds = %if.then.i.i.i3.i57
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %30)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %28)
           to label %_ZN10HullResultD2Ev.exit unwind label %terminate.lpad.i7.i61
 
 terminate.lpad.i7.i61:                            ; preds = %if.then3.i.i.i6.i60
-  %33 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #23
+  %32 = extractvalue { ptr, i32 } %31, 0
+  call void @__clang_call_terminate(ptr %32) #23
   unreachable
 
 _ZN10HullResultD2Ev.exit:                         ; preds = %_ZN20btAlignedObjectArrayIjED2Ev.exit.i, %if.then.i.i.i3.i57, %if.then3.i.i.i6.i60
   ret ptr %call.i37
 
 ehcleanup:                                        ; preds = %lpad1.loopexit, %lpad1.loopexit.split-lp, %lpad5
-  %.pn = phi { ptr, i32 } [ %10, %lpad5 ], [ %lpad.loopexit, %lpad1.loopexit ], [ %lpad.loopexit.split-lp, %lpad1.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %8, %lpad5 ], [ %lpad.loopexit, %lpad1.loopexit ], [ %lpad.loopexit.split-lp, %lpad1.loopexit.split-lp ]
   call void @_ZN11HullLibraryD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %hlib) #22
   call void @_ZN10HullResultD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %hres) #22
   resume { ptr, i32 } %.pn
@@ -4980,31 +4978,30 @@ for.body11.preheader:                             ; preds = %if.then.i.i.i60
   store i32 %maxidx.0.lcssa, ptr %m_capacity.i.i38, align 8
   store i32 %maxidx.0.lcssa, ptr %m_size.i.i37, align 4
   %mul8 = mul i32 %maxidx.0.lcssa, 3
-  %smax152 = tail call i32 @llvm.smax.i32(i32 %mul8, i32 3)
-  %2 = add nsw i32 %smax152, -1
+  %smax150 = tail call i32 @llvm.smax.i32(i32 %mul8, i32 3)
+  %2 = add nsw i32 %smax150, -1
   %3 = udiv i32 %2, 3
   %4 = add nuw nsw i32 %3, 1
-  %wide.trip.count153 = zext nneg i32 %4 to i64
-  %invariant.gep167 = getelementptr float, ptr %vertices, i64 2
+  %wide.trip.count151 = zext nneg i32 %4 to i64
   br label %for.body11
 
 for.body11:                                       ; preds = %for.body11.preheader, %for.body11
-  %indvars.iv147 = phi i64 [ 0, %for.body11.preheader ], [ %indvars.iv.next148, %for.body11 ]
+  %indvars.iv145 = phi i64 [ 0, %for.body11.preheader ], [ %indvars.iv.next146, %for.body11 ]
   %indvars.iv143 = phi i64 [ 0, %for.body11.preheader ], [ %indvars.iv.next144, %for.body11 ]
   %arrayidx14 = getelementptr inbounds float, ptr %vertices, i64 %indvars.iv143
-  %gep168 = getelementptr float, ptr %invariant.gep167, i64 %indvars.iv143
-  %5 = load float, ptr %gep168, align 4
-  %arrayidx.i = getelementptr inbounds %class.btVector3, ptr %call.i.i.i.i83, i64 %indvars.iv147
+  %arrayidx19 = getelementptr float, ptr %arrayidx14, i64 2
+  %5 = load float, ptr %arrayidx19, align 4
+  %arrayidx.i = getelementptr inbounds %class.btVector3, ptr %call.i.i.i.i83, i64 %indvars.iv145
   %6 = load <2 x float>, ptr %arrayidx14, align 4
   store <2 x float> %6, ptr %arrayidx.i, align 4
   %ref.tmp12.sroa.3.0.arrayidx.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store float %5, ptr %ref.tmp12.sroa.3.0.arrayidx.i.sroa_idx, align 4
   %ref.tmp12.sroa.4.0.arrayidx.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
   store float 0.000000e+00, ptr %ref.tmp12.sroa.4.0.arrayidx.i.sroa_idx, align 4
-  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
+  %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 3
-  %exitcond154.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count153
-  br i1 %exitcond154.not, label %for.end26, label %for.body11, !llvm.loop !45
+  %exitcond152.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count151
+  br i1 %exitcond152.not, label %for.end26, label %for.body11, !llvm.loop !45
 
 lpad3.loopexit:                                   ; preds = %if.then
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -5037,30 +5034,28 @@ for.body38.lr.ph:                                 ; preds = %for.cond36.preheade
   %arrayinit.element = getelementptr inbounds i32, ptr %idx, i64 1
   %arrayinit.element44 = getelementptr inbounds i32, ptr %idx, i64 2
   %.pre.pre = load ptr, ptr %m_data.i.i, align 8
-  %invariant.gep169 = getelementptr i32, ptr %triangles, i64 1
-  %invariant.gep171 = getelementptr i32, ptr %triangles, i64 2
   br label %for.body38
 
 for.body38:                                       ; preds = %for.body38.lr.ph, %for.inc88
-  %.pre = phi ptr [ %.pre.pre, %for.body38.lr.ph ], [ %.pre164, %for.inc88 ]
-  %indvars.iv159 = phi i64 [ 0, %for.body38.lr.ph ], [ %indvars.iv.next160, %for.inc88 ]
-  %arrayidx40 = getelementptr inbounds i32, ptr %triangles, i64 %indvars.iv159
+  %.pre = phi ptr [ %.pre.pre, %for.body38.lr.ph ], [ %.pre160, %for.inc88 ]
+  %indvars.iv157 = phi i64 [ 0, %for.body38.lr.ph ], [ %indvars.iv.next158, %for.inc88 ]
+  %arrayidx40 = getelementptr inbounds i32, ptr %triangles, i64 %indvars.iv157
   %8 = load i32, ptr %arrayidx40, align 4
   store i32 %8, ptr %idx, align 4
-  %gep170 = getelementptr i32, ptr %invariant.gep169, i64 %indvars.iv159
-  %9 = load i32, ptr %gep170, align 4
+  %arrayidx43 = getelementptr i32, ptr %arrayidx40, i64 1
+  %9 = load i32, ptr %arrayidx43, align 4
   store i32 %9, ptr %arrayinit.element, align 4
-  %gep172 = getelementptr i32, ptr %invariant.gep171, i64 %indvars.iv159
-  %10 = load i32, ptr %gep172, align 4
+  %arrayidx47 = getelementptr i32, ptr %arrayidx40, i64 2
+  %10 = load i32, ptr %arrayidx47, align 4
   store i32 %10, ptr %arrayinit.element44, align 4
   br label %for.body51
 
 for.body51:                                       ; preds = %for.body38, %for.inc81
-  %.pre165 = phi ptr [ %.pre, %for.body38 ], [ %.pre164, %for.inc81 ]
+  %.pre161 = phi ptr [ %.pre, %for.body38 ], [ %.pre160, %for.inc81 ]
   %11 = phi ptr [ %.pre, %for.body38 ], [ %20, %for.inc81 ]
-  %indvars.iv155 = phi i64 [ 0, %for.body38 ], [ %indvars.iv.next156, %for.inc81 ]
-  %j48.0138 = phi i64 [ 2, %for.body38 ], [ %indvars.iv155, %for.inc81 ]
-  %arrayidx53 = getelementptr inbounds [3 x i32], ptr %idx, i64 0, i64 %indvars.iv155
+  %indvars.iv153 = phi i64 [ 0, %for.body38 ], [ %indvars.iv.next154, %for.inc81 ]
+  %j48.0138 = phi i64 [ 2, %for.body38 ], [ %indvars.iv153, %for.inc81 ]
+  %arrayidx53 = getelementptr inbounds [3 x i32], ptr %idx, i64 0, i64 %indvars.iv153
   %12 = load i32, ptr %arrayidx53, align 4
   %mul54 = mul nsw i32 %12, %maxidx.0.lcssa
   %idxprom55 = and i64 %j48.0138, 4294967295
@@ -5099,19 +5094,19 @@ terminate.lpad.i:                                 ; preds = %lpad29
   unreachable
 
 for.inc81:                                        ; preds = %for.body51, %if.then
-  %.pre164 = phi ptr [ %.pre165, %for.body51 ], [ %16, %if.then ]
+  %.pre160 = phi ptr [ %.pre161, %for.body51 ], [ %16, %if.then ]
   %20 = phi ptr [ %11, %for.body51 ], [ %16, %if.then ]
-  %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
-  %exitcond158.not = icmp eq i64 %indvars.iv.next156, 3
-  br i1 %exitcond158.not, label %for.end83, label %for.body51, !llvm.loop !46
+  %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
+  %exitcond156.not = icmp eq i64 %indvars.iv.next154, 3
+  br i1 %exitcond156.not, label %for.end83, label %for.body51, !llvm.loop !46
 
 for.end83:                                        ; preds = %for.inc81
   invoke void @_ZN10btSoftBody10appendFaceEiiiPNS_8MaterialE(ptr noundef nonnull align 8 dereferenceable(2064) %call.i85, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef null)
           to label %for.inc88 unwind label %lpad3.loopexit.split-lp.loopexit
 
 for.inc88:                                        ; preds = %for.end83
-  %indvars.iv.next160 = add nuw i64 %indvars.iv159, 3
-  %21 = trunc i64 %indvars.iv.next160 to i32
+  %indvars.iv.next158 = add nuw i64 %indvars.iv157, 3
+  %21 = trunc i64 %indvars.iv.next158 to i32
   %cmp37 = icmp sgt i32 %mul, %21
   br i1 %cmp37, label %for.body38, label %for.end90, !llvm.loop !47
 
@@ -7573,7 +7568,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i34.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33.i.i, 2
   %.pre.i.i.i.i.i.i35.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i.i
   %add.ptr.i.i.i.i.i.i36.i.i = getelementptr inbounds i32, ptr %add.ptr.i3.i31.i.i, i64 %.pre.i.i.i.i.i.i35.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i36.i.i, ptr nonnull align 4 %cond.i.i.i.i1027, i64 %sub.ptr.sub.i.i.i.i.i.i33.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i.i, ptr noundef nonnull align 4 dereferenceable(1) %cond.i.i.i.i1027, i64 %sub.ptr.sub.i.i.i.i.i.i33.i.i, i1 false)
   br label %for.inc.i21.i.i
 
 if.else.i19.i.i:                                  ; preds = %for.body.i15.i.i

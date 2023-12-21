@@ -245,13 +245,13 @@ if.then4:                                         ; preds = %if.end
   %arrayidx16 = getelementptr inbounds i64, ptr %arrayidx8, i64 %4
   store i64 %and, ptr %arrayidx16, align 8
   %7 = load i32, ptr %top, align 8
+  %invariant.gep = getelementptr i64, ptr %2, i64 -2
   %cmp1937 = icmp sgt i32 %7, 1
   %sh_prom21 = zext nneg i32 %rem to i64
   br i1 %cmp1937, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.then4
   %8 = zext nneg i32 %7 to i64
-  %invariant.gep = getelementptr i64, ptr %2, i64 -2
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body

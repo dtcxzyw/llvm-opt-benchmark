@@ -441,24 +441,24 @@ land.lhs.true6:                                   ; preds = %cond.false
   br i1 %cmp7, label %land.lhs.true8, label %if.end34
 
 land.lhs.true8:                                   ; preds = %land.lhs.true6
-  %sub = add nsw i32 %rangesLength, -1
-  %idxprom = zext nneg i32 %sub to i64
-  %arrayidx9 = getelementptr inbounds i32, ptr %ranges, i64 %idxprom
-  %3 = load i32, ptr %arrayidx9, align 4
-  %and10 = and i32 %3, 65535
+  %3 = zext nneg i32 %rangesLength to i64
+  %4 = getelementptr i32, ptr %ranges, i64 %3
+  %arrayidx9 = getelementptr i32, ptr %4, i64 -1
+  %5 = load i32, ptr %arrayidx9, align 4
+  %and10 = and i32 %5, 65535
   %cmp11.not = icmp eq i32 %and10, 0
   br i1 %cmp11.not, label %if.end34, label %if.then12
 
 if.then12:                                        ; preds = %for.cond.i, %land.lhs.true8
   %reorderCodesCapacity = getelementptr inbounds %"struct.icu_75::CollationSettings", ptr %this, i64 0, i32 11
-  %4 = load i32, ptr %reorderCodesCapacity, align 4
-  %cmp13.not = icmp eq i32 %4, 0
+  %6 = load i32, ptr %reorderCodesCapacity, align 4
+  %cmp13.not = icmp eq i32 %6, 0
   br i1 %cmp13.not, label %if.end16, label %if.then14
 
 if.then14:                                        ; preds = %if.then12
   %reorderCodes = getelementptr inbounds %"struct.icu_75::CollationSettings", ptr %this, i64 0, i32 9
-  %5 = load ptr, ptr %reorderCodes, align 8
-  tail call void @uprv_free_75(ptr noundef %5)
+  %7 = load ptr, ptr %reorderCodes, align 8
+  tail call void @uprv_free_75(ptr noundef %7)
   store i32 0, ptr %reorderCodesCapacity, align 4
   br label %if.end16
 
@@ -479,8 +479,8 @@ land.rhs.preheader:                               ; preds = %if.end16
 land.rhs:                                         ; preds = %land.rhs.preheader, %while.body
   %indvars.iv = phi i64 [ 0, %land.rhs.preheader ], [ %indvars.iv.next, %while.body ]
   %arrayidx20 = getelementptr inbounds i32, ptr %ranges, i64 %indvars.iv
-  %6 = load i32, ptr %arrayidx20, align 4
-  %and21 = and i32 %6, 16711680
+  %8 = load i32, ptr %arrayidx20, align 4
+  %and21 = and i32 %8, 16711680
   %cmp22 = icmp eq i32 %and21, 0
   br i1 %cmp22, label %while.body, label %while.end.loopexit
 
@@ -490,11 +490,11 @@ while.body:                                       ; preds = %land.rhs
   br i1 %exitcond.not, label %if.then24, label %land.rhs, !llvm.loop !8
 
 while.end.loopexit:                               ; preds = %land.rhs
-  %7 = trunc i64 %indvars.iv to i32
+  %9 = trunc i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %if.end16
-  %firstSplitByteRangeIndex.0.lcssa = phi i32 [ 0, %if.end16 ], [ %7, %while.end.loopexit ]
+  %firstSplitByteRangeIndex.0.lcssa = phi i32 [ 0, %if.end16 ], [ %9, %while.end.loopexit ]
   %cmp23 = icmp eq i32 %firstSplitByteRangeIndex.0.lcssa, %rangesLength
   br i1 %cmp23, label %if.then24, label %if.else
 
@@ -508,11 +508,11 @@ if.then24:                                        ; preds = %while.body, %while.
   br label %return
 
 if.else:                                          ; preds = %while.end
-  %8 = sext i32 %rangesLength to i64
-  %9 = getelementptr i32, ptr %ranges, i64 %8
-  %arrayidx27 = getelementptr i32, ptr %9, i64 -1
-  %10 = load i32, ptr %arrayidx27, align 4
-  %and28 = and i32 %10, -65536
+  %10 = sext i32 %rangesLength to i64
+  %11 = getelementptr i32, ptr %ranges, i64 %10
+  %arrayidx27 = getelementptr i32, ptr %11, i64 -1
+  %12 = load i32, ptr %arrayidx27, align 4
+  %and28 = and i32 %12, -65536
   %minHighNoReorder29 = getelementptr inbounds %"struct.icu_75::CollationSettings", ptr %this, i64 0, i32 4
   store i32 %and28, ptr %minHighNoReorder29, align 8
   %idx.ext = zext nneg i32 %firstSplitByteRangeIndex.0.lcssa to i64

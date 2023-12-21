@@ -1976,9 +1976,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.end22.i.i.i.i.i.
   %conv8.i.i.i.i.i.i.i = zext i8 %this.val15.i.i.i.i.i.i.i to i32
   %sub.i.i.i.i.i.i.i16 = sub nsw i32 %conv8.i.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i
   %conv10.i.i.i.i.i.i.i = sext i32 %sub.i.i.i.i.i.i.i16 to i64
-  %add.i.i.i.i.i.i.i = add nuw nsw i32 %conv.i.i.i.i.i.i.i, 1
-  %conv12.i.i.i.i.i.i.i = zext nneg i32 %add.i.i.i.i.i.i.i to i64
-  %50 = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, i64 %conv12.i.i.i.i.i.i.i
+  %50 = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %49, i64 1
   %arrayidx.i8.i.i.i.i.i.i.i.i = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %50, i64 %conv10.i.i.i.i.i.i.i
   %arrayidx.i.i.i.i.i.i.i.i.i = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %49, i64 %conv10.i.i.i.i.i.i.i
   br label %for.body.i.i.i.i.i.i.i.i
@@ -3764,9 +3762,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.end22.i.i.i.i
   %conv8.i.i.i.i.i = zext i8 %this.val15.i.i.i.i.i to i32
   %sub.i.i.i.i.i = sub nsw i32 %conv8.i.i.i.i.i, %conv.i.i.i.i.i
   %conv10.i.i.i.i.i = sext i32 %sub.i.i.i.i.i to i64
-  %add.i.i.i.i.i = add nuw nsw i32 %conv.i.i.i.i.i, 1
-  %conv12.i.i.i.i.i = zext nneg i32 %add.i.i.i.i.i to i64
-  %13 = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i.i.i.i.i.i, i64 %conv12.i.i.i.i.i
+  %13 = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %12, i64 1
   %arrayidx.i8.i.i.i.i.i.i = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %13, i64 %conv10.i.i.i.i.i
   %arrayidx.i.i.i.i.i.i.i = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %12, i64 %conv10.i.i.i.i.i
   br label %for.body.i.i.i.i.i.i
@@ -4778,9 +4774,7 @@ if.then.i:                                        ; preds = %_ZN4absl12lts_20230
   %conv4.i = zext i8 %this.val15.i to i32
   %sub.i = sub nsw i32 %conv4.i, %conv.i39
   %conv6.i = sext i32 %sub.i to i64
-  %add.i = add nuw nsw i32 %conv.i39, 1
-  %conv8.i = zext nneg i32 %add.i to i64
-  %9 = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i.i, i64 %conv8.i
+  %9 = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %8, i64 1
   %arrayidx.i8.i.i = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %9, i64 %conv6.i
   %arrayidx.i.i.i = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %8, i64 %conv6.i
   br label %for.body.i.i

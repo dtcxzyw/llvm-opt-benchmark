@@ -9440,11 +9440,12 @@ do.end:                                           ; preds = %entry
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %2 = load ptr, ptr %priv, align 8
   %3 = load ptr, ptr %2, align 8
-  %idxprom = zext nneg i32 %0 to i64
-  %arrayidx = getelementptr %struct._GValue, ptr %3, i64 %idxprom
+  %4 = zext nneg i32 %prop_id to i64
+  %5 = getelementptr %struct._GValue, ptr %3, i64 %4
+  %arrayidx = getelementptr %struct._GValue, ptr %5, i64 -1
   tail call void @g_value_copy(ptr noundef %arrayidx, ptr noundef %value) #12
-  %4 = load ptr, ptr %priv, align 8
-  %lock6 = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %4, i64 0, i32 4
+  %6 = load ptr, ptr %priv, align 8
+  %lock6 = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %6, i64 0, i32 4
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock6) #12
   ret void
 }
@@ -11125,11 +11126,12 @@ do.end:                                           ; preds = %entry
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %2 = load ptr, ptr %priv, align 8
   %3 = load ptr, ptr %2, align 8
-  %idxprom = zext nneg i32 %0 to i64
-  %arrayidx = getelementptr %struct._GValue, ptr %3, i64 %idxprom
+  %4 = zext nneg i32 %prop_id to i64
+  %5 = getelementptr %struct._GValue, ptr %3, i64 %4
+  %arrayidx = getelementptr %struct._GValue, ptr %5, i64 -1
   tail call void @g_value_copy(ptr noundef %arrayidx, ptr noundef %value) #12
-  %4 = load ptr, ptr %priv, align 8
-  %lock6 = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %4, i64 0, i32 4
+  %6 = load ptr, ptr %priv, align 8
+  %lock6 = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %6, i64 0, i32 4
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock6) #12
   ret void
 }
@@ -22319,11 +22321,12 @@ do.end:                                           ; preds = %entry
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %2 = load ptr, ptr %priv, align 8
   %3 = load ptr, ptr %2, align 8
-  %idxprom = zext nneg i32 %0 to i64
-  %arrayidx = getelementptr %struct._GValue, ptr %3, i64 %idxprom
+  %4 = zext nneg i32 %prop_id to i64
+  %5 = getelementptr %struct._GValue, ptr %3, i64 %4
+  %arrayidx = getelementptr %struct._GValue, ptr %5, i64 -1
   tail call void @g_value_copy(ptr noundef %arrayidx, ptr noundef %value) #12
-  %4 = load ptr, ptr %priv, align 8
-  %lock6 = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %4, i64 0, i32 4
+  %6 = load ptr, ptr %priv, align 8
+  %lock6 = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %6, i64 0, i32 4
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock6) #12
   ret void
 }

@@ -657,15 +657,10 @@ if.then17:                                        ; preds = %sw.bb
   store ptr %call25, ptr %m_indices32, align 8
   %12 = load i32, ptr %numtriangles, align 4
   %cmp28120 = icmp sgt i32 %12, 0
-  br i1 %cmp28120, label %for.body29.preheader, label %for.end
+  br i1 %cmp28120, label %for.body29, label %for.end
 
-for.body29.preheader:                             ; preds = %if.then17
-  %invariant.gep = getelementptr %struct.btIntIndexData, ptr %10, i64 1
-  %invariant.gep147 = getelementptr %struct.btIntIndexData, ptr %10, i64 2
-  br label %for.body29
-
-for.body29:                                       ; preds = %for.body29.preheader, %for.body29
-  %indvars.iv133 = phi i64 [ 0, %for.body29.preheader ], [ %indvars.iv.next134, %for.body29 ]
+for.body29:                                       ; preds = %if.then17, %for.body29
+  %indvars.iv133 = phi i64 [ %indvars.iv.next134, %for.body29 ], [ 0, %if.then17 ]
   %13 = load ptr, ptr %indexbase, align 8
   %14 = load i32, ptr %indexstride, align 4
   %15 = trunc i64 %indvars.iv133 to i32
@@ -678,12 +673,12 @@ for.body29:                                       ; preds = %for.body29.preheade
   store i32 %16, ptr %arrayidx32, align 4
   %arrayidx33 = getelementptr inbounds i32, ptr %add.ptr, i64 1
   %18 = load i32, ptr %arrayidx33, align 4
-  %gep = getelementptr %struct.btIntIndexData, ptr %invariant.gep, i64 %17
-  store i32 %18, ptr %gep, align 4
+  %arrayidx36 = getelementptr %struct.btIntIndexData, ptr %arrayidx32, i64 1
+  store i32 %18, ptr %arrayidx36, align 4
   %arrayidx38 = getelementptr inbounds i32, ptr %add.ptr, i64 2
   %19 = load i32, ptr %arrayidx38, align 4
-  %gep148 = getelementptr %struct.btIntIndexData, ptr %invariant.gep147, i64 %17
-  store i32 %19, ptr %gep148, align 4
+  %arrayidx42 = getelementptr %struct.btIntIndexData, ptr %arrayidx32, i64 2
+  store i32 %19, ptr %arrayidx42, align 4
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %20 = load i32, ptr %numtriangles, align 4
   %21 = sext i32 %20 to i64
@@ -839,15 +834,15 @@ if.then142:                                       ; preds = %sw.bb140
   br i1 %cmp153124, label %for.body154, label %for.end174
 
 for.body154:                                      ; preds = %if.then142, %for.body154
-  %indvars.iv143 = phi i64 [ %indvars.iv.next144, %for.body154 ], [ 0, %if.then142 ]
+  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %for.body154 ], [ 0, %if.then142 ]
   %58 = load ptr, ptr %vertexbase, align 8
   %59 = load i32, ptr %stride, align 4
-  %60 = trunc i64 %indvars.iv143 to i32
+  %60 = trunc i64 %indvars.iv141 to i32
   %mul155 = mul nsw i32 %59, %60
   %idx.ext156 = sext i32 %mul155 to i64
   %add.ptr157 = getelementptr inbounds i8, ptr %58, i64 %idx.ext156
   %61 = load float, ptr %add.ptr157, align 4
-  %arrayidx160 = getelementptr inbounds %struct.btVector3FloatData, ptr %55, i64 %indvars.iv143
+  %arrayidx160 = getelementptr inbounds %struct.btVector3FloatData, ptr %55, i64 %indvars.iv141
   store float %61, ptr %arrayidx160, align 4
   %arrayidx162 = getelementptr inbounds float, ptr %add.ptr157, i64 1
   %62 = load float, ptr %arrayidx162, align 4
@@ -857,10 +852,10 @@ for.body154:                                      ; preds = %if.then142, %for.bo
   %63 = load float, ptr %arrayidx167, align 4
   %arrayidx171 = getelementptr inbounds [4 x float], ptr %arrayidx160, i64 0, i64 2
   store float %63, ptr %arrayidx171, align 4
-  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
+  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %64 = load i32, ptr %numverts, align 4
   %65 = sext i32 %64 to i64
-  %cmp153 = icmp slt i64 %indvars.iv.next144, %65
+  %cmp153 = icmp slt i64 %indvars.iv.next142, %65
   br i1 %cmp153, label %for.body154, label %for.end174, !llvm.loop !16
 
 for.end174:                                       ; preds = %for.body154, %if.then142
@@ -899,12 +894,12 @@ for.body195.lr.ph:                                ; preds = %if.then181
   br label %for.body195
 
 for.body195:                                      ; preds = %for.body195.lr.ph, %for.body195
-  %indvars.iv139 = phi i64 [ 0, %for.body195.lr.ph ], [ %indvars.iv.next140, %for.body195 ]
+  %indvars.iv137 = phi i64 [ 0, %for.body195.lr.ph ], [ %indvars.iv.next138, %for.body195 ]
   %75 = load ptr, ptr %vertexbase, align 8
-  %76 = mul nsw i64 %indvars.iv139, %74
+  %76 = mul nsw i64 %indvars.iv137, %74
   %add.ptr199 = getelementptr inbounds i8, ptr %75, i64 %76
   %77 = load double, ptr %add.ptr199, align 8
-  %arrayidx202 = getelementptr inbounds %struct.btVector3DoubleData, ptr %70, i64 %indvars.iv139
+  %arrayidx202 = getelementptr inbounds %struct.btVector3DoubleData, ptr %70, i64 %indvars.iv137
   store double %77, ptr %arrayidx202, align 8
   %arrayidx205 = getelementptr inbounds double, ptr %add.ptr199, i64 1
   %78 = load double, ptr %arrayidx205, align 8
@@ -914,8 +909,8 @@ for.body195:                                      ; preds = %for.body195.lr.ph, 
   %79 = load double, ptr %arrayidx210, align 8
   %arrayidx214 = getelementptr inbounds [4 x double], ptr %arrayidx202, i64 0, i64 2
   store double %79, ptr %arrayidx214, align 8
-  %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next140, %wide.trip.count
+  %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count
   br i1 %exitcond.not, label %for.end217, label %for.body195, !llvm.loop !17
 
 for.end217:                                       ; preds = %for.body195, %if.then181
@@ -933,8 +928,8 @@ sw.epilog223:                                     ; preds = %sw.epilog, %sw.bb17
   call void %82(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %part.0127)
   %inc227 = add nuw nsw i32 %part.0127, 1
   %incdec.ptr = getelementptr inbounds %struct.btMeshPartData, ptr %memPtr.0128, i64 1
-  %exitcond146.not = icmp eq i32 %inc227, %call13
-  br i1 %exitcond146.not, label %for.end228, label %for.body, !llvm.loop !18
+  %exitcond144.not = icmp eq i32 %inc227, %call13
+  br i1 %exitcond144.not, label %for.end228, label %for.body, !llvm.loop !18
 
 for.end228:                                       ; preds = %sw.epilog223, %if.then
   %83 = load ptr, ptr %m_oldPtr, align 8

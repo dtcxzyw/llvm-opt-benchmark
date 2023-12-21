@@ -2934,6 +2934,7 @@ while.cond:                                       ; preds = %while.cond, %if.end
   br i1 %or.cond137, label %while.end, label %while.cond, !llvm.loop !37
 
 while.end:                                        ; preds = %while.cond
+  %arrayidx165.le = getelementptr i8, ptr %10, i64 %idxprom160
   %cmp182 = icmp eq i8 %16, %17
   br i1 %cmp182, label %if.then184, label %if.end186
 
@@ -2958,9 +2959,7 @@ if.else197:                                       ; preds = %if.end186
   br i1 %or.cond1, label %land.lhs.true207, label %if.end217
 
 land.lhs.true207:                                 ; preds = %if.else197
-  %sub = add nsw i32 %pos.1, -1
-  %idxprom209 = zext nneg i32 %sub to i64
-  %arrayidx210 = getelementptr i8, ptr %10, i64 %idxprom209
+  %arrayidx210 = getelementptr i8, ptr %arrayidx165.le, i64 -1
   %18 = load i8, ptr %arrayidx210, align 1
   %cmp212 = icmp eq i8 %18, 47
   %sub215 = add nsw i32 %pos.1, -2

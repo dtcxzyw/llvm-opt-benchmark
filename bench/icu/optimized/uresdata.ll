@@ -3105,38 +3105,38 @@ if.then2:                                         ; preds = %sw.bb
   br i1 %cmp3, label %if.then4, label %return
 
 if.then4:                                         ; preds = %if.then2
-  %add = add nuw nsw i32 %indexR, 1
-  %idxprom = zext nneg i32 %add to i64
-  %arrayidx = getelementptr inbounds i32, ptr %add.ptr, i64 %idxprom
-  %2 = load i32, ptr %arrayidx, align 4
+  %2 = zext nneg i32 %indexR to i64
+  %3 = getelementptr i32, ptr %add.ptr, i64 %2
+  %arrayidx = getelementptr i32, ptr %3, i64 1
+  %4 = load i32, ptr %arrayidx, align 4
   br label %return
 
 sw.bb7:                                           ; preds = %if.end
   %p16BitUnits = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 2
-  %3 = load ptr, ptr %p16BitUnits, align 8
+  %5 = load ptr, ptr %p16BitUnits, align 8
   %idx.ext9 = zext nneg i32 %and to i64
-  %add.ptr10 = getelementptr inbounds i16, ptr %3, i64 %idx.ext9
-  %4 = load i16, ptr %add.ptr10, align 2
-  %conv = zext i16 %4 to i32
+  %add.ptr10 = getelementptr inbounds i16, ptr %5, i64 %idx.ext9
+  %6 = load i16, ptr %add.ptr10, align 2
+  %conv = zext i16 %6 to i32
   %cmp11 = icmp ugt i32 %conv, %indexR
   br i1 %cmp11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %sw.bb7
-  %add13 = add nuw nsw i32 %indexR, 1
-  %idxprom14 = zext nneg i32 %add13 to i64
-  %arrayidx15 = getelementptr inbounds i16, ptr %add.ptr10, i64 %idxprom14
-  %5 = load i16, ptr %arrayidx15, align 2
-  %conv16 = zext i16 %5 to i32
+  %7 = zext nneg i32 %indexR to i64
+  %8 = getelementptr i16, ptr %add.ptr10, i64 %7
+  %arrayidx15 = getelementptr i16, ptr %8, i64 1
+  %9 = load i16, ptr %arrayidx15, align 2
+  %conv16 = zext i16 %9 to i32
   %poolStringIndex16Limit.i = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 8
-  %6 = load i32, ptr %poolStringIndex16Limit.i, align 4
-  %cmp.i = icmp sgt i32 %6, %conv16
+  %10 = load i32, ptr %poolStringIndex16Limit.i, align 4
+  %cmp.i = icmp sgt i32 %10, %conv16
   br i1 %cmp.i, label %_ZL18makeResourceFrom16PK12ResourceDatai.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then12
-  %sub.i = sub i32 %conv16, %6
+  %sub.i = sub i32 %conv16, %10
   %poolStringIndexLimit.i = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 7
-  %7 = load i32, ptr %poolStringIndexLimit.i, align 8
-  %add.i = add nsw i32 %sub.i, %7
+  %11 = load i32, ptr %poolStringIndexLimit.i, align 8
+  %add.i = add nsw i32 %sub.i, %11
   br label %_ZL18makeResourceFrom16PK12ResourceDatai.exit
 
 _ZL18makeResourceFrom16PK12ResourceDatai.exit:    ; preds = %if.then12, %if.else.i
@@ -3145,7 +3145,7 @@ _ZL18makeResourceFrom16PK12ResourceDatai.exit:    ; preds = %if.then12, %if.else
   br label %return
 
 return:                                           ; preds = %if.then2, %sw.bb, %sw.bb7, %if.end, %entry, %_ZL18makeResourceFrom16PK12ResourceDatai.exit, %if.then4
-  %retval.0 = phi i32 [ %or.i, %_ZL18makeResourceFrom16PK12ResourceDatai.exit ], [ %2, %if.then4 ], [ -1, %entry ], [ -1, %if.end ], [ -1, %sw.bb7 ], [ -1, %sw.bb ], [ -1, %if.then2 ]
+  %retval.0 = phi i32 [ %or.i, %_ZL18makeResourceFrom16PK12ResourceDatai.exit ], [ %4, %if.then4 ], [ -1, %entry ], [ -1, %if.end ], [ -1, %sw.bb7 ], [ -1, %sw.bb ], [ -1, %if.then2 ]
   ret i32 %retval.0
 }
 
@@ -3240,7 +3240,7 @@ while.cond.preheader:                             ; preds = %switch.early.test, 
 land.lhs.true:                                    ; preds = %while.cond.preheader, %if.end54
   %type.050 = phi i32 [ %shr, %while.cond.preheader ], [ %shr55, %if.end54 ]
   %t1.049 = phi i32 [ %r, %while.cond.preheader ], [ %t2.1, %if.end54 ]
-  %pathP.048 = phi ptr [ %0, %while.cond.preheader ], [ %16, %if.end54 ]
+  %pathP.048 = phi ptr [ %0, %while.cond.preheader ], [ %20, %if.end54 ]
   %2 = load i8, ptr %pathP.048, align 1
   %tobool11 = icmp ne i8 %2, 0
   %cmp13 = icmp ne i32 %t1.049, -1
@@ -3327,35 +3327,35 @@ if.then2.i:                                       ; preds = %sw.bb.i
   br i1 %cmp3.i, label %if.then4.i, label %if.end51
 
 if.then4.i:                                       ; preds = %if.then2.i
-  %add.i = add i64 %call43, 1
-  %idxprom.i = and i64 %add.i, 4294967295
-  %arrayidx.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 %idxprom.i
-  %10 = load i32, ptr %arrayidx.i, align 4
+  %10 = and i64 %call43, 4294967295
+  %11 = getelementptr i32, ptr %add.ptr.i, i64 %10
+  %arrayidx.i = getelementptr i32, ptr %11, i64 1
+  %12 = load i32, ptr %arrayidx.i, align 4
   br label %if.end51
 
 sw.bb7.i:                                         ; preds = %if.end.i
-  %11 = load ptr, ptr %p16BitUnits.i, align 8
+  %13 = load ptr, ptr %p16BitUnits.i, align 8
   %idx.ext9.i = zext nneg i32 %and.i to i64
-  %add.ptr10.i = getelementptr inbounds i16, ptr %11, i64 %idx.ext9.i
-  %12 = load i16, ptr %add.ptr10.i, align 2
-  %conv.i = zext i16 %12 to i32
+  %add.ptr10.i = getelementptr inbounds i16, ptr %13, i64 %idx.ext9.i
+  %14 = load i16, ptr %add.ptr10.i, align 2
+  %conv.i = zext i16 %14 to i32
   %cmp11.i = icmp ugt i32 %conv.i, %conv
   br i1 %cmp11.i, label %if.then12.i, label %if.end51
 
 if.then12.i:                                      ; preds = %sw.bb7.i
-  %add13.i = add i64 %call43, 1
-  %idxprom14.i = and i64 %add13.i, 4294967295
-  %arrayidx15.i = getelementptr inbounds i16, ptr %add.ptr10.i, i64 %idxprom14.i
-  %13 = load i16, ptr %arrayidx15.i, align 2
-  %conv16.i = zext i16 %13 to i32
-  %14 = load i32, ptr %poolStringIndex16Limit.i.i, align 4
-  %cmp.i.i = icmp sgt i32 %14, %conv16.i
+  %15 = and i64 %call43, 4294967295
+  %16 = getelementptr i16, ptr %add.ptr10.i, i64 %15
+  %arrayidx15.i = getelementptr i16, ptr %16, i64 1
+  %17 = load i16, ptr %arrayidx15.i, align 2
+  %conv16.i = zext i16 %17 to i32
+  %18 = load i32, ptr %poolStringIndex16Limit.i.i, align 4
+  %cmp.i.i = icmp sgt i32 %18, %conv16.i
   br i1 %cmp.i.i, label %_ZL18makeResourceFrom16PK12ResourceDatai.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then12.i
-  %sub.i.i = sub i32 %conv16.i, %14
-  %15 = load i32, ptr %poolStringIndexLimit.i.i, align 8
-  %add.i.i = add nsw i32 %sub.i.i, %15
+  %sub.i.i = sub i32 %conv16.i, %18
+  %19 = load i32, ptr %poolStringIndexLimit.i.i, align 8
+  %add.i.i = add nsw i32 %sub.i.i, %19
   br label %_ZL18makeResourceFrom16PK12ResourceDatai.exit.i
 
 _ZL18makeResourceFrom16PK12ResourceDatai.exit.i:  ; preds = %if.else.i.i, %if.then12.i
@@ -3364,14 +3364,14 @@ _ZL18makeResourceFrom16PK12ResourceDatai.exit.i:  ; preds = %if.else.i.i, %if.th
   br label %if.end51
 
 if.end51:                                         ; preds = %_ZL18makeResourceFrom16PK12ResourceDatai.exit.i, %sw.bb7.i, %if.then4.i, %if.then2.i, %sw.bb.i, %if.end.i, %if.then42, %land.lhs.true45
-  %t2.0 = phi i32 [ -1, %land.lhs.true45 ], [ -1, %if.then42 ], [ %or.i.i, %_ZL18makeResourceFrom16PK12ResourceDatai.exit.i ], [ %10, %if.then4.i ], [ -1, %if.end.i ], [ -1, %sw.bb7.i ], [ -1, %sw.bb.i ], [ -1, %if.then2.i ]
+  %t2.0 = phi i32 [ -1, %land.lhs.true45 ], [ -1, %if.then42 ], [ %or.i.i, %_ZL18makeResourceFrom16PK12ResourceDatai.exit.i ], [ %12, %if.then4.i ], [ -1, %if.end.i ], [ -1, %sw.bb7.i ], [ -1, %sw.bb.i ], [ -1, %if.then2.i ]
   store ptr null, ptr %key, align 8
   br label %if.end54
 
 if.end54:                                         ; preds = %if.else38, %if.end51, %if.then36
   %t2.1 = phi i32 [ %call37, %if.then36 ], [ %t2.0, %if.end51 ], [ -1, %if.else38 ]
   %shr55 = lshr i32 %t2.1, 28
-  %16 = load ptr, ptr %path, align 8
+  %20 = load ptr, ptr %path, align 8
   br i1 %cmp24.not, label %return, label %land.lhs.true, !llvm.loop !9
 
 return:                                           ; preds = %if.end54, %land.lhs.true, %if.then25, %switch.early.test51, %switch.early.test, %entry

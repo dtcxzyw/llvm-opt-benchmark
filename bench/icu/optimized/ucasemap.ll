@@ -1285,7 +1285,7 @@ for.cond6.backedge:                               ; preds = %land.lhs.true174, %
   br i1 %or.cond162, label %if.end11.backedge, label %for.end290
 
 if.end11.backedge:                                ; preds = %for.cond6.backedge, %if.end289
-  %.be = phi i32 [ %7, %for.cond6.backedge ], [ %34, %if.end289 ]
+  %.be = phi i32 [ %7, %for.cond6.backedge ], [ %36, %if.end289 ]
   %prev.1231.be = phi i32 [ %prev.1.be, %for.cond6.backedge ], [ %prev.2, %if.end289 ]
   %srcIndex.1230.be = phi i32 [ %srcIndex.1.be, %for.cond6.backedge ], [ %srcIndex.6204, %if.end289 ]
   br label %if.end11, !llvm.loop !7
@@ -1524,18 +1524,18 @@ cond.true224:                                     ; preds = %cond.false222
 
 cond.false225:                                    ; preds = %cond.false222
   %shr228 = lshr i32 %c.1, 5
-  %add229 = add nuw nsw i32 %shr228, 2080
-  %idxprom230 = zext nneg i32 %add229 to i64
-  %arrayidx231 = getelementptr inbounds i16, ptr %22, i64 %idxprom230
-  %28 = load i16, ptr %arrayidx231, align 2
-  %conv232 = zext i16 %28 to i32
+  %28 = zext nneg i32 %shr228 to i64
+  %29 = getelementptr i16, ptr %22, i64 %28
+  %arrayidx231 = getelementptr i16, ptr %29, i64 2080
+  %30 = load i16, ptr %arrayidx231, align 2
+  %conv232 = zext i16 %30 to i32
   %shr233 = lshr i32 %or185, 5
   %and234 = and i32 %shr233, 63
   %add235 = add nuw nsw i32 %and234, %conv232
   %idxprom236 = zext nneg i32 %add235 to i64
   %arrayidx237 = getelementptr inbounds i16, ptr %22, i64 %idxprom236
-  %29 = load i16, ptr %arrayidx237, align 2
-  %conv238 = zext i16 %29 to i32
+  %31 = load i16, ptr %arrayidx237, align 2
+  %conv238 = zext i16 %31 to i32
   %shl239 = shl nuw nsw i32 %conv238, 2
   %and240 = and i32 %conv180, 31
   %add241 = add nuw nsw i32 %shl239, %and240
@@ -1545,8 +1545,8 @@ cond.end247:                                      ; preds = %cond.true207, %cond
   %cond248 = phi i32 [ %add204, %cond.true195 ], [ %add217, %cond.true207 ], [ %add221, %cond.true220 ], [ %27, %cond.true224 ], [ %add241, %cond.false225 ]
   %idxprom249 = sext i32 %cond248 to i64
   %arrayidx250 = getelementptr inbounds i16, ptr %22, i64 %idxprom249
-  %30 = load i16, ptr %arrayidx250, align 2
-  %conv251 = zext i16 %30 to i32
+  %32 = load i16, ptr %arrayidx250, align 2
+  %conv251 = zext i16 %32 to i32
   %and252 = and i32 %conv251, 8
   %tobool253.not = icmp eq i32 %and252, 0
   br i1 %tobool253.not, label %if.end255, label %if.end273
@@ -1554,13 +1554,13 @@ cond.end247:                                      ; preds = %cond.true207, %cond
 if.end255:                                        ; preds = %cond.end247
   %and257 = and i32 %conv251, 2
   %tobool258.not = icmp eq i32 %and257, 0
-  %cmp262 = icmp ult i16 %30, 128
+  %cmp262 = icmp ult i16 %32, 128
   %or.cond164 = or i1 %cmp262, %tobool258.not
   br i1 %or.cond164, label %for.cond6.backedge, label %if.end264
 
 if.end264:                                        ; preds = %if.end255
-  %31 = ashr i16 %30, 7
-  %shr261 = sext i16 %31 to i32
+  %33 = ashr i16 %32, 7
+  %shr261 = sext i16 %33 to i32
   %sub267 = sub nsw i32 %srcIndex.1230, %prev.1231
   %cmp.i175 = icmp sgt i32 %sub267, 0
   br i1 %cmp.i175, label %if.then1.i176, label %_ZN6icu_7512ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit177
@@ -1603,8 +1603,8 @@ if.end280:                                        ; preds = %if.else278, %if.the
 
 if.then282:                                       ; preds = %if.end280
   %sub285 = sub nsw i32 %srcIndex.1230, %prev.1231
-  %32 = load i32, ptr %errorCode, align 4
-  %cmp.i.i178 = icmp slt i32 %32, 1
+  %34 = load i32, ptr %errorCode, align 4
+  %cmp.i.i178 = icmp slt i32 %34, 1
   %cmp.i181 = icmp sgt i32 %sub285, 0
   %or.cond214 = select i1 %cmp.i.i178, i1 %cmp.i181, i1 false
   br i1 %or.cond214, label %if.then1.i182, label %if.else.i
@@ -1621,8 +1621,8 @@ if.else.i:                                        ; preds = %if.then1.i182, %if.
   br i1 %cmp6.i, label %if.then7.i, label %if.else8.i
 
 if.then7.i:                                       ; preds = %if.else.i
-  %33 = load ptr, ptr %s, align 8
-  %call.i = call noundef signext i8 @_ZN6icu_7512ByteSinkUtil12appendChangeEiPKDsiRNS_8ByteSinkEPNS_5EditsER10UErrorCode(i32 noundef %sub287, ptr noundef %33, i32 noundef %c.4, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %35 = load ptr, ptr %s, align 8
+  %call.i = call noundef signext i8 @_ZN6icu_7512ByteSinkUtil12appendChangeEiPKDsiRNS_8ByteSinkEPNS_5EditsER10UErrorCode(i32 noundef %sub287, ptr noundef %35, i32 noundef %c.4, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %if.end289
 
 if.else8.i:                                       ; preds = %if.else.i
@@ -1631,18 +1631,18 @@ if.else8.i:                                       ; preds = %if.else.i
 
 if.end289:                                        ; preds = %if.else8.i, %if.then7.i, %if.end280
   %prev.2 = phi i32 [ %prev.1231, %if.end280 ], [ %srcIndex.6204, %if.then7.i ], [ %srcIndex.6204, %if.else8.i ]
-  %34 = load i32, ptr %errorCode, align 4
-  %cmp.i226 = icmp slt i32 %34, 1
+  %36 = load i32, ptr %errorCode, align 4
+  %cmp.i226 = icmp slt i32 %36, 1
   %cmp9.not227 = icmp slt i32 %srcIndex.6204, %srcLimit
   %or.cond162228 = select i1 %cmp.i226, i1 %cmp9.not227, i1 false
   br i1 %or.cond162228, label %if.end11.backedge, label %for.end290
 
 for.end290:                                       ; preds = %for.end, %if.end289, %for.cond6.backedge, %for.cond6.backedge.thread, %if.end
   %prev.1222 = phi i32 [ %srcStart, %if.end ], [ %prev.1231, %for.cond6.backedge.thread ], [ %prev.2, %if.end289 ], [ %prev.1231, %for.end ], [ %prev.1.be, %for.cond6.backedge ]
-  %35 = phi i32 [ %1, %if.end ], [ %6, %for.cond6.backedge.thread ], [ %34, %if.end289 ], [ %2, %for.end ], [ %7, %for.cond6.backedge ]
+  %37 = phi i32 [ %1, %if.end ], [ %6, %for.cond6.backedge.thread ], [ %36, %if.end289 ], [ %2, %for.end ], [ %7, %for.cond6.backedge ]
   %srcIndex.6210 = phi i32 [ %srcStart, %if.end ], [ %srcLimit, %for.cond6.backedge.thread ], [ %srcIndex.6204, %if.end289 ], [ %inc53, %for.end ], [ %srcIndex.1.be, %for.cond6.backedge ]
   %sub293 = sub nsw i32 %srcIndex.6210, %prev.1222
-  %cmp.i.i187 = icmp slt i32 %35, 1
+  %cmp.i.i187 = icmp slt i32 %37, 1
   %cmp.i190 = icmp sgt i32 %sub293, 0
   %or.cond215 = select i1 %cmp.i.i187, i1 %cmp.i190, i1 false
   br i1 %or.cond215, label %if.then1.i191, label %_ZN6icu_7512ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit192
@@ -2715,7 +2715,7 @@ for.cond1.backedge.i:                             ; preds = %_ZN6icu_7512ByteSin
   br i1 %or.cond153.i, label %if.end5.i.backedge, label %for.end276.i
 
 if.end5.i.backedge:                               ; preds = %for.cond1.backedge.i, %if.end275.i
-  %.be = phi i32 [ %7, %for.cond1.backedge.i ], [ %34, %if.end275.i ]
+  %.be = phi i32 [ %7, %for.cond1.backedge.i ], [ %36, %if.end275.i ]
   %prev.1222.i.be = phi i32 [ %prev.1.be.i, %for.cond1.backedge.i ], [ %prev.2.i, %if.end275.i ]
   %srcIndex.1221.i.be = phi i32 [ %srcIndex.1.be.i, %for.cond1.backedge.i ], [ %srcIndex.6195.i, %if.end275.i ]
   br label %if.end5.i, !llvm.loop !13
@@ -2954,18 +2954,18 @@ cond.true215.i:                                   ; preds = %cond.false213.i
 
 cond.false216.i:                                  ; preds = %cond.false213.i
   %shr219.i = lshr i32 %c.1.i, 5
-  %add220.i = add nuw nsw i32 %shr219.i, 2080
-  %idxprom221.i = zext nneg i32 %add220.i to i64
-  %arrayidx222.i = getelementptr inbounds i16, ptr %22, i64 %idxprom221.i
-  %28 = load i16, ptr %arrayidx222.i, align 2
-  %conv223.i = zext i16 %28 to i32
+  %28 = zext nneg i32 %shr219.i to i64
+  %29 = getelementptr i16, ptr %22, i64 %28
+  %arrayidx222.i = getelementptr i16, ptr %29, i64 2080
+  %30 = load i16, ptr %arrayidx222.i, align 2
+  %conv223.i = zext i16 %30 to i32
   %shr224.i = lshr i32 %or176.i, 5
   %and225.i = and i32 %shr224.i, 63
   %add226.i = add nuw nsw i32 %and225.i, %conv223.i
   %idxprom227.i = zext nneg i32 %add226.i to i64
   %arrayidx228.i = getelementptr inbounds i16, ptr %22, i64 %idxprom227.i
-  %29 = load i16, ptr %arrayidx228.i, align 2
-  %conv229.i = zext i16 %29 to i32
+  %31 = load i16, ptr %arrayidx228.i, align 2
+  %conv229.i = zext i16 %31 to i32
   %shl230.i = shl nuw nsw i32 %conv229.i, 2
   %and231.i = and i32 %conv171.i, 31
   %add232.i = add nuw nsw i32 %shl230.i, %and231.i
@@ -2975,8 +2975,8 @@ cond.end238.i:                                    ; preds = %cond.false216.i, %c
   %cond239.i = phi i32 [ %add195.i, %cond.true186.i ], [ %add208.i, %cond.true198.i ], [ %add212.i, %cond.true211.i ], [ %27, %cond.true215.i ], [ %add232.i, %cond.false216.i ]
   %idxprom240.i = sext i32 %cond239.i to i64
   %arrayidx241.i = getelementptr inbounds i16, ptr %22, i64 %idxprom240.i
-  %30 = load i16, ptr %arrayidx241.i, align 2
-  %conv242.i = zext i16 %30 to i32
+  %32 = load i16, ptr %arrayidx241.i, align 2
+  %conv242.i = zext i16 %32 to i32
   %and243.i = and i32 %conv242.i, 8
   %tobool244.not.i = icmp eq i32 %and243.i, 0
   br i1 %tobool244.not.i, label %if.end246.i, label %if.end264.i
@@ -2984,13 +2984,13 @@ cond.end238.i:                                    ; preds = %cond.false216.i, %c
 if.end246.i:                                      ; preds = %cond.end238.i
   %and248.i = and i32 %conv242.i, 3
   %cmp249.not.i = icmp ne i32 %and248.i, 1
-  %cmp253.i = icmp ult i16 %30, 128
+  %cmp253.i = icmp ult i16 %32, 128
   %or.cond155.i = or i1 %cmp253.i, %cmp249.not.i
   br i1 %or.cond155.i, label %for.cond1.backedge.i, label %if.end255.i
 
 if.end255.i:                                      ; preds = %if.end246.i
-  %31 = ashr i16 %30, 7
-  %shr252.i = sext i16 %31 to i32
+  %33 = ashr i16 %32, 7
+  %shr252.i = sext i16 %33 to i32
   %sub258.i = sub nsw i32 %srcIndex.1221.i, %prev.1222.i
   %cmp.i166.i = icmp sgt i32 %sub258.i, 0
   br i1 %cmp.i166.i, label %if.then1.i167.i, label %_ZN6icu_7512ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit168.i
@@ -3022,8 +3022,8 @@ if.end264.i:                                      ; preds = %cond.end238.i, %if.
 
 if.then268.i:                                     ; preds = %if.end264.i
   %sub271.i = sub nsw i32 %srcIndex.1221.i, %prev.1222.i
-  %32 = load i32, ptr %errorCode, align 4
-  %cmp.i.i169.i = icmp slt i32 %32, 1
+  %34 = load i32, ptr %errorCode, align 4
+  %cmp.i.i169.i = icmp slt i32 %34, 1
   %cmp.i172.i = icmp sgt i32 %sub271.i, 0
   %or.cond205.i = select i1 %cmp.i.i169.i, i1 %cmp.i172.i, i1 false
   br i1 %or.cond205.i, label %if.then1.i173.i, label %if.else.i.i
@@ -3040,8 +3040,8 @@ if.else.i.i:                                      ; preds = %if.then1.i173.i, %i
   br i1 %cmp6.i.i, label %if.then7.i.i, label %if.else8.i.i
 
 if.then7.i.i:                                     ; preds = %if.else.i.i
-  %33 = load ptr, ptr %s.i, align 8
-  %call.i.i = call noundef signext i8 @_ZN6icu_7512ByteSinkUtil12appendChangeEiPKDsiRNS_8ByteSinkEPNS_5EditsER10UErrorCode(i32 noundef %sub273.i, ptr noundef %33, i32 noundef %call266.i, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %35 = load ptr, ptr %s.i, align 8
+  %call.i.i = call noundef signext i8 @_ZN6icu_7512ByteSinkUtil12appendChangeEiPKDsiRNS_8ByteSinkEPNS_5EditsER10UErrorCode(i32 noundef %sub273.i, ptr noundef %35, i32 noundef %call266.i, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %if.end275.i
 
 if.else8.i.i:                                     ; preds = %if.else.i.i
@@ -3050,18 +3050,18 @@ if.else8.i.i:                                     ; preds = %if.else.i.i
 
 if.end275.i:                                      ; preds = %if.else8.i.i, %if.then7.i.i, %if.end264.i
   %prev.2.i = phi i32 [ %prev.1222.i, %if.end264.i ], [ %srcIndex.6195.i, %if.then7.i.i ], [ %srcIndex.6195.i, %if.else8.i.i ]
-  %34 = load i32, ptr %errorCode, align 4
-  %cmp.i217.i = icmp slt i32 %34, 1
+  %36 = load i32, ptr %errorCode, align 4
+  %cmp.i217.i = icmp slt i32 %36, 1
   %cmp3.not218.i = icmp slt i32 %srcIndex.6195.i, %srcLength
   %or.cond153219.i = select i1 %cmp.i217.i, i1 %cmp3.not218.i, i1 false
   br i1 %or.cond153219.i, label %if.end5.i.backedge, label %for.end276.i
 
 for.end276.i:                                     ; preds = %if.end275.i, %for.end.i, %for.cond1.backedge.i, %if.then107.i, %land.lhs.true140.i, %land.lhs.true155.i, %if.else
   %prev.1213.i = phi i32 [ 0, %if.else ], [ %prev.1222.i, %for.end.i ], [ %prev.2.i, %if.end275.i ], [ %prev.1.be.i, %for.cond1.backedge.i ], [ %prev.1222.i, %if.then107.i ], [ %prev.1222.i, %land.lhs.true140.i ], [ %prev.1222.i, %land.lhs.true155.i ]
-  %35 = phi i32 [ %2, %if.else ], [ %3, %for.end.i ], [ %34, %if.end275.i ], [ %7, %for.cond1.backedge.i ], [ %3, %if.then107.i ], [ %3, %land.lhs.true140.i ], [ %3, %land.lhs.true155.i ]
+  %37 = phi i32 [ %2, %if.else ], [ %3, %for.end.i ], [ %36, %if.end275.i ], [ %7, %for.cond1.backedge.i ], [ %3, %if.then107.i ], [ %3, %land.lhs.true140.i ], [ %3, %land.lhs.true155.i ]
   %srcIndex.6201.i = phi i32 [ 0, %if.else ], [ %inc47.i, %for.end.i ], [ %srcIndex.6195.i, %if.end275.i ], [ %srcIndex.1.be.i, %for.cond1.backedge.i ], [ %srcLength, %if.then107.i ], [ %srcLength, %land.lhs.true140.i ], [ %srcLength, %land.lhs.true155.i ]
   %sub279.i = sub nsw i32 %srcIndex.6201.i, %prev.1213.i
-  %cmp.i.i178.i = icmp slt i32 %35, 1
+  %cmp.i.i178.i = icmp slt i32 %37, 1
   %cmp.i181.i = icmp sgt i32 %sub279.i, 0
   %or.cond206.i = select i1 %cmp.i.i178.i, i1 %cmp.i181.i, i1 false
   br i1 %or.cond206.i, label %if.then1.i182.i, label %_ZN12_GLOBAL__N_17toUpperEijPKhP12UCaseContextiRN6icu_758ByteSinkEPNS4_5EditsER10UErrorCode.exit

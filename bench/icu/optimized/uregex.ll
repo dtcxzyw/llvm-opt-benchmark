@@ -3172,6 +3172,7 @@ if.end60:                                         ; preds = %_ZL11appendToBufDsP
 
 land.rhs.preheader.lr.ph:                         ; preds = %if.end60
   %fPattern = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %7, i64 0, i32 1
+  %invariant.gep = getelementptr i16, ptr %replacementText, i64 -1
   %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %groupName, i64 0, i32 1
   %fPat = getelementptr inbounds %"struct.icu_75::RegularExpression", ptr %regexp, i64 0, i32 2
   br label %land.rhs.preheader
@@ -3183,8 +3184,8 @@ land.rhs.preheader:                               ; preds = %land.rhs.preheader.
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %if.end348
-  %28 = phi i32 [ %72, %if.end348 ], [ %27, %land.rhs.preheader ]
-  %29 = phi i32 [ %71, %if.end348 ], [ %.pre304, %land.rhs.preheader ]
+  %28 = phi i32 [ %73, %if.end348 ], [ %27, %land.rhs.preheader ]
+  %29 = phi i32 [ %72, %if.end348 ], [ %.pre304, %land.rhs.preheader ]
   %destIdx.3 = phi i32 [ %add344, %if.end348 ], [ %destIdx.2283, %land.rhs.preheader ]
   %cmp.i168 = icmp sgt i32 %29, 0
   br i1 %cmp.i168, label %while.end353, label %while.body
@@ -3358,7 +3359,7 @@ if.then147:                                       ; preds = %if.end144.thread, %
   br i1 %cmp150.not273, label %do.body153, label %if.end325
 
 do.body153:                                       ; preds = %if.then147, %do.end226
-  %44 = phi i32 [ %53, %do.end226 ], [ %43, %if.then147 ]
+  %44 = phi i32 [ %54, %do.end226 ], [ %43, %if.then147 ]
   %numDigits.0275 = phi i32 [ %inc227, %do.end226 ], [ 0, %if.then147 ]
   %groupNum.0274 = phi i32 [ %add203, %do.end226 ], [ 0, %if.then147 ]
   %idxprom154 = sext i32 %44 to i64
@@ -3399,11 +3400,10 @@ if.else179:                                       ; preds = %if.then159
   br i1 %cmp180, label %land.lhs.true181, label %do.end196
 
 land.lhs.true181:                                 ; preds = %if.else179
-  %sub182 = add nsw i32 %44, -1
-  %idxprom183 = zext nneg i32 %sub182 to i64
-  %arrayidx184 = getelementptr inbounds i16, ptr %replacementText, i64 %idxprom183
-  %47 = load i16, ptr %arrayidx184, align 2
-  %conv185 = zext i16 %47 to i32
+  %47 = zext nneg i32 %44 to i64
+  %gep = getelementptr i16, ptr %invariant.gep, i64 %47
+  %48 = load i16, ptr %gep, align 2
+  %conv185 = zext i16 %48 to i32
   %and186 = and i32 %conv185, 64512
   %cmp187 = icmp eq i32 %and186, 55296
   br i1 %cmp187, label %if.then188, label %do.end196
@@ -3428,14 +3428,14 @@ if.end201:                                        ; preds = %do.end196
   br i1 %cmp204.not, label %if.else228, label %if.then205
 
 if.then205:                                       ; preds = %if.end201
-  %48 = load i32, ptr %replIdx, align 4
-  %inc209 = add nsw i32 %48, 1
+  %49 = load i32, ptr %replIdx, align 4
+  %inc209 = add nsw i32 %49, 1
   store i32 %inc209, ptr %replIdx, align 4
-  %idxprom210 = sext i32 %48 to i64
+  %idxprom210 = sext i32 %49 to i64
   %arrayidx211 = getelementptr inbounds i16, ptr %replacementText, i64 %idxprom210
-  %49 = load i16, ptr %arrayidx211, align 2
-  %50 = and i16 %49, -1024
-  %cmp214 = icmp ne i16 %50, -10240
+  %50 = load i16, ptr %arrayidx211, align 2
+  %51 = and i16 %50, -1024
+  %cmp214 = icmp ne i16 %51, -10240
   %cmp216.not = icmp eq i32 %inc209, %replacementLength.addr.0
   %or.cond159 = select i1 %cmp214, i1 true, i1 %cmp216.not
   br i1 %or.cond159, label %do.end226, label %land.lhs.true217
@@ -3443,20 +3443,20 @@ if.then205:                                       ; preds = %if.end201
 land.lhs.true217:                                 ; preds = %if.then205
   %idxprom218 = sext i32 %inc209 to i64
   %arrayidx219 = getelementptr inbounds i16, ptr %replacementText, i64 %idxprom218
-  %51 = load i16, ptr %arrayidx219, align 2
-  %52 = and i16 %51, -1024
-  %cmp222 = icmp eq i16 %52, -9216
+  %52 = load i16, ptr %arrayidx219, align 2
+  %53 = and i16 %52, -1024
+  %cmp222 = icmp eq i16 %53, -9216
   br i1 %cmp222, label %if.then223, label %do.end226
 
 if.then223:                                       ; preds = %land.lhs.true217
-  %inc224 = add nsw i32 %48, 2
+  %inc224 = add nsw i32 %49, 2
   store i32 %inc224, ptr %replIdx, align 4
   br label %do.end226
 
 do.end226:                                        ; preds = %if.then205, %land.lhs.true217, %if.then223
-  %53 = phi i32 [ %inc209, %if.then205 ], [ %inc209, %land.lhs.true217 ], [ %inc224, %if.then223 ]
+  %54 = phi i32 [ %inc209, %if.then205 ], [ %inc209, %land.lhs.true217 ], [ %inc224, %if.then223 ]
   %inc227 = add nuw nsw i32 %numDigits.0275, 1
-  %cmp150.not = icmp slt i32 %53, %replacementLength.addr.0
+  %cmp150.not = icmp slt i32 %54, %replacementLength.addr.0
   br i1 %cmp150.not, label %do.body153, label %if.end325, !llvm.loop !8
 
 if.else228:                                       ; preds = %if.end201
@@ -3470,14 +3470,14 @@ if.else234:                                       ; preds = %if.end144
 if.then236:                                       ; preds = %if.else234
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %groupName, align 8
   store i16 2, ptr %fUnion2.i, align 8
-  %54 = load i32, ptr %replIdx, align 4
-  %inc238 = add nsw i32 %54, 1
+  %55 = load i32, ptr %replIdx, align 4
+  %inc238 = add nsw i32 %55, 1
   store i32 %inc238, ptr %replIdx, align 4
-  %idxprom239 = sext i32 %54 to i64
+  %idxprom239 = sext i32 %55 to i64
   %arrayidx240 = getelementptr inbounds i16, ptr %replacementText, i64 %idxprom239
-  %55 = load i16, ptr %arrayidx240, align 2
-  %56 = and i16 %55, -1024
-  %cmp243 = icmp ne i16 %56, -10240
+  %56 = load i16, ptr %arrayidx240, align 2
+  %57 = and i16 %56, -1024
+  %cmp243 = icmp ne i16 %57, -10240
   %cmp245.not = icmp eq i32 %inc238, %replacementLength.addr.0
   %or.cond160 = select i1 %cmp243, i1 true, i1 %cmp245.not
   br i1 %or.cond160, label %do.end255, label %land.lhs.true246
@@ -3485,33 +3485,33 @@ if.then236:                                       ; preds = %if.else234
 land.lhs.true246:                                 ; preds = %if.then236
   %idxprom247 = sext i32 %inc238 to i64
   %arrayidx248 = getelementptr inbounds i16, ptr %replacementText, i64 %idxprom247
-  %57 = load i16, ptr %arrayidx248, align 2
-  %58 = and i16 %57, -1024
-  %cmp251 = icmp eq i16 %58, -9216
+  %58 = load i16, ptr %arrayidx248, align 2
+  %59 = and i16 %58, -1024
+  %cmp251 = icmp eq i16 %59, -9216
   br i1 %cmp251, label %if.then252, label %do.end255
 
 if.then252:                                       ; preds = %land.lhs.true246
-  %inc253 = add nsw i32 %54, 2
+  %inc253 = add nsw i32 %55, 2
   store i32 %inc253, ptr %replIdx, align 4
   br label %do.end255
 
 do.end255:                                        ; preds = %if.then252, %land.lhs.true246, %if.then236
-  %59 = load i32, ptr %status, align 4
-  %cmp.i209278 = icmp slt i32 %59, 1
+  %60 = load i32, ptr %status, align 4
+  %cmp.i209278 = icmp slt i32 %60, 1
   br i1 %cmp.i209278, label %while.body262, label %while.end
 
 while.body262:                                    ; preds = %do.end255, %if.end322
-  %60 = load i32, ptr %replIdx, align 4
-  %cmp263.not = icmp slt i32 %60, %replacementLength.addr.0
+  %61 = load i32, ptr %replIdx, align 4
+  %cmp263.not = icmp slt i32 %61, %replacementLength.addr.0
   br i1 %cmp263.not, label %do.body266, label %while.end.sink.split
 
 do.body266:                                       ; preds = %while.body262
-  %inc267 = add nsw i32 %60, 1
+  %inc267 = add nsw i32 %61, 1
   store i32 %inc267, ptr %replIdx, align 4
-  %idxprom268 = sext i32 %60 to i64
+  %idxprom268 = sext i32 %61 to i64
   %arrayidx269 = getelementptr inbounds i16, ptr %replacementText, i64 %idxprom268
-  %61 = load i16, ptr %arrayidx269, align 2
-  %conv270 = zext i16 %61 to i32
+  %62 = load i16, ptr %arrayidx269, align 2
+  %conv270 = zext i16 %62 to i32
   %and271 = and i32 %conv270, 64512
   %cmp272 = icmp ne i32 %and271, 55296
   %cmp275.not = icmp eq i32 %inc267, %replacementLength.addr.0
@@ -3521,14 +3521,14 @@ do.body266:                                       ; preds = %while.body262
 land.lhs.true276:                                 ; preds = %do.body266
   %idxprom277 = sext i32 %inc267 to i64
   %arrayidx278 = getelementptr inbounds i16, ptr %replacementText, i64 %idxprom277
-  %62 = load i16, ptr %arrayidx278, align 2
-  %conv279 = zext i16 %62 to i32
+  %63 = load i16, ptr %arrayidx278, align 2
+  %conv279 = zext i16 %63 to i32
   %and280 = and i32 %conv279, 64512
   %cmp281 = icmp eq i32 %and280, 56320
   br i1 %cmp281, label %if.then282, label %do.end291
 
 if.then282:                                       ; preds = %land.lhs.true276
-  %inc283 = add nsw i32 %60, 2
+  %inc283 = add nsw i32 %61, 2
   store i32 %inc283, ptr %replIdx, align 4
   %shl284 = shl nuw nsw i32 %conv270, 10
   %add286 = add nsw i32 %shl284, -56613888
@@ -3537,11 +3537,11 @@ if.then282:                                       ; preds = %land.lhs.true276
 
 do.end291:                                        ; preds = %land.lhs.true276, %if.then282, %do.body266
   %c32.3 = phi i32 [ %sub287, %if.then282 ], [ %conv270, %land.lhs.true276 ], [ %conv270, %do.body266 ]
-  %63 = and i32 %c32.3, -33
-  %64 = add nsw i32 %63, -65
-  %or.cond163 = icmp ult i32 %64, 26
-  %65 = add nsw i32 %c32.3, -49
-  %or.cond8 = icmp ult i32 %65, 9
+  %64 = and i32 %c32.3, -33
+  %65 = add nsw i32 %64, -65
+  %or.cond163 = icmp ult i32 %65, 26
+  %66 = add nsw i32 %c32.3, -49
+  %or.cond8 = icmp ult i32 %66, 9
   %or.cond165 = select i1 %or.cond163, i1 true, i1 %or.cond8
   br i1 %or.cond165, label %if.then303, label %if.else305
 
@@ -3569,14 +3569,14 @@ if.else305:                                       ; preds = %do.end291
   br i1 %cmp306, label %if.then307, label %if.else320
 
 if.then307:                                       ; preds = %if.else305
-  %66 = load ptr, ptr %fPat, align 8
-  %fNamedCaptureMap = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %66, i64 0, i32 20
-  %67 = load ptr, ptr %fNamedCaptureMap, align 8
-  %tobool308.not = icmp eq ptr %67, null
+  %67 = load ptr, ptr %fPat, align 8
+  %fNamedCaptureMap = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %67, i64 0, i32 20
+  %68 = load ptr, ptr %fNamedCaptureMap, align 8
+  %tobool308.not = icmp eq ptr %68, null
   br i1 %tobool308.not, label %while.end.sink.split, label %cond.true309
 
 cond.true309:                                     ; preds = %if.then307
-  %call313 = invoke i32 @uhash_geti_75(ptr noundef nonnull %67, ptr noundef nonnull %groupName)
+  %call313 = invoke i32 @uhash_geti_75(ptr noundef nonnull %68, ptr noundef nonnull %groupName)
           to label %cond.end315 unwind label %lpad.loopexit.split-lp
 
 cond.end315:                                      ; preds = %cond.true309
@@ -3588,11 +3588,11 @@ if.else320:                                       ; preds = %if.else305
   br label %if.end322
 
 if.end322:                                        ; preds = %if.else320, %if.then303
-  %68 = load i32, ptr %status, align 4
-  %cmp.i209 = icmp slt i32 %68, 1
+  %69 = load i32, ptr %status, align 4
+  %cmp.i209 = icmp slt i32 %69, 1
   %cmp260 = icmp ne i32 %c32.3, 125
-  %69 = and i1 %cmp260, %cmp.i209
-  br i1 %69, label %while.body262, label %while.end, !llvm.loop !9
+  %70 = and i1 %cmp260, %cmp.i209
+  br i1 %70, label %while.body262, label %while.end, !llvm.loop !9
 
 while.end.sink.split:                             ; preds = %while.body262, %cond.end315, %if.then307
   store i32 66325, ptr %status, align 4
@@ -3617,8 +3617,8 @@ if.then328:                                       ; preds = %if.end325
   %cond342 = call i32 @llvm.smax.i32(i32 %sub336, i32 0)
   %call343 = call i32 @uregex_group_75(ptr noundef nonnull %regexp, i32 noundef %groupNum.3.ph, ptr noundef %cond335, i32 noundef %cond342, ptr noundef nonnull %status)
   %add344 = add nsw i32 %call343, %destIdx.3
-  %70 = load i32, ptr %status, align 4
-  %cmp345 = icmp eq i32 %70, 15
+  %71 = load i32, ptr %status, align 4
+  %cmp345 = icmp eq i32 %71, 15
   br i1 %cmp345, label %if.then346, label %if.end348
 
 if.then346:                                       ; preds = %if.then328
@@ -3626,10 +3626,10 @@ if.then346:                                       ; preds = %if.then328
   br label %if.end348
 
 if.end348:                                        ; preds = %if.then328, %if.then346
-  %71 = phi i32 [ 0, %if.then346 ], [ %70, %if.then328 ]
-  %cmp.i213 = icmp slt i32 %71, 1
-  %72 = load i32, ptr %replIdx, align 4
-  %cmp61 = icmp slt i32 %72, %replacementLength.addr.0
+  %72 = phi i32 [ 0, %if.then346 ], [ %71, %if.then328 ]
+  %cmp.i213 = icmp slt i32 %72, 1
+  %73 = load i32, ptr %replIdx, align 4
+  %cmp61 = icmp slt i32 %73, %replacementLength.addr.0
   %or.cond158 = select i1 %cmp.i213, i1 %cmp61, i1 false
   br i1 %or.cond158, label %land.rhs, label %while.end353, !llvm.loop !7
 
@@ -3650,13 +3650,13 @@ if.then355:                                       ; preds = %while.end353
   br label %if.end367
 
 if.else358:                                       ; preds = %while.end353
-  %73 = load i32, ptr %status, align 4
-  %cmp.i215 = icmp sgt i32 %73, 0
+  %74 = load i32, ptr %status, align 4
+  %cmp.i215 = icmp sgt i32 %74, 0
   br i1 %cmp.i215, label %if.end367, label %if.then361
 
 if.then361:                                       ; preds = %if.else358
-  %74 = load i32, ptr %destCapacity, align 4
-  %cmp362 = icmp eq i32 %destIdx.6, %74
+  %75 = load i32, ptr %destCapacity, align 4
+  %cmp362 = icmp eq i32 %destIdx.6, %75
   br i1 %cmp362, label %if.then363, label %if.else364
 
 if.then363:                                       ; preds = %if.then361
@@ -3672,25 +3672,25 @@ if.end367:                                        ; preds = %if.else358, %if.els
   br i1 %cmp368, label %land.lhs.true369, label %if.end379
 
 land.lhs.true369:                                 ; preds = %if.end367
-  %75 = load i32, ptr %destCapacity, align 4
-  %cmp370 = icmp sgt i32 %75, 0
+  %76 = load i32, ptr %destCapacity, align 4
+  %cmp370 = icmp sgt i32 %76, 0
   br i1 %cmp370, label %if.then371, label %if.end379
 
 if.then371:                                       ; preds = %land.lhs.true369
-  %76 = load ptr, ptr %destBuf, align 8
+  %77 = load ptr, ptr %destBuf, align 8
   br i1 %cmp354, label %if.then373, label %if.else375
 
 if.then373:                                       ; preds = %if.then371
   %idx.ext = zext nneg i32 %destIdx.6 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %76, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i16, ptr %77, i64 %idx.ext
   store ptr %add.ptr, ptr %destBuf, align 8
-  %77 = load i32, ptr %destCapacity, align 4
-  %sub374 = sub nsw i32 %77, %destIdx.6
+  %78 = load i32, ptr %destCapacity, align 4
+  %sub374 = sub nsw i32 %78, %destIdx.6
   br label %if.end379.sink.split
 
 if.else375:                                       ; preds = %if.then371
   %idx.ext376 = zext nneg i32 %6 to i64
-  %add.ptr377 = getelementptr inbounds i16, ptr %76, i64 %idx.ext376
+  %add.ptr377 = getelementptr inbounds i16, ptr %77, i64 %idx.ext376
   store ptr %add.ptr377, ptr %destBuf, align 8
   br label %if.end379.sink.split
 
@@ -3703,8 +3703,8 @@ if.end379:                                        ; preds = %if.end379.sink.spli
   br i1 %or.cond.not, label %return, label %land.lhs.true381
 
 land.lhs.true381:                                 ; preds = %if.end379
-  %78 = load i32, ptr %status, align 4
-  %cmp.i217 = icmp sgt i32 %78, 0
+  %79 = load i32, ptr %status, align 4
+  %cmp.i217 = icmp sgt i32 %79, 0
   br i1 %cmp.i217, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %land.lhs.true381, %if.end20, %if.end6, %lor.lhs.false13, %if.end.i, %lor.lhs.false.i, %land.lhs.true6.i

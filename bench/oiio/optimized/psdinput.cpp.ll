@@ -6162,13 +6162,13 @@ if.then149:                                       ; preds = %lor.lhs.false36
   %82 = load ptr, ptr %80, align 8
   %tobool.not.i261 = icmp eq ptr %81, %82
   %spec.select.i262 = select i1 %tobool.not.i261, ptr null, ptr %82
-  %cmp15.i = icmp sgt i32 %79, 0
-  br i1 %cmp15.i, label %for.body.preheader.i, label %if.end172
+  %invariant.gep.i = getelementptr i8, ptr %data, i64 1
+  %invariant.gep15.i = getelementptr i8, ptr %data, i64 2
+  %cmp17.i = icmp sgt i32 %79, 0
+  br i1 %cmp17.i, label %for.body.preheader.i, label %if.end172
 
 for.body.preheader.i:                             ; preds = %if.then149
   %wide.trip.count.i267 = zext nneg i32 %79 to i64
-  %invariant.gep.i = getelementptr i8, ptr %data, i64 1
-  %invariant.gep21.i = getelementptr i8, ptr %data, i64 2
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -6190,8 +6190,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store i8 %conv3.i, ptr %arrayidx.i10.i, align 1
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %85
   store i8 %conv3.i, ptr %gep.i, align 1
-  %gep22.i = getelementptr i8, ptr %invariant.gep21.i, i64 %85
-  store i8 %conv3.i, ptr %gep22.i, align 1
+  %gep16.i = getelementptr i8, ptr %invariant.gep15.i, i64 %85
+  store i8 %conv3.i, ptr %gep16.i, align 1
   %indvars.iv.next.i271 = add nuw nsw i64 %indvars.iv.i268, 1
   %exitcond.not.i272 = icmp eq i64 %indvars.iv.next.i271, %wide.trip.count.i267
   br i1 %exitcond.not.i272, label %if.end172, label %for.body.i, !llvm.loop !70
@@ -6867,20 +6867,21 @@ cond.end:                                         ; preds = %entry, %cond.false
   %m_transparency_index = getelementptr inbounds %"class.OpenImageIO_v2_6_0::PSDInput", ptr %this, i64 0, i32 11
   %1 = load i16, ptr %m_transparency_index, align 8
   %cmp = icmp sgt i16 %1, -1
-  %cmp560 = icmp sgt i32 %width, 0
   br i1 %cmp, label %for.cond.preheader, label %for.cond53.preheader
 
 for.cond53.preheader:                             ; preds = %cond.end
-  br i1 %cmp560, label %for.body55.preheader, label %if.end83
+  %invariant.gep = getelementptr i8, ptr %dst.coerce0, i64 1
+  %invariant.gep58 = getelementptr i8, ptr %dst.coerce0, i64 2
+  %cmp5460 = icmp sgt i32 %width, 0
+  br i1 %cmp5460, label %for.body55.preheader, label %if.end83
 
 for.body55.preheader:                             ; preds = %for.cond53.preheader
   %wide.trip.count = zext nneg i32 %width to i64
-  %invariant.gep = getelementptr i8, ptr %dst.coerce0, i64 1
-  %invariant.gep73 = getelementptr i8, ptr %dst.coerce0, i64 2
   br label %for.body55
 
 for.cond.preheader:                               ; preds = %cond.end
-  br i1 %cmp560, label %for.body.preheader, label %if.end83
+  %cmp562 = icmp sgt i32 %width, 0
+  br i1 %cmp562, label %for.body.preheader, label %if.end83
 
 for.body.preheader:                               ; preds = %for.cond.preheader
   %wide.trip.count70 = zext nneg i32 %width to i64
@@ -6935,14 +6936,14 @@ if.else:                                          ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then12, %if.else
-  %mul.sink76 = phi i32 [ %mul, %if.then12 ], [ %mul29, %if.else ]
-  %.sink75 = phi i8 [ 0, %if.then12 ], [ %11, %if.else ]
+  %mul.sink74 = phi i32 [ %mul, %if.then12 ], [ %mul29, %if.else ]
+  %.sink73 = phi i8 [ 0, %if.then12 ], [ %11, %if.else ]
   %.sink = phi i8 [ 0, %if.then12 ], [ -1, %if.else ]
-  %add20 = or disjoint i32 %mul.sink76, 2
+  %add20 = or disjoint i32 %mul.sink74, 2
   %conv21 = zext nneg i32 %add20 to i64
   %arrayidx.i30 = getelementptr inbounds i8, ptr %dst.coerce0, i64 %conv21
-  store i8 %.sink75, ptr %arrayidx.i30, align 1
-  %add24 = or disjoint i32 %mul.sink76, 3
+  store i8 %.sink73, ptr %arrayidx.i30, align 1
+  %add24 = or disjoint i32 %mul.sink74, 3
   %conv25 = zext nneg i32 %add24 to i64
   %arrayidx.i31 = getelementptr inbounds i8, ptr %dst.coerce0, i64 %conv25
   store i8 %.sink, ptr %arrayidx.i31, align 1
@@ -6974,8 +6975,8 @@ for.body55:                                       ; preds = %for.body55.preheade
   %18 = load ptr, ptr %data, align 8
   %arrayidx.i44 = getelementptr inbounds i8, ptr %18, i64 %conv74
   %19 = load i8, ptr %arrayidx.i44, align 1
-  %gep74 = getelementptr i8, ptr %invariant.gep73, i64 %15
-  store i8 %19, ptr %gep74, align 1
+  %gep59 = getelementptr i8, ptr %invariant.gep58, i64 %15
+  store i8 %19, ptr %gep59, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end83, label %for.body55, !llvm.loop !86
@@ -6987,13 +6988,13 @@ if.end83:                                         ; preds = %for.body55, %for.in
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_08PSDInput13bitmap_to_rgbENS_4spanIhLln1EEENS1_IKhLln1EEEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(840) %this, ptr nocapture writeonly %dst.coerce0, i64 %dst.coerce1, ptr nocapture readonly %src.coerce0, i64 %src.coerce1, i32 noundef %width) local_unnamed_addr #14 align 2 {
 entry:
-  %cmp15 = icmp sgt i32 %width, 0
-  br i1 %cmp15, label %for.body.preheader, label %for.end
+  %invariant.gep = getelementptr i8, ptr %dst.coerce0, i64 1
+  %invariant.gep15 = getelementptr i8, ptr %dst.coerce0, i64 2
+  %cmp17 = icmp sgt i32 %width, 0
+  br i1 %cmp17, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %entry
   %wide.trip.count = zext nneg i32 %width to i64
-  %invariant.gep = getelementptr i8, ptr %dst.coerce0, i64 1
-  %invariant.gep21 = getelementptr i8, ptr %dst.coerce0, i64 2
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -7015,8 +7016,8 @@ for.body:                                         ; preds = %for.body.preheader,
   store i8 %conv3, ptr %arrayidx.i10, align 1
   %gep = getelementptr i8, ptr %invariant.gep, i64 %2
   store i8 %conv3, ptr %gep, align 1
-  %gep22 = getelementptr i8, ptr %invariant.gep21, i64 %2
-  store i8 %conv3, ptr %gep22, align 1
+  %gep16 = getelementptr i8, ptr %invariant.gep15, i64 %2
+  store i8 %conv3, ptr %gep16, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !70

@@ -25029,9 +25029,9 @@ if.end29:                                         ; preds = %if.else19, %if.else
 while.body35.preheader:                           ; preds = %if.end29
   %and18 = and i32 %.sink, %conv5
   %scevgep = getelementptr i8, ptr %start.addr.0202, i64 2
-  %4 = add nsw i32 %num_bytes_left.0, -1
-  %5 = zext nneg i32 %4 to i64
-  %scevgep209 = getelementptr i8, ptr %scevgep, i64 %5
+  %4 = zext nneg i32 %num_bytes_left.0 to i64
+  %5 = getelementptr i8, ptr %scevgep, i64 %4
+  %scevgep209 = getelementptr i8, ptr %5, i64 -1
   br label %while.body35
 
 while.body35:                                     ; preds = %while.body35.preheader, %if.end42

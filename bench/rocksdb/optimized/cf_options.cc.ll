@@ -16177,7 +16177,7 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorImSaImE
   %cmp4 = icmp eq i8 %compaction_style, 1
   %target_file_size_base = getelementptr inbounds %"struct.rocksdb::MutableCFOptions", ptr %this, i64 0, i32 18
   %target_file_size_multiplier = getelementptr inbounds %"struct.rocksdb::MutableCFOptions", ptr %this, i64 0, i32 19
-  %wide.trip.count22 = zext nneg i32 %num_levels to i64
+  %wide.trip.count20 = zext nneg i32 %num_levels to i64
   br i1 %cmp4, label %for.body, label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
@@ -16188,45 +16188,47 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 if.else17.us:                                     ; preds = %for.body.us
   %2 = load i64, ptr %target_file_size_base, align 8
   %3 = load ptr, ptr %max_file_size, align 8
+  %add.ptr.i12.us = getelementptr inbounds i64, ptr %3, i64 %indvars.iv
+  store i64 %2, ptr %add.ptr.i12.us, align 8
   br label %for.inc.us
 
 if.then8.us:                                      ; preds = %for.body.us
-  %4 = add nuw i64 %indvars.iv, 4294967295
-  %conv10.us = and i64 %4, 4294967295
-  %5 = load ptr, ptr %max_file_size, align 8
-  %add.ptr.i9.us = getelementptr inbounds i64, ptr %5, i64 %conv10.us
+  %4 = load ptr, ptr %max_file_size, align 8
+  %5 = getelementptr i64, ptr %4, i64 %indvars.iv
+  %add.ptr.i9.us = getelementptr i64, ptr %5, i64 -1
   %6 = load i64, ptr %add.ptr.i9.us, align 8
   %7 = load i32, ptr %target_file_size_multiplier, align 8
   %conv12.us = sitofp i32 %7 to double
   %cmp.i10.us = icmp eq i64 %6, 0
   %cmp1.i.us = icmp slt i32 %7, 1
   %or.cond.i.us = or i1 %cmp.i10.us, %cmp1.i.us
-  br i1 %or.cond.i.us, label %for.inc.us, label %if.end.i.us
+  br i1 %or.cond.i.us, label %_ZN7rocksdb21MultiplyCheckOverflowEmd.exit.us, label %if.end.i.us
 
 if.end.i.us:                                      ; preds = %if.then8.us
   %div.i.us = udiv i64 -1, %6
   %conv.i.us = uitofp i64 %div.i.us to double
   %cmp2.i.us = fcmp olt double %conv.i.us, %conv12.us
-  br i1 %cmp2.i.us, label %for.inc.us, label %if.end4.i.us
+  br i1 %cmp2.i.us, label %_ZN7rocksdb21MultiplyCheckOverflowEmd.exit.us, label %if.end4.i.us
 
 if.end4.i.us:                                     ; preds = %if.end.i.us
   %conv5.i.us = uitofp i64 %6 to double
   %mul.i.us = fmul double %conv5.i.us, %conv12.us
   %conv6.i.us = fptoui double %mul.i.us to i64
+  br label %_ZN7rocksdb21MultiplyCheckOverflowEmd.exit.us
+
+_ZN7rocksdb21MultiplyCheckOverflowEmd.exit.us:    ; preds = %if.end4.i.us, %if.end.i.us, %if.then8.us
+  %retval.0.i.us = phi i64 [ %conv6.i.us, %if.end4.i.us ], [ 0, %if.then8.us ], [ %6, %if.end.i.us ]
+  store i64 %retval.0.i.us, ptr %5, align 8
   br label %for.inc.us
 
-for.inc.us:                                       ; preds = %if.then8.us, %if.end.i.us, %if.end4.i.us, %if.else17.us
-  %.sink = phi ptr [ %3, %if.else17.us ], [ %5, %if.end4.i.us ], [ %5, %if.end.i.us ], [ %5, %if.then8.us ]
-  %retval.0.i.us.sink = phi i64 [ %2, %if.else17.us ], [ %conv6.i.us, %if.end4.i.us ], [ %6, %if.end.i.us ], [ 0, %if.then8.us ]
-  %add.ptr.i11.us = getelementptr inbounds i64, ptr %.sink, i64 %indvars.iv
-  store i64 %retval.0.i.us.sink, ptr %add.ptr.i11.us, align 8
+for.inc.us:                                       ; preds = %_ZN7rocksdb21MultiplyCheckOverflowEmd.exit.us, %if.else17.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count22
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count20
   br i1 %exitcond.not, label %for.end, label %for.body.us, !llvm.loop !42
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %indvars.iv18 = phi i64 [ %indvars.iv.next19, %for.inc ], [ 0, %for.body.lr.ph ]
-  switch i64 %indvars.iv18, label %if.then8 [
+  %indvars.iv17 = phi i64 [ %indvars.iv.next18, %for.inc ], [ 0, %for.body.lr.ph ]
+  switch i64 %indvars.iv17, label %if.then8 [
     i64 0, label %if.then
     i64 1, label %if.else17
   ]
@@ -16237,10 +16239,9 @@ if.then:                                          ; preds = %for.body
   br label %for.inc
 
 if.then8:                                         ; preds = %for.body
-  %9 = add nuw i64 %indvars.iv18, 4294967295
-  %conv10 = and i64 %9, 4294967295
-  %10 = load ptr, ptr %max_file_size, align 8
-  %add.ptr.i9 = getelementptr inbounds i64, ptr %10, i64 %conv10
+  %9 = load ptr, ptr %max_file_size, align 8
+  %10 = getelementptr i64, ptr %9, i64 %indvars.iv17
+  %add.ptr.i9 = getelementptr i64, ptr %10, i64 -1
   %11 = load i64, ptr %add.ptr.i9, align 8
   %12 = load i32, ptr %target_file_size_multiplier, align 8
   %conv12 = sitofp i32 %12 to double
@@ -16263,8 +16264,7 @@ if.end4.i:                                        ; preds = %if.end.i
 
 _ZN7rocksdb21MultiplyCheckOverflowEmd.exit:       ; preds = %if.then8, %if.end.i, %if.end4.i
   %retval.0.i = phi i64 [ %conv6.i, %if.end4.i ], [ 0, %if.then8 ], [ %11, %if.end.i ]
-  %add.ptr.i11 = getelementptr inbounds i64, ptr %10, i64 %indvars.iv18
-  store i64 %retval.0.i, ptr %add.ptr.i11, align 8
+  store i64 %retval.0.i, ptr %10, align 8
   br label %for.inc
 
 if.else17:                                        ; preds = %for.body
@@ -16275,9 +16275,9 @@ if.else17:                                        ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then, %if.else17, %_ZN7rocksdb21MultiplyCheckOverflowEmd.exit
-  %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
-  %exitcond23.not = icmp eq i64 %indvars.iv.next19, %wide.trip.count22
-  br i1 %exitcond23.not, label %for.end, label %for.body, !llvm.loop !42
+  %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
+  %exitcond21.not = icmp eq i64 %indvars.iv.next18, %wide.trip.count20
+  br i1 %exitcond21.not, label %for.end, label %for.body, !llvm.loop !42
 
 for.end:                                          ; preds = %for.inc.us, %for.inc, %_ZNSt6vectorImSaImEE6resizeEm.exit
   ret void

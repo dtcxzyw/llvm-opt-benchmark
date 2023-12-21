@@ -2092,7 +2092,7 @@ for.body:                                         ; preds = %for.body.preheader,
           to label %invoke.cont79 unwind label %lpad40.loopexit
 
 invoke.cont79:                                    ; preds = %for.body
-  %16 = mul nuw nsw i64 %indvars.iv, 3
+  %16 = mul i64 %indvars.iv, 3
   %conv82 = and i64 %16, 4294967295
   %17 = load ptr, ptr %onedData, align 8
   %add.ptr.i31 = getelementptr inbounds float, ptr %17, i64 %conv82
@@ -2105,10 +2105,9 @@ invoke.cont84:                                    ; preds = %invoke.cont79
           to label %invoke.cont86 unwind label %lpad40.loopexit
 
 invoke.cont86:                                    ; preds = %invoke.cont84
-  %19 = add nuw i64 %16, 1
-  %conv90 = and i64 %19, 4294967295
-  %20 = load ptr, ptr %onedData, align 8
-  %add.ptr.i32 = getelementptr inbounds float, ptr %20, i64 %conv90
+  %19 = load ptr, ptr %onedData, align 8
+  %20 = getelementptr float, ptr %19, i64 %conv82
+  %add.ptr.i32 = getelementptr float, ptr %20, i64 1
   %21 = load float, ptr %add.ptr.i32, align 4
   %call93 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call87, float noundef %21)
           to label %invoke.cont92 unwind label %lpad40.loopexit
@@ -2118,10 +2117,9 @@ invoke.cont92:                                    ; preds = %invoke.cont86
           to label %invoke.cont94 unwind label %lpad40.loopexit
 
 invoke.cont94:                                    ; preds = %invoke.cont92
-  %22 = add nuw i64 %16, 2
-  %conv98 = and i64 %22, 4294967295
-  %23 = load ptr, ptr %onedData, align 8
-  %add.ptr.i33 = getelementptr inbounds float, ptr %23, i64 %conv98
+  %22 = load ptr, ptr %onedData, align 8
+  %23 = getelementptr float, ptr %22, i64 %conv82
+  %add.ptr.i33 = getelementptr float, ptr %23, i64 2
   %24 = load float, ptr %add.ptr.i33, align 4
   %call101 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call95, float noundef %24)
           to label %invoke.cont100 unwind label %lpad40.loopexit

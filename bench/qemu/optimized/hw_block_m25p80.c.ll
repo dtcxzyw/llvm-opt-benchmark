@@ -2024,28 +2024,28 @@ for.cond411.preheader.i:                          ; preds = %for.body.i
 
 for.body414.preheader.i:                          ; preds = %for.cond411.preheader.i, %if.then401.i
   %i.0.lcssa459.i = phi i32 [ %241, %for.cond411.preheader.i ], [ 0, %if.then401.i ]
-  %narrow.i = add nuw nsw i32 %i.0.lcssa459.i, 201
-  %242 = zext nneg i32 %narrow.i to i64
-  %scevgep.i = getelementptr i8, ptr %call.i, i64 %242
-  %243 = sub nuw nsw i32 5, %i.0.lcssa459.i
-  %244 = zext nneg i32 %243 to i64
-  %245 = add nuw nsw i64 %244, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %245, i1 false)
+  %242 = zext nneg i32 %i.0.lcssa459.i to i64
+  %243 = getelementptr i8, ptr %call.i, i64 %242
+  %scevgep.i = getelementptr i8, ptr %243, i64 201
+  %244 = sub nuw nsw i32 5, %i.0.lcssa459.i
+  %245 = zext nneg i32 %244 to i64
+  %246 = add nuw nsw i64 %245, 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %246, i1 false)
   br label %for.end420.i
 
 for.body.i:                                       ; preds = %if.then401.i, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %if.then401.i ]
-  %246 = phi ptr [ %248, %for.body.i ], [ %239, %if.then401.i ]
-  %arrayidx407.i = getelementptr %struct.FlashPartInfo, ptr %246, i64 0, i32 1, i64 %indvars.iv.i
-  %247 = load i8, ptr %arrayidx407.i, align 1
+  %247 = phi ptr [ %249, %for.body.i ], [ %239, %if.then401.i ]
+  %arrayidx407.i = getelementptr %struct.FlashPartInfo, ptr %247, i64 0, i32 1, i64 %indvars.iv.i
+  %248 = load i8, ptr %arrayidx407.i, align 1
   %arrayidx410.i = getelementptr %struct.Flash, ptr %call.i, i64 0, i32 6, i64 %indvars.iv.i
-  store i8 %247, ptr %arrayidx410.i, align 1
+  store i8 %248, ptr %arrayidx410.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %248 = load ptr, ptr %113, align 8
-  %id_len.i = getelementptr inbounds %struct.FlashPartInfo, ptr %248, i64 0, i32 2
-  %249 = load i8, ptr %id_len.i, align 2
-  %250 = zext i8 %249 to i64
-  %cmp404.i = icmp ult i64 %indvars.iv.next.i, %250
+  %249 = load ptr, ptr %113, align 8
+  %id_len.i = getelementptr inbounds %struct.FlashPartInfo, ptr %249, i64 0, i32 2
+  %250 = load i8, ptr %id_len.i, align 2
+  %251 = zext i8 %250 to i64
+  %cmp404.i = icmp ult i64 %indvars.iv.next.i, %251
   br i1 %cmp404.i, label %for.body.i, label %for.cond411.preheader.i, !llvm.loop !8
 
 for.end420.i:                                     ; preds = %for.body414.preheader.i, %for.cond411.preheader.i
@@ -2055,8 +2055,8 @@ for.end420.i:                                     ; preds = %for.body414.prehead
   br label %sw.epilog
 
 do.body425.i:                                     ; preds = %lor.lhs.false396.i
-  %251 = load i32, ptr @qemu_loglevel, align 4
-  %and.i414.i = and i32 %251, 2048
+  %252 = load i32, ptr @qemu_loglevel, align 4
+  %and.i414.i = and i32 %252, 2048
   %cmp.i415.not.i = icmp eq i32 %and.i414.i, 0
   br i1 %cmp.i415.not.i, label %sw.epilog, label %if.then433.i
 
@@ -2066,14 +2066,14 @@ if.then433.i:                                     ; preds = %do.body425.i
 
 sw.bb437.i:                                       ; preds = %if.end14.i
   %volatile_cfg.i = getelementptr inbounds %struct.Flash, ptr %call.i, i64 0, i32 14
-  %252 = load i32, ptr %volatile_cfg.i, align 8
-  %conv439.i = trunc i32 %252 to i8
+  %253 = load i32, ptr %volatile_cfg.i, align 8
+  %conv439.i = trunc i32 %253 to i8
   %data440.i = getelementptr inbounds %struct.Flash, ptr %call.i, i64 0, i32 6
   %four_bytes_address_mode442.i = getelementptr inbounds %struct.Flash, ptr %call.i, i64 0, i32 26
-  %253 = load i8, ptr %four_bytes_address_mode442.i, align 2
-  %254 = shl i8 %253, 5
-  %255 = and i8 %254, 32
-  %conv453.i = or i8 %255, %conv439.i
+  %254 = load i8, ptr %four_bytes_address_mode442.i, align 2
+  %255 = shl i8 %254, 5
+  %256 = and i8 %255, 32
+  %conv453.i = or i8 %256, %conv439.i
   store i8 %conv453.i, ptr %data440.i, align 1
   store i32 0, ptr %pos, align 8
   store i32 1, ptr %len, align 4
@@ -2082,9 +2082,9 @@ sw.bb437.i:                                       ; preds = %if.end14.i
 
 sw.bb457.i:                                       ; preds = %if.end14.i, %if.end14.i
   %write_enable458.i = getelementptr inbounds %struct.Flash, ptr %call.i, i64 0, i32 25
-  %256 = load i8, ptr %write_enable458.i, align 1
-  %257 = and i8 %256, 1
-  %tobool459.not.i = icmp eq i8 %257, 0
+  %257 = load i8, ptr %write_enable458.i, align 1
+  %258 = and i8 %257, 1
+  %tobool459.not.i = icmp eq i8 %258, 0
   br i1 %tobool459.not.i, label %do.body462.i, label %if.then460.i
 
 if.then460.i:                                     ; preds = %sw.bb457.i
@@ -2093,8 +2093,8 @@ if.then460.i:                                     ; preds = %sw.bb457.i
   br label %sw.epilog
 
 do.body462.i:                                     ; preds = %sw.bb457.i
-  %258 = load i32, ptr @qemu_loglevel, align 4
-  %and.i416.i = and i32 %258, 2048
+  %259 = load i32, ptr @qemu_loglevel, align 4
+  %and.i416.i = and i32 %259, 2048
   %cmp.i417.not.i = icmp eq i32 %and.i416.i, 0
   br i1 %cmp.i417.not.i, label %sw.epilog, label %if.then470.i
 
@@ -2114,9 +2114,9 @@ sw.bb477.i:                                       ; preds = %if.end14.i
 
 sw.bb479.i:                                       ; preds = %if.end14.i, %if.end14.i
   %ear.i = getelementptr inbounds %struct.Flash, ptr %call.i, i64 0, i32 36
-  %259 = load i8, ptr %ear.i, align 4
+  %260 = load i8, ptr %ear.i, align 4
   %data480.i = getelementptr inbounds %struct.Flash, ptr %call.i, i64 0, i32 6
-  store i8 %259, ptr %data480.i, align 1
+  store i8 %260, ptr %data480.i, align 1
   store i32 0, ptr %pos, align 8
   store i32 1, ptr %len, align 4
   store i8 5, ptr %state, align 8
@@ -2124,9 +2124,9 @@ sw.bb479.i:                                       ; preds = %if.end14.i, %if.end
 
 sw.bb485.i:                                       ; preds = %if.end14.i, %if.end14.i
   %write_enable486.i = getelementptr inbounds %struct.Flash, ptr %call.i, i64 0, i32 25
-  %260 = load i8, ptr %write_enable486.i, align 1
-  %261 = and i8 %260, 1
-  %tobool487.not.i = icmp eq i8 %261, 0
+  %261 = load i8, ptr %write_enable486.i, align 1
+  %262 = and i8 %261, 1
+  %tobool487.not.i = icmp eq i8 %262, 0
   br i1 %tobool487.not.i, label %sw.epilog, label %if.then488.i
 
 if.then488.i:                                     ; preds = %sw.bb485.i
@@ -2138,11 +2138,11 @@ if.then488.i:                                     ; preds = %sw.bb485.i
 
 sw.bb494.i:                                       ; preds = %if.end14.i
   %nonvolatile_cfg.i = getelementptr inbounds %struct.Flash, ptr %call.i, i64 0, i32 13
-  %262 = load i32, ptr %nonvolatile_cfg.i, align 4
-  %conv496.i = trunc i32 %262 to i8
+  %263 = load i32, ptr %nonvolatile_cfg.i, align 4
+  %conv496.i = trunc i32 %263 to i8
   %data497.i = getelementptr inbounds %struct.Flash, ptr %call.i, i64 0, i32 6
   store i8 %conv496.i, ptr %data497.i, align 1
-  %shr.i = lshr i32 %262, 8
+  %shr.i = lshr i32 %263, 8
   %conv501.i = trunc i32 %shr.i to i8
   %arrayidx503.i = getelementptr %struct.Flash, ptr %call.i, i64 0, i32 6, i64 1
   store i8 %conv501.i, ptr %arrayidx503.i, align 1
@@ -2153,15 +2153,15 @@ sw.bb494.i:                                       ; preds = %if.end14.i
 
 sw.bb507.i:                                       ; preds = %if.end14.i
   %write_enable508.i = getelementptr inbounds %struct.Flash, ptr %call.i, i64 0, i32 25
-  %263 = load i8, ptr %write_enable508.i, align 1
-  %264 = and i8 %263, 1
-  %tobool509.not.i = icmp eq i8 %264, 0
+  %264 = load i8, ptr %write_enable508.i, align 1
+  %265 = and i8 %264, 1
+  %tobool509.not.i = icmp eq i8 %265, 0
   br i1 %tobool509.not.i, label %sw.epilog, label %land.lhs.true511.i
 
 land.lhs.true511.i:                               ; preds = %sw.bb507.i
   %s.val216.i = load ptr, ptr %113, align 8
-  %265 = getelementptr i8, ptr %s.val216.i, i64 8
-  %s.val216.val.i = load i8, ptr %265, align 8
+  %266 = getelementptr i8, ptr %s.val216.i, i64 8
+  %s.val216.val.i = load i8, ptr %266, align 8
   %call512.i = tail call fastcc i32 @get_man(i8 %s.val216.val.i)
   %cmp513.i = icmp eq i32 %call512.i, 2
   br i1 %cmp513.i, label %if.then515.i, label %sw.epilog
@@ -2175,8 +2175,8 @@ if.then515.i:                                     ; preds = %land.lhs.true511.i
 
 sw.bb521.i:                                       ; preds = %if.end14.i
   %volatile_cfg522.i = getelementptr inbounds %struct.Flash, ptr %call.i, i64 0, i32 14
-  %266 = load i32, ptr %volatile_cfg522.i, align 8
-  %conv524.i = trunc i32 %266 to i8
+  %267 = load i32, ptr %volatile_cfg522.i, align 8
+  %conv524.i = trunc i32 %267 to i8
   %data525.i = getelementptr inbounds %struct.Flash, ptr %call.i, i64 0, i32 6
   store i8 %conv524.i, ptr %data525.i, align 1
   store i32 0, ptr %pos, align 8
@@ -2186,9 +2186,9 @@ sw.bb521.i:                                       ; preds = %if.end14.i
 
 sw.bb530.i:                                       ; preds = %if.end14.i
   %write_enable531.i = getelementptr inbounds %struct.Flash, ptr %call.i, i64 0, i32 25
-  %267 = load i8, ptr %write_enable531.i, align 1
-  %268 = and i8 %267, 1
-  %tobool532.not.i = icmp eq i8 %268, 0
+  %268 = load i8, ptr %write_enable531.i, align 1
+  %269 = and i8 %268, 1
+  %tobool532.not.i = icmp eq i8 %269, 0
   br i1 %tobool532.not.i, label %sw.epilog, label %if.then533.i
 
 if.then533.i:                                     ; preds = %sw.bb530.i
@@ -2200,8 +2200,8 @@ if.then533.i:                                     ; preds = %sw.bb530.i
 
 sw.bb539.i:                                       ; preds = %if.end14.i
   %enh_volatile_cfg.i = getelementptr inbounds %struct.Flash, ptr %call.i, i64 0, i32 15
-  %269 = load i32, ptr %enh_volatile_cfg.i, align 4
-  %conv541.i = trunc i32 %269 to i8
+  %270 = load i32, ptr %enh_volatile_cfg.i, align 4
+  %conv541.i = trunc i32 %270 to i8
   %data542.i = getelementptr inbounds %struct.Flash, ptr %call.i, i64 0, i32 6
   store i8 %conv541.i, ptr %data542.i, align 1
   store i32 0, ptr %pos, align 8
@@ -2211,9 +2211,9 @@ sw.bb539.i:                                       ; preds = %if.end14.i
 
 sw.bb547.i:                                       ; preds = %if.end14.i
   %write_enable548.i = getelementptr inbounds %struct.Flash, ptr %call.i, i64 0, i32 25
-  %270 = load i8, ptr %write_enable548.i, align 1
-  %271 = and i8 %270, 1
-  %tobool549.not.i = icmp eq i8 %271, 0
+  %271 = load i8, ptr %write_enable548.i, align 1
+  %272 = and i8 %271, 1
+  %tobool549.not.i = icmp eq i8 %272, 0
   br i1 %tobool549.not.i, label %sw.epilog, label %if.then550.i
 
 if.then550.i:                                     ; preds = %sw.bb547.i
@@ -2230,9 +2230,9 @@ sw.bb556.i:                                       ; preds = %if.end14.i
 
 sw.bb558.i:                                       ; preds = %if.end14.i
   %reset_enable559.i = getelementptr inbounds %struct.Flash, ptr %call.i, i64 0, i32 27
-  %272 = load i8, ptr %reset_enable559.i, align 1
-  %273 = and i8 %272, 1
-  %tobool560.not.i = icmp eq i8 %273, 0
+  %273 = load i8, ptr %reset_enable559.i, align 1
+  %274 = and i8 %273, 1
+  %tobool560.not.i = icmp eq i8 %274, 0
   br i1 %tobool560.not.i, label %sw.epilog, label %if.then561.i
 
 if.then561.i:                                     ; preds = %sw.bb558.i
@@ -2241,8 +2241,8 @@ if.then561.i:                                     ; preds = %sw.bb558.i
 
 sw.bb563.i:                                       ; preds = %if.end14.i
   %s.val215.i = load ptr, ptr %113, align 8
-  %274 = getelementptr i8, ptr %s.val215.i, i64 8
-  %s.val215.val.i = load i8, ptr %274, align 8
+  %275 = getelementptr i8, ptr %s.val215.i, i64 8
+  %s.val215.val.i = load i8, ptr %275, align 8
   %call564.i = tail call fastcc i32 @get_man(i8 %s.val215.val.i)
   switch i32 %call564.i, label %sw.epilog [
     i32 0, label %sw.bb565.i
@@ -2251,11 +2251,11 @@ sw.bb563.i:                                       ; preds = %if.end14.i
 
 sw.bb565.i:                                       ; preds = %sw.bb563.i
   %quad_enable566.i = getelementptr inbounds %struct.Flash, ptr %call.i, i64 0, i32 28
-  %275 = load i8, ptr %quad_enable566.i, align 4
-  %276 = shl i8 %275, 1
-  %277 = and i8 %276, 2
+  %276 = load i8, ptr %quad_enable566.i, align 4
+  %277 = shl i8 %276, 1
+  %278 = and i8 %277, 2
   %data574.i = getelementptr inbounds %struct.Flash, ptr %call.i, i64 0, i32 6
-  store i8 %277, ptr %data574.i, align 1
+  store i8 %278, ptr %data574.i, align 1
   store i32 0, ptr %pos, align 8
   store i32 1, ptr %len, align 4
   store i8 5, ptr %state, align 8
@@ -2273,24 +2273,24 @@ sw.bb583.i:                                       ; preds = %if.end14.i
 
 sw.bb585.i:                                       ; preds = %if.end14.i
   %s.val.i = load ptr, ptr %113, align 8
-  %278 = getelementptr i8, ptr %s.val.i, i64 8
-  %s.val.val.i = load i8, ptr %278, align 8
+  %279 = getelementptr i8, ptr %s.val.i, i64 8
+  %s.val.val.i = load i8, ptr %279, align 8
   %call586.i = tail call fastcc i32 @get_man(i8 %s.val.val.i)
   %cmp587.i = icmp eq i32 %call586.i, 4
   br i1 %cmp587.i, label %if.then589.i, label %do.body618.i
 
 if.then589.i:                                     ; preds = %sw.bb585.i
   %write_enable590.i = getelementptr inbounds %struct.Flash, ptr %call.i, i64 0, i32 25
-  %279 = load i8, ptr %write_enable590.i, align 1
-  %280 = and i8 %279, 1
-  %tobool591.not.i = icmp eq i8 %280, 0
+  %280 = load i8, ptr %write_enable590.i, align 1
+  %281 = and i8 %280, 1
+  %tobool591.not.i = icmp eq i8 %281, 0
   br i1 %tobool591.not.i, label %do.body605.i, label %if.then592.i
 
 if.then592.i:                                     ; preds = %if.then589.i
   %aai_enable593.i = getelementptr inbounds %struct.Flash, ptr %call.i, i64 0, i32 29
-  %281 = load i8, ptr %aai_enable593.i, align 1
-  %282 = and i8 %281, 1
-  %tobool594.not.i = icmp eq i8 %282, 0
+  %282 = load i8, ptr %aai_enable593.i, align 1
+  %283 = and i8 %282, 1
+  %tobool594.not.i = icmp eq i8 %283, 0
   br i1 %tobool594.not.i, label %if.else597.i, label %if.then595.i
 
 if.then595.i:                                     ; preds = %if.then592.i
@@ -2306,8 +2306,8 @@ if.else597.i:                                     ; preds = %if.then592.i
   br label %sw.epilog
 
 do.body605.i:                                     ; preds = %if.then589.i
-  %283 = load i32, ptr @qemu_loglevel, align 4
-  %and.i418.i = and i32 %283, 2048
+  %284 = load i32, ptr @qemu_loglevel, align 4
+  %and.i418.i = and i32 %284, 2048
   %cmp.i419.not.i = icmp eq i32 %and.i418.i, 0
   br i1 %cmp.i419.not.i, label %sw.epilog, label %if.then613.i
 
@@ -2316,8 +2316,8 @@ if.then613.i:                                     ; preds = %do.body605.i
   br label %sw.epilog
 
 do.body618.i:                                     ; preds = %sw.bb585.i
-  %284 = load i32, ptr @qemu_loglevel, align 4
-  %and.i420.i = and i32 %284, 2048
+  %285 = load i32, ptr @qemu_loglevel, align 4
+  %and.i420.i = and i32 %285, 2048
   %cmp.i421.not.i = icmp eq i32 %and.i420.i, 0
   br i1 %cmp.i421.not.i, label %sw.epilog, label %if.then626.i
 
@@ -2326,16 +2326,16 @@ if.then626.i:                                     ; preds = %do.body618.i
   br label %sw.epilog
 
 sw.bb630.i:                                       ; preds = %if.end14.i
-  %285 = load ptr, ptr %113, align 8
-  %sfdp_read.i = getelementptr inbounds %struct.FlashPartInfo, ptr %285, i64 0, i32 8
-  %286 = load ptr, ptr %sfdp_read.i, align 8
-  %tobool632.not.i = icmp eq ptr %286, null
+  %286 = load ptr, ptr %113, align 8
+  %sfdp_read.i = getelementptr inbounds %struct.FlashPartInfo, ptr %286, i64 0, i32 8
+  %287 = load ptr, ptr %sfdp_read.i, align 8
+  %tobool632.not.i = icmp eq ptr %287, null
   br i1 %tobool632.not.i, label %sw.default641.i, label %if.then633.i
 
 if.then633.i:                                     ; preds = %sw.bb630.i
   %call634.i = tail call fastcc i32 @get_addr_length(ptr noundef nonnull %call.i), !range !7
-  %287 = trunc i32 %call634.i to i8
-  %conv635.i = add nuw nsw i8 %287, 1
+  %288 = trunc i32 %call634.i to i8
+  %conv635.i = add nuw nsw i8 %288, 1
   store i8 %conv635.i, ptr %needed_bytes, align 1
   store i32 0, ptr %pos, align 8
   store i32 0, ptr %len, align 4
@@ -2350,8 +2350,8 @@ sw.default641.i:                                  ; preds = %sw.bb630.i, %if.end
   store i8 1, ptr %data_read_loop645.i, align 4
   %data646.i = getelementptr inbounds %struct.Flash, ptr %call.i, i64 0, i32 6
   store i8 0, ptr %data646.i, align 1
-  %288 = load i32, ptr @qemu_loglevel, align 4
-  %and.i422.i = and i32 %288, 2048
+  %289 = load i32, ptr @qemu_loglevel, align 4
+  %and.i422.i = and i32 %289, 2048
   %cmp.i423.not.i = icmp eq i32 %and.i422.i, 0
   br i1 %cmp.i423.not.i, label %sw.epilog, label %if.then656.i
 

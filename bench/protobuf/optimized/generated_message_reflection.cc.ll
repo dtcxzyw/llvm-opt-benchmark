@@ -694,9 +694,9 @@ define hidden noalias noundef nonnull ptr @_ZN6google8protobuf8internal18MakeDen
 entry:
   %sub = sub nsw i32 %max_val, %min_val
   %add = add nsw i32 %sub, 1
-  %conv = sext i32 %add to i64
+  %conv = zext nneg i32 %add to i64
   %0 = icmp slt i32 %sub, -1
-  %1 = shl nsw i64 %conv, 3
+  %1 = shl nuw nsw i64 %conv, 3
   %2 = select i1 %0, i64 -1, i64 %1
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %2) #27
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call, i8 0, i64 %2, i1 false)
@@ -791,9 +791,9 @@ if.end:                                           ; preds = %lor.lhs.false
   %4 = load i32, ptr %max_val, align 4
   %sub.i = sub i32 %4, %3
   %add.i = add i32 %sub.i, 1
-  %conv.i = sext i32 %add.i to i64
+  %conv.i = zext i32 %add.i to i64
   %5 = icmp slt i32 %sub.i, -1
-  %6 = shl nsw i64 %conv.i, 3
+  %6 = shl nuw nsw i64 %conv.i, 3
   %7 = select i1 %5, i64 -1, i64 %6
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #27
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i, i8 0, i64 %7, i1 false)
@@ -810,11 +810,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end
 
 for.cond12.preheader.i:                           ; preds = %for.inc.i, %if.end
   %cmp15.not23.i = icmp slt i32 %sub.i, 0
-  br i1 %cmp15.not23.i, label %_ZN6google8protobuf8internal18MakeDenseEnumCacheB5cxx11EPKNS0_14EnumDescriptorEii.exit, label %for.body16.preheader.i
-
-for.body16.preheader.i:                           ; preds = %for.cond12.preheader.i
-  %wide.trip.count29.i = zext i32 %add.i to i64
-  br label %for.body16.i
+  br i1 %cmp15.not23.i, label %_ZN6google8protobuf8internal18MakeDenseEnumCacheB5cxx11EPKNS0_14EnumDescriptorEii.exit, label %for.body16.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
@@ -838,8 +834,8 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.cond12.preheader.i, label %for.body.i, !llvm.loop !4
 
-for.body16.i:                                     ; preds = %for.inc25.i, %for.body16.preheader.i
-  %indvars.iv26.i = phi i64 [ 0, %for.body16.preheader.i ], [ %indvars.iv.next27.i, %for.inc25.i ]
+for.body16.i:                                     ; preds = %for.cond12.preheader.i, %for.inc25.i
+  %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %for.inc25.i ], [ 0, %for.cond12.preheader.i ]
   %arrayidx18.i = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv26.i
   %13 = load ptr, ptr %arrayidx18.i, align 8
   %cmp19.i = icmp eq ptr %13, null
@@ -851,7 +847,7 @@ if.then20.i:                                      ; preds = %for.body16.i
 
 for.inc25.i:                                      ; preds = %if.then20.i, %for.body16.i
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
-  %exitcond30.not.i = icmp eq i64 %indvars.iv.next27.i, %wide.trip.count29.i
+  %exitcond30.not.i = icmp eq i64 %indvars.iv.next27.i, %conv.i
   br i1 %exitcond30.not.i, label %_ZN6google8protobuf8internal18MakeDenseEnumCacheB5cxx11EPKNS0_14EnumDescriptorEii.exit, label %for.body16.i, !llvm.loop !6
 
 _ZN6google8protobuf8internal18MakeDenseEnumCacheB5cxx11EPKNS0_14EnumDescriptorEii.exit: ; preds = %for.inc25.i, %for.cond12.preheader.i
@@ -20001,7 +19997,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDe
   %sub.ptr.div.i.i.i.i.i.i44.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i43.i.i, 3
   %.pre.i.i.i.i.i.i45.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i44.i.i
   %add.ptr.i.i.i.i.i.i46.i.i = getelementptr inbounds ptr, ptr %add.ptr.i2.i41.i.i, i64 %.pre.i.i.i.i.i.i45.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i46.i.i, ptr nonnull align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i43.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i46.i.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i43.i.i, i1 false)
   br label %for.inc.i29.i.i
 
 if.else.i26.i.i:                                  ; preds = %for.body.i20.i.i
@@ -39541,7 +39537,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDe
   %sub.ptr.div.i.i.i.i.i.i44.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i43.i.i.i, 3
   %.pre.i.i.i.i.i.i45.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i44.i.i.i
   %add.ptr.i.i.i.i.i.i46.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i2.i41.i.i.i, i64 %.pre.i.i.i.i.i.i45.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i46.i.i.i, ptr nonnull align 8 %.pre, i64 %sub.ptr.sub.i.i.i.i.i.i43.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i46.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %.pre, i64 %sub.ptr.sub.i.i.i.i.i.i43.i.i.i, i1 false)
   br label %for.inc.i29.i.i.i
 
 if.else.i26.i.i.i:                                ; preds = %for.body.i20.i.i.i

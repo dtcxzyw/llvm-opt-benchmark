@@ -815,19 +815,19 @@ if.then.i25.i:                                    ; preds = %readLine.exit.i.i
   ]
 
 for.cond.preheader.i.i:                           ; preds = %if.then.i25.i
-  %cmp149208.i.i = icmp sgt i32 %conv.i.i.i, 0
-  br i1 %cmp149208.i.i, label %for.body.preheader.i.i, label %for.end.i.i
+  %cmp149207.i.i = icmp sgt i32 %conv.i.i.i, 0
+  br i1 %cmp149207.i.i, label %for.body.preheader.i.i, label %for.end.i.i
 
 for.body.preheader.i.i:                           ; preds = %for.cond.preheader.i.i
   %wide.trip.count.i.i = and i64 %sub.ptr.sub.i.i.i, 4294967295
   br label %for.body.i.i
 
 for.cond187.preheader.i.i:                        ; preds = %if.then.i25.i
-  %cmp188210.i.i = icmp sgt i32 %conv.i.i.i, 0
-  br i1 %cmp188210.i.i, label %for.body190.preheader.i.i, label %for.end206.i.i
+  %cmp188209.i.i = icmp sgt i32 %conv.i.i.i, 0
+  br i1 %cmp188209.i.i, label %for.body190.preheader.i.i, label %for.end206.i.i
 
 for.body190.preheader.i.i:                        ; preds = %for.cond187.preheader.i.i
-  %wide.trip.count223.i.i = and i64 %sub.ptr.sub.i.i.i, 4294967295
+  %wide.trip.count222.i.i = and i64 %sub.ptr.sub.i.i.i, 4294967295
   br label %for.body190.i.i
 
 if.then2.i.i:                                     ; preds = %if.then.i25.i
@@ -944,11 +944,11 @@ land.lhs.true1.i.i.i:                             ; preds = %land.lhs.true.i82.i
 if.then.i83.i.i:                                  ; preds = %land.lhs.true1.i.i.i
   call void %47(ptr noundef nonnull %45) #12
   store ptr null, ptr %reply.i197.i, align 8
-  %.pre228.i.i = load ptr, ptr %buf.i.i, align 8
+  %.pre227.i.i = load ptr, ptr %buf.i.i, align 8
   br label %__redisReaderSetError.exit.i.i
 
 __redisReaderSetError.exit.i.i:                   ; preds = %if.then.i83.i.i, %land.lhs.true1.i.i.i, %land.lhs.true.i82.i.i, %if.then6.i.i
-  %48 = phi ptr [ %34, %if.then6.i.i ], [ %34, %land.lhs.true.i82.i.i ], [ %34, %land.lhs.true1.i.i.i ], [ %.pre228.i.i, %if.then.i83.i.i ]
+  %48 = phi ptr [ %34, %if.then6.i.i ], [ %34, %land.lhs.true.i82.i.i ], [ %34, %land.lhs.true1.i.i.i ], [ %.pre227.i.i, %if.then.i83.i.i ]
   call void @hi_sdsfree(ptr noundef %48) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i.i, i8 0, i64 24, i1 false)
   store i32 -1, ptr %ridx, align 4
@@ -996,11 +996,11 @@ land.lhs.true1.i91.i.i:                           ; preds = %land.lhs.true.i88.i
 if.then.i94.i.i:                                  ; preds = %land.lhs.true1.i91.i.i
   call void %53(ptr noundef nonnull %51) #12
   store ptr null, ptr %reply.i197.i, align 8
-  %.pre227.i.i = load ptr, ptr %buf.i.i, align 8
+  %.pre226.i.i = load ptr, ptr %buf.i.i, align 8
   br label %__redisReaderSetError.exit102.i.i
 
 __redisReaderSetError.exit102.i.i:                ; preds = %if.then.i94.i.i, %land.lhs.true1.i91.i.i, %land.lhs.true.i88.i.i, %if.then22.i.i
-  %54 = phi ptr [ %34, %if.then22.i.i ], [ %34, %land.lhs.true.i88.i.i ], [ %34, %land.lhs.true1.i91.i.i ], [ %.pre227.i.i, %if.then.i94.i.i ]
+  %54 = phi ptr [ %34, %if.then22.i.i ], [ %34, %land.lhs.true.i88.i.i ], [ %34, %land.lhs.true1.i91.i.i ], [ %.pre226.i.i, %if.then.i94.i.i ]
   call void @hi_sdsfree(ptr noundef %54) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i.i, i8 0, i64 24, i1 false)
   store i32 -1, ptr %ridx, align 4
@@ -1096,11 +1096,11 @@ land.lhs.true1.i108.i.i:                          ; preds = %land.lhs.true.i105.
 if.then.i111.i.i:                                 ; preds = %land.lhs.true1.i108.i.i
   call void %63(ptr noundef nonnull %61) #12
   store ptr null, ptr %reply.i197.i, align 8
-  %.pre226.i.i = load ptr, ptr %buf.i.i, align 8
+  %.pre225.i.i = load ptr, ptr %buf.i.i, align 8
   br label %__redisReaderSetError.exit119.i.i
 
 __redisReaderSetError.exit119.i.i:                ; preds = %if.then.i111.i.i, %land.lhs.true1.i108.i.i, %land.lhs.true.i105.i.i, %if.then98.i.i
-  %64 = phi ptr [ %34, %if.then98.i.i ], [ %34, %land.lhs.true.i105.i.i ], [ %34, %land.lhs.true1.i108.i.i ], [ %.pre226.i.i, %if.then.i111.i.i ]
+  %64 = phi ptr [ %34, %if.then98.i.i ], [ %34, %land.lhs.true.i105.i.i ], [ %34, %land.lhs.true1.i108.i.i ], [ %.pre225.i.i, %if.then.i111.i.i ]
   call void @hi_sdsfree(ptr noundef %64) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i.i, i8 0, i64 24, i1 false)
   store i32 -1, ptr %ridx, align 4
@@ -1154,11 +1154,11 @@ land.lhs.true1.i125.i.i:                          ; preds = %land.lhs.true.i122.
 if.then.i128.i.i:                                 ; preds = %land.lhs.true1.i125.i.i
   call void %70(ptr noundef nonnull %68) #12
   store ptr null, ptr %reply.i197.i, align 8
-  %.pre225.i.i = load ptr, ptr %buf.i.i, align 8
+  %.pre224.i.i = load ptr, ptr %buf.i.i, align 8
   br label %__redisReaderSetError.exit136.i.i
 
 __redisReaderSetError.exit136.i.i:                ; preds = %if.then.i128.i.i, %land.lhs.true1.i125.i.i, %land.lhs.true.i122.i.i, %if.then123.i.i
-  %71 = phi ptr [ %34, %if.then123.i.i ], [ %34, %land.lhs.true.i122.i.i ], [ %34, %land.lhs.true1.i125.i.i ], [ %.pre225.i.i, %if.then.i128.i.i ]
+  %71 = phi ptr [ %34, %if.then123.i.i ], [ %34, %land.lhs.true.i122.i.i ], [ %34, %land.lhs.true1.i125.i.i ], [ %.pre224.i.i, %if.then.i128.i.i ]
   call void @hi_sdsfree(ptr noundef %71) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i.i, i8 0, i64 24, i1 false)
   store i32 -1, ptr %ridx, align 4
@@ -1255,8 +1255,8 @@ if.then178.i.i:                                   ; preds = %land.lhs.true175.i.
   br label %if.end226.i.i
 
 for.body190.i.i:                                  ; preds = %for.inc204.i.i, %for.body190.preheader.i.i
-  %indvars.iv220.i.i = phi i64 [ 0, %for.body190.preheader.i.i ], [ %indvars.iv.next221.i.i, %for.inc204.i.i ]
-  %arrayidx192.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %indvars.iv220.i.i
+  %indvars.iv219.i.i = phi i64 [ 0, %for.body190.preheader.i.i ], [ %indvars.iv.next220.i.i, %for.inc204.i.i ]
+  %arrayidx192.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %indvars.iv219.i.i
   %84 = load i8, ptr %arrayidx192.i.i, align 1
   switch i8 %84, label %for.inc204.i.i [
     i8 13, label %if.then202.i.i
@@ -1282,11 +1282,11 @@ land.lhs.true1.i159.i.i:                          ; preds = %land.lhs.true.i156.
 if.then.i162.i.i:                                 ; preds = %land.lhs.true1.i159.i.i
   call void %87(ptr noundef nonnull %85) #12
   store ptr null, ptr %reply.i197.i, align 8
-  %.pre229.i.i = load ptr, ptr %buf.i.i, align 8
+  %.pre228.i.i = load ptr, ptr %buf.i.i, align 8
   br label %__redisReaderSetError.exit170.i.i
 
 __redisReaderSetError.exit170.i.i:                ; preds = %if.then.i162.i.i, %land.lhs.true1.i159.i.i, %land.lhs.true.i156.i.i, %if.then202.i.i
-  %88 = phi ptr [ %34, %if.then202.i.i ], [ %34, %land.lhs.true.i156.i.i ], [ %34, %land.lhs.true1.i159.i.i ], [ %.pre229.i.i, %if.then.i162.i.i ]
+  %88 = phi ptr [ %34, %if.then202.i.i ], [ %34, %land.lhs.true.i156.i.i ], [ %34, %land.lhs.true1.i159.i.i ], [ %.pre228.i.i, %if.then.i162.i.i ]
   call void @hi_sdsfree(ptr noundef %88) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i.i, i8 0, i64 24, i1 false)
   store i32 -1, ptr %ridx, align 4
@@ -1296,9 +1296,9 @@ __redisReaderSetError.exit170.i.i:                ; preds = %if.then.i162.i.i, %
   br label %processLineItem.exit.i
 
 for.inc204.i.i:                                   ; preds = %for.body190.i.i
-  %indvars.iv.next221.i.i = add nuw nsw i64 %indvars.iv220.i.i, 1
-  %exitcond224.not.i.i = icmp eq i64 %indvars.iv.next221.i.i, %wide.trip.count223.i.i
-  br i1 %exitcond224.not.i.i, label %for.end206.i.i, label %for.body190.i.i
+  %indvars.iv.next220.i.i = add nuw nsw i64 %indvars.iv219.i.i, 1
+  %exitcond223.not.i.i = icmp eq i64 %indvars.iv.next220.i.i, %wide.trip.count222.i.i
+  br i1 %exitcond223.not.i.i, label %for.end206.i.i, label %for.body190.i.i
 
 for.end206.i.i:                                   ; preds = %for.inc204.i.i, %for.cond187.preheader.i.i
   %89 = load ptr, ptr %fn45.i.i, align 8
@@ -1357,14 +1357,14 @@ __redisReaderSetErrorOOM.exit.i.i:                ; preds = %if.then.i.i.i.i, %l
   br label %processLineItem.exit.i
 
 if.end230.i.i:                                    ; preds = %if.end226.i.i, %land.lhs.true175.i.i, %for.end.i.i, %land.lhs.true135.i.i, %if.end124.i.i, %land.lhs.true102.i.i, %if.end99.i.i, %land.lhs.true80.i.i, %if.end77.i.i, %land.lhs.true.i.i, %if.end.i.i
-  %obj.0202.i.i = phi ptr [ %obj.0.i.i, %if.end226.i.i ], [ inttoptr (i64 13 to ptr), %for.end.i.i ], [ inttoptr (i64 13 to ptr), %land.lhs.true175.i.i ], [ inttoptr (i64 8 to ptr), %if.end124.i.i ], [ inttoptr (i64 8 to ptr), %land.lhs.true135.i.i ], [ inttoptr (i64 4 to ptr), %if.end99.i.i ], [ inttoptr (i64 4 to ptr), %land.lhs.true102.i.i ], [ inttoptr (i64 7 to ptr), %if.end77.i.i ], [ inttoptr (i64 7 to ptr), %land.lhs.true80.i.i ], [ inttoptr (i64 3 to ptr), %if.end.i.i ], [ inttoptr (i64 3 to ptr), %land.lhs.true.i.i ]
+  %obj.0201.i.i = phi ptr [ %obj.0.i.i, %if.end226.i.i ], [ inttoptr (i64 13 to ptr), %for.end.i.i ], [ inttoptr (i64 13 to ptr), %land.lhs.true175.i.i ], [ inttoptr (i64 8 to ptr), %if.end124.i.i ], [ inttoptr (i64 8 to ptr), %land.lhs.true135.i.i ], [ inttoptr (i64 4 to ptr), %if.end99.i.i ], [ inttoptr (i64 4 to ptr), %land.lhs.true102.i.i ], [ inttoptr (i64 7 to ptr), %if.end77.i.i ], [ inttoptr (i64 7 to ptr), %land.lhs.true80.i.i ], [ inttoptr (i64 3 to ptr), %if.end.i.i ], [ inttoptr (i64 3 to ptr), %land.lhs.true.i.i ]
   %96 = load i32, ptr %ridx, align 4
   %cmp232.i.i = icmp eq i32 %96, 0
   br i1 %cmp232.i.i, label %while.body.lr.ph.i.thread.i.i, label %if.end235.i.i
 
 while.body.lr.ph.i.thread.i.i:                    ; preds = %if.end230.i.i
-  store ptr %obj.0202.i.i, ptr %reply.i197.i, align 8
-  br label %if.then.i178.i.i
+  store ptr %obj.0201.i.i, ptr %reply.i197.i, align 8
+  br label %if.then.i177.i.i
 
 if.end235.i.i:                                    ; preds = %if.end230.i.i
   %cmp16.i.i.i = icmp sgt i32 %96, -1
@@ -1374,34 +1374,33 @@ if.end.i173.lr.ph.i.i:                            ; preds = %if.end235.i.i
   %97 = load ptr, ptr %task.i, align 8
   br label %if.end.i173.i.i
 
-if.then.i178.i.i:                                 ; preds = %if.then12.i.i.i, %while.body.lr.ph.i.thread.i.i
+if.then.i177.i.i:                                 ; preds = %if.then12.i.i.i, %while.body.lr.ph.i.thread.i.i
   store i32 -1, ptr %ridx, align 4
   br label %processLineItem.exit.i
 
 if.end.i173.i.i:                                  ; preds = %if.then12.i.i.i, %if.end.i173.lr.ph.i.i
-  %sub1517.i214.i.i = phi i32 [ %96, %if.end.i173.lr.ph.i.i ], [ %sub.i175.i.i, %if.then12.i.i.i ]
-  %idxprom.i.i.i = zext nneg i32 %sub1517.i214.i.i to i64
+  %dec141517.i213.i.i = phi i32 [ %96, %if.end.i173.lr.ph.i.i ], [ %dec14.i.i.i, %if.then12.i.i.i ]
+  %idxprom.i.i.i = zext nneg i32 %dec141517.i213.i.i to i64
   %arrayidx.i174.i.i = getelementptr inbounds ptr, ptr %97, i64 %idxprom.i.i.i
   %98 = load ptr, ptr %arrayidx.i174.i.i, align 8
-  %sub.i175.i.i = add nsw i32 %sub1517.i214.i.i, -1
-  %idxprom7.i.i.i = zext nneg i32 %sub.i175.i.i to i64
-  %arrayidx8.i.i.i = getelementptr inbounds ptr, ptr %97, i64 %idxprom7.i.i.i
+  %arrayidx8.i.i.i = getelementptr ptr, ptr %arrayidx.i174.i.i, i64 -1
   %99 = load ptr, ptr %arrayidx8.i.i.i, align 8
   %idx.i.i.i = getelementptr inbounds %struct.redisReadTask, ptr %98, i64 0, i32 2
   %100 = load i32, ptr %idx.i.i.i, align 8
-  %conv.i176.i.i = sext i32 %100 to i64
+  %conv.i175.i.i = sext i32 %100 to i64
   %elements.i.i.i = getelementptr inbounds %struct.redisReadTask, ptr %99, i64 0, i32 1
   %101 = load i64, ptr %elements.i.i.i, align 8
   %sub9.i.i.i = add nsw i64 %101, -1
-  %cmp10.i.i.i = icmp eq i64 %sub9.i.i.i, %conv.i176.i.i
-  br i1 %cmp10.i.i.i, label %if.then12.i.i.i, label %if.else.i177.i.i
+  %cmp10.i.i.i = icmp eq i64 %sub9.i.i.i, %conv.i175.i.i
+  br i1 %cmp10.i.i.i, label %if.then12.i.i.i, label %if.else.i176.i.i
 
 if.then12.i.i.i:                                  ; preds = %if.end.i173.i.i
-  store i32 %sub.i175.i.i, ptr %ridx, align 4
-  %cmp2.i.i.i = icmp eq i32 %sub.i175.i.i, 0
-  br i1 %cmp2.i.i.i, label %if.then.i178.i.i, label %if.end.i173.i.i
+  %dec14.i.i.i = add nsw i32 %dec141517.i213.i.i, -1
+  store i32 %dec14.i.i.i, ptr %ridx, align 4
+  %cmp2.i.i.i = icmp eq i32 %dec14.i.i.i, 0
+  br i1 %cmp2.i.i.i, label %if.then.i177.i.i, label %if.end.i173.i.i
 
-if.else.i177.i.i:                                 ; preds = %if.end.i173.i.i
+if.else.i176.i.i:                                 ; preds = %if.end.i173.i.i
   %idx.i.i.i.le = getelementptr inbounds %struct.redisReadTask, ptr %98, i64 0, i32 2
   store i32 -1, ptr %98, align 8
   %elements15.i.i.i = getelementptr inbounds %struct.redisReadTask, ptr %98, i64 0, i32 1
@@ -1410,8 +1409,8 @@ if.else.i177.i.i:                                 ; preds = %if.end.i173.i.i
   store i32 %inc.i.i.i, ptr %idx.i.i.i.le, align 8
   br label %processLineItem.exit.i
 
-processLineItem.exit.i:                           ; preds = %if.end5.i.i.i.i, %if.else.i177.i.i, %if.then.i178.i.i, %if.end235.i.i, %__redisReaderSetErrorOOM.exit.i.i, %__redisReaderSetError.exit170.i.i, %__redisReaderSetError.exit153.i.i, %__redisReaderSetError.exit136.i.i, %__redisReaderSetError.exit119.i.i, %if.then73.i.i, %__redisReaderSetError.exit102.i.i, %__redisReaderSetError.exit.i.i, %readLine.exit.i.i, %if.end.i.i.i.i, %sw.bb31.i
-  %retval.0.i23.i = phi i32 [ -1, %__redisReaderSetError.exit.i.i ], [ -1, %__redisReaderSetErrorOOM.exit.i.i ], [ -1, %__redisReaderSetError.exit102.i.i ], [ -1, %if.then73.i.i ], [ -1, %__redisReaderSetError.exit119.i.i ], [ -1, %__redisReaderSetError.exit136.i.i ], [ -1, %__redisReaderSetError.exit153.i.i ], [ -1, %__redisReaderSetError.exit170.i.i ], [ -1, %readLine.exit.i.i ], [ 0, %if.end235.i.i ], [ 0, %if.then.i178.i.i ], [ 0, %if.else.i177.i.i ], [ -1, %sw.bb31.i ], [ -1, %if.end.i.i.i.i ], [ -1, %if.end5.i.i.i.i ]
+processLineItem.exit.i:                           ; preds = %if.end5.i.i.i.i, %if.else.i176.i.i, %if.then.i177.i.i, %if.end235.i.i, %__redisReaderSetErrorOOM.exit.i.i, %__redisReaderSetError.exit170.i.i, %__redisReaderSetError.exit153.i.i, %__redisReaderSetError.exit136.i.i, %__redisReaderSetError.exit119.i.i, %if.then73.i.i, %__redisReaderSetError.exit102.i.i, %__redisReaderSetError.exit.i.i, %readLine.exit.i.i, %if.end.i.i.i.i, %sw.bb31.i
+  %retval.0.i23.i = phi i32 [ -1, %__redisReaderSetError.exit.i.i ], [ -1, %__redisReaderSetErrorOOM.exit.i.i ], [ -1, %__redisReaderSetError.exit102.i.i ], [ -1, %if.then73.i.i ], [ -1, %__redisReaderSetError.exit119.i.i ], [ -1, %__redisReaderSetError.exit136.i.i ], [ -1, %__redisReaderSetError.exit153.i.i ], [ -1, %__redisReaderSetError.exit170.i.i ], [ -1, %readLine.exit.i.i ], [ 0, %if.end235.i.i ], [ 0, %if.then.i177.i.i ], [ 0, %if.else.i176.i.i ], [ -1, %sw.bb31.i ], [ -1, %if.end.i.i.i.i ], [ -1, %if.end5.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 326, ptr nonnull %buf.i22.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %eptr.i.i)
   br label %processItem.exit
@@ -1574,11 +1573,11 @@ land.lhs.true1.i.i54.i:                           ; preds = %land.lhs.true.i46.i
 if.then.i.i.i:                                    ; preds = %land.lhs.true1.i.i54.i
   call void %117(ptr noundef nonnull %115) #12
   store ptr null, ptr %reply.i197.i, align 8
-  %.pre127.i.i = load ptr, ptr %buf.i.i, align 8
+  %.pre126.i.i = load ptr, ptr %buf.i.i, align 8
   br label %__redisReaderSetError.exit.i57.i
 
 __redisReaderSetError.exit.i57.i:                 ; preds = %if.then.i.i.i, %land.lhs.true1.i.i54.i, %land.lhs.true.i46.i.i, %if.then12.i.i
-  %118 = phi ptr [ %105, %if.then12.i.i ], [ %105, %land.lhs.true.i46.i.i ], [ %105, %land.lhs.true1.i.i54.i ], [ %.pre127.i.i, %if.then.i.i.i ]
+  %118 = phi ptr [ %105, %if.then12.i.i ], [ %105, %land.lhs.true.i46.i.i ], [ %105, %land.lhs.true1.i.i54.i ], [ %.pre126.i.i, %if.then.i.i.i ]
   call void @hi_sdsfree(ptr noundef %118) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i.i, i8 0, i64 24, i1 false)
   store i32 -1, ptr %ridx, align 4
@@ -1646,9 +1645,9 @@ if.then20.i.i:                                    ; preds = %land.lhs.true.i100.
   br label %if.then61.i.i
 
 if.else25.i.i:                                    ; preds = %if.end15.i.i, %if.else89.i.i64.i, %if.else.i.i127.i, %if.else89.thread.i.i129.i, %land.lhs.true.i.i124.i
-  %sub87.sink.i100103.i.i = phi i64 [ 0, %if.end15.i.i ], [ %v.0.lcssa.i.i63.i, %if.else89.i.i64.i ], [ %sub63.i.i131.i, %if.else89.thread.i.i129.i ], [ 0, %land.lhs.true.i.i124.i ], [ 0, %if.else.i.i127.i ]
+  %sub87.sink.i99102.i.i = phi i64 [ 0, %if.end15.i.i ], [ %v.0.lcssa.i.i63.i, %if.else89.i.i64.i ], [ %sub63.i.i131.i, %if.else89.thread.i.i129.i ], [ 0, %land.lhs.true.i.i124.i ], [ 0, %if.else.i.i127.i ]
   %add26.i.i = add i64 %sub.ptr.sub.i.i, 4
-  %add27.i.i = add i64 %add26.i.i, %sub87.sink.i100103.i.i
+  %add27.i.i = add i64 %add26.i.i, %sub87.sink.i99102.i.i
   %add29.i.i = add i64 %add27.i.i, %106
   %cmp31.not.i.i = icmp ugt i64 %add29.i.i, %107
   br i1 %cmp31.not.i.i, label %while.end, label %if.then32.i.i
@@ -1656,7 +1655,7 @@ if.else25.i.i:                                    ; preds = %if.end15.i.i, %if.e
 if.then32.i.i:                                    ; preds = %if.else25.i.i
   %125 = load i32, ptr %104, align 8
   %cmp33.i.i = icmp eq i32 %125, 14
-  %cmp35.i.i = icmp ult i64 %sub87.sink.i100103.i.i, 4
+  %cmp35.i.i = icmp ult i64 %sub87.sink.i99102.i.i, 4
   %or.cond.i66.i = and i1 %cmp35.i.i, %cmp33.i.i
   br i1 %or.cond.i66.i, label %if.then42.i.i, label %lor.lhs.false.i.i
 
@@ -1688,11 +1687,11 @@ land.lhs.true1.i72.i.i:                           ; preds = %land.lhs.true.i69.i
 if.then.i75.i.i:                                  ; preds = %land.lhs.true1.i72.i.i
   call void %129(ptr noundef nonnull %127) #12
   store ptr null, ptr %reply.i197.i, align 8
-  %.pre126.i.i = load ptr, ptr %buf.i.i, align 8
+  %.pre125.i.i = load ptr, ptr %buf.i.i, align 8
   br label %__redisReaderSetError.exit83.i.i
 
 __redisReaderSetError.exit83.i.i:                 ; preds = %if.then.i75.i.i, %land.lhs.true1.i72.i.i, %land.lhs.true.i69.i.i, %if.then42.i.i
-  %130 = phi ptr [ %105, %if.then42.i.i ], [ %105, %land.lhs.true.i69.i.i ], [ %105, %land.lhs.true1.i72.i.i ], [ %.pre126.i.i, %if.then.i75.i.i ]
+  %130 = phi ptr [ %105, %if.then42.i.i ], [ %105, %land.lhs.true.i69.i.i ], [ %105, %land.lhs.true1.i72.i.i ], [ %.pre125.i.i, %if.then.i75.i.i ]
   call void @hi_sdsfree(ptr noundef %130) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i.i, i8 0, i64 24, i1 false)
   store i32 -1, ptr %ridx, align 4
@@ -1714,7 +1713,7 @@ land.lhs.true46.i.i:                              ; preds = %if.end43.i.i
 
 if.then49.i.i:                                    ; preds = %land.lhs.true46.i.i
   %add.ptr52.i.i = getelementptr inbounds i8, ptr %call13.i.i.i, i64 2
-  %call53.i.i = call ptr %132(ptr noundef nonnull %104, ptr noundef nonnull %add.ptr52.i.i, i64 noundef %sub87.sink.i100103.i.i) #12
+  %call53.i.i = call ptr %132(ptr noundef nonnull %104, ptr noundef nonnull %add.ptr52.i.i, i64 noundef %sub87.sink.i99102.i.i) #12
   br label %if.then61.i.i
 
 if.else54.i.i:                                    ; preds = %land.lhs.true46.i.i, %if.end43.i.i
@@ -1729,8 +1728,8 @@ if.then61.i.i:                                    ; preds = %if.else54.i.i, %if.
   br i1 %cmp62.i.i, label %if.then64.i.i, label %if.then61.if.end65_crit_edge.i.i
 
 if.then61.if.end65_crit_edge.i.i:                 ; preds = %if.then61.i.i
-  %.pre124.i.i = load i64, ptr %pos.i.i, align 8
-  %.pre125.i.i = load i32, ptr %ridx, align 4
+  %.pre123.i.i = load i64, ptr %pos.i.i, align 8
+  %.pre124.i.i = load i32, ptr %ridx, align 4
   br label %if.end65.i.i
 
 if.then64.i.i:                                    ; preds = %if.then61.i.i
@@ -1765,18 +1764,18 @@ __redisReaderSetErrorOOM.exit.i91.i:              ; preds = %if.then.i.i.i90.i, 
   br label %return
 
 if.end65.i.i:                                     ; preds = %if.then61.if.end65_crit_edge.i.i, %land.lhs.true.i100.i, %if.then17.i.i
-  %138 = phi i32 [ %.pre125.i.i, %if.then61.if.end65_crit_edge.i.i ], [ %102, %if.then17.i.i ], [ %102, %land.lhs.true.i100.i ]
-  %139 = phi i64 [ %.pre124.i.i, %if.then61.if.end65_crit_edge.i.i ], [ %106, %if.then17.i.i ], [ %106, %land.lhs.true.i100.i ]
-  %bytelen.0.ph113.i.i = phi i64 [ %bytelen.0.ph.i.i, %if.then61.if.end65_crit_edge.i.i ], [ %add.i42.i, %if.then17.i.i ], [ %add.i42.i, %land.lhs.true.i100.i ]
-  %obj.2.ph112.i.i = phi ptr [ %obj.2.ph.i.i, %if.then61.if.end65_crit_edge.i.i ], [ inttoptr (i64 4 to ptr), %if.then17.i.i ], [ inttoptr (i64 4 to ptr), %land.lhs.true.i100.i ]
-  %add67.i.i = add i64 %bytelen.0.ph113.i.i, %139
+  %138 = phi i32 [ %.pre124.i.i, %if.then61.if.end65_crit_edge.i.i ], [ %102, %if.then17.i.i ], [ %102, %land.lhs.true.i100.i ]
+  %139 = phi i64 [ %.pre123.i.i, %if.then61.if.end65_crit_edge.i.i ], [ %106, %if.then17.i.i ], [ %106, %land.lhs.true.i100.i ]
+  %bytelen.0.ph112.i.i = phi i64 [ %bytelen.0.ph.i.i, %if.then61.if.end65_crit_edge.i.i ], [ %add.i42.i, %if.then17.i.i ], [ %add.i42.i, %land.lhs.true.i100.i ]
+  %obj.2.ph111.i.i = phi ptr [ %obj.2.ph.i.i, %if.then61.if.end65_crit_edge.i.i ], [ inttoptr (i64 4 to ptr), %if.then17.i.i ], [ inttoptr (i64 4 to ptr), %land.lhs.true.i100.i ]
+  %add67.i.i = add i64 %bytelen.0.ph112.i.i, %139
   store i64 %add67.i.i, ptr %pos.i.i, align 8
   %cmp69.i.i = icmp eq i32 %138, 0
   br i1 %cmp69.i.i, label %while.body.lr.ph.i.thread.i80.i, label %if.end72.i.i
 
 while.body.lr.ph.i.thread.i80.i:                  ; preds = %if.end65.i.i
-  store ptr %obj.2.ph112.i.i, ptr %reply.i197.i, align 8
-  br label %if.then.i91.i.i
+  store ptr %obj.2.ph111.i.i, ptr %reply.i197.i, align 8
+  br label %if.then.i90.i.i
 
 if.end72.i.i:                                     ; preds = %if.end65.i.i
   %cmp16.i.i67.i = icmp sgt i32 %138, -1
@@ -1786,40 +1785,39 @@ if.end.i87.lr.ph.i.i:                             ; preds = %if.end72.i.i
   %140 = load ptr, ptr %task.i, align 8
   br label %if.end.i87.i.i
 
-if.then.i91.i.i:                                  ; preds = %if.then12.i.i79.i, %while.body.lr.ph.i.thread.i80.i
+if.then.i90.i.i:                                  ; preds = %if.then12.i.i78.i, %while.body.lr.ph.i.thread.i80.i
   store i32 -1, ptr %ridx, align 4
   br label %processItem.exit
 
-if.end.i87.i.i:                                   ; preds = %if.then12.i.i79.i, %if.end.i87.lr.ph.i.i
-  %sub1517.i119.i.i = phi i32 [ %138, %if.end.i87.lr.ph.i.i ], [ %sub.i89.i.i, %if.then12.i.i79.i ]
-  %idxprom.i.i68.i = zext nneg i32 %sub1517.i119.i.i to i64
+if.end.i87.i.i:                                   ; preds = %if.then12.i.i78.i, %if.end.i87.lr.ph.i.i
+  %dec141517.i118.i.i = phi i32 [ %138, %if.end.i87.lr.ph.i.i ], [ %dec14.i.i79.i, %if.then12.i.i78.i ]
+  %idxprom.i.i68.i = zext nneg i32 %dec141517.i118.i.i to i64
   %arrayidx.i88.i.i = getelementptr inbounds ptr, ptr %140, i64 %idxprom.i.i68.i
   %141 = load ptr, ptr %arrayidx.i88.i.i, align 8
-  %sub.i89.i.i = add nsw i32 %sub1517.i119.i.i, -1
-  %idxprom7.i.i69.i = zext nneg i32 %sub.i89.i.i to i64
-  %arrayidx8.i.i70.i = getelementptr inbounds ptr, ptr %140, i64 %idxprom7.i.i69.i
-  %142 = load ptr, ptr %arrayidx8.i.i70.i, align 8
-  %idx.i.i71.i = getelementptr inbounds %struct.redisReadTask, ptr %141, i64 0, i32 2
-  %143 = load i32, ptr %idx.i.i71.i, align 8
-  %conv.i.i72.i = sext i32 %143 to i64
-  %elements.i.i73.i = getelementptr inbounds %struct.redisReadTask, ptr %142, i64 0, i32 1
-  %144 = load i64, ptr %elements.i.i73.i, align 8
-  %sub9.i.i74.i = add nsw i64 %144, -1
-  %cmp10.i.i75.i = icmp eq i64 %sub9.i.i74.i, %conv.i.i72.i
-  br i1 %cmp10.i.i75.i, label %if.then12.i.i79.i, label %if.else.i90.i.i
+  %arrayidx8.i.i69.i = getelementptr ptr, ptr %arrayidx.i88.i.i, i64 -1
+  %142 = load ptr, ptr %arrayidx8.i.i69.i, align 8
+  %idx.i.i70.i = getelementptr inbounds %struct.redisReadTask, ptr %141, i64 0, i32 2
+  %143 = load i32, ptr %idx.i.i70.i, align 8
+  %conv.i.i71.i = sext i32 %143 to i64
+  %elements.i.i72.i = getelementptr inbounds %struct.redisReadTask, ptr %142, i64 0, i32 1
+  %144 = load i64, ptr %elements.i.i72.i, align 8
+  %sub9.i.i73.i = add nsw i64 %144, -1
+  %cmp10.i.i74.i = icmp eq i64 %sub9.i.i73.i, %conv.i.i71.i
+  br i1 %cmp10.i.i74.i, label %if.then12.i.i78.i, label %if.else.i89.i.i
 
-if.then12.i.i79.i:                                ; preds = %if.end.i87.i.i
-  store i32 %sub.i89.i.i, ptr %ridx, align 4
-  %cmp2.i86.i.i = icmp eq i32 %sub.i89.i.i, 0
-  br i1 %cmp2.i86.i.i, label %if.then.i91.i.i, label %if.end.i87.i.i
+if.then12.i.i78.i:                                ; preds = %if.end.i87.i.i
+  %dec14.i.i79.i = add nsw i32 %dec141517.i118.i.i, -1
+  store i32 %dec14.i.i79.i, ptr %ridx, align 4
+  %cmp2.i86.i.i = icmp eq i32 %dec14.i.i79.i, 0
+  br i1 %cmp2.i86.i.i, label %if.then.i90.i.i, label %if.end.i87.i.i
 
-if.else.i90.i.i:                                  ; preds = %if.end.i87.i.i
-  %idx.i.i71.i.le = getelementptr inbounds %struct.redisReadTask, ptr %141, i64 0, i32 2
+if.else.i89.i.i:                                  ; preds = %if.end.i87.i.i
+  %idx.i.i70.i.le = getelementptr inbounds %struct.redisReadTask, ptr %141, i64 0, i32 2
   store i32 -1, ptr %141, align 8
-  %elements15.i.i77.i = getelementptr inbounds %struct.redisReadTask, ptr %141, i64 0, i32 1
-  store i64 -1, ptr %elements15.i.i77.i, align 8
-  %inc.i.i78.i = add nsw i32 %143, 1
-  store i32 %inc.i.i78.i, ptr %idx.i.i71.i.le, align 8
+  %elements15.i.i76.i = getelementptr inbounds %struct.redisReadTask, ptr %141, i64 0, i32 1
+  store i64 -1, ptr %elements15.i.i76.i, align 8
+  %inc.i.i77.i = add nsw i32 %143, 1
+  store i32 %inc.i.i77.i, ptr %idx.i.i70.i.le, align 8
   br label %processItem.exit
 
 sw.bb35.sink.split.i:                             ; preds = %sw.bb25.i, %sw.bb19.i, %sw.bb17.i, %if.then2.i
@@ -2254,8 +2252,8 @@ if.then100.i.i:                                   ; preds = %if.end98.i.i
   store ptr %obj.2.i.i, ptr %reply.i197.i, align 8
   br label %processItem.exit
 
-processItem.exit:                                 ; preds = %processLineItem.exit.i, %if.end72.i.i, %if.then.i91.i.i, %if.else.i90.i.i, %if.end98.i.i, %if.then100.i.i
-  %retval.0.i = phi i32 [ %retval.0.i23.i, %processLineItem.exit.i ], [ 0, %if.end72.i.i ], [ 0, %if.then.i91.i.i ], [ 0, %if.else.i90.i.i ], [ 0, %if.then100.i.i ], [ 0, %if.end98.i.i ]
+processItem.exit:                                 ; preds = %processLineItem.exit.i, %if.end72.i.i, %if.then.i90.i.i, %if.else.i89.i.i, %if.end98.i.i, %if.then100.i.i
+  %retval.0.i = phi i32 [ %retval.0.i23.i, %processLineItem.exit.i ], [ 0, %if.end72.i.i ], [ 0, %if.then.i90.i.i ], [ 0, %if.else.i89.i.i ], [ 0, %if.then100.i.i ], [ 0, %if.end98.i.i ]
   %cmp23.not = icmp eq i32 %retval.0.i, 0
   br i1 %cmp23.not, label %while.cond, label %while.end
 
@@ -2448,13 +2446,11 @@ if.then:                                          ; preds = %if.then12, %while.b
   br label %while.end
 
 if.end:                                           ; preds = %if.end.preheader, %if.then12
-  %sub151725 = phi i32 [ %sub, %if.then12 ], [ %ridx.promoted, %if.end.preheader ]
-  %idxprom = zext nneg i32 %sub151725 to i64
+  %dec14151725 = phi i32 [ %dec14, %if.then12 ], [ %ridx.promoted, %if.end.preheader ]
+  %idxprom = zext nneg i32 %dec14151725 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
-  %sub = add nsw i32 %sub151725, -1
-  %idxprom7 = zext nneg i32 %sub to i64
-  %arrayidx8 = getelementptr inbounds ptr, ptr %0, i64 %idxprom7
+  %arrayidx8 = getelementptr ptr, ptr %arrayidx, i64 -1
   %2 = load ptr, ptr %arrayidx8, align 8
   %idx = getelementptr inbounds %struct.redisReadTask, ptr %1, i64 0, i32 2
   %3 = load i32, ptr %idx, align 8
@@ -2466,8 +2462,9 @@ if.end:                                           ; preds = %if.end.preheader, %
   br i1 %cmp10, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %if.end
-  store i32 %sub, ptr %ridx, align 4
-  %cmp2 = icmp eq i32 %sub, 0
+  %dec14 = add nsw i32 %dec14151725, -1
+  store i32 %dec14, ptr %ridx, align 4
+  %cmp2 = icmp eq i32 %dec14, 0
   br i1 %cmp2, label %if.then, label %if.end
 
 if.else:                                          ; preds = %if.end

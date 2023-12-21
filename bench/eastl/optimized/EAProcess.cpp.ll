@@ -78,24 +78,22 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv1 = trunc i64 %call to i32
+  %invariant.gep = getelementptr i8, ptr %pDirectory, i64 -1
   %cmp29 = icmp sgt i32 %conv1, 0
-  br i1 %cmp29, label %for.body.preheader, label %for.end
+  br i1 %cmp29, label %for.body, label %for.end
 
-for.body.preheader:                               ; preds = %if.then
-  %1 = and i64 %call, 4294967295
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.preheader, %if.then5
-  %indvars.iv = phi i64 [ %1, %for.body.preheader ], [ %indvars.iv.next, %if.then5 ]
-  %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %arrayidx = getelementptr inbounds i8, ptr %pDirectory, i64 %indvars.iv.next
-  %2 = load i8, ptr %arrayidx, align 1
+for.body:                                         ; preds = %if.then, %if.then5
+  %pos.010 = phi i32 [ %dec, %if.then5 ], [ %conv1, %if.then ]
+  %1 = zext nneg i32 %pos.010 to i64
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %1
+  %2 = load i8, ptr %gep, align 1
   %cmp4.not = icmp eq i8 %2, 47
   br i1 %cmp4.not, label %for.end, label %if.then5
 
 if.then5:                                         ; preds = %for.body
-  store i8 0, ptr %arrayidx, align 1
-  %cmp2 = icmp ugt i64 %indvars.iv, 1
+  store i8 0, ptr %gep, align 1
+  %dec = add nsw i32 %pos.010, -1
+  %cmp2 = icmp sgt i32 %pos.010, 1
   br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %if.then5, %for.body, %if.then
@@ -124,24 +122,22 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %conv1.i = trunc i64 %call.i to i32
+  %invariant.gep.i = getelementptr i8, ptr %path8, i64 -1
   %cmp29.i = icmp sgt i32 %conv1.i, 0
-  br i1 %cmp29.i, label %for.body.preheader.i, label %_ZN2EA4StdC26GetCurrentProcessDirectoryEPcii.exit
+  br i1 %cmp29.i, label %for.body.i, label %_ZN2EA4StdC26GetCurrentProcessDirectoryEPcii.exit
 
-for.body.preheader.i:                             ; preds = %if.then.i
-  %0 = and i64 %call.i, 4294967295
-  br label %for.body.i
-
-for.body.i:                                       ; preds = %if.then5.i, %for.body.preheader.i
-  %indvars.iv.i = phi i64 [ %0, %for.body.preheader.i ], [ %indvars.iv.next.i, %if.then5.i ]
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %arrayidx.i = getelementptr inbounds i8, ptr %path8, i64 %indvars.iv.next.i
-  %1 = load i8, ptr %arrayidx.i, align 1
+for.body.i:                                       ; preds = %if.then.i, %if.then5.i
+  %pos.010.i = phi i32 [ %dec.i, %if.then5.i ], [ %conv1.i, %if.then.i ]
+  %0 = zext nneg i32 %pos.010.i to i64
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %0
+  %1 = load i8, ptr %gep.i, align 1
   %cmp4.not.i = icmp eq i8 %1, 47
   br i1 %cmp4.not.i, label %_ZN2EA4StdC26GetCurrentProcessDirectoryEPcii.exit, label %if.then5.i
 
 if.then5.i:                                       ; preds = %for.body.i
-  store i8 0, ptr %arrayidx.i, align 1
-  %cmp2.i = icmp ugt i64 %indvars.iv.i, 1
+  store i8 0, ptr %gep.i, align 1
+  %dec.i = add nsw i32 %pos.010.i, -1
+  %cmp2.i = icmp sgt i32 %pos.010.i, 1
   br i1 %cmp2.i, label %for.body.i, label %_ZN2EA4StdC26GetCurrentProcessDirectoryEPcii.exit, !llvm.loop !5
 
 if.else10.i:                                      ; preds = %entry
@@ -211,24 +207,22 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %conv1.i = trunc i64 %call.i to i32
+  %invariant.gep.i = getelementptr i8, ptr %path8, i64 -1
   %cmp29.i = icmp sgt i32 %conv1.i, 0
-  br i1 %cmp29.i, label %for.body.preheader.i, label %_ZN2EA4StdC26GetCurrentProcessDirectoryEPcii.exit
+  br i1 %cmp29.i, label %for.body.i, label %_ZN2EA4StdC26GetCurrentProcessDirectoryEPcii.exit
 
-for.body.preheader.i:                             ; preds = %if.then.i
-  %0 = and i64 %call.i, 4294967295
-  br label %for.body.i
-
-for.body.i:                                       ; preds = %if.then5.i, %for.body.preheader.i
-  %indvars.iv.i = phi i64 [ %0, %for.body.preheader.i ], [ %indvars.iv.next.i, %if.then5.i ]
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %arrayidx.i = getelementptr inbounds i8, ptr %path8, i64 %indvars.iv.next.i
-  %1 = load i8, ptr %arrayidx.i, align 1
+for.body.i:                                       ; preds = %if.then.i, %if.then5.i
+  %pos.010.i = phi i32 [ %dec.i, %if.then5.i ], [ %conv1.i, %if.then.i ]
+  %0 = zext nneg i32 %pos.010.i to i64
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %0
+  %1 = load i8, ptr %gep.i, align 1
   %cmp4.not.i = icmp eq i8 %1, 47
   br i1 %cmp4.not.i, label %_ZN2EA4StdC26GetCurrentProcessDirectoryEPcii.exit, label %if.then5.i
 
 if.then5.i:                                       ; preds = %for.body.i
-  store i8 0, ptr %arrayidx.i, align 1
-  %cmp2.i = icmp ugt i64 %indvars.iv.i, 1
+  store i8 0, ptr %gep.i, align 1
+  %dec.i = add nsw i32 %pos.010.i, -1
+  %cmp2.i = icmp sgt i32 %pos.010.i, 1
   br i1 %cmp2.i, label %for.body.i, label %_ZN2EA4StdC26GetCurrentProcessDirectoryEPcii.exit, !llvm.loop !5
 
 if.else10.i:                                      ; preds = %entry

@@ -6883,11 +6883,11 @@ if.then64:                                        ; preds = %for.body32
   %20 = load i32, ptr %m_size.i, align 8
   %sub = add i32 %20, -1
   %rem = urem i32 %and.i50, %sub
-  %add70 = add nuw nsw i32 %rem, 1
   %m_cuts.i = getelementptr inbounds %"class.sat::cut_set", ptr %11, i64 %indvars.iv, i32 4
   %21 = load ptr, ptr %m_cuts.i, align 8
-  %idxprom.i52 = zext nneg i32 %add70 to i64
-  %arrayidx.i53 = getelementptr inbounds %"class.sat::cut", ptr %21, i64 %idxprom.i52
+  %22 = zext nneg i32 %rem to i64
+  %23 = getelementptr %"class.sat::cut", ptr %21, i64 %22
+  %arrayidx.i53 = getelementptr %"class.sat::cut", ptr %23, i64 1
   %call75 = invoke { i64, i64 } @_ZNK3sat3cut4evalERK7svectorINS_7cut_valEjE(ptr noundef nonnull align 8 dereferenceable(48) %arrayidx.i53, ptr noundef nonnull align 8 dereferenceable(8) %agg.result)
           to label %for.inc80.sink.split unwind label %lpad.loopexit
 

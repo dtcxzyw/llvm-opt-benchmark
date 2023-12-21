@@ -5125,11 +5125,11 @@ land.lhs.true.i:                                  ; preds = %land.lhs.true2
 _ZN4absl18debugging_internalL8EndsWithEPNS0_5StateEc.exit: ; preds = %land.lhs.true.i
   %out.i = getelementptr inbounds %"struct.absl::debugging_internal::State", ptr %state, i64 0, i32 1
   %3 = load ptr, ptr %out.i, align 8
-  %sub.i = add nsw i32 %1, -1
-  %idxprom.i = zext nneg i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr %3, i64 %idxprom.i
-  %4 = load i8, ptr %arrayidx.i, align 1
-  %cmp7.i = icmp eq i8 %4, 60
+  %4 = zext nneg i32 %1 to i64
+  %5 = getelementptr i8, ptr %3, i64 %4
+  %arrayidx.i = getelementptr i8, ptr %5, i64 -1
+  %6 = load i8, ptr %arrayidx.i, align 1
+  %cmp7.i = icmp eq i8 %6, 60
   br i1 %cmp7.i, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %_ZN4absl18debugging_internalL8EndsWithEPNS0_5StateEc.exit
@@ -5144,41 +5144,41 @@ for.end.i.thread:                                 ; preds = %if.then3
 
 for.end.i:                                        ; preds = %if.then3
   store i32 %add.i, ptr %out_cur_idx.i, align 4
-  %idxprom.i18 = zext nneg i32 %1 to i64
-  %arrayidx4.i = getelementptr inbounds i8, ptr %3, i64 %idxprom.i18
+  %idxprom.i = zext nneg i32 %1 to i64
+  %arrayidx4.i = getelementptr inbounds i8, ptr %3, i64 %idxprom.i
   store i8 32, ptr %arrayidx4.i, align 1
   %.pre = load i32, ptr %out_cur_idx.i, align 4
-  %.pre50 = load i32, ptr %out_end_idx.i, align 8
-  %cmp13.i = icmp slt i32 %.pre, %.pre50
+  %.pre49 = load i32, ptr %out_end_idx.i, align 8
+  %cmp13.i = icmp slt i32 %.pre, %.pre49
   br i1 %cmp13.i, label %if.then14.i, label %if.end
 
 if.then14.i:                                      ; preds = %for.end.i
-  %5 = load ptr, ptr %out.i, align 8
+  %7 = load ptr, ptr %out.i, align 8
   %idxprom18.i = sext i32 %.pre to i64
-  %arrayidx19.i = getelementptr inbounds i8, ptr %5, i64 %idxprom18.i
+  %arrayidx19.i = getelementptr inbounds i8, ptr %7, i64 %idxprom18.i
   store i8 0, ptr %arrayidx19.i, align 1
   br label %if.end
 
 if.end:                                           ; preds = %for.end.i.thread, %land.lhs.true2, %land.lhs.true.i, %if.then14.i, %for.end.i, %_ZN4absl18debugging_internalL8EndsWithEPNS0_5StateEc.exit, %if.then
   %out_cur_idx = getelementptr inbounds %"struct.absl::debugging_internal::State", ptr %state, i64 0, i32 5, i32 1
-  %6 = load i32, ptr %out_cur_idx, align 4
+  %8 = load i32, ptr %out_cur_idx, align 4
   %out_end_idx = getelementptr inbounds %"struct.absl::debugging_internal::State", ptr %state, i64 0, i32 2
-  %7 = load i32, ptr %out_end_idx, align 8
-  %cmp5 = icmp slt i32 %6, %7
+  %9 = load i32, ptr %out_end_idx, align 8
+  %cmp5 = icmp slt i32 %8, %9
   br i1 %cmp5, label %land.lhs.true6, label %for.body.lr.ph.i
 
 land.lhs.true6:                                   ; preds = %if.end
-  %8 = load i8, ptr %str, align 1
-  %9 = and i8 %8, -33
-  %10 = add i8 %9, -65
-  %11 = icmp ult i8 %10, 26
-  %cmp11 = icmp eq i8 %8, 95
-  %or.cond43 = or i1 %cmp11, %11
-  br i1 %or.cond43, label %if.then12, label %for.body.lr.ph.i
+  %10 = load i8, ptr %str, align 1
+  %11 = and i8 %10, -33
+  %12 = add i8 %11, -65
+  %13 = icmp ult i8 %12, 26
+  %cmp11 = icmp eq i8 %10, 95
+  %or.cond42 = or i1 %cmp11, %13
+  br i1 %or.cond42, label %if.then12, label %for.body.lr.ph.i
 
 if.then12:                                        ; preds = %land.lhs.true6
   %prev_name_idx = getelementptr inbounds %"struct.absl::debugging_internal::State", ptr %state, i64 0, i32 5, i32 2
-  store i32 %6, ptr %prev_name_idx, align 4
+  store i32 %8, ptr %prev_name_idx, align 4
   %conv16 = trunc i64 %length to i32
   %bf.load18 = load i32, ptr %append, align 4
   %bf.value = and i32 %conv16, 65535
@@ -5188,48 +5188,48 @@ if.then12:                                        ; preds = %land.lhs.true6
   br label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %land.lhs.true6, %if.end, %if.then12
-  %out.i21 = getelementptr inbounds %"struct.absl::debugging_internal::State", ptr %state, i64 0, i32 1
-  br label %for.body.i22
+  %out.i20 = getelementptr inbounds %"struct.absl::debugging_internal::State", ptr %state, i64 0, i32 1
+  br label %for.body.i21
 
-for.body.i22:                                     ; preds = %if.then.i36, %for.body.lr.ph.i
-  %i.015.i23 = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc9.i40, %if.then.i36 ]
-  %12 = load i32, ptr %out_cur_idx, align 4
-  %add.i24 = add nsw i32 %12, 1
-  %13 = load i32, ptr %out_end_idx, align 8
-  %cmp1.i25 = icmp slt i32 %add.i24, %13
-  br i1 %cmp1.i25, label %if.then.i36, label %for.end.i28.thread
+for.body.i21:                                     ; preds = %if.then.i35, %for.body.lr.ph.i
+  %i.015.i22 = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc9.i39, %if.then.i35 ]
+  %14 = load i32, ptr %out_cur_idx, align 4
+  %add.i23 = add nsw i32 %14, 1
+  %15 = load i32, ptr %out_end_idx, align 8
+  %cmp1.i24 = icmp slt i32 %add.i23, %15
+  br i1 %cmp1.i24, label %if.then.i35, label %for.end.i27.thread
 
-if.then.i36:                                      ; preds = %for.body.i22
-  %arrayidx.i37 = getelementptr inbounds i8, ptr %str, i64 %i.015.i23
-  %14 = load i8, ptr %arrayidx.i37, align 1
-  %15 = load ptr, ptr %out.i21, align 8
-  store i32 %add.i24, ptr %out_cur_idx, align 4
-  %idxprom.i38 = sext i32 %12 to i64
-  %arrayidx4.i39 = getelementptr inbounds i8, ptr %15, i64 %idxprom.i38
-  store i8 %14, ptr %arrayidx4.i39, align 1
-  %inc9.i40 = add nuw i64 %i.015.i23, 1
-  %exitcond.not.i41 = icmp eq i64 %inc9.i40, %length
-  br i1 %exitcond.not.i41, label %for.end.i28, label %for.body.i22, !llvm.loop !17
+if.then.i35:                                      ; preds = %for.body.i21
+  %arrayidx.i36 = getelementptr inbounds i8, ptr %str, i64 %i.015.i22
+  %16 = load i8, ptr %arrayidx.i36, align 1
+  %17 = load ptr, ptr %out.i20, align 8
+  store i32 %add.i23, ptr %out_cur_idx, align 4
+  %idxprom.i37 = sext i32 %14 to i64
+  %arrayidx4.i38 = getelementptr inbounds i8, ptr %17, i64 %idxprom.i37
+  store i8 %16, ptr %arrayidx4.i38, align 1
+  %inc9.i39 = add nuw i64 %i.015.i22, 1
+  %exitcond.not.i40 = icmp eq i64 %inc9.i39, %length
+  br i1 %exitcond.not.i40, label %for.end.i27, label %for.body.i21, !llvm.loop !17
 
-for.end.i28.thread:                               ; preds = %for.body.i22
-  %add6.i27 = add nsw i32 %13, 1
-  store i32 %add6.i27, ptr %out_cur_idx, align 4
+for.end.i27.thread:                               ; preds = %for.body.i21
+  %add6.i26 = add nsw i32 %15, 1
+  store i32 %add6.i26, ptr %out_cur_idx, align 4
   br label %if.end20
 
-for.end.i28:                                      ; preds = %if.then.i36
-  %.pre51 = load i32, ptr %out_cur_idx, align 4
-  %.pre52 = load i32, ptr %out_end_idx, align 8
-  %cmp13.i31 = icmp slt i32 %.pre51, %.pre52
-  br i1 %cmp13.i31, label %if.then14.i32, label %if.end20
+for.end.i27:                                      ; preds = %if.then.i35
+  %.pre50 = load i32, ptr %out_cur_idx, align 4
+  %.pre51 = load i32, ptr %out_end_idx, align 8
+  %cmp13.i30 = icmp slt i32 %.pre50, %.pre51
+  br i1 %cmp13.i30, label %if.then14.i31, label %if.end20
 
-if.then14.i32:                                    ; preds = %for.end.i28
-  %16 = load ptr, ptr %out.i21, align 8
-  %idxprom18.i34 = sext i32 %.pre51 to i64
-  %arrayidx19.i35 = getelementptr inbounds i8, ptr %16, i64 %idxprom18.i34
-  store i8 0, ptr %arrayidx19.i35, align 1
+if.then14.i31:                                    ; preds = %for.end.i27
+  %18 = load ptr, ptr %out.i20, align 8
+  %idxprom18.i33 = sext i32 %.pre50 to i64
+  %arrayidx19.i34 = getelementptr inbounds i8, ptr %18, i64 %idxprom18.i33
+  store i8 0, ptr %arrayidx19.i34, align 1
   br label %if.end20
 
-if.end20:                                         ; preds = %for.end.i28.thread, %if.then14.i32, %for.end.i28, %entry
+if.end20:                                         ; preds = %for.end.i27.thread, %if.then14.i31, %for.end.i27, %entry
   ret void
 }
 

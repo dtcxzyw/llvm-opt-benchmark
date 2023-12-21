@@ -787,7 +787,7 @@ for.cond.preheader:                               ; preds = %if.end10
 
 for.cond:                                         ; preds = %for.cond.preheader, %if.end38
   %reqLength.0 = phi i32 [ %inc, %if.end38 ], [ 0, %for.cond.preheader ]
-  %labelStart.0 = phi ptr [ %delimiter.0586979, %if.end38 ], [ %src, %for.cond.preheader ]
+  %labelStart.0 = phi ptr [ %delimiter.0627383, %if.end38 ], [ %src, %for.cond.preheader ]
   %currentDest.0 = phi ptr [ %currentDest.2, %if.end38 ], [ %dest, %for.cond.preheader ]
   %remainingLen.0 = phi i32 [ %remainingLen.1, %if.end38 ], [ %srcLength, %for.cond.preheader ]
   %remainingDestCapacity.0 = phi i32 [ %remainingDestCapacity.3, %if.end38 ], [ %destCapacity, %for.cond.preheader ]
@@ -803,8 +803,8 @@ for.body.preheader.i:                             ; preds = %for.cond10.preheade
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.cond, %for.inc.i
-  %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %for.inc.i ], [ 0, %for.cond ]
-  %arrayidx.i = getelementptr inbounds i16, ptr %labelStart.0, i64 %indvars.iv40.i
+  %indvars.iv43.i = phi i64 [ %indvars.iv.next44.i, %for.inc.i ], [ 0, %for.cond ]
+  %arrayidx.i = getelementptr inbounds i16, ptr %labelStart.0, i64 %indvars.iv43.i
   %2 = load i16, ptr %arrayidx.i, align 2
   switch i16 %2, label %for.inc.i [
     i16 0, label %if.then2.i
@@ -815,18 +815,17 @@ for.cond.i:                                       ; preds = %for.cond, %for.inc.
   ]
 
 if.then2.i:                                       ; preds = %for.cond.i
-  %3 = trunc i64 %indvars.iv40.i to i32
+  %3 = trunc i64 %indvars.iv43.i to i32
   br label %_ZL16getNextSeparatorPDsiPS_Pa.exit
 
 if.then5.i:                                       ; preds = %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i
-  %4 = trunc i64 %indvars.iv40.i to i32
-  %add.i = add i64 %indvars.iv40.i, 1
-  %idx.ext6.i = and i64 %add.i, 4294967295
-  %add.ptr7.i = getelementptr inbounds i16, ptr %labelStart.0, i64 %idx.ext6.i
+  %arrayidx.i.le = getelementptr inbounds i16, ptr %labelStart.0, i64 %indvars.iv43.i
+  %4 = trunc i64 %indvars.iv43.i to i32
+  %add.ptr7.i = getelementptr i16, ptr %arrayidx.i.le, i64 1
   br label %if.then20
 
 for.inc.i:                                        ; preds = %for.cond.i
-  %indvars.iv.next41.i = add nuw i64 %indvars.iv40.i, 1
+  %indvars.iv.next44.i = add nuw i64 %indvars.iv43.i, 1
   br label %for.cond.i, !llvm.loop !11
 
 for.body.i:                                       ; preds = %for.inc21.i, %for.body.preheader.i
@@ -841,10 +840,9 @@ for.body.i:                                       ; preds = %for.inc21.i, %for.b
   ]
 
 if.then16.i:                                      ; preds = %for.body.i, %for.body.i, %for.body.i, %for.body.i
+  %arrayidx13.i.le = getelementptr inbounds i16, ptr %labelStart.0, i64 %indvars.iv.i
   %6 = trunc i64 %indvars.iv.i to i32
-  %add17.i = add nuw i64 %indvars.iv.i, 1
-  %idx.ext18.i = and i64 %add17.i, 4294967295
-  %add.ptr19.i = getelementptr inbounds i16, ptr %labelStart.0, i64 %idx.ext18.i
+  %add.ptr19.i = getelementptr i16, ptr %arrayidx13.i.le, i64 1
   br label %if.then20
 
 for.inc21.i:                                      ; preds = %for.body.i
@@ -858,9 +856,9 @@ for.end.i:                                        ; preds = %for.inc21.i, %for.c
   br label %_ZL16getNextSeparatorPDsiPS_Pa.exit
 
 _ZL16getNextSeparatorPDsiPS_Pa.exit:              ; preds = %if.then2.i, %for.end.i
-  %indvars.iv40.i.pn = phi i64 [ %indvars.iv40.i, %if.then2.i ], [ %idx.ext23.i, %for.end.i ]
+  %indvars.iv43.i.pn = phi i64 [ %indvars.iv43.i, %if.then2.i ], [ %idx.ext23.i, %for.end.i ]
   %retval.0.i = phi i32 [ %3, %if.then2.i ], [ %i9.0.lcssa.i, %for.end.i ]
-  %delimiter.0 = getelementptr inbounds i16, ptr %labelStart.0, i64 %indvars.iv40.i.pn
+  %delimiter.0 = getelementptr inbounds i16, ptr %labelStart.0, i64 %indvars.iv43.i.pn
   %cmp17 = icmp eq i32 %retval.0.i, 0
   br i1 %cmp17, label %_ZL16getNextSeparatorPDsiPS_Pa.exit.if.end25_crit_edge, label %if.then20
 
@@ -869,26 +867,26 @@ _ZL16getNextSeparatorPDsiPS_Pa.exit.if.end25_crit_edge: ; preds = %_ZL16getNextS
   br label %if.end25
 
 if.then20:                                        ; preds = %if.then16.i, %if.then5.i, %_ZL16getNextSeparatorPDsiPS_Pa.exit
-  %retval.0.i62 = phi i32 [ %retval.0.i, %_ZL16getNextSeparatorPDsiPS_Pa.exit ], [ %6, %if.then16.i ], [ %4, %if.then5.i ]
-  %tobool33.not61 = phi i1 [ false, %_ZL16getNextSeparatorPDsiPS_Pa.exit ], [ true, %if.then16.i ], [ true, %if.then5.i ]
-  %delimiter.059 = phi ptr [ %delimiter.0, %_ZL16getNextSeparatorPDsiPS_Pa.exit ], [ %add.ptr19.i, %if.then16.i ], [ %add.ptr7.i, %if.then5.i ]
-  %call21 = tail call fastcc noundef i32 @_ZL17_internal_toASCIIPKDsiPDsiiP18UStringPrepProfileP11UParseErrorP10UErrorCode(ptr noundef %labelStart.0, i32 noundef %retval.0.i62, ptr noundef %currentDest.0, i32 noundef %remainingDestCapacity.0, i32 noundef %options, ptr noundef %call11, ptr noundef %parseError, ptr noundef nonnull %status)
+  %retval.0.i66 = phi i32 [ %retval.0.i, %_ZL16getNextSeparatorPDsiPS_Pa.exit ], [ %6, %if.then16.i ], [ %4, %if.then5.i ]
+  %tobool33.not65 = phi i1 [ false, %_ZL16getNextSeparatorPDsiPS_Pa.exit ], [ true, %if.then16.i ], [ true, %if.then5.i ]
+  %delimiter.063 = phi ptr [ %delimiter.0, %_ZL16getNextSeparatorPDsiPS_Pa.exit ], [ %add.ptr19.i, %if.then16.i ], [ %add.ptr7.i, %if.then5.i ]
+  %call21 = tail call fastcc noundef i32 @_ZL17_internal_toASCIIPKDsiPDsiiP18UStringPrepProfileP11UParseErrorP10UErrorCode(ptr noundef %labelStart.0, i32 noundef %retval.0.i66, ptr noundef %currentDest.0, i32 noundef %remainingDestCapacity.0, i32 noundef %options, ptr noundef %call11, ptr noundef %parseError, ptr noundef nonnull %status)
   %7 = load i32, ptr %status, align 4
   %cmp22 = icmp eq i32 %7, 15
   br i1 %cmp22, label %if.end25.thread, label %if.end25
 
 if.end25.thread:                                  ; preds = %if.then20
   store i32 0, ptr %status, align 4
-  %add72 = add nsw i32 %call21, %reqLength.0
-  %cmp3073 = icmp slt i32 %call21, 0
-  %sub74 = sub nsw i32 0, %call21
-  %narrow75 = tail call i32 @llvm.smin.i32(i32 %call21, i32 0)
-  %remainingDestCapacity.278 = select i1 %cmp3073, i32 %sub74, i32 0
-  br i1 %tobool33.not61, label %if.end35, label %for.end
+  %add76 = add nsw i32 %call21, %reqLength.0
+  %cmp3077 = icmp slt i32 %call21, 0
+  %sub78 = sub nsw i32 0, %call21
+  %narrow79 = tail call i32 @llvm.smin.i32(i32 %call21, i32 0)
+  %remainingDestCapacity.282 = select i1 %cmp3077, i32 %sub78, i32 0
+  br i1 %tobool33.not65, label %if.end35, label %for.end
 
 if.end25:                                         ; preds = %_ZL16getNextSeparatorPDsiPS_Pa.exit.if.end25_crit_edge, %if.then20
-  %tobool33.not60 = phi i1 [ false, %_ZL16getNextSeparatorPDsiPS_Pa.exit.if.end25_crit_edge ], [ %tobool33.not61, %if.then20 ]
-  %delimiter.058 = phi ptr [ %delimiter.0, %_ZL16getNextSeparatorPDsiPS_Pa.exit.if.end25_crit_edge ], [ %delimiter.059, %if.then20 ]
+  %tobool33.not64 = phi i1 [ false, %_ZL16getNextSeparatorPDsiPS_Pa.exit.if.end25_crit_edge ], [ %tobool33.not65, %if.then20 ]
+  %delimiter.062 = phi ptr [ %delimiter.0, %_ZL16getNextSeparatorPDsiPS_Pa.exit.if.end25_crit_edge ], [ %delimiter.063, %if.then20 ]
   %8 = phi i32 [ %.pre, %_ZL16getNextSeparatorPDsiPS_Pa.exit.if.end25_crit_edge ], [ %7, %if.then20 ]
   %labelReqLength.0 = phi i32 [ 0, %_ZL16getNextSeparatorPDsiPS_Pa.exit.if.end25_crit_edge ], [ %call21, %if.then20 ]
   %cmp.i43 = icmp slt i32 %8, 1
@@ -900,30 +898,30 @@ if.end29:                                         ; preds = %if.end25
   %sub = sub nsw i32 %remainingDestCapacity.0, %labelReqLength.0
   %narrow = select i1 %cmp30, i32 %labelReqLength.0, i32 0
   %remainingDestCapacity.2 = select i1 %cmp30, i32 %sub, i32 0
-  br i1 %tobool33.not60, label %if.end35, label %for.end
+  br i1 %tobool33.not64, label %if.end35, label %for.end
 
 if.end35:                                         ; preds = %if.end25.thread, %if.end29
-  %remainingDestCapacity.282 = phi i32 [ %remainingDestCapacity.278, %if.end25.thread ], [ %remainingDestCapacity.2, %if.end29 ]
-  %currentDest.1.idx76.pn.in = phi i32 [ %narrow75, %if.end25.thread ], [ %narrow, %if.end29 ]
-  %add80 = phi i32 [ %add72, %if.end25.thread ], [ %add, %if.end29 ]
-  %delimiter.0586979 = phi ptr [ %delimiter.059, %if.end25.thread ], [ %delimiter.058, %if.end29 ]
-  %currentDest.1.idx76.pn = sext i32 %currentDest.1.idx76.pn.in to i64
-  %currentDest.181 = getelementptr inbounds i16, ptr %currentDest.0, i64 %currentDest.1.idx76.pn
-  %cmp36 = icmp sgt i32 %remainingDestCapacity.282, 0
+  %remainingDestCapacity.286 = phi i32 [ %remainingDestCapacity.282, %if.end25.thread ], [ %remainingDestCapacity.2, %if.end29 ]
+  %currentDest.1.idx80.pn.in = phi i32 [ %narrow79, %if.end25.thread ], [ %narrow, %if.end29 ]
+  %add84 = phi i32 [ %add76, %if.end25.thread ], [ %add, %if.end29 ]
+  %delimiter.0627383 = phi ptr [ %delimiter.063, %if.end25.thread ], [ %delimiter.062, %if.end29 ]
+  %currentDest.1.idx80.pn = sext i32 %currentDest.1.idx80.pn.in to i64
+  %currentDest.185 = getelementptr inbounds i16, ptr %currentDest.0, i64 %currentDest.1.idx80.pn
+  %cmp36 = icmp sgt i32 %remainingDestCapacity.286, 0
   br i1 %cmp36, label %if.then37, label %if.end38
 
 if.then37:                                        ; preds = %if.end35
-  %incdec.ptr = getelementptr inbounds i16, ptr %currentDest.181, i64 1
-  store i16 46, ptr %currentDest.181, align 2
-  %dec = add nsw i32 %remainingDestCapacity.282, -1
+  %incdec.ptr = getelementptr inbounds i16, ptr %currentDest.185, i64 1
+  store i16 46, ptr %currentDest.185, align 2
+  %dec = add nsw i32 %remainingDestCapacity.286, -1
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then37, %if.end35
-  %currentDest.2 = phi ptr [ %incdec.ptr, %if.then37 ], [ %currentDest.181, %if.end35 ]
-  %remainingDestCapacity.3 = phi i32 [ %dec, %if.then37 ], [ %remainingDestCapacity.282, %if.end35 ]
-  %inc = add nsw i32 %add80, 1
+  %currentDest.2 = phi ptr [ %incdec.ptr, %if.then37 ], [ %currentDest.185, %if.end35 ]
+  %remainingDestCapacity.3 = phi i32 [ %dec, %if.then37 ], [ %remainingDestCapacity.286, %if.end35 ]
+  %inc = add nsw i32 %add84, 1
   %cmp39 = icmp sgt i32 %remainingLen.0, 0
-  %sub.ptr.lhs.cast = ptrtoint ptr %delimiter.0586979 to i64
+  %sub.ptr.lhs.cast = ptrtoint ptr %delimiter.0627383 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = lshr exact i64 %sub.ptr.sub, 1
   %9 = trunc i64 %sub.ptr.div to i32
@@ -932,7 +930,7 @@ if.end38:                                         ; preds = %if.then37, %if.end3
   br label %for.cond, !llvm.loop !13
 
 for.end:                                          ; preds = %if.end25.thread, %if.end29, %if.end25
-  %reqLength.1 = phi i32 [ %reqLength.0, %if.end25 ], [ %add, %if.end29 ], [ %add72, %if.end25.thread ]
+  %reqLength.1 = phi i32 [ %reqLength.0, %if.end25 ], [ %add, %if.end29 ], [ %add76, %if.end25.thread ]
   %cmp44 = icmp sgt i32 %reqLength.1, 255
   br i1 %cmp44, label %if.then45, label %if.end46
 
@@ -1009,8 +1007,8 @@ for.body.preheader.i:                             ; preds = %for.cond10.preheade
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.cond, %for.inc.i
-  %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %for.inc.i ], [ 0, %for.cond ]
-  %arrayidx.i = getelementptr inbounds i16, ptr %labelStart.0, i64 %indvars.iv40.i
+  %indvars.iv43.i = phi i64 [ %indvars.iv.next44.i, %for.inc.i ], [ 0, %for.cond ]
+  %arrayidx.i = getelementptr inbounds i16, ptr %labelStart.0, i64 %indvars.iv43.i
   %2 = load i16, ptr %arrayidx.i, align 2
   switch i16 %2, label %for.inc.i [
     i16 0, label %if.then2.i
@@ -1021,19 +1019,18 @@ for.cond.i:                                       ; preds = %for.cond, %for.inc.
   ]
 
 if.then2.i:                                       ; preds = %for.cond.i
-  %arrayidx.i.le = getelementptr inbounds i16, ptr %labelStart.0, i64 %indvars.iv40.i
-  %3 = trunc i64 %indvars.iv40.i to i32
+  %arrayidx.i.le64 = getelementptr inbounds i16, ptr %labelStart.0, i64 %indvars.iv43.i
+  %3 = trunc i64 %indvars.iv43.i to i32
   br label %_ZL16getNextSeparatorPDsiPS_Pa.exit
 
 if.then5.i:                                       ; preds = %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i
-  %4 = trunc i64 %indvars.iv40.i to i32
-  %add.i = add i64 %indvars.iv40.i, 1
-  %idx.ext6.i = and i64 %add.i, 4294967295
-  %add.ptr7.i = getelementptr inbounds i16, ptr %labelStart.0, i64 %idx.ext6.i
+  %arrayidx.i.le = getelementptr inbounds i16, ptr %labelStart.0, i64 %indvars.iv43.i
+  %4 = trunc i64 %indvars.iv43.i to i32
+  %add.ptr7.i = getelementptr i16, ptr %arrayidx.i.le, i64 1
   br label %_ZL16getNextSeparatorPDsiPS_Pa.exit
 
 for.inc.i:                                        ; preds = %for.cond.i
-  %indvars.iv.next41.i = add nuw i64 %indvars.iv40.i, 1
+  %indvars.iv.next44.i = add nuw i64 %indvars.iv43.i, 1
   br label %for.cond.i, !llvm.loop !11
 
 for.body.i:                                       ; preds = %for.inc21.i, %for.body.preheader.i
@@ -1048,10 +1045,9 @@ for.body.i:                                       ; preds = %for.inc21.i, %for.b
   ]
 
 if.then16.i:                                      ; preds = %for.body.i, %for.body.i, %for.body.i, %for.body.i
+  %arrayidx13.i.le = getelementptr inbounds i16, ptr %labelStart.0, i64 %indvars.iv.i
   %6 = trunc i64 %indvars.iv.i to i32
-  %add17.i = add nuw i64 %indvars.iv.i, 1
-  %idx.ext18.i = and i64 %add17.i, 4294967295
-  %add.ptr19.i = getelementptr inbounds i16, ptr %labelStart.0, i64 %idx.ext18.i
+  %add.ptr19.i = getelementptr i16, ptr %arrayidx13.i.le, i64 1
   br label %_ZL16getNextSeparatorPDsiPS_Pa.exit
 
 for.inc21.i:                                      ; preds = %for.body.i
@@ -1066,7 +1062,7 @@ for.end.i:                                        ; preds = %for.inc21.i, %for.c
   br label %_ZL16getNextSeparatorPDsiPS_Pa.exit
 
 _ZL16getNextSeparatorPDsiPS_Pa.exit:              ; preds = %if.then2.i, %if.then5.i, %if.then16.i, %for.end.i
-  %delimiter.0 = phi ptr [ %add.ptr7.i, %if.then5.i ], [ %arrayidx.i.le, %if.then2.i ], [ %add.ptr24.i, %for.end.i ], [ %add.ptr19.i, %if.then16.i ]
+  %delimiter.0 = phi ptr [ %add.ptr7.i, %if.then5.i ], [ %arrayidx.i.le64, %if.then2.i ], [ %add.ptr24.i, %for.end.i ], [ %add.ptr19.i, %if.then16.i ]
   %tobool28.not = phi i1 [ true, %if.then5.i ], [ false, %if.then2.i ], [ false, %for.end.i ], [ true, %if.then16.i ]
   %retval.0.i = phi i32 [ %4, %if.then5.i ], [ %3, %if.then2.i ], [ %i9.0.lcssa.i, %for.end.i ], [ %6, %if.then16.i ]
   %call17 = tail call fastcc noundef i32 @_ZL19_internal_toUnicodePKDsiPDsiiP18UStringPrepProfileP11UParseErrorP10UErrorCode(ptr noundef %labelStart.0, i32 noundef %retval.0.i, ptr noundef %currentDest.0, i32 noundef %remainingDestCapacity.0, i32 noundef %options, ptr noundef %call11, ptr noundef %parseError, ptr noundef nonnull %status)
@@ -1083,10 +1079,10 @@ if.end20:                                         ; preds = %_ZL16getNextSeparat
   br i1 %cmp.i43, label %if.end24, label %for.end
 
 if.end24:                                         ; preds = %if.end20.thread, %if.end20
-  %remainingDestCapacity.153 = phi i32 [ 0, %if.end20.thread ], [ %remainingDestCapacity.0, %if.end20 ]
+  %remainingDestCapacity.157 = phi i32 [ 0, %if.end20.thread ], [ %remainingDestCapacity.0, %if.end20 ]
   %add = add nsw i32 %call17, %reqLength.0
-  %cmp25 = icmp slt i32 %call17, %remainingDestCapacity.153
-  %sub = sub nsw i32 %remainingDestCapacity.153, %call17
+  %cmp25 = icmp slt i32 %call17, %remainingDestCapacity.157
+  %sub = sub nsw i32 %remainingDestCapacity.157, %call17
   %narrow = select i1 %cmp25, i32 %call17, i32 0
   %currentDest.1.idx = sext i32 %narrow to i64
   %currentDest.1 = getelementptr inbounds i16, ptr %currentDest.0, i64 %currentDest.1.idx

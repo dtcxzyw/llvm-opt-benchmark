@@ -314,6 +314,7 @@ if.end:                                           ; preds = %entry
   %3 = getelementptr i8, ptr %0, i64 8
   %.val14 = load ptr, ptr %3, align 8
   %sub.i = shl nuw nsw i32 %and.i, 2
+  %mul.i = add nsw i32 %sub.i, -4
   %add.i = add nuw nsw i32 %sub.i, 32
   %idx.ext.i = zext nneg i32 %add.i to i64
   %add.ptr.i = getelementptr i8, ptr %.val14, i64 %idx.ext.i
@@ -349,12 +350,12 @@ if.then8:                                         ; preds = %if.end5
 if.end20:                                         ; preds = %if.end5, %if.then8
   %.val14.sink = phi ptr [ %5, %if.then8 ], [ %.val14, %if.end5 ]
   %.sink57 = phi i8 [ 13, %if.then8 ], [ 4, %if.end5 ]
-  %add14 = add nuw nsw i32 %sub.i, 34
-  %idxprom15 = zext nneg i32 %add14 to i64
-  %arrayidx16 = getelementptr i8, ptr %.val14.sink, i64 %idxprom15
-  %6 = load i8, ptr %arrayidx16, align 1
-  %7 = or i8 %6, %.sink57
-  store i8 %7, ptr %arrayidx16, align 1
+  %6 = zext nneg i32 %mul.i to i64
+  %7 = getelementptr i8, ptr %.val14.sink, i64 %6
+  %arrayidx16 = getelementptr i8, ptr %7, i64 38
+  %8 = load i8, ptr %arrayidx16, align 1
+  %9 = or i8 %8, %.sink57
+  store i8 %9, ptr %arrayidx16, align 1
   %.val = load ptr, ptr %3, align 8
   %add.ptr.i45 = getelementptr i8, ptr %.val, i64 %idx.ext.i
   %config.val.i.i46 = load i16, ptr %add.ptr.i45, align 1
@@ -472,12 +473,12 @@ shpc_free_devices_in_slot.exit:                   ; preds = %for.inc.i
 if.end28:                                         ; preds = %if.end8, %shpc_free_devices_in_slot.exit
   %.val15.sink = phi ptr [ %9, %shpc_free_devices_in_slot.exit ], [ %.val15, %if.end8 ]
   %.sink57 = phi i8 [ 9, %shpc_free_devices_in_slot.exit ], [ 4, %if.end8 ]
-  %add22 = add nuw nsw i32 %mul.i, 38
-  %idxprom23 = zext nneg i32 %add22 to i64
-  %arrayidx24 = getelementptr i8, ptr %.val15.sink, i64 %idxprom23
-  %10 = load i8, ptr %arrayidx24, align 1
-  %11 = or i8 %10, %.sink57
-  store i8 %11, ptr %arrayidx24, align 1
+  %10 = zext nneg i32 %mul.i to i64
+  %11 = getelementptr i8, ptr %.val15.sink, i64 %10
+  %arrayidx24 = getelementptr i8, ptr %11, i64 38
+  %12 = load i8, ptr %arrayidx24, align 1
+  %13 = or i8 %12, %.sink57
+  store i8 %13, ptr %arrayidx24, align 1
   %.val = load ptr, ptr %2, align 8
   %add.ptr.i45 = getelementptr i8, ptr %.val, i64 %idx.ext.i
   %config.val.i.i46 = load i16, ptr %add.ptr.i45, align 1
@@ -1507,12 +1508,12 @@ shpc_free_devices_in_slot.exit:                   ; preds = %for.inc.i
   %or.i.i110 = or i16 %config.val.i.i108, 3072
   store i16 %or.i.i110, ptr %add.ptr.i107, align 1
   %11 = load ptr, ptr %0, align 8
-  %add38 = add nsw i32 %mul.i, 38
-  %idxprom = zext nneg i32 %add38 to i64
-  %arrayidx = getelementptr i8, ptr %11, i64 %idxprom
-  %12 = load i8, ptr %arrayidx, align 1
-  %13 = or i8 %12, 9
-  store i8 %13, ptr %arrayidx, align 1
+  %12 = sext i32 %mul.i to i64
+  %13 = getelementptr i8, ptr %11, i64 %12
+  %arrayidx = getelementptr i8, ptr %13, i64 38
+  %14 = load i8, ptr %arrayidx, align 1
+  %15 = or i8 %14, 9
+  store i8 %15, ptr %arrayidx, align 1
   br label %if.end41
 
 if.end41:                                         ; preds = %shpc_free_devices_in_slot.exit, %land.lhs.true34, %if.end32, %if.then14, %if.then

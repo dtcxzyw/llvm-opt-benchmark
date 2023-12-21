@@ -3921,6 +3921,7 @@ if.else1673:                                      ; preds = %for.cond1668
   br i1 %cmp1678, label %for.end1683, label %for.cond1668
 
 for.end1683:                                      ; preds = %if.else1673
+  %arrayidx1676.le = getelementptr inbounds i8, ptr %call30, i64 %indvars.iv2786
   %248 = trunc i64 %indvars.iv2786 to i32
   %add1684 = add nuw nsw i32 %248, 16
   %cmp1685 = icmp sgt i32 %add1684, %call1631
@@ -3932,9 +3933,7 @@ if.then1687:                                      ; preds = %for.end1683
   br label %shut
 
 if.end1689:                                       ; preds = %for.end1683
-  %add1690 = add nuw i64 %indvars.iv2786, 13
-  %idxprom1692 = and i64 %add1690, 4294967295
-  %arrayidx1693 = getelementptr inbounds i8, ptr %call30, i64 %idxprom1692
+  %arrayidx1693 = getelementptr i8, ptr %arrayidx1676.le, i64 13
   %250 = load i8, ptr %arrayidx1693, align 1
   %cmp1695.not = icmp eq i8 %250, 0
   br i1 %cmp1695.not, label %if.end1699, label %if.then1697
@@ -3945,9 +3944,7 @@ if.then1697:                                      ; preds = %if.end1689
   br label %shut
 
 if.end1699:                                       ; preds = %if.end1689
-  %add1703 = add nuw i64 %indvars.iv2786, 15
-  %idxprom1704 = and i64 %add1703, 4294967295
-  %arrayidx1705 = getelementptr inbounds i8, ptr %call30, i64 %idxprom1704
+  %arrayidx1705 = getelementptr i8, ptr %arrayidx1676.le, i64 15
   %252 = load i8, ptr %arrayidx1705, align 1
   %253 = and i8 %252, 8
   %tobool1710.not = icmp eq i8 %253, 0

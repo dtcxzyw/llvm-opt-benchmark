@@ -4315,17 +4315,13 @@ if.end.i:                                         ; preds = %if.then.i, %trace_s
   br i1 %cmp.i, label %if.then26.i, label %sw.epilog.i
 
 if.then26.i:                                      ; preds = %if.end.i
-  %inc27.i = add nuw nsw i32 %buflen.0.i, 2
   %idxprom28.i = zext nneg i32 %inc20.i to i64
   %arrayidx29.i = getelementptr i8, ptr %outbuf, i64 %idxprom28.i
   store i8 -80, ptr %arrayidx29.i, align 1
-  %inc30.i = add nuw nsw i32 %buflen.0.i, 3
-  %idxprom31.i = zext nneg i32 %inc27.i to i64
-  %arrayidx32.i = getelementptr i8, ptr %outbuf, i64 %idxprom31.i
+  %arrayidx32.i = getelementptr i8, ptr %arrayidx22.i, i64 2
   store i8 -79, ptr %arrayidx32.i, align 1
   %inc33.i = add nuw nsw i32 %buflen.0.i, 4
-  %idxprom34.i = zext nneg i32 %inc30.i to i64
-  %arrayidx35.i = getelementptr i8, ptr %outbuf, i64 %idxprom34.i
+  %arrayidx35.i = getelementptr i8, ptr %arrayidx22.i, i64 3
   store i8 -78, ptr %arrayidx35.i, align 1
   br label %sw.epilog.i
 
@@ -4502,10 +4498,8 @@ if.end87.i:                                       ; preds = %if.then68.i, %trace
 if.then90.i:                                      ; preds = %if.end87.i
   %idxprom92.i = zext nneg i32 %buflen.1.i to i64
   %arrayidx93.i = getelementptr i8, ptr %outbuf, i64 %idxprom92.i
-  %inc100.i = add nuw nsw i32 %buflen.1.i, 4
   store <4 x i8> <i8 1, i8 3, i8 0, i8 8>, ptr %arrayidx93.i, align 1
-  %idxprom103.i = zext nneg i32 %inc100.i to i64
-  %arrayidx104.i = getelementptr i8, ptr %outbuf, i64 %idxprom103.i
+  %arrayidx104.i = getelementptr i8, ptr %arrayidx93.i, i64 4
   %45 = load i64, ptr %wwn.i, align 8
   %46 = tail call i64 @llvm.bswap.i64(i64 %45)
   store i64 %46, ptr %arrayidx104.i, align 1
@@ -4522,10 +4516,8 @@ if.end108.i:                                      ; preds = %if.then90.i, %if.en
 if.then111.i:                                     ; preds = %if.end108.i
   %idxprom113.i = zext nneg i32 %buflen.2.i to i64
   %arrayidx114.i = getelementptr i8, ptr %outbuf, i64 %idxprom113.i
-  %inc121.i = add nuw nsw i32 %buflen.2.i, 4
   store <4 x i8> <i8 97, i8 -109, i8 0, i8 8>, ptr %arrayidx114.i, align 1
-  %idxprom124.i = zext nneg i32 %inc121.i to i64
-  %arrayidx125.i = getelementptr i8, ptr %outbuf, i64 %idxprom124.i
+  %arrayidx125.i = getelementptr i8, ptr %arrayidx114.i, i64 4
   %48 = load i64, ptr %port_wwn.i, align 8
   %49 = tail call i64 @llvm.bswap.i64(i64 %48)
   store i64 %49, ptr %arrayidx125.i, align 1
@@ -4543,9 +4535,7 @@ if.then131.i:                                     ; preds = %if.end129.i
   %idxprom133.i = zext nneg i32 %buflen.3.i to i64
   %arrayidx134.i = getelementptr i8, ptr %outbuf, i64 %idxprom133.i
   store <4 x i8> <i8 97, i8 -108, i8 0, i8 4>, ptr %arrayidx134.i, align 1
-  %add144.i = add nuw nsw i32 %buflen.3.i, 6
-  %idxprom145.i = zext nneg i32 %add144.i to i64
-  %arrayidx146.i = getelementptr i8, ptr %outbuf, i64 %idxprom145.i
+  %arrayidx146.i = getelementptr i8, ptr %arrayidx134.i, i64 6
   %51 = load i16, ptr %port_index.i, align 8
   %52 = tail call i16 @llvm.bswap.i16(i16 %51)
   store i16 %52, ptr %arrayidx146.i, align 1

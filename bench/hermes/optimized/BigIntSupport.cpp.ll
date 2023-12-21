@@ -2656,8 +2656,8 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %
   br i1 %cmp.i6.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread.thread, label %land.rhs.i.i.i.i, !llvm.loop !4
 
 _ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread: ; preds = %land.rhs.i.i.i.i
-  %cmp14.i.i.i.i43 = icmp slt i8 %.fr, 0
-  %spec.select = select i1 %cmp14.i.i.i.i43, i64 %src.sroa.10.034.i6.i.i.i, i64 %sub.i.i.i.i.i
+  %cmp14.i.i.i.i42 = icmp slt i8 %.fr, 0
+  %spec.select = select i1 %cmp14.i.i.i.i42, i64 %src.sroa.10.034.i6.i.i.i, i64 %sub.i.i.i.i.i
   %1 = trunc i64 %spec.select to i32
   %2 = add i32 %1, 7
   %3 = lshr i32 %2, 3
@@ -2665,16 +2665,15 @@ _ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.threa
   br i1 %cmp.not.i.i.i, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i
 
 _ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread.thread: ; preds = %while.body.i.i.i.i
-  %cmp.not.i.i.i48 = icmp eq i32 %src.coerce1, 0
-  br i1 %cmp.not.i.i.i48, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i.thread
+  %cmp.not.i.i.i47 = icmp eq i32 %src.coerce1, 0
+  br i1 %cmp.not.i.i.i47, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i.thread
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i.thread: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread.thread
-  %sub.i.i.i55 = add i32 %src.coerce1, -1
-  %idxprom.i.i.i56 = zext i32 %sub.i.i.i55 to i64
-  %arrayidx.i.i.i57 = getelementptr inbounds i64, ptr %src.coerce0, i64 %idxprom.i.i.i56
-  %4 = load i64, ptr %arrayidx.i.i.i57, align 8
-  %.fr.i.i58 = freeze i64 %4
-  %cmp2.i.i.i59 = icmp sgt i64 %.fr.i.i58, -1
+  %sub.i.i.i54 = add i32 %src.coerce1, -1
+  %idxprom.i.i.i55 = zext i32 %sub.i.i.i54 to i64
+  %arrayidx.i.i.i56 = getelementptr inbounds i64, ptr %src.coerce0, i64 %idxprom.i.i.i55
+  %4 = load i64, ptr %arrayidx.i.i.i56, align 8
+  %.fr.i.i57 = freeze i64 %4
   br label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread
@@ -2683,7 +2682,6 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i: ; preds = %_ZN
   %arrayidx.i.i.i = getelementptr inbounds i64, ptr %src.coerce0, i64 %idxprom.i.i.i
   %5 = load i64, ptr %arrayidx.i.i.i, align 8
   %.fr.i.i = freeze i64 %5
-  %cmp2.i.i.i = icmp sgt i64 %.fr.i.i, -1
   %cmp.not.i10.i.i = icmp ult i32 %2, 8
   br i1 %cmp.not.i10.i.i, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i
 
@@ -2692,28 +2690,35 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i: ; preds
   br i1 %cmp817.i.i.old, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i.thread, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i
-  %cmp2.i.i.i62 = phi i1 [ %cmp2.i.i.i59, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i.thread ], [ %cmp2.i.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i ]
+  %.fr.i.i60 = phi i64 [ %.fr.i.i57, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i.thread ], [ %.fr.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i ]
   %6 = phi i32 [ 0, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i.thread ], [ %3, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i ]
+  %cmp2.i.i.i = icmp sgt i64 %.fr.i.i60, -1
   %cmp817.i.i = icmp eq i32 %6, %src.coerce1
-  %or.cond41 = select i1 %cmp2.i.i.i62, i1 %cmp817.i.i, i1 false
-  br i1 %or.cond41, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread.thread
+  %or.cond = select i1 %cmp2.i.i.i, i1 %cmp817.i.i, i1 false
+  br i1 %or.cond, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread.thread
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i
+  %7 = zext nneg i32 %3 to i64
+  %8 = getelementptr i64, ptr %rhs.addr.i, i64 %7
+  %arrayidx.i14.i.i = getelementptr i64, ptr %8, i64 -1
+  %9 = load i64, ptr %arrayidx.i14.i.i, align 8
+  %10 = xor i64 %9, %.fr.i.i
+  %11 = icmp sgt i64 %10, -1
   %cmp8.i.i = icmp eq i32 %3, %src.coerce1
-  %or.cond = select i1 %cmp2.i.i.i, i1 %cmp8.i.i, i1 false
-  br i1 %or.cond, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread.thread
+  %or.cond41 = select i1 %11, i1 %cmp8.i.i, i1 false
+  br i1 %or.cond41, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread.thread
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread.thread: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i)
-  %mul16569 = shl i32 %src.coerce1, 6
+  %mul16367 = shl i32 %src.coerce1, 6
   br label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i)
   br label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread
 
-_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread.thread, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i
-  %cmp.not.i.i.i51 = phi i1 [ true, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i ], [ false, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i ], [ false, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i ], [ true, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread.thread ]
+_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread.thread, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i
+  %cmp.not.i.i.i50 = phi i1 [ false, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i ], [ true, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i ], [ false, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i ], [ true, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread.thread ]
   %call12.i.i = call noundef i32 @_ZN4llvh5APInt9tcCompareEPKmS2_j(ptr noundef %src.coerce0, ptr noundef nonnull %rhs.addr.i, i32 noundef %src.coerce1) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i)
   %cmp = icmp eq i32 %call12.i.i, 0
@@ -2729,34 +2734,34 @@ if.then:                                          ; preds = %_ZN6hermes6bigint7c
 
 if.end:                                           ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit
   %mul1 = shl i32 %src.coerce1, 6
-  br i1 %cmp.not.i.i.i51, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit
+  br i1 %cmp.not.i.i.i50, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread: ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread, %if.end
-  %mul167 = phi i32 [ 0, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread ], [ %mul1, %if.end ]
-  call void @_ZN4llvh5APIntC1EjNS_8ArrayRefImEE(ptr noundef nonnull align 8 dereferenceable(12) %tmp, i32 noundef %mul167, ptr %src.coerce0, i64 0) #18
+  %mul165 = phi i32 [ 0, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread ], [ %mul1, %if.end ]
+  call void @_ZN4llvh5APIntC1EjNS_8ArrayRefImEE(ptr noundef nonnull align 8 dereferenceable(12) %tmp, i32 noundef %mul165, ptr %src.coerce0, i64 0) #18
   br label %if.end8
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit: ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread.thread, %if.end
-  %mul166 = phi i32 [ %mul1, %if.end ], [ %mul16569, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread.thread ]
+  %mul164 = phi i32 [ %mul1, %if.end ], [ %mul16367, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread.thread ]
   %sub.i = add i32 %src.coerce1, -1
   %idxprom.i = zext i32 %sub.i to i64
   %arrayidx.i = getelementptr inbounds i64, ptr %src.coerce0, i64 %idxprom.i
-  %7 = load i64, ptr %arrayidx.i, align 8
-  %cmp2.i = icmp slt i64 %7, 0
+  %12 = load i64, ptr %arrayidx.i, align 8
+  %cmp2.i = icmp slt i64 %12, 0
   %conv = zext i32 %src.coerce1 to i64
-  call void @_ZN4llvh5APIntC1EjNS_8ArrayRefImEE(ptr noundef nonnull align 8 dereferenceable(12) %tmp, i32 noundef %mul166, ptr %src.coerce0, i64 %conv) #18
+  call void @_ZN4llvh5APIntC1EjNS_8ArrayRefImEE(ptr noundef nonnull align 8 dereferenceable(12) %tmp, i32 noundef %mul164, ptr %src.coerce0, i64 %conv) #18
   br i1 %cmp2.i, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit
   %BitWidth.i.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %tmp, i64 0, i32 1
-  %8 = load i32, ptr %BitWidth.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i32 %8, 65
+  %13 = load i32, ptr %BitWidth.i.i.i, align 8
+  %cmp.i.i.i = icmp ult i32 %13, 65
   br i1 %cmp.i.i.i, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i.i, label %if.else.i.i8
 
 _ZN4llvh5APInt15clearUnusedBitsEv.exit.i.i:       ; preds = %if.then7
-  %9 = load i64, ptr %tmp, align 8
-  %xor.i.i = xor i64 %9, -1
-  %sub.i.i.i10 = add nuw nsw i32 %8, 63
+  %14 = load i64, ptr %tmp, align 8
+  %xor.i.i = xor i64 %14, -1
+  %sub.i.i.i10 = add nuw nsw i32 %13, 63
   %rem.i.i.i = and i32 %sub.i.i.i10, 63
   %sub2.i.i.i = xor i32 %rem.i.i.i, 63
   %sh_prom.i.i.i = zext nneg i32 %sub2.i.i.i to i64
@@ -2774,7 +2779,7 @@ _ZN4llvh5APInt6negateEv.exit:                     ; preds = %_ZN4llvh5APInt15cle
   br label %if.end8
 
 if.end8:                                          ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread, %_ZN4llvh5APInt6negateEv.exit, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit
-  %10 = phi i1 [ false, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread ], [ true, %_ZN4llvh5APInt6negateEv.exit ], [ false, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit ]
+  %15 = phi i1 [ false, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread ], [ true, %_ZN4llvh5APInt6negateEv.exit ], [ false, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #18
   %cmp.i = icmp ult i8 %radix, 4
   br i1 %cmp.i, label %_ZN6hermes6bigint23maxCharsPerDigitInRadixEh.exit, label %cond.false.i
@@ -2806,48 +2811,48 @@ do.body:                                          ; preds = %do.body.backedge, %
   store i32 1, ptr %BitWidth.i, align 8
   store i64 0, ptr %quoc, align 8
   call void @_ZN4llvh5APInt7udivremERKS0_mRS0_Rm(ptr noundef nonnull align 8 dereferenceable(12) %tmp, i64 noundef %conv13, ptr noundef nonnull align 8 dereferenceable(12) %quoc, ptr noundef nonnull align 8 dereferenceable(8) %rem) #18
-  %11 = load i64, ptr %rem, align 8
-  %cmp14 = icmp ult i64 %11, 10
-  %12 = trunc i64 %11 to i8
-  %conv19 = add i8 %12, 87
-  %conv17 = or disjoint i8 %12, 48
+  %16 = load i64, ptr %rem, align 8
+  %cmp14 = icmp ult i64 %16, 10
+  %17 = trunc i64 %16 to i8
+  %conv19 = add i8 %17, 87
+  %conv17 = or disjoint i8 %17, 48
   %conv19.sink = select i1 %cmp14, i8 %conv17, i8 %conv19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %conv19.sink) #18
-  %13 = load i32, ptr %BitWidth.i.i, align 8
-  %cmp.i.i = icmp ult i32 %13, 65
+  %18 = load i32, ptr %BitWidth.i.i, align 8
+  %cmp.i.i = icmp ult i32 %18, 65
   br i1 %cmp.i.i, label %_ZN4llvh5APIntD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %do.body
-  %14 = load ptr, ptr %tmp, align 8
-  %isnull.i = icmp eq ptr %14, null
+  %19 = load ptr, ptr %tmp, align 8
+  %isnull.i = icmp eq ptr %19, null
   br i1 %isnull.i, label %_ZN4llvh5APIntD2Ev.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.then.i
-  call void @_ZdaPv(ptr noundef nonnull %14) #19
+  call void @_ZdaPv(ptr noundef nonnull %19) #19
   br label %_ZN4llvh5APIntD2Ev.exit
 
 _ZN4llvh5APIntD2Ev.exit:                          ; preds = %delete.notnull.i, %if.then.i, %do.body
-  %15 = load i64, ptr %quoc, align 8
-  store i64 %15, ptr %tmp, align 8
-  %16 = load i32, ptr %BitWidth.i, align 8
-  store i32 %16, ptr %BitWidth.i.i, align 8
+  %20 = load i64, ptr %quoc, align 8
+  store i64 %20, ptr %tmp, align 8
+  %21 = load i32, ptr %BitWidth.i, align 8
+  store i32 %21, ptr %BitWidth.i.i, align 8
   store i32 0, ptr %BitWidth.i, align 8
-  %cmp.i.i.i19 = icmp ult i32 %16, 65
+  %cmp.i.i.i19 = icmp ult i32 %21, 65
   br i1 %cmp.i.i.i19, label %land.rhs.i.i, label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i
 
 _ZNK4llvh5APInt13getActiveBitsEv.exit.i.i:        ; preds = %_ZN4llvh5APIntD2Ev.exit
   %call5.i.i.i.i = call noundef i32 @_ZNK4llvh5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %tmp) #22
-  %sub.i.i.i20 = sub i32 %16, %call5.i.i.i.i
+  %sub.i.i.i20 = sub i32 %21, %call5.i.i.i.i
   %cmp.i.i21 = icmp ult i32 %sub.i.i.i20, 65
   br i1 %cmp.i.i21, label %land.rhs.i.ithread-pre-split, label %do.body.backedge
 
 land.rhs.i.ithread-pre-split:                     ; preds = %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i
-  %17 = inttoptr i64 %15 to ptr
-  %retval.0.i.i.i.pr = load i64, ptr %17, align 8
+  %22 = inttoptr i64 %20 to ptr
+  %retval.0.i.i.i.pr = load i64, ptr %22, align 8
   br label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %land.rhs.i.ithread-pre-split, %_ZN4llvh5APIntD2Ev.exit
-  %retval.0.i.i.i = phi i64 [ %retval.0.i.i.i.pr, %land.rhs.i.ithread-pre-split ], [ %15, %_ZN4llvh5APIntD2Ev.exit ]
+  %retval.0.i.i.i = phi i64 [ %retval.0.i.i.i.pr, %land.rhs.i.ithread-pre-split ], [ %20, %_ZN4llvh5APIntD2Ev.exit ]
   %cmp4.i.i.not = icmp eq i64 %retval.0.i.i.i, 0
   br i1 %cmp4.i.i.not, label %do.end, label %do.body.backedge
 
@@ -2855,7 +2860,7 @@ do.body.backedge:                                 ; preds = %land.rhs.i.i, %_ZNK
   br label %do.body, !llvm.loop !48
 
 do.end:                                           ; preds = %land.rhs.i.i
-  br i1 %10, label %if.then24, label %if.end25
+  br i1 %15, label %if.then24, label %if.end25
 
 if.then24:                                        ; preds = %do.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext 45) #18
@@ -2873,27 +2878,27 @@ if.end25:                                         ; preds = %if.then24, %do.end
 while.body.i.i:                                   ; preds = %if.end25, %while.body.i.i
   %__last.sroa.0.012.i.i = phi ptr [ %__last.sroa.0.0.i.i, %while.body.i.i ], [ %__last.sroa.0.09.i.i, %if.end25 ]
   %__first.sroa.0.011.i.i = phi ptr [ %incdec.ptr.i2.i.i, %while.body.i.i ], [ %call27, %if.end25 ]
-  %18 = load i8, ptr %__first.sroa.0.011.i.i, align 1
-  %19 = load i8, ptr %__last.sroa.0.012.i.i, align 1
-  store i8 %19, ptr %__first.sroa.0.011.i.i, align 1
-  store i8 %18, ptr %__last.sroa.0.012.i.i, align 1
+  %23 = load i8, ptr %__first.sroa.0.011.i.i, align 1
+  %24 = load i8, ptr %__last.sroa.0.012.i.i, align 1
+  store i8 %24, ptr %__first.sroa.0.011.i.i, align 1
+  store i8 %23, ptr %__last.sroa.0.012.i.i, align 1
   %incdec.ptr.i2.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.011.i.i, i64 1
   %__last.sroa.0.0.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.012.i.i, i64 -1
   %cmp.i1.i.i = icmp ult ptr %incdec.ptr.i2.i.i, %__last.sroa.0.0.i.i
   br i1 %cmp.i1.i.i, label %while.body.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit, !llvm.loop !49
 
 _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit: ; preds = %while.body.i.i, %if.end25
-  %20 = load i32, ptr %BitWidth.i.i, align 8
-  %cmp.i.i.i24 = icmp ugt i32 %20, 64
+  %25 = load i32, ptr %BitWidth.i.i, align 8
+  %cmp.i.i.i24 = icmp ugt i32 %25, 64
   br i1 %cmp.i.i.i24, label %if.then.i25, label %return
 
 if.then.i25:                                      ; preds = %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit
-  %21 = load ptr, ptr %tmp, align 8
-  %isnull.i26 = icmp eq ptr %21, null
+  %26 = load ptr, ptr %tmp, align 8
+  %isnull.i26 = icmp eq ptr %26, null
   br i1 %isnull.i26, label %return, label %delete.notnull.i27
 
 delete.notnull.i27:                               ; preds = %if.then.i25
-  call void @_ZdaPv(ptr noundef nonnull %21) #19
+  call void @_ZdaPv(ptr noundef nonnull %26) #19
   br label %return
 
 return:                                           ; preds = %delete.notnull.i27, %if.then.i25, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit, %if.then
@@ -2955,16 +2960,24 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i: ; preds =
   br i1 %cmp.not.i1018.i, label %if.end.thread.i, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i
-  %cmp2.i1522.i = icmp slt i64 %rhs, 0
+  %8 = zext nneg i32 %6 to i64
+  %9 = getelementptr i64, ptr %rhs.addr, i64 %8
+  %arrayidx.i1421.i = getelementptr i64, ptr %9, i64 -1
+  %10 = load i64, ptr %arrayidx.i1421.i, align 8
+  %cmp2.i1522.i = icmp slt i64 %10, 0
   br i1 %cmp2.i1522.i, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefES1_.exit, label %if.else19.i
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i
   br i1 %cmp2.i.i, label %if.then.thread.i, label %if.end.thread.i
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i
-  %8 = xor i64 %.fr.i, %rhs
-  %9 = icmp slt i64 %8, 0
-  br i1 %9, label %if.then.i, label %if.end.i
+  %11 = zext nneg i32 %6 to i64
+  %12 = getelementptr i64, ptr %rhs.addr, i64 %11
+  %arrayidx.i14.i = getelementptr i64, ptr %12, i64 -1
+  %13 = load i64, ptr %arrayidx.i14.i, align 8
+  %14 = xor i64 %13, %.fr.i
+  %15 = icmp slt i64 %14, 0
+  br i1 %15, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i
   br i1 %cmp2.i.i, label %if.then.thread.i, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefES1_.exit
@@ -4985,38 +4998,53 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %
   br i1 %cmp.i6.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread, label %land.rhs.i.i.i.i, !llvm.loop !4
 
 _ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i: ; preds = %land.rhs.i.i.i.i
-  %cmp14.i.i.i.i39 = icmp slt i8 %.fr, 0
-  %spec.select = select i1 %cmp14.i.i.i.i39, i64 %src.sroa.10.034.i6.i.i.i, i64 %sub.i.i.i.i.i
+  %cmp14.i.i.i.i38 = icmp slt i8 %.fr, 0
+  %spec.select = select i1 %cmp14.i.i.i.i38, i64 %src.sroa.10.034.i6.i.i.i, i64 %sub.i.i.i.i.i
   br label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread
 
 _ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread: ; preds = %while.body.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i
   %1 = phi i64 [ %spec.select, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i ], [ 0, %while.body.i.i.i.i ]
   %2 = trunc i64 %1 to i32
   %3 = add i32 %2, 7
+  %4 = lshr i32 %3, 3
   %cmp.not.i.i.i = icmp eq i32 %rhs.8.val, 0
   br i1 %cmp.not.i.i.i, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread
-  %4 = lshr i32 %3, 3
   %sub.i.i.i = add i32 %rhs.8.val, -1
   %idxprom.i.i.i = zext i32 %sub.i.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i64, ptr %rhs.0.val, i64 %idxprom.i.i.i
   %5 = load i64, ptr %arrayidx.i.i.i, align 8
   %.fr.i.i = freeze i64 %5
-  %cmp2.i.i.i = icmp sgt i64 %.fr.i.i, -1
-  %cmp817.i.i = icmp eq i32 %4, %rhs.8.val
-  %or.cond37 = select i1 %cmp2.i.i.i, i1 %cmp817.i.i, i1 false
-  br i1 %or.cond37, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread
+  %cmp.not.i10.i.i = icmp ult i32 %3, 8
+  br i1 %cmp.not.i10.i.i, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread
   %cmp817.i.i.old = icmp ult i32 %3, 8
   br i1 %cmp817.i.i.old, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread
 
-_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i
+_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i
+  %cmp2.i.i.i = icmp sgt i64 %.fr.i.i, -1
+  %cmp817.i.i = icmp eq i32 %4, %rhs.8.val
+  %or.cond = select i1 %cmp2.i.i.i, i1 %cmp817.i.i, i1 false
+  br i1 %or.cond, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread
+
+_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i
+  %6 = zext nneg i32 %4 to i64
+  %7 = getelementptr i64, ptr %rhs.addr.i, i64 %6
+  %arrayidx.i14.i.i = getelementptr i64, ptr %7, i64 -1
+  %8 = load i64, ptr %arrayidx.i14.i.i, align 8
+  %9 = xor i64 %8, %.fr.i.i
+  %10 = icmp sgt i64 %9, -1
+  %cmp8.i.i = icmp eq i32 %4, %rhs.8.val
+  %or.cond37 = select i1 %10, i1 %cmp8.i.i, i1 false
+  br i1 %or.cond37, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread
+
+_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i)
   br label %if.end13
 
-_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i
+_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i
   %call12.i.i = call noundef i32 @_ZN4llvh5APInt9tcCompareEPKmS2_j(ptr noundef %rhs.0.val, ptr noundef nonnull %rhs.addr.i, i32 noundef %rhs.8.val) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i)
   %cmp11 = icmp eq i32 %call12.i.i, 0
@@ -5030,30 +5058,30 @@ land.rhs.i:                                       ; preds = %if.end13
   %sub.i = add i32 %lhs.coerce1, -1
   %idxprom.i = zext i32 %sub.i to i64
   %arrayidx.i = getelementptr inbounds i64, ptr %lhs.coerce0, i64 %idxprom.i
-  %6 = load i64, ptr %arrayidx.i, align 8
-  %cmp2.i = icmp slt i64 %6, 0
+  %11 = load i64, ptr %arrayidx.i, align 8
+  %cmp2.i = icmp slt i64 %11, 0
   br label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit: ; preds = %if.end13, %land.rhs.i
-  %7 = phi i1 [ false, %if.end13 ], [ %cmp2.i, %land.rhs.i ]
+  %12 = phi i1 [ false, %if.end13 ], [ %cmp2.i, %land.rhs.i ]
   br i1 %cmp.not.i.i.i, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit30, label %land.rhs.i25
 
 land.rhs.i25:                                     ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit
   %sub.i26 = add i32 %rhs.8.val, -1
   %idxprom.i27 = zext i32 %sub.i26 to i64
   %arrayidx.i28 = getelementptr inbounds i64, ptr %rhs.0.val, i64 %idxprom.i27
-  %8 = load i64, ptr %arrayidx.i28, align 8
-  %cmp2.i29 = icmp slt i64 %8, 0
+  %13 = load i64, ptr %arrayidx.i28, align 8
+  %cmp2.i29 = icmp slt i64 %13, 0
   br label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit30
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit30: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit, %land.rhs.i25
-  %9 = phi i1 [ false, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit ], [ %cmp2.i29, %land.rhs.i25 ]
+  %14 = phi i1 [ false, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit ], [ %cmp2.i29, %land.rhs.i25 ]
   %cmp20 = icmp ugt i32 %add.i.i, %rhs.8.val
   %cmp26 = icmp eq ptr %rem.coerce0, null
-  %10 = select i1 %9, i1 true, i1 %cmp20
+  %15 = select i1 %14, i1 true, i1 %cmp20
   %cond = select i1 %cmp, i32 %add.i.i, i32 0
   %cond35 = select i1 %cmp26, i32 %add.i.i, i32 0
-  %cond40 = select i1 %10, i32 %add.i.i, i32 0
+  %cond40 = select i1 %15, i32 %add.i.i, i32 0
   %add = add i32 %cond, %add.i.i
   %add41 = add i32 %add, %cond35
   %add42 = add i32 %add41, %cond40
@@ -5079,24 +5107,24 @@ if.end.i.i.i:                                     ; preds = %_ZN6hermes6bigint10
   br i1 %cmp.not3.i.i.i.i.i.i.i.i, label %_ZN6hermes6bigint10TmpStorageC2Ej.exit, label %for.body.i.i.i.i.i.i.i.preheader.i
 
 for.body.i.i.i.i.i.i.i.preheader.i:               ; preds = %if.end.i.i.i, %if.end.i.i.thread.i
-  %11 = phi ptr [ %.pre.i.i, %if.end.i.i.thread.i ], [ %add.ptr.i.i.i.i.i.i, %if.end.i.i.i ]
-  %12 = shl nuw nsw i64 %conv.i, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 %12, i1 false)
+  %16 = phi ptr [ %.pre.i.i, %if.end.i.i.thread.i ], [ %add.ptr.i.i.i.i.i.i, %if.end.i.i.i ]
+  %17 = shl nuw nsw i64 %conv.i, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %16, i8 0, i64 %17, i1 false)
   %.pre.i = load ptr, ptr %tmpStorage, align 8
   br label %_ZN6hermes6bigint10TmpStorageC2Ej.exit
 
 _ZN6hermes6bigint10TmpStorageC2Ej.exit:           ; preds = %if.end.i.i.i, %for.body.i.i.i.i.i.i.i.preheader.i
-  %13 = phi ptr [ %.pre.i, %for.body.i.i.i.i.i.i.i.preheader.i ], [ %add.ptr.i.i.i.i.i.i, %if.end.i.i.i ]
+  %18 = phi ptr [ %.pre.i, %for.body.i.i.i.i.i.i.i.preheader.i ], [ %add.ptr.i.i.i.i.i.i, %if.end.i.i.i ]
   %data_.i = getelementptr inbounds %"class.hermes::bigint::TmpStorage", ptr %tmpStorage, i64 0, i32 1
   %idx.ext.i = zext i32 %add.i.i to i64
-  %add.ptr.i = getelementptr inbounds i64, ptr %13, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds i64, ptr %18, i64 %idx.ext.i
   %add.i.i.cond35 = select i1 %cmp, i32 %add.i.i, i32 %cond35
   %rem.coerce0.add.ptr.i = select i1 %cmp, ptr %rem.coerce0, ptr %add.ptr.i
   %add.ptr.i.quoc.coerce0 = select i1 %cmp, ptr %add.ptr.i, ptr %quoc.coerce0
   %idx.ext.i36.pn = zext i32 %add.i.i.cond35 to i64
   %storemerge = getelementptr inbounds i64, ptr %add.ptr.i, i64 %idx.ext.i36.pn
   store ptr %storemerge, ptr %data_.i, align 8
-  br i1 %10, label %if.then53, label %if.end67
+  br i1 %15, label %if.then53, label %if.end67
 
 if.then53:                                        ; preds = %_ZN6hermes6bigint10TmpStorageC2Ej.exit
   %add.ptr.i40 = getelementptr inbounds i64, ptr %storemerge, i64 %idx.ext.i
@@ -5116,13 +5144,13 @@ cond.false.i.i:                                   ; preds = %if.end.i
   %sub.i.i = add i32 %rhs.8.val, -1
   %idxprom.i.i = zext i32 %sub.i.i to i64
   %arrayidx.i.i = getelementptr inbounds i64, ptr %rhs.0.val, i64 %idxprom.i.i
-  %14 = load i64, ptr %arrayidx.i.i, align 8
-  %shr.neg.i.i.i = ashr i64 %14, 63
-  %15 = trunc i64 %shr.neg.i.i.i to i8
+  %19 = load i64, ptr %arrayidx.i.i, align 8
+  %shr.neg.i.i.i = ashr i64 %19, 63
+  %20 = trunc i64 %shr.neg.i.i.i to i8
   br label %_ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntRefEEEmRKT_.exit.i
 
 _ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntRefEEEmRKT_.exit.i: ; preds = %cond.false.i.i, %if.end.i
-  %cond.i.i = phi i8 [ %15, %cond.false.i.i ], [ 0, %if.end.i ]
+  %cond.i.i = phi i8 [ %20, %cond.false.i.i ], [ 0, %if.end.i ]
   %idx.ext.i43 = zext i32 %rhs.8.val to i64
   %add.ptr.i44 = getelementptr inbounds i64, ptr %storemerge, i64 %idx.ext.i43
   %conv8.i = zext i32 %mul5.i to i64
@@ -5130,7 +5158,7 @@ _ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntR
   br label %_ZN6hermes6bigint12_GLOBAL__N_134initNonCanonicalWithReadOnlyBigIntERNS0_16MutableBigIntRefERKNS0_18ImmutableBigIntRefE.exit
 
 _ZN6hermes6bigint12_GLOBAL__N_134initNonCanonicalWithReadOnlyBigIntERNS0_16MutableBigIntRefERKNS0_18ImmutableBigIntRefE.exit: ; preds = %if.then53, %_ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntRefEEEmRKT_.exit.i
-  br i1 %9, label %if.then59, label %if.end67
+  br i1 %14, label %if.then59, label %if.end67
 
 if.then59:                                        ; preds = %_ZN6hermes6bigint12_GLOBAL__N_134initNonCanonicalWithReadOnlyBigIntERNS0_16MutableBigIntRefERKNS0_18ImmutableBigIntRefE.exit
   call void @_ZN4llvh5APInt8tcNegateEPmj(ptr noundef %storemerge, i32 noundef %add.i.i) #18
@@ -5138,16 +5166,16 @@ if.then59:                                        ; preds = %_ZN6hermes6bigint12
 
 if.end67:                                         ; preds = %_ZN6hermes6bigint12_GLOBAL__N_134initNonCanonicalWithReadOnlyBigIntERNS0_16MutableBigIntRefERKNS0_18ImmutableBigIntRefE.exit, %if.then59, %_ZN6hermes6bigint10TmpStorageC2Ej.exit
   %rhs.0.allc.0 = phi ptr [ %rhs.0.val, %_ZN6hermes6bigint10TmpStorageC2Ej.exit ], [ %storemerge, %if.then59 ], [ %storemerge, %_ZN6hermes6bigint12_GLOBAL__N_134initNonCanonicalWithReadOnlyBigIntERNS0_16MutableBigIntRefERKNS0_18ImmutableBigIntRefE.exit ]
-  %16 = load i32, ptr %quoc.coerce1, align 4
-  %cmp.i47 = icmp ult i32 %16, %lhs.coerce1
+  %21 = load i32, ptr %quoc.coerce1, align 4
+  %cmp.i47 = icmp ult i32 %21, %lhs.coerce1
   br i1 %cmp.i47, label %_ZN6hermes6bigint12_GLOBAL__N_134initNonCanonicalWithReadOnlyBigIntERNS0_16MutableBigIntRefERKNS0_18ImmutableBigIntRefE.exit67, label %if.end.i48
 
 if.end.i48:                                       ; preds = %if.end67
   %mul.i49 = shl i32 %lhs.coerce1, 3
   %conv.i50 = zext i32 %mul.i49 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr.i.quoc.coerce0, ptr align 8 %lhs.coerce0, i64 %conv.i50, i1 false)
-  %17 = load i32, ptr %quoc.coerce1, align 4
-  %sub.i51 = sub i32 %17, %lhs.coerce1
+  %22 = load i32, ptr %quoc.coerce1, align 4
+  %sub.i51 = sub i32 %22, %lhs.coerce1
   %mul5.i52 = shl i32 %sub.i51, 3
   br i1 %cmp.not.i, label %_ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntRefEEEmRKT_.exit.i61, label %cond.false.i.i55
 
@@ -5155,13 +5183,13 @@ cond.false.i.i55:                                 ; preds = %if.end.i48
   %sub.i.i57 = add i32 %lhs.coerce1, -1
   %idxprom.i.i58 = zext i32 %sub.i.i57 to i64
   %arrayidx.i.i59 = getelementptr inbounds i64, ptr %lhs.coerce0, i64 %idxprom.i.i58
-  %18 = load i64, ptr %arrayidx.i.i59, align 8
-  %shr.neg.i.i.i60 = ashr i64 %18, 63
-  %19 = trunc i64 %shr.neg.i.i.i60 to i8
+  %23 = load i64, ptr %arrayidx.i.i59, align 8
+  %shr.neg.i.i.i60 = ashr i64 %23, 63
+  %24 = trunc i64 %shr.neg.i.i.i60 to i8
   br label %_ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntRefEEEmRKT_.exit.i61
 
 _ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntRefEEEmRKT_.exit.i61: ; preds = %cond.false.i.i55, %if.end.i48
-  %cond.i.i62 = phi i8 [ %19, %cond.false.i.i55 ], [ 0, %if.end.i48 ]
+  %cond.i.i62 = phi i8 [ %24, %cond.false.i.i55 ], [ 0, %if.end.i48 ]
   %idx.ext.i63 = zext i32 %lhs.coerce1 to i64
   %add.ptr.i64 = getelementptr inbounds i64, ptr %add.ptr.i.quoc.coerce0, i64 %idx.ext.i63
   %conv8.i65 = zext i32 %mul5.i52 to i64
@@ -5169,46 +5197,46 @@ _ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntR
   br label %_ZN6hermes6bigint12_GLOBAL__N_134initNonCanonicalWithReadOnlyBigIntERNS0_16MutableBigIntRefERKNS0_18ImmutableBigIntRefE.exit67
 
 _ZN6hermes6bigint12_GLOBAL__N_134initNonCanonicalWithReadOnlyBigIntERNS0_16MutableBigIntRefERKNS0_18ImmutableBigIntRefE.exit67: ; preds = %if.end67, %_ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntRefEEEmRKT_.exit.i61
-  br i1 %7, label %if.then71, label %if.end74
+  br i1 %12, label %if.then71, label %if.end74
 
 if.then71:                                        ; preds = %_ZN6hermes6bigint12_GLOBAL__N_134initNonCanonicalWithReadOnlyBigIntERNS0_16MutableBigIntRefERKNS0_18ImmutableBigIntRefE.exit67
-  %20 = load i32, ptr %quoc.coerce1, align 4
-  call void @_ZN4llvh5APInt8tcNegateEPmj(ptr noundef %add.ptr.i.quoc.coerce0, i32 noundef %20) #18
+  %25 = load i32, ptr %quoc.coerce1, align 4
+  call void @_ZN4llvh5APInt8tcNegateEPmj(ptr noundef %add.ptr.i.quoc.coerce0, i32 noundef %25) #18
   br label %if.end74
 
 if.end74:                                         ; preds = %if.then71, %_ZN6hermes6bigint12_GLOBAL__N_134initNonCanonicalWithReadOnlyBigIntERNS0_16MutableBigIntRefERKNS0_18ImmutableBigIntRefE.exit67
-  %call78 = call noundef i32 @_ZN4llvh5APInt8tcDivideEPmPKmS1_S1_j(ptr noundef %add.ptr.i.quoc.coerce0, ptr noundef %rhs.0.allc.0, ptr noundef %rem.coerce0.add.ptr.i, ptr noundef %13, i32 noundef %add.i.i) #18
+  %call78 = call noundef i32 @_ZN4llvh5APInt8tcDivideEPmPKmS1_S1_j(ptr noundef %add.ptr.i.quoc.coerce0, ptr noundef %rhs.0.allc.0, ptr noundef %rem.coerce0.add.ptr.i, ptr noundef %18, i32 noundef %add.i.i) #18
   br i1 %cmp, label %if.end91, label %if.then80
 
 if.then80:                                        ; preds = %if.end74
-  %21 = xor i1 %7, %9
-  br i1 %21, label %if.then87, label %if.end90
+  %26 = xor i1 %12, %14
+  br i1 %26, label %if.then87, label %if.end90
 
 if.then87:                                        ; preds = %if.then80
-  %22 = load i32, ptr %quoc.coerce1, align 4
-  call void @_ZN4llvh5APInt8tcNegateEPmj(ptr noundef nonnull %quoc.coerce0, i32 noundef %22) #18
+  %27 = load i32, ptr %quoc.coerce1, align 4
+  call void @_ZN4llvh5APInt8tcNegateEPmj(ptr noundef nonnull %quoc.coerce0, i32 noundef %27) #18
   br label %if.end90
 
 if.end90:                                         ; preds = %if.then87, %if.then80
-  %23 = load i32, ptr %quoc.coerce1, align 4
-  %mul.i68 = shl i32 %23, 3
+  %28 = load i32, ptr %quoc.coerce1, align 4
+  %mul.i68 = shl i32 %28, 3
   %cmp.i.i.i69 = icmp eq i32 %mul.i68, 0
   br i1 %cmp.i.i.i69, label %_ZN6hermes6bigint12_GLOBAL__N_121ensureCanonicalResultERNS0_16MutableBigIntRefE.exit, label %if.end.i.i70
 
 if.end.i.i70:                                     ; preds = %if.end90
   %conv.i71 = zext i32 %mul.i68 to i64
-  %24 = getelementptr i8, ptr %quoc.coerce0, i64 %conv.i71
-  %arrayidx.i.i.i72 = getelementptr i8, ptr %24, i64 -1
-  %25 = load i8, ptr %arrayidx.i.i.i72, align 1
-  %26 = ashr i8 %25, 7
+  %29 = getelementptr i8, ptr %quoc.coerce0, i64 %conv.i71
+  %arrayidx.i.i.i72 = getelementptr i8, ptr %29, i64 -1
+  %30 = load i8, ptr %arrayidx.i.i.i72, align 1
+  %31 = ashr i8 %30, 7
   %quoc.coerce0.sroa.gep = getelementptr i8, ptr %quoc.coerce0, i64 -1
-  %cmp.i5.i = icmp eq i8 %25, %26
+  %cmp.i5.i = icmp eq i8 %30, %31
   br i1 %cmp.i5.i, label %while.body.i.i, label %cond.end.i.i
 
 land.rhs.i.i:                                     ; preds = %while.body.i.i
   %gep.i.i = getelementptr i8, ptr %quoc.coerce0.sroa.gep, i64 %sub.i.i.i74
-  %27 = load i8, ptr %gep.i.i, align 1
-  %cmp.i.i75 = icmp eq i8 %27, %25
+  %32 = load i8, ptr %gep.i.i, align 1
+  %cmp.i.i75 = icmp eq i8 %32, %30
   br i1 %cmp.i.i75, label %while.body.i.i, label %cond.false.i.loopexit.i, !llvm.loop !4
 
 while.body.i.i:                                   ; preds = %if.end.i.i70, %land.rhs.i.i
@@ -5218,22 +5246,22 @@ while.body.i.i:                                   ; preds = %if.end.i.i70, %land
   br i1 %cmp.i6.i.i, label %cond.end.i.i, label %land.rhs.i.i, !llvm.loop !4
 
 cond.false.i.loopexit.i:                          ; preds = %land.rhs.i.i
-  %.pre.i76 = ashr i8 %27, 7
+  %.pre.i76 = ashr i8 %32, 7
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %while.body.i.i, %cond.false.i.loopexit.i, %if.end.i.i70
   %previousSrc.sroa.3.032.i.i = phi i64 [ %src.sroa.10.034.i6.i, %cond.false.i.loopexit.i ], [ %conv.i71, %if.end.i.i70 ], [ 1, %while.body.i.i ]
   %src.sroa.10.030.i.i = phi i64 [ %sub.i.i.i74, %cond.false.i.loopexit.i ], [ %conv.i71, %if.end.i.i70 ], [ 0, %while.body.i.i ]
-  %cond.i.i73 = phi i8 [ %.pre.i76, %cond.false.i.loopexit.i ], [ %26, %if.end.i.i70 ], [ 0, %while.body.i.i ]
-  %cmp14.i.i = icmp eq i8 %cond.i.i73, %26
+  %cond.i.i73 = phi i8 [ %.pre.i76, %cond.false.i.loopexit.i ], [ %31, %if.end.i.i70 ], [ 0, %while.body.i.i ]
+  %cmp14.i.i = icmp eq i8 %cond.i.i73, %31
   %retval.sroa.3.0.copyload3.i.i = select i1 %cmp14.i.i, i64 %src.sroa.10.030.i.i, i64 %previousSrc.sroa.3.032.i.i
-  %28 = trunc i64 %retval.sroa.3.0.copyload3.i.i to i32
-  %29 = add i32 %28, 7
-  %30 = lshr i32 %29, 3
+  %33 = trunc i64 %retval.sroa.3.0.copyload3.i.i to i32
+  %34 = add i32 %33, 7
+  %35 = lshr i32 %34, 3
   br label %_ZN6hermes6bigint12_GLOBAL__N_121ensureCanonicalResultERNS0_16MutableBigIntRefE.exit
 
 _ZN6hermes6bigint12_GLOBAL__N_121ensureCanonicalResultERNS0_16MutableBigIntRefE.exit: ; preds = %if.end90, %cond.end.i.i
-  %retval.sroa.3.0.i.i = phi i32 [ %30, %cond.end.i.i ], [ 0, %if.end90 ]
+  %retval.sroa.3.0.i.i = phi i32 [ %35, %cond.end.i.i ], [ 0, %if.end90 ]
   store i32 %retval.sroa.3.0.i.i, ptr %quoc.coerce1, align 4
   br label %if.end91
 
@@ -5241,34 +5269,34 @@ if.end91:                                         ; preds = %_ZN6hermes6bigint12
   br i1 %cmp26, label %if.end99, label %if.then93
 
 if.then93:                                        ; preds = %if.end91
-  br i1 %7, label %if.then95, label %if.end98
+  br i1 %12, label %if.then95, label %if.end98
 
 if.then95:                                        ; preds = %if.then93
-  %31 = load i32, ptr %rem.coerce1, align 4
-  call void @_ZN4llvh5APInt8tcNegateEPmj(ptr noundef %rem.coerce0.add.ptr.i, i32 noundef %31) #18
+  %36 = load i32, ptr %rem.coerce1, align 4
+  call void @_ZN4llvh5APInt8tcNegateEPmj(ptr noundef %rem.coerce0.add.ptr.i, i32 noundef %36) #18
   br label %if.end98
 
 if.end98:                                         ; preds = %if.then95, %if.then93
-  %32 = load i32, ptr %rem.coerce1, align 4
-  %mul.i77 = shl i32 %32, 3
+  %37 = load i32, ptr %rem.coerce1, align 4
+  %mul.i77 = shl i32 %37, 3
   %cmp.i.i.i78 = icmp eq i32 %mul.i77, 0
   br i1 %cmp.i.i.i78, label %_ZN6hermes6bigint12_GLOBAL__N_121ensureCanonicalResultERNS0_16MutableBigIntRefE.exit100, label %if.end.i.i79
 
 if.end.i.i79:                                     ; preds = %if.end98
   %conv.i80 = zext i32 %mul.i77 to i64
-  %33 = getelementptr i8, ptr %rem.coerce0.add.ptr.i, i64 %conv.i80
-  %arrayidx.i.i.i81 = getelementptr i8, ptr %33, i64 -1
-  %34 = load i8, ptr %arrayidx.i.i.i81, align 1
-  %35 = ashr i8 %34, 7
+  %38 = getelementptr i8, ptr %rem.coerce0.add.ptr.i, i64 %conv.i80
+  %arrayidx.i.i.i81 = getelementptr i8, ptr %38, i64 -1
+  %39 = load i8, ptr %arrayidx.i.i.i81, align 1
+  %40 = ashr i8 %39, 7
   %rem.coerce0.add.ptr.i.sroa.sel.v.sroa.sel.v = select i1 %cmp, ptr %rem.coerce0, ptr %add.ptr.i
   %rem.coerce0.add.ptr.i.sroa.sel.v.sroa.sel = getelementptr i8, ptr %rem.coerce0.add.ptr.i.sroa.sel.v.sroa.sel.v, i64 -1
-  %cmp.i5.i83 = icmp eq i8 %34, %35
+  %cmp.i5.i83 = icmp eq i8 %39, %40
   br i1 %cmp.i5.i83, label %while.body.i.i91, label %cond.end.i.i84
 
 land.rhs.i.i95:                                   ; preds = %while.body.i.i91
   %gep.i.i96 = getelementptr i8, ptr %rem.coerce0.add.ptr.i.sroa.sel.v.sroa.sel, i64 %sub.i.i.i93
-  %36 = load i8, ptr %gep.i.i96, align 1
-  %cmp.i.i97 = icmp eq i8 %36, %34
+  %41 = load i8, ptr %gep.i.i96, align 1
+  %cmp.i.i97 = icmp eq i8 %41, %39
   br i1 %cmp.i.i97, label %while.body.i.i91, label %cond.false.i.loopexit.i98, !llvm.loop !4
 
 while.body.i.i91:                                 ; preds = %if.end.i.i79, %land.rhs.i.i95
@@ -5278,32 +5306,32 @@ while.body.i.i91:                                 ; preds = %if.end.i.i79, %land
   br i1 %cmp.i6.i.i94, label %cond.end.i.i84, label %land.rhs.i.i95, !llvm.loop !4
 
 cond.false.i.loopexit.i98:                        ; preds = %land.rhs.i.i95
-  %.pre.i99 = ashr i8 %36, 7
+  %.pre.i99 = ashr i8 %41, 7
   br label %cond.end.i.i84
 
 cond.end.i.i84:                                   ; preds = %while.body.i.i91, %cond.false.i.loopexit.i98, %if.end.i.i79
   %previousSrc.sroa.3.032.i.i85 = phi i64 [ %src.sroa.10.034.i6.i92, %cond.false.i.loopexit.i98 ], [ %conv.i80, %if.end.i.i79 ], [ 1, %while.body.i.i91 ]
   %src.sroa.10.030.i.i86 = phi i64 [ %sub.i.i.i93, %cond.false.i.loopexit.i98 ], [ %conv.i80, %if.end.i.i79 ], [ 0, %while.body.i.i91 ]
-  %cond.i.i87 = phi i8 [ %.pre.i99, %cond.false.i.loopexit.i98 ], [ %35, %if.end.i.i79 ], [ 0, %while.body.i.i91 ]
-  %cmp14.i.i88 = icmp eq i8 %cond.i.i87, %35
+  %cond.i.i87 = phi i8 [ %.pre.i99, %cond.false.i.loopexit.i98 ], [ %40, %if.end.i.i79 ], [ 0, %while.body.i.i91 ]
+  %cmp14.i.i88 = icmp eq i8 %cond.i.i87, %40
   %retval.sroa.3.0.copyload3.i.i89 = select i1 %cmp14.i.i88, i64 %src.sroa.10.030.i.i86, i64 %previousSrc.sroa.3.032.i.i85
-  %37 = trunc i64 %retval.sroa.3.0.copyload3.i.i89 to i32
-  %38 = add i32 %37, 7
-  %39 = lshr i32 %38, 3
+  %42 = trunc i64 %retval.sroa.3.0.copyload3.i.i89 to i32
+  %43 = add i32 %42, 7
+  %44 = lshr i32 %43, 3
   br label %_ZN6hermes6bigint12_GLOBAL__N_121ensureCanonicalResultERNS0_16MutableBigIntRefE.exit100
 
 _ZN6hermes6bigint12_GLOBAL__N_121ensureCanonicalResultERNS0_16MutableBigIntRefE.exit100: ; preds = %if.end98, %cond.end.i.i84
-  %retval.sroa.3.0.i.i90 = phi i32 [ %39, %cond.end.i.i84 ], [ 0, %if.end98 ]
+  %retval.sroa.3.0.i.i90 = phi i32 [ %44, %cond.end.i.i84 ], [ 0, %if.end98 ]
   store i32 %retval.sroa.3.0.i.i90, ptr %rem.coerce1, align 4
   br label %if.end99
 
 if.end99:                                         ; preds = %_ZN6hermes6bigint12_GLOBAL__N_121ensureCanonicalResultERNS0_16MutableBigIntRefE.exit100, %if.end91
-  %40 = load ptr, ptr %tmpStorage, align 8
-  %cmp.i.i.i.i101 = icmp eq ptr %40, %add.ptr.i.i.i.i.i.i
+  %45 = load ptr, ptr %tmpStorage, align 8
+  %cmp.i.i.i.i101 = icmp eq ptr %45, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i101, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end99
-  call void @free(ptr noundef %40) #18
+  call void @free(ptr noundef %45) #18
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %if.end99, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, %if.end
@@ -5331,10 +5359,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN6hermes6bigint12exponentiateENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %dst.coerce0, ptr %dst.coerce1, ptr %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
 entry:
-  %rhs.addr.i197 = alloca i64, align 8
-  %rhs.addr.i150 = alloca i64, align 8
-  %rhs.addr.i103 = alloca i64, align 8
-  %rhs.addr.i56 = alloca i64, align 8
+  %rhs.addr.i208 = alloca i64, align 8
+  %rhs.addr.i158 = alloca i64, align 8
+  %rhs.addr.i108 = alloca i64, align 8
+  %rhs.addr.i58 = alloca i64, align 8
   %rhs.addr.i27 = alloca i64, align 8
   %rhs.addr.i = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rhs.addr.i)
@@ -5356,8 +5384,8 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %
   br i1 %cmp.i6.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread, label %land.rhs.i.i.i.i, !llvm.loop !4
 
 _ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i: ; preds = %land.rhs.i.i.i.i
-  %cmp14.i.i.i.i353 = icmp slt i8 %.fr, 0
-  %spec.select = select i1 %cmp14.i.i.i.i353, i64 %src.sroa.10.034.i6.i.i.i, i64 %sub.i.i.i.i.i
+  %cmp14.i.i.i.i367 = icmp slt i8 %.fr, 0
+  %spec.select = select i1 %cmp14.i.i.i.i367, i64 %src.sroa.10.034.i6.i.i.i, i64 %sub.i.i.i.i.i
   br label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread
 
 _ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread: ; preds = %while.body.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i
@@ -5379,42 +5407,66 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i: ; preds = %_ZN
   br i1 %cmp.not.i10.i.i, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread
-  %cmp817.i.i = icmp ult i32 %3, 8
-  br i1 %cmp817.i.i, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, label %if.else19.i.i
+  %cmp.not.i1018.i.i = icmp ult i32 %3, 8
+  br i1 %cmp.not.i1018.i.i, label %if.end.thread.i.i, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i
+
+_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i
+  %6 = zext nneg i32 %4 to i64
+  %7 = getelementptr i64, ptr %rhs.addr.i, i64 %6
+  %arrayidx.i1421.i.i = getelementptr i64, ptr %7, i64 -1
+  %8 = load i64, ptr %arrayidx.i1421.i.i, align 8
+  %cmp2.i1522.i.i = icmp sgt i64 %8, -1
+  br i1 %cmp2.i1522.i.i, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread294, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i
-  br i1 %cmp2.i.i.i, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread, label %if.end.thread.i.i
+  br i1 %cmp2.i.i.i, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread294, label %if.end.thread.i.i
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i
-  br i1 %cmp2.i.i.i, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread, label %if.end.i.i
+  %9 = zext nneg i32 %4 to i64
+  %10 = getelementptr i64, ptr %rhs.addr.i, i64 %9
+  %arrayidx.i14.i.i = getelementptr i64, ptr %10, i64 -1
+  %11 = load i64, ptr %arrayidx.i14.i.i, align 8
+  %12 = xor i64 %11, %.fr.i.i
+  %13 = icmp slt i64 %12, 0
+  br i1 %13, label %if.then.i.i, label %if.end.i.i
+
+if.then.i.i:                                      ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i
+  br i1 %cmp2.i.i.i, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread294, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread
 
 if.end.i.i:                                       ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i
   %cmp8.i.i = icmp eq i32 %4, %rhs.coerce1
-  br i1 %cmp8.i.i, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, label %if.else19.i.i
+  br i1 %cmp8.i.i, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, label %if.else.i.i
 
-if.end.thread.i.i:                                ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i
-  %cmp817.i.i.old = icmp eq i32 %4, %rhs.coerce1
-  br i1 %cmp817.i.i.old, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, label %if.else19.i.i
+if.end.thread.i.i:                                ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i
+  %cmp817.i.i = icmp eq i32 %4, %rhs.coerce1
+  br i1 %cmp817.i.i, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, label %if.else19.i.i
 
-if.else19.i.i:                                    ; preds = %if.end.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i, %if.end.thread.i.i
-  %cmp22.i.i = icmp ugt i32 %4, %rhs.coerce1
-  br i1 %cmp22.i.i, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread278
+if.else.i.i:                                      ; preds = %if.end.i.i
+  br i1 %cmp2.i.i.i, label %if.then14.i.i, label %if.else19.i.i
 
-_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread278: ; preds = %if.else19.i.i
+if.then14.i.i:                                    ; preds = %if.else.i.i
+  %cmp17.i.i = icmp ugt i32 %4, %rhs.coerce1
+  br i1 %cmp17.i.i, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread294
+
+if.else19.i.i:                                    ; preds = %if.else.i.i, %if.end.thread.i.i
+  %cmp22.i.i.old = icmp ugt i32 %4, %rhs.coerce1
+  br i1 %cmp22.i.i.old, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread294, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread
+
+_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread: ; preds = %if.else19.i.i, %if.then.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i, %if.then14.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i)
   br label %if.end
 
-_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i, %if.else19.i.i
+_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread294: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i, %if.then14.i.i, %if.then.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i, %if.else19.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i)
   br label %return
 
-_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i, %if.end.i.i, %if.end.thread.i.i
+_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit: ; preds = %if.end.i.i, %if.end.thread.i.i
   %call12.i.i = call noundef i32 @_ZN4llvh5APInt9tcCompareEPKmS2_j(ptr noundef %rhs.coerce0, ptr noundef nonnull %rhs.addr.i, i32 noundef %rhs.coerce1) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i)
   %cmp = icmp slt i32 %call12.i.i, 0
   br i1 %cmp, label %return, label %if.end
 
-if.end:                                           ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread278, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit
+if.end:                                           ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit
   br i1 %cmp.not.i.i.i, label %if.end.split, label %cond.true.split
 
 if.end.split:                                     ; preds = %if.end
@@ -5425,117 +5477,147 @@ if.end.split:                                     ; preds = %if.end
 
 land.rhs.i.i.i.i33:                               ; preds = %while.body.i.i.i.i29
   %gep.i.i.i.i34 = getelementptr i8, ptr %invariant.gep.i.i.i.i28, i64 %sub.i.i.i.i.i31
-  %6 = load i8, ptr %gep.i.i.i.i34, align 1
-  %.fr356 = freeze i8 %6
-  %cmp.i.i.i.i35 = icmp eq i8 %.fr356, 0
+  %14 = load i8, ptr %gep.i.i.i.i34, align 1
+  %.fr370 = freeze i8 %14
+  %cmp.i.i.i.i35 = icmp eq i8 %.fr370, 0
   br i1 %cmp.i.i.i.i35, label %while.body.i.i.i.i29, label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i38, !llvm.loop !4
 
 while.body.i.i.i.i29:                             ; preds = %land.rhs.i.i.i.i33, %if.end.split
   %src.sroa.10.034.i6.i.i.i30 = phi i64 [ %sub.i.i.i.i.i31, %land.rhs.i.i.i.i33 ], [ 8, %if.end.split ]
   %sub.i.i.i.i.i31 = add nsw i64 %src.sroa.10.034.i6.i.i.i30, -1
   %cmp.i6.i.i.i.i32 = icmp eq i64 %sub.i.i.i.i.i31, 0
-  br i1 %cmp.i6.i.i.i.i32, label %if.then9.i.i53, label %land.rhs.i.i.i.i33, !llvm.loop !4
+  br i1 %cmp.i6.i.i.i.i32, label %if.then9.i.i55, label %land.rhs.i.i.i.i33, !llvm.loop !4
 
 _ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i38: ; preds = %land.rhs.i.i.i.i33
-  %cmp14.i.i.i.i42357 = icmp slt i8 %.fr356, 0
-  %spec.select337 = select i1 %cmp14.i.i.i.i42357, i64 %src.sroa.10.034.i6.i.i.i30, i64 %sub.i.i.i.i.i31
-  %7 = trunc i64 %spec.select337 to i32
-  %8 = add i32 %7, 7
-  %cmp817.i.i52 = icmp ult i32 %8, 8
-  br i1 %cmp817.i.i52, label %if.then9.i.i53, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit55
+  %cmp14.i.i.i.i42371 = icmp slt i8 %.fr370, 0
+  %spec.select353 = select i1 %cmp14.i.i.i.i42371, i64 %src.sroa.10.034.i6.i.i.i30, i64 %sub.i.i.i.i.i31
+  %15 = trunc i64 %spec.select353 to i32
+  %16 = add i32 %15, 7
+  %cmp.not.i1018.i.i45 = icmp ult i32 %16, 8
+  br i1 %cmp.not.i1018.i.i45, label %if.then9.i.i55, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i46
 
-if.then9.i.i53:                                   ; preds = %while.body.i.i.i.i29, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i38
-  %call12.i.i54 = call noundef i32 @_ZN4llvh5APInt9tcCompareEPKmS2_j(ptr noundef %rhs.coerce0, ptr noundef nonnull %rhs.addr.i27, i32 noundef 0) #18
-  br label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit55
+_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i46: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i38
+  %17 = lshr i32 %16, 3
+  %18 = zext nneg i32 %17 to i64
+  %19 = getelementptr i64, ptr %rhs.addr.i27, i64 %18
+  %arrayidx.i1421.i.i47 = getelementptr i64, ptr %19, i64 -1
+  %20 = load i64, ptr %arrayidx.i1421.i.i47, align 8
+  %cmp2.i1522.i.i48 = icmp slt i64 %20, 0
+  %spec.select391 = select i1 %cmp2.i1522.i.i48, i32 1, i32 -1
+  br label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit57
 
-_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit55: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i38, %if.then9.i.i53
-  %retval.0.i.i50 = phi i32 [ %call12.i.i54, %if.then9.i.i53 ], [ -1, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i38 ]
+if.then9.i.i55:                                   ; preds = %while.body.i.i.i.i29, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i38
+  %call12.i.i56 = call noundef i32 @_ZN4llvh5APInt9tcCompareEPKmS2_j(ptr noundef %rhs.coerce0, ptr noundef nonnull %rhs.addr.i27, i32 noundef 0) #18
+  br label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit57
+
+_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit57: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i46, %if.then9.i.i55
+  %retval.0.i.i52 = phi i32 [ %call12.i.i56, %if.then9.i.i55 ], [ %spec.select391, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i46 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i27)
   br label %cond.end
 
 cond.true.split:                                  ; preds = %if.end
-  %9 = load i64, ptr %rhs.coerce0, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rhs.addr.i56)
-  store i64 0, ptr %rhs.addr.i56, align 8
-  %invariant.gep.i.i.i.i57 = getelementptr i8, ptr %rhs.addr.i56, i64 -1
-  br label %while.body.i.i.i.i58
+  %21 = load i64, ptr %rhs.coerce0, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rhs.addr.i58)
+  store i64 0, ptr %rhs.addr.i58, align 8
+  %invariant.gep.i.i.i.i59 = getelementptr i8, ptr %rhs.addr.i58, i64 -1
+  br label %while.body.i.i.i.i60
 
-land.rhs.i.i.i.i62:                               ; preds = %while.body.i.i.i.i58
-  %gep.i.i.i.i63 = getelementptr i8, ptr %invariant.gep.i.i.i.i57, i64 %sub.i.i.i.i.i60
-  %10 = load i8, ptr %gep.i.i.i.i63, align 1
-  %.fr354 = freeze i8 %10
-  %cmp.i.i.i.i64 = icmp eq i8 %.fr354, 0
-  br i1 %cmp.i.i.i.i64, label %while.body.i.i.i.i58, label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i67, !llvm.loop !4
+land.rhs.i.i.i.i64:                               ; preds = %while.body.i.i.i.i60
+  %gep.i.i.i.i65 = getelementptr i8, ptr %invariant.gep.i.i.i.i59, i64 %sub.i.i.i.i.i62
+  %22 = load i8, ptr %gep.i.i.i.i65, align 1
+  %.fr368 = freeze i8 %22
+  %cmp.i.i.i.i66 = icmp eq i8 %.fr368, 0
+  br i1 %cmp.i.i.i.i66, label %while.body.i.i.i.i60, label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i69, !llvm.loop !4
 
-while.body.i.i.i.i58:                             ; preds = %land.rhs.i.i.i.i62, %cond.true.split
-  %src.sroa.10.034.i6.i.i.i59 = phi i64 [ %sub.i.i.i.i.i60, %land.rhs.i.i.i.i62 ], [ 8, %cond.true.split ]
-  %sub.i.i.i.i.i60 = add nsw i64 %src.sroa.10.034.i6.i.i.i59, -1
-  %cmp.i6.i.i.i.i61 = icmp eq i64 %sub.i.i.i.i.i60, 0
-  br i1 %cmp.i6.i.i.i.i61, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i74.thread, label %land.rhs.i.i.i.i62, !llvm.loop !4
+while.body.i.i.i.i60:                             ; preds = %land.rhs.i.i.i.i64, %cond.true.split
+  %src.sroa.10.034.i6.i.i.i61 = phi i64 [ %sub.i.i.i.i.i62, %land.rhs.i.i.i.i64 ], [ 8, %cond.true.split ]
+  %sub.i.i.i.i.i62 = add nsw i64 %src.sroa.10.034.i6.i.i.i61, -1
+  %cmp.i6.i.i.i.i63 = icmp eq i64 %sub.i.i.i.i.i62, 0
+  br i1 %cmp.i6.i.i.i.i63, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i76.thread, label %land.rhs.i.i.i.i64, !llvm.loop !4
 
-_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i74.thread: ; preds = %while.body.i.i.i.i58
-  %sub.i.i.i75297 = add i32 %rhs.coerce1, -1
-  %idxprom.i.i.i76298 = zext i32 %sub.i.i.i75297 to i64
-  %arrayidx.i.i.i77299 = getelementptr inbounds i64, ptr %rhs.coerce0, i64 %idxprom.i.i.i76298
-  %11 = load i64, ptr %arrayidx.i.i.i77299, align 8
-  %.fr.i.i78300 = freeze i64 %11
-  %cmp2.i.i.i79301 = icmp slt i64 %.fr.i.i78300, 0
-  br i1 %cmp2.i.i.i79301, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit102, label %if.end.thread.i.i97
+_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i76.thread: ; preds = %while.body.i.i.i.i60
+  %sub.i.i.i77313 = add i32 %rhs.coerce1, -1
+  %idxprom.i.i.i78314 = zext i32 %sub.i.i.i77313 to i64
+  %arrayidx.i.i.i79315 = getelementptr inbounds i64, ptr %rhs.coerce0, i64 %idxprom.i.i.i78314
+  %23 = load i64, ptr %arrayidx.i.i.i79315, align 8
+  %.fr.i.i80316 = freeze i64 %23
+  %cmp2.i.i.i81317 = icmp slt i64 %.fr.i.i80316, 0
+  br i1 %cmp2.i.i.i81317, label %if.then.thread.i.i98, label %if.end.thread.i.i100
 
-_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i67: ; preds = %land.rhs.i.i.i.i62
-  %cmp14.i.i.i.i71355 = icmp slt i8 %.fr354, 0
-  %spec.select339 = select i1 %cmp14.i.i.i.i71355, i64 %src.sroa.10.034.i6.i.i.i59, i64 %sub.i.i.i.i.i60
-  %12 = trunc i64 %spec.select339 to i32
-  %13 = add i32 %12, 7
-  %14 = lshr i32 %13, 3
-  %sub.i.i.i75 = add i32 %rhs.coerce1, -1
-  %idxprom.i.i.i76 = zext i32 %sub.i.i.i75 to i64
-  %arrayidx.i.i.i77 = getelementptr inbounds i64, ptr %rhs.coerce0, i64 %idxprom.i.i.i76
-  %15 = load i64, ptr %arrayidx.i.i.i77, align 8
-  %.fr.i.i78 = freeze i64 %15
-  %cmp2.i.i.i79 = icmp slt i64 %.fr.i.i78, 0
-  %cmp.not.i10.i.i80 = icmp ult i32 %13, 8
-  br i1 %cmp.not.i10.i.i80, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i96, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i81
+_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i69: ; preds = %land.rhs.i.i.i.i64
+  %cmp14.i.i.i.i73369 = icmp slt i8 %.fr368, 0
+  %spec.select354 = select i1 %cmp14.i.i.i.i73369, i64 %src.sroa.10.034.i6.i.i.i61, i64 %sub.i.i.i.i.i62
+  %24 = trunc i64 %spec.select354 to i32
+  %25 = add i32 %24, 7
+  %26 = lshr i32 %25, 3
+  %sub.i.i.i77 = add i32 %rhs.coerce1, -1
+  %idxprom.i.i.i78 = zext i32 %sub.i.i.i77 to i64
+  %arrayidx.i.i.i79 = getelementptr inbounds i64, ptr %rhs.coerce0, i64 %idxprom.i.i.i78
+  %27 = load i64, ptr %arrayidx.i.i.i79, align 8
+  %.fr.i.i80 = freeze i64 %27
+  %cmp2.i.i.i81 = icmp slt i64 %.fr.i.i80, 0
+  %cmp.not.i10.i.i82 = icmp ult i32 %25, 8
+  br i1 %cmp.not.i10.i.i82, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i99, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i83
 
-_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i96: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i67
-  br i1 %cmp2.i.i.i79, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit102, label %if.end.thread.i.i97
+_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i99: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i69
+  br i1 %cmp2.i.i.i81, label %if.then.thread.i.i98, label %if.end.thread.i.i100
 
-_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i81: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i67
-  br i1 %cmp2.i.i.i79, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit102, label %if.end.i.i82
+_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i83: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i69
+  %28 = zext nneg i32 %26 to i64
+  %29 = getelementptr i64, ptr %rhs.addr.i58, i64 %28
+  %arrayidx.i14.i.i84 = getelementptr i64, ptr %29, i64 -1
+  %30 = load i64, ptr %arrayidx.i14.i.i84, align 8
+  %31 = xor i64 %30, %.fr.i.i80
+  %32 = icmp slt i64 %31, 0
+  br i1 %32, label %if.then.i.i97, label %if.end.i.i85
 
-if.end.i.i82:                                     ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i81
-  %cmp8.i.i83 = icmp eq i32 %14, %rhs.coerce1
-  br i1 %cmp8.i.i83, label %if.then9.i.i92, label %if.else19.i.i85
+if.then.i.i97:                                    ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i83
+  br i1 %cmp2.i.i.i81, label %if.then.thread.i.i98, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit107
 
-if.end.thread.i.i97:                              ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i74.thread, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i96
-  %16 = phi i32 [ 0, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i74.thread ], [ %14, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i96 ]
-  %cmp817.i.i98 = icmp eq i32 %16, %rhs.coerce1
-  br i1 %cmp817.i.i98, label %if.then9.i.i92, label %if.else19.i.i85
+if.then.thread.i.i98:                             ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i76.thread, %if.then.i.i97, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i99
+  br label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit107
 
-if.then9.i.i92:                                   ; preds = %if.end.thread.i.i97, %if.end.i.i82
-  %call12.i.i93 = call noundef i32 @_ZN4llvh5APInt9tcCompareEPKmS2_j(ptr noundef nonnull %rhs.coerce0, ptr noundef nonnull %rhs.addr.i56, i32 noundef %rhs.coerce1) #18
-  br label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit102
+if.end.i.i85:                                     ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i83
+  %cmp8.i.i86 = icmp eq i32 %26, %rhs.coerce1
+  br i1 %cmp8.i.i86, label %if.then9.i.i95, label %if.else.i.i87
 
-if.else19.i.i85:                                  ; preds = %if.end.i.i82, %if.end.thread.i.i97
-  %17 = phi i32 [ %16, %if.end.thread.i.i97 ], [ %14, %if.end.i.i82 ]
-  %cmp22.i.i86 = icmp ugt i32 %17, %rhs.coerce1
-  %cond23.i.i87 = select i1 %cmp22.i.i86, i32 -1, i32 1
-  br label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit102
+if.end.thread.i.i100:                             ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i76.thread, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i99
+  %33 = phi i32 [ 0, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i76.thread ], [ %26, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i99 ]
+  %cmp817.i.i101 = icmp eq i32 %33, %rhs.coerce1
+  br i1 %cmp817.i.i101, label %if.then9.i.i95, label %if.else19.i.i88
 
-_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit102: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i96, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i74.thread, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i81, %if.then9.i.i92, %if.else19.i.i85
-  %retval.0.i.i88 = phi i32 [ %call12.i.i93, %if.then9.i.i92 ], [ %cond23.i.i87, %if.else19.i.i85 ], [ -1, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i81 ], [ -1, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i74.thread ], [ -1, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i96 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i56)
+if.then9.i.i95:                                   ; preds = %if.end.thread.i.i100, %if.end.i.i85
+  %call12.i.i96 = call noundef i32 @_ZN4llvh5APInt9tcCompareEPKmS2_j(ptr noundef nonnull %rhs.coerce0, ptr noundef nonnull %rhs.addr.i58, i32 noundef %rhs.coerce1) #18
+  br label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit107
+
+if.else.i.i87:                                    ; preds = %if.end.i.i85
+  br i1 %cmp2.i.i.i81, label %if.then14.i.i92, label %if.else19.i.i88
+
+if.then14.i.i92:                                  ; preds = %if.else.i.i87
+  %cmp17.i.i93 = icmp ugt i32 %26, %rhs.coerce1
+  %cond18.i.i94 = select i1 %cmp17.i.i93, i32 1, i32 -1
+  br label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit107
+
+if.else19.i.i88:                                  ; preds = %if.else.i.i87, %if.end.thread.i.i100
+  %34 = phi i32 [ %26, %if.else.i.i87 ], [ %33, %if.end.thread.i.i100 ]
+  %cmp22.i.i89 = icmp ugt i32 %34, %rhs.coerce1
+  %cond23.i.i90 = select i1 %cmp22.i.i89, i32 -1, i32 1
+  br label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit107
+
+_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit107: ; preds = %if.then.i.i97, %if.then.thread.i.i98, %if.then9.i.i95, %if.then14.i.i92, %if.else19.i.i88
+  %retval.0.i.i91 = phi i32 [ %call12.i.i96, %if.then9.i.i95 ], [ %cond18.i.i94, %if.then14.i.i92 ], [ %cond23.i.i90, %if.else19.i.i88 ], [ -1, %if.then.thread.i.i98 ], [ 1, %if.then.i.i97 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i58)
   br label %cond.end
 
-cond.end:                                         ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit55, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit102
-  %phi.call = phi i32 [ %retval.0.i.i88, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit102 ], [ %retval.0.i.i50, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit55 ]
-  %cond = phi i64 [ %9, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit102 ], [ 0, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit55 ]
+cond.end:                                         ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit57, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit107
+  %phi.call = phi i32 [ %retval.0.i.i91, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit107 ], [ %retval.0.i.i52, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit57 ]
+  %cond = phi i64 [ %21, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit107 ], [ 0, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit57 ]
   %cmp3 = icmp eq i32 %phi.call, 0
   br i1 %cmp3, label %if.then4, label %if.else12
 
 if.then4:                                         ; preds = %cond.end
-  %18 = load i32, ptr %dst.coerce1, align 4
-  %cmp6 = icmp eq i32 %18, 0
+  %35 = load i32, ptr %dst.coerce1, align 4
+  %cmp6 = icmp eq i32 %35, 0
   br i1 %cmp6, label %return, label %if.else
 
 if.else:                                          ; preds = %if.then4
@@ -5544,208 +5626,243 @@ if.else:                                          ; preds = %if.then4
   br label %if.end89
 
 if.else12:                                        ; preds = %cond.end
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rhs.addr.i103)
-  store i64 0, ptr %rhs.addr.i103, align 8
-  %invariant.gep.i.i.i.i104 = getelementptr i8, ptr %rhs.addr.i103, i64 -1
-  br label %while.body.i.i.i.i105
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rhs.addr.i108)
+  store i64 0, ptr %rhs.addr.i108, align 8
+  %invariant.gep.i.i.i.i109 = getelementptr i8, ptr %rhs.addr.i108, i64 -1
+  br label %while.body.i.i.i.i110
 
-land.rhs.i.i.i.i109:                              ; preds = %while.body.i.i.i.i105
-  %gep.i.i.i.i110 = getelementptr i8, ptr %invariant.gep.i.i.i.i104, i64 %sub.i.i.i.i.i107
-  %19 = load i8, ptr %gep.i.i.i.i110, align 1
-  %.fr358 = freeze i8 %19
-  %cmp.i.i.i.i111 = icmp eq i8 %.fr358, 0
-  br i1 %cmp.i.i.i.i111, label %while.body.i.i.i.i105, label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i114, !llvm.loop !4
+land.rhs.i.i.i.i114:                              ; preds = %while.body.i.i.i.i110
+  %gep.i.i.i.i115 = getelementptr i8, ptr %invariant.gep.i.i.i.i109, i64 %sub.i.i.i.i.i112
+  %36 = load i8, ptr %gep.i.i.i.i115, align 1
+  %.fr372 = freeze i8 %36
+  %cmp.i.i.i.i116 = icmp eq i8 %.fr372, 0
+  br i1 %cmp.i.i.i.i116, label %while.body.i.i.i.i110, label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i119, !llvm.loop !4
 
-while.body.i.i.i.i105:                            ; preds = %land.rhs.i.i.i.i109, %if.else12
-  %src.sroa.10.034.i6.i.i.i106 = phi i64 [ %sub.i.i.i.i.i107, %land.rhs.i.i.i.i109 ], [ 8, %if.else12 ]
-  %sub.i.i.i.i.i107 = add nsw i64 %src.sroa.10.034.i6.i.i.i106, -1
-  %cmp.i6.i.i.i.i108 = icmp eq i64 %sub.i.i.i.i.i107, 0
-  br i1 %cmp.i6.i.i.i.i108, label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i114.thread, label %land.rhs.i.i.i.i109, !llvm.loop !4
+while.body.i.i.i.i110:                            ; preds = %land.rhs.i.i.i.i114, %if.else12
+  %src.sroa.10.034.i6.i.i.i111 = phi i64 [ %sub.i.i.i.i.i112, %land.rhs.i.i.i.i114 ], [ 8, %if.else12 ]
+  %sub.i.i.i.i.i112 = add nsw i64 %src.sroa.10.034.i6.i.i.i111, -1
+  %cmp.i6.i.i.i.i113 = icmp eq i64 %sub.i.i.i.i.i112, 0
+  br i1 %cmp.i6.i.i.i.i113, label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i119.thread, label %land.rhs.i.i.i.i114, !llvm.loop !4
 
-_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i114: ; preds = %land.rhs.i.i.i.i109
-  %cmp14.i.i.i.i118359 = icmp slt i8 %.fr358, 0
-  %spec.select340 = select i1 %cmp14.i.i.i.i118359, i64 %src.sroa.10.034.i6.i.i.i106, i64 %sub.i.i.i.i.i107
-  br label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i114.thread
+_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i119: ; preds = %land.rhs.i.i.i.i114
+  %cmp14.i.i.i.i123373 = icmp slt i8 %.fr372, 0
+  %spec.select355 = select i1 %cmp14.i.i.i.i123373, i64 %src.sroa.10.034.i6.i.i.i111, i64 %sub.i.i.i.i.i112
+  br label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i119.thread
 
-_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i114.thread: ; preds = %while.body.i.i.i.i105, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i114
-  %20 = phi i64 [ %spec.select340, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i114 ], [ 0, %while.body.i.i.i.i105 ]
-  %21 = trunc i64 %20 to i32
-  %22 = add i32 %21, 7
-  %cmp.not.i.i.i120 = icmp eq i32 %lhs.coerce1, 0
-  br i1 %cmp.not.i.i.i120, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i146, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i121
+_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i119.thread: ; preds = %while.body.i.i.i.i110, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i119
+  %37 = phi i64 [ %spec.select355, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i119 ], [ 0, %while.body.i.i.i.i110 ]
+  %38 = trunc i64 %37 to i32
+  %39 = add i32 %38, 7
+  %40 = lshr i32 %39, 3
+  %cmp.not.i.i.i125 = icmp eq i32 %lhs.coerce1, 0
+  br i1 %cmp.not.i.i.i125, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i152, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i126
 
-_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i121: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i114.thread
-  %23 = lshr i32 %22, 3
-  %sub.i.i.i122 = add i32 %lhs.coerce1, -1
-  %idxprom.i.i.i123 = zext i32 %sub.i.i.i122 to i64
-  %arrayidx.i.i.i124 = getelementptr inbounds i64, ptr %lhs.coerce0, i64 %idxprom.i.i.i123
-  %24 = load i64, ptr %arrayidx.i.i.i124, align 8
-  %.fr.i.i125 = freeze i64 %24
-  %cmp2.i.i.i126 = icmp sgt i64 %.fr.i.i125, -1
-  %cmp817.i.i145 = icmp eq i32 %23, %lhs.coerce1
-  %or.cond343 = select i1 %cmp2.i.i.i126, i1 %cmp817.i.i145, i1 false
-  br i1 %or.cond343, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit149, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit149.thread
+_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i126: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i119.thread
+  %sub.i.i.i127 = add i32 %lhs.coerce1, -1
+  %idxprom.i.i.i128 = zext i32 %sub.i.i.i127 to i64
+  %arrayidx.i.i.i129 = getelementptr inbounds i64, ptr %lhs.coerce0, i64 %idxprom.i.i.i128
+  %41 = load i64, ptr %arrayidx.i.i.i129, align 8
+  %.fr.i.i130 = freeze i64 %41
+  %cmp.not.i10.i.i132 = icmp ult i32 %39, 8
+  br i1 %cmp.not.i10.i.i132, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i149, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i133
 
-_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i146: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i114.thread
-  %cmp817.i.i145.old = icmp ult i32 %22, 8
-  br i1 %cmp817.i.i145.old, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit149, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit149.thread
+_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i152: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i119.thread
+  %cmp817.i.i151.old = icmp ult i32 %39, 8
+  br i1 %cmp817.i.i151.old, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit157, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit157.thread
 
-_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit149.thread: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i121, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i146
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i103)
+_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i149: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i126
+  %cmp2.i.i.i131 = icmp sgt i64 %.fr.i.i130, -1
+  %cmp817.i.i151 = icmp eq i32 %40, %lhs.coerce1
+  %or.cond356 = select i1 %cmp2.i.i.i131, i1 %cmp817.i.i151, i1 false
+  br i1 %or.cond356, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit157, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit157.thread
+
+_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i133: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i126
+  %42 = zext nneg i32 %40 to i64
+  %43 = getelementptr i64, ptr %rhs.addr.i108, i64 %42
+  %arrayidx.i14.i.i134 = getelementptr i64, ptr %43, i64 -1
+  %44 = load i64, ptr %arrayidx.i14.i.i134, align 8
+  %45 = xor i64 %44, %.fr.i.i130
+  %46 = icmp sgt i64 %45, -1
+  %cmp8.i.i136 = icmp eq i32 %40, %lhs.coerce1
+  %or.cond364 = select i1 %46, i1 %cmp8.i.i136, i1 false
+  br i1 %or.cond364, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit157, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit157.thread
+
+_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit157.thread: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i133, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i152, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i149
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i108)
   br label %if.else18
 
-_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit149: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i121, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i146
-  %call12.i.i140 = call noundef i32 @_ZN4llvh5APInt9tcCompareEPKmS2_j(ptr noundef %lhs.coerce0, ptr noundef nonnull %rhs.addr.i103, i32 noundef %lhs.coerce1) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i103)
-  %cmp15 = icmp eq i32 %call12.i.i140, 0
+_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit157: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i133, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i152, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i149
+  %call12.i.i146 = call noundef i32 @_ZN4llvh5APInt9tcCompareEPKmS2_j(ptr noundef %lhs.coerce0, ptr noundef nonnull %rhs.addr.i108, i32 noundef %lhs.coerce1) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i108)
+  %cmp15 = icmp eq i32 %call12.i.i146, 0
   br i1 %cmp15, label %if.then16, label %if.else18
 
-if.then16:                                        ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit149
+if.then16:                                        ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit157
   store i32 0, ptr %dst.coerce1, align 4
   br label %if.end89
 
-if.else18:                                        ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit149.thread, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit149
-  %25 = load i32, ptr %dst.coerce1, align 4
-  %cmp20 = icmp eq i32 %25, 0
+if.else18:                                        ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit157.thread, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit157
+  %47 = load i32, ptr %dst.coerce1, align 4
+  %cmp20 = icmp eq i32 %47, 0
   br i1 %cmp20, label %return, label %if.else22
 
 if.else22:                                        ; preds = %if.else18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rhs.addr.i150)
-  store i64 1, ptr %rhs.addr.i150, align 8
-  %invariant.gep.i.i.i.i151 = getelementptr i8, ptr %rhs.addr.i150, i64 -1
-  br label %while.body.i.i.i.i152
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rhs.addr.i158)
+  store i64 1, ptr %rhs.addr.i158, align 8
+  %invariant.gep.i.i.i.i159 = getelementptr i8, ptr %rhs.addr.i158, i64 -1
+  br label %while.body.i.i.i.i160
 
-land.rhs.i.i.i.i156:                              ; preds = %while.body.i.i.i.i152
-  %gep.i.i.i.i157 = getelementptr i8, ptr %invariant.gep.i.i.i.i151, i64 %sub.i.i.i.i.i154
-  %26 = load i8, ptr %gep.i.i.i.i157, align 1
-  %.fr360 = freeze i8 %26
-  %cmp.i.i.i.i158 = icmp eq i8 %.fr360, 0
-  br i1 %cmp.i.i.i.i158, label %while.body.i.i.i.i152, label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i161, !llvm.loop !4
+land.rhs.i.i.i.i164:                              ; preds = %while.body.i.i.i.i160
+  %gep.i.i.i.i165 = getelementptr i8, ptr %invariant.gep.i.i.i.i159, i64 %sub.i.i.i.i.i162
+  %48 = load i8, ptr %gep.i.i.i.i165, align 1
+  %.fr374 = freeze i8 %48
+  %cmp.i.i.i.i166 = icmp eq i8 %.fr374, 0
+  br i1 %cmp.i.i.i.i166, label %while.body.i.i.i.i160, label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i169, !llvm.loop !4
 
-while.body.i.i.i.i152:                            ; preds = %land.rhs.i.i.i.i156, %if.else22
-  %src.sroa.10.034.i6.i.i.i153 = phi i64 [ %sub.i.i.i.i.i154, %land.rhs.i.i.i.i156 ], [ 8, %if.else22 ]
-  %sub.i.i.i.i.i154 = add nsw i64 %src.sroa.10.034.i6.i.i.i153, -1
-  %cmp.i6.i.i.i.i155 = icmp eq i64 %sub.i.i.i.i.i154, 0
-  br i1 %cmp.i6.i.i.i.i155, label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i161.thread, label %land.rhs.i.i.i.i156, !llvm.loop !4
+while.body.i.i.i.i160:                            ; preds = %land.rhs.i.i.i.i164, %if.else22
+  %src.sroa.10.034.i6.i.i.i161 = phi i64 [ %sub.i.i.i.i.i162, %land.rhs.i.i.i.i164 ], [ 8, %if.else22 ]
+  %sub.i.i.i.i.i162 = add nsw i64 %src.sroa.10.034.i6.i.i.i161, -1
+  %cmp.i6.i.i.i.i163 = icmp eq i64 %sub.i.i.i.i.i162, 0
+  br i1 %cmp.i6.i.i.i.i163, label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i169.thread, label %land.rhs.i.i.i.i164, !llvm.loop !4
 
-_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i161: ; preds = %land.rhs.i.i.i.i156
-  %cmp14.i.i.i.i165361 = icmp slt i8 %.fr360, 0
-  %spec.select345 = select i1 %cmp14.i.i.i.i165361, i64 %src.sroa.10.034.i6.i.i.i153, i64 %sub.i.i.i.i.i154
-  br label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i161.thread
+_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i169: ; preds = %land.rhs.i.i.i.i164
+  %cmp14.i.i.i.i173375 = icmp slt i8 %.fr374, 0
+  %spec.select358 = select i1 %cmp14.i.i.i.i173375, i64 %src.sroa.10.034.i6.i.i.i161, i64 %sub.i.i.i.i.i162
+  br label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i169.thread
 
-_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i161.thread: ; preds = %while.body.i.i.i.i152, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i161
-  %27 = phi i64 [ %spec.select345, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i161 ], [ 0, %while.body.i.i.i.i152 ]
-  %28 = trunc i64 %27 to i32
-  %29 = add i32 %28, 7
-  br i1 %cmp.not.i.i.i120, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i193, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i168
+_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i169.thread: ; preds = %while.body.i.i.i.i160, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i169
+  %49 = phi i64 [ %spec.select358, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i169 ], [ 0, %while.body.i.i.i.i160 ]
+  %50 = trunc i64 %49 to i32
+  %51 = add i32 %50, 7
+  %52 = lshr i32 %51, 3
+  br i1 %cmp.not.i.i.i125, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i202, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i176
 
-_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i168: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i161.thread
-  %30 = lshr i32 %29, 3
-  %sub.i.i.i169 = add i32 %lhs.coerce1, -1
-  %idxprom.i.i.i170 = zext i32 %sub.i.i.i169 to i64
-  %arrayidx.i.i.i171 = getelementptr inbounds i64, ptr %lhs.coerce0, i64 %idxprom.i.i.i170
-  %31 = load i64, ptr %arrayidx.i.i.i171, align 8
-  %.fr.i.i172 = freeze i64 %31
-  %cmp2.i.i.i173 = icmp sgt i64 %.fr.i.i172, -1
-  %cmp817.i.i192 = icmp eq i32 %30, %lhs.coerce1
-  %or.cond346 = select i1 %cmp2.i.i.i173, i1 %cmp817.i.i192, i1 false
-  br i1 %or.cond346, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit196, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit196.thread
+_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i176: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i169.thread
+  %sub.i.i.i177 = add i32 %lhs.coerce1, -1
+  %idxprom.i.i.i178 = zext i32 %sub.i.i.i177 to i64
+  %arrayidx.i.i.i179 = getelementptr inbounds i64, ptr %lhs.coerce0, i64 %idxprom.i.i.i178
+  %53 = load i64, ptr %arrayidx.i.i.i179, align 8
+  %.fr.i.i180 = freeze i64 %53
+  %cmp.not.i10.i.i182 = icmp ult i32 %51, 8
+  br i1 %cmp.not.i10.i.i182, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i199, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i183
 
-_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i193: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i161.thread
-  %cmp817.i.i192.old = icmp ult i32 %29, 8
-  br i1 %cmp817.i.i192.old, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit196, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit196.thread
+_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i202: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i169.thread
+  %cmp817.i.i201.old = icmp ult i32 %51, 8
+  br i1 %cmp817.i.i201.old, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit207, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit207.thread
 
-_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit196.thread: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i168, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i193
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i150)
+_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i199: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i176
+  %cmp2.i.i.i181 = icmp sgt i64 %.fr.i.i180, -1
+  %cmp817.i.i201 = icmp eq i32 %52, %lhs.coerce1
+  %or.cond359 = select i1 %cmp2.i.i.i181, i1 %cmp817.i.i201, i1 false
+  br i1 %or.cond359, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit207, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit207.thread
+
+_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i183: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i176
+  %54 = zext nneg i32 %52 to i64
+  %55 = getelementptr i64, ptr %rhs.addr.i158, i64 %54
+  %arrayidx.i14.i.i184 = getelementptr i64, ptr %55, i64 -1
+  %56 = load i64, ptr %arrayidx.i14.i.i184, align 8
+  %57 = xor i64 %56, %.fr.i.i180
+  %58 = icmp sgt i64 %57, -1
+  %cmp8.i.i186 = icmp eq i32 %52, %lhs.coerce1
+  %or.cond365 = select i1 %58, i1 %cmp8.i.i186, i1 false
+  br i1 %or.cond365, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit207, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit207.thread
+
+_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit207.thread: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i183, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i202, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i199
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i158)
   br label %if.else30
 
-_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit196: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i168, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i193
-  %call12.i.i187 = call noundef i32 @_ZN4llvh5APInt9tcCompareEPKmS2_j(ptr noundef %lhs.coerce0, ptr noundef nonnull %rhs.addr.i150, i32 noundef %lhs.coerce1) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i150)
-  %cmp25 = icmp eq i32 %call12.i.i187, 0
+_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit207: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i183, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i202, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i199
+  %call12.i.i196 = call noundef i32 @_ZN4llvh5APInt9tcCompareEPKmS2_j(ptr noundef %lhs.coerce0, ptr noundef nonnull %rhs.addr.i158, i32 noundef %lhs.coerce1) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i158)
+  %cmp25 = icmp eq i32 %call12.i.i196, 0
   br i1 %cmp25, label %if.then26, label %if.else30
 
-if.then26:                                        ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit196
+if.then26:                                        ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit207
   store i32 1, ptr %dst.coerce1, align 4
   store i64 1, ptr %dst.coerce0, align 8
   br label %if.end89
 
-if.else30:                                        ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit196.thread, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit196
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rhs.addr.i197)
-  store i64 -1, ptr %rhs.addr.i197, align 8
-  %invariant.gep.i.i.i.i198 = getelementptr i8, ptr %rhs.addr.i197, i64 -1
-  br label %while.body.i.i.i.i199
+if.else30:                                        ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit207.thread, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit207
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rhs.addr.i208)
+  store i64 -1, ptr %rhs.addr.i208, align 8
+  %invariant.gep.i.i.i.i209 = getelementptr i8, ptr %rhs.addr.i208, i64 -1
+  br label %while.body.i.i.i.i210
 
-land.rhs.i.i.i.i203:                              ; preds = %while.body.i.i.i.i199
-  %gep.i.i.i.i204 = getelementptr i8, ptr %invariant.gep.i.i.i.i198, i64 %sub.i.i.i.i.i201
-  %32 = load i8, ptr %gep.i.i.i.i204, align 1
-  %.fr362 = freeze i8 %32
-  %cmp.i.i.i.i205 = icmp eq i8 %.fr362, -1
-  br i1 %cmp.i.i.i.i205, label %while.body.i.i.i.i199, label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i208.thread, !llvm.loop !4
+land.rhs.i.i.i.i214:                              ; preds = %while.body.i.i.i.i210
+  %gep.i.i.i.i215 = getelementptr i8, ptr %invariant.gep.i.i.i.i209, i64 %sub.i.i.i.i.i212
+  %59 = load i8, ptr %gep.i.i.i.i215, align 1
+  %.fr376 = freeze i8 %59
+  %cmp.i.i.i.i216 = icmp eq i8 %.fr376, -1
+  br i1 %cmp.i.i.i.i216, label %while.body.i.i.i.i210, label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i219.thread, !llvm.loop !4
 
-while.body.i.i.i.i199:                            ; preds = %land.rhs.i.i.i.i203, %if.else30
-  %src.sroa.10.034.i6.i.i.i200 = phi i64 [ %sub.i.i.i.i.i201, %land.rhs.i.i.i.i203 ], [ 8, %if.else30 ]
-  %sub.i.i.i.i.i201 = add nsw i64 %src.sroa.10.034.i6.i.i.i200, -1
-  %cmp.i6.i.i.i.i202 = icmp eq i64 %sub.i.i.i.i.i201, 0
-  br i1 %cmp.i6.i.i.i.i202, label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i208.thread.thread, label %land.rhs.i.i.i.i203, !llvm.loop !4
+while.body.i.i.i.i210:                            ; preds = %land.rhs.i.i.i.i214, %if.else30
+  %src.sroa.10.034.i6.i.i.i211 = phi i64 [ %sub.i.i.i.i.i212, %land.rhs.i.i.i.i214 ], [ 8, %if.else30 ]
+  %sub.i.i.i.i.i212 = add nsw i64 %src.sroa.10.034.i6.i.i.i211, -1
+  %cmp.i6.i.i.i.i213 = icmp eq i64 %sub.i.i.i.i.i212, 0
+  br i1 %cmp.i6.i.i.i.i213, label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i219.thread.thread, label %land.rhs.i.i.i.i214, !llvm.loop !4
 
-_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i208.thread: ; preds = %land.rhs.i.i.i.i203
-  %cmp14.i.i.i.i212 = icmp slt i8 %.fr362, 0
-  %spec.select348 = select i1 %cmp14.i.i.i.i212, i64 %sub.i.i.i.i.i201, i64 %src.sroa.10.034.i6.i.i.i200
-  %33 = trunc i64 %spec.select348 to i32
-  %34 = add i32 %33, 7
-  %35 = lshr i32 %34, 3
-  br i1 %cmp.not.i.i.i120, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i240, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i215
+_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i219.thread: ; preds = %land.rhs.i.i.i.i214
+  %cmp14.i.i.i.i223 = icmp slt i8 %.fr376, 0
+  %spec.select361 = select i1 %cmp14.i.i.i.i223, i64 %sub.i.i.i.i.i212, i64 %src.sroa.10.034.i6.i.i.i211
+  %60 = trunc i64 %spec.select361 to i32
+  %61 = add i32 %60, 7
+  %62 = lshr i32 %61, 3
+  br i1 %cmp.not.i.i.i125, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i252, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i226
 
-_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i208.thread.thread: ; preds = %while.body.i.i.i.i199
-  br i1 %cmp.not.i.i.i120, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit243.thread, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i215.thread
+_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i219.thread.thread: ; preds = %while.body.i.i.i.i210
+  br i1 %cmp.not.i.i.i125, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit257.thread, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i226.thread
 
-_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i215.thread: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i208.thread.thread
-  %sub.i.i.i216391 = add i32 %lhs.coerce1, -1
-  %idxprom.i.i.i217392 = zext i32 %sub.i.i.i216391 to i64
-  %arrayidx.i.i.i218393 = getelementptr inbounds i64, ptr %lhs.coerce0, i64 %idxprom.i.i.i217392
-  %36 = load i64, ptr %arrayidx.i.i.i218393, align 8
-  %.fr.i.i219394 = freeze i64 %36
-  br label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i222
+_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i226.thread: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i219.thread.thread
+  %sub.i.i.i227406 = add i32 %lhs.coerce1, -1
+  %idxprom.i.i.i228407 = zext i32 %sub.i.i.i227406 to i64
+  %arrayidx.i.i.i229408 = getelementptr inbounds i64, ptr %lhs.coerce0, i64 %idxprom.i.i.i228407
+  %63 = load i64, ptr %arrayidx.i.i.i229408, align 8
+  %.fr.i.i230409 = freeze i64 %63
+  br label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i233
 
-_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i215: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i208.thread
-  %sub.i.i.i216 = add i32 %lhs.coerce1, -1
-  %idxprom.i.i.i217 = zext i32 %sub.i.i.i216 to i64
-  %arrayidx.i.i.i218 = getelementptr inbounds i64, ptr %lhs.coerce0, i64 %idxprom.i.i.i217
-  %37 = load i64, ptr %arrayidx.i.i.i218, align 8
-  %.fr.i.i219 = freeze i64 %37
-  %cmp.not.i10.i.i221 = icmp ult i32 %34, 8
-  br i1 %cmp.not.i10.i.i221, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i237, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i222
+_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i226: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i219.thread
+  %sub.i.i.i227 = add i32 %lhs.coerce1, -1
+  %idxprom.i.i.i228 = zext i32 %sub.i.i.i227 to i64
+  %arrayidx.i.i.i229 = getelementptr inbounds i64, ptr %lhs.coerce0, i64 %idxprom.i.i.i228
+  %64 = load i64, ptr %arrayidx.i.i.i229, align 8
+  %.fr.i.i230 = freeze i64 %64
+  %cmp.not.i10.i.i232 = icmp ult i32 %61, 8
+  br i1 %cmp.not.i10.i.i232, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i249, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i233
 
-_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i240: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i208.thread
-  %cmp817.i.i239.old = icmp ult i32 %34, 8
-  br i1 %cmp817.i.i239.old, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit243, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit243.thread
+_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i252: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i219.thread
+  %cmp817.i.i251.old = icmp ult i32 %61, 8
+  br i1 %cmp817.i.i251.old, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit257, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit257.thread
 
-_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i237: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i215
-  %cmp2.i.i.i220 = icmp sgt i64 %.fr.i.i219, -1
-  %cmp817.i.i239 = icmp eq i32 %35, %lhs.coerce1
-  %or.cond349 = select i1 %cmp2.i.i.i220, i1 %cmp817.i.i239, i1 false
-  br i1 %or.cond349, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit243, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit243.thread
+_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i249: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i226
+  %cmp2.i.i.i231 = icmp sgt i64 %.fr.i.i230, -1
+  %cmp817.i.i251 = icmp eq i32 %62, %lhs.coerce1
+  %or.cond362 = select i1 %cmp2.i.i.i231, i1 %cmp817.i.i251, i1 false
+  br i1 %or.cond362, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit257, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit257.thread
 
-_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i222: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i215.thread, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i215
-  %.fr.i.i219396 = phi i64 [ %.fr.i.i219394, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i215.thread ], [ %.fr.i.i219, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i215 ]
-  %38 = phi i32 [ 1, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i215.thread ], [ %35, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i215 ]
-  %39 = icmp slt i64 %.fr.i.i219396, 0
-  %cmp8.i.i224 = icmp eq i32 %38, %lhs.coerce1
-  %or.cond352 = select i1 %39, i1 %cmp8.i.i224, i1 false
-  br i1 %or.cond352, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit243, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit243.thread
+_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i233: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i226.thread, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i226
+  %.fr.i.i230411 = phi i64 [ %.fr.i.i230409, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i226.thread ], [ %.fr.i.i230, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i226 ]
+  %65 = phi i32 [ 1, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i226.thread ], [ %62, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i226 ]
+  %66 = zext nneg i32 %65 to i64
+  %67 = getelementptr i64, ptr %rhs.addr.i208, i64 %66
+  %arrayidx.i14.i.i234 = getelementptr i64, ptr %67, i64 -1
+  %68 = load i64, ptr %arrayidx.i14.i.i234, align 8
+  %69 = xor i64 %68, %.fr.i.i230411
+  %70 = icmp sgt i64 %69, -1
+  %cmp8.i.i236 = icmp eq i32 %65, %lhs.coerce1
+  %or.cond366 = select i1 %70, i1 %cmp8.i.i236, i1 false
+  br i1 %or.cond366, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit257, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit257.thread
 
-_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit243.thread: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i208.thread.thread, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i222, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i240, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i237
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i197)
+_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit257.thread: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i219.thread.thread, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i233, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i252, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i249
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i208)
   br label %if.else40
 
-_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit243: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i222, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i240, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i237
-  %call12.i.i234 = call noundef i32 @_ZN4llvh5APInt9tcCompareEPKmS2_j(ptr noundef %lhs.coerce0, ptr noundef nonnull %rhs.addr.i197, i32 noundef %lhs.coerce1) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i197)
-  %cmp33 = icmp eq i32 %call12.i.i234, 0
+_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit257: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i233, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i252, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i249
+  %call12.i.i246 = call noundef i32 @_ZN4llvh5APInt9tcCompareEPKmS2_j(ptr noundef %lhs.coerce0, ptr noundef nonnull %rhs.addr.i208, i32 noundef %lhs.coerce1) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i208)
+  %cmp33 = icmp eq i32 %call12.i.i246, 0
   br i1 %cmp33, label %if.then34, label %if.else40
 
-if.then34:                                        ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit243
+if.then34:                                        ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit257
   store i32 1, ptr %dst.coerce1, align 4
   %rem = and i64 %cond, 1
   %cmp36 = icmp eq i64 %rem, 0
@@ -5753,7 +5870,7 @@ if.then34:                                        ; preds = %_ZN6hermes6bigint7c
   store i64 %cond37, ptr %dst.coerce0, align 8
   br label %if.end89
 
-if.else40:                                        ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit243.thread, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit243
+if.else40:                                        ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit257.thread, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit257
   %cmp42 = icmp ugt i32 %rhs.coerce1, 1
   %cmp43 = icmp ugt i64 %cond, 65535
   %or.cond = select i1 %cmp42, i1 true, i1 %cmp43
@@ -5781,8 +5898,8 @@ if.then55:                                        ; preds = %if.else51
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then55
-  %40 = load i32, ptr %dst.coerce1, align 4
-  %cmp3.i = icmp ult i32 %40, %add1.i
+  %71 = load i32, ptr %dst.coerce1, align 4
+  %cmp3.i = icmp ult i32 %71, %add1.i
   br i1 %cmp3.i, label %return, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end.i
@@ -5803,98 +5920,98 @@ if.else58:                                        ; preds = %if.else51
   br i1 %cmp61, label %if.then62, label %if.else72
 
 if.then62:                                        ; preds = %if.else58
-  %div6.i244 = lshr i32 %conv64, 6
-  %add1.i245 = add nuw nsw i32 %div6.i244, 2
-  %rem.i246 = and i64 %cond, 63
-  %cmp.i247 = icmp ugt i32 %conv64, 65471
-  br i1 %cmp.i247, label %_ZN6hermes6bigint12_GLOBAL__N_120exponentiatePowerOf2ENS0_16MutableBigIntRefEj.exit258, label %if.end.i248
+  %div6.i258 = lshr i32 %conv64, 6
+  %add1.i259 = add nuw nsw i32 %div6.i258, 2
+  %rem.i260 = and i64 %cond, 63
+  %cmp.i261 = icmp ugt i32 %conv64, 65471
+  br i1 %cmp.i261, label %_ZN6hermes6bigint12_GLOBAL__N_120exponentiatePowerOf2ENS0_16MutableBigIntRefEj.exit272, label %if.end.i262
 
-if.end.i248:                                      ; preds = %if.then62
-  %41 = load i32, ptr %dst.coerce1, align 4
-  %cmp3.i249 = icmp ult i32 %41, %add1.i245
-  br i1 %cmp3.i249, label %_ZN6hermes6bigint12_GLOBAL__N_120exponentiatePowerOf2ENS0_16MutableBigIntRefEj.exit258, label %if.end10.i250
+if.end.i262:                                      ; preds = %if.then62
+  %72 = load i32, ptr %dst.coerce1, align 4
+  %cmp3.i263 = icmp ult i32 %72, %add1.i259
+  br i1 %cmp3.i263, label %_ZN6hermes6bigint12_GLOBAL__N_120exponentiatePowerOf2ENS0_16MutableBigIntRefEj.exit272, label %if.end10.i264
 
-if.end10.i250:                                    ; preds = %if.end.i248
-  store i32 %add1.i245, ptr %dst.coerce1, align 4
-  %mul5.i.i251 = shl nuw nsw i32 %add1.i245, 3
-  %conv8.i.i252 = zext nneg i32 %mul5.i.i251 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %dst.coerce0, i8 0, i64 %conv8.i.i252, i1 false)
-  %shl.i254 = shl nuw i64 1, %rem.i246
-  %idxprom.i255 = zext nneg i32 %div6.i244 to i64
-  %arrayidx.i256 = getelementptr inbounds i64, ptr %dst.coerce0, i64 %idxprom.i255
-  store i64 %shl.i254, ptr %arrayidx.i256, align 8
-  br label %_ZN6hermes6bigint12_GLOBAL__N_120exponentiatePowerOf2ENS0_16MutableBigIntRefEj.exit258
+if.end10.i264:                                    ; preds = %if.end.i262
+  store i32 %add1.i259, ptr %dst.coerce1, align 4
+  %mul5.i.i265 = shl nuw nsw i32 %add1.i259, 3
+  %conv8.i.i266 = zext nneg i32 %mul5.i.i265 to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %dst.coerce0, i8 0, i64 %conv8.i.i266, i1 false)
+  %shl.i268 = shl nuw i64 1, %rem.i260
+  %idxprom.i269 = zext nneg i32 %div6.i258 to i64
+  %arrayidx.i270 = getelementptr inbounds i64, ptr %dst.coerce0, i64 %idxprom.i269
+  store i64 %shl.i268, ptr %arrayidx.i270, align 8
+  br label %_ZN6hermes6bigint12_GLOBAL__N_120exponentiatePowerOf2ENS0_16MutableBigIntRefEj.exit272
 
-_ZN6hermes6bigint12_GLOBAL__N_120exponentiatePowerOf2ENS0_16MutableBigIntRefEj.exit258: ; preds = %if.then62, %if.end.i248, %if.end10.i250
-  %retval.0.i257 = phi i32 [ 0, %if.end10.i250 ], [ 2, %if.then62 ], [ 1, %if.end.i248 ]
+_ZN6hermes6bigint12_GLOBAL__N_120exponentiatePowerOf2ENS0_16MutableBigIntRefEj.exit272: ; preds = %if.then62, %if.end.i262, %if.end10.i264
+  %retval.0.i271 = phi i32 [ 0, %if.end10.i264 ], [ 2, %if.then62 ], [ 1, %if.end.i262 ]
   %rem66 = and i64 %cond, 1
   %cmp67.not = icmp eq i64 %rem66, 0
   br i1 %cmp67.not, label %if.end85, label %if.then68
 
-if.then68:                                        ; preds = %_ZN6hermes6bigint12_GLOBAL__N_120exponentiatePowerOf2ENS0_16MutableBigIntRefEj.exit258
-  %42 = load i32, ptr %dst.coerce1, align 4
-  call void @_ZN4llvh5APInt8tcNegateEPmj(ptr noundef %dst.coerce0, i32 noundef %42) #18
+if.then68:                                        ; preds = %_ZN6hermes6bigint12_GLOBAL__N_120exponentiatePowerOf2ENS0_16MutableBigIntRefEj.exit272
+  %73 = load i32, ptr %dst.coerce1, align 4
+  call void @_ZN4llvh5APInt8tcNegateEPmj(ptr noundef %dst.coerce0, i32 noundef %73) #18
   br label %if.end85
 
 if.else72:                                        ; preds = %if.else58
   %call76 = call fastcc noundef i32 @_ZN6hermes6bigint12_GLOBAL__N_120exponentiateSlowPathENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefEj(ptr %dst.coerce0, ptr nonnull %dst.coerce1, ptr %lhs.coerce0, i32 %lhs.coerce1, i32 noundef %conv64)
   br label %if.end85
 
-if.end85:                                         ; preds = %_ZN6hermes6bigint12_GLOBAL__N_120exponentiatePowerOf2ENS0_16MutableBigIntRefEj.exit258, %if.then68, %if.else72, %if.then47
-  %res.0 = phi i32 [ %call50, %if.then47 ], [ %retval.0.i257, %if.then68 ], [ %retval.0.i257, %_ZN6hermes6bigint12_GLOBAL__N_120exponentiatePowerOf2ENS0_16MutableBigIntRefEj.exit258 ], [ %call76, %if.else72 ]
+if.end85:                                         ; preds = %_ZN6hermes6bigint12_GLOBAL__N_120exponentiatePowerOf2ENS0_16MutableBigIntRefEj.exit272, %if.then68, %if.else72, %if.then47
+  %res.0 = phi i32 [ %call50, %if.then47 ], [ %retval.0.i271, %if.then68 ], [ %retval.0.i271, %_ZN6hermes6bigint12_GLOBAL__N_120exponentiatePowerOf2ENS0_16MutableBigIntRefEj.exit272 ], [ %call76, %if.else72 ]
   %cmp86.not = icmp eq i32 %res.0, 0
   br i1 %cmp86.not, label %if.end89, label %return
 
 if.end89:                                         ; preds = %if.end10.i, %if.then34, %if.then26, %if.then16, %if.else, %if.end85
-  %43 = load i32, ptr %dst.coerce1, align 4
-  %mul.i = shl i32 %43, 3
+  %74 = load i32, ptr %dst.coerce1, align 4
+  %mul.i = shl i32 %74, 3
   %cmp.i.i.i = icmp eq i32 %mul.i, 0
-  br i1 %cmp.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_121ensureCanonicalResultERNS0_16MutableBigIntRefE.exit, label %if.end.i.i259
+  br i1 %cmp.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_121ensureCanonicalResultERNS0_16MutableBigIntRefE.exit, label %if.end.i.i273
 
-if.end.i.i259:                                    ; preds = %if.end89
+if.end.i.i273:                                    ; preds = %if.end89
   %conv.i = zext i32 %mul.i to i64
-  %44 = getelementptr i8, ptr %dst.coerce0, i64 %conv.i
-  %arrayidx.i.i.i260 = getelementptr i8, ptr %44, i64 -1
-  %45 = load i8, ptr %arrayidx.i.i.i260, align 1
-  %46 = ashr i8 %45, 7
+  %75 = getelementptr i8, ptr %dst.coerce0, i64 %conv.i
+  %arrayidx.i.i.i274 = getelementptr i8, ptr %75, i64 -1
+  %76 = load i8, ptr %arrayidx.i.i.i274, align 1
+  %77 = ashr i8 %76, 7
   %invariant.gep.i.i = getelementptr i8, ptr %dst.coerce0, i64 -1
-  %cmp.i5.i = icmp eq i8 %45, %46
+  %cmp.i5.i = icmp eq i8 %76, %77
   br i1 %cmp.i5.i, label %while.body.i.i, label %cond.end.i.i
 
 land.rhs.i.i:                                     ; preds = %while.body.i.i
-  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %sub.i.i.i261
-  %47 = load i8, ptr %gep.i.i, align 1
-  %cmp.i.i = icmp eq i8 %47, %45
+  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %sub.i.i.i275
+  %78 = load i8, ptr %gep.i.i, align 1
+  %cmp.i.i = icmp eq i8 %78, %76
   br i1 %cmp.i.i, label %while.body.i.i, label %cond.false.i.loopexit.i, !llvm.loop !4
 
-while.body.i.i:                                   ; preds = %if.end.i.i259, %land.rhs.i.i
-  %src.sroa.10.034.i6.i = phi i64 [ %sub.i.i.i261, %land.rhs.i.i ], [ %conv.i, %if.end.i.i259 ]
-  %sub.i.i.i261 = add nsw i64 %src.sroa.10.034.i6.i, -1
-  %cmp.i6.i.i = icmp eq i64 %sub.i.i.i261, 0
+while.body.i.i:                                   ; preds = %if.end.i.i273, %land.rhs.i.i
+  %src.sroa.10.034.i6.i = phi i64 [ %sub.i.i.i275, %land.rhs.i.i ], [ %conv.i, %if.end.i.i273 ]
+  %sub.i.i.i275 = add nsw i64 %src.sroa.10.034.i6.i, -1
+  %cmp.i6.i.i = icmp eq i64 %sub.i.i.i275, 0
   br i1 %cmp.i6.i.i, label %cond.end.i.i, label %land.rhs.i.i, !llvm.loop !4
 
 cond.false.i.loopexit.i:                          ; preds = %land.rhs.i.i
-  %.pre.i = ashr i8 %47, 7
+  %.pre.i = ashr i8 %78, 7
   br label %cond.end.i.i
 
-cond.end.i.i:                                     ; preds = %while.body.i.i, %cond.false.i.loopexit.i, %if.end.i.i259
-  %previousSrc.sroa.3.032.i.i = phi i64 [ %src.sroa.10.034.i6.i, %cond.false.i.loopexit.i ], [ %conv.i, %if.end.i.i259 ], [ 1, %while.body.i.i ]
-  %src.sroa.10.030.i.i = phi i64 [ %sub.i.i.i261, %cond.false.i.loopexit.i ], [ %conv.i, %if.end.i.i259 ], [ 0, %while.body.i.i ]
-  %cond.i.i = phi i8 [ %.pre.i, %cond.false.i.loopexit.i ], [ %46, %if.end.i.i259 ], [ 0, %while.body.i.i ]
-  %cmp14.i.i = icmp eq i8 %cond.i.i, %46
+cond.end.i.i:                                     ; preds = %while.body.i.i, %cond.false.i.loopexit.i, %if.end.i.i273
+  %previousSrc.sroa.3.032.i.i = phi i64 [ %src.sroa.10.034.i6.i, %cond.false.i.loopexit.i ], [ %conv.i, %if.end.i.i273 ], [ 1, %while.body.i.i ]
+  %src.sroa.10.030.i.i = phi i64 [ %sub.i.i.i275, %cond.false.i.loopexit.i ], [ %conv.i, %if.end.i.i273 ], [ 0, %while.body.i.i ]
+  %cond.i.i = phi i8 [ %.pre.i, %cond.false.i.loopexit.i ], [ %77, %if.end.i.i273 ], [ 0, %while.body.i.i ]
+  %cmp14.i.i = icmp eq i8 %cond.i.i, %77
   %retval.sroa.3.0.copyload3.i.i = select i1 %cmp14.i.i, i64 %src.sroa.10.030.i.i, i64 %previousSrc.sroa.3.032.i.i
-  %48 = trunc i64 %retval.sroa.3.0.copyload3.i.i to i32
-  %49 = add i32 %48, 7
-  %50 = lshr i32 %49, 3
+  %79 = trunc i64 %retval.sroa.3.0.copyload3.i.i to i32
+  %80 = add i32 %79, 7
+  %81 = lshr i32 %80, 3
   br label %_ZN6hermes6bigint12_GLOBAL__N_121ensureCanonicalResultERNS0_16MutableBigIntRefE.exit
 
 _ZN6hermes6bigint12_GLOBAL__N_121ensureCanonicalResultERNS0_16MutableBigIntRefE.exit: ; preds = %if.end89, %cond.end.i.i
-  %retval.sroa.3.0.i.i = phi i32 [ %50, %cond.end.i.i ], [ 0, %if.end89 ]
+  %retval.sroa.3.0.i.i = phi i32 [ %81, %cond.end.i.i ], [ 0, %if.end89 ]
   store i32 %retval.sroa.3.0.i.i, ptr %dst.coerce1, align 4
   br label %return
 
-return:                                           ; preds = %if.end.i, %if.then55, %if.else40, %if.else18, %if.then4, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread, %if.end85, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, %_ZN6hermes6bigint12_GLOBAL__N_121ensureCanonicalResultERNS0_16MutableBigIntRefE.exit
-  %retval.0 = phi i32 [ 0, %_ZN6hermes6bigint12_GLOBAL__N_121ensureCanonicalResultERNS0_16MutableBigIntRefE.exit ], [ 4, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit ], [ %res.0, %if.end85 ], [ 4, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread ], [ 1, %if.end.i ], [ 2, %if.then55 ], [ 2, %if.else40 ], [ 1, %if.else18 ], [ 1, %if.then4 ]
+return:                                           ; preds = %if.end.i, %if.then55, %if.else40, %if.else18, %if.then4, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread294, %if.end85, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, %_ZN6hermes6bigint12_GLOBAL__N_121ensureCanonicalResultERNS0_16MutableBigIntRefE.exit
+  %retval.0 = phi i32 [ 0, %_ZN6hermes6bigint12_GLOBAL__N_121ensureCanonicalResultERNS0_16MutableBigIntRefE.exit ], [ 4, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit ], [ %res.0, %if.end85 ], [ 4, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread294 ], [ 1, %if.end.i ], [ 2, %if.then55 ], [ 2, %if.else40 ], [ 1, %if.else18 ], [ 1, %if.then4 ]
   ret i32 %retval.0
 }
 
@@ -6143,29 +6260,30 @@ _ZN6hermes6bigint12_GLOBAL__N_114initWithDigitsENS0_16MutableBigIntRefENS0_18Imm
 if.end22:                                         ; preds = %if.end6.i.i62, %cond.end.i.i.i.i73, %if.end.i.i60, %if.end
   %storemerge = phi i32 [ 0, %if.end ], [ 0, %if.end6.i.i62 ], [ %22, %cond.end.i.i.i.i73 ], [ 0, %if.end.i.i60 ]
   store i32 %storemerge, ptr %dst.coerce1, align 4
-  %cmp23.not211 = icmp ult i32 %exponent, 2
-  br i1 %cmp23.not211, label %cleanup, label %for.body.lr.ph
+  %invariant.gep = getelementptr i64, ptr %rhs.addr.i, i64 -1
+  %cmp23.not210 = icmp ult i32 %exponent, 2
+  br i1 %cmp23.not210, label %cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end22
   %invariant.gep.i.i.i.i96 = getelementptr i8, ptr %rhs.addr.i, i64 -1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %exponent.addr.0.in220 = phi i32 [ %exponent, %for.body.lr.ph ], [ %exponent.addr.0221, %for.inc ]
-  %runningSquare.sroa.0.0218 = phi ptr [ %runningSquare0, %for.body.lr.ph ], [ %tmpRunningSquare.sroa.0.0213, %for.inc ]
-  %nextResult.sroa.0.0217 = phi ptr [ %tmpResult, %for.body.lr.ph ], [ %nextResult.sroa.0.1, %for.inc ]
-  %nextResult.sroa.8.0216 = phi i32 [ 1024, %for.body.lr.ph ], [ %nextResult.sroa.8.1, %for.inc ]
-  %result.sroa.0.0215 = phi ptr [ %dst, %for.body.lr.ph ], [ %result.sroa.0.1, %for.inc ]
-  %result.sroa.9.0214 = phi i32 [ %1, %for.body.lr.ph ], [ %result.sroa.9.1, %for.inc ]
-  %tmpRunningSquare.sroa.0.0213 = phi ptr [ %runningSquare1, %for.body.lr.ph ], [ %runningSquare.sroa.0.0218, %for.inc ]
-  %exponent.addr.0221 = lshr i32 %exponent.addr.0.in220, 1
-  %23 = getelementptr i8, ptr %tmpRunningSquare.sroa.0.0213, i64 8
+  %exponent.addr.0.in219 = phi i32 [ %exponent, %for.body.lr.ph ], [ %exponent.addr.0220, %for.inc ]
+  %runningSquare.sroa.0.0217 = phi ptr [ %runningSquare0, %for.body.lr.ph ], [ %tmpRunningSquare.sroa.0.0212, %for.inc ]
+  %nextResult.sroa.0.0216 = phi ptr [ %tmpResult, %for.body.lr.ph ], [ %nextResult.sroa.0.1, %for.inc ]
+  %nextResult.sroa.8.0215 = phi i32 [ 1024, %for.body.lr.ph ], [ %nextResult.sroa.8.1, %for.inc ]
+  %result.sroa.0.0214 = phi ptr [ %dst, %for.body.lr.ph ], [ %result.sroa.0.1, %for.inc ]
+  %result.sroa.9.0213 = phi i32 [ %1, %for.body.lr.ph ], [ %result.sroa.9.1, %for.inc ]
+  %tmpRunningSquare.sroa.0.0212 = phi ptr [ %runningSquare1, %for.body.lr.ph ], [ %runningSquare.sroa.0.0217, %for.inc ]
+  %exponent.addr.0220 = lshr i32 %exponent.addr.0.in219, 1
+  %23 = getelementptr i8, ptr %tmpRunningSquare.sroa.0.0212, i64 8
   %tmpRunningSquare.val21.val = load ptr, ptr %23, align 8
   store i32 1024, ptr %tmpRunningSquare.val21.val, align 4
-  %agg.tmp24.sroa.0.0.copyload = load ptr, ptr %tmpRunningSquare.sroa.0.0213, align 8
+  %agg.tmp24.sroa.0.0.copyload = load ptr, ptr %tmpRunningSquare.sroa.0.0212, align 8
   %agg.tmp24.sroa.2.0.copyload = load ptr, ptr %23, align 8
-  %runningSquare.val27.val = load ptr, ptr %runningSquare.sroa.0.0218, align 8
-  %24 = getelementptr i8, ptr %runningSquare.sroa.0.0218, i64 8
+  %runningSquare.val27.val = load ptr, ptr %runningSquare.sroa.0.0217, align 8
+  %24 = getelementptr i8, ptr %runningSquare.sroa.0.0217, i64 8
   %runningSquare.val27.val40 = load ptr, ptr %24, align 8
   %runningSquare.val27.val40.val = load i32, ptr %runningSquare.val27.val40, align 4
   %call30 = call noundef i32 @_ZN6hermes6bigint8multiplyENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %agg.tmp24.sroa.0.0.copyload, ptr %agg.tmp24.sroa.2.0.copyload, ptr %runningSquare.val27.val, i32 %runningSquare.val27.val40.val, ptr %runningSquare.val27.val, i32 %runningSquare.val27.val40.val)
@@ -6175,16 +6293,16 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp33.not, label %if.end35, label %cleanup
 
 if.end35:                                         ; preds = %for.body
-  %25 = and i32 %exponent.addr.0.in220, 2
+  %25 = and i32 %exponent.addr.0.in219, 2
   %cmp37.not = icmp eq i32 %25, 0
   br i1 %cmp37.not, label %for.inc, label %if.then38
 
 if.then38:                                        ; preds = %if.end35
-  %26 = getelementptr i8, ptr %nextResult.sroa.0.0217, i64 8
+  %26 = getelementptr i8, ptr %nextResult.sroa.0.0216, i64 8
   %nextResult.val23.val = load ptr, ptr %26, align 8
-  store i32 %nextResult.sroa.8.0216, ptr %nextResult.val23.val, align 4
-  %result.val29.val = load ptr, ptr %result.sroa.0.0215, align 8
-  %27 = getelementptr i8, ptr %result.sroa.0.0215, i64 8
+  store i32 %nextResult.sroa.8.0215, ptr %nextResult.val23.val, align 4
+  %result.val29.val = load ptr, ptr %result.sroa.0.0214, align 8
+  %27 = getelementptr i8, ptr %result.sroa.0.0214, i64 8
   %result.val29.val38 = load ptr, ptr %27, align 8
   %result.val29.val38.val = load i32, ptr %result.val29.val38, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rhs.addr.i)
@@ -6205,53 +6323,67 @@ while.body.i.i.i.i97:                             ; preds = %land.rhs.i.i.i.i101
   br i1 %cmp.i6.i.i.i.i100, label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread, label %land.rhs.i.i.i.i101, !llvm.loop !4
 
 _ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i: ; preds = %land.rhs.i.i.i.i101
-  %cmp14.i.i.i.i109196 = icmp slt i8 %.fr, 0
-  %spec.select = select i1 %cmp14.i.i.i.i109196, i64 %src.sroa.10.034.i6.i.i.i98, i64 %sub.i.i.i.i.i99
+  %cmp14.i.i.i.i109195 = icmp slt i8 %.fr, 0
+  %spec.select = select i1 %cmp14.i.i.i.i109195, i64 %src.sroa.10.034.i6.i.i.i98, i64 %sub.i.i.i.i.i99
   br label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread
 
 _ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread: ; preds = %while.body.i.i.i.i97, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i
   %29 = phi i64 [ %spec.select, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i ], [ 0, %while.body.i.i.i.i97 ]
   %30 = trunc i64 %29 to i32
   %31 = add i32 %30, 7
+  %32 = lshr i32 %31, 3
   %cmp.not.i.i.i = icmp eq i32 %result.val29.val38.val, 0
   br i1 %cmp.not.i.i.i, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread
-  %32 = lshr i32 %31, 3
   %sub.i.i.i = add i32 %result.val29.val38.val, -1
   %idxprom.i.i.i = zext i32 %sub.i.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i64, ptr %result.val29.val, i64 %idxprom.i.i.i
   %33 = load i64, ptr %arrayidx.i.i.i, align 8
   %.fr.i.i = freeze i64 %33
-  %cmp2.i.i.i = icmp sgt i64 %.fr.i.i, -1
-  %cmp817.i.i = icmp eq i32 %32, %result.val29.val38.val
-  %or.cond194 = select i1 %cmp2.i.i.i, i1 %cmp817.i.i, i1 false
-  br i1 %or.cond194, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread
+  %cmp.not.i10.i.i = icmp ult i32 %31, 8
+  br i1 %cmp.not.i10.i.i, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread
   %cmp817.i.i.old = icmp ult i32 %31, 8
   br i1 %cmp817.i.i.old, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread
 
-_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i
+_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i
+  %cmp2.i.i.i = icmp sgt i64 %.fr.i.i, -1
+  %cmp817.i.i = icmp eq i32 %32, %result.val29.val38.val
+  %or.cond = select i1 %cmp2.i.i.i, i1 %cmp817.i.i, i1 false
+  br i1 %or.cond, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread
+
+_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i
+  %34 = zext nneg i32 %32 to i64
+  %gep = getelementptr i64, ptr %invariant.gep, i64 %34
+  %35 = load i64, ptr %gep, align 8
+  %36 = xor i64 %35, %.fr.i.i
+  %37 = icmp sgt i64 %36, -1
+  %cmp8.i.i = icmp eq i32 %32, %result.val29.val38.val
+  %or.cond194 = select i1 %37, i1 %cmp8.i.i, i1 false
+  br i1 %or.cond194, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread
+
+_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i)
   br label %if.else49
 
-_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i
+_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i
   %call12.i.i = call noundef i32 @_ZN4llvh5APInt9tcCompareEPKmS2_j(ptr noundef %result.val29.val, ptr noundef nonnull %rhs.addr.i, i32 noundef %result.val29.val38.val) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i)
   %cmp42 = icmp eq i32 %call12.i.i, 0
   br i1 %cmp42, label %if.then43, label %if.else49
 
 if.then43:                                        ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit
-  %agg.tmp44.sroa.0.0.copyload = load ptr, ptr %nextResult.sroa.0.0217, align 8
+  %agg.tmp44.sroa.0.0.copyload = load ptr, ptr %nextResult.sroa.0.0216, align 8
   %agg.tmp44.sroa.2.0.copyload = load ptr, ptr %26, align 8
-  %runningSquare.val30.val = load ptr, ptr %tmpRunningSquare.sroa.0.0213, align 8
+  %runningSquare.val30.val = load ptr, ptr %tmpRunningSquare.sroa.0.0212, align 8
   %runningSquare.val30.val37 = load ptr, ptr %23, align 8
   %runningSquare.val30.val37.val = load i32, ptr %runningSquare.val30.val37, align 4
   %mul.i115 = shl i32 %runningSquare.val30.val37.val, 3
   %conv.i116 = zext i32 %mul.i115 to i64
-  %34 = load i32, ptr %agg.tmp44.sroa.2.0.copyload, align 4
-  %mul.i.i117 = shl i32 %34, 3
+  %38 = load i32, ptr %agg.tmp44.sroa.2.0.copyload, align 4
+  %mul.i.i117 = shl i32 %38, 3
   %cmp.i.i118 = icmp ult i32 %mul.i.i117, %mul.i115
   br i1 %cmp.i.i118, label %_ZN6hermes6bigint12_GLOBAL__N_114initWithDigitsENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE.exit149, label %if.end.i.i119
 
@@ -6262,31 +6394,31 @@ if.end.i.i119:                                    ; preds = %if.then43
 if.end6.i.i121:                                   ; preds = %if.end.i.i119
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %agg.tmp44.sroa.0.0.copyload, ptr align 1 %runningSquare.val30.val, i64 %conv.i116, i1 false)
   %conv9.i.i122 = sub i32 %mul.i.i117, %mul.i115
-  %35 = getelementptr i8, ptr %agg.tmp44.sroa.0.0.copyload, i64 %conv.i116
-  %arrayidx.i.i123 = getelementptr i8, ptr %35, i64 -1
-  %36 = load i8, ptr %arrayidx.i.i123, align 1
-  %37 = ashr i8 %36, 7
+  %39 = getelementptr i8, ptr %agg.tmp44.sroa.0.0.copyload, i64 %conv.i116
+  %arrayidx.i.i123 = getelementptr i8, ptr %39, i64 -1
+  %40 = load i8, ptr %arrayidx.i.i123, align 1
+  %41 = ashr i8 %40, 7
   %conv13.i.i124 = zext i32 %conv9.i.i122 to i64
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %35, i8 %37, i64 %conv13.i.i124, i1 false)
-  %38 = load i32, ptr %agg.tmp44.sroa.2.0.copyload, align 4
-  %mul.i.i.i125 = shl i32 %38, 3
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %39, i8 %41, i64 %conv13.i.i124, i1 false)
+  %42 = load i32, ptr %agg.tmp44.sroa.2.0.copyload, align 4
+  %mul.i.i.i125 = shl i32 %42, 3
   %cmp.i.i.i.i.i126 = icmp eq i32 %mul.i.i.i125, 0
   br i1 %cmp.i.i.i.i.i126, label %_ZN6hermes6bigint12_GLOBAL__N_114initWithDigitsENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE.exit149, label %if.end.i.i.i.i127
 
 if.end.i.i.i.i127:                                ; preds = %if.end6.i.i121
   %conv.i.i.i128 = zext i32 %mul.i.i.i125 to i64
-  %39 = getelementptr i8, ptr %agg.tmp44.sroa.0.0.copyload, i64 %conv.i.i.i128
-  %arrayidx.i.i.i.i.i129 = getelementptr i8, ptr %39, i64 -1
-  %40 = load i8, ptr %arrayidx.i.i.i.i.i129, align 1
-  %41 = ashr i8 %40, 7
+  %43 = getelementptr i8, ptr %agg.tmp44.sroa.0.0.copyload, i64 %conv.i.i.i128
+  %arrayidx.i.i.i.i.i129 = getelementptr i8, ptr %43, i64 -1
+  %44 = load i8, ptr %arrayidx.i.i.i.i.i129, align 1
+  %45 = ashr i8 %44, 7
   %invariant.gep.i.i.i.i130 = getelementptr i8, ptr %agg.tmp44.sroa.0.0.copyload, i64 -1
-  %cmp.i5.i.i.i131 = icmp eq i8 %40, %41
+  %cmp.i5.i.i.i131 = icmp eq i8 %44, %45
   br i1 %cmp.i5.i.i.i131, label %while.body.i.i.i.i140, label %cond.end.i.i.i.i132
 
 land.rhs.i.i.i.i144:                              ; preds = %while.body.i.i.i.i140
   %gep.i.i.i.i145 = getelementptr i8, ptr %invariant.gep.i.i.i.i130, i64 %sub.i.i.i.i.i142
-  %42 = load i8, ptr %gep.i.i.i.i145, align 1
-  %cmp.i.i.i.i146 = icmp eq i8 %42, %40
+  %46 = load i8, ptr %gep.i.i.i.i145, align 1
+  %cmp.i.i.i.i146 = icmp eq i8 %46, %44
   br i1 %cmp.i.i.i.i146, label %while.body.i.i.i.i140, label %cond.false.i.loopexit.i.i.i147, !llvm.loop !4
 
 while.body.i.i.i.i140:                            ; preds = %if.end.i.i.i.i127, %land.rhs.i.i.i.i144
@@ -6296,38 +6428,38 @@ while.body.i.i.i.i140:                            ; preds = %if.end.i.i.i.i127, 
   br i1 %cmp.i6.i.i.i.i143, label %cond.end.i.i.i.i132, label %land.rhs.i.i.i.i144, !llvm.loop !4
 
 cond.false.i.loopexit.i.i.i147:                   ; preds = %land.rhs.i.i.i.i144
-  %.pre.i.i.i148 = ashr i8 %42, 7
+  %.pre.i.i.i148 = ashr i8 %46, 7
   br label %cond.end.i.i.i.i132
 
 cond.end.i.i.i.i132:                              ; preds = %while.body.i.i.i.i140, %cond.false.i.loopexit.i.i.i147, %if.end.i.i.i.i127
   %previousSrc.sroa.3.032.i.i.i.i133 = phi i64 [ %src.sroa.10.034.i6.i.i.i141, %cond.false.i.loopexit.i.i.i147 ], [ %conv.i.i.i128, %if.end.i.i.i.i127 ], [ 1, %while.body.i.i.i.i140 ]
   %src.sroa.10.030.i.i.i.i134 = phi i64 [ %sub.i.i.i.i.i142, %cond.false.i.loopexit.i.i.i147 ], [ %conv.i.i.i128, %if.end.i.i.i.i127 ], [ 0, %while.body.i.i.i.i140 ]
-  %cond.i.i.i.i135 = phi i8 [ %.pre.i.i.i148, %cond.false.i.loopexit.i.i.i147 ], [ %41, %if.end.i.i.i.i127 ], [ 0, %while.body.i.i.i.i140 ]
-  %cmp14.i.i.i.i136 = icmp eq i8 %cond.i.i.i.i135, %41
+  %cond.i.i.i.i135 = phi i8 [ %.pre.i.i.i148, %cond.false.i.loopexit.i.i.i147 ], [ %45, %if.end.i.i.i.i127 ], [ 0, %while.body.i.i.i.i140 ]
+  %cmp14.i.i.i.i136 = icmp eq i8 %cond.i.i.i.i135, %45
   %retval.sroa.3.0.copyload3.i.i.i.i137 = select i1 %cmp14.i.i.i.i136, i64 %src.sroa.10.030.i.i.i.i134, i64 %previousSrc.sroa.3.032.i.i.i.i133
-  %43 = trunc i64 %retval.sroa.3.0.copyload3.i.i.i.i137 to i32
-  %44 = add i32 %43, 7
-  %45 = lshr i32 %44, 3
+  %47 = trunc i64 %retval.sroa.3.0.copyload3.i.i.i.i137 to i32
+  %48 = add i32 %47, 7
+  %49 = lshr i32 %48, 3
   br label %_ZN6hermes6bigint12_GLOBAL__N_114initWithDigitsENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE.exit149
 
 _ZN6hermes6bigint12_GLOBAL__N_114initWithDigitsENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE.exit149: ; preds = %if.then43, %if.end.i.i119, %if.end6.i.i121, %cond.end.i.i.i.i132
-  %retval.sroa.3.0.i.i.sink.i.i138 = phi i32 [ 0, %if.then43 ], [ 0, %if.end.i.i119 ], [ %45, %cond.end.i.i.i.i132 ], [ 0, %if.end6.i.i121 ]
+  %retval.sroa.3.0.i.i.sink.i.i138 = phi i32 [ 0, %if.then43 ], [ 0, %if.end.i.i119 ], [ %49, %cond.end.i.i.i.i132 ], [ 0, %if.end6.i.i121 ]
   %retval.0.i.i139 = phi i32 [ 1, %if.then43 ], [ 0, %if.end.i.i119 ], [ 0, %cond.end.i.i.i.i132 ], [ 0, %if.end6.i.i121 ]
   store i32 %retval.sroa.3.0.i.i.sink.i.i138, ptr %agg.tmp44.sroa.2.0.copyload, align 4
   br label %if.end59
 
 if.else49:                                        ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit
-  %agg.tmp50.sroa.0.0.copyload = load ptr, ptr %nextResult.sroa.0.0217, align 8
+  %agg.tmp50.sroa.0.0.copyload = load ptr, ptr %nextResult.sroa.0.0216, align 8
   %agg.tmp50.sroa.2.0.copyload = load ptr, ptr %26, align 8
-  %result.val31.val = load ptr, ptr %result.sroa.0.0215, align 8
+  %result.val31.val = load ptr, ptr %result.sroa.0.0214, align 8
   %result.val31.val36 = load ptr, ptr %27, align 8
   %result.val31.val36.val = load i32, ptr %result.val31.val36, align 4
-  %runningSquare.val32.val = load ptr, ptr %tmpRunningSquare.sroa.0.0213, align 8
+  %runningSquare.val32.val = load ptr, ptr %tmpRunningSquare.sroa.0.0212, align 8
   %runningSquare.val32.val35 = load ptr, ptr %23, align 8
   %runningSquare.val32.val35.val = load i32, ptr %runningSquare.val32.val35, align 4
   %call56 = call noundef i32 @_ZN6hermes6bigint8multiplyENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %agg.tmp50.sroa.0.0.copyload, ptr %agg.tmp50.sroa.2.0.copyload, ptr %result.val31.val, i32 %result.val31.val36.val, ptr %runningSquare.val32.val, i32 %runningSquare.val32.val35.val)
   %cmp.i154 = icmp eq i32 %call56, 1
-  %cmp1.i155 = icmp ugt i32 %nextResult.sroa.8.0216, 1023
+  %cmp1.i155 = icmp ugt i32 %nextResult.sroa.8.0215, 1023
   %or.cond.i156 = and i1 %cmp1.i155, %cmp.i154
   br i1 %or.cond.i156, label %cleanup, label %if.end59
 
@@ -6337,11 +6469,11 @@ if.end59:                                         ; preds = %if.else49, %_ZN6her
   br i1 %cmp60.not, label %for.inc, label %cleanup
 
 for.inc:                                          ; preds = %if.end59, %if.end35
-  %result.sroa.9.1 = phi i32 [ %result.sroa.9.0214, %if.end35 ], [ %nextResult.sroa.8.0216, %if.end59 ]
-  %result.sroa.0.1 = phi ptr [ %result.sroa.0.0215, %if.end35 ], [ %nextResult.sroa.0.0217, %if.end59 ]
-  %nextResult.sroa.8.1 = phi i32 [ %nextResult.sroa.8.0216, %if.end35 ], [ %result.sroa.9.0214, %if.end59 ]
-  %nextResult.sroa.0.1 = phi ptr [ %nextResult.sroa.0.0217, %if.end35 ], [ %result.sroa.0.0215, %if.end59 ]
-  %cmp23.not = icmp ult i32 %exponent.addr.0.in220, 4
+  %result.sroa.9.1 = phi i32 [ %result.sroa.9.0213, %if.end35 ], [ %nextResult.sroa.8.0215, %if.end59 ]
+  %result.sroa.0.1 = phi ptr [ %result.sroa.0.0214, %if.end35 ], [ %nextResult.sroa.0.0216, %if.end59 ]
+  %nextResult.sroa.8.1 = phi i32 [ %nextResult.sroa.8.0215, %if.end35 ], [ %result.sroa.9.0213, %if.end59 ]
+  %nextResult.sroa.0.1 = phi ptr [ %nextResult.sroa.0.0216, %if.end35 ], [ %result.sroa.0.0214, %if.end59 ]
+  %cmp23.not = icmp ult i32 %exponent.addr.0.in219, 4
   br i1 %cmp23.not, label %for.end, label %for.body, !llvm.loop !58
 
 for.end:                                          ; preds = %for.inc
@@ -6349,26 +6481,26 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp66.not, label %cleanup, label %if.then67
 
 if.then67:                                        ; preds = %for.end
-  %46 = getelementptr i8, ptr %nextResult.sroa.0.1, i64 8
-  %nextResult.val25.val = load ptr, ptr %46, align 8
+  %50 = getelementptr i8, ptr %nextResult.sroa.0.1, i64 8
+  %nextResult.val25.val = load ptr, ptr %50, align 8
   store i32 %nextResult.sroa.8.1, ptr %nextResult.val25.val, align 4
   %result.val33.val = load ptr, ptr %result.sroa.0.1, align 8
-  %47 = getelementptr i8, ptr %result.sroa.0.1, i64 8
-  %result.val33.val34 = load ptr, ptr %47, align 8
+  %51 = getelementptr i8, ptr %result.sroa.0.1, i64 8
+  %result.val33.val34 = load ptr, ptr %51, align 8
   %result.val33.val34.val = load i32, ptr %result.val33.val34, align 4
-  %48 = load ptr, ptr %46, align 8
-  %49 = load i32, ptr %48, align 4
-  %cmp.i163 = icmp ult i32 %49, %result.val33.val34.val
+  %52 = load ptr, ptr %50, align 8
+  %53 = load i32, ptr %52, align 4
+  %cmp.i163 = icmp ult i32 %53, %result.val33.val34.val
   br i1 %cmp.i163, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then67
   %mul.i164 = shl i32 %result.val33.val34.val, 3
-  %50 = load ptr, ptr %nextResult.sroa.0.1, align 8
+  %54 = load ptr, ptr %nextResult.sroa.0.1, align 8
   %conv.i165 = zext i32 %mul.i164 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %50, ptr align 8 %result.val33.val, i64 %conv.i165, i1 false)
-  %51 = load ptr, ptr %46, align 8
-  %52 = load i32, ptr %51, align 4
-  %sub.i = sub i32 %52, %result.val33.val34.val
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %54, ptr align 8 %result.val33.val, i64 %conv.i165, i1 false)
+  %55 = load ptr, ptr %50, align 8
+  %56 = load i32, ptr %55, align 4
+  %sub.i = sub i32 %56, %result.val33.val34.val
   %mul5.i = shl i32 %sub.i, 3
   %cmp.i.i166 = icmp eq i32 %result.val33.val34.val, 0
   br i1 %cmp.i.i166, label %_ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntRefEEEmRKT_.exit.i, label %cond.false.i.i
@@ -6377,28 +6509,28 @@ cond.false.i.i:                                   ; preds = %if.end.i
   %sub.i.i = add i32 %result.val33.val34.val, -1
   %idxprom.i.i = zext i32 %sub.i.i to i64
   %arrayidx.i.i167 = getelementptr inbounds i64, ptr %result.val33.val, i64 %idxprom.i.i
-  %53 = load i64, ptr %arrayidx.i.i167, align 8
-  %shr.neg.i.i.i = ashr i64 %53, 63
-  %54 = trunc i64 %shr.neg.i.i.i to i8
+  %57 = load i64, ptr %arrayidx.i.i167, align 8
+  %shr.neg.i.i.i = ashr i64 %57, 63
+  %58 = trunc i64 %shr.neg.i.i.i to i8
   br label %_ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntRefEEEmRKT_.exit.i
 
 _ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntRefEEEmRKT_.exit.i: ; preds = %cond.false.i.i, %if.end.i
-  %cond.i.i = phi i8 [ %54, %cond.false.i.i ], [ 0, %if.end.i ]
-  %55 = load ptr, ptr %nextResult.sroa.0.1, align 8
+  %cond.i.i = phi i8 [ %58, %cond.false.i.i ], [ 0, %if.end.i ]
+  %59 = load ptr, ptr %nextResult.sroa.0.1, align 8
   %idx.ext.i168 = zext i32 %result.val33.val34.val to i64
-  %add.ptr.i169 = getelementptr inbounds i64, ptr %55, i64 %idx.ext.i168
+  %add.ptr.i169 = getelementptr inbounds i64, ptr %59, i64 %idx.ext.i168
   %conv8.i = zext i32 %mul5.i to i64
   call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i169, i8 %cond.i.i, i64 %conv8.i, i1 false)
   br label %cleanup
 
 cleanup:                                          ; preds = %if.else49, %if.end59, %for.body, %if.end22, %_ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntRefEEEmRKT_.exit.i, %if.then67, %_ZN6hermes6bigint12_GLOBAL__N_114initWithDigitsENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE.exit90, %_ZN6hermes6bigint12_GLOBAL__N_114initWithDigitsENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE.exit, %for.end
   %retval.0 = phi i32 [ 1, %_ZN6hermes6bigint12_GLOBAL__N_114initWithDigitsENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE.exit ], [ 1, %_ZN6hermes6bigint12_GLOBAL__N_114initWithDigitsENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE.exit90 ], [ 0, %for.end ], [ 0, %_ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntRefEEEmRKT_.exit.i ], [ 1, %if.then67 ], [ 0, %if.end22 ], [ 2, %if.else49 ], [ %res.0, %if.end59 ], [ %.status.i, %for.body ]
-  %56 = load ptr, ptr %tmpBuffers, align 8
-  %cmp.i.i.i.i170 = icmp eq ptr %56, %add.ptr.i.i.i.i.i.i
+  %60 = load ptr, ptr %tmpBuffers, align 8
+  %cmp.i.i.i.i170 = icmp eq ptr %60, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i170, label %_ZN6hermes6bigint10TmpStorageD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cleanup
-  call void @free(ptr noundef %56) #18
+  call void @free(ptr noundef %60) #18
   br label %_ZN6hermes6bigint10TmpStorageD2Ev.exit
 
 _ZN6hermes6bigint10TmpStorageD2Ev.exit:           ; preds = %cleanup, %if.then.i.i.i
@@ -6461,12 +6593,12 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %
 _ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i: ; preds = %land.rhs.i.i.i.i
   %cmp14.i.i.i.i = icmp slt i8 %.fr, 0
   %spec.select = select i1 %cmp14.i.i.i.i, i64 %sub.i.i.i.i.i, i64 %src.sroa.10.034.i6.i.i.i
-  %3 = trunc i64 %spec.select to i32
-  %4 = add i32 %3, 7
   br label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread
 
 _ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread: ; preds = %while.body.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i
-  %5 = phi i32 [ %4, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i ], [ 8, %while.body.i.i.i.i ]
+  %3 = phi i64 [ %spec.select, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i ], [ 1, %while.body.i.i.i.i ]
+  %4 = trunc i64 %3 to i32
+  %5 = add i32 %4, 7
   %6 = lshr i32 %5, 3
   br i1 %cmp.not.i, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i
 
@@ -6476,42 +6608,61 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i: ; preds = %_ZN
   %arrayidx.i.i.i = getelementptr inbounds i64, ptr %shiftAmnt.coerce0, i64 %idxprom.i.i.i
   %7 = load i64, ptr %arrayidx.i.i.i, align 8
   %.fr.i.i = freeze i64 %7
+  %cmp2.i.i.i = icmp slt i64 %.fr.i.i, 0
   %cmp.not.i10.i.i = icmp ult i32 %5, 8
   br i1 %cmp.not.i10.i.i, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread
   %cmp.not.i1018.i.i = icmp ult i32 %5, 8
-  br i1 %cmp.not.i1018.i.i, label %if.end.thread.i.i, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread
+  br i1 %cmp.not.i1018.i.i, label %if.end.thread.i.i, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i
+
+_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i
+  %8 = zext nneg i32 %6 to i64
+  %9 = getelementptr i64, ptr %rhs.addr.i, i64 %8
+  %arrayidx.i1421.i.i = getelementptr i64, ptr %9, i64 -1
+  %10 = load i64, ptr %arrayidx.i1421.i.i, align 8
+  %cmp2.i1522.i.i = icmp sgt i64 %10, -1
+  br i1 %cmp2.i1522.i.i, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread68, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i
-  %cmp2.i.i.i = icmp slt i64 %.fr.i.i, 0
-  br i1 %cmp2.i.i.i, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread65, label %if.end.thread.i.i
+  br i1 %cmp2.i.i.i, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread68, label %if.end.thread.i.i
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i
-  %8 = icmp sgt i64 %.fr.i.i, -1
-  br i1 %8, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread, label %if.end.i.i
+  %11 = zext nneg i32 %6 to i64
+  %12 = getelementptr i64, ptr %rhs.addr.i, i64 %11
+  %arrayidx.i14.i.i = getelementptr i64, ptr %12, i64 -1
+  %13 = load i64, ptr %arrayidx.i14.i.i, align 8
+  %14 = xor i64 %13, %.fr.i.i
+  %15 = icmp slt i64 %14, 0
+  br i1 %15, label %if.then.i.i, label %if.end.i.i
+
+if.then.i.i:                                      ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i
+  br i1 %cmp2.i.i.i, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread68, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread
 
 if.end.i.i:                                       ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i
   %cmp8.i.i = icmp eq i32 %6, %shiftAmnt.coerce1
-  br i1 %cmp8.i.i, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, label %if.then14.i.i
+  br i1 %cmp8.i.i, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, label %if.else.i.i
 
 if.end.thread.i.i:                                ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i
   %cmp817.i.i = icmp eq i32 %6, %shiftAmnt.coerce1
   br i1 %cmp817.i.i, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, label %if.else19.i.i
 
-if.then14.i.i:                                    ; preds = %if.end.i.i
+if.else.i.i:                                      ; preds = %if.end.i.i
+  br i1 %cmp2.i.i.i, label %if.then14.i.i, label %if.else19.i.i
+
+if.then14.i.i:                                    ; preds = %if.else.i.i
   %cmp17.i.i = icmp ugt i32 %6, %shiftAmnt.coerce1
-  br i1 %cmp17.i.i, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread65
+  br i1 %cmp17.i.i, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread68
 
-if.else19.i.i:                                    ; preds = %if.end.thread.i.i
-  %cmp22.i.i = icmp ugt i32 %6, %shiftAmnt.coerce1
-  br i1 %cmp22.i.i, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread65, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread
+if.else19.i.i:                                    ; preds = %if.else.i.i, %if.end.thread.i.i
+  %cmp22.i.i.old = icmp ugt i32 %6, %shiftAmnt.coerce1
+  br i1 %cmp22.i.i.old, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread68, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread
 
-_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i, %if.else19.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i, %if.then14.i.i
+_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread: ; preds = %if.else19.i.i, %if.then.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i, %if.then14.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i)
   br label %lor.lhs.false
 
-_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread65: ; preds = %if.then14.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i, %if.else19.i.i
+_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread68: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i, %if.then14.i.i, %if.then.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i, %if.else19.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i)
   br label %return
 
@@ -6529,9 +6680,9 @@ lor.lhs.false:                                    ; preds = %_ZN6hermes6bigint7c
 
 land.rhs.i.i.i.i13:                               ; preds = %while.body.i.i.i.i9
   %gep.i.i.i.i14 = getelementptr i8, ptr %invariant.gep.i.i.i.i8, i64 %sub.i.i.i.i.i11
-  %9 = load i8, ptr %gep.i.i.i.i14, align 1
-  %.fr84 = freeze i8 %9
-  %cmp.i.i.i.i15 = icmp eq i8 %.fr84, 0
+  %16 = load i8, ptr %gep.i.i.i.i14, align 1
+  %.fr88 = freeze i8 %16
+  %cmp.i.i.i.i15 = icmp eq i8 %.fr88, 0
   br i1 %cmp.i.i.i.i15, label %while.body.i.i.i.i9, label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i18.thread, !llvm.loop !4
 
 while.body.i.i.i.i9:                              ; preds = %land.rhs.i.i.i.i13, %lor.lhs.false
@@ -6541,94 +6692,117 @@ while.body.i.i.i.i9:                              ; preds = %land.rhs.i.i.i.i13,
   br i1 %cmp.i6.i.i.i.i12, label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i18.thread.thread, label %land.rhs.i.i.i.i13, !llvm.loop !4
 
 _ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i18.thread: ; preds = %land.rhs.i.i.i.i13
-  %cmp14.i.i.i.i2285 = icmp slt i8 %.fr84, 0
-  %spec.select83 = select i1 %cmp14.i.i.i.i2285, i64 %src.sroa.10.034.i6.i.i.i10, i64 %sub.i.i.i.i.i11
-  %10 = trunc i64 %spec.select83 to i32
-  %11 = add i32 %10, 7
-  %12 = lshr i32 %11, 3
-  br i1 %cmp.not.i, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i50, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i25
+  %cmp14.i.i.i.i2289 = icmp slt i8 %.fr88, 0
+  %spec.select86 = select i1 %cmp14.i.i.i.i2289, i64 %src.sroa.10.034.i6.i.i.i10, i64 %sub.i.i.i.i.i11
+  %17 = trunc i64 %spec.select86 to i32
+  %18 = add i32 %17, 7
+  %19 = lshr i32 %18, 3
+  br i1 %cmp.not.i, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i51, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i25
 
 _ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i18.thread.thread: ; preds = %while.body.i.i.i.i9
-  br i1 %cmp.not.i, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit53, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i25.thread
+  br i1 %cmp.not.i, label %if.end.thread.i.i49, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i25.thread
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i25.thread: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i18.thread.thread
-  %sub.i.i.i2694 = add i32 %shiftAmnt.coerce1, -1
-  %idxprom.i.i.i2795 = zext i32 %sub.i.i.i2694 to i64
-  %arrayidx.i.i.i2896 = getelementptr inbounds i64, ptr %shiftAmnt.coerce0, i64 %idxprom.i.i.i2795
-  %13 = load i64, ptr %arrayidx.i.i.i2896, align 8
-  %.fr.i.i2997 = freeze i64 %13
-  br label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i47
+  %sub.i.i.i2698 = add i32 %shiftAmnt.coerce1, -1
+  %idxprom.i.i.i2799 = zext i32 %sub.i.i.i2698 to i64
+  %arrayidx.i.i.i28100 = getelementptr inbounds i64, ptr %shiftAmnt.coerce0, i64 %idxprom.i.i.i2799
+  %20 = load i64, ptr %arrayidx.i.i.i28100, align 8
+  %.fr.i.i29101 = freeze i64 %20
+  %cmp2.i.i.i30102 = icmp slt i64 %.fr.i.i29101, 0
+  br i1 %cmp2.i.i.i30102, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit56.thread83, label %if.end.thread.i.i49
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i25: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i18.thread
   %sub.i.i.i26 = add i32 %shiftAmnt.coerce1, -1
   %idxprom.i.i.i27 = zext i32 %sub.i.i.i26 to i64
   %arrayidx.i.i.i28 = getelementptr inbounds i64, ptr %shiftAmnt.coerce0, i64 %idxprom.i.i.i27
-  %14 = load i64, ptr %arrayidx.i.i.i28, align 8
-  %.fr.i.i29 = freeze i64 %14
-  %cmp.not.i10.i.i31 = icmp ult i32 %11, 8
-  br i1 %cmp.not.i10.i.i31, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i47, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i32
+  %21 = load i64, ptr %arrayidx.i.i.i28, align 8
+  %.fr.i.i29 = freeze i64 %21
+  %cmp2.i.i.i30 = icmp slt i64 %.fr.i.i29, 0
+  %cmp.not.i10.i.i31 = icmp ult i32 %18, 8
+  br i1 %cmp.not.i10.i.i31, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i48, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i32
 
-_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i50: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i18.thread
-  %cmp817.i.i49 = icmp ult i32 %11, 8
-  br i1 %cmp817.i.i49, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit53, label %if.else19.i.i36
+_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i51: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i18.thread
+  %cmp.not.i1018.i.i52 = icmp ult i32 %18, 8
+  br i1 %cmp.not.i1018.i.i52, label %if.end.thread.i.i49, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i53
 
-_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i47: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i25.thread, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i25
-  %.fr.i.i2999 = phi i64 [ %.fr.i.i2997, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i25.thread ], [ %.fr.i.i29, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i25 ]
-  %15 = phi i32 [ 0, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i25.thread ], [ %12, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i25 ]
-  %cmp2.i.i.i30 = icmp slt i64 %.fr.i.i2999, 0
-  br i1 %cmp2.i.i.i30, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit53.thread80, label %if.end.thread.i.i48
+_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i53: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i51
+  %22 = zext nneg i32 %19 to i64
+  %23 = getelementptr i64, ptr %rhs.addr.i7, i64 %22
+  %arrayidx.i1421.i.i54 = getelementptr i64, ptr %23, i64 -1
+  %24 = load i64, ptr %arrayidx.i1421.i.i54, align 8
+  %cmp2.i1522.i.i55 = icmp sgt i64 %24, -1
+  br i1 %cmp2.i1522.i.i55, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit56.thread83, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit56.thread
+
+_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i48: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i25
+  br i1 %cmp2.i.i.i30, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit56.thread83, label %if.end.thread.i.i49
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i32: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i25
-  %16 = icmp slt i64 %.fr.i.i29, 0
-  br i1 %16, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit53.thread80, label %if.end.i.i33
+  %25 = zext nneg i32 %19 to i64
+  %26 = getelementptr i64, ptr %rhs.addr.i7, i64 %25
+  %arrayidx.i14.i.i33 = getelementptr i64, ptr %26, i64 -1
+  %27 = load i64, ptr %arrayidx.i14.i.i33, align 8
+  %28 = xor i64 %27, %.fr.i.i29
+  %29 = icmp slt i64 %28, 0
+  br i1 %29, label %if.then.i.i46, label %if.end.i.i34
 
-if.end.i.i33:                                     ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i32
-  %cmp8.i.i34 = icmp eq i32 %12, %shiftAmnt.coerce1
-  br i1 %cmp8.i.i34, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit53, label %if.else19.i.i36
+if.then.i.i46:                                    ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i32
+  br i1 %cmp2.i.i.i30, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit56.thread83, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit56.thread
 
-if.end.thread.i.i48:                              ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i47
-  %cmp817.i.i49.old = icmp eq i32 %15, %shiftAmnt.coerce1
-  br i1 %cmp817.i.i49.old, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit53, label %if.else19.i.i36
+if.end.i.i34:                                     ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i32
+  %cmp8.i.i35 = icmp eq i32 %19, %shiftAmnt.coerce1
+  br i1 %cmp8.i.i35, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit56, label %if.else.i.i36
 
-if.else19.i.i36:                                  ; preds = %if.end.i.i33, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i50, %if.end.thread.i.i48
-  %17 = phi i32 [ %12, %if.end.i.i33 ], [ %12, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i50 ], [ %15, %if.end.thread.i.i48 ]
-  %cmp22.i.i37 = icmp ugt i32 %17, %shiftAmnt.coerce1
-  br i1 %cmp22.i.i37, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit53.thread80, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit53.thread
+if.end.thread.i.i49:                              ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i18.thread.thread, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i25.thread, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i48, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i51
+  %30 = phi i32 [ %19, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i48 ], [ %19, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i51 ], [ 0, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i25.thread ], [ 0, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i18.thread.thread ]
+  %cmp817.i.i50 = icmp eq i32 %30, %shiftAmnt.coerce1
+  br i1 %cmp817.i.i50, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit56, label %if.else19.i.i37
 
-_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit53.thread: ; preds = %if.else19.i.i36
+if.else.i.i36:                                    ; preds = %if.end.i.i34
+  br i1 %cmp2.i.i.i30, label %if.then14.i.i41, label %if.else19.i.i37
+
+if.then14.i.i41:                                  ; preds = %if.else.i.i36
+  %cmp17.i.i42 = icmp ugt i32 %19, %shiftAmnt.coerce1
+  br i1 %cmp17.i.i42, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit56.thread, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit56.thread83
+
+if.else19.i.i37:                                  ; preds = %if.else.i.i36, %if.end.thread.i.i49
+  %31 = phi i32 [ %19, %if.else.i.i36 ], [ %30, %if.end.thread.i.i49 ]
+  %cmp22.i.i38.old = icmp ugt i32 %31, %shiftAmnt.coerce1
+  br i1 %cmp22.i.i38.old, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit56.thread83, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit56.thread
+
+_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit56.thread: ; preds = %if.else19.i.i37, %if.then.i.i46, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i53, %if.then14.i.i41
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i7)
   br label %return
 
-_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit53.thread80: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i32, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i47, %if.else19.i.i36
+_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit56.thread83: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i25.thread, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i53, %if.then14.i.i41, %if.then.i.i46, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i48, %if.else19.i.i37
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i7)
   br label %if.end
 
-_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit53: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i18.thread.thread, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i50, %if.end.i.i33, %if.end.thread.i.i48
-  %call12.i.i44 = call noundef i32 @_ZN4llvh5APInt9tcCompareEPKmS2_j(ptr noundef %shiftAmnt.coerce0, ptr noundef nonnull %rhs.addr.i7, i32 noundef %shiftAmnt.coerce1) #18
+_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit56: ; preds = %if.end.i.i34, %if.end.thread.i.i49
+  %call12.i.i45 = call noundef i32 @_ZN4llvh5APInt9tcCompareEPKmS2_j(ptr noundef %shiftAmnt.coerce0, ptr noundef nonnull %rhs.addr.i7, i32 noundef %shiftAmnt.coerce1) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i7)
-  %cmp6 = icmp sgt i32 %call12.i.i44, 0
+  %cmp6 = icmp sgt i32 %call12.i.i45, 0
   br i1 %cmp6, label %return, label %if.end
 
-if.end:                                           ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit53.thread80, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit53
+if.end:                                           ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit56.thread83, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit56
   br i1 %cmp.not.i, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.end
-  %18 = load i64, ptr %shiftAmnt.coerce0, align 8
+  %32 = load i64, ptr %shiftAmnt.coerce0, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end, %cond.false
-  %cond = phi i64 [ %18, %cond.false ], [ 0, %if.end ]
+  %cond = phi i64 [ %32, %cond.false ], [ 0, %if.end ]
   %sub = sub nsw i64 0, %cond
   %cond13 = select i1 %1, i64 %sub, i64 %cond
   %conv14 = trunc i64 %cond13 to i32
   br label %return
 
-return:                                           ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit53, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread65, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit53.thread, %cond.end
-  %conv14.sink = phi i32 [ %conv14, %cond.end ], [ 8193, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit53.thread ], [ 8193, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread65 ], [ 8193, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit53 ], [ 8193, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit ]
+return:                                           ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit56, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread68, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit56.thread, %cond.end
+  %conv14.sink = phi i32 [ %conv14, %cond.end ], [ 8193, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit56.thread ], [ 8193, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread68 ], [ 8193, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit56 ], [ 8193, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit ]
   %frombool = zext i1 %1 to i8
   store i8 %frombool, ptr %agg.result, align 4
-  %19 = getelementptr inbounds i8, ptr %agg.result, i64 4
-  store i32 %conv14.sink, ptr %19, align 4
+  %33 = getelementptr inbounds i8, ptr %agg.result, i64 4
+  store i32 %conv14.sink, ptr %33, align 4
   ret void
 }
 

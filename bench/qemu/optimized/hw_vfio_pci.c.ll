@@ -7213,9 +7213,7 @@ entry:
   %arrayidx = getelementptr i8, ptr %0, i64 %idxprom
   %1 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %pos to i32
-  %add = add nuw nsw i32 %conv, 1
-  %idxprom3 = zext nneg i32 %add to i64
-  %arrayidx4 = getelementptr i8, ptr %0, i64 %idxprom3
+  %arrayidx4 = getelementptr i8, ptr %arrayidx, i64 1
   %2 = load i8, ptr %arrayidx4, align 1
   %arrayidx.i = getelementptr i8, ptr %0, i64 52
   %invariant.gep.i = getelementptr i8, ptr %0, i64 1

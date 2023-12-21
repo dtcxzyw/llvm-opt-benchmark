@@ -65,17 +65,20 @@ if.then19:                                        ; preds = %if.else
 land.lhs.true23:                                  ; preds = %if.then19
   %chunkContents25 = getelementptr inbounds %struct.UText, ptr %8, i64 0, i32 10
   %10 = load ptr, ptr %chunkContents25, align 8
-  %sub = add nsw i32 %9, -1
-  %idxprom28 = zext nneg i32 %sub to i64
-  %arrayidx29 = getelementptr inbounds i16, ptr %10, i64 %idxprom28
-  %11 = load i16, ptr %arrayidx29, align 2
-  %cmp31 = icmp ult i16 %11, -10240
+  %11 = zext nneg i32 %9 to i64
+  %12 = getelementptr i16, ptr %10, i64 %11
+  %arrayidx29 = getelementptr i16, ptr %12, i64 -1
+  %13 = load i16, ptr %arrayidx29, align 2
+  %cmp31 = icmp ult i16 %13, -10240
   br i1 %cmp31, label %cond.true32, label %cond.false40
 
 cond.true32:                                      ; preds = %land.lhs.true23
-  store i32 %sub, ptr %chunkOffset21, align 8
-  %12 = load i16, ptr %arrayidx29, align 2
-  %conv39 = zext i16 %12 to i32
+  %dec = add nsw i32 %9, -1
+  store i32 %dec, ptr %chunkOffset21, align 8
+  %idxprom37 = zext nneg i32 %dec to i64
+  %arrayidx38 = getelementptr inbounds i16, ptr %10, i64 %idxprom37
+  %14 = load i16, ptr %arrayidx38, align 2
+  %conv39 = zext i16 %14 to i32
   br label %cond.end43
 
 cond.false40:                                     ; preds = %land.lhs.true23, %if.then19
@@ -84,62 +87,62 @@ cond.false40:                                     ; preds = %land.lhs.true23, %i
 
 cond.end43:                                       ; preds = %cond.false40, %cond.true32
   %cond44 = phi i32 [ %conv39, %cond.true32 ], [ %call42, %cond.false40 ]
-  %13 = load ptr, ptr %ct, align 8
-  %chunkOffset46 = getelementptr inbounds %struct.UText, ptr %13, i64 0, i32 8
-  %14 = load i32, ptr %chunkOffset46, align 8
-  %chunkLength48 = getelementptr inbounds %struct.UText, ptr %13, i64 0, i32 9
-  %15 = load i32, ptr %chunkLength48, align 4
-  %cmp49 = icmp slt i32 %14, %15
+  %15 = load ptr, ptr %ct, align 8
+  %chunkOffset46 = getelementptr inbounds %struct.UText, ptr %15, i64 0, i32 8
+  %16 = load i32, ptr %chunkOffset46, align 8
+  %chunkLength48 = getelementptr inbounds %struct.UText, ptr %15, i64 0, i32 9
+  %17 = load i32, ptr %chunkLength48, align 4
+  %cmp49 = icmp slt i32 %16, %17
   br i1 %cmp49, label %land.lhs.true50, label %cond.false68
 
 land.lhs.true50:                                  ; preds = %cond.end43
-  %chunkContents52 = getelementptr inbounds %struct.UText, ptr %13, i64 0, i32 10
-  %16 = load ptr, ptr %chunkContents52, align 8
-  %idxprom55 = sext i32 %14 to i64
-  %arrayidx56 = getelementptr inbounds i16, ptr %16, i64 %idxprom55
-  %17 = load i16, ptr %arrayidx56, align 2
-  %cmp58 = icmp ult i16 %17, -10240
+  %chunkContents52 = getelementptr inbounds %struct.UText, ptr %15, i64 0, i32 10
+  %18 = load ptr, ptr %chunkContents52, align 8
+  %idxprom55 = sext i32 %16 to i64
+  %arrayidx56 = getelementptr inbounds i16, ptr %18, i64 %idxprom55
+  %19 = load i16, ptr %arrayidx56, align 2
+  %cmp58 = icmp ult i16 %19, -10240
   br i1 %cmp58, label %cond.true59, label %cond.false68
 
 cond.true59:                                      ; preds = %land.lhs.true50
-  %inc64 = add nsw i32 %14, 1
+  %inc64 = add nsw i32 %16, 1
   store i32 %inc64, ptr %chunkOffset46, align 8
   br label %if.end108
 
 cond.false68:                                     ; preds = %land.lhs.true50, %cond.end43
-  %call70 = tail call i32 @utext_next32_75(ptr noundef nonnull %13)
+  %call70 = tail call i32 @utext_next32_75(ptr noundef nonnull %15)
   br label %if.end108
 
 if.else73:                                        ; preds = %if.else
-  %18 = xor i32 %0, -1
-  %sub77 = add i32 %18, %offset
+  %20 = xor i32 %0, -1
+  %sub77 = add i32 %20, %offset
   %call78 = tail call signext i8 @utext_moveIndex32_75(ptr noundef %8, i32 noundef %sub77)
-  %19 = load ptr, ptr %ct, align 8
-  %chunkOffset80 = getelementptr inbounds %struct.UText, ptr %19, i64 0, i32 8
-  %20 = load i32, ptr %chunkOffset80, align 8
-  %chunkLength82 = getelementptr inbounds %struct.UText, ptr %19, i64 0, i32 9
-  %21 = load i32, ptr %chunkLength82, align 4
-  %cmp83 = icmp slt i32 %20, %21
+  %21 = load ptr, ptr %ct, align 8
+  %chunkOffset80 = getelementptr inbounds %struct.UText, ptr %21, i64 0, i32 8
+  %22 = load i32, ptr %chunkOffset80, align 8
+  %chunkLength82 = getelementptr inbounds %struct.UText, ptr %21, i64 0, i32 9
+  %23 = load i32, ptr %chunkLength82, align 4
+  %cmp83 = icmp slt i32 %22, %23
   br i1 %cmp83, label %land.lhs.true84, label %cond.false102
 
 land.lhs.true84:                                  ; preds = %if.else73
-  %chunkContents86 = getelementptr inbounds %struct.UText, ptr %19, i64 0, i32 10
-  %22 = load ptr, ptr %chunkContents86, align 8
-  %idxprom89 = sext i32 %20 to i64
-  %arrayidx90 = getelementptr inbounds i16, ptr %22, i64 %idxprom89
-  %23 = load i16, ptr %arrayidx90, align 2
-  %cmp92 = icmp ult i16 %23, -10240
+  %chunkContents86 = getelementptr inbounds %struct.UText, ptr %21, i64 0, i32 10
+  %24 = load ptr, ptr %chunkContents86, align 8
+  %idxprom89 = sext i32 %22 to i64
+  %arrayidx90 = getelementptr inbounds i16, ptr %24, i64 %idxprom89
+  %25 = load i16, ptr %arrayidx90, align 2
+  %cmp92 = icmp ult i16 %25, -10240
   br i1 %cmp92, label %cond.true93, label %cond.false102
 
 cond.true93:                                      ; preds = %land.lhs.true84
-  %inc98 = add nsw i32 %20, 1
+  %inc98 = add nsw i32 %22, 1
   store i32 %inc98, ptr %chunkOffset80, align 8
-  %24 = load i16, ptr %arrayidx90, align 2
-  %conv101 = zext i16 %24 to i32
+  %26 = load i16, ptr %arrayidx90, align 2
+  %conv101 = zext i16 %26 to i32
   br label %cond.end105
 
 cond.false102:                                    ; preds = %land.lhs.true84, %if.else73
-  %call104 = tail call i32 @utext_next32_75(ptr noundef nonnull %19)
+  %call104 = tail call i32 @utext_next32_75(ptr noundef nonnull %21)
   br label %cond.end105
 
 cond.end105:                                      ; preds = %cond.false102, %cond.true93

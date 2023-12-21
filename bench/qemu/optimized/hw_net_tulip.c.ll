@@ -1355,11 +1355,11 @@ for.cond.preheader:                               ; preds = %entry
   %buf_addr2.i = getelementptr inbounds %struct.tulip_descriptor, ptr %desc, i64 0, i32 3
   %tv_usec.i.i.i37 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i20, i64 0, i32 1
   %bus_master_as.i.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %s, i64 0, i32 12
-  %tv_usec.i.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i.i, i64 0, i32 1
   %invariant.gep.i = getelementptr inbounds i8, ptr %buf.i, i64 4
-  %invariant.gep18.i = getelementptr inbounds i8, ptr %buf.i, i64 5
-  %invariant.gep20.i = getelementptr inbounds i8, ptr %buf.i, i64 8
-  %invariant.gep22.i = getelementptr inbounds i8, ptr %buf.i, i64 9
+  %invariant.gep10.i = getelementptr inbounds i8, ptr %buf.i, i64 5
+  %invariant.gep12.i = getelementptr inbounds i8, ptr %buf.i, i64 8
+  %invariant.gep14.i = getelementptr inbounds i8, ptr %buf.i, i64 9
+  %tv_usec.i.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i.i, i64 0, i32 1
   %tx_frame_len = getelementptr inbounds %struct.TULIPState, ptr %s, i64 0, i32 15
   %tx_frame.i = getelementptr inbounds %struct.TULIPState, ptr %s, i64 0, i32 14
   %arrayidx.i51 = getelementptr %struct.TULIPState, ptr %s, i64 0, i32 7, i64 6
@@ -1505,16 +1505,16 @@ for.body.i:                                       ; preds = %tulip_setup_filter_
   %31 = load i8, ptr %gep.i, align 4
   %arrayidx16.i.i = getelementptr %struct.TULIPState, ptr %s, i64 0, i32 19, i64 %indvars.iv.i, i64 2
   store i8 %31, ptr %arrayidx16.i.i, align 2
-  %gep19.i = getelementptr i8, ptr %invariant.gep18.i, i64 %27
-  %32 = load i8, ptr %gep19.i, align 1
+  %gep11.i = getelementptr i8, ptr %invariant.gep10.i, i64 %27
+  %32 = load i8, ptr %gep11.i, align 1
   %arrayidx23.i.i = getelementptr %struct.TULIPState, ptr %s, i64 0, i32 19, i64 %indvars.iv.i, i64 3
   store i8 %32, ptr %arrayidx23.i.i, align 1
-  %gep21.i = getelementptr i8, ptr %invariant.gep20.i, i64 %27
-  %33 = load i8, ptr %gep21.i, align 4
+  %gep13.i = getelementptr i8, ptr %invariant.gep12.i, i64 %27
+  %33 = load i8, ptr %gep13.i, align 4
   %arrayidx30.i.i = getelementptr %struct.TULIPState, ptr %s, i64 0, i32 19, i64 %indvars.iv.i, i64 4
   store i8 %33, ptr %arrayidx30.i.i, align 2
-  %gep23.i = getelementptr i8, ptr %invariant.gep22.i, i64 %27
-  %34 = load i8, ptr %gep23.i, align 1
+  %gep15.i = getelementptr i8, ptr %invariant.gep14.i, i64 %27
+  %34 = load i8, ptr %gep15.i, align 1
   %arrayidx37.i.i = getelementptr %struct.TULIPState, ptr %s, i64 0, i32 19, i64 %indvars.iv.i, i64 5
   store i8 %34, ptr %arrayidx37.i.i, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i.i)

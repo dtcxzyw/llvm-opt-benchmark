@@ -322,8 +322,6 @@ if.end13:                                         ; preds = %if.end9
   %call4.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf.i) #11
   %conv.i = trunc i64 %call4.i to i32
   call void @builtin_SHA1(ptr noundef nonnull %digest.i, ptr noundef nonnull %buf.i, i32 noundef %conv.i) #9
-  %invariant.gep.i.i = getelementptr inbounds i8, ptr %digest.i, i64 1
-  %invariant.gep47.i.i = getelementptr inbounds i8, ptr %digest.i, i64 2
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.end13
@@ -339,8 +337,8 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   store i8 %2, ptr %p.043.i.i, align 1
   %3 = shl i8 %0, 4
   %4 = and i8 %3, 48
-  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
-  %5 = load i8, ptr %gep.i.i, align 1
+  %arrayidx8.i.i = getelementptr i8, ptr %arrayidx.i.i, i64 1
+  %5 = load i8, ptr %arrayidx8.i.i, align 1
   %6 = lshr i8 %5, 4
   %or40.i.i = or disjoint i8 %6, %4
   %idxprom12.i.i = zext nneg i8 %or40.i.i to i64
@@ -350,8 +348,8 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   store i8 %7, ptr %incdec.ptr.i.i, align 1
   %8 = shl i8 %5, 2
   %9 = and i8 %8, 60
-  %gep48.i.i = getelementptr i8, ptr %invariant.gep47.i.i, i64 %indvars.iv.i.i
-  %10 = load i8, ptr %gep48.i.i, align 1
+  %arrayidx23.i.i = getelementptr i8, ptr %arrayidx.i.i, i64 2
+  %10 = load i8, ptr %arrayidx23.i.i, align 1
   %11 = lshr i8 %10, 6
   %or2741.i.i = or disjoint i8 %11, %9
   %idxprom28.i.i = zext nneg i8 %or2741.i.i to i64

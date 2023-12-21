@@ -21539,9 +21539,9 @@ if.end81:                                         ; preds = %if.end44, %if.then5
   %count.0 = phi i32 [ 8, %if.then54 ], [ 4, %if.end44 ]
   %message.0 = phi ptr [ @.str.92, %if.then54 ], [ @.str.91, %if.end44 ]
   %scevgep = getelementptr i8, ptr %2, i64 6
-  %23 = add nsw i32 %count.0, -4
-  %24 = zext nneg i32 %23 to i64
-  %scevgep173 = getelementptr i8, ptr %scevgep, i64 %24
+  %23 = zext nneg i32 %count.0 to i64
+  %24 = getelementptr i8, ptr %scevgep, i64 %23
+  %scevgep173 = getelementptr i8, ptr %24, i64 -4
   br label %for.body
 
 for.body:                                         ; preds = %if.end81, %for.inc

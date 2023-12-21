@@ -1860,9 +1860,7 @@ if.then.i.i:                                      ; preds = %if.end18.i
   br i1 %cmp.not9.i.i.i, label %if.end.i.i20, label %for.body.preheader.i.i.i
 
 for.body.preheader.i.i.i:                         ; preds = %if.then.i.i
-  %add.i.i = add nuw nsw i32 %conv.i.i19, 1
-  %conv8.i.i = zext nneg i32 %add.i.i to i64
-  %38 = getelementptr i32, ptr %add.ptr.i.i.i.i.i.i24, i64 %conv8.i.i
+  %38 = getelementptr i32, ptr %37, i64 1
   %arrayidx.i8.i.i.i = getelementptr i32, ptr %38, i64 %conv6.i.i
   %arrayidx.i.i.i13.i = getelementptr i32, ptr %37, i64 %conv6.i.i
   br label %for.body.i.i.i
@@ -4312,9 +4310,7 @@ if.then.i:                                        ; preds = %_ZN4absl12lts_20230
   br i1 %cmp.not9.i.i, label %if.end.i, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.then.i
-  %add.i = add nuw nsw i32 %conv.i33, 1
-  %conv8.i = zext nneg i32 %add.i to i64
-  %11 = getelementptr i32, ptr %add.ptr.i.i.i.i.i, i64 %conv8.i
+  %11 = getelementptr i32, ptr %10, i64 1
   %arrayidx.i8.i.i = getelementptr i32, ptr %11, i64 %conv6.i
   %arrayidx.i.i.i = getelementptr i32, ptr %10, i64 %conv6.i
   br label %for.body.i.i
@@ -6609,9 +6605,7 @@ if.then.i:                                        ; preds = %if.end18
   br i1 %cmp.not9.i.i, label %if.end.i, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.then.i
-  %add.i = add nuw nsw i32 %conv.i, 1
-  %conv8.i = zext nneg i32 %add.i to i64
-  %20 = getelementptr i32, ptr %add.ptr.i.i.i.i.i, i64 %conv8.i
+  %20 = getelementptr i32, ptr %19, i64 1
   %arrayidx.i8.i.i = getelementptr i32, ptr %20, i64 %conv6.i
   %arrayidx.i.i.i13 = getelementptr i32, ptr %19, i64 %conv6.i
   br label %for.body.i.i

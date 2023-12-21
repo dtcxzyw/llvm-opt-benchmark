@@ -398,31 +398,31 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %tobool.not, label %inval, label %if.end7
 
 if.end7:                                          ; preds = %for.body
-  %add = add nuw nsw i32 %pos.014, 1
-  %idxprom9 = zext nneg i32 %add to i64
-  %arrayidx10 = getelementptr i8, ptr %1, i64 %idxprom9
-  %5 = load i8, ptr %arrayidx10, align 1
-  %idxprom12 = zext i8 %5 to i64
+  %5 = zext nneg i32 %pos.014 to i64
+  %6 = getelementptr i8, ptr %1, i64 %5
+  %arrayidx10 = getelementptr i8, ptr %6, i64 1
+  %7 = load i8, ptr %arrayidx10, align 1
+  %idxprom12 = zext i8 %7 to i64
   %arrayidx13 = getelementptr i16, ptr %0, i64 %idxprom12
-  %6 = load i16, ptr %arrayidx13, align 2
-  %7 = and i16 %6, 4096
-  %tobool16.not = icmp eq i16 %7, 0
+  %8 = load i16, ptr %arrayidx13, align 2
+  %9 = and i16 %8, 4096
+  %tobool16.not = icmp eq i16 %9, 0
   br i1 %tobool16.not, label %inval, label %if.end18
 
 if.end18:                                         ; preds = %if.end7
   %cmp19 = icmp eq i64 %indvars.iv, 5
-  %add22 = add nuw nsw i32 %pos.014, 2
-  %idxprom23 = zext nneg i32 %add22 to i64
-  %arrayidx24 = getelementptr i8, ptr %1, i64 %idxprom23
-  %8 = load i8, ptr %arrayidx24, align 1
+  %10 = zext nneg i32 %pos.014 to i64
+  %11 = getelementptr i8, ptr %1, i64 %10
+  %arrayidx24 = getelementptr i8, ptr %11, i64 2
+  %12 = load i8, ptr %arrayidx24, align 1
   br i1 %cmp19, label %if.then21, label %if.else
 
 if.then21:                                        ; preds = %if.end18
-  %cmp26.not = icmp eq i8 %8, 0
+  %cmp26.not = icmp eq i8 %12, 0
   br i1 %cmp26.not, label %if.end44, label %inval
 
 if.else:                                          ; preds = %if.end18
-  switch i8 %8, label %inval [
+  switch i8 %12, label %inval [
     i8 58, label %if.end44
     i8 45, label %if.end44
   ]
@@ -430,8 +430,8 @@ if.else:                                          ; preds = %if.end18
 if.end44:                                         ; preds = %if.else, %if.else, %if.then21
   %call45 = call i32 @qemu_strtol(ptr noundef nonnull %arrayidx, ptr noundef nonnull %p, i32 noundef 16, ptr noundef nonnull %val) #9
   %cmp46 = icmp slt i32 %call45, 0
-  %9 = load i64, ptr %val, align 8
-  %cmp48 = icmp sgt i64 %9, 255
+  %13 = load i64, ptr %val, align 8
+  %cmp48 = icmp sgt i64 %13, 255
   %or.cond = select i1 %cmp46, i1 true, i1 %cmp48
   br i1 %or.cond, label %if.end44.inval_crit_edge, label %if.end51
 
@@ -440,7 +440,7 @@ if.end44.inval_crit_edge:                         ; preds = %if.end44
   br label %inval
 
 if.end51:                                         ; preds = %if.end44
-  %conv52 = trunc i64 %9 to i8
+  %conv52 = trunc i64 %13 to i8
   %arrayidx54 = getelementptr [6 x i8], ptr %call, i64 0, i64 %indvars.iv
   store i8 %conv52, ptr %arrayidx54, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -449,8 +449,8 @@ if.end51:                                         ; preds = %if.end44
   br i1 %exitcond.not, label %return.sink.split, label %for.body, !llvm.loop !5
 
 inval:                                            ; preds = %if.else, %if.then21, %if.end7, %for.body, %if.end44.inval_crit_edge
-  %10 = phi ptr [ %.pre, %if.end44.inval_crit_edge ], [ %1, %for.body ], [ %1, %if.end7 ], [ %1, %if.then21 ], [ %1, %if.else ]
-  call void @error_set_from_qdev_prop_error(ptr noundef %errp, i32 noundef 22, ptr noundef %obj, ptr noundef %name, ptr noundef %10) #9
+  %14 = phi ptr [ %.pre, %if.end44.inval_crit_edge ], [ %1, %for.body ], [ %1, %if.end7 ], [ %1, %if.then21 ], [ %1, %if.else ]
+  call void @error_set_from_qdev_prop_error(ptr noundef %errp, i32 noundef 22, ptr noundef %obj, ptr noundef %name, ptr noundef %14) #9
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end51, %inval

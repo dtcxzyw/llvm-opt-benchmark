@@ -8096,7 +8096,6 @@ for.cond7.preheader.lr.ph.i.i.i:                  ; preds = %entry
   %add.ptr1.i40.i.i.i = getelementptr inbounds i8, ptr %rgbai.i.i.i, i64 1
   %add.ptr1.i38.i.i.i = getelementptr inbounds i8, ptr %rgbai.i.i.i, i64 3
   %5 = getelementptr inbounds %class.anon, ptr %__functor.val, i64 0, i32 6
-  %invariant.gep21.i.i.i.i = getelementptr inbounds i8, ptr %rgbai.i.i.i, i64 2
   %6 = getelementptr inbounds %class.anon, ptr %__functor.val, i64 0, i32 7
   %7 = getelementptr inbounds %class.anon, ptr %__functor.val, i64 0, i32 8
   %8 = load ptr, ptr %3, align 8
@@ -8252,7 +8251,7 @@ if.else.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
 if.then43.i.i.i:                                  ; preds = %if.else.i.i.i
   switch i32 %33, label %if.end53.i.i.i [
     i32 7, label %for.body.i.i.i.i
-    i32 5, label %for.body.i42.i.i.i
+    i32 5, label %for.body.i41.i.i.i
   ]
 
 for.body.i.i.i.i:                                 ; preds = %if.then43.i.i.i, %_ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i.i.i.i
@@ -8266,8 +8265,8 @@ for.body.i.i.i.i:                                 ; preds = %if.then43.i.i.i, %_
   %44 = mul nuw nsw i64 %indvars.iv.i.i.i.i, 3
   %arrayidx8.i.i.i.i = getelementptr inbounds i8, ptr %rgbai.i.i.i, i64 %44
   store i8 %41, ptr %arrayidx8.i.i.i.i, align 1
-  %gep.i.i.i.i = getelementptr i8, ptr %add.ptr1.i40.i.i.i, i64 %44
-  store i8 %43, ptr %gep.i.i.i.i, align 1
+  %arrayidx12.i.i.i.i = getelementptr i8, ptr %arrayidx8.i.i.i.i, i64 1
+  store i8 %43, ptr %arrayidx12.i.i.i.i, align 1
   %conv1.i.i.i.i.i = uitofp i8 %41 to float
   %div.i.i.i.i.i = fdiv float %conv1.i.i.i.i.i, 2.550000e+02
   %45 = tail call float @llvm.fmuladd.f32(float %div.i.i.i.i.i, float 2.000000e+00, float -1.000000e+00)
@@ -8294,59 +8293,59 @@ _ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i.i.i.i: ; preds = %if.then.i.i
   %spec.store.select.i.i.i.i.i = tail call i32 @llvm.smax.i32(i32 %nz.0.i.i.i.i.i, i32 0)
   %spec.store.select1.i.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %spec.store.select.i.i.i.i.i, i32 255)
   %conv14.i.i.i.i.i = trunc i32 %spec.store.select1.i.i.i.i.i to i8
-  %gep21.i.i.i.i = getelementptr i8, ptr %invariant.gep21.i.i.i.i, i64 %44
-  store i8 %conv14.i.i.i.i.i, ptr %gep21.i.i.i.i, align 1
+  %arrayidx16.i.i.i.i = getelementptr i8, ptr %arrayidx8.i.i.i.i, i64 2
+  store i8 %conv14.i.i.i.i.i, ptr %arrayidx16.i.i.i.i, align 1
   %indvars.iv.next.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i, -1
   %cmp.not.i.i.i.i = icmp eq i64 %indvars.iv.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i, label %if.end53.i.i.i, label %for.body.i.i.i.i, !llvm.loop !82
 
-for.body.i42.i.i.i:                               ; preds = %if.then43.i.i.i, %_ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i55.i.i.i
-  %indvars.iv.i43.i.i.i = phi i64 [ %indvars.iv.next.i60.i.i.i, %_ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i55.i.i.i ], [ 0, %if.then43.i.i.i ]
-  %54 = shl nuw nsw i64 %indvars.iv.i43.i.i.i, 2
+for.body.i41.i.i.i:                               ; preds = %if.then43.i.i.i, %_ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i54.i.i.i
+  %indvars.iv.i42.i.i.i = phi i64 [ %indvars.iv.next.i60.i.i.i, %_ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i54.i.i.i ], [ 0, %if.then43.i.i.i ]
+  %54 = shl nuw nsw i64 %indvars.iv.i42.i.i.i, 2
   %55 = or disjoint i64 %54, 3
-  %arrayidx.i44.i.i.i = getelementptr inbounds i8, ptr %rgbai.i.i.i, i64 %55
-  %56 = load i8, ptr %arrayidx.i44.i.i.i, align 1
+  %arrayidx.i43.i.i.i = getelementptr inbounds i8, ptr %rgbai.i.i.i, i64 %55
+  %56 = load i8, ptr %arrayidx.i43.i.i.i, align 1
   %57 = or disjoint i64 %54, 1
-  %arrayidx4.i45.i.i.i = getelementptr inbounds i8, ptr %rgbai.i.i.i, i64 %57
-  %58 = load i8, ptr %arrayidx4.i45.i.i.i, align 1
-  %59 = mul nuw nsw i64 %indvars.iv.i43.i.i.i, 3
-  %arrayidx8.i46.i.i.i = getelementptr inbounds i8, ptr %rgbai.i.i.i, i64 %59
-  store i8 %56, ptr %arrayidx8.i46.i.i.i, align 1
-  %gep.i47.i.i.i = getelementptr i8, ptr %add.ptr1.i40.i.i.i, i64 %59
-  store i8 %58, ptr %gep.i47.i.i.i, align 1
-  %conv1.i.i48.i.i.i = uitofp i8 %56 to float
-  %div.i.i49.i.i.i = fdiv float %conv1.i.i48.i.i.i, 2.550000e+02
-  %60 = tail call float @llvm.fmuladd.f32(float %div.i.i49.i.i.i, float 2.000000e+00, float -1.000000e+00)
-  %conv3.i.i50.i.i.i = uitofp i8 %58 to float
-  %div4.i.i51.i.i.i = fdiv float %conv3.i.i50.i.i.i, 2.550000e+02
-  %61 = tail call float @llvm.fmuladd.f32(float %div4.i.i51.i.i.i, float 2.000000e+00, float -1.000000e+00)
-  %neg.i.i52.i.i.i = fneg float %60
-  %62 = tail call float @llvm.fmuladd.f32(float %neg.i.i52.i.i.i, float %60, float 1.000000e+00)
-  %neg5.i.i53.i.i.i = fneg float %61
-  %63 = tail call float @llvm.fmuladd.f32(float %neg5.i.i53.i.i.i, float %61, float %62)
-  %cmp.i.i54.i.i.i = fcmp ogt float %63, 0.000000e+00
-  br i1 %cmp.i.i54.i.i.i, label %if.then.i.i61.i.i.i, label %_ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i55.i.i.i
+  %arrayidx4.i44.i.i.i = getelementptr inbounds i8, ptr %rgbai.i.i.i, i64 %57
+  %58 = load i8, ptr %arrayidx4.i44.i.i.i, align 1
+  %59 = mul nuw nsw i64 %indvars.iv.i42.i.i.i, 3
+  %arrayidx8.i45.i.i.i = getelementptr inbounds i8, ptr %rgbai.i.i.i, i64 %59
+  store i8 %56, ptr %arrayidx8.i45.i.i.i, align 1
+  %arrayidx12.i46.i.i.i = getelementptr i8, ptr %arrayidx8.i45.i.i.i, i64 1
+  store i8 %58, ptr %arrayidx12.i46.i.i.i, align 1
+  %conv1.i.i47.i.i.i = uitofp i8 %56 to float
+  %div.i.i48.i.i.i = fdiv float %conv1.i.i47.i.i.i, 2.550000e+02
+  %60 = tail call float @llvm.fmuladd.f32(float %div.i.i48.i.i.i, float 2.000000e+00, float -1.000000e+00)
+  %conv3.i.i49.i.i.i = uitofp i8 %58 to float
+  %div4.i.i50.i.i.i = fdiv float %conv3.i.i49.i.i.i, 2.550000e+02
+  %61 = tail call float @llvm.fmuladd.f32(float %div4.i.i50.i.i.i, float 2.000000e+00, float -1.000000e+00)
+  %neg.i.i51.i.i.i = fneg float %60
+  %62 = tail call float @llvm.fmuladd.f32(float %neg.i.i51.i.i.i, float %60, float 1.000000e+00)
+  %neg5.i.i52.i.i.i = fneg float %61
+  %63 = tail call float @llvm.fmuladd.f32(float %neg5.i.i52.i.i.i, float %61, float %62)
+  %cmp.i.i53.i.i.i = fcmp ogt float %63, 0.000000e+00
+  br i1 %cmp.i.i53.i.i.i, label %if.then.i.i61.i.i.i, label %_ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i54.i.i.i
 
-if.then.i.i61.i.i.i:                              ; preds = %for.body.i42.i.i.i
+if.then.i.i61.i.i.i:                              ; preds = %for.body.i41.i.i.i
   %64 = tail call float @llvm.sqrt.f32(float %63)
   %65 = fadd float %64, 1.000000e+00
   %66 = fmul float %65, 2.550000e+02
   %67 = fmul float %66, 5.000000e-01
   %68 = fptosi float %67 to i32
-  br label %_ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i55.i.i.i
+  br label %_ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i54.i.i.i
 
-_ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i55.i.i.i: ; preds = %if.then.i.i61.i.i.i, %for.body.i42.i.i.i
-  %nz.0.i.i56.i.i.i = phi i32 [ %68, %if.then.i.i61.i.i.i ], [ 127, %for.body.i42.i.i.i ]
-  %spec.store.select.i.i57.i.i.i = tail call i32 @llvm.smax.i32(i32 %nz.0.i.i56.i.i.i, i32 0)
-  %spec.store.select1.i.i58.i.i.i = tail call i32 @llvm.umin.i32(i32 %spec.store.select.i.i57.i.i.i, i32 255)
-  %conv14.i.i59.i.i.i = trunc i32 %spec.store.select1.i.i58.i.i.i to i8
-  %gep22.i.i.i.i = getelementptr i8, ptr %invariant.gep21.i.i.i.i, i64 %59
-  store i8 %conv14.i.i59.i.i.i, ptr %gep22.i.i.i.i, align 1
-  %indvars.iv.next.i60.i.i.i = add nuw nsw i64 %indvars.iv.i43.i.i.i, 1
+_ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i54.i.i.i: ; preds = %if.then.i.i61.i.i.i, %for.body.i41.i.i.i
+  %nz.0.i.i55.i.i.i = phi i32 [ %68, %if.then.i.i61.i.i.i ], [ 127, %for.body.i41.i.i.i ]
+  %spec.store.select.i.i56.i.i.i = tail call i32 @llvm.smax.i32(i32 %nz.0.i.i55.i.i.i, i32 0)
+  %spec.store.select1.i.i57.i.i.i = tail call i32 @llvm.umin.i32(i32 %spec.store.select.i.i56.i.i.i, i32 255)
+  %conv14.i.i58.i.i.i = trunc i32 %spec.store.select1.i.i57.i.i.i to i8
+  %arrayidx16.i59.i.i.i = getelementptr i8, ptr %arrayidx8.i45.i.i.i, i64 2
+  store i8 %conv14.i.i58.i.i.i, ptr %arrayidx16.i59.i.i.i, align 1
+  %indvars.iv.next.i60.i.i.i = add nuw nsw i64 %indvars.iv.i42.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i60.i.i.i, 16
-  br i1 %exitcond.not.i.i.i.i, label %if.end53.i.i.i, label %for.body.i42.i.i.i, !llvm.loop !83
+  br i1 %exitcond.not.i.i.i.i, label %if.end53.i.i.i, label %for.body.i41.i.i.i, !llvm.loop !83
 
-if.end53.i.i.i:                                   ; preds = %_ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i55.i.i.i, %_ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i.i.i.i, %for.body29.i.i.i, %if.then43.i.i.i, %if.else.i.i.i
+if.end53.i.i.i:                                   ; preds = %_ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i54.i.i.i, %_ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i.i.i.i, %for.body29.i.i.i, %if.then43.i.i.i, %if.else.i.i.i
   %69 = and i32 %33, -2
   %switch.i.i.i = icmp eq i32 %69, 8
   %70 = load ptr, ptr %6, align 8

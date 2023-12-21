@@ -2113,15 +2113,15 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %data = getelementptr inbounds %"class.icu_75::StringLocalizationInfo", ptr %this, i64 0, i32 2
   %1 = load ptr, ptr %data, align 8
-  %add = add nuw nsw i32 %index, 1
-  %idxprom = zext nneg i32 %add to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %idxprom
-  %2 = load ptr, ptr %arrayidx, align 8
-  %3 = load ptr, ptr %2, align 8
+  %2 = zext nneg i32 %index to i64
+  %3 = getelementptr ptr, ptr %1, i64 %2
+  %arrayidx = getelementptr ptr, ptr %3, i64 1
+  %4 = load ptr, ptr %arrayidx, align 8
+  %5 = load ptr, ptr %4, align 8
   br label %return
 
 return:                                           ; preds = %entry, %land.lhs.true, %if.then
-  %retval.0 = phi ptr [ %3, %if.then ], [ null, %land.lhs.true ], [ null, %entry ]
+  %retval.0 = phi ptr [ %5, %if.then ], [ null, %land.lhs.true ], [ null, %entry ]
   ret ptr %retval.0
 }
 
@@ -2152,18 +2152,18 @@ land.lhs.true5:                                   ; preds = %land.lhs.true
 if.then:                                          ; preds = %land.lhs.true5
   %data = getelementptr inbounds %"class.icu_75::StringLocalizationInfo", ptr %this, i64 0, i32 2
   %2 = load ptr, ptr %data, align 8
-  %add = add nuw nsw i32 %localeIndex, 1
-  %idxprom = zext nneg i32 %add to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
-  %3 = load ptr, ptr %arrayidx, align 8
-  %4 = zext nneg i32 %ruleIndex to i64
-  %5 = getelementptr ptr, ptr %3, i64 %4
-  %arrayidx12 = getelementptr ptr, ptr %5, i64 1
-  %6 = load ptr, ptr %arrayidx12, align 8
+  %3 = zext nneg i32 %localeIndex to i64
+  %4 = getelementptr ptr, ptr %2, i64 %3
+  %arrayidx = getelementptr ptr, ptr %4, i64 1
+  %5 = load ptr, ptr %arrayidx, align 8
+  %6 = zext nneg i32 %ruleIndex to i64
+  %7 = getelementptr ptr, ptr %5, i64 %6
+  %arrayidx12 = getelementptr ptr, ptr %7, i64 1
+  %8 = load ptr, ptr %arrayidx12, align 8
   br label %return
 
 return:                                           ; preds = %entry, %land.lhs.true, %land.lhs.true5, %if.then
-  %retval.0 = phi ptr [ %6, %if.then ], [ null, %land.lhs.true5 ], [ null, %land.lhs.true ], [ null, %entry ]
+  %retval.0 = phi ptr [ %8, %if.then ], [ null, %land.lhs.true5 ], [ null, %land.lhs.true ], [ null, %entry ]
   ret ptr %retval.0
 }
 
@@ -4403,12 +4403,16 @@ invoke.cont:                                      ; preds = %land.lhs.true2
           to label %while.cond.preheader unwind label %lpad.loopexit.split-lp
 
 while.cond.preheader:                             ; preds = %invoke.cont
-  %cmp920 = icmp sgt i32 %cond.i, -1
-  br i1 %cmp920, label %while.body, label %while.end39
+  %cmp923 = icmp sgt i32 %cond.i, -1
+  br i1 %cmp923, label %while.body.lr.ph, label %while.end39
 
-while.body:                                       ; preds = %while.cond.preheader, %while.end
-  %len.021 = phi i32 [ %len.2.lcssa, %while.end ], [ %cond.i, %while.cond.preheader ]
-  %idxprom = zext nneg i32 %len.021 to i64
+while.body.lr.ph:                                 ; preds = %while.cond.preheader
+  %invariant.gep = getelementptr i16, ptr %call8, i64 -1
+  br label %while.body
+
+while.body:                                       ; preds = %while.body.lr.ph, %while.end
+  %len.024 = phi i32 [ %cond.i, %while.body.lr.ph ], [ %len.2.lcssa, %while.end ]
+  %idxprom = zext nneg i32 %len.024 to i64
   %arrayidx = getelementptr inbounds i16, ptr %call8, i64 %idxprom
   store i16 0, ptr %arrayidx, align 2
   %5 = load ptr, ptr %localizations, align 8
@@ -4423,7 +4427,7 @@ invoke.cont13:                                    ; preds = %while.body
   br i1 %cmp15, label %if.then16, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %invoke.cont13
-  %.not = icmp eq i32 %len.021, 0
+  %.not = icmp eq i32 %len.024, 0
   %7 = sext i1 %.not to i32
   br label %do.body
 
@@ -4463,52 +4467,53 @@ lpad23:                                           ; preds = %invoke.cont20
   br label %ehcleanup
 
 do.body:                                          ; preds = %do.body.preheader, %land.rhs
-  %len.1 = phi i32 [ %dec, %land.rhs ], [ %len.021, %do.body.preheader ]
-  %cmp25 = icmp ugt i32 %len.1, 1
-  br i1 %cmp25, label %land.rhs, label %do.body.do.end_crit_edge
-
-do.body.do.end_crit_edge:                         ; preds = %do.body
-  %.pre = zext i32 %7 to i64
-  br label %do.end
+  %indvars.iv = phi i64 [ %idxprom, %do.body.preheader ], [ %indvars.iv.next, %land.rhs ]
+  %cmp25 = icmp ugt i64 %indvars.iv, 1
+  br i1 %cmp25, label %land.rhs, label %while.end
 
 land.rhs:                                         ; preds = %do.body
-  %dec = add nsw i32 %len.1, -1
-  %idxprom26 = zext i32 %dec to i64
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %idxprom26 = and i64 %indvars.iv.next, 4294967295
   %arrayidx27 = getelementptr inbounds i16, ptr %call8, i64 %idxprom26
   %13 = load i16, ptr %arrayidx27, align 2
   %cmp28.not = icmp eq i16 %13, 95
   br i1 %cmp28.not, label %do.end, label %do.body, !llvm.loop !35
 
-do.end:                                           ; preds = %land.rhs, %do.body.do.end_crit_edge
-  %.pre-phi = phi i64 [ %.pre, %do.body.do.end_crit_edge ], [ %idxprom26, %land.rhs ]
-  %dec.lcssa = phi i32 [ %7, %do.body.do.end_crit_edge ], [ %dec, %land.rhs ]
-  %smin = call i32 @llvm.smin.i32(i32 %dec.lcssa, i32 0)
-  br label %while.cond29
-
-while.cond29:                                     ; preds = %land.rhs31, %do.end
-  %indvars.iv = phi i64 [ %15, %land.rhs31 ], [ %.pre-phi, %do.end ]
+do.end:                                           ; preds = %land.rhs
   %14 = trunc i64 %indvars.iv to i32
-  %cmp30 = icmp sgt i32 %14, 0
-  br i1 %cmp30, label %land.rhs31, label %while.end
+  %indvars.le = trunc i64 %indvars.iv.next to i32
+  %cmp3020 = icmp sgt i32 %14, 1
+  br i1 %cmp3020, label %land.rhs31.preheader, label %while.end
 
-land.rhs31:                                       ; preds = %while.cond29
-  %15 = add nsw i64 %indvars.iv, -1
-  %arrayidx33 = getelementptr inbounds i16, ptr %call8, i64 %15
-  %16 = load i16, ptr %arrayidx33, align 2
-  %cmp35 = icmp eq i16 %16, 95
-  br i1 %cmp35, label %while.cond29, label %while.end, !llvm.loop !36
+land.rhs31.preheader:                             ; preds = %do.end
+  %smin = call i32 @llvm.smin.i32(i32 %indvars.le, i32 1)
+  %15 = add i32 %smin, -1
+  br label %land.rhs31
 
-while.end:                                        ; preds = %while.cond29, %land.rhs31
-  %len.2.lcssa = phi i32 [ %smin, %while.cond29 ], [ %14, %land.rhs31 ]
+land.rhs31:                                       ; preds = %land.rhs31.preheader, %while.body37
+  %len.221 = phi i32 [ %dec38, %while.body37 ], [ %indvars.le, %land.rhs31.preheader ]
+  %16 = zext nneg i32 %len.221 to i64
+  %gep = getelementptr i16, ptr %invariant.gep, i64 %16
+  %17 = load i16, ptr %gep, align 2
+  %cmp35 = icmp eq i16 %17, 95
+  br i1 %cmp35, label %while.body37, label %while.end
+
+while.body37:                                     ; preds = %land.rhs31
+  %dec38 = add nsw i32 %len.221, -1
+  %cmp30 = icmp sgt i32 %len.221, 1
+  br i1 %cmp30, label %land.rhs31, label %while.end, !llvm.loop !36
+
+while.end:                                        ; preds = %do.body, %land.rhs31, %while.body37, %do.end
+  %len.2.lcssa = phi i32 [ %indvars.le, %do.end ], [ %15, %while.body37 ], [ %len.221, %land.rhs31 ], [ %7, %do.body ]
   %cmp9 = icmp sgt i32 %len.2.lcssa, -1
   br i1 %cmp9, label %while.body, label %while.end39, !llvm.loop !37
 
 while.end39:                                      ; preds = %while.end, %while.cond.preheader
-  %17 = load ptr, ptr %localizations, align 8
-  %vtable43 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %localizations, align 8
+  %vtable43 = load ptr, ptr %18, align 8
   %vfn44 = getelementptr inbounds ptr, ptr %vtable43, i64 4
-  %18 = load ptr, ptr %vfn44, align 8
-  %call46 = invoke noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(12) %17, i32 noundef %index)
+  %19 = load ptr, ptr %vfn44, align 8
+  %call46 = invoke noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(12) %18, i32 noundef %index)
           to label %invoke.cont45 unwind label %lpad.loopexit.split-lp
 
 invoke.cont45:                                    ; preds = %while.end39
@@ -4517,15 +4522,15 @@ invoke.cont45:                                    ; preds = %while.end39
           to label %invoke.cont49 unwind label %lpad48
 
 invoke.cont49:                                    ; preds = %invoke.cont45
-  %19 = load ptr, ptr %agg.tmp41, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %19) #21, !srcloc !23
+  %20 = load ptr, ptr %agg.tmp41, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %20) #21, !srcloc !23
   br label %cleanup
 
 lpad48:                                           ; preds = %invoke.cont45
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = load ptr, ptr %agg.tmp41, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %21) #21, !srcloc !23
+  %22 = load ptr, ptr %agg.tmp41, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %22) #21, !srcloc !23
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont49, %invoke.cont24
@@ -4533,7 +4538,7 @@ cleanup:                                          ; preds = %invoke.cont49, %inv
   br label %return
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad48, %lpad23
-  %.pn = phi { ptr, i32 } [ %11, %lpad23 ], [ %20, %lpad48 ], [ %lpad.loopexit18, %lpad.loopexit ], [ %lpad.loopexit.split-lp19, %lpad.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %11, %lpad23 ], [ %21, %lpad48 ], [ %lpad.loopexit18, %lpad.loopexit ], [ %lpad.loopexit.split-lp19, %lpad.loopexit.split-lp ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %localeName) #21
   br label %eh.resume
 
@@ -4545,7 +4550,7 @@ if.end53:                                         ; preds = %land.lhs.true2, %en
           to label %return unwind label %lpad55
 
 lpad55:                                           ; preds = %if.end53
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.result) #21
   br label %eh.resume
@@ -4554,7 +4559,7 @@ return:                                           ; preds = %if.end53, %cleanup
   ret void
 
 eh.resume:                                        ; preds = %lpad55, %ehcleanup
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %22, %lpad55 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %23, %lpad55 ]
   resume { ptr, i32 } %.pn.pn
 }
 

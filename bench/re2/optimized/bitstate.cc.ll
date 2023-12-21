@@ -279,30 +279,30 @@ if.end24:                                         ; preds = %_ZN3re28BitState9Gr
   br i1 %or.cond15, label %if.then28, label %if.end45
 
 if.then28:                                        ; preds = %if.end24
-  %sub = add nsw i32 %8, -1
-  %conv.i11 = zext nneg i32 %sub to i64
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.re2::BitState", ptr %this, i64 0, i32 12, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %9 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds %"struct.re2::Job", ptr %9, i64 %conv.i11
-  %10 = load i32, ptr %arrayidx.i.i, align 8
-  %cmp33 = icmp eq i32 %10, %id
+  %10 = zext nneg i32 %8 to i64
+  %11 = getelementptr %"struct.re2::Job", ptr %9, i64 %10
+  %arrayidx.i.i = getelementptr %"struct.re2::Job", ptr %11, i64 -1
+  %12 = load i32, ptr %arrayidx.i.i, align 8
+  %cmp33 = icmp eq i32 %12, %id
   br i1 %cmp33, label %land.lhs.true34, label %if.end45
 
 land.lhs.true34:                                  ; preds = %if.then28
-  %p35 = getelementptr inbounds %"struct.re2::Job", ptr %9, i64 %conv.i11, i32 2
-  %11 = load ptr, ptr %p35, align 8
-  %rle = getelementptr inbounds %"struct.re2::Job", ptr %9, i64 %conv.i11, i32 1
-  %12 = load i32, ptr %rle, align 4
-  %idx.ext = sext i32 %12 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %11, i64 %idx.ext
+  %p35 = getelementptr %"struct.re2::Job", ptr %11, i64 -1, i32 2
+  %13 = load ptr, ptr %p35, align 8
+  %rle = getelementptr %"struct.re2::Job", ptr %11, i64 -1, i32 1
+  %14 = load i32, ptr %rle, align 4
+  %idx.ext = sext i32 %14 to i64
+  %add.ptr = getelementptr inbounds i8, ptr %13, i64 %idx.ext
   %add.ptr36 = getelementptr inbounds i8, ptr %add.ptr, i64 1
   %cmp37 = icmp eq ptr %add.ptr36, %p
-  %cmp41 = icmp ne i32 %12, 2147483647
+  %cmp41 = icmp ne i32 %14, 2147483647
   %or.cond = and i1 %cmp41, %cmp37
   br i1 %or.cond, label %if.then42, label %if.end45
 
 if.then42:                                        ; preds = %land.lhs.true34
-  %inc = add nsw i32 %12, 1
+  %inc = add nsw i32 %14, 1
   store i32 %inc, ptr %rle, align 4
   br label %return
 
@@ -311,12 +311,12 @@ if.end45:                                         ; preds = %if.then28, %land.lh
   store i32 %inc49, ptr %njob_, align 8
   %conv.i12 = sext i32 %8 to i64
   %add.ptr.i.i.i.i.i.i.i13 = getelementptr inbounds %"class.re2::BitState", ptr %this, i64 0, i32 12, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %13 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i13, align 8
-  %arrayidx.i.i14 = getelementptr inbounds %"struct.re2::Job", ptr %13, i64 %conv.i12
+  %15 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i13, align 8
+  %arrayidx.i.i14 = getelementptr inbounds %"struct.re2::Job", ptr %15, i64 %conv.i12
   store i32 %id, ptr %arrayidx.i.i14, align 8
-  %rle52 = getelementptr inbounds %"struct.re2::Job", ptr %13, i64 %conv.i12, i32 1
+  %rle52 = getelementptr inbounds %"struct.re2::Job", ptr %15, i64 %conv.i12, i32 1
   store i32 0, ptr %rle52, align 4
-  %p53 = getelementptr inbounds %"struct.re2::Job", ptr %13, i64 %conv.i12, i32 2
+  %p53 = getelementptr inbounds %"struct.re2::Job", ptr %15, i64 %conv.i12, i32 2
   store ptr %p, ptr %p53, align 8
   br label %return
 

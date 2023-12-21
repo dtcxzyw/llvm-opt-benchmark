@@ -2102,30 +2102,26 @@ if.end45.i:                                       ; preds = %if.end39.i
   %add.ptr50.i = getelementptr i8, ptr %17, i64 %idx.ext49.i
   store i8 8, ptr %add.ptr50.i, align 1
   %18 = load ptr, ptr %config.i, align 8
-  %inc52.i = add nuw nsw i32 %pos.0.i, 4
   %idx.ext53.i = zext nneg i32 %inc.i to i64
   %add.ptr54.i = getelementptr i8, ptr %18, i64 %idx.ext53.i
   store i8 80, ptr %add.ptr54.i, align 1
   %19 = load ptr, ptr %config.i, align 8
-  %inc56.i = add nuw nsw i32 %pos.0.i, 5
-  %idx.ext57.i = zext nneg i32 %inc52.i to i64
-  %add.ptr58.i = getelementptr i8, ptr %19, i64 %idx.ext57.i
+  %20 = getelementptr i8, ptr %19, i64 %idx.ext.i
+  %add.ptr58.i = getelementptr i8, ptr %20, i64 4
   store i8 50, ptr %add.ptr58.i, align 1
-  %20 = load ptr, ptr %config.i, align 8
-  %inc60.i = add nuw nsw i32 %pos.0.i, 6
-  %idx.ext61.i = zext nneg i32 %inc56.i to i64
-  %add.ptr62.i = getelementptr i8, ptr %20, i64 %idx.ext61.i
-  store i8 80, ptr %add.ptr62.i, align 1
   %21 = load ptr, ptr %config.i, align 8
-  %inc64.i = add nuw nsw i32 %pos.0.i, 7
-  %idx.ext65.i = zext nneg i32 %inc60.i to i64
-  %add.ptr66.i = getelementptr i8, ptr %21, i64 %idx.ext65.i
-  %22 = load i8, ptr %nv_gpudirect_clique.i, align 1
-  %shl.i = shl i8 %22, 3
-  store i8 %shl.i, ptr %add.ptr66.i, align 1
+  %22 = getelementptr i8, ptr %21, i64 %idx.ext.i
+  %add.ptr62.i = getelementptr i8, ptr %22, i64 5
+  store i8 80, ptr %add.ptr62.i, align 1
   %23 = load ptr, ptr %config.i, align 8
-  %idx.ext71.i = zext nneg i32 %inc64.i to i64
-  %add.ptr72.i = getelementptr i8, ptr %23, i64 %idx.ext71.i
+  %24 = getelementptr i8, ptr %23, i64 %idx.ext.i
+  %add.ptr66.i = getelementptr i8, ptr %24, i64 6
+  %25 = load i8, ptr %nv_gpudirect_clique.i, align 1
+  %shl.i = shl i8 %25, 3
+  store i8 %shl.i, ptr %add.ptr66.i, align 1
+  %26 = load ptr, ptr %config.i, align 8
+  %27 = getelementptr i8, ptr %26, i64 %idx.ext.i
+  %add.ptr72.i = getelementptr i8, ptr %27, i64 7
   store i8 0, ptr %add.ptr72.i, align 1
   br label %if.end
 
@@ -2138,14 +2134,14 @@ if.end:                                           ; preds = %if.end45.i, %entry
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %membar_phys.i)
   %vendor_id.i.i6 = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 22
-  %24 = load i32, ptr %vendor_id.i.i6, align 8
-  %cmp1.i.i7 = icmp eq i32 %24, 32902
+  %28 = load i32, ptr %vendor_id.i.i6, align 8
+  %cmp1.i.i7 = icmp eq i32 %28, 32902
   br i1 %cmp1.i.i7, label %vfio_pci_is.exit.i, label %vfio_add_vmd_shadow_cap.exit
 
 vfio_pci_is.exit.i:                               ; preds = %if.end
   %device_id.i.i = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 23
-  %25 = load i32, ptr %device_id.i.i, align 4
-  switch i32 %25, label %vfio_add_vmd_shadow_cap.exit [
+  %29 = load i32, ptr %device_id.i.i, align 4
+  switch i32 %29, label %vfio_add_vmd_shadow_cap.exit [
     i32 8221, label %if.end.i9
     i32 18047, label %if.end.i9
     i32 19517, label %if.end.i9
@@ -2154,19 +2150,19 @@ vfio_pci_is.exit.i:                               ; preds = %if.end
 
 if.end.i9:                                        ; preds = %vfio_pci_is.exit.i, %vfio_pci_is.exit.i, %vfio_pci_is.exit.i, %vfio_pci_is.exit.i
   %fd.i10 = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 1, i32 8
-  %26 = load i32, ptr %fd.i10, align 8
+  %30 = load i32, ptr %fd.i10, align 8
   %config_offset.i11 = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 5
-  %27 = load i64, ptr %config_offset.i11, align 8
-  %add.i12 = add i64 %27, 24
-  %call6.i = call i64 @pread64(i32 noundef %26, ptr noundef nonnull %membar_phys.i, i64 noundef 16, i64 noundef %add.i12) #10
+  %31 = load i64, ptr %config_offset.i11, align 8
+  %add.i12 = add i64 %31, 24
+  %call6.i = call i64 @pread64(i32 noundef %30, ptr noundef nonnull %membar_phys.i, i64 noundef 16, i64 noundef %add.i12) #10
   %conv.i = trunc i64 %call6.i to i32
   %cmp.not.i = icmp eq i32 %conv.i, 16
   br i1 %cmp.not.i, label %if.end10.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.end.i9
   %name.i = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 1, i32 6
-  %28 = load ptr, ptr %name.i, align 8
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.97, ptr noundef %28, i32 noundef %conv.i) #10
+  %32 = load ptr, ptr %name.i, align 8
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.97, ptr noundef %32, i32 noundef %conv.i) #10
   br label %vfio_add_vmd_shadow_cap.exit
 
 if.end10.i:                                       ; preds = %if.end.i9
@@ -2180,21 +2176,21 @@ if.then15.i:                                      ; preds = %if.end10.i
 
 if.end16.i:                                       ; preds = %if.end10.i
   %emulated_config_bits.i14 = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 4
-  %29 = load ptr, ptr %emulated_config_bits.i14, align 16
-  %add.ptr.i = getelementptr i8, ptr %29, i64 232
+  %33 = load ptr, ptr %emulated_config_bits.i14, align 16
+  %add.ptr.i = getelementptr i8, ptr %33, i64 232
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr.i, i8 -1, i64 24, i1 false)
   %config.i15 = getelementptr inbounds %struct.PCIDevice, ptr %vdev, i64 0, i32 3
-  %30 = load ptr, ptr %config.i15, align 8
-  %add.ptr20.i = getelementptr i8, ptr %30, i64 234
+  %34 = load ptr, ptr %config.i15, align 8
+  %add.ptr20.i = getelementptr i8, ptr %34, i64 234
   store i8 24, ptr %add.ptr20.i, align 1
-  %31 = load ptr, ptr %config.i15, align 8
-  %add.ptr25.i = getelementptr i8, ptr %31, i64 235
+  %35 = load ptr, ptr %config.i15, align 8
+  %add.ptr25.i = getelementptr i8, ptr %35, i64 235
   store i8 1, ptr %add.ptr25.i, align 1
-  %32 = load ptr, ptr %config.i15, align 8
-  %add.ptr29.i = getelementptr i8, ptr %32, i64 236
+  %36 = load ptr, ptr %config.i15, align 8
+  %add.ptr29.i = getelementptr i8, ptr %36, i64 236
   store i32 1397245015, ptr %add.ptr29.i, align 1
-  %33 = load ptr, ptr %config.i15, align 8
-  %add.ptr34.i = getelementptr i8, ptr %33, i64 240
+  %37 = load ptr, ptr %config.i15, align 8
+  %add.ptr34.i = getelementptr i8, ptr %37, i64 240
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr34.i, ptr noundef nonnull align 16 dereferenceable(16) %membar_phys.i, i64 16, i1 false)
   br label %vfio_add_vmd_shadow_cap.exit
 

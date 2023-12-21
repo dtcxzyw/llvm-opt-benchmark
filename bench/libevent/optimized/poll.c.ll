@@ -108,22 +108,22 @@ if.end17:                                         ; preds = %if.end14, %if.end
   br i1 %cmp18, label %if.then20, label %if.else22
 
 if.then20:                                        ; preds = %if.end17
-  %sub = add nsw i32 %4, -1
   %event_set21 = getelementptr inbounds %struct.pollop, ptr %0, i64 0, i32 3
   %5 = load ptr, ptr %event_set21, align 8
-  %idxprom = zext nneg i32 %sub to i64
-  %arrayidx = getelementptr inbounds %struct.pollfd, ptr %5, i64 %idxprom
+  %6 = zext nneg i32 %4 to i64
+  %7 = getelementptr %struct.pollfd, ptr %5, i64 %6
+  %arrayidx = getelementptr %struct.pollfd, ptr %7, i64 -1
   br label %if.end31
 
 if.else22:                                        ; preds = %if.end17
-  %6 = load i32, ptr %nfds, align 4
-  %inc = add nsw i32 %6, 1
+  %8 = load i32, ptr %nfds, align 4
+  %inc = add nsw i32 %8, 1
   store i32 %inc, ptr %nfds, align 4
   %event_set24 = getelementptr inbounds %struct.pollop, ptr %0, i64 0, i32 3
-  %7 = load ptr, ptr %event_set24, align 8
-  %idxprom25 = sext i32 %6 to i64
-  %arrayidx26 = getelementptr inbounds %struct.pollfd, ptr %7, i64 %idxprom25
-  %events27 = getelementptr inbounds %struct.pollfd, ptr %7, i64 %idxprom25, i32 1
+  %9 = load ptr, ptr %event_set24, align 8
+  %idxprom25 = sext i32 %8 to i64
+  %arrayidx26 = getelementptr inbounds %struct.pollfd, ptr %9, i64 %idxprom25
+  %events27 = getelementptr inbounds %struct.pollfd, ptr %9, i64 %idxprom25, i32 1
   store i16 0, ptr %events27, align 4
   store i32 %fd, ptr %arrayidx26, align 4
   store i32 %inc, ptr %idx_, align 4
@@ -139,9 +139,9 @@ if.end31:                                         ; preds = %if.else22, %if.then
 
 if.then35:                                        ; preds = %if.end31
   %events36 = getelementptr inbounds %struct.pollfd, ptr %pfd.0, i64 0, i32 1
-  %8 = load i16, ptr %events36, align 4
-  %9 = or i16 %8, 4
-  store i16 %9, ptr %events36, align 4
+  %10 = load i16, ptr %events36, align 4
+  %11 = or i16 %10, 4
+  store i16 %11, ptr %events36, align 4
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then35, %if.end31
@@ -151,9 +151,9 @@ if.end39:                                         ; preds = %if.then35, %if.end3
 
 if.then43:                                        ; preds = %if.end39
   %events44 = getelementptr inbounds %struct.pollfd, ptr %pfd.0, i64 0, i32 1
-  %10 = load i16, ptr %events44, align 4
-  %11 = or i16 %10, 1
-  store i16 %11, ptr %events44, align 4
+  %12 = load i16, ptr %events44, align 4
+  %13 = or i16 %12, 1
+  store i16 %13, ptr %events44, align 4
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then43, %if.end39
@@ -163,9 +163,9 @@ if.end48:                                         ; preds = %if.then43, %if.end3
 
 if.then52:                                        ; preds = %if.end48
   %events53 = getelementptr inbounds %struct.pollfd, ptr %pfd.0, i64 0, i32 1
-  %12 = load i16, ptr %events53, align 4
-  %13 = or i16 %12, 8192
-  store i16 %13, ptr %events53, align 4
+  %14 = load i16, ptr %events53, align 4
+  %15 = or i16 %14, 8192
+  store i16 %15, ptr %events53, align 4
   br label %return
 
 return:                                           ; preds = %if.end48, %if.then52, %entry, %if.then13

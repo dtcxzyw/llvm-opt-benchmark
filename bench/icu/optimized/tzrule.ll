@@ -1957,17 +1957,17 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp2, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %sub = add nsw i32 %0, -1
-  %idxprom = zext nneg i32 %sub to i64
-  %arrayidx = getelementptr inbounds double, ptr %1, i64 %idxprom
-  %2 = load double, ptr %arrayidx, align 8
+  %2 = zext nneg i32 %0 to i64
+  %3 = getelementptr double, ptr %1, i64 %2
+  %arrayidx = getelementptr double, ptr %3, i64 -1
+  %4 = load double, ptr %arrayidx, align 8
   %fTimeRuleType.i = getelementptr inbounds %"class.icu_75::TimeArrayTimeZoneRule", ptr %this, i64 0, i32 1
-  %3 = load i32, ptr %fTimeRuleType.i, align 8
-  %cmp.not.i = icmp eq i32 %3, 2
+  %5 = load i32, ptr %fTimeRuleType.i, align 8
+  %cmp.not.i = icmp eq i32 %5, 2
   %conv.i = sitofp i32 %prevRawOffset to double
   %sub.i = select i1 %cmp.not.i, double 0.000000e+00, double %conv.i
-  %time.addr.0.i = fsub double %2, %sub.i
-  %cmp3.i = icmp eq i32 %3, 0
+  %time.addr.0.i = fsub double %4, %sub.i
+  %cmp3.i = icmp eq i32 %5, 0
   %conv5.i = sitofp i32 %prevDSTSavings to double
   %sub6.i = select i1 %cmp3.i, double %conv5.i, double 0.000000e+00
   %time.addr.1.i = fsub double %time.addr.0.i, %sub6.i

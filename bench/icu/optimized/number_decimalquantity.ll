@@ -7362,70 +7362,62 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp.i, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit, label %return
 
 _ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit: ; preds = %if.then.i
-  %sub = add nsw i32 %2, -1
   %fBCD.i = getelementptr inbounds %"class.icu_75::number::impl::DecimalQuantity", ptr %this, i64 0, i32 13
   %4 = load ptr, ptr %fBCD.i, align 8
-  %idxprom.i = zext nneg i32 %sub to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 %idxprom.i
-  %5 = load i8, ptr %arrayidx.i, align 1
-  %cmp8 = icmp eq i8 %5, 0
+  %5 = zext nneg i32 %2 to i64
+  %6 = getelementptr i8, ptr %4, i64 %5
+  %arrayidx.i = getelementptr i8, ptr %6, i64 -1
+  %7 = load i8, ptr %arrayidx.i, align 1
+  %cmp8 = icmp eq i8 %7, 0
   br i1 %cmp8, label %return, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit28
 
 _ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit28: ; preds = %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
-  %6 = load i8, ptr %4, align 1
-  %cmp13 = icmp eq i8 %6, 0
-  br i1 %cmp13, label %return, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit49.lr.ph
-
-_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit49.lr.ph: ; preds = %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit28
-  %wide.trip.count = zext nneg i32 %2 to i64
-  br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit49
+  %8 = load i8, ptr %4, align 1
+  %cmp13 = icmp eq i8 %8, 0
+  br i1 %cmp13, label %return, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit49
 
 for.cond:                                         ; preds = %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %5
   br i1 %exitcond.not, label %for.cond30.preheader, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit49, !llvm.loop !40
 
 for.cond30.preheader:                             ; preds = %for.cond
   %cmp31218 = icmp slt i32 %2, %3
-  br i1 %cmp31218, label %if.then.i73.lr.ph, label %return
+  br i1 %cmp31218, label %if.then.i73, label %return
 
-if.then.i73.lr.ph:                                ; preds = %for.cond30.preheader
-  %7 = zext nneg i32 %2 to i64
-  br label %if.then.i73
-
-_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit49: ; preds = %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit49.lr.ph, %for.cond
-  %indvars.iv = phi i64 [ 0, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit49.lr.ph ], [ %indvars.iv.next, %for.cond ]
+_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit49: ; preds = %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit28, %for.cond
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit28 ]
   %arrayidx.i40 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
-  %8 = load i8, ptr %arrayidx.i40, align 1
-  %cmp20 = icmp sgt i8 %8, 9
+  %9 = load i8, ptr %arrayidx.i40, align 1
+  %cmp20 = icmp sgt i8 %9, 9
   br i1 %cmp20, label %return, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit70
 
 _ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit70: ; preds = %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit49
-  %cmp25 = icmp slt i8 %8, 0
+  %cmp25 = icmp slt i8 %9, 0
   br i1 %cmp25, label %return, label %for.cond
 
-if.then.i73:                                      ; preds = %if.then.i73.lr.ph, %for.inc38
-  %indvars.iv233 = phi i64 [ %7, %if.then.i73.lr.ph ], [ %indvars.iv.next234, %for.inc38 ]
-  %or.cond6.i77 = icmp ult i64 %indvars.iv233, %7
+if.then.i73:                                      ; preds = %for.cond30.preheader, %for.inc38
+  %indvars.iv233 = phi i64 [ %indvars.iv.next234, %for.inc38 ], [ %5, %for.cond30.preheader ]
+  %or.cond6.i77 = icmp ult i64 %indvars.iv233, %5
   br i1 %or.cond6.i77, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit91, label %for.inc38
 
 _ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit91: ; preds = %if.then.i73
   %arrayidx.i82 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv233
-  %9 = load i8, ptr %arrayidx.i82, align 1
-  %cmp35.not = icmp eq i8 %9, 0
+  %10 = load i8, ptr %arrayidx.i82, align 1
+  %cmp35.not = icmp eq i8 %10, 0
   br i1 %cmp35.not, label %for.inc38, label %return
 
 for.inc38:                                        ; preds = %if.then.i73, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit91
   %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
-  %10 = trunc i64 %indvars.iv.next234 to i32
-  %cmp31 = icmp sgt i32 %3, %10
+  %11 = trunc i64 %indvars.iv.next234 to i32
+  %cmp31 = icmp sgt i32 %3, %11
   br i1 %cmp31, label %if.then.i73, label %return, !llvm.loop !41
 
 if.else:                                          ; preds = %entry
   %cmp42 = icmp ne i32 %2, 0
   %fBCD43 = getelementptr inbounds %"class.icu_75::number::impl::DecimalQuantity", ptr %this, i64 0, i32 13
-  %11 = load i64, ptr %fBCD43, align 8
-  %cmp44.not = icmp eq i64 %11, 0
+  %12 = load i64, ptr %fBCD43, align 8
+  %cmp44.not = icmp eq i64 %12, 0
   %or.cond = select i1 %cmp42, i1 true, i1 %cmp44.not
   br i1 %or.cond, label %if.end46, label %return
 
@@ -7445,13 +7437,13 @@ if.else.i104:                                     ; preds = %if.end50
 _ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit112: ; preds = %if.else.i104
   %mul.i108 = shl nuw nsw i32 %sub55, 2
   %sh_prom.i109 = zext nneg i32 %mul.i108 to i64
-  %12 = shl nuw i64 15, %sh_prom.i109
-  %13 = and i64 %12, %11
-  %cmp58 = icmp eq i64 %13, 0
+  %13 = shl nuw i64 15, %sh_prom.i109
+  %14 = and i64 %13, %12
+  %cmp58 = icmp eq i64 %14, 0
   br i1 %cmp58, label %return, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit125
 
 _ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit125: ; preds = %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit112
-  %conv.i124208 = and i64 %11, 15
+  %conv.i124208 = and i64 %12, 15
   %cmp66 = icmp eq i64 %conv.i124208, 0
   br i1 %cmp66, label %return, label %if.else.i138.preheader
 
@@ -7474,7 +7466,7 @@ if.else.i138:                                     ; preds = %if.else.i138.prehea
 
 _ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit146: ; preds = %if.else.i138
   %mul.i142 = shl nuw nsw i64 %indvars.iv236, 2
-  %shr.i144 = lshr i64 %11, %mul.i142
+  %shr.i144 = lshr i64 %12, %mul.i142
   %conv.i145210 = and i64 %shr.i144, 14
   %cmp76 = icmp ugt i64 %conv.i145210, 9
   br i1 %cmp76, label %return, label %for.inc84
@@ -7492,9 +7484,9 @@ if.else.i180:                                     ; preds = %if.else.i180.prehea
 _ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit188: ; preds = %if.else.i180
   %mul.i184 = shl nuw nsw i32 %i87.0224, 2
   %sh_prom.i185 = zext nneg i32 %mul.i184 to i64
-  %14 = shl nuw i64 15, %sh_prom.i185
-  %15 = and i64 %14, %11
-  %cmp94.not = icmp eq i64 %15, 0
+  %15 = shl nuw i64 15, %sh_prom.i185
+  %16 = and i64 %15, %12
+  %cmp94.not = icmp eq i64 %16, 0
   br i1 %cmp94.not, label %for.inc97, label %return
 
 for.inc97:                                        ; preds = %if.else.i180, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit188

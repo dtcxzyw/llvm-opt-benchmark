@@ -328,22 +328,23 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %land.lhs.true5, label %do.body18
 
 land.lhs.true5:                                   ; preds = %if.end
-  %sub = add nsw i32 %0, -2
-  %idxprom10 = zext nneg i32 %sub to i64
-  %arrayidx11 = getelementptr inbounds i16, ptr %add.ptr, i64 %idxprom10
-  %7 = load i16, ptr %arrayidx11, align 2
-  %8 = and i16 %7, -1024
-  %cmp14 = icmp eq i16 %8, -10240
-  %spec.select = select i1 %cmp14, i32 %sub, i32 %dec
+  %7 = zext nneg i32 %0 to i64
+  %8 = getelementptr i16, ptr %add.ptr, i64 %7
+  %arrayidx11 = getelementptr i16, ptr %8, i64 -2
+  %9 = load i16, ptr %arrayidx11, align 2
+  %10 = and i16 %9, -1024
+  %cmp14 = icmp eq i16 %10, -10240
+  %dec16 = add nsw i32 %0, -2
+  %spec.select = select i1 %cmp14, i32 %dec16, i32 %dec
   %.pre = zext nneg i32 %spec.select to i64
   %arrayidx24.phi.trans.insert = getelementptr inbounds i16, ptr %add.ptr, i64 %.pre
   %.pre26 = load i16, ptr %arrayidx24.phi.trans.insert, align 2
   br label %do.body18
 
 do.body18:                                        ; preds = %land.lhs.true5, %if.end
-  %9 = phi i16 [ %.pre26, %land.lhs.true5 ], [ %5, %if.end ]
+  %11 = phi i16 [ %.pre26, %land.lhs.true5 ], [ %5, %if.end ]
   %offset.0 = phi i32 [ %spec.select, %land.lhs.true5 ], [ %dec, %if.end ]
-  %conv25 = zext i16 %9 to i32
+  %conv25 = zext i16 %11 to i32
   %and26 = and i32 %conv25, 63488
   %cmp27 = icmp eq i32 %and26, 55296
   br i1 %cmp27, label %if.then28, label %return
@@ -361,8 +362,8 @@ if.then31:                                        ; preds = %if.then28
 land.lhs.true34:                                  ; preds = %if.then31
   %idxprom40 = sext i32 %add to i64
   %arrayidx41 = getelementptr inbounds i16, ptr %add.ptr, i64 %idxprom40
-  %10 = load i16, ptr %arrayidx41, align 2
-  %conv42 = zext i16 %10 to i32
+  %12 = load i16, ptr %arrayidx41, align 2
+  %conv42 = zext i16 %12 to i32
   %and43 = and i32 %conv42, 64512
   %cmp44 = icmp eq i32 %and43, 56320
   br i1 %cmp44, label %if.then45, label %return
@@ -378,11 +379,11 @@ if.else:                                          ; preds = %if.then28
   br i1 %cmp50, label %land.lhs.true51, label %return
 
 land.lhs.true51:                                  ; preds = %if.else
-  %sub56 = add nsw i32 %offset.0, -1
-  %idxprom57 = zext nneg i32 %sub56 to i64
-  %arrayidx58 = getelementptr inbounds i16, ptr %add.ptr, i64 %idxprom57
-  %11 = load i16, ptr %arrayidx58, align 2
-  %conv59 = zext i16 %11 to i32
+  %13 = zext nneg i32 %offset.0 to i64
+  %14 = getelementptr i16, ptr %add.ptr, i64 %13
+  %arrayidx58 = getelementptr i16, ptr %14, i64 -1
+  %15 = load i16, ptr %arrayidx58, align 2
+  %conv59 = zext i16 %15 to i32
   %and60 = and i32 %conv59, 64512
   %cmp61 = icmp eq i32 %and60, 55296
   br i1 %cmp61, label %if.then62, label %return
@@ -451,11 +452,11 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp19, label %land.lhs.true20, label %do.end
 
 land.lhs.true20:                                  ; preds = %if.else
-  %sub25 = add nsw i32 %index, -1
-  %idxprom26 = zext nneg i32 %sub25 to i64
-  %arrayidx27 = getelementptr inbounds i16, ptr %add.ptr, i64 %idxprom26
-  %7 = load i16, ptr %arrayidx27, align 2
-  %conv28 = zext i16 %7 to i32
+  %7 = zext nneg i32 %index to i64
+  %8 = getelementptr i16, ptr %add.ptr, i64 %7
+  %arrayidx27 = getelementptr i16, ptr %8, i64 -1
+  %9 = load i16, ptr %arrayidx27, align 2
+  %conv28 = zext i16 %9 to i32
   %and29 = and i32 %conv28, 64512
   %cmp30 = icmp eq i32 %and29, 55296
   br i1 %cmp30, label %if.then31, label %do.end
@@ -495,22 +496,23 @@ entry:
   br i1 %or.cond, label %land.lhs.true3, label %do.body14
 
 land.lhs.true3:                                   ; preds = %entry
-  %sub = add nsw i32 %index, -2
-  %idxprom8 = zext nneg i32 %sub to i64
-  %arrayidx9 = getelementptr inbounds i16, ptr %add.ptr, i64 %idxprom8
-  %6 = load i16, ptr %arrayidx9, align 2
-  %7 = and i16 %6, -1024
-  %cmp12 = icmp eq i16 %7, -10240
-  %spec.select = select i1 %cmp12, i32 %sub, i32 %dec
+  %6 = zext nneg i32 %index to i64
+  %7 = getelementptr i16, ptr %add.ptr, i64 %6
+  %arrayidx9 = getelementptr i16, ptr %7, i64 -2
+  %8 = load i16, ptr %arrayidx9, align 2
+  %9 = and i16 %8, -1024
+  %cmp12 = icmp eq i16 %9, -10240
+  %dec13 = add nsw i32 %index, -2
+  %spec.select = select i1 %cmp12, i32 %dec13, i32 %dec
   %.pre = zext nneg i32 %spec.select to i64
   %arrayidx20.phi.trans.insert = getelementptr inbounds i16, ptr %add.ptr, i64 %.pre
   %.pre26 = load i16, ptr %arrayidx20.phi.trans.insert, align 2
   br label %do.body14
 
 do.body14:                                        ; preds = %land.lhs.true3, %entry
-  %8 = phi i16 [ %.pre26, %land.lhs.true3 ], [ %4, %entry ]
+  %10 = phi i16 [ %.pre26, %land.lhs.true3 ], [ %4, %entry ]
   %offset.0 = phi i32 [ %spec.select, %land.lhs.true3 ], [ %dec, %entry ]
-  %conv21 = zext i16 %8 to i32
+  %conv21 = zext i16 %10 to i32
   %and22 = and i32 %conv21, 63488
   %cmp23 = icmp eq i32 %and22, 55296
   br i1 %cmp23, label %if.then24, label %do.end65
@@ -523,15 +525,15 @@ if.then24:                                        ; preds = %do.body14
 if.then27:                                        ; preds = %if.then24
   %add = add nsw i32 %offset.0, 1
   %fLength = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 4
-  %9 = load i32, ptr %fLength, align 4
-  %cmp28.not = icmp eq i32 %add, %9
+  %11 = load i32, ptr %fLength, align 4
+  %cmp28.not = icmp eq i32 %add, %11
   br i1 %cmp28.not, label %do.end65, label %land.lhs.true29
 
 land.lhs.true29:                                  ; preds = %if.then27
   %idxprom35 = sext i32 %add to i64
   %arrayidx36 = getelementptr inbounds i16, ptr %add.ptr, i64 %idxprom35
-  %10 = load i16, ptr %arrayidx36, align 2
-  %conv37 = zext i16 %10 to i32
+  %12 = load i16, ptr %arrayidx36, align 2
+  %conv37 = zext i16 %12 to i32
   %and38 = and i32 %conv37, 64512
   %cmp39 = icmp eq i32 %and38, 56320
   br i1 %cmp39, label %if.then40, label %do.end65
@@ -547,11 +549,11 @@ if.else:                                          ; preds = %if.then24
   br i1 %cmp45, label %land.lhs.true46, label %do.end65
 
 land.lhs.true46:                                  ; preds = %if.else
-  %sub51 = add nsw i32 %offset.0, -1
-  %idxprom52 = zext nneg i32 %sub51 to i64
-  %arrayidx53 = getelementptr inbounds i16, ptr %add.ptr, i64 %idxprom52
-  %11 = load i16, ptr %arrayidx53, align 2
-  %conv54 = zext i16 %11 to i32
+  %13 = zext nneg i32 %offset.0 to i64
+  %14 = getelementptr i16, ptr %add.ptr, i64 %13
+  %arrayidx53 = getelementptr i16, ptr %14, i64 -1
+  %15 = load i16, ptr %arrayidx53, align 2
+  %conv54 = zext i16 %15 to i32
   %and55 = and i32 %conv54, 64512
   %cmp56 = icmp eq i32 %and55, 55296
   br i1 %cmp56, label %if.then57, label %do.end65

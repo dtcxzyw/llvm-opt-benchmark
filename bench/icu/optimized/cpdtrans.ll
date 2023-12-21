@@ -1807,9 +1807,8 @@ invoke.cont33:                                    ; preds = %if.then27
 
 land.rhs:                                         ; preds = %invoke.cont33
   %18 = load ptr, ptr %trans, align 8
-  %19 = add nuw i64 %indvars.iv, 4294967295
-  %idxprom40 = and i64 %19, 4294967295
-  %arrayidx41 = getelementptr inbounds ptr, ptr %18, i64 %idxprom40
+  %19 = getelementptr ptr, ptr %18, i64 %indvars.iv
+  %arrayidx41 = getelementptr ptr, ptr %19, i64 -1
   %20 = load ptr, ptr %arrayidx41, align 8
   %vtable42 = load ptr, ptr %20, align 8
   %vfn43 = getelementptr inbounds ptr, ptr %vtable42, i64 13

@@ -702,11 +702,11 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end14
 
 land.lhs.true:                                    ; preds = %entry
-  %sub = add nsw i32 %0, -1
-  %idxprom = zext nneg i32 %sub to i64
-  %arrayidx = getelementptr inbounds i8, ptr %enc_data, i64 %idxprom
-  %1 = load i8, ptr %arrayidx, align 1
-  %cmp1 = icmp eq i8 %1, 61
+  %1 = zext nneg i32 %0 to i64
+  %2 = getelementptr i8, ptr %enc_data, i64 %1
+  %arrayidx = getelementptr i8, ptr %2, i64 -1
+  %3 = load i8, ptr %arrayidx, align 1
+  %cmp1 = icmp eq i8 %3, 61
   br i1 %cmp1, label %if.then, label %if.end14
 
 if.then:                                          ; preds = %land.lhs.true
@@ -714,11 +714,9 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %cmp3.not, label %if.end14, label %land.lhs.true5
 
 land.lhs.true5:                                   ; preds = %if.then
-  %sub6 = add nsw i32 %0, -2
-  %idxprom7 = zext nneg i32 %sub6 to i64
-  %arrayidx8 = getelementptr inbounds i8, ptr %enc_data, i64 %idxprom7
-  %2 = load i8, ptr %arrayidx8, align 1
-  %cmp10 = icmp eq i8 %2, 61
+  %arrayidx8 = getelementptr i8, ptr %2, i64 -2
+  %4 = load i8, ptr %arrayidx8, align 1
+  %cmp10 = icmp eq i8 %4, 61
   %spec.select = select i1 %cmp10, i32 2, i32 1
   br label %if.end14
 
@@ -729,8 +727,8 @@ if.end14:                                         ; preds = %land.lhs.true5, %if
 
 if.end18:                                         ; preds = %if.end14
   %flags = getelementptr inbounds %struct.evp_Encode_Ctx_st, ptr %ctx, i64 0, i32 4
-  %3 = load i32, ptr %flags, align 4
-  %and = and i32 %3, 2
+  %5 = load i32, ptr %flags, align 4
+  %and = and i32 %5, 2
   %cmp19.not = icmp eq i32 %and, 0
   %data_ascii2bin.srpdata_ascii2bin = select i1 %cmp19.not, ptr @data_ascii2bin, ptr @srpdata_ascii2bin
   %cmp23.not.not62 = icmp slt i32 %inl, 1
@@ -745,20 +743,20 @@ for.body:                                         ; preds = %if.end18, %for.inc
   %ret.064 = phi i32 [ %ret.1, %for.inc ], [ 0, %if.end18 ]
   %eof.163 = phi i32 [ %eof.257, %for.inc ], [ %eof.0, %if.end18 ]
   %incdec.ptr = getelementptr inbounds i8, ptr %in.addr.066, i64 1
-  %4 = load i8, ptr %in.addr.066, align 1
-  %tobool.not.i = icmp sgt i8 %4, -1
+  %6 = load i8, ptr %in.addr.066, align 1
+  %tobool.not.i = icmp sgt i8 %6, -1
   br i1 %tobool.not.i, label %conv_ascii2bin.exit, label %end
 
 conv_ascii2bin.exit:                              ; preds = %for.body
-  %idxprom.i = zext nneg i8 %4 to i64
+  %idxprom.i = zext nneg i8 %6 to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %data_ascii2bin.srpdata_ascii2bin, i64 %idxprom.i
-  %5 = load i8, ptr %arrayidx.i, align 1
-  %conv27 = zext i8 %5 to i32
-  %cmp28 = icmp eq i8 %5, -1
+  %7 = load i8, ptr %arrayidx.i, align 1
+  %conv27 = zext i8 %7 to i32
+  %cmp28 = icmp eq i8 %7, -1
   br i1 %cmp28, label %end, label %if.end31
 
 if.end31:                                         ; preds = %conv_ascii2bin.exit
-  %cmp32 = icmp eq i8 %4, 61
+  %cmp32 = icmp eq i8 %6, 61
   br i1 %cmp32, label %if.then34, label %if.else36
 
 if.then34:                                        ; preds = %if.end31
@@ -770,8 +768,8 @@ if.else36:                                        ; preds = %if.end31
   br i1 %cmp37, label %land.lhs.true39, label %if.end48
 
 land.lhs.true39:                                  ; preds = %if.else36
-  %6 = and i32 %conv27, 236
-  %cmp40 = icmp eq i32 %6, 224
+  %8 = and i32 %conv27, 236
+  %cmp40 = icmp eq i32 %8, 224
   br i1 %cmp40, label %if.end44, label %end
 
 if.end44:                                         ; preds = %land.lhs.true39, %if.then34
@@ -781,12 +779,12 @@ if.end44:                                         ; preds = %land.lhs.true39, %i
 
 if.end48:                                         ; preds = %if.else36, %if.end44
   %eof.257 = phi i32 [ %eof.2, %if.end44 ], [ 0, %if.else36 ]
-  %cmp49 = icmp eq i8 %5, -14
+  %cmp49 = icmp eq i8 %7, -14
   br i1 %cmp49, label %tail, label %if.end52
 
 if.end52:                                         ; preds = %if.end48
-  %7 = and i32 %conv27, 236
-  %cmp54 = icmp eq i32 %7, 224
+  %9 = and i32 %conv27, 236
+  %cmp54 = icmp eq i32 %9, 224
   br i1 %cmp54, label %if.end67, label %if.then56
 
 if.then56:                                        ; preds = %if.end52
@@ -797,7 +795,7 @@ cond.end:                                         ; preds = %if.then56
   %inc64 = add nsw i32 %n.067, 1
   %idxprom65 = sext i32 %n.067 to i64
   %arrayidx66 = getelementptr inbounds i8, ptr %enc_data, i64 %idxprom65
-  store i8 %4, ptr %arrayidx66, align 1
+  store i8 %6, ptr %arrayidx66, align 1
   br label %if.end67
 
 if.end67:                                         ; preds = %cond.end, %if.end52

@@ -566,16 +566,17 @@ if.end27:                                         ; preds = %if.then22, %if.then
 
 if.then30:                                        ; preds = %if.end27
   %16 = load ptr, ptr %chunkContents, align 8
-  %sub33 = add nsw i32 %15, -1
-  %idxprom34 = zext nneg i32 %sub33 to i64
-  %arrayidx35 = getelementptr inbounds i16, ptr %16, i64 %idxprom34
-  %17 = load i16, ptr %arrayidx35, align 2
-  %18 = and i16 %17, -1024
-  %cmp38 = icmp eq i16 %18, -10240
+  %17 = zext nneg i32 %15 to i64
+  %18 = getelementptr i16, ptr %16, i64 %17
+  %arrayidx35 = getelementptr i16, ptr %18, i64 -1
+  %19 = load i16, ptr %arrayidx35, align 2
+  %20 = and i16 %19, -1024
+  %cmp38 = icmp eq i16 %20, -10240
   br i1 %cmp38, label %if.then39, label %if.end44
 
 if.then39:                                        ; preds = %if.then30
-  store i32 %sub33, ptr %chunkOffset13, align 8
+  %dec = add nsw i32 %15, -1
+  store i32 %dec, ptr %chunkOffset13, align 8
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then15, %if.then30, %if.then39, %if.end27, %if.end12
@@ -1007,80 +1008,81 @@ if.end27.i:                                       ; preds = %if.then22.i, %if.th
 
 if.then30.i:                                      ; preds = %if.end27.i
   %18 = load ptr, ptr %chunkContents.i, align 8
-  %sub33.i = add nsw i32 %17, -1
-  %idxprom34.i = zext nneg i32 %sub33.i to i64
-  %arrayidx35.i = getelementptr inbounds i16, ptr %18, i64 %idxprom34.i
-  %19 = load i16, ptr %arrayidx35.i, align 2
-  %20 = and i16 %19, -1024
-  %cmp38.i = icmp eq i16 %20, -10240
+  %19 = zext nneg i32 %17 to i64
+  %20 = getelementptr i16, ptr %18, i64 %19
+  %arrayidx35.i = getelementptr i16, ptr %20, i64 -1
+  %21 = load i16, ptr %arrayidx35.i, align 2
+  %22 = and i16 %21, -1024
+  %cmp38.i = icmp eq i16 %22, -10240
   br i1 %cmp38.i, label %if.then39.i, label %utext_setNativeIndex_75.exit
 
 if.then39.i:                                      ; preds = %if.then30.i
-  store i32 %sub33.i, ptr %chunkOffset13.i, align 8
+  %dec.i = add nsw i32 %17, -1
+  store i32 %dec.i, ptr %chunkOffset13.i, align 8
   br label %utext_setNativeIndex_75.exit
 
 utext_setNativeIndex_75.exit:                     ; preds = %if.end12.i, %if.then15.i, %if.end27.i, %if.then30.i, %if.then39.i
-  %21 = phi i32 [ %9, %if.end12.i ], [ %9, %if.then15.i ], [ %17, %if.end27.i ], [ %17, %if.then30.i ], [ %sub33.i, %if.then39.i ]
-  %22 = load i64, ptr %chunkNativeStart, align 8
-  %cmp13.not = icmp sgt i64 %22, %nativeIndex
+  %23 = phi i32 [ %9, %if.end12.i ], [ %9, %if.then15.i ], [ %17, %if.end27.i ], [ %17, %if.then30.i ], [ %dec.i, %if.then39.i ]
+  %24 = load i64, ptr %chunkNativeStart, align 8
+  %cmp13.not = icmp sgt i64 %24, %nativeIndex
   br i1 %cmp13.not, label %return, label %land.lhs.true14
 
 land.lhs.true14:                                  ; preds = %utext_setNativeIndex_75.exit
-  %23 = load i32, ptr %chunkLength.i, align 4
-  %cmp16 = icmp slt i32 %21, %23
+  %25 = load i32, ptr %chunkLength.i, align 4
+  %cmp16 = icmp slt i32 %23, %25
   br i1 %cmp16, label %if.then17, label %return
 
 if.then17:                                        ; preds = %land.lhs.true14
   %chunkContents18 = getelementptr inbounds %struct.UText, ptr %ut, i64 0, i32 10
-  %24 = load ptr, ptr %chunkContents18, align 8
-  %idxprom20 = sext i32 %21 to i64
-  %arrayidx21 = getelementptr inbounds i16, ptr %24, i64 %idxprom20
-  %25 = load i16, ptr %arrayidx21, align 2
-  %conv22 = zext i16 %25 to i32
-  %26 = and i32 %conv22, 64512
-  %or.cond = icmp eq i32 %26, 55296
+  %26 = load ptr, ptr %chunkContents18, align 8
+  %idxprom20 = sext i32 %23 to i64
+  %arrayidx21 = getelementptr inbounds i16, ptr %26, i64 %idxprom20
+  %27 = load i16, ptr %arrayidx21, align 2
+  %conv22 = zext i16 %27 to i32
+  %28 = and i32 %conv22, 64512
+  %or.cond = icmp eq i32 %28, 55296
   br i1 %or.cond, label %if.end10.i, label %return
 
 if.end10.i:                                       ; preds = %if.then17
-  %add.i = add nsw i32 %21, 1
-  %cmp13.i = icmp slt i32 %add.i, %23
+  %add.i = add nsw i32 %23, 1
+  %cmp13.i = icmp slt i32 %add.i, %25
   br i1 %cmp13.i, label %if.then14.i, label %if.else.i28
 
 if.then14.i:                                      ; preds = %if.end10.i
   %idxprom18.i = sext i32 %add.i to i64
-  %arrayidx19.i = getelementptr inbounds i16, ptr %24, i64 %idxprom18.i
-  %27 = load i16, ptr %arrayidx19.i, align 2
-  %conv20.i = zext i16 %27 to i32
+  %arrayidx19.i = getelementptr inbounds i16, ptr %26, i64 %idxprom18.i
+  %29 = load i16, ptr %arrayidx19.i, align 2
+  %conv20.i = zext i16 %29 to i32
   br label %if.end40.i
 
 if.else.i28:                                      ; preds = %if.end10.i
   %chunkNativeLimit21.i = getelementptr inbounds %struct.UText, ptr %ut, i64 0, i32 4
-  %28 = load i64, ptr %chunkNativeLimit21.i, align 8
+  %30 = load i64, ptr %chunkNativeLimit21.i, align 8
   %pFuncs22.i = getelementptr inbounds %struct.UText, ptr %ut, i64 0, i32 11
-  %29 = load ptr, ptr %pFuncs22.i, align 8
-  %access23.i = getelementptr inbounds %struct.UTextFuncs, ptr %29, i64 0, i32 6
-  %30 = load ptr, ptr %access23.i, align 8
-  %call24.i = tail call noundef signext i8 %30(ptr noundef nonnull %ut, i64 noundef %28, i8 noundef signext 1)
+  %31 = load ptr, ptr %pFuncs22.i, align 8
+  %access23.i = getelementptr inbounds %struct.UTextFuncs, ptr %31, i64 0, i32 6
+  %32 = load ptr, ptr %access23.i, align 8
+  %call24.i = tail call noundef signext i8 %32(ptr noundef nonnull %ut, i64 noundef %30, i8 noundef signext 1)
   %tobool.not.i = icmp eq i8 %call24.i, 0
   br i1 %tobool.not.i, label %if.end31.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.else.i28
-  %31 = load ptr, ptr %chunkContents18, align 8
-  %32 = load i32, ptr %chunkOffset13.i, align 8
-  %idxprom28.i = sext i32 %32 to i64
-  %arrayidx29.i = getelementptr inbounds i16, ptr %31, i64 %idxprom28.i
-  %33 = load i16, ptr %arrayidx29.i, align 2
-  %conv30.i = zext i16 %33 to i32
+  %33 = load ptr, ptr %chunkContents18, align 8
+  %34 = load i32, ptr %chunkOffset13.i, align 8
+  %idxprom28.i = sext i32 %34 to i64
+  %arrayidx29.i = getelementptr inbounds i16, ptr %33, i64 %idxprom28.i
+  %35 = load i16, ptr %arrayidx29.i, align 2
+  %conv30.i = zext i16 %35 to i32
   br label %if.end31.i
 
 if.end31.i:                                       ; preds = %if.then25.i, %if.else.i28
   %trail.0.i = phi i32 [ %conv30.i, %if.then25.i ], [ 0, %if.else.i28 ]
-  %34 = load ptr, ptr %pFuncs22.i, align 8
-  %access33.i = getelementptr inbounds %struct.UTextFuncs, ptr %34, i64 0, i32 6
-  %35 = load ptr, ptr %access33.i, align 8
-  %call34.i = tail call noundef signext i8 %35(ptr noundef nonnull %ut, i64 noundef %28, i8 noundef signext 0)
-  %36 = load i32, ptr %chunkLength.i, align 4
-  %sub.i29 = add nsw i32 %36, -1
+  %36 = load ptr, ptr %pFuncs22.i, align 8
+  %access33.i = getelementptr inbounds %struct.UTextFuncs, ptr %36, i64 0, i32 6
+  %37 = load ptr, ptr %access33.i, align 8
+  %call34.i = tail call noundef signext i8 %37(ptr noundef nonnull %ut, i64 noundef %30, i8 noundef signext 0)
+  %38 = load i32, ptr %chunkLength.i, align 4
+  %sub.i29 = add nsw i32 %38, -1
   store i32 %sub.i29, ptr %chunkOffset13.i, align 8
   %tobool37.not.i = icmp eq i8 %call34.i, 0
   br i1 %tobool37.not.i, label %return, label %if.end40.i
@@ -1241,32 +1243,33 @@ if.end27.i:                                       ; preds = %if.then22.i, %if.th
 
 if.then30.i:                                      ; preds = %if.end27.i
   %26 = load ptr, ptr %chunkContents, align 8
-  %sub33.i = add nsw i32 %25, -1
-  %idxprom34.i = zext nneg i32 %sub33.i to i64
-  %arrayidx35.i = getelementptr inbounds i16, ptr %26, i64 %idxprom34.i
-  %27 = load i16, ptr %arrayidx35.i, align 2
-  %28 = and i16 %27, -1024
-  %cmp38.i = icmp eq i16 %28, -10240
+  %27 = zext nneg i32 %25 to i64
+  %28 = getelementptr i16, ptr %26, i64 %27
+  %arrayidx35.i = getelementptr i16, ptr %28, i64 -1
+  %29 = load i16, ptr %arrayidx35.i, align 2
+  %30 = and i16 %29, -1024
+  %cmp38.i = icmp eq i16 %30, -10240
   br i1 %cmp38.i, label %if.then39.i, label %utext_setNativeIndex_75.exit
 
 if.then39.i:                                      ; preds = %if.then30.i
-  store i32 %sub33.i, ptr %chunkOffset15, align 8
+  %dec.i = add nsw i32 %25, -1
+  store i32 %dec.i, ptr %chunkOffset15, align 8
   br label %utext_setNativeIndex_75.exit
 
 utext_setNativeIndex_75.exit:                     ; preds = %if.end12.i, %if.then15.i, %if.end27.i, %if.then30.i, %if.then39.i
-  %29 = phi i32 [ %17, %if.end12.i ], [ %17, %if.then15.i ], [ %25, %if.end27.i ], [ %25, %if.then30.i ], [ %sub33.i, %if.then39.i ]
-  %30 = load i32, ptr %chunkLength.i, align 4
-  %cmp.not.i = icmp slt i32 %29, %30
+  %31 = phi i32 [ %17, %if.end12.i ], [ %17, %if.then15.i ], [ %25, %if.end27.i ], [ %25, %if.then30.i ], [ %dec.i, %if.then39.i ]
+  %32 = load i32, ptr %chunkLength.i, align 4
+  %cmp.not.i = icmp slt i32 %31, %32
   br i1 %cmp.not.i, label %if.end3.i, label %if.then.i24
 
 if.then.i24:                                      ; preds = %utext_setNativeIndex_75.exit
   %pFuncs.i25 = getelementptr inbounds %struct.UText, ptr %ut, i64 0, i32 11
-  %31 = load ptr, ptr %pFuncs.i25, align 8
-  %access.i26 = getelementptr inbounds %struct.UTextFuncs, ptr %31, i64 0, i32 6
-  %32 = load ptr, ptr %access.i26, align 8
+  %33 = load ptr, ptr %pFuncs.i25, align 8
+  %access.i26 = getelementptr inbounds %struct.UTextFuncs, ptr %33, i64 0, i32 6
+  %34 = load ptr, ptr %access.i26, align 8
   %chunkNativeLimit.i27 = getelementptr inbounds %struct.UText, ptr %ut, i64 0, i32 4
-  %33 = load i64, ptr %chunkNativeLimit.i27, align 8
-  %call.i28 = tail call noundef signext i8 %32(ptr noundef nonnull %ut, i64 noundef %33, i8 noundef signext 1)
+  %35 = load i64, ptr %chunkNativeLimit.i27, align 8
+  %call.i28 = tail call noundef signext i8 %34(ptr noundef nonnull %ut, i64 noundef %35, i8 noundef signext 1)
   %cmp1.i = icmp eq i8 %call.i28, 0
   br i1 %cmp1.i, label %return, label %if.then.if.end3_crit_edge.i
 
@@ -1275,31 +1278,31 @@ if.then.if.end3_crit_edge.i:                      ; preds = %if.then.i24
   br label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then.if.end3_crit_edge.i, %utext_setNativeIndex_75.exit
-  %34 = phi i32 [ %.pre.i29, %if.then.if.end3_crit_edge.i ], [ %29, %utext_setNativeIndex_75.exit ]
-  %35 = load ptr, ptr %chunkContents, align 8
-  %inc.i = add nsw i32 %34, 1
+  %36 = phi i32 [ %.pre.i29, %if.then.if.end3_crit_edge.i ], [ %31, %utext_setNativeIndex_75.exit ]
+  %37 = load ptr, ptr %chunkContents, align 8
+  %inc.i = add nsw i32 %36, 1
   store i32 %inc.i, ptr %chunkOffset15, align 8
-  %idxprom.i31 = sext i32 %34 to i64
-  %arrayidx.i32 = getelementptr inbounds i16, ptr %35, i64 %idxprom.i31
-  %36 = load i16, ptr %arrayidx.i32, align 2
-  %conv5.i = zext i16 %36 to i32
+  %idxprom.i31 = sext i32 %36 to i64
+  %arrayidx.i32 = getelementptr inbounds i16, ptr %37, i64 %idxprom.i31
+  %38 = load i16, ptr %arrayidx.i32, align 2
+  %conv5.i = zext i16 %38 to i32
   %and.i = and i32 %conv5.i, 64512
   %cmp6.not.i = icmp eq i32 %and.i, 55296
   br i1 %cmp6.not.i, label %if.end10.i, label %return
 
 if.end10.i:                                       ; preds = %if.end3.i
-  %37 = load i32, ptr %chunkLength.i, align 4
-  %cmp13.not.i = icmp slt i32 %inc.i, %37
+  %39 = load i32, ptr %chunkLength.i, align 4
+  %cmp13.not.i = icmp slt i32 %inc.i, %39
   br i1 %cmp13.not.i, label %if.end23.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end10.i
   %pFuncs15.i = getelementptr inbounds %struct.UText, ptr %ut, i64 0, i32 11
-  %38 = load ptr, ptr %pFuncs15.i, align 8
-  %access16.i = getelementptr inbounds %struct.UTextFuncs, ptr %38, i64 0, i32 6
-  %39 = load ptr, ptr %access16.i, align 8
+  %40 = load ptr, ptr %pFuncs15.i, align 8
+  %access16.i = getelementptr inbounds %struct.UTextFuncs, ptr %40, i64 0, i32 6
+  %41 = load ptr, ptr %access16.i, align 8
   %chunkNativeLimit17.i = getelementptr inbounds %struct.UText, ptr %ut, i64 0, i32 4
-  %40 = load i64, ptr %chunkNativeLimit17.i, align 8
-  %call18.i = tail call noundef signext i8 %39(ptr noundef nonnull %ut, i64 noundef %40, i8 noundef signext 1)
+  %42 = load i64, ptr %chunkNativeLimit17.i, align 8
+  %call18.i = tail call noundef signext i8 %41(ptr noundef nonnull %ut, i64 noundef %42, i8 noundef signext 1)
   %cmp20.i = icmp eq i8 %call18.i, 0
   br i1 %cmp20.i, label %return, label %if.then14.if.end23_crit_edge.i
 
@@ -1309,12 +1312,12 @@ if.then14.if.end23_crit_edge.i:                   ; preds = %if.then14.i
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.then14.if.end23_crit_edge.i, %if.end10.i
-  %41 = phi i32 [ %.pre21.i, %if.then14.if.end23_crit_edge.i ], [ %inc.i, %if.end10.i ]
-  %42 = phi ptr [ %.pre20.i, %if.then14.if.end23_crit_edge.i ], [ %35, %if.end10.i ]
-  %idxprom26.i = sext i32 %41 to i64
-  %arrayidx27.i = getelementptr inbounds i16, ptr %42, i64 %idxprom26.i
-  %43 = load i16, ptr %arrayidx27.i, align 2
-  %conv28.i = zext i16 %43 to i32
+  %43 = phi i32 [ %.pre21.i, %if.then14.if.end23_crit_edge.i ], [ %inc.i, %if.end10.i ]
+  %44 = phi ptr [ %.pre20.i, %if.then14.if.end23_crit_edge.i ], [ %37, %if.end10.i ]
+  %idxprom26.i = sext i32 %43 to i64
+  %arrayidx27.i = getelementptr inbounds i16, ptr %44, i64 %idxprom26.i
+  %45 = load i16, ptr %arrayidx27.i, align 2
+  %conv28.i = zext i16 %45 to i32
   %and29.i = and i32 %conv28.i, 64512
   %cmp30.not.i = icmp eq i32 %and29.i, 56320
   br i1 %cmp30.not.i, label %if.end34.i, label %return
@@ -1323,7 +1326,7 @@ if.end34.i:                                       ; preds = %if.end23.i
   %shl.i = shl nuw nsw i32 %conv5.i, 10
   %add.i = add nsw i32 %shl.i, -56613888
   %sub.i33 = add nuw nsw i32 %add.i, %conv28.i
-  %inc36.i = add nsw i32 %41, 1
+  %inc36.i = add nsw i32 %43, 1
   store i32 %inc36.i, ptr %chunkOffset15, align 8
   br label %return
 
@@ -1477,82 +1480,83 @@ if.then22.i:                                      ; preds = %if.then19.i
 if.end27.i:                                       ; preds = %if.then22.i, %if.then19.i
   %27 = phi i32 [ %.pre, %if.then22.i ], [ %19, %if.then19.i ]
   %cmp29.i = icmp sgt i32 %27, 0
-  br i1 %cmp29.i, label %if.then30.i, label %if.then.i33
+  br i1 %cmp29.i, label %if.then30.i, label %if.then.i34
 
 if.then30.i:                                      ; preds = %if.end27.i
   %28 = load ptr, ptr %chunkContents, align 8
-  %sub33.i = add nsw i32 %27, -1
-  %idxprom34.i = zext nneg i32 %sub33.i to i64
-  %arrayidx35.i = getelementptr inbounds i16, ptr %28, i64 %idxprom34.i
-  %29 = load i16, ptr %arrayidx35.i, align 2
-  %30 = and i16 %29, -1024
-  %cmp38.i = icmp eq i16 %30, -10240
+  %29 = zext nneg i32 %27 to i64
+  %30 = getelementptr i16, ptr %28, i64 %29
+  %arrayidx35.i = getelementptr i16, ptr %30, i64 -1
+  %31 = load i16, ptr %arrayidx35.i, align 2
+  %32 = and i16 %31, -1024
+  %cmp38.i = icmp eq i16 %32, -10240
   br i1 %cmp38.i, label %if.then39.i, label %if.end3.i
 
 if.then39.i:                                      ; preds = %if.then30.i
-  store i32 %sub33.i, ptr %chunkOffset23, align 8
+  %dec.i = add nsw i32 %27, -1
+  store i32 %dec.i, ptr %chunkOffset23, align 8
   br label %utext_setNativeIndex_75.exit
 
 utext_setNativeIndex_75.exit:                     ; preds = %if.end12.i, %if.then15.i, %if.then39.i
-  %31 = phi i32 [ %sub33.i, %if.then39.i ], [ %19, %if.then15.i ], [ %19, %if.end12.i ]
-  %cmp.i28 = icmp slt i32 %31, 1
-  br i1 %cmp.i28, label %if.then.i33, label %if.end3.i
+  %33 = phi i32 [ %dec.i, %if.then39.i ], [ %19, %if.then15.i ], [ %19, %if.end12.i ]
+  %cmp.i28 = icmp slt i32 %33, 1
+  br i1 %cmp.i28, label %if.then.i34, label %if.end3.i
 
-if.then.i33:                                      ; preds = %if.end27.i, %utext_setNativeIndex_75.exit
-  %pFuncs.i34 = getelementptr inbounds %struct.UText, ptr %ut, i64 0, i32 11
-  %32 = load ptr, ptr %pFuncs.i34, align 8
-  %access.i35 = getelementptr inbounds %struct.UTextFuncs, ptr %32, i64 0, i32 6
-  %33 = load ptr, ptr %access.i35, align 8
-  %34 = load i64, ptr %chunkNativeStart, align 8
-  %call.i37 = tail call noundef signext i8 %33(ptr noundef nonnull %ut, i64 noundef %34, i8 noundef signext 0)
-  %cmp1.i = icmp eq i8 %call.i37, 0
+if.then.i34:                                      ; preds = %if.end27.i, %utext_setNativeIndex_75.exit
+  %pFuncs.i35 = getelementptr inbounds %struct.UText, ptr %ut, i64 0, i32 11
+  %34 = load ptr, ptr %pFuncs.i35, align 8
+  %access.i36 = getelementptr inbounds %struct.UTextFuncs, ptr %34, i64 0, i32 6
+  %35 = load ptr, ptr %access.i36, align 8
+  %36 = load i64, ptr %chunkNativeStart, align 8
+  %call.i38 = tail call noundef signext i8 %35(ptr noundef nonnull %ut, i64 noundef %36, i8 noundef signext 0)
+  %cmp1.i = icmp eq i8 %call.i38, 0
   br i1 %cmp1.i, label %return, label %if.end3thread-pre-split.i
 
-if.end3thread-pre-split.i:                        ; preds = %if.then.i33
+if.end3thread-pre-split.i:                        ; preds = %if.then.i34
   %.pr.i = load i32, ptr %chunkOffset23, align 8
   br label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then30.i, %if.end3thread-pre-split.i, %utext_setNativeIndex_75.exit
-  %35 = phi i32 [ %.pr.i, %if.end3thread-pre-split.i ], [ %31, %utext_setNativeIndex_75.exit ], [ %27, %if.then30.i ]
-  %dec.i = add nsw i32 %35, -1
-  store i32 %dec.i, ptr %chunkOffset23, align 8
-  %36 = load ptr, ptr %chunkContents, align 8
-  %idxprom.i30 = sext i32 %dec.i to i64
-  %arrayidx.i31 = getelementptr inbounds i16, ptr %36, i64 %idxprom.i30
-  %37 = load i16, ptr %arrayidx.i31, align 2
-  %conv6.i = zext i16 %37 to i32
+  %37 = phi i32 [ %.pr.i, %if.end3thread-pre-split.i ], [ %33, %utext_setNativeIndex_75.exit ], [ %27, %if.then30.i ]
+  %dec.i29 = add nsw i32 %37, -1
+  store i32 %dec.i29, ptr %chunkOffset23, align 8
+  %38 = load ptr, ptr %chunkContents, align 8
+  %idxprom.i31 = sext i32 %dec.i29 to i64
+  %arrayidx.i32 = getelementptr inbounds i16, ptr %38, i64 %idxprom.i31
+  %39 = load i16, ptr %arrayidx.i32, align 2
+  %conv6.i = zext i16 %39 to i32
   %and.i = and i32 %conv6.i, 64512
   %cmp7.not.i = icmp eq i32 %and.i, 56320
   br i1 %cmp7.not.i, label %if.end11.i, label %return
 
 if.end11.i:                                       ; preds = %if.end3.i
-  %cmp13.i = icmp slt i32 %35, 2
+  %cmp13.i = icmp slt i32 %37, 2
   br i1 %cmp13.i, label %if.then14.i, label %if.end23.i
 
 if.then14.i:                                      ; preds = %if.end11.i
   %pFuncs15.i = getelementptr inbounds %struct.UText, ptr %ut, i64 0, i32 11
-  %38 = load ptr, ptr %pFuncs15.i, align 8
-  %access16.i = getelementptr inbounds %struct.UTextFuncs, ptr %38, i64 0, i32 6
-  %39 = load ptr, ptr %access16.i, align 8
-  %40 = load i64, ptr %chunkNativeStart, align 8
-  %call18.i = tail call noundef signext i8 %39(ptr noundef nonnull %ut, i64 noundef %40, i8 noundef signext 0)
+  %40 = load ptr, ptr %pFuncs15.i, align 8
+  %access16.i = getelementptr inbounds %struct.UTextFuncs, ptr %40, i64 0, i32 6
+  %41 = load ptr, ptr %access16.i, align 8
+  %42 = load i64, ptr %chunkNativeStart, align 8
+  %call18.i = tail call noundef signext i8 %41(ptr noundef nonnull %ut, i64 noundef %42, i8 noundef signext 0)
   %cmp20.i = icmp eq i8 %call18.i, 0
   br i1 %cmp20.i, label %return, label %if.then14.if.end23_crit_edge.i
 
 if.then14.if.end23_crit_edge.i:                   ; preds = %if.then14.i
-  %.pre.i32 = load ptr, ptr %chunkContents, align 8
+  %.pre.i33 = load ptr, ptr %chunkContents, align 8
   %.pre19.i = load i32, ptr %chunkOffset23, align 8
   %.pre20.i = sext i32 %.pre19.i to i64
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.then14.if.end23_crit_edge.i, %if.end11.i
-  %.pre-phi.i = phi i64 [ %.pre20.i, %if.then14.if.end23_crit_edge.i ], [ %idxprom.i30, %if.end11.i ]
-  %41 = phi i32 [ %.pre19.i, %if.then14.if.end23_crit_edge.i ], [ %dec.i, %if.end11.i ]
-  %42 = phi ptr [ %.pre.i32, %if.then14.if.end23_crit_edge.i ], [ %36, %if.end11.i ]
-  %43 = getelementptr i16, ptr %42, i64 %.pre-phi.i
-  %arrayidx27.i = getelementptr i16, ptr %43, i64 -1
-  %44 = load i16, ptr %arrayidx27.i, align 2
-  %conv28.i = zext i16 %44 to i32
+  %.pre-phi.i = phi i64 [ %.pre20.i, %if.then14.if.end23_crit_edge.i ], [ %idxprom.i31, %if.end11.i ]
+  %43 = phi i32 [ %.pre19.i, %if.then14.if.end23_crit_edge.i ], [ %dec.i29, %if.end11.i ]
+  %44 = phi ptr [ %.pre.i33, %if.then14.if.end23_crit_edge.i ], [ %38, %if.end11.i ]
+  %45 = getelementptr i16, ptr %44, i64 %.pre-phi.i
+  %arrayidx27.i = getelementptr i16, ptr %45, i64 -1
+  %46 = load i16, ptr %arrayidx27.i, align 2
+  %conv28.i = zext i16 %46 to i32
   %and29.i = and i32 %conv28.i, 64512
   %cmp30.not.i = icmp eq i32 %and29.i, 55296
   br i1 %cmp30.not.i, label %if.end34.i, label %return
@@ -1561,12 +1565,12 @@ if.end34.i:                                       ; preds = %if.end23.i
   %shl.i = shl nuw nsw i32 %conv28.i, 10
   %add.i = add nuw nsw i32 %conv6.i, -56613888
   %sub35.i = add nsw i32 %add.i, %shl.i
-  %dec37.i = add nsw i32 %41, -1
+  %dec37.i = add nsw i32 %43, -1
   store i32 %dec37.i, ptr %chunkOffset23, align 8
   br label %return
 
-return:                                           ; preds = %if.end34.i, %if.end23.i, %if.then14.i, %if.end3.i, %if.then.i33, %if.end22, %land.lhs.true, %if.then
-  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %land.lhs.true ], [ %conv25, %if.end22 ], [ %sub35.i, %if.end34.i ], [ -1, %if.then.i33 ], [ %conv6.i, %if.end3.i ], [ %conv6.i, %if.then14.i ], [ %conv6.i, %if.end23.i ]
+return:                                           ; preds = %if.end34.i, %if.end23.i, %if.then14.i, %if.end3.i, %if.then.i34, %if.end22, %land.lhs.true, %if.then
+  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %land.lhs.true ], [ %conv25, %if.end22 ], [ %sub35.i, %if.end34.i ], [ -1, %if.then.i34 ], [ %conv6.i, %if.end3.i ], [ %conv6.i, %if.then14.i ], [ %conv6.i, %if.end23.i ]
   ret i32 %retval.0
 }
 
@@ -4162,16 +4166,17 @@ do.body:                                          ; preds = %if.end111, %land.lh
   br i1 %or.cond, label %land.lhs.true138, label %do.end
 
 land.lhs.true138:                                 ; preds = %do.body
-  %sub141 = add nsw i32 %22, -1
-  %idxprom142 = zext nneg i32 %sub141 to i64
-  %arrayidx143 = getelementptr inbounds i16, ptr %23, i64 %idxprom142
-  %26 = load i16, ptr %arrayidx143, align 2
-  %27 = and i16 %26, -1024
-  %cmp146 = icmp eq i16 %27, -10240
+  %26 = zext nneg i32 %22 to i64
+  %27 = getelementptr i16, ptr %23, i64 %26
+  %arrayidx143 = getelementptr i16, ptr %27, i64 -1
+  %28 = load i16, ptr %arrayidx143, align 2
+  %29 = and i16 %28, -1024
+  %cmp146 = icmp eq i16 %29, -10240
   br i1 %cmp146, label %if.then147, label %do.end
 
 if.then147:                                       ; preds = %land.lhs.true138
-  store i32 %sub141, ptr %chunkOffset90, align 8
+  %dec149 = add nsw i32 %22, -1
+  store i32 %dec149, ptr %chunkOffset90, align 8
   br label %do.end
 
 do.end:                                           ; preds = %if.then147, %land.lhs.true138, %do.body
@@ -5518,22 +5523,20 @@ for.end:                                          ; preds = %for.body.us84, %for
   br i1 %cmp36, label %land.lhs.true37, label %if.end63
 
 land.lhs.true37:                                  ; preds = %for.end
-  %sub38 = add nsw i32 %si.1, -1
-  %idxprom39 = zext nneg i32 %sub38 to i64
-  %arrayidx40 = getelementptr inbounds i16, ptr %1, i64 %idxprom39
-  %14 = load i16, ptr %arrayidx40, align 2
-  %15 = and i16 %14, -1024
-  %cmp42 = icmp eq i16 %15, -10240
+  %14 = zext nneg i32 %si.1 to i64
+  %15 = getelementptr i16, ptr %1, i64 %14
+  %arrayidx40 = getelementptr i16, ptr %15, i64 -1
+  %16 = load i16, ptr %arrayidx40, align 2
+  %17 = and i16 %16, -1024
+  %cmp42 = icmp eq i16 %17, -10240
   %or.cond1 = icmp ugt i32 %strLength.0, %si.1
   %or.cond59 = and i1 %or.cond1, %cmp42
   br i1 %or.cond59, label %land.lhs.true47, label %if.end63
 
 land.lhs.true47:                                  ; preds = %land.lhs.true37
-  %idxprom48 = zext nneg i32 %si.1 to i64
-  %arrayidx49 = getelementptr inbounds i16, ptr %1, i64 %idxprom48
-  %16 = load i16, ptr %arrayidx49, align 2
-  %17 = and i16 %16, -1024
-  %cmp52 = icmp eq i16 %17, -9216
+  %18 = load i16, ptr %15, align 2
+  %19 = and i16 %18, -1024
+  %cmp52 = icmp eq i16 %19, -9216
   br i1 %cmp52, label %if.then53, label %if.end63
 
 if.then53:                                        ; preds = %land.lhs.true47
@@ -5544,7 +5547,7 @@ if.then55:                                        ; preds = %if.then53
   %inc58 = add nsw i32 %di.1, 1
   %idxprom59 = sext i32 %di.1 to i64
   %arrayidx60 = getelementptr inbounds i16, ptr %dest, i64 %idxprom59
-  store i16 %16, ptr %arrayidx60, align 2
+  store i16 %18, ptr %arrayidx60, align 2
   br label %if.end61
 
 if.end61:                                         ; preds = %if.then55, %if.then53
@@ -5557,8 +5560,8 @@ if.end63:                                         ; preds = %if.end61, %land.lhs
   %si.2 = phi i32 [ %inc62, %if.end61 ], [ %si.1, %land.lhs.true47 ], [ %si.1, %land.lhs.true37 ], [ %si.1, %for.end ]
   %conv64 = sext i32 %si.2 to i64
   %chunkNativeLimit65 = getelementptr inbounds %struct.UText, ptr %ut, i64 0, i32 4
-  %18 = load i64, ptr %chunkNativeLimit65, align 8
-  %cmp66.not = icmp slt i64 %18, %conv64
+  %20 = load i64, ptr %chunkNativeLimit65, align 8
+  %cmp66.not = icmp slt i64 %20, %conv64
   br i1 %cmp66.not, label %if.else69, label %if.then67
 
 if.then67:                                        ; preds = %if.end63
@@ -5787,16 +5790,17 @@ if.end27.i:                                       ; preds = %if.then22.i, %if.th
 
 if.then30.i:                                      ; preds = %if.end27.i
   %30 = load ptr, ptr %chunkContents.i28, align 8
-  %sub33.i = add nsw i32 %29, -1
-  %idxprom34.i = zext nneg i32 %sub33.i to i64
-  %arrayidx35.i = getelementptr inbounds i16, ptr %30, i64 %idxprom34.i
-  %31 = load i16, ptr %arrayidx35.i, align 2
-  %32 = and i16 %31, -1024
-  %cmp38.i = icmp eq i16 %32, -10240
+  %31 = zext nneg i32 %29 to i64
+  %32 = getelementptr i16, ptr %30, i64 %31
+  %arrayidx35.i = getelementptr i16, ptr %32, i64 -1
+  %33 = load i16, ptr %arrayidx35.i, align 2
+  %34 = and i16 %33, -1024
+  %cmp38.i = icmp eq i16 %34, -10240
   br i1 %cmp38.i, label %if.then39.i, label %utext_setNativeIndex_75.exit
 
 if.then39.i:                                      ; preds = %if.then30.i
-  store i32 %sub33.i, ptr %chunkOffset13.i, align 8
+  %dec.i = add nsw i32 %29, -1
+  store i32 %dec.i, ptr %chunkOffset13.i, align 8
   br label %utext_setNativeIndex_75.exit
 
 utext_setNativeIndex_75.exit:                     ; preds = %if.end12.i, %if.then15.i, %if.end27.i, %if.then30.i, %if.then39.i

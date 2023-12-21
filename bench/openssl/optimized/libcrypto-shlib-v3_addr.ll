@@ -833,7 +833,7 @@ if.end28:                                         ; preds = %land.lhs.true.if.en
   %max30 = getelementptr inbounds %struct.IPAddressRange_st, ptr %11, i64 0, i32 1
   %12 = load ptr, ptr %max30, align 8
   %cmp31 = icmp eq ptr %12, null
-  br i1 %cmp31, label %land.lhs.true33, label %for.cond.preheader
+  br i1 %cmp31, label %land.lhs.true33, label %if.end40
 
 land.lhs.true33:                                  ; preds = %if.end28
   %call34 = tail call ptr @ASN1_BIT_STRING_new() #15
@@ -841,44 +841,46 @@ land.lhs.true33:                                  ; preds = %if.end28
   %max36 = getelementptr inbounds %struct.IPAddressRange_st, ptr %13, i64 0, i32 1
   store ptr %call34, ptr %max36, align 8
   %cmp37 = icmp eq ptr %call34, null
-  br i1 %cmp37, label %err, label %for.cond.preheader
+  br i1 %cmp37, label %err, label %if.end40
 
-for.cond.preheader:                               ; preds = %land.lhs.true33, %if.end28
-  br label %for.cond
+if.end40:                                         ; preds = %land.lhs.true33, %if.end28
+  %invariant.gep = getelementptr i8, ptr %min, i64 -1
+  br i1 %cmp31.i, label %land.rhs, label %for.end
 
-for.cond:                                         ; preds = %for.cond.preheader, %land.rhs
-  %indvars.iv = phi i64 [ %15, %land.rhs ], [ %conv, %for.cond.preheader ]
-  %14 = trunc i64 %indvars.iv to i32
-  %cmp41 = icmp sgt i32 %14, 0
-  br i1 %cmp41, label %land.rhs, label %for.end
+land.rhs:                                         ; preds = %if.end40, %for.inc
+  %i.053 = phi i32 [ %dec, %for.inc ], [ %length, %if.end40 ]
+  %14 = zext nneg i32 %i.053 to i64
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %14
+  %15 = load i8, ptr %gep, align 1
+  %cmp44.not = icmp ne i8 %15, 0
+  br i1 %cmp44.not, label %for.end, label %for.inc
 
-land.rhs:                                         ; preds = %for.cond
-  %15 = add nsw i64 %indvars.iv, -1
-  %arrayidx = getelementptr inbounds i8, ptr %min, i64 %15
-  %16 = load i8, ptr %arrayidx, align 1
-  %cmp44 = icmp eq i8 %16, 0
-  br i1 %cmp44, label %for.cond, label %for.end, !llvm.loop !9
+for.inc:                                          ; preds = %land.rhs
+  %dec = add nsw i32 %i.053, -1
+  %cmp41 = icmp sgt i32 %i.053, 1
+  br i1 %cmp41, label %land.rhs, label %for.end, !llvm.loop !9
 
-for.end:                                          ; preds = %for.cond, %land.rhs
-  %i.0.lcssa = phi i32 [ %smin.i, %for.cond ], [ %14, %land.rhs ]
-  %17 = load ptr, ptr %u, align 8
-  %18 = load ptr, ptr %17, align 8
-  %call48 = tail call i32 @ASN1_BIT_STRING_set(ptr noundef %18, ptr noundef %min, i32 noundef %i.0.lcssa) #15
+for.end:                                          ; preds = %land.rhs, %for.inc, %if.end40
+  %i.0.lcssa = phi i32 [ %length, %if.end40 ], [ 0, %for.inc ], [ %i.053, %land.rhs ]
+  %cmp41.lcssa = phi i1 [ false, %if.end40 ], [ %cmp44.not, %for.inc ], [ %cmp44.not, %land.rhs ]
+  %16 = load ptr, ptr %u, align 8
+  %17 = load ptr, ptr %16, align 8
+  %call48 = tail call i32 @ASN1_BIT_STRING_set(ptr noundef %17, ptr noundef %min, i32 noundef %i.0.lcssa) #15
   %tobool.not = icmp eq i32 %call48, 0
   br i1 %tobool.not, label %err, label %if.end50
 
 if.end50:                                         ; preds = %for.end
-  %19 = load ptr, ptr %u, align 8
-  %20 = load ptr, ptr %19, align 8
-  tail call void @ossl_asn1_string_set_bits_left(ptr noundef %20, i32 noundef 0) #15
-  br i1 %cmp41, label %if.then55, label %for.cond67.preheader
+  %18 = load ptr, ptr %u, align 8
+  %19 = load ptr, ptr %18, align 8
+  tail call void @ossl_asn1_string_set_bits_left(ptr noundef %19, i32 noundef 0) #15
+  br i1 %cmp41.lcssa, label %if.then55, label %if.end66
 
 if.then55:                                        ; preds = %if.end50
-  %sub56 = add nsw i32 %i.0.lcssa, -1
-  %idxprom57 = zext nneg i32 %sub56 to i64
-  %arrayidx58 = getelementptr inbounds i8, ptr %min, i64 %idxprom57
-  %21 = load i8, ptr %arrayidx58, align 1
-  %conv59 = zext i8 %21 to i32
+  %20 = zext nneg i32 %i.0.lcssa to i64
+  %21 = getelementptr i8, ptr %min, i64 %20
+  %arrayidx58 = getelementptr i8, ptr %21, i64 -1
+  %22 = load i8, ptr %arrayidx58, align 1
+  %conv59 = zext i8 %22 to i32
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond, %if.then55
@@ -892,32 +894,34 @@ while.cond:                                       ; preds = %while.cond, %if.the
 while.end:                                        ; preds = %while.cond
   %sub62 = sub nsw i32 8, %j.0
   %conv63 = sext i32 %sub62 to i64
-  %22 = load ptr, ptr %u, align 8
-  %23 = load ptr, ptr %22, align 8
-  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %23, i64 0, i32 3
-  %24 = load i64, ptr %flags, align 8
-  %or = or i64 %24, %conv63
+  %23 = load ptr, ptr %u, align 8
+  %24 = load ptr, ptr %23, align 8
+  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %24, i64 0, i32 3
+  %25 = load i64, ptr %flags, align 8
+  %or = or i64 %25, %conv63
   store i64 %or, ptr %flags, align 8
-  br label %for.cond67.preheader
+  br label %if.end66
 
-for.cond67.preheader:                             ; preds = %while.end, %if.end50
-  br label %for.cond67
+if.end66:                                         ; preds = %while.end, %if.end50
+  %invariant.gep58 = getelementptr i8, ptr %max, i64 -1
+  br i1 %cmp31.i, label %land.rhs70, label %for.end81
 
-for.cond67:                                       ; preds = %for.cond67.preheader, %land.rhs70
-  %indvars.iv59 = phi i64 [ %26, %land.rhs70 ], [ %conv, %for.cond67.preheader ]
-  %25 = trunc i64 %indvars.iv59 to i32
-  %cmp68 = icmp sgt i32 %25, 0
-  br i1 %cmp68, label %land.rhs70, label %for.end81
+land.rhs70:                                       ; preds = %if.end66, %for.inc79
+  %i.161 = phi i32 [ %dec80, %for.inc79 ], [ %length, %if.end66 ]
+  %26 = zext nneg i32 %i.161 to i64
+  %gep59 = getelementptr i8, ptr %invariant.gep58, i64 %26
+  %27 = load i8, ptr %gep59, align 1
+  %cmp75.not = icmp ne i8 %27, -1
+  br i1 %cmp75.not, label %for.end81, label %for.inc79
 
-land.rhs70:                                       ; preds = %for.cond67
-  %26 = add nsw i64 %indvars.iv59, -1
-  %arrayidx73 = getelementptr inbounds i8, ptr %max, i64 %26
-  %27 = load i8, ptr %arrayidx73, align 1
-  %cmp75 = icmp eq i8 %27, -1
-  br i1 %cmp75, label %for.cond67, label %for.end81, !llvm.loop !11
+for.inc79:                                        ; preds = %land.rhs70
+  %dec80 = add nsw i32 %i.161, -1
+  %cmp68 = icmp sgt i32 %i.161, 1
+  br i1 %cmp68, label %land.rhs70, label %for.end81, !llvm.loop !11
 
-for.end81:                                        ; preds = %for.cond67, %land.rhs70
-  %i.1.lcssa = phi i32 [ %smin.i, %for.cond67 ], [ %25, %land.rhs70 ]
+for.end81:                                        ; preds = %land.rhs70, %for.inc79, %if.end66
+  %i.1.lcssa = phi i32 [ %length, %if.end66 ], [ 0, %for.inc79 ], [ %i.161, %land.rhs70 ]
+  %cmp68.lcssa = phi i1 [ false, %if.end66 ], [ %cmp75.not, %for.inc79 ], [ %cmp75.not, %land.rhs70 ]
   %28 = load ptr, ptr %u, align 8
   %max83 = getelementptr inbounds %struct.IPAddressRange_st, ptr %28, i64 0, i32 1
   %29 = load ptr, ptr %max83, align 8
@@ -930,14 +934,14 @@ if.end87:                                         ; preds = %for.end81
   %max89 = getelementptr inbounds %struct.IPAddressRange_st, ptr %30, i64 0, i32 1
   %31 = load ptr, ptr %max89, align 8
   tail call void @ossl_asn1_string_set_bits_left(ptr noundef %31, i32 noundef 0) #15
-  br i1 %cmp68, label %if.then92, label %if.end114
+  br i1 %cmp68.lcssa, label %if.then92, label %if.end114
 
 if.then92:                                        ; preds = %if.end87
-  %sub94 = add nsw i32 %i.1.lcssa, -1
-  %idxprom95 = zext nneg i32 %sub94 to i64
-  %arrayidx96 = getelementptr inbounds i8, ptr %max, i64 %idxprom95
-  %32 = load i8, ptr %arrayidx96, align 1
-  %conv99 = zext i8 %32 to i32
+  %32 = zext nneg i32 %i.1.lcssa to i64
+  %33 = getelementptr i8, ptr %max, i64 %32
+  %arrayidx96 = getelementptr i8, ptr %33, i64 -1
+  %34 = load i8, ptr %arrayidx96, align 1
+  %conv99 = zext i8 %34 to i32
   br label %while.cond98
 
 while.cond98:                                     ; preds = %while.cond98, %if.then92
@@ -951,12 +955,12 @@ while.cond98:                                     ; preds = %while.cond98, %if.t
 while.end107:                                     ; preds = %while.cond98
   %sub108 = sub nsw i32 8, %j97.0
   %conv109 = sext i32 %sub108 to i64
-  %33 = load ptr, ptr %u, align 8
-  %max111 = getelementptr inbounds %struct.IPAddressRange_st, ptr %33, i64 0, i32 1
-  %34 = load ptr, ptr %max111, align 8
-  %flags112 = getelementptr inbounds %struct.asn1_string_st, ptr %34, i64 0, i32 3
-  %35 = load i64, ptr %flags112, align 8
-  %or113 = or i64 %35, %conv109
+  %35 = load ptr, ptr %u, align 8
+  %max111 = getelementptr inbounds %struct.IPAddressRange_st, ptr %35, i64 0, i32 1
+  %36 = load ptr, ptr %max111, align 8
+  %flags112 = getelementptr inbounds %struct.asn1_string_st, ptr %36, i64 0, i32 3
+  %37 = load i64, ptr %flags112, align 8
+  %or113 = or i64 %37, %conv109
   store i64 %or113, ptr %flags112, align 8
   br label %if.end114
 

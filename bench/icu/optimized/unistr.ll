@@ -3534,11 +3534,11 @@ if.else.i:                                        ; preds = %if.then4.i
   br i1 %cmp18.i, label %land.lhs.true19.i, label %_ZNK6icu_7513UnicodeString8char32AtEi.exit
 
 land.lhs.true19.i:                                ; preds = %if.else.i
-  %sub20.i = add nsw i32 %offset, -1
-  %idxprom21.i = zext nneg i32 %sub20.i to i64
-  %arrayidx22.i = getelementptr inbounds i16, ptr %cond.i14.i, i64 %idxprom21.i
-  %7 = load i16, ptr %arrayidx22.i, align 2
-  %conv23.i = zext i16 %7 to i32
+  %7 = zext nneg i32 %offset to i64
+  %8 = getelementptr i16, ptr %cond.i14.i, i64 %7
+  %arrayidx22.i = getelementptr i16, ptr %8, i64 -1
+  %9 = load i16, ptr %arrayidx22.i, align 2
+  %conv23.i = zext i16 %9 to i32
   %and24.i = and i32 %conv23.i, 64512
   %cmp25.i = icmp eq i32 %and24.i, 55296
   br i1 %cmp25.i, label %if.then26.i, label %_ZNK6icu_7513UnicodeString8char32AtEi.exit
@@ -3613,11 +3613,11 @@ if.else:                                          ; preds = %if.then4
   br i1 %cmp18, label %land.lhs.true19, label %return
 
 land.lhs.true19:                                  ; preds = %if.else
-  %sub20 = add nsw i32 %offset, -1
-  %idxprom21 = zext nneg i32 %sub20 to i64
-  %arrayidx22 = getelementptr inbounds i16, ptr %cond.i14, i64 %idxprom21
-  %7 = load i16, ptr %arrayidx22, align 2
-  %conv23 = zext i16 %7 to i32
+  %7 = zext nneg i32 %offset to i64
+  %8 = getelementptr i16, ptr %cond.i14, i64 %7
+  %arrayidx22 = getelementptr i16, ptr %8, i64 -1
+  %9 = load i16, ptr %arrayidx22, align 2
+  %conv23 = zext i16 %9 to i32
   %and24 = and i32 %conv23, 64512
   %cmp25 = icmp eq i32 %and24, 55296
   br i1 %cmp25, label %if.then26, label %return
@@ -3664,13 +3664,12 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond, label %land.lhs.true5, label %return
 
 land.lhs.true5:                                   ; preds = %if.then
-  %sub = add nsw i32 %offset, -1
-  %idxprom6 = zext nneg i32 %sub to i64
-  %arrayidx7 = getelementptr inbounds i16, ptr %cond.i7, i64 %idxprom6
+  %arrayidx7 = getelementptr i16, ptr %arrayidx, i64 -1
   %7 = load i16, ptr %arrayidx7, align 2
   %8 = and i16 %7, -1024
   %cmp10 = icmp eq i16 %8, -10240
-  %spec.select = select i1 %cmp10, i32 %sub, i32 %offset
+  %dec = sext i1 %cmp10 to i32
+  %spec.select = add nsw i32 %dec, %offset
   br label %return
 
 return:                                           ; preds = %land.lhs.true5, %entry, %if.then
@@ -3693,30 +3692,28 @@ entry:
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %3 = and i16 %0, 2
-  %tobool.not.i = icmp eq i16 %3, 0
-  %fBuffer.i = getelementptr inbounds i8, ptr %this, i64 10
-  %fArray.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this, i64 0, i32 1, i32 0, i32 3
-  %4 = load ptr, ptr %fArray.i, align 8
-  %cond.i12 = select i1 %tobool.not.i, ptr %4, ptr %fBuffer.i
   %cmp3 = icmp sgt i32 %offset, 0
   br i1 %cmp3, label %land.lhs.true6, label %return
 
 land.lhs.true6:                                   ; preds = %if.then
-  %sub = add nsw i32 %offset, -1
-  %idxprom = zext nneg i32 %sub to i64
-  %arrayidx = getelementptr inbounds i16, ptr %cond.i12, i64 %idxprom
-  %5 = load i16, ptr %arrayidx, align 2
-  %6 = and i16 %5, -1024
-  %cmp7 = icmp eq i16 %6, -10240
+  %3 = and i16 %0, 2
+  %tobool.not.i = icmp eq i16 %3, 0
+  %fArray.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this, i64 0, i32 1, i32 0, i32 3
+  %4 = load ptr, ptr %fArray.i, align 8
+  %fBuffer.i = getelementptr inbounds i8, ptr %this, i64 10
+  %cond.i12 = select i1 %tobool.not.i, ptr %4, ptr %fBuffer.i
+  %5 = zext nneg i32 %offset to i64
+  %6 = getelementptr i16, ptr %cond.i12, i64 %5
+  %arrayidx = getelementptr i16, ptr %6, i64 -1
+  %7 = load i16, ptr %arrayidx, align 2
+  %8 = and i16 %7, -1024
+  %cmp7 = icmp eq i16 %8, -10240
   br i1 %cmp7, label %land.lhs.true8, label %return
 
 land.lhs.true8:                                   ; preds = %land.lhs.true6
-  %idxprom9 = zext nneg i32 %offset to i64
-  %arrayidx10 = getelementptr inbounds i16, ptr %cond.i12, i64 %idxprom9
-  %7 = load i16, ptr %arrayidx10, align 2
-  %8 = and i16 %7, -1024
-  %cmp13 = icmp eq i16 %8, -9216
+  %9 = load i16, ptr %6, align 2
+  %10 = and i16 %9, -1024
+  %cmp13 = icmp eq i16 %10, -9216
   %inc = zext i1 %cmp13 to i32
   %spec.select = add nuw nsw i32 %inc, %offset
   br label %return
@@ -3887,6 +3884,7 @@ do.end:                                           ; preds = %land.lhs.true20, %d
   br i1 %cmp8, label %land.rhs, label %if.end62, !llvm.loop !13
 
 do.body31:                                        ; preds = %entry
+  %invariant.gep = getelementptr i16, ptr %cond.i29, i64 -2
   %cmp3431 = icmp ne i32 %delta, 0
   %cmp3632 = icmp sgt i32 %index.addr.0, 0
   %12 = and i1 %cmp3431, %cmp3632
@@ -3910,13 +3908,13 @@ do.body39:                                        ; preds = %do.body39.preheader
   br i1 %or.cond, label %land.lhs.true48, label %do.end58
 
 land.lhs.true48:                                  ; preds = %do.body39
-  %sub49 = add nsw i32 %index.addr.333, -2
-  %idxprom50 = zext nneg i32 %sub49 to i64
-  %arrayidx51 = getelementptr inbounds i16, ptr %cond.i29, i64 %idxprom50
-  %15 = load i16, ptr %arrayidx51, align 2
-  %16 = and i16 %15, -1024
-  %cmp54 = icmp eq i16 %16, -10240
-  %spec.select28 = select i1 %cmp54, i32 %sub49, i32 %dec40
+  %15 = zext nneg i32 %index.addr.333 to i64
+  %gep = getelementptr i16, ptr %invariant.gep, i64 %15
+  %16 = load i16, ptr %gep, align 2
+  %17 = and i16 %16, -1024
+  %cmp54 = icmp eq i16 %17, -10240
+  %dec56 = add nsw i32 %index.addr.333, -2
+  %spec.select28 = select i1 %cmp54, i32 %dec56, i32 %dec40
   br label %do.end58
 
 do.end58:                                         ; preds = %land.lhs.true48, %do.body39
@@ -3924,8 +3922,8 @@ do.end58:                                         ; preds = %land.lhs.true48, %d
   %dec59 = add nsw i32 %__N32.034, -1
   %cmp34 = icmp sgt i32 %__N32.034, 1
   %cmp36 = icmp sgt i32 %index.addr.4, 0
-  %17 = select i1 %cmp34, i1 %cmp36, i1 false
-  br i1 %17, label %do.body39, label %if.end62, !llvm.loop !14
+  %18 = select i1 %cmp34, i1 %cmp36, i1 false
+  br i1 %18, label %do.body39, label %if.end62, !llvm.loop !14
 
 if.end62:                                         ; preds = %do.end58, %do.end, %land.rhs, %do.end.us, %land.rhs.us, %do.body31
   %index.addr.5 = phi i32 [ %index.addr.0, %do.body31 ], [ %index.addr.2.us, %do.end.us ], [ %index.addr.135.us, %land.rhs.us ], [ %index.addr.135, %land.rhs ], [ %index.addr.2, %do.end ], [ %index.addr.4, %do.end58 ]

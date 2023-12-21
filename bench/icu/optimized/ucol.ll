@@ -218,11 +218,11 @@ lor.lhs.false4:                                   ; preds = %entry
   br i1 %cmp5, label %land.lhs.true, label %lor.lhs.false7
 
 land.lhs.true:                                    ; preds = %lor.lhs.false4
-  %sub = add nsw i32 %src1Length, -1
-  %idxprom = zext nneg i32 %sub to i64
-  %arrayidx = getelementptr inbounds i8, ptr %src1, i64 %idxprom
-  %0 = load i8, ptr %arrayidx, align 1
-  %cmp6 = icmp ne i8 %0, 0
+  %0 = zext nneg i32 %src1Length to i64
+  %1 = getelementptr i8, ptr %src1, i64 %0
+  %arrayidx = getelementptr i8, ptr %1, i64 -1
+  %2 = load i8, ptr %arrayidx, align 1
+  %cmp6 = icmp ne i8 %2, 0
   %cmp8 = icmp eq ptr %src2, null
   %or.cond2 = or i1 %cmp8, %cmp6
   br i1 %or.cond2, label %if.then, label %lor.lhs.false9
@@ -242,11 +242,11 @@ lor.lhs.false13:                                  ; preds = %lor.lhs.false9
   br i1 %cmp14, label %land.lhs.true15, label %lor.lhs.false21
 
 land.lhs.true15:                                  ; preds = %lor.lhs.false13
-  %sub16 = add nsw i32 %src2Length, -1
-  %idxprom17 = zext nneg i32 %sub16 to i64
-  %arrayidx18 = getelementptr inbounds i8, ptr %src2, i64 %idxprom17
-  %1 = load i8, ptr %arrayidx18, align 1
-  %cmp20 = icmp ne i8 %1, 0
+  %3 = zext nneg i32 %src2Length to i64
+  %4 = getelementptr i8, ptr %src2, i64 %3
+  %arrayidx18 = getelementptr i8, ptr %4, i64 -1
+  %5 = load i8, ptr %arrayidx18, align 1
+  %cmp20 = icmp ne i8 %5, 0
   %cmp22 = icmp slt i32 %destCapacity, 0
   %or.cond6 = or i1 %cmp22, %cmp20
   br i1 %or.cond6, label %if.then, label %lor.lhs.false23
@@ -302,19 +302,19 @@ for.cond:                                         ; preds = %if.end41, %if.then6
   %src2.addr.0 = phi ptr [ %incdec.ptr64, %if.then62 ], [ %src2, %if.end41 ]
   %src1.addr.0 = phi ptr [ %incdec.ptr63, %if.then62 ], [ %src1, %if.end41 ]
   %p.0 = phi ptr [ %incdec.ptr65, %if.then62 ], [ %dest, %if.end41 ]
-  %2 = load i8, ptr %src1.addr.0, align 1
-  %cmp4756 = icmp ugt i8 %2, 1
+  %6 = load i8, ptr %src1.addr.0, align 1
+  %cmp4756 = icmp ugt i8 %6, 1
   br i1 %cmp4756, label %while.body, label %while.end
 
 while.body:                                       ; preds = %for.cond, %while.body
-  %3 = phi i8 [ %4, %while.body ], [ %2, %for.cond ]
+  %7 = phi i8 [ %8, %while.body ], [ %6, %for.cond ]
   %p.158 = phi ptr [ %incdec.ptr48, %while.body ], [ %p.0, %for.cond ]
   %src1.addr.157 = phi ptr [ %incdec.ptr, %while.body ], [ %src1.addr.0, %for.cond ]
   %incdec.ptr = getelementptr inbounds i8, ptr %src1.addr.157, i64 1
   %incdec.ptr48 = getelementptr inbounds i8, ptr %p.158, i64 1
-  store i8 %3, ptr %p.158, align 1
-  %4 = load i8, ptr %incdec.ptr, align 1
-  %cmp47 = icmp ugt i8 %4, 1
+  store i8 %7, ptr %p.158, align 1
+  %8 = load i8, ptr %incdec.ptr, align 1
+  %cmp47 = icmp ugt i8 %8, 1
   br i1 %cmp47, label %while.body, label %while.end, !llvm.loop !4
 
 while.end:                                        ; preds = %while.body, %for.cond
@@ -322,28 +322,28 @@ while.end:                                        ; preds = %while.body, %for.co
   %p.1.lcssa = phi ptr [ %p.0, %for.cond ], [ %incdec.ptr48, %while.body ]
   store i8 2, ptr %p.1.lcssa, align 1
   %p.260 = getelementptr inbounds i8, ptr %p.1.lcssa, i64 1
-  %5 = load i8, ptr %src2.addr.0, align 1
-  %cmp5261 = icmp ugt i8 %5, 1
+  %9 = load i8, ptr %src2.addr.0, align 1
+  %cmp5261 = icmp ugt i8 %9, 1
   br i1 %cmp5261, label %while.body53, label %while.end56
 
 while.body53:                                     ; preds = %while.end, %while.body53
-  %6 = phi i8 [ %7, %while.body53 ], [ %5, %while.end ]
+  %10 = phi i8 [ %11, %while.body53 ], [ %9, %while.end ]
   %p.263 = phi ptr [ %p.2, %while.body53 ], [ %p.260, %while.end ]
   %src2.addr.162 = phi ptr [ %incdec.ptr54, %while.body53 ], [ %src2.addr.0, %while.end ]
   %incdec.ptr54 = getelementptr inbounds i8, ptr %src2.addr.162, i64 1
-  store i8 %6, ptr %p.263, align 1
+  store i8 %10, ptr %p.263, align 1
   %p.2 = getelementptr inbounds i8, ptr %p.263, i64 1
-  %7 = load i8, ptr %incdec.ptr54, align 1
-  %cmp52 = icmp ugt i8 %7, 1
+  %11 = load i8, ptr %incdec.ptr54, align 1
+  %cmp52 = icmp ugt i8 %11, 1
   br i1 %cmp52, label %while.body53, label %while.end56, !llvm.loop !6
 
 while.end56:                                      ; preds = %while.body53, %while.end
   %src2.addr.1.lcssa = phi ptr [ %src2.addr.0, %while.end ], [ %incdec.ptr54, %while.body53 ]
   %p.1.pn.lcssa = phi ptr [ %p.1.lcssa, %while.end ], [ %p.263, %while.body53 ]
   %p.2.lcssa = phi ptr [ %p.260, %while.end ], [ %p.2, %while.body53 ]
-  %.lcssa = phi i8 [ %5, %while.end ], [ %7, %while.body53 ]
-  %8 = load i8, ptr %src1.addr.1.lcssa, align 1
-  %cmp58 = icmp eq i8 %8, 1
+  %.lcssa = phi i8 [ %9, %while.end ], [ %11, %while.body53 ]
+  %12 = load i8, ptr %src1.addr.1.lcssa, align 1
+  %cmp58 = icmp eq i8 %12, 1
   %cmp61 = icmp ne i8 %.lcssa, 0
   %or.cond51 = and i1 %cmp61, %cmp58
   br i1 %or.cond51, label %if.then62, label %for.end
@@ -356,7 +356,7 @@ if.then62:                                        ; preds = %while.end56
   br label %for.cond, !llvm.loop !7
 
 for.end:                                          ; preds = %while.end56
-  %cmp68.not = icmp eq i8 %8, 0
+  %cmp68.not = icmp eq i8 %12, 0
   %spec.select = select i1 %cmp68.not, ptr %src2.addr.1.lcssa, ptr %src1.addr.1.lcssa
   br label %while.cond71
 
@@ -364,10 +364,10 @@ while.cond71:                                     ; preds = %while.cond71, %for.
   %src2.addr.3 = phi ptr [ %spec.select, %for.end ], [ %incdec.ptr72, %while.cond71 ]
   %p.3 = phi ptr [ %p.2.lcssa, %for.end ], [ %incdec.ptr73, %while.cond71 ]
   %incdec.ptr72 = getelementptr inbounds i8, ptr %src2.addr.3, i64 1
-  %9 = load i8, ptr %src2.addr.3, align 1
+  %13 = load i8, ptr %src2.addr.3, align 1
   %incdec.ptr73 = getelementptr inbounds i8, ptr %p.3, i64 1
-  store i8 %9, ptr %p.3, align 1
-  %cmp75.not = icmp eq i8 %9, 0
+  store i8 %13, ptr %p.3, align 1
+  %cmp75.not = icmp eq i8 %13, 0
   br i1 %cmp75.not, label %while.end77, label %while.cond71, !llvm.loop !8
 
 while.end77:                                      ; preds = %while.cond71
@@ -482,30 +482,26 @@ do.body26:                                        ; preds = %if.end21
 
 sw.bb30:                                          ; preds = %do.body26
   %inc31 = add nuw nsw i32 %sourceIndex.047, 2
-  br label %sw.epilog.sink.split
+  %arrayidx33 = getelementptr inbounds i8, ptr %result, i64 %indvars.iv.next
+  store i8 2, ptr %arrayidx33, align 1
+  br label %sw.epilog
 
 sw.bb34:                                          ; preds = %do.body26
-  %inc35 = add nuw i64 %indvars.iv, 2
   %arrayidx37 = getelementptr inbounds i8, ptr %result, i64 %indvars.iv.next
   store i8 -1, ptr %arrayidx37, align 1
   %inc38 = add nuw nsw i32 %sourceIndex.047, 3
-  %idxprom39 = and i64 %inc35, 4294967295
-  br label %sw.epilog.sink.split
+  %4 = and i64 %indvars.iv, 4294967295
+  %5 = getelementptr i8, ptr %result, i64 %4
+  %arrayidx40 = getelementptr i8, ptr %5, i64 2
+  store i8 -1, ptr %arrayidx40, align 1
+  br label %sw.epilog
 
 sw.default:                                       ; preds = %do.body26
   store i32 1, ptr %status, align 4
   br label %return
 
-sw.epilog.sink.split:                             ; preds = %sw.bb30, %sw.bb34
-  %idxprom39.sink = phi i64 [ %idxprom39, %sw.bb34 ], [ %indvars.iv.next, %sw.bb30 ]
-  %.sink = phi i8 [ -1, %sw.bb34 ], [ 2, %sw.bb30 ]
-  %sourceIndex.1.ph = phi i32 [ %inc38, %sw.bb34 ], [ %inc31, %sw.bb30 ]
-  %arrayidx40 = getelementptr inbounds i8, ptr %result, i64 %idxprom39.sink
-  store i8 %.sink, ptr %arrayidx40, align 1
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %sw.epilog.sink.split, %do.body26
-  %sourceIndex.1 = phi i32 [ %inc45, %do.body26 ], [ %sourceIndex.1.ph, %sw.epilog.sink.split ]
+sw.epilog:                                        ; preds = %do.body26, %sw.bb34, %sw.bb30
+  %sourceIndex.1 = phi i32 [ %inc38, %sw.bb34 ], [ %inc31, %sw.bb30 ], [ %inc45, %do.body26 ]
   %inc41 = add nsw i32 %sourceIndex.1, 1
   %idxprom42 = sext i32 %sourceIndex.1 to i64
   %arrayidx43 = getelementptr inbounds i8, ptr %result, i64 %idxprom42

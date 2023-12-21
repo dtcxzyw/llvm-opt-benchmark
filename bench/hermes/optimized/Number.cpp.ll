@@ -1961,27 +1961,28 @@ if.end149:                                        ; preds = %if.end132
   br i1 %cmp150, label %if.then151, label %_ZN4llvh9StringRefC2EPKc.exit221
 
 if.then151:                                       ; preds = %for.cond.preheader, %if.end132.thread, %if.end149
-  %e.0147150 = phi i32 [ %40, %if.end149 ], [ 1, %if.end132.thread ], [ 1, %for.cond.preheader ]
+  %e.0147150 = phi i32 [ %sub, %if.end149 ], [ 0, %if.end132.thread ], [ 0, %for.cond.preheader ]
   %50 = load ptr, ptr %n, align 8
-  %idx.ext = zext nneg i32 %e.0147150 to i64
-  %add.ptr153 = getelementptr inbounds i8, ptr %50, i64 %idx.ext
+  %51 = zext nneg i32 %e.0147150 to i64
+  %52 = getelementptr i8, ptr %50, i64 %51
+  %add.ptr153 = getelementptr i8, ptr %52, i64 1
   store i8 46, ptr %ref.tmp154, align 1
-  %call155 = call noundef ptr @_ZN4llvh15SmallVectorImplIcE6insertEPcOc(ptr noundef nonnull align 8 dereferenceable(16) %n, ptr noundef nonnull %add.ptr153, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp154)
+  %call155 = call noundef ptr @_ZN4llvh15SmallVectorImplIcE6insertEPcOc(ptr noundef nonnull align 8 dereferenceable(16) %n, ptr noundef %add.ptr153, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp154)
   br i1 %cmp85, label %if.then157, label %if.end161
 
 if.then157:                                       ; preds = %if.then151
-  %51 = load ptr, ptr %n, align 8
+  %53 = load ptr, ptr %n, align 8
   store i8 45, ptr %ref.tmp159, align 1
-  %call160 = call noundef ptr @_ZN4llvh15SmallVectorImplIcE6insertEPcOc(ptr noundef nonnull align 8 dereferenceable(16) %n, ptr noundef %51, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp159)
+  %call160 = call noundef ptr @_ZN4llvh15SmallVectorImplIcE6insertEPcOc(ptr noundef nonnull align 8 dereferenceable(16) %n, ptr noundef %53, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp159)
   br label %if.end161
 
 if.end161:                                        ; preds = %if.then157, %if.then151
-  %52 = load ptr, ptr %n, align 8
-  %53 = load i32, ptr %Size.i.i.i.i.i.i, align 8
-  %conv.i.i98 = zext i32 %53 to i64
-  %call165 = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIcEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %52, i64 %conv.i.i98)
-  %54 = extractvalue { i32, i64 } %call165, 0
-  %cmp.i.i99 = icmp eq i32 %54, 0
+  %54 = load ptr, ptr %n, align 8
+  %55 = load i32, ptr %Size.i.i.i.i.i.i, align 8
+  %conv.i.i98 = zext i32 %55 to i64
+  %call165 = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIcEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %54, i64 %conv.i.i98)
+  %56 = extractvalue { i32, i64 } %call165, 0
+  %cmp.i.i99 = icmp eq i32 %56, 0
   br i1 %cmp.i.i99, label %if.then.i100, label %cleanup
 
 if.then.i100:                                     ; preds = %if.end161
@@ -2017,10 +2018,10 @@ for.body182.preheader:                            ; preds = %_ZN4llvh15SmallVect
   br label %for.body182
 
 for.body182:                                      ; preds = %for.body182.preheader, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit123
-  %55 = phi i32 [ %add.i122, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit123 ], [ %.pre, %for.body182.preheader ]
+  %57 = phi i32 [ %add.i122, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit123 ], [ %.pre, %for.body182.preheader ]
   %i177.0154 = phi i32 [ %inc185, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit123 ], [ 0, %for.body182.preheader ]
-  %56 = load i32, ptr %Capacity2.i.i.i.i.i.i105, align 4
-  %cmp.not.i116 = icmp ult i32 %55, %56
+  %58 = load i32, ptr %Capacity2.i.i.i.i.i.i105, align 4
+  %cmp.not.i116 = icmp ult i32 %57, %58
   br i1 %cmp.not.i116, label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit123, label %if.then.i117
 
 if.then.i117:                                     ; preds = %for.body182
@@ -2029,13 +2030,13 @@ if.then.i117:                                     ; preds = %for.body182
   br label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit123
 
 _ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit123: ; preds = %for.body182, %if.then.i117
-  %57 = phi i32 [ %.pre.i119, %if.then.i117 ], [ %55, %for.body182 ]
-  %58 = load ptr, ptr %m, align 8
-  %conv.i3.i120 = zext i32 %57 to i64
-  %add.ptr.i.i121 = getelementptr inbounds i8, ptr %58, i64 %conv.i3.i120
+  %59 = phi i32 [ %.pre.i119, %if.then.i117 ], [ %57, %for.body182 ]
+  %60 = load ptr, ptr %m, align 8
+  %conv.i3.i120 = zext i32 %59 to i64
+  %add.ptr.i.i121 = getelementptr inbounds i8, ptr %60, i64 %conv.i3.i120
   store i8 48, ptr %add.ptr.i.i121, align 1
-  %59 = load i32, ptr %Size.i.i.i.i.i.i104, align 8
-  %add.i122 = add i32 %59, 1
+  %61 = load i32, ptr %Size.i.i.i.i.i.i104, align 8
+  %add.i122 = add i32 %61, 1
   store i32 %add.i122, ptr %Size.i.i.i.i.i.i104, align 8
   %inc185 = add nuw nsw i32 %i177.0154, 1
   %exitcond.not = icmp eq i32 %inc185, %sub180
@@ -2046,18 +2047,18 @@ for.end186:                                       ; preds = %_ZN4llvh23SmallVect
   br i1 %cmp85, label %if.then188, label %if.end192
 
 if.then188:                                       ; preds = %for.end186
-  %60 = load ptr, ptr %m, align 8
+  %62 = load ptr, ptr %m, align 8
   store i8 45, ptr %ref.tmp190, align 1
-  %call191 = call noundef ptr @_ZN4llvh15SmallVectorImplIcE6insertEPcOc(ptr noundef nonnull align 8 dereferenceable(16) %m, ptr noundef %60, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp190)
+  %call191 = call noundef ptr @_ZN4llvh15SmallVectorImplIcE6insertEPcOc(ptr noundef nonnull align 8 dereferenceable(16) %m, ptr noundef %62, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp190)
   br label %if.end192
 
 if.end192:                                        ; preds = %if.then188, %for.end186
-  %61 = load ptr, ptr %m, align 8
-  %62 = load i32, ptr %Size.i.i.i.i.i.i104, align 8
-  %conv.i.i126 = zext i32 %62 to i64
-  %call196 = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIcEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %61, i64 %conv.i.i126)
-  %63 = extractvalue { i32, i64 } %call196, 0
-  %cmp.i.i127 = icmp eq i32 %63, 0
+  %63 = load ptr, ptr %m, align 8
+  %64 = load i32, ptr %Size.i.i.i.i.i.i104, align 8
+  %conv.i.i126 = zext i32 %64 to i64
+  %call196 = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIcEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %63, i64 %conv.i.i126)
+  %65 = extractvalue { i32, i64 } %call196, 0
+  %cmp.i.i127 = icmp eq i32 %65, 0
   br i1 %cmp.i.i127, label %if.then.i128, label %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit129
 
 if.then.i128:                                     ; preds = %if.end192
@@ -2065,23 +2066,23 @@ if.then.i128:                                     ; preds = %if.end192
   unreachable
 
 _ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit129: ; preds = %if.end192
-  %64 = load ptr, ptr %m, align 8
-  %cmp.i.i.i.i = icmp eq ptr %64, %add.ptr.i.i.i.i.i.i103
+  %66 = load ptr, ptr %m, align 8
+  %cmp.i.i.i.i = icmp eq ptr %66, %add.ptr.i.i.i.i.i.i103
   br i1 %cmp.i.i.i.i, label %cleanup, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit129
-  call void @free(ptr noundef %64) #13
+  call void @free(ptr noundef %66) #13
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i.i.i, %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit129, %if.end161, %if.end141, %if.end123
   %call127.pn = phi { i32, i64 } [ %call127, %if.end123 ], [ %call145, %if.end141 ], [ %call165, %if.end161 ], [ %call196, %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit129 ], [ %call196, %if.then.i.i.i ]
   %retval.sroa.13.0 = extractvalue { i32, i64 } %call127.pn, 1
-  %65 = load ptr, ptr %n, align 8
-  %cmp.i.i.i.i132 = icmp eq ptr %65, %add.ptr.i.i.i.i.i.i
+  %67 = load ptr, ptr %n, align 8
+  %cmp.i.i.i.i132 = icmp eq ptr %67, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i132, label %return, label %if.then.i.i.i133
 
 if.then.i.i.i133:                                 ; preds = %cleanup
-  call void @free(ptr noundef %65) #13
+  call void @free(ptr noundef %67) #13
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i133, %cleanup, %if.end41, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit, %if.then81, %if.then72, %if.then63, %if.then55, %if.end35, %if.then10

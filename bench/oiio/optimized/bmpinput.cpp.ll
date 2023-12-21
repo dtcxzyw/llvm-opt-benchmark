@@ -2512,8 +2512,6 @@ invoke.cont22.lr.ph:                              ; preds = %for.cond.preheader
   %9 = xor i32 %y, -1
   %m_colortable.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::BmpInput", ptr %this, i64 0, i32 6
   %_M_finish.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::BmpInput", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
-  %invariant.gep = getelementptr i8, ptr %data, i64 1
-  %invariant.gep239 = getelementptr i8, ptr %data, i64 2
   br label %invoke.cont22
 
 invoke.cont22:                                    ; preds = %invoke.cont22.lr.ph, %invoke.cont22
@@ -2547,11 +2545,11 @@ invoke.cont22:                                    ; preds = %invoke.cont22.lr.ph
   store i8 %18, ptr %arrayidx, align 1
   %g = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::bmp_pvt::color_table", ptr %16, i64 %conv5.i, i32 1
   %20 = load i8, ptr %g, align 1
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %19
-  store i8 %20, ptr %gep, align 1
+  %arrayidx28 = getelementptr i8, ptr %arrayidx, i64 1
+  store i8 %20, ptr %arrayidx28, align 1
   %21 = load i8, ptr %add.ptr.i.i, align 1
-  %gep240 = getelementptr i8, ptr %invariant.gep239, i64 %19
-  store i8 %21, ptr %gep240, align 1
+  %arrayidx32 = getelementptr i8, ptr %arrayidx, i64 2
+  store i8 %21, ptr %arrayidx32, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = load i32, ptr %width, align 4
   %23 = sext i32 %22 to i64

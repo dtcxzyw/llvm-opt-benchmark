@@ -5134,25 +5134,17 @@ while.body66:                                     ; preds = %while.cond63.prehea
 
 land.lhs.true83:                                  ; preds = %while.body66
   %16 = and i16 %15, 32767
-  %and86 = zext nneg i16 %16 to i32
   %idx.ext87 = zext nneg i16 %16 to i64
   %add.ptr88 = getelementptr inbounds i8, ptr %m_dict, i64 %idx.ext87
-  %17 = load i8, ptr %add.ptr88, align 1
-  %conv89 = zext i8 %17 to i32
-  %add93 = add nuw nsw i32 %and86, 1
-  %idx.ext94 = zext nneg i32 %add93 to i64
-  %add.ptr95 = getelementptr inbounds i8, ptr %m_dict, i64 %idx.ext94
-  %18 = load i8, ptr %add.ptr95, align 1
-  %conv96 = zext i8 %18 to i32
-  %shl = shl nuw nsw i32 %conv96, 8
-  %or = or disjoint i32 %shl, %conv89
-  %add100 = add nuw nsw i32 %and86, 2
-  %idx.ext101 = zext nneg i32 %add100 to i64
+  %17 = load i16, ptr %add.ptr88, align 1
+  %18 = zext i16 %17 to i32
+  %narrow = add nuw i16 %16, 2
+  %idx.ext101 = zext i16 %narrow to i64
   %add.ptr102 = getelementptr inbounds i8, ptr %m_dict, i64 %idx.ext101
   %19 = load i8, ptr %add.ptr102, align 1
   %conv103 = zext i8 %19 to i32
   %shl104 = shl nuw nsw i32 %conv103, 16
-  %or105 = or disjoint i32 %or, %shl104
+  %or105 = or disjoint i32 %shl104, %18
   %cmp106 = icmp eq i32 %or105, %and71
   br i1 %cmp106, label %do.body.preheader, label %if.else217
 

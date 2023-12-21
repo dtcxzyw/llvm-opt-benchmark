@@ -205,24 +205,23 @@ for.body.i:                                       ; preds = %for.body.i, %Hacl_I
 Hacl_Impl_SHA3_loadState.exit:                    ; preds = %for.body.i
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %block.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %nextBlock_, i8 0, i64 200, i1 false)
-  %sub16 = add nsw i32 %input_len, -1
-  %idxprom = zext nneg i32 %sub16 to i64
-  %arrayidx17 = getelementptr i8, ptr %nextBlock_, i64 %idxprom
+  %11 = getelementptr i8, ptr %nextBlock_, i64 %conv.i.i
+  %arrayidx17 = getelementptr i8, ptr %11, i64 -1
   store i8 -128, ptr %arrayidx17, align 1
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %block.i35)
-  %11 = getelementptr i8, ptr %block.i35, i64 %conv.i.i
-  call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 %4, i1 false)
+  %12 = getelementptr i8, ptr %block.i35, i64 %conv.i.i
+  call void @llvm.memset.p0.i64(ptr align 8 %12, i8 0, i64 %4, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %block.i35, ptr noundef nonnull align 16 dereferenceable(1) %nextBlock_, i64 %conv.i.i, i1 false)
   br label %for.body.i37
 
 for.body.i37:                                     ; preds = %for.body.i37, %Hacl_Impl_SHA3_loadState.exit
   %indvars.iv.i38 = phi i64 [ 0, %Hacl_Impl_SHA3_loadState.exit ], [ %indvars.iv.next.i43, %for.body.i37 ]
-  %12 = shl nuw nsw i64 %indvars.iv.i38, 3
-  %add.ptr.i39 = getelementptr i8, ptr %block.i35, i64 %12
+  %13 = shl nuw nsw i64 %indvars.iv.i38, 3
+  %add.ptr.i39 = getelementptr i8, ptr %block.i35, i64 %13
   %add.ptr.val.i40 = load i64, ptr %add.ptr.i39, align 8
   %arrayidx.i41 = getelementptr i64, ptr %s, i64 %indvars.iv.i38
-  %13 = load i64, ptr %arrayidx.i41, align 8
-  %xor.i42 = xor i64 %13, %add.ptr.val.i40
+  %14 = load i64, ptr %arrayidx.i41, align 8
+  %xor.i42 = xor i64 %14, %add.ptr.val.i40
   store i64 %xor.i42, ptr %arrayidx.i41, align 8
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, 25
@@ -234,30 +233,30 @@ Hacl_Impl_SHA3_loadState.exit45:                  ; preds = %for.body.i37
 
 if.end18:                                         ; preds = %switch.lookup
   %conv22 = zext i32 %input_len to i64
-  %14 = icmp ugt i32 %input_len, 199
-  %15 = sub nsw i64 200, %conv22
-  %16 = select i1 %14, i64 0, i64 %15
-  %17 = getelementptr i8, ptr %lastBlock_19, i64 %conv22
-  call void @llvm.memset.p0.i64(ptr align 1 %17, i8 0, i64 %16, i1 false)
+  %15 = icmp ugt i32 %input_len, 199
+  %16 = sub nsw i64 200, %conv22
+  %17 = select i1 %15, i64 0, i64 %16
+  %18 = getelementptr i8, ptr %lastBlock_19, i64 %conv22
+  call void @llvm.memset.p0.i64(ptr align 1 %18, i8 0, i64 %17, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %lastBlock_19, ptr align 1 %input, i64 %conv22, i1 false)
   %arrayidx24 = getelementptr i8, ptr %lastBlock_19, i64 %conv22
   store i8 %., ptr %arrayidx24, align 1
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %block.i46)
   %conv.i47 = zext nneg i32 %switch.load to i64
-  %18 = sub nuw nsw i64 200, %conv.i47
-  %19 = getelementptr i8, ptr %block.i46, i64 %conv.i47
-  call void @llvm.memset.p0.i64(ptr align 8 %19, i8 0, i64 %18, i1 false)
+  %19 = sub nuw nsw i64 200, %conv.i47
+  %20 = getelementptr i8, ptr %block.i46, i64 %conv.i47
+  call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %19, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %block.i46, ptr noundef nonnull align 16 dereferenceable(1) %lastBlock_19, i64 %conv.i47, i1 false)
   br label %for.body.i48
 
 for.body.i48:                                     ; preds = %for.body.i48, %if.end18
   %indvars.iv.i49 = phi i64 [ 0, %if.end18 ], [ %indvars.iv.next.i54, %for.body.i48 ]
-  %20 = shl nuw nsw i64 %indvars.iv.i49, 3
-  %add.ptr.i50 = getelementptr i8, ptr %block.i46, i64 %20
+  %21 = shl nuw nsw i64 %indvars.iv.i49, 3
+  %add.ptr.i50 = getelementptr i8, ptr %block.i46, i64 %21
   %add.ptr.val.i51 = load i64, ptr %add.ptr.i50, align 8
   %arrayidx.i52 = getelementptr i64, ptr %s, i64 %indvars.iv.i49
-  %21 = load i64, ptr %arrayidx.i52, align 8
-  %xor.i53 = xor i64 %21, %add.ptr.val.i51
+  %22 = load i64, ptr %arrayidx.i52, align 8
+  %xor.i53 = xor i64 %22, %add.ptr.val.i51
   store i64 %xor.i53, ptr %arrayidx.i52, align 8
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i49, 1
   %exitcond.not.i55 = icmp eq i64 %indvars.iv.next.i54, 25
@@ -266,24 +265,23 @@ for.body.i48:                                     ; preds = %for.body.i48, %if.e
 Hacl_Impl_SHA3_loadState.exit56:                  ; preds = %for.body.i48
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %block.i46)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %nextBlock_35, i8 0, i64 200, i1 false)
-  %sub38 = add nsw i32 %switch.load, -1
-  %idxprom39 = zext nneg i32 %sub38 to i64
-  %arrayidx40 = getelementptr i8, ptr %nextBlock_35, i64 %idxprom39
+  %23 = getelementptr i8, ptr %nextBlock_35, i64 %conv.i47
+  %arrayidx40 = getelementptr i8, ptr %23, i64 -1
   store i8 -128, ptr %arrayidx40, align 1
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %block.i57)
-  %22 = getelementptr i8, ptr %block.i57, i64 %conv.i47
-  call void @llvm.memset.p0.i64(ptr align 8 %22, i8 0, i64 %18, i1 false)
+  %24 = getelementptr i8, ptr %block.i57, i64 %conv.i47
+  call void @llvm.memset.p0.i64(ptr align 8 %24, i8 0, i64 %19, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %block.i57, ptr noundef nonnull align 16 dereferenceable(1) %nextBlock_35, i64 %conv.i47, i1 false)
   br label %for.body.i59
 
 for.body.i59:                                     ; preds = %for.body.i59, %Hacl_Impl_SHA3_loadState.exit56
   %indvars.iv.i60 = phi i64 [ 0, %Hacl_Impl_SHA3_loadState.exit56 ], [ %indvars.iv.next.i65, %for.body.i59 ]
-  %23 = shl nuw nsw i64 %indvars.iv.i60, 3
-  %add.ptr.i61 = getelementptr i8, ptr %block.i57, i64 %23
+  %25 = shl nuw nsw i64 %indvars.iv.i60, 3
+  %add.ptr.i61 = getelementptr i8, ptr %block.i57, i64 %25
   %add.ptr.val.i62 = load i64, ptr %add.ptr.i61, align 8
   %arrayidx.i63 = getelementptr i64, ptr %s, i64 %indvars.iv.i60
-  %24 = load i64, ptr %arrayidx.i63, align 8
-  %xor.i64 = xor i64 %24, %add.ptr.val.i62
+  %26 = load i64, ptr %arrayidx.i63, align 8
+  %xor.i64 = xor i64 %26, %add.ptr.val.i62
   store i64 %xor.i64, ptr %arrayidx.i63, align 8
   %indvars.iv.next.i65 = add nuw nsw i64 %indvars.iv.i60, 1
   %exitcond.not.i66 = icmp eq i64 %indvars.iv.next.i65, 25
@@ -1191,37 +1189,37 @@ if.end100:                                        ; preds = %if.else94
 block_len.exit256.thread:                         ; preds = %if.end100.thread, %if.end100.thread582
   %sub101561.ph = phi i32 [ %sub101584, %if.end100.thread582 ], [ %sub101560, %if.end100.thread ]
   %41 = urem i32 %sub101561.ph, 144
-  %mul105631 = sub i32 %sub101561.ph, %41
+  %mul105631 = sub nuw i32 %sub101561.ph, %41
   br label %block_len.exit265
 
 sw.bb1.i262:                                      ; preds = %if.end100.thread585, %if.end100.thread562
   %sub101561.ph602 = phi i32 [ %sub101587, %if.end100.thread585 ], [ %sub101564, %if.end100.thread562 ]
   %42 = urem i32 %sub101561.ph602, 136
-  %mul105641 = sub i32 %sub101561.ph602, %42
+  %mul105641 = sub nuw i32 %sub101561.ph602, %42
   br label %block_len.exit265
 
 sw.bb2.i261:                                      ; preds = %if.end100.thread588, %if.end100.thread566
   %sub101561.ph609 = phi i32 [ %sub101590, %if.end100.thread588 ], [ %sub101568, %if.end100.thread566 ]
   %43 = urem i32 %sub101561.ph609, 104
-  %mul105651 = sub i32 %sub101561.ph609, %43
+  %mul105651 = sub nuw i32 %sub101561.ph609, %43
   br label %block_len.exit265
 
 sw.bb3.i260:                                      ; preds = %if.end100.thread591, %if.end100.thread570
   %sub101561.ph616 = phi i32 [ %sub101593, %if.end100.thread591 ], [ %sub101572, %if.end100.thread570 ]
   %44 = urem i32 %sub101561.ph616, 72
-  %mul105661 = sub i32 %sub101561.ph616, %44
+  %mul105661 = sub nuw i32 %sub101561.ph616, %44
   br label %block_len.exit265
 
 sw.bb4.i259:                                      ; preds = %if.end100.thread594, %if.end100.thread574
   %sub101561.ph623 = phi i32 [ %sub101596, %if.end100.thread594 ], [ %sub101576, %if.end100.thread574 ]
   %45 = urem i32 %sub101561.ph623, 168
-  %mul105671 = sub i32 %sub101561.ph623, %45
+  %mul105671 = sub nuw i32 %sub101561.ph623, %45
   br label %block_len.exit265
 
 sw.bb5.i257:                                      ; preds = %if.end100, %if.end100.thread578
   %sub101561 = phi i32 [ %sub101580, %if.end100.thread578 ], [ %sub101, %if.end100 ]
   %46 = urem i32 %sub101561, 136
-  %mul105 = sub i32 %sub101561, %46
+  %mul105 = sub nuw i32 %sub101561, %46
   br label %block_len.exit265
 
 block_len.exit265:                                ; preds = %block_len.exit256.thread, %sw.bb1.i262, %sw.bb2.i261, %sw.bb3.i260, %sw.bb4.i259, %sw.bb5.i257

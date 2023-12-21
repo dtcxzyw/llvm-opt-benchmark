@@ -2716,22 +2716,21 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef signext i8 @_ZN6icu_7512_GLOBAL__N_113mungeCharNameEPcPKci(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) unnamed_addr #10 {
 entry:
+  %invariant.gep = getelementptr i8, ptr %dst, i64 -1
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %if.end10, %entry
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end10 ], [ 0, %entry ]
   %src.addr.0.ph = phi ptr [ %.us-phi, %if.end10 ], [ %src, %entry ]
   %cmp3 = icmp eq i64 %indvars.iv, 0
-  %0 = add nuw i64 %indvars.iv, 4294967295
-  %idxprom = and i64 %0, 4294967295
-  %arrayidx = getelementptr inbounds i8, ptr %dst, i64 %idxprom
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
   br i1 %cmp3, label %while.cond.us, label %while.cond
 
 while.cond.us:                                    ; preds = %while.cond.outer, %while.cond.us
   %src.addr.0.us = phi ptr [ %incdec.ptr.us, %while.cond.us ], [ %src.addr.0.ph, %while.cond.outer ]
   %incdec.ptr.us = getelementptr inbounds i8, ptr %src.addr.0.us, i64 1
-  %1 = load i8, ptr %src.addr.0.us, align 1
-  switch i8 %1, label %if.end [
+  %0 = load i8, ptr %src.addr.0.us, align 1
+  switch i8 %0, label %if.end [
     i8 0, label %if.end22
     i8 32, label %while.cond.us
   ], !llvm.loop !12
@@ -2739,20 +2738,20 @@ while.cond.us:                                    ; preds = %while.cond.outer, %
 while.cond:                                       ; preds = %while.cond.outer, %land.lhs.true
   %src.addr.0 = phi ptr [ %incdec.ptr, %land.lhs.true ], [ %src.addr.0.ph, %while.cond.outer ]
   %incdec.ptr = getelementptr inbounds i8, ptr %src.addr.0, i64 1
-  %2 = load i8, ptr %src.addr.0, align 1
-  switch i8 %2, label %if.end [
+  %1 = load i8, ptr %src.addr.0, align 1
+  switch i8 %1, label %if.end [
     i8 0, label %while.end
     i8 32, label %land.lhs.true
   ]
 
 land.lhs.true:                                    ; preds = %while.cond
-  %3 = load i8, ptr %arrayidx, align 1
-  %cmp7 = icmp eq i8 %3, 32
+  %2 = load i8, ptr %gep, align 1
+  %cmp7 = icmp eq i8 %2, 32
   br i1 %cmp7, label %while.cond, label %if.end, !llvm.loop !12
 
 if.end:                                           ; preds = %land.lhs.true, %while.cond, %while.cond.us
   %.us-phi = phi ptr [ %incdec.ptr.us, %while.cond.us ], [ %incdec.ptr, %while.cond ], [ %incdec.ptr, %land.lhs.true ]
-  %.us-phi21 = phi i8 [ %1, %while.cond.us ], [ 32, %land.lhs.true ], [ %2, %while.cond ]
+  %.us-phi21 = phi i8 [ %0, %while.cond.us ], [ 32, %land.lhs.true ], [ %1, %while.cond ]
   %exitcond = icmp eq i64 %indvars.iv, 127
   br i1 %exitcond, label %return, label %if.end10
 
@@ -2763,22 +2762,24 @@ if.end10:                                         ; preds = %if.end
   br label %while.cond.outer, !llvm.loop !12
 
 while.end:                                        ; preds = %while.cond
-  %4 = trunc i64 %indvars.iv to i32
-  %cmp13 = icmp sgt i32 %4, 0
+  %3 = trunc i64 %indvars.iv to i32
+  %cmp13 = icmp sgt i32 %3, 0
   br i1 %cmp13, label %land.lhs.true14, label %if.end22
 
 land.lhs.true14:                                  ; preds = %while.end
-  %sub15 = add nsw i32 %4, -1
-  %idxprom16 = zext nneg i32 %sub15 to i64
-  %arrayidx17 = getelementptr inbounds i8, ptr %dst, i64 %idxprom16
-  %5 = load i8, ptr %arrayidx17, align 1
-  %cmp19 = icmp eq i8 %5, 32
-  %spec.select = select i1 %cmp19, i32 %sub15, i32 %4
+  %4 = and i64 %indvars.iv, 4294967295
+  %5 = getelementptr i8, ptr %dst, i64 %4
+  %arrayidx17 = getelementptr i8, ptr %5, i64 -1
+  %6 = load i8, ptr %arrayidx17, align 1
+  %cmp19 = icmp eq i8 %6, 32
+  %dec21 = sext i1 %cmp19 to i64
+  %spec.select = add i64 %indvars.iv, %dec21
   br label %if.end22
 
 if.end22:                                         ; preds = %while.cond.us, %land.lhs.true14, %while.end
-  %j.1 = phi i32 [ %4, %while.end ], [ %spec.select, %land.lhs.true14 ], [ 0, %while.cond.us ]
-  %idxprom23 = sext i32 %j.1 to i64
+  %j.1 = phi i64 [ %indvars.iv, %while.end ], [ %spec.select, %land.lhs.true14 ], [ 0, %while.cond.us ]
+  %sext = shl i64 %j.1, 32
+  %idxprom23 = ashr exact i64 %sext, 32
   %arrayidx24 = getelementptr inbounds i8, ptr %dst, i64 %idxprom23
   store i8 0, ptr %arrayidx24, align 1
   br label %return

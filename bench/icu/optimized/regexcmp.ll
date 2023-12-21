@@ -2005,15 +2005,16 @@ if.then205:                                       ; preds = %if.else202
 land.lhs.true210:                                 ; preds = %if.then205
   %chunkContents213 = getelementptr inbounds %struct.UText, ptr %123, i64 0, i32 10
   %125 = load ptr, ptr %chunkContents213, align 8
-  %sub217 = add nsw i32 %124, -1
-  %idxprom = zext nneg i32 %sub217 to i64
-  %arrayidx218 = getelementptr inbounds i16, ptr %125, i64 %idxprom
-  %126 = load i16, ptr %arrayidx218, align 2
-  %cmp220 = icmp ult i16 %126, -10240
+  %126 = zext nneg i32 %124 to i64
+  %127 = getelementptr i16, ptr %125, i64 %126
+  %arrayidx218 = getelementptr i16, ptr %127, i64 -1
+  %128 = load i16, ptr %arrayidx218, align 2
+  %cmp220 = icmp ult i16 %128, -10240
   br i1 %cmp220, label %cond.true221, label %cond.false231
 
 cond.true221:                                     ; preds = %land.lhs.true210
-  store i32 %sub217, ptr %chunkOffset208, align 8
+  %dec = add nsw i32 %124, -1
+  store i32 %dec, ptr %chunkOffset208, align 8
   br label %if.end250
 
 cond.false231:                                    ; preds = %land.lhs.true210, %if.then205
@@ -2026,19 +2027,19 @@ if.else237:                                       ; preds = %if.else202
   br i1 %cmp240.not, label %if.end250, label %if.then241
 
 if.then241:                                       ; preds = %if.else237
-  %127 = load ptr, ptr %fRXPat, align 8
-  %fPattern243 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %127, i64 0, i32 1
-  %128 = load ptr, ptr %fPattern243, align 8
-  %129 = xor i32 %121, -1
-  %sub246 = add i32 %120, %129
-  %call247 = call signext i8 @utext_moveIndex32_75(ptr noundef %128, i32 noundef %sub246)
+  %129 = load ptr, ptr %fRXPat, align 8
+  %fPattern243 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %129, i64 0, i32 1
+  %130 = load ptr, ptr %fPattern243, align 8
+  %131 = xor i32 %121, -1
+  %sub246 = add i32 %120, %131
+  %call247 = call signext i8 @utext_moveIndex32_75(ptr noundef %130, i32 noundef %sub246)
   br label %if.end250
 
 if.end250:                                        ; preds = %cond.false231, %cond.true221, %if.then241, %if.else237, %if.then201
-  %130 = load i32, ptr %offset, align 4
-  %conv251 = sext i32 %130 to i64
-  %131 = load i64, ptr %fCharNum.i, align 8
-  %add253 = add nsw i64 %131, %conv251
+  %132 = load i32, ptr %offset, align 4
+  %conv251 = sext i32 %132 to i64
+  %133 = load i64, ptr %fCharNum.i, align 8
+  %add253 = add nsw i64 %133, %conv251
   store i64 %add253, ptr %fCharNum.i, align 8
   br label %if.end298
 
@@ -2046,34 +2047,34 @@ if.else255:                                       ; preds = %_ZN6icu_7512RegexCo
   br i1 %cmp.i224, label %if.end.i.i226, label %_ZN6icu_7512RegexCompile10peekCharLLEv.exit257
 
 if.end.i.i226:                                    ; preds = %if.else255
-  %132 = load ptr, ptr %fRXPat, align 8
-  %fPattern.i.i228 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %132, i64 0, i32 1
-  %133 = load ptr, ptr %fPattern.i.i228, align 8
-  %chunkOffset.i.i229 = getelementptr inbounds %struct.UText, ptr %133, i64 0, i32 8
-  %134 = load i32, ptr %chunkOffset.i.i229, align 8
-  %chunkLength.i.i230 = getelementptr inbounds %struct.UText, ptr %133, i64 0, i32 9
-  %135 = load i32, ptr %chunkLength.i.i230, align 4
-  %cmp6.i.i231 = icmp slt i32 %134, %135
+  %134 = load ptr, ptr %fRXPat, align 8
+  %fPattern.i.i228 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %134, i64 0, i32 1
+  %135 = load ptr, ptr %fPattern.i.i228, align 8
+  %chunkOffset.i.i229 = getelementptr inbounds %struct.UText, ptr %135, i64 0, i32 8
+  %136 = load i32, ptr %chunkOffset.i.i229, align 8
+  %chunkLength.i.i230 = getelementptr inbounds %struct.UText, ptr %135, i64 0, i32 9
+  %137 = load i32, ptr %chunkLength.i.i230, align 4
+  %cmp6.i.i231 = icmp slt i32 %136, %137
   br i1 %cmp6.i.i231, label %land.lhs.true.i.i249, label %cond.false.i.i232
 
 land.lhs.true.i.i249:                             ; preds = %if.end.i.i226
-  %chunkContents.i.i250 = getelementptr inbounds %struct.UText, ptr %133, i64 0, i32 10
-  %136 = load ptr, ptr %chunkContents.i.i250, align 8
-  %idxprom.i.i251 = sext i32 %134 to i64
-  %arrayidx.i.i252 = getelementptr inbounds i16, ptr %136, i64 %idxprom.i.i251
-  %137 = load i16, ptr %arrayidx.i.i252, align 2
-  %cmp12.i.i253 = icmp ult i16 %137, -10240
+  %chunkContents.i.i250 = getelementptr inbounds %struct.UText, ptr %135, i64 0, i32 10
+  %138 = load ptr, ptr %chunkContents.i.i250, align 8
+  %idxprom.i.i251 = sext i32 %136 to i64
+  %arrayidx.i.i252 = getelementptr inbounds i16, ptr %138, i64 %idxprom.i.i251
+  %139 = load i16, ptr %arrayidx.i.i252, align 2
+  %cmp12.i.i253 = icmp ult i16 %139, -10240
   br i1 %cmp12.i.i253, label %cond.true.i.i254, label %cond.false.i.i232
 
 cond.true.i.i254:                                 ; preds = %land.lhs.true.i.i249
-  %inc.i.i255 = add nsw i32 %134, 1
+  %inc.i.i255 = add nsw i32 %136, 1
   store i32 %inc.i.i255, ptr %chunkOffset.i.i229, align 8
-  %138 = load i16, ptr %arrayidx.i.i252, align 2
-  %conv21.i.i256 = zext i16 %138 to i32
+  %140 = load i16, ptr %arrayidx.i.i252, align 2
+  %conv21.i.i256 = zext i16 %140 to i32
   br label %cond.end.i.i234
 
 cond.false.i.i232:                                ; preds = %land.lhs.true.i.i249, %if.end.i.i226
-  %call.i.i233 = tail call i32 @utext_next32_75(ptr noundef nonnull %133)
+  %call.i.i233 = tail call i32 @utext_next32_75(ptr noundef nonnull %135)
   br label %cond.end.i.i234
 
 cond.end.i.i234:                                  ; preds = %cond.false.i.i232, %cond.true.i.i254
@@ -2087,19 +2088,19 @@ cond.end.i.i234:                                  ; preds = %cond.false.i.i232, 
   ]
 
 land.lhs.true33.i.i236:                           ; preds = %cond.end.i.i234
-  %139 = load i32, ptr %fLastChar.i, align 8
-  %cmp34.not.i.i238 = icmp eq i32 %139, 13
+  %141 = load i32, ptr %fLastChar.i, align 8
+  %cmp34.not.i.i238 = icmp eq i32 %141, 13
   br i1 %cmp34.not.i.i238, label %if.end42.i.i243, label %if.then35.i.i239
 
 if.then35.i.i239:                                 ; preds = %land.lhs.true33.i.i236, %cond.end.i.i234, %cond.end.i.i234, %cond.end.i.i234
-  %140 = load i64, ptr %fLineNum.i, align 8
-  %inc36.i.i241 = add nsw i64 %140, 1
+  %142 = load i64, ptr %fLineNum.i, align 8
+  %inc36.i.i241 = add nsw i64 %142, 1
   store i64 %inc36.i.i241, ptr %fLineNum.i, align 8
   br label %if.end42.i.i243.sink.split
 
 if.then38.i.i246:                                 ; preds = %cond.end.i.i234
-  %141 = load i64, ptr %fCharNum.i, align 8
-  %inc40.i.i248 = add nsw i64 %141, 1
+  %143 = load i64, ptr %fCharNum.i, align 8
+  %inc40.i.i248 = add nsw i64 %143, 1
   br label %if.end42.i.i243.sink.split
 
 if.end42.i.i243.sink.split:                       ; preds = %if.then35.i.i239, %if.then38.i.i246
@@ -2116,16 +2117,16 @@ _ZN6icu_7512RegexCompile10nextCharLLEv.exit.i245: ; preds = %if.end42.i.i243, %c
   br label %_ZN6icu_7512RegexCompile10peekCharLLEv.exit257
 
 _ZN6icu_7512RegexCompile10peekCharLLEv.exit257:   ; preds = %if.else255, %_ZN6icu_7512RegexCompile10nextCharLLEv.exit.i245
-  %142 = phi i32 [ %cond.i.i235, %_ZN6icu_7512RegexCompile10nextCharLLEv.exit.i245 ], [ %91, %if.else255 ]
-  switch i32 %142, label %_ZN6icu_7512RegexCompile10peekCharLLEv.exit397 [
+  %144 = phi i32 [ %cond.i.i235, %_ZN6icu_7512RegexCompile10nextCharLLEv.exit.i245 ], [ %91, %if.else255 ]
+  switch i32 %144, label %_ZN6icu_7512RegexCompile10peekCharLLEv.exit397 [
     i32 48, label %if.then258
     i32 -1, label %if.end.i.i366
   ]
 
 if.then258:                                       ; preds = %_ZN6icu_7512RegexCompile10peekCharLLEv.exit257
   store i32 0, ptr %c, align 4
-  %143 = load i32, ptr %fPeekChar.i, align 4
-  %cmp.not.i259 = icmp eq i32 %143, -1
+  %145 = load i32, ptr %fPeekChar.i, align 4
+  %cmp.not.i259 = icmp eq i32 %145, -1
   br i1 %cmp.not.i259, label %if.end.i262, label %if.then.i260
 
 if.then.i260:                                     ; preds = %if.then258
@@ -2133,34 +2134,34 @@ if.then.i260:                                     ; preds = %if.then258
   br label %for.body.preheader
 
 if.end.i262:                                      ; preds = %if.then258
-  %144 = load ptr, ptr %fRXPat, align 8
-  %fPattern.i264 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %144, i64 0, i32 1
-  %145 = load ptr, ptr %fPattern.i264, align 8
-  %chunkOffset.i265 = getelementptr inbounds %struct.UText, ptr %145, i64 0, i32 8
-  %146 = load i32, ptr %chunkOffset.i265, align 8
-  %chunkLength.i266 = getelementptr inbounds %struct.UText, ptr %145, i64 0, i32 9
-  %147 = load i32, ptr %chunkLength.i266, align 4
-  %cmp6.i267 = icmp slt i32 %146, %147
+  %146 = load ptr, ptr %fRXPat, align 8
+  %fPattern.i264 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %146, i64 0, i32 1
+  %147 = load ptr, ptr %fPattern.i264, align 8
+  %chunkOffset.i265 = getelementptr inbounds %struct.UText, ptr %147, i64 0, i32 8
+  %148 = load i32, ptr %chunkOffset.i265, align 8
+  %chunkLength.i266 = getelementptr inbounds %struct.UText, ptr %147, i64 0, i32 9
+  %149 = load i32, ptr %chunkLength.i266, align 4
+  %cmp6.i267 = icmp slt i32 %148, %149
   br i1 %cmp6.i267, label %land.lhs.true.i284, label %cond.false.i268
 
 land.lhs.true.i284:                               ; preds = %if.end.i262
-  %chunkContents.i285 = getelementptr inbounds %struct.UText, ptr %145, i64 0, i32 10
-  %148 = load ptr, ptr %chunkContents.i285, align 8
-  %idxprom.i286 = sext i32 %146 to i64
-  %arrayidx.i287 = getelementptr inbounds i16, ptr %148, i64 %idxprom.i286
-  %149 = load i16, ptr %arrayidx.i287, align 2
-  %cmp12.i288 = icmp ult i16 %149, -10240
+  %chunkContents.i285 = getelementptr inbounds %struct.UText, ptr %147, i64 0, i32 10
+  %150 = load ptr, ptr %chunkContents.i285, align 8
+  %idxprom.i286 = sext i32 %148 to i64
+  %arrayidx.i287 = getelementptr inbounds i16, ptr %150, i64 %idxprom.i286
+  %151 = load i16, ptr %arrayidx.i287, align 2
+  %cmp12.i288 = icmp ult i16 %151, -10240
   br i1 %cmp12.i288, label %cond.true.i289, label %cond.false.i268
 
 cond.true.i289:                                   ; preds = %land.lhs.true.i284
-  %inc.i290 = add nsw i32 %146, 1
+  %inc.i290 = add nsw i32 %148, 1
   store i32 %inc.i290, ptr %chunkOffset.i265, align 8
-  %150 = load i16, ptr %arrayidx.i287, align 2
-  %conv21.i291 = zext i16 %150 to i32
+  %152 = load i16, ptr %arrayidx.i287, align 2
+  %conv21.i291 = zext i16 %152 to i32
   br label %cond.end.i270
 
 cond.false.i268:                                  ; preds = %land.lhs.true.i284, %if.end.i262
-  %call.i269 = tail call i32 @utext_next32_75(ptr noundef nonnull %145)
+  %call.i269 = tail call i32 @utext_next32_75(ptr noundef nonnull %147)
   br label %cond.end.i270
 
 cond.end.i270:                                    ; preds = %cond.false.i268, %cond.true.i289
@@ -2174,19 +2175,19 @@ cond.end.i270:                                    ; preds = %cond.false.i268, %c
   ]
 
 land.lhs.true33.i272:                             ; preds = %cond.end.i270
-  %151 = load i32, ptr %fLastChar.i, align 8
-  %cmp34.not.i274 = icmp eq i32 %151, 13
+  %153 = load i32, ptr %fLastChar.i, align 8
+  %cmp34.not.i274 = icmp eq i32 %153, 13
   br i1 %cmp34.not.i274, label %if.end42.i279, label %if.then35.i275
 
 if.then35.i275:                                   ; preds = %land.lhs.true33.i272, %cond.end.i270, %cond.end.i270, %cond.end.i270
-  %152 = load i64, ptr %fLineNum.i, align 8
-  %inc36.i277 = add nsw i64 %152, 1
+  %154 = load i64, ptr %fLineNum.i, align 8
+  %inc36.i277 = add nsw i64 %154, 1
   store i64 %inc36.i277, ptr %fLineNum.i, align 8
   br label %if.end42.i279.sink.split
 
 if.then38.i281:                                   ; preds = %cond.end.i270
-  %153 = load i64, ptr %fCharNum.i, align 8
-  %inc40.i283 = add nsw i64 %153, 1
+  %155 = load i64, ptr %fCharNum.i, align 8
+  %inc40.i283 = add nsw i64 %155, 1
   br label %if.end42.i279.sink.split
 
 if.end42.i279.sink.split:                         ; preds = %if.then35.i275, %if.then38.i281
@@ -2203,39 +2204,39 @@ for.body.preheader:                               ; preds = %if.then.i260, %cond
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %index.0467 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
-  %154 = load i32, ptr %fPeekChar.i, align 4
-  %cmp.i294 = icmp eq i32 %154, -1
+  %156 = load i32, ptr %fPeekChar.i, align 4
+  %cmp.i294 = icmp eq i32 %156, -1
   br i1 %cmp.i294, label %if.end.i.i296, label %_ZN6icu_7512RegexCompile10peekCharLLEv.exit327
 
 if.end.i.i296:                                    ; preds = %for.body
-  %155 = load ptr, ptr %fRXPat, align 8
-  %fPattern.i.i298 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %155, i64 0, i32 1
-  %156 = load ptr, ptr %fPattern.i.i298, align 8
-  %chunkOffset.i.i299 = getelementptr inbounds %struct.UText, ptr %156, i64 0, i32 8
-  %157 = load i32, ptr %chunkOffset.i.i299, align 8
-  %chunkLength.i.i300 = getelementptr inbounds %struct.UText, ptr %156, i64 0, i32 9
-  %158 = load i32, ptr %chunkLength.i.i300, align 4
-  %cmp6.i.i301 = icmp slt i32 %157, %158
+  %157 = load ptr, ptr %fRXPat, align 8
+  %fPattern.i.i298 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %157, i64 0, i32 1
+  %158 = load ptr, ptr %fPattern.i.i298, align 8
+  %chunkOffset.i.i299 = getelementptr inbounds %struct.UText, ptr %158, i64 0, i32 8
+  %159 = load i32, ptr %chunkOffset.i.i299, align 8
+  %chunkLength.i.i300 = getelementptr inbounds %struct.UText, ptr %158, i64 0, i32 9
+  %160 = load i32, ptr %chunkLength.i.i300, align 4
+  %cmp6.i.i301 = icmp slt i32 %159, %160
   br i1 %cmp6.i.i301, label %land.lhs.true.i.i319, label %cond.false.i.i302
 
 land.lhs.true.i.i319:                             ; preds = %if.end.i.i296
-  %chunkContents.i.i320 = getelementptr inbounds %struct.UText, ptr %156, i64 0, i32 10
-  %159 = load ptr, ptr %chunkContents.i.i320, align 8
-  %idxprom.i.i321 = sext i32 %157 to i64
-  %arrayidx.i.i322 = getelementptr inbounds i16, ptr %159, i64 %idxprom.i.i321
-  %160 = load i16, ptr %arrayidx.i.i322, align 2
-  %cmp12.i.i323 = icmp ult i16 %160, -10240
+  %chunkContents.i.i320 = getelementptr inbounds %struct.UText, ptr %158, i64 0, i32 10
+  %161 = load ptr, ptr %chunkContents.i.i320, align 8
+  %idxprom.i.i321 = sext i32 %159 to i64
+  %arrayidx.i.i322 = getelementptr inbounds i16, ptr %161, i64 %idxprom.i.i321
+  %162 = load i16, ptr %arrayidx.i.i322, align 2
+  %cmp12.i.i323 = icmp ult i16 %162, -10240
   br i1 %cmp12.i.i323, label %cond.true.i.i324, label %cond.false.i.i302
 
 cond.true.i.i324:                                 ; preds = %land.lhs.true.i.i319
-  %inc.i.i325 = add nsw i32 %157, 1
+  %inc.i.i325 = add nsw i32 %159, 1
   store i32 %inc.i.i325, ptr %chunkOffset.i.i299, align 8
-  %161 = load i16, ptr %arrayidx.i.i322, align 2
-  %conv21.i.i326 = zext i16 %161 to i32
+  %163 = load i16, ptr %arrayidx.i.i322, align 2
+  %conv21.i.i326 = zext i16 %163 to i32
   br label %cond.end.i.i304
 
 cond.false.i.i302:                                ; preds = %land.lhs.true.i.i319, %if.end.i.i296
-  %call.i.i303 = tail call i32 @utext_next32_75(ptr noundef nonnull %156)
+  %call.i.i303 = tail call i32 @utext_next32_75(ptr noundef nonnull %158)
   br label %cond.end.i.i304
 
 cond.end.i.i304:                                  ; preds = %cond.false.i.i302, %cond.true.i.i324
@@ -2249,19 +2250,19 @@ cond.end.i.i304:                                  ; preds = %cond.false.i.i302, 
   ]
 
 land.lhs.true33.i.i306:                           ; preds = %cond.end.i.i304
-  %162 = load i32, ptr %fLastChar.i, align 8
-  %cmp34.not.i.i308 = icmp eq i32 %162, 13
+  %164 = load i32, ptr %fLastChar.i, align 8
+  %cmp34.not.i.i308 = icmp eq i32 %164, 13
   br i1 %cmp34.not.i.i308, label %if.end42.i.i313, label %if.then35.i.i309
 
 if.then35.i.i309:                                 ; preds = %land.lhs.true33.i.i306, %cond.end.i.i304, %cond.end.i.i304, %cond.end.i.i304
-  %163 = load i64, ptr %fLineNum.i, align 8
-  %inc36.i.i311 = add nsw i64 %163, 1
+  %165 = load i64, ptr %fLineNum.i, align 8
+  %inc36.i.i311 = add nsw i64 %165, 1
   store i64 %inc36.i.i311, ptr %fLineNum.i, align 8
   br label %if.end42.i.i313.sink.split
 
 if.then38.i.i316:                                 ; preds = %cond.end.i.i304
-  %164 = load i64, ptr %fCharNum.i, align 8
-  %inc40.i.i318 = add nsw i64 %164, 1
+  %166 = load i64, ptr %fCharNum.i, align 8
+  %inc40.i.i318 = add nsw i64 %166, 1
   br label %if.end42.i.i313.sink.split
 
 if.end42.i.i313.sink.split:                       ; preds = %if.then35.i.i309, %if.then38.i.i316
@@ -2278,9 +2279,9 @@ _ZN6icu_7512RegexCompile10nextCharLLEv.exit.i315: ; preds = %if.end42.i.i313, %c
   br label %_ZN6icu_7512RegexCompile10peekCharLLEv.exit327
 
 _ZN6icu_7512RegexCompile10peekCharLLEv.exit327:   ; preds = %for.body, %_ZN6icu_7512RegexCompile10nextCharLLEv.exit.i315
-  %165 = phi i32 [ %cond.i.i305, %_ZN6icu_7512RegexCompile10nextCharLLEv.exit.i315 ], [ %154, %for.body ]
-  %166 = add i32 %165, -56
-  %or.cond = icmp ult i32 %166, -8
+  %167 = phi i32 [ %cond.i.i305, %_ZN6icu_7512RegexCompile10nextCharLLEv.exit.i315 ], [ %156, %for.body ]
+  %168 = add i32 %167, -56
+  %or.cond = icmp ult i32 %168, -8
   br i1 %or.cond, label %if.then267, label %if.end271
 
 if.then267:                                       ; preds = %_ZN6icu_7512RegexCompile10peekCharLLEv.exit327
@@ -2292,17 +2293,17 @@ if.then269:                                       ; preds = %if.then267
   br label %for.end283
 
 if.end271:                                        ; preds = %_ZN6icu_7512RegexCompile10peekCharLLEv.exit327
-  %167 = load i32, ptr %c, align 4
-  %shl = shl i32 %167, 3
-  %and273 = and i32 %165, 7
+  %169 = load i32, ptr %c, align 4
+  %shl = shl i32 %169, 3
+  %and273 = and i32 %167, 7
   %add275 = or disjoint i32 %shl, %and273
   store i32 %add275, ptr %c, align 4
   %cmp277 = icmp slt i32 %add275, 256
   br i1 %cmp277, label %if.then278, label %if.else280
 
 if.then278:                                       ; preds = %if.end271
-  %168 = load i32, ptr %fPeekChar.i, align 4
-  %cmp.not.i329 = icmp eq i32 %168, -1
+  %170 = load i32, ptr %fPeekChar.i, align 4
+  %cmp.not.i329 = icmp eq i32 %170, -1
   br i1 %cmp.not.i329, label %if.end.i332, label %if.then.i330
 
 if.then.i330:                                     ; preds = %if.then278
@@ -2310,34 +2311,34 @@ if.then.i330:                                     ; preds = %if.then278
   br label %for.inc
 
 if.end.i332:                                      ; preds = %if.then278
-  %169 = load ptr, ptr %fRXPat, align 8
-  %fPattern.i334 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %169, i64 0, i32 1
-  %170 = load ptr, ptr %fPattern.i334, align 8
-  %chunkOffset.i335 = getelementptr inbounds %struct.UText, ptr %170, i64 0, i32 8
-  %171 = load i32, ptr %chunkOffset.i335, align 8
-  %chunkLength.i336 = getelementptr inbounds %struct.UText, ptr %170, i64 0, i32 9
-  %172 = load i32, ptr %chunkLength.i336, align 4
-  %cmp6.i337 = icmp slt i32 %171, %172
+  %171 = load ptr, ptr %fRXPat, align 8
+  %fPattern.i334 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %171, i64 0, i32 1
+  %172 = load ptr, ptr %fPattern.i334, align 8
+  %chunkOffset.i335 = getelementptr inbounds %struct.UText, ptr %172, i64 0, i32 8
+  %173 = load i32, ptr %chunkOffset.i335, align 8
+  %chunkLength.i336 = getelementptr inbounds %struct.UText, ptr %172, i64 0, i32 9
+  %174 = load i32, ptr %chunkLength.i336, align 4
+  %cmp6.i337 = icmp slt i32 %173, %174
   br i1 %cmp6.i337, label %land.lhs.true.i354, label %cond.false.i338
 
 land.lhs.true.i354:                               ; preds = %if.end.i332
-  %chunkContents.i355 = getelementptr inbounds %struct.UText, ptr %170, i64 0, i32 10
-  %173 = load ptr, ptr %chunkContents.i355, align 8
-  %idxprom.i356 = sext i32 %171 to i64
-  %arrayidx.i357 = getelementptr inbounds i16, ptr %173, i64 %idxprom.i356
-  %174 = load i16, ptr %arrayidx.i357, align 2
-  %cmp12.i358 = icmp ult i16 %174, -10240
+  %chunkContents.i355 = getelementptr inbounds %struct.UText, ptr %172, i64 0, i32 10
+  %175 = load ptr, ptr %chunkContents.i355, align 8
+  %idxprom.i356 = sext i32 %173 to i64
+  %arrayidx.i357 = getelementptr inbounds i16, ptr %175, i64 %idxprom.i356
+  %176 = load i16, ptr %arrayidx.i357, align 2
+  %cmp12.i358 = icmp ult i16 %176, -10240
   br i1 %cmp12.i358, label %cond.true.i359, label %cond.false.i338
 
 cond.true.i359:                                   ; preds = %land.lhs.true.i354
-  %inc.i360 = add nsw i32 %171, 1
+  %inc.i360 = add nsw i32 %173, 1
   store i32 %inc.i360, ptr %chunkOffset.i335, align 8
-  %175 = load i16, ptr %arrayidx.i357, align 2
-  %conv21.i361 = zext i16 %175 to i32
+  %177 = load i16, ptr %arrayidx.i357, align 2
+  %conv21.i361 = zext i16 %177 to i32
   br label %cond.end.i340
 
 cond.false.i338:                                  ; preds = %land.lhs.true.i354, %if.end.i332
-  %call.i339 = tail call i32 @utext_next32_75(ptr noundef nonnull %170)
+  %call.i339 = tail call i32 @utext_next32_75(ptr noundef nonnull %172)
   br label %cond.end.i340
 
 cond.end.i340:                                    ; preds = %cond.false.i338, %cond.true.i359
@@ -2351,19 +2352,19 @@ cond.end.i340:                                    ; preds = %cond.false.i338, %c
   ]
 
 land.lhs.true33.i342:                             ; preds = %cond.end.i340
-  %176 = load i32, ptr %fLastChar.i, align 8
-  %cmp34.not.i344 = icmp eq i32 %176, 13
+  %178 = load i32, ptr %fLastChar.i, align 8
+  %cmp34.not.i344 = icmp eq i32 %178, 13
   br i1 %cmp34.not.i344, label %if.end42.i349, label %if.then35.i345
 
 if.then35.i345:                                   ; preds = %land.lhs.true33.i342, %cond.end.i340, %cond.end.i340, %cond.end.i340
-  %177 = load i64, ptr %fLineNum.i, align 8
-  %inc36.i347 = add nsw i64 %177, 1
+  %179 = load i64, ptr %fLineNum.i, align 8
+  %inc36.i347 = add nsw i64 %179, 1
   store i64 %inc36.i347, ptr %fLineNum.i, align 8
   br label %if.end42.i349.sink.split
 
 if.then38.i351:                                   ; preds = %cond.end.i340
-  %178 = load i64, ptr %fCharNum.i, align 8
-  %inc40.i353 = add nsw i64 %178, 1
+  %180 = load i64, ptr %fCharNum.i, align 8
+  %inc40.i353 = add nsw i64 %180, 1
   br label %if.end42.i349.sink.split
 
 if.end42.i349.sink.split:                         ; preds = %if.then35.i345, %if.then38.i351
@@ -2376,7 +2377,7 @@ if.end42.i349:                                    ; preds = %if.end42.i349.sink.
   br label %for.inc
 
 if.else280:                                       ; preds = %if.end271
-  %shr = and i32 %167, 536870911
+  %shr = and i32 %169, 536870911
   store i32 %shr, ptr %c, align 4
   br label %for.inc
 
@@ -2390,34 +2391,34 @@ for.end283:                                       ; preds = %for.inc, %if.then26
   br label %if.end298
 
 if.end.i.i366:                                    ; preds = %_ZN6icu_7512RegexCompile10peekCharLLEv.exit257
-  %179 = load ptr, ptr %fRXPat, align 8
-  %fPattern.i.i368 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %179, i64 0, i32 1
-  %180 = load ptr, ptr %fPattern.i.i368, align 8
-  %chunkOffset.i.i369 = getelementptr inbounds %struct.UText, ptr %180, i64 0, i32 8
-  %181 = load i32, ptr %chunkOffset.i.i369, align 8
-  %chunkLength.i.i370 = getelementptr inbounds %struct.UText, ptr %180, i64 0, i32 9
-  %182 = load i32, ptr %chunkLength.i.i370, align 4
-  %cmp6.i.i371 = icmp slt i32 %181, %182
+  %181 = load ptr, ptr %fRXPat, align 8
+  %fPattern.i.i368 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %181, i64 0, i32 1
+  %182 = load ptr, ptr %fPattern.i.i368, align 8
+  %chunkOffset.i.i369 = getelementptr inbounds %struct.UText, ptr %182, i64 0, i32 8
+  %183 = load i32, ptr %chunkOffset.i.i369, align 8
+  %chunkLength.i.i370 = getelementptr inbounds %struct.UText, ptr %182, i64 0, i32 9
+  %184 = load i32, ptr %chunkLength.i.i370, align 4
+  %cmp6.i.i371 = icmp slt i32 %183, %184
   br i1 %cmp6.i.i371, label %land.lhs.true.i.i389, label %cond.false.i.i372
 
 land.lhs.true.i.i389:                             ; preds = %if.end.i.i366
-  %chunkContents.i.i390 = getelementptr inbounds %struct.UText, ptr %180, i64 0, i32 10
-  %183 = load ptr, ptr %chunkContents.i.i390, align 8
-  %idxprom.i.i391 = sext i32 %181 to i64
-  %arrayidx.i.i392 = getelementptr inbounds i16, ptr %183, i64 %idxprom.i.i391
-  %184 = load i16, ptr %arrayidx.i.i392, align 2
-  %cmp12.i.i393 = icmp ult i16 %184, -10240
+  %chunkContents.i.i390 = getelementptr inbounds %struct.UText, ptr %182, i64 0, i32 10
+  %185 = load ptr, ptr %chunkContents.i.i390, align 8
+  %idxprom.i.i391 = sext i32 %183 to i64
+  %arrayidx.i.i392 = getelementptr inbounds i16, ptr %185, i64 %idxprom.i.i391
+  %186 = load i16, ptr %arrayidx.i.i392, align 2
+  %cmp12.i.i393 = icmp ult i16 %186, -10240
   br i1 %cmp12.i.i393, label %cond.true.i.i394, label %cond.false.i.i372
 
 cond.true.i.i394:                                 ; preds = %land.lhs.true.i.i389
-  %inc.i.i395 = add nsw i32 %181, 1
+  %inc.i.i395 = add nsw i32 %183, 1
   store i32 %inc.i.i395, ptr %chunkOffset.i.i369, align 8
-  %185 = load i16, ptr %arrayidx.i.i392, align 2
-  %conv21.i.i396 = zext i16 %185 to i32
+  %187 = load i16, ptr %arrayidx.i.i392, align 2
+  %conv21.i.i396 = zext i16 %187 to i32
   br label %cond.end.i.i374
 
 cond.false.i.i372:                                ; preds = %land.lhs.true.i.i389, %if.end.i.i366
-  %call.i.i373 = tail call i32 @utext_next32_75(ptr noundef nonnull %180)
+  %call.i.i373 = tail call i32 @utext_next32_75(ptr noundef nonnull %182)
   br label %cond.end.i.i374
 
 cond.end.i.i374:                                  ; preds = %cond.false.i.i372, %cond.true.i.i394
@@ -2431,19 +2432,19 @@ cond.end.i.i374:                                  ; preds = %cond.false.i.i372, 
   ]
 
 land.lhs.true33.i.i376:                           ; preds = %cond.end.i.i374
-  %186 = load i32, ptr %fLastChar.i, align 8
-  %cmp34.not.i.i378 = icmp eq i32 %186, 13
+  %188 = load i32, ptr %fLastChar.i, align 8
+  %cmp34.not.i.i378 = icmp eq i32 %188, 13
   br i1 %cmp34.not.i.i378, label %if.end42.i.i383, label %if.then35.i.i379
 
 if.then35.i.i379:                                 ; preds = %land.lhs.true33.i.i376, %cond.end.i.i374, %cond.end.i.i374, %cond.end.i.i374
-  %187 = load i64, ptr %fLineNum.i, align 8
-  %inc36.i.i381 = add nsw i64 %187, 1
+  %189 = load i64, ptr %fLineNum.i, align 8
+  %inc36.i.i381 = add nsw i64 %189, 1
   store i64 %inc36.i.i381, ptr %fLineNum.i, align 8
   br label %if.end42.i.i383.sink.split
 
 if.then38.i.i386:                                 ; preds = %cond.end.i.i374
-  %188 = load i64, ptr %fCharNum.i, align 8
-  %inc40.i.i388 = add nsw i64 %188, 1
+  %190 = load i64, ptr %fCharNum.i, align 8
+  %inc40.i.i388 = add nsw i64 %190, 1
   br label %if.end42.i.i383.sink.split
 
 if.end42.i.i383.sink.split:                       ; preds = %if.then35.i.i379, %if.then38.i.i386
@@ -2460,8 +2461,8 @@ _ZN6icu_7512RegexCompile10nextCharLLEv.exit.i385: ; preds = %if.end42.i.i383, %c
   br label %_ZN6icu_7512RegexCompile10peekCharLLEv.exit397
 
 _ZN6icu_7512RegexCompile10peekCharLLEv.exit397:   ; preds = %_ZN6icu_7512RegexCompile10peekCharLLEv.exit257, %_ZN6icu_7512RegexCompile10nextCharLLEv.exit.i385
-  %189 = phi i32 [ %cond.i.i375, %_ZN6icu_7512RegexCompile10nextCharLLEv.exit.i385 ], [ %142, %_ZN6icu_7512RegexCompile10peekCharLLEv.exit257 ]
-  %cmp287 = icmp eq i32 %189, 81
+  %191 = phi i32 [ %cond.i.i375, %_ZN6icu_7512RegexCompile10nextCharLLEv.exit.i385 ], [ %144, %_ZN6icu_7512RegexCompile10peekCharLLEv.exit257 ]
+  %cmp287 = icmp eq i32 %191, 81
   br i1 %cmp287, label %if.then.i400, label %if.else291
 
 if.then.i400:                                     ; preds = %_ZN6icu_7512RegexCompile10peekCharLLEv.exit397
@@ -5130,25 +5131,25 @@ if.end43:                                         ; preds = %sw.bb35
   br i1 %cmp.i52.not, label %_ZNK6icu_759UVector3210elementAtiEi.exit61.thread, label %_ZNK6icu_759UVector3210elementAtiEi.exit61
 
 _ZNK6icu_759UVector3210elementAtiEi.exit61:       ; preds = %if.end43
-  %sub46 = add nsw i32 %and36, -1
   %elements.i58 = getelementptr inbounds %"class.icu_75::UVector32", ptr %29, i64 0, i32 4
   %31 = load ptr, ptr %elements.i58, align 8
-  %idxprom.i59 = zext nneg i32 %sub46 to i64
-  %arrayidx.i60 = getelementptr inbounds i32, ptr %31, i64 %idxprom.i59
-  %32 = load i32, ptr %arrayidx.i60, align 4
-  %33 = load ptr, ptr %fStatus, align 8
-  %34 = load i32, ptr %33, align 4
-  %cmp.i.i63 = icmp slt i32 %34, 1
+  %32 = and i64 %23, 16777215
+  %33 = getelementptr i32, ptr %31, i64 %32
+  %arrayidx.i60 = getelementptr i32, ptr %33, i64 -1
+  %34 = load i32, ptr %arrayidx.i60, align 4
+  %35 = load ptr, ptr %fStatus, align 8
+  %36 = load i32, ptr %35, align 4
+  %cmp.i.i63 = icmp slt i32 %36, 1
   br i1 %cmp.i.i63, label %if.end.i65, label %invoke.cont49
 
 _ZNK6icu_759UVector3210elementAtiEi.exit61.thread: ; preds = %if.end43
-  %35 = load ptr, ptr %fStatus, align 8
-  %36 = load i32, ptr %35, align 4
-  %cmp.i.i6387 = icmp slt i32 %36, 1
+  %37 = load ptr, ptr %fStatus, align 8
+  %38 = load i32, ptr %37, align 4
+  %cmp.i.i6387 = icmp slt i32 %38, 1
   br i1 %cmp.i.i6387, label %if.end18.i69, label %invoke.cont49
 
 if.end.i65:                                       ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit61
-  %cmp5.i66 = icmp sgt i32 %32, 16777215
+  %cmp5.i66 = icmp sgt i32 %34, 16777215
   br i1 %cmp5.i66, label %if.then6.i79, label %if.end7.i67
 
 if.then6.i79:                                     ; preds = %if.end.i65
@@ -5156,7 +5157,7 @@ if.then6.i79:                                     ; preds = %if.end.i65
   unreachable
 
 if.end7.i67:                                      ; preds = %if.end.i65
-  %cmp8.i68 = icmp slt i32 %32, 0
+  %cmp8.i68 = icmp slt i32 %34, 0
   br i1 %cmp8.i68, label %if.then13.i78, label %if.end18.i69
 
 if.then13.i78:                                    ; preds = %if.end7.i67
@@ -5164,7 +5165,7 @@ if.then13.i78:                                    ; preds = %if.end7.i67
   unreachable
 
 if.end18.i69:                                     ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit61.thread, %if.end7.i67
-  %cond.i56889194 = phi i32 [ %32, %if.end7.i67 ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit61.thread ]
+  %cond.i56889194 = phi i32 [ %34, %if.end7.i67 ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit61.thread ]
   %shl.i71 = and i32 %conv23, -16777216
   %or.i72 = or i32 %cond.i56889194, %shl.i71
   br label %invoke.cont49
@@ -5177,8 +5178,8 @@ invoke.cont49:                                    ; preds = %if.end18.i69, %_ZNK
 
 invoke.cont54:                                    ; preds = %invoke.cont49
   %inc55 = add nsw i32 %dst.0107, 1
-  %37 = load ptr, ptr %fRXPat, align 8
-  %fNeedsAltInput = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %37, i64 0, i32 19
+  %39 = load ptr, ptr %fRXPat, align 8
+  %fNeedsAltInput = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %39, i64 0, i32 19
   store i8 1, ptr %fNeedsAltInput, align 8
   br label %for.inc63
 
@@ -5205,10 +5206,10 @@ for.inc63:                                        ; preds = %invoke.cont33, %inv
 
 for.end65:                                        ; preds = %for.inc63, %for.end.thread, %for.end
   %dst.0.lcssa = phi i32 [ 0, %for.end ], [ 0, %for.end.thread ], [ %dst.1, %for.inc63 ]
-  %38 = load ptr, ptr %fRXPat, align 8
-  %fCompiledPat67 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %38, i64 0, i32 4
-  %39 = load ptr, ptr %fCompiledPat67, align 8
-  invoke void @_ZN6icu_759UVector647setSizeEi(ptr noundef nonnull align 8 dereferenceable(32) %39, i32 noundef %dst.0.lcssa)
+  %40 = load ptr, ptr %fRXPat, align 8
+  %fCompiledPat67 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %40, i64 0, i32 4
+  %41 = load ptr, ptr %fCompiledPat67, align 8
+  invoke void @_ZN6icu_759UVector647setSizeEi(ptr noundef nonnull align 8 dereferenceable(32) %41, i32 noundef %dst.0.lcssa)
           to label %invoke.cont68 unwind label %lpad20.loopexit.split-lp
 
 invoke.cont68:                                    ; preds = %for.end65
@@ -7126,41 +7127,41 @@ sw.bb37:                                          ; preds = %_ZN6icu_759UVector3
   br i1 %or.cond.i66, label %cond.true.i68, label %_ZNK6icu_759UVector6410elementAtiEi.exit72
 
 cond.true.i68:                                    ; preds = %sw.bb37
-  %sub42 = add nsw i32 %36, -1
   %elements.i69 = getelementptr inbounds %"class.icu_75::UVector64", ptr %35, i64 0, i32 4
   %38 = load ptr, ptr %elements.i69, align 8
-  %idxprom.i70 = zext nneg i32 %sub42 to i64
-  %arrayidx.i71 = getelementptr inbounds i64, ptr %38, i64 %idxprom.i70
-  %39 = load i64, ptr %arrayidx.i71, align 8
-  %40 = trunc i64 %39 to i32
-  %41 = and i32 %40, 16777215
+  %39 = zext nneg i32 %36 to i64
+  %40 = getelementptr i64, ptr %38, i64 %39
+  %arrayidx.i71 = getelementptr i64, ptr %40, i64 -1
+  %41 = load i64, ptr %arrayidx.i71, align 8
+  %42 = trunc i64 %41 to i32
+  %43 = and i32 %42, 16777215
   br label %_ZNK6icu_759UVector6410elementAtiEi.exit72
 
 _ZNK6icu_759UVector6410elementAtiEi.exit72:       ; preds = %sw.bb37, %cond.true.i68
-  %cond.i67 = phi i32 [ %41, %cond.true.i68 ], [ 0, %sw.bb37 ]
+  %cond.i67 = phi i32 [ %43, %cond.true.i68 ], [ 0, %sw.bb37 ]
   tail call void @_ZN6icu_7512RegexCompile8appendOpEii(ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef 38, i32 noundef %cond.i67)
   %fStatus.i.i = getelementptr inbounds %"class.icu_75::RegexCompile", ptr %this, i64 0, i32 1
-  %42 = load ptr, ptr %fStatus.i.i, align 8
-  %43 = load i32, ptr %42, align 4
-  %cmp.i.i.i = icmp slt i32 %43, 1
+  %44 = load ptr, ptr %fStatus.i.i, align 8
+  %45 = load i32, ptr %44, align 4
+  %cmp.i.i.i = icmp slt i32 %45, 1
   br i1 %cmp.i.i.i, label %if.end.i.i, label %_ZN6icu_7512RegexCompile8appendOpEii.exit
 
 if.end.i.i:                                       ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit72
-  %44 = load ptr, ptr %fRXPat, align 8
-  %fCompiledPat.i.i = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %44, i64 0, i32 4
-  %45 = load ptr, ptr %fCompiledPat.i.i, align 8
-  %count.i.i.i = getelementptr inbounds %"class.icu_75::UVector64", ptr %45, i64 0, i32 1
-  %46 = load i32, ptr %count.i.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i32 %46, -1
-  %capacity.i.i.i.i = getelementptr inbounds %"class.icu_75::UVector64", ptr %45, i64 0, i32 2
-  %47 = load i32, ptr %capacity.i.i.i.i, align 4
-  %cmp2.not.i.i.i.i = icmp sle i32 %47, %46
+  %46 = load ptr, ptr %fRXPat, align 8
+  %fCompiledPat.i.i = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %46, i64 0, i32 4
+  %47 = load ptr, ptr %fCompiledPat.i.i, align 8
+  %count.i.i.i = getelementptr inbounds %"class.icu_75::UVector64", ptr %47, i64 0, i32 1
+  %48 = load i32, ptr %count.i.i.i, align 8
+  %cmp.i.i.i.i = icmp slt i32 %48, -1
+  %capacity.i.i.i.i = getelementptr inbounds %"class.icu_75::UVector64", ptr %47, i64 0, i32 2
+  %49 = load i32, ptr %capacity.i.i.i.i, align 4
+  %cmp2.not.i.i.i.i = icmp sle i32 %49, %48
   %or.cond.i.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp2.not.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.i.i.i, label %if.then.i.i.i
 
 _ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.i.i.i: ; preds = %if.end.i.i
-  %add.i.i.i = add nsw i32 %46, 1
-  %call.i.i.i.i = tail call noundef signext i8 @_ZN6icu_759UVector6414expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %45, i32 noundef %add.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %42)
+  %add.i.i.i = add nsw i32 %48, 1
+  %call.i.i.i.i = tail call noundef signext i8 @_ZN6icu_759UVector6414expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %47, i32 noundef %add.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %44)
   %tobool.not.i.i.i = icmp eq i8 %call.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZN6icu_759UVector6410addElementElR10UErrorCode.exit.i.i, label %_ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i.i.i
 
@@ -7169,30 +7170,30 @@ _ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i.i.i
   br label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i.i.i, %if.end.i.i
-  %48 = phi i32 [ %.pre.i.i.i, %_ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i.i.i ], [ %46, %if.end.i.i ]
-  %elements.i.i.i = getelementptr inbounds %"class.icu_75::UVector64", ptr %45, i64 0, i32 4
-  %49 = load ptr, ptr %elements.i.i.i, align 8
-  %idxprom.i.i.i = sext i32 %48 to i64
-  %arrayidx.i.i.i = getelementptr inbounds i64, ptr %49, i64 %idxprom.i.i.i
+  %50 = phi i32 [ %.pre.i.i.i, %_ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i.i.i ], [ %48, %if.end.i.i ]
+  %elements.i.i.i = getelementptr inbounds %"class.icu_75::UVector64", ptr %47, i64 0, i32 4
+  %51 = load ptr, ptr %elements.i.i.i, align 8
+  %idxprom.i.i.i = sext i32 %50 to i64
+  %arrayidx.i.i.i = getelementptr inbounds i64, ptr %51, i64 %idxprom.i.i.i
   store i64 16777216, ptr %arrayidx.i.i.i, align 8
-  %50 = load i32, ptr %count.i.i.i, align 8
-  %inc.i.i.i = add nsw i32 %50, 1
+  %52 = load i32, ptr %count.i.i.i, align 8
+  %inc.i.i.i = add nsw i32 %52, 1
   store i32 %inc.i.i.i, ptr %count.i.i.i, align 8
   br label %_ZN6icu_759UVector6410addElementElR10UErrorCode.exit.i.i
 
 _ZN6icu_759UVector6410addElementElR10UErrorCode.exit.i.i: ; preds = %if.then.i.i.i, %_ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.i.i.i
-  %51 = load ptr, ptr %fRXPat, align 8
-  %fCompiledPat4.i.i = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %51, i64 0, i32 4
-  %52 = load ptr, ptr %fCompiledPat4.i.i, align 8
-  %count.i1.i.i = getelementptr inbounds %"class.icu_75::UVector64", ptr %52, i64 0, i32 1
-  %53 = load i32, ptr %count.i1.i.i, align 8
-  %cmp.i.i = icmp sgt i32 %53, 16777200
+  %53 = load ptr, ptr %fRXPat, align 8
+  %fCompiledPat4.i.i = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %53, i64 0, i32 4
+  %54 = load ptr, ptr %fCompiledPat4.i.i, align 8
+  %count.i1.i.i = getelementptr inbounds %"class.icu_75::UVector64", ptr %54, i64 0, i32 1
+  %55 = load i32, ptr %count.i1.i.i, align 8
+  %cmp.i.i = icmp sgt i32 %55, 16777200
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %_ZN6icu_7512RegexCompile8appendOpEii.exit
 
 land.lhs.true.i.i:                                ; preds = %_ZN6icu_759UVector6410addElementElR10UErrorCode.exit.i.i
-  %54 = load ptr, ptr %fStatus.i.i, align 8
-  %55 = load i32, ptr %54, align 4
-  %cmp.i2.i.i = icmp sgt i32 %55, 0
+  %56 = load ptr, ptr %fStatus.i.i, align 8
+  %57 = load i32, ptr %56, align 4
+  %cmp.i2.i.i = icmp sgt i32 %57, 0
   br i1 %cmp.i2.i.i, label %_ZN6icu_7512RegexCompile8appendOpEii.exit, label %if.then9.i4.i
 
 if.then9.i4.i:                                    ; preds = %land.lhs.true.i.i
@@ -7201,20 +7202,20 @@ if.then9.i4.i:                                    ; preds = %land.lhs.true.i.i
 
 _ZN6icu_7512RegexCompile8appendOpEii.exit:        ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit72, %_ZN6icu_759UVector6410addElementElR10UErrorCode.exit.i.i, %land.lhs.true.i.i, %if.then9.i4.i
   tail call void @_ZN6icu_7512RegexCompile8appendOpEii(ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef 38, i32 noundef %cond.i67)
-  %56 = load ptr, ptr %fRXPat, align 8
-  %fCompiledPat48 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %56, i64 0, i32 4
-  %57 = load ptr, ptr %fCompiledPat48, align 8
-  %58 = load i32, ptr %fMatchOpenParen, align 8
-  %count.i74 = getelementptr inbounds %"class.icu_75::UVector64", ptr %57, i64 0, i32 1
-  %59 = load i32, ptr %count.i74, align 8
-  %sub55 = add nsw i32 %59, -1
-  %60 = load ptr, ptr %fStatus.i.i, align 8
-  %61 = load i32, ptr %60, align 4
-  %cmp.i.i84 = icmp slt i32 %61, 1
+  %58 = load ptr, ptr %fRXPat, align 8
+  %fCompiledPat48 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %58, i64 0, i32 4
+  %59 = load ptr, ptr %fCompiledPat48, align 8
+  %60 = load i32, ptr %fMatchOpenParen, align 8
+  %count.i74 = getelementptr inbounds %"class.icu_75::UVector64", ptr %59, i64 0, i32 1
+  %61 = load i32, ptr %count.i74, align 8
+  %sub55 = add nsw i32 %61, -1
+  %62 = load ptr, ptr %fStatus.i.i, align 8
+  %63 = load i32, ptr %62, align 4
+  %cmp.i.i84 = icmp slt i32 %63, 1
   br i1 %cmp.i.i84, label %if.end.i, label %_ZN6icu_7512RegexCompile7buildOpEii.exit
 
 if.end.i:                                         ; preds = %_ZN6icu_7512RegexCompile8appendOpEii.exit
-  %cmp5.i = icmp sgt i32 %59, 16777216
+  %cmp5.i = icmp sgt i32 %61, 16777216
   br i1 %cmp5.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %if.end.i
@@ -7222,7 +7223,7 @@ if.then6.i:                                       ; preds = %if.end.i
   unreachable
 
 if.end7.i:                                        ; preds = %if.end.i
-  %cmp8.i = icmp slt i32 %59, 1
+  %cmp8.i = icmp slt i32 %61, 1
   br i1 %cmp8.i, label %if.then9.i, label %if.end18.i
 
 if.then9.i:                                       ; preds = %if.end7.i
@@ -7231,51 +7232,51 @@ if.then9.i:                                       ; preds = %if.end7.i
 
 if.end18.i:                                       ; preds = %if.end7.i
   %or.i = or i32 %sub55, 100663296
-  %62 = zext nneg i32 %or.i to i64
+  %64 = zext nneg i32 %or.i to i64
   br label %_ZN6icu_7512RegexCompile7buildOpEii.exit
 
 _ZN6icu_7512RegexCompile7buildOpEii.exit:         ; preds = %_ZN6icu_7512RegexCompile8appendOpEii.exit, %if.end18.i
-  %retval.0.i = phi i64 [ %62, %if.end18.i ], [ 0, %_ZN6icu_7512RegexCompile8appendOpEii.exit ]
-  tail call void @_ZN6icu_759UVector6412setElementAtEli(ptr noundef nonnull align 8 dereferenceable(32) %57, i64 noundef %retval.0.i, i32 noundef %58)
+  %retval.0.i = phi i64 [ %64, %if.end18.i ], [ 0, %_ZN6icu_7512RegexCompile8appendOpEii.exit ]
+  tail call void @_ZN6icu_759UVector6412setElementAtEli(ptr noundef nonnull align 8 dereferenceable(32) %59, i64 noundef %retval.0.i, i32 noundef %60)
   br label %sw.epilog
 
 sw.bb61:                                          ; preds = %_ZN6icu_759UVector324popiEv.exit32
-  %63 = load ptr, ptr %fRXPat, align 8
-  %fCompiledPat64 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %63, i64 0, i32 4
-  %64 = load ptr, ptr %fCompiledPat64, align 8
-  %65 = load i32, ptr %fMatchOpenParen, align 8
-  %sub66 = add nsw i32 %65, -4
-  %cmp.i85 = icmp sgt i32 %65, 3
-  %count.i86 = getelementptr inbounds %"class.icu_75::UVector64", ptr %64, i64 0, i32 1
-  %66 = load i32, ptr %count.i86, align 8
-  %cmp2.i87 = icmp sgt i32 %66, %sub66
+  %65 = load ptr, ptr %fRXPat, align 8
+  %fCompiledPat64 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %65, i64 0, i32 4
+  %66 = load ptr, ptr %fCompiledPat64, align 8
+  %67 = load i32, ptr %fMatchOpenParen, align 8
+  %sub66 = add nsw i32 %67, -4
+  %cmp.i85 = icmp sgt i32 %67, 3
+  %count.i86 = getelementptr inbounds %"class.icu_75::UVector64", ptr %66, i64 0, i32 1
+  %68 = load i32, ptr %count.i86, align 8
+  %cmp2.i87 = icmp sgt i32 %68, %sub66
   %or.cond.i88 = select i1 %cmp.i85, i1 %cmp2.i87, i1 false
   br i1 %or.cond.i88, label %cond.true.i90, label %_ZNK6icu_759UVector6410elementAtiEi.exit94
 
 cond.true.i90:                                    ; preds = %sw.bb61
-  %elements.i91 = getelementptr inbounds %"class.icu_75::UVector64", ptr %64, i64 0, i32 4
-  %67 = load ptr, ptr %elements.i91, align 8
+  %elements.i91 = getelementptr inbounds %"class.icu_75::UVector64", ptr %66, i64 0, i32 4
+  %69 = load ptr, ptr %elements.i91, align 8
   %idxprom.i92 = zext nneg i32 %sub66 to i64
-  %arrayidx.i93 = getelementptr inbounds i64, ptr %67, i64 %idxprom.i92
-  %68 = load i64, ptr %arrayidx.i93, align 8
-  %69 = trunc i64 %68 to i32
-  %70 = and i32 %69, 16777215
+  %arrayidx.i93 = getelementptr inbounds i64, ptr %69, i64 %idxprom.i92
+  %70 = load i64, ptr %arrayidx.i93, align 8
+  %71 = trunc i64 %70 to i32
+  %72 = and i32 %71, 16777215
   br label %_ZNK6icu_759UVector6410elementAtiEi.exit94
 
 _ZNK6icu_759UVector6410elementAtiEi.exit94:       ; preds = %sw.bb61, %cond.true.i90
-  %cond.i89 = phi i32 [ %70, %cond.true.i90 ], [ 0, %sw.bb61 ]
+  %cond.i89 = phi i32 [ %72, %cond.true.i90 ], [ 0, %sw.bb61 ]
   tail call void @_ZN6icu_7512RegexCompile8appendOpEii(ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef 46, i32 noundef %cond.i89)
   tail call void @_ZN6icu_7512RegexCompile8appendOpEii(ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef 38, i32 noundef %cond.i89)
-  %71 = load ptr, ptr %fRXPat, align 8
-  %fCompiledPat72 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %71, i64 0, i32 4
-  %72 = load ptr, ptr %fCompiledPat72, align 8
-  %count.i95 = getelementptr inbounds %"class.icu_75::UVector64", ptr %72, i64 0, i32 1
-  %73 = load i32, ptr %count.i95, align 8
-  %sub74 = add nsw i32 %73, -1
-  %74 = load i32, ptr %fMatchOpenParen, align 8
-  %call76 = tail call noundef i32 @_ZN6icu_7512RegexCompile14minMatchLengthEii(ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef %74, i32 noundef %sub74)
-  %75 = load i32, ptr %fMatchOpenParen, align 8
-  %call78 = tail call noundef i32 @_ZN6icu_7512RegexCompile14maxMatchLengthEii(ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef %75, i32 noundef %sub74)
+  %73 = load ptr, ptr %fRXPat, align 8
+  %fCompiledPat72 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %73, i64 0, i32 4
+  %74 = load ptr, ptr %fCompiledPat72, align 8
+  %count.i95 = getelementptr inbounds %"class.icu_75::UVector64", ptr %74, i64 0, i32 1
+  %75 = load i32, ptr %count.i95, align 8
+  %sub74 = add nsw i32 %75, -1
+  %76 = load i32, ptr %fMatchOpenParen, align 8
+  %call76 = tail call noundef i32 @_ZN6icu_7512RegexCompile14minMatchLengthEii(ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef %76, i32 noundef %sub74)
+  %77 = load i32, ptr %fMatchOpenParen, align 8
+  %call78 = tail call noundef i32 @_ZN6icu_7512RegexCompile14maxMatchLengthEii(ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef %77, i32 noundef %sub74)
   %cmp79.not = icmp ult i32 %call78, 16777216
   br i1 %cmp79.not, label %if.end84, label %if.then80
 
@@ -7286,58 +7287,58 @@ if.then80:                                        ; preds = %_ZNK6icu_759UVector
 if.end84:                                         ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit94
   %cmp85 = icmp eq i32 %call76, 2147483647
   %spec.store.select = select i1 %cmp85, i32 0, i32 %call76
-  %76 = load ptr, ptr %fRXPat, align 8
-  %fCompiledPat89 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %76, i64 0, i32 4
-  %77 = load ptr, ptr %fCompiledPat89, align 8
+  %78 = load ptr, ptr %fRXPat, align 8
+  %fCompiledPat89 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %78, i64 0, i32 4
+  %79 = load ptr, ptr %fCompiledPat89, align 8
   %conv90 = sext i32 %spec.store.select to i64
-  %78 = load i32, ptr %fMatchOpenParen, align 8
-  %sub92 = add nsw i32 %78, -2
-  tail call void @_ZN6icu_759UVector6412setElementAtEli(ptr noundef nonnull align 8 dereferenceable(32) %77, i64 noundef %conv90, i32 noundef %sub92)
-  %79 = load ptr, ptr %fRXPat, align 8
-  %fCompiledPat94 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %79, i64 0, i32 4
-  %80 = load ptr, ptr %fCompiledPat94, align 8
+  %80 = load i32, ptr %fMatchOpenParen, align 8
+  %sub92 = add nsw i32 %80, -2
+  tail call void @_ZN6icu_759UVector6412setElementAtEli(ptr noundef nonnull align 8 dereferenceable(32) %79, i64 noundef %conv90, i32 noundef %sub92)
+  %81 = load ptr, ptr %fRXPat, align 8
+  %fCompiledPat94 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %81, i64 0, i32 4
+  %82 = load ptr, ptr %fCompiledPat94, align 8
   %conv95 = zext nneg i32 %call78 to i64
-  %81 = load i32, ptr %fMatchOpenParen, align 8
-  %sub97 = add nsw i32 %81, -1
-  tail call void @_ZN6icu_759UVector6412setElementAtEli(ptr noundef nonnull align 8 dereferenceable(32) %80, i64 noundef %conv95, i32 noundef %sub97)
+  %83 = load i32, ptr %fMatchOpenParen, align 8
+  %sub97 = add nsw i32 %83, -1
+  tail call void @_ZN6icu_759UVector6412setElementAtEli(ptr noundef nonnull align 8 dereferenceable(32) %82, i64 noundef %conv95, i32 noundef %sub97)
   br label %sw.epilog
 
 sw.bb98:                                          ; preds = %_ZN6icu_759UVector324popiEv.exit32
-  %82 = load ptr, ptr %fRXPat, align 8
-  %fCompiledPat101 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %82, i64 0, i32 4
-  %83 = load ptr, ptr %fCompiledPat101, align 8
-  %84 = load i32, ptr %fMatchOpenParen, align 8
-  %sub103 = add nsw i32 %84, -5
-  %cmp.i96 = icmp sgt i32 %84, 4
-  %count.i97 = getelementptr inbounds %"class.icu_75::UVector64", ptr %83, i64 0, i32 1
-  %85 = load i32, ptr %count.i97, align 8
-  %cmp2.i98 = icmp sgt i32 %85, %sub103
+  %84 = load ptr, ptr %fRXPat, align 8
+  %fCompiledPat101 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %84, i64 0, i32 4
+  %85 = load ptr, ptr %fCompiledPat101, align 8
+  %86 = load i32, ptr %fMatchOpenParen, align 8
+  %sub103 = add nsw i32 %86, -5
+  %cmp.i96 = icmp sgt i32 %86, 4
+  %count.i97 = getelementptr inbounds %"class.icu_75::UVector64", ptr %85, i64 0, i32 1
+  %87 = load i32, ptr %count.i97, align 8
+  %cmp2.i98 = icmp sgt i32 %87, %sub103
   %or.cond.i99 = select i1 %cmp.i96, i1 %cmp2.i98, i1 false
   br i1 %or.cond.i99, label %cond.true.i101, label %_ZNK6icu_759UVector6410elementAtiEi.exit105
 
 cond.true.i101:                                   ; preds = %sw.bb98
-  %elements.i102 = getelementptr inbounds %"class.icu_75::UVector64", ptr %83, i64 0, i32 4
-  %86 = load ptr, ptr %elements.i102, align 8
+  %elements.i102 = getelementptr inbounds %"class.icu_75::UVector64", ptr %85, i64 0, i32 4
+  %88 = load ptr, ptr %elements.i102, align 8
   %idxprom.i103 = zext nneg i32 %sub103 to i64
-  %arrayidx.i104 = getelementptr inbounds i64, ptr %86, i64 %idxprom.i103
-  %87 = load i64, ptr %arrayidx.i104, align 8
-  %88 = trunc i64 %87 to i32
-  %89 = and i32 %88, 16777215
+  %arrayidx.i104 = getelementptr inbounds i64, ptr %88, i64 %idxprom.i103
+  %89 = load i64, ptr %arrayidx.i104, align 8
+  %90 = trunc i64 %89 to i32
+  %91 = and i32 %90, 16777215
   br label %_ZNK6icu_759UVector6410elementAtiEi.exit105
 
 _ZNK6icu_759UVector6410elementAtiEi.exit105:      ; preds = %sw.bb98, %cond.true.i101
-  %cond.i100 = phi i32 [ %89, %cond.true.i101 ], [ 0, %sw.bb98 ]
+  %cond.i100 = phi i32 [ %91, %cond.true.i101 ], [ 0, %sw.bb98 ]
   tail call void @_ZN6icu_7512RegexCompile8appendOpEii(ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef 48, i32 noundef %cond.i100)
-  %90 = load ptr, ptr %fRXPat, align 8
-  %fCompiledPat110 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %90, i64 0, i32 4
-  %91 = load ptr, ptr %fCompiledPat110, align 8
-  %count.i106 = getelementptr inbounds %"class.icu_75::UVector64", ptr %91, i64 0, i32 1
-  %92 = load i32, ptr %count.i106, align 8
-  %sub112 = add nsw i32 %92, -1
-  %93 = load i32, ptr %fMatchOpenParen, align 8
-  %call115 = tail call noundef i32 @_ZN6icu_7512RegexCompile14minMatchLengthEii(ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef %93, i32 noundef %sub112)
-  %94 = load i32, ptr %fMatchOpenParen, align 8
-  %call118 = tail call noundef i32 @_ZN6icu_7512RegexCompile14maxMatchLengthEii(ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef %94, i32 noundef %sub112)
+  %92 = load ptr, ptr %fRXPat, align 8
+  %fCompiledPat110 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %92, i64 0, i32 4
+  %93 = load ptr, ptr %fCompiledPat110, align 8
+  %count.i106 = getelementptr inbounds %"class.icu_75::UVector64", ptr %93, i64 0, i32 1
+  %94 = load i32, ptr %count.i106, align 8
+  %sub112 = add nsw i32 %94, -1
+  %95 = load i32, ptr %fMatchOpenParen, align 8
+  %call115 = tail call noundef i32 @_ZN6icu_7512RegexCompile14minMatchLengthEii(ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef %95, i32 noundef %sub112)
+  %96 = load i32, ptr %fMatchOpenParen, align 8
+  %call118 = tail call noundef i32 @_ZN6icu_7512RegexCompile14maxMatchLengthEii(ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef %96, i32 noundef %sub112)
   %cmp120.not = icmp ult i32 %call118, 16777216
   br i1 %cmp120.not, label %if.end125, label %if.then121
 
@@ -7348,33 +7349,33 @@ if.then121:                                       ; preds = %_ZNK6icu_759UVector
 if.end125:                                        ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit105
   %cmp126 = icmp eq i32 %call115, 2147483647
   %spec.store.select1 = select i1 %cmp126, i32 0, i32 %call115
-  %95 = load ptr, ptr %fRXPat, align 8
-  %fCompiledPat130 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %95, i64 0, i32 4
-  %96 = load ptr, ptr %fCompiledPat130, align 8
+  %97 = load ptr, ptr %fRXPat, align 8
+  %fCompiledPat130 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %97, i64 0, i32 4
+  %98 = load ptr, ptr %fCompiledPat130, align 8
   %conv131 = sext i32 %spec.store.select1 to i64
-  %97 = load i32, ptr %fMatchOpenParen, align 8
-  %sub133 = add nsw i32 %97, -3
-  tail call void @_ZN6icu_759UVector6412setElementAtEli(ptr noundef nonnull align 8 dereferenceable(32) %96, i64 noundef %conv131, i32 noundef %sub133)
-  %98 = load ptr, ptr %fRXPat, align 8
-  %fCompiledPat135 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %98, i64 0, i32 4
-  %99 = load ptr, ptr %fCompiledPat135, align 8
+  %99 = load i32, ptr %fMatchOpenParen, align 8
+  %sub133 = add nsw i32 %99, -3
+  tail call void @_ZN6icu_759UVector6412setElementAtEli(ptr noundef nonnull align 8 dereferenceable(32) %98, i64 noundef %conv131, i32 noundef %sub133)
+  %100 = load ptr, ptr %fRXPat, align 8
+  %fCompiledPat135 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %100, i64 0, i32 4
+  %101 = load ptr, ptr %fCompiledPat135, align 8
   %conv136 = zext nneg i32 %call118 to i64
-  %100 = load i32, ptr %fMatchOpenParen, align 8
-  %sub138 = add nsw i32 %100, -2
-  tail call void @_ZN6icu_759UVector6412setElementAtEli(ptr noundef nonnull align 8 dereferenceable(32) %99, i64 noundef %conv136, i32 noundef %sub138)
-  %101 = load ptr, ptr %fRXPat, align 8
-  %fCompiledPat140 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %101, i64 0, i32 4
-  %102 = load ptr, ptr %fCompiledPat140, align 8
-  %count.i107 = getelementptr inbounds %"class.icu_75::UVector64", ptr %102, i64 0, i32 1
-  %103 = load i32, ptr %count.i107, align 8
+  %102 = load i32, ptr %fMatchOpenParen, align 8
+  %sub138 = add nsw i32 %102, -2
+  tail call void @_ZN6icu_759UVector6412setElementAtEli(ptr noundef nonnull align 8 dereferenceable(32) %101, i64 noundef %conv136, i32 noundef %sub138)
+  %103 = load ptr, ptr %fRXPat, align 8
+  %fCompiledPat140 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %103, i64 0, i32 4
+  %104 = load ptr, ptr %fCompiledPat140, align 8
+  %count.i107 = getelementptr inbounds %"class.icu_75::UVector64", ptr %104, i64 0, i32 1
+  %105 = load i32, ptr %count.i107, align 8
   %fStatus.i108 = getelementptr inbounds %"class.icu_75::RegexCompile", ptr %this, i64 0, i32 1
-  %104 = load ptr, ptr %fStatus.i108, align 8
-  %105 = load i32, ptr %104, align 4
-  %cmp.i.i109 = icmp slt i32 %105, 1
+  %106 = load ptr, ptr %fStatus.i108, align 8
+  %107 = load i32, ptr %106, align 4
+  %cmp.i.i109 = icmp slt i32 %107, 1
   br i1 %cmp.i.i109, label %if.end.i111, label %_ZN6icu_7512RegexCompile7buildOpEii.exit119
 
 if.end.i111:                                      ; preds = %if.end125
-  %cmp5.i112 = icmp sgt i32 %103, 16777215
+  %cmp5.i112 = icmp sgt i32 %105, 16777215
   br i1 %cmp5.i112, label %if.then6.i118, label %if.end7.i113
 
 if.then6.i118:                                    ; preds = %if.end.i111
@@ -7382,7 +7383,7 @@ if.then6.i118:                                    ; preds = %if.end.i111
   unreachable
 
 if.end7.i113:                                     ; preds = %if.end.i111
-  %cmp8.i114 = icmp slt i32 %103, 0
+  %cmp8.i114 = icmp slt i32 %105, 0
   br i1 %cmp8.i114, label %if.then9.i117, label %if.end18.i115
 
 if.then9.i117:                                    ; preds = %if.end7.i113
@@ -7390,15 +7391,15 @@ if.then9.i117:                                    ; preds = %if.end7.i113
   unreachable
 
 if.end18.i115:                                    ; preds = %if.end7.i113
-  %or.i116 = or i32 %103, 520093696
-  %106 = zext nneg i32 %or.i116 to i64
+  %or.i116 = or i32 %105, 520093696
+  %108 = zext nneg i32 %or.i116 to i64
   br label %_ZN6icu_7512RegexCompile7buildOpEii.exit119
 
 _ZN6icu_7512RegexCompile7buildOpEii.exit119:      ; preds = %if.end125, %if.end18.i115
-  %retval.0.i110 = phi i64 [ %106, %if.end18.i115 ], [ 0, %if.end125 ]
-  %107 = load i32, ptr %fMatchOpenParen, align 8
-  %sub147 = add nsw i32 %107, -1
-  tail call void @_ZN6icu_759UVector6412setElementAtEli(ptr noundef nonnull align 8 dereferenceable(32) %102, i64 noundef %retval.0.i110, i32 noundef %sub147)
+  %retval.0.i110 = phi i64 [ %108, %if.end18.i115 ], [ 0, %if.end125 ]
+  %109 = load i32, ptr %fMatchOpenParen, align 8
+  %sub147 = add nsw i32 %109, -1
+  tail call void @_ZN6icu_759UVector6412setElementAtEli(ptr noundef nonnull align 8 dereferenceable(32) %104, i64 noundef %retval.0.i110, i32 noundef %sub147)
   br label %sw.epilog
 
 sw.default:                                       ; preds = %_ZN6icu_759UVector324popiEv.exit32
@@ -7406,13 +7407,13 @@ sw.default:                                       ; preds = %_ZN6icu_759UVector3
   unreachable
 
 sw.epilog:                                        ; preds = %_ZN6icu_759UVector324popiEv.exit32, %_ZN6icu_759UVector324popiEv.exit32, %_ZN6icu_7512RegexCompile7buildOpEii.exit119, %if.then121, %if.end84, %if.then80, %_ZN6icu_7512RegexCompile7buildOpEii.exit, %_ZNK6icu_759UVector6410elementAtiEi.exit62, %_ZNK6icu_759UVector6410elementAtiEi.exit52, %_ZNK6icu_759UVector6410elementAtiEi.exit42
-  %108 = load ptr, ptr %fRXPat, align 8
-  %fCompiledPat149 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %108, i64 0, i32 4
-  %109 = load ptr, ptr %fCompiledPat149, align 8
-  %count.i120 = getelementptr inbounds %"class.icu_75::UVector64", ptr %109, i64 0, i32 1
-  %110 = load i32, ptr %count.i120, align 8
+  %110 = load ptr, ptr %fRXPat, align 8
+  %fCompiledPat149 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %110, i64 0, i32 4
+  %111 = load ptr, ptr %fCompiledPat149, align 8
+  %count.i120 = getelementptr inbounds %"class.icu_75::UVector64", ptr %111, i64 0, i32 1
+  %112 = load i32, ptr %count.i120, align 8
   %fMatchCloseParen = getelementptr inbounds %"class.icu_75::RegexCompile", ptr %this, i64 0, i32 22
-  store i32 %110, ptr %fMatchCloseParen, align 4
+  store i32 %112, ptr %fMatchCloseParen, align 4
   br label %return
 
 return:                                           ; preds = %sw.epilog, %if.then

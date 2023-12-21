@@ -726,28 +726,28 @@ if.else:                                          ; preds = %if.end
 if.then14:                                        ; preds = %if.else
   %protocols = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 10
   %5 = load ptr, ptr %protocols, align 8
-  %sub = add nsw i32 %conv4, -1
-  %idxprom = zext nneg i32 %sub to i64
-  %arrayidx = getelementptr %struct.DOEProtocol, ptr %5, i64 %idxprom
-  %6 = load i16, ptr %arrayidx, align 8
-  %data_obj_type18 = getelementptr %struct.DOEProtocol, ptr %5, i64 %idxprom, i32 1
-  %7 = load i8, ptr %data_obj_type18, align 2
+  %6 = zext i8 %1 to i64
+  %7 = getelementptr %struct.DOEProtocol, ptr %5, i64 %6
+  %arrayidx = getelementptr %struct.DOEProtocol, ptr %7, i64 -1
+  %8 = load i16, ptr %arrayidx, align 8
+  %data_obj_type18 = getelementptr %struct.DOEProtocol, ptr %7, i64 -1, i32 1
+  %9 = load i8, ptr %data_obj_type18, align 2
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end, %if.else, %if.then14
-  %rsp.sroa.5.0 = phi i16 [ %6, %if.then14 ], [ -1, %if.else ], [ 1, %if.end ]
-  %rsp.sroa.8.0 = phi i8 [ %7, %if.then14 ], [ -1, %if.else ], [ 0, %if.end ]
+  %rsp.sroa.5.0 = phi i16 [ %8, %if.then14 ], [ -1, %if.else ], [ 1, %if.end ]
+  %rsp.sroa.8.0 = phi i8 [ %9, %if.then14 ], [ -1, %if.else ], [ 0, %if.end ]
   %add = add nuw nsw i32 %conv4, 1
   %conv27 = zext i16 %.pre to i32
   %cmp28 = icmp eq i32 %add, %conv27
   %conv34 = trunc i32 %add to i8
   %spec.select = select i1 %cmp28, i8 0, i8 %conv34
   %read_mbox.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 6
-  %8 = load ptr, ptr %read_mbox.i, align 8
+  %10 = load ptr, ptr %read_mbox.i, align 8
   %read_mbox_len.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 8
-  %9 = load i32, ptr %read_mbox_len.i, align 4
-  %idx.ext.i = zext i32 %9 to i64
-  %add.ptr.i = getelementptr i32, ptr %8, i64 %idx.ext.i
+  %11 = load i32, ptr %read_mbox_len.i, align 4
+  %idx.ext.i = zext i32 %11 to i64
+  %add.ptr.i = getelementptr i32, ptr %10, i64 %idx.ext.i
   store i16 1, ptr %add.ptr.i, align 4
   %rsp.sroa.2.0.add.ptr.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
   store i8 0, ptr %rsp.sroa.2.0.add.ptr.i.sroa_idx, align 2
@@ -761,8 +761,8 @@ if.end24:                                         ; preds = %if.end, %if.else, %
   store i8 %rsp.sroa.8.0, ptr %rsp.sroa.8.0.add.ptr.i.sroa_idx, align 2
   %rsp.sroa.11.0.add.ptr.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 11
   store i8 %spec.select, ptr %rsp.sroa.11.0.add.ptr.i.sroa_idx, align 1
-  %10 = load i32, ptr %read_mbox_len.i, align 4
-  %add.i = add i32 %10, 3
+  %12 = load i32, ptr %read_mbox_len.i, align 4
+  %add.i = add i32 %12, 3
   store i32 %add.i, ptr %read_mbox_len.i, align 4
   br label %return
 

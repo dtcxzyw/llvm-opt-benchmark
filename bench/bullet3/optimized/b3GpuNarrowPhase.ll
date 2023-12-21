@@ -5606,7 +5606,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv261 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next262, %for.inc118 ]
   %35 = mul nuw nsw i64 %indvars.iv261, 3
   %36 = load ptr, ptr %m_data.i74, align 8
-  %arrayidx.i76 = getelementptr inbounds i32, ptr %36, i64 %35
+  %arrayidx.i76 = getelementptr i32, ptr %36, i64 %35
   %37 = load i32, ptr %arrayidx.i76, align 4
   %38 = load ptr, ptr %m_data.i77, align 8
   %idxprom.i78 = sext i32 %37 to i64
@@ -5614,119 +5614,117 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %39 = load float, ptr %arrayidx.i79, align 16
   %mul.i = fmul float %30, %39
   %arrayidx2.i = getelementptr inbounds [4 x float], ptr %arrayidx.i79, i64 0, i64 1
-  %40 = getelementptr i32, ptr %36, i64 %35
-  %arrayidx.i82 = getelementptr i32, ptr %40, i64 1
-  %41 = load i32, ptr %arrayidx.i82, align 4
-  %idxprom.i84 = sext i32 %41 to i64
+  %arrayidx.i82 = getelementptr i32, ptr %arrayidx.i76, i64 1
+  %40 = load i32, ptr %arrayidx.i82, align 4
+  %idxprom.i84 = sext i32 %40 to i64
   %arrayidx.i85 = getelementptr inbounds %class.b3Vector3, ptr %38, i64 %idxprom.i84
-  %42 = load float, ptr %arrayidx.i85, align 16
-  %mul.i86 = fmul float %30, %42
+  %41 = load float, ptr %arrayidx.i85, align 16
+  %mul.i86 = fmul float %30, %41
   %arrayidx2.i87 = getelementptr inbounds [4 x float], ptr %arrayidx.i85, i64 0, i64 1
-  %43 = getelementptr i32, ptr %36, i64 %35
-  %arrayidx.i100 = getelementptr i32, ptr %43, i64 2
-  %44 = load i32, ptr %arrayidx.i100, align 4
-  %idxprom.i102 = sext i32 %44 to i64
+  %arrayidx.i100 = getelementptr i32, ptr %arrayidx.i76, i64 2
+  %42 = load i32, ptr %arrayidx.i100, align 4
+  %idxprom.i102 = sext i32 %42 to i64
   %arrayidx.i103 = getelementptr inbounds %class.b3Vector3, ptr %38, i64 %idxprom.i102
-  %45 = load float, ptr %arrayidx.i103, align 16
+  %43 = load float, ptr %arrayidx.i103, align 16
   %arrayidx2.i105 = getelementptr inbounds [4 x float], ptr %arrayidx.i103, i64 0, i64 1
-  %46 = load float, ptr %arrayidx2.i105, align 4
-  %mul4.i107 = fmul float %31, %46
+  %44 = load float, ptr %arrayidx2.i105, align 4
+  %mul4.i107 = fmul float %31, %44
   %arrayidx5.i108 = getelementptr inbounds [4 x float], ptr %arrayidx.i103, i64 0, i64 2
-  %47 = load float, ptr %arrayidx5.i108, align 8
+  %45 = load float, ptr %arrayidx5.i108, align 8
   %sub.i = fsub float %mul.i86, %mul.i
-  %48 = load <2 x float>, ptr %arrayidx2.i, align 4
+  %46 = load <2 x float>, ptr %arrayidx2.i, align 4
+  %47 = fmul <2 x float> %33, %46
+  %48 = load <2 x float>, ptr %arrayidx2.i87, align 4
   %49 = fmul <2 x float> %33, %48
-  %50 = load <2 x float>, ptr %arrayidx2.i87, align 4
-  %51 = fmul <2 x float> %33, %50
-  %52 = insertelement <2 x float> poison, float %47, i64 0
-  %53 = insertelement <2 x float> %52, float %45, i64 1
-  %54 = fmul <2 x float> %34, %53
-  %55 = fsub <2 x float> %51, %49
-  %56 = extractelement <2 x float> %49, i64 0
-  %sub4.i128 = fsub float %mul4.i107, %56
-  %57 = shufflevector <2 x float> %49, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %58 = insertelement <2 x float> %57, float %mul.i, i64 1
-  %59 = fsub <2 x float> %54, %58
-  %60 = shufflevector <2 x float> %55, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %61 = insertelement <2 x float> %60, float %sub.i, i64 1
-  %62 = fneg <2 x float> %61
-  %63 = shufflevector <2 x float> %59, <2 x float> poison, <2 x i32> <i32 poison, i32 0>
-  %64 = insertelement <2 x float> %63, float %sub4.i128, i64 0
-  %65 = fmul <2 x float> %64, %62
-  %66 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %55, <2 x float> %59, <2 x float> %65)
-  %67 = extractelement <2 x float> %55, i64 0
-  %68 = fneg float %67
-  %69 = extractelement <2 x float> %59, i64 1
-  %neg17.i = fmul float %69, %68
-  %70 = tail call float @llvm.fmuladd.f32(float %sub.i, float %sub4.i128, float %neg17.i)
-  %71 = fmul <2 x float> %66, %66
-  %mul5.i.i.i.i = extractelement <2 x float> %71, i64 1
-  %72 = extractelement <2 x float> %66, i64 0
-  %73 = tail call float @llvm.fmuladd.f32(float %72, float %72, float %mul5.i.i.i.i)
-  %74 = tail call noundef float @llvm.fmuladd.f32(float %70, float %70, float %73)
-  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %74)
+  %50 = insertelement <2 x float> poison, float %45, i64 0
+  %51 = insertelement <2 x float> %50, float %43, i64 1
+  %52 = fmul <2 x float> %34, %51
+  %53 = fsub <2 x float> %49, %47
+  %54 = extractelement <2 x float> %47, i64 0
+  %sub4.i128 = fsub float %mul4.i107, %54
+  %55 = shufflevector <2 x float> %47, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %56 = insertelement <2 x float> %55, float %mul.i, i64 1
+  %57 = fsub <2 x float> %52, %56
+  %58 = shufflevector <2 x float> %53, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %59 = insertelement <2 x float> %58, float %sub.i, i64 1
+  %60 = fneg <2 x float> %59
+  %61 = shufflevector <2 x float> %57, <2 x float> poison, <2 x i32> <i32 poison, i32 0>
+  %62 = insertelement <2 x float> %61, float %sub4.i128, i64 0
+  %63 = fmul <2 x float> %62, %60
+  %64 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %53, <2 x float> %57, <2 x float> %63)
+  %65 = extractelement <2 x float> %53, i64 0
+  %66 = fneg float %65
+  %67 = extractelement <2 x float> %57, i64 1
+  %neg17.i = fmul float %67, %66
+  %68 = tail call float @llvm.fmuladd.f32(float %sub.i, float %sub4.i128, float %neg17.i)
+  %69 = fmul <2 x float> %64, %64
+  %mul5.i.i.i.i = extractelement <2 x float> %69, i64 1
+  %70 = extractelement <2 x float> %64, i64 0
+  %71 = tail call float @llvm.fmuladd.f32(float %70, float %70, float %mul5.i.i.i.i)
+  %72 = tail call noundef float @llvm.fmuladd.f32(float %68, float %68, float %71)
+  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %72)
   %div.i.i = fdiv float 1.000000e+00, %sqrt.i.i
-  %75 = insertelement <2 x float> poison, float %div.i.i, i64 0
-  %76 = shufflevector <2 x float> %75, <2 x float> poison, <2 x i32> zeroinitializer
-  %77 = fmul <2 x float> %66, %76
-  %mul5.i.i.i = fmul float %70, %div.i.i
-  %shift = shufflevector <2 x float> %77, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %78 = fmul <2 x float> %49, %shift
-  %mul5.i = extractelement <2 x float> %78, i64 0
-  %79 = extractelement <2 x float> %77, i64 0
-  %80 = tail call float @llvm.fmuladd.f32(float %79, float %mul.i, float %mul5.i)
-  %81 = extractelement <2 x float> %49, i64 1
-  %82 = tail call noundef float @llvm.fmuladd.f32(float %mul5.i.i.i, float %81, float %80)
-  %fneg = fneg float %82
+  %73 = insertelement <2 x float> poison, float %div.i.i, i64 0
+  %74 = shufflevector <2 x float> %73, <2 x float> poison, <2 x i32> zeroinitializer
+  %75 = fmul <2 x float> %64, %74
+  %mul5.i.i.i = fmul float %68, %div.i.i
+  %shift = shufflevector <2 x float> %75, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %76 = fmul <2 x float> %47, %shift
+  %mul5.i = extractelement <2 x float> %76, i64 0
+  %77 = extractelement <2 x float> %75, i64 0
+  %78 = tail call float @llvm.fmuladd.f32(float %77, float %mul.i, float %mul5.i)
+  %79 = extractelement <2 x float> %47, i64 1
+  %80 = tail call noundef float @llvm.fmuladd.f32(float %mul5.i.i.i, float %79, float %78)
+  %fneg = fneg float %80
   %retval.sroa.3.8.vec.insert.i = insertelement <2 x float> poison, float %mul5.i.i.i, i64 0
   %retval.sroa.3.12.vec.insert.i150 = insertelement <2 x float> %retval.sroa.3.8.vec.insert.i, float %fneg, i64 1
-  %83 = load ptr, ptr %m_data, align 8
-  %84 = load i32, ptr %m_faceOffset, align 4
-  %85 = sext i32 %84 to i64
-  %m_data.i153 = getelementptr inbounds %struct.b3GpuNarrowPhaseInternalData, ptr %83, i64 0, i32 16, i32 5
-  %86 = load ptr, ptr %m_data.i153, align 8
-  %87 = getelementptr %struct.b3GpuFace, ptr %86, i64 %indvars.iv261
-  %arrayidx.i155 = getelementptr %struct.b3GpuFace, ptr %87, i64 %85
-  store <2 x float> %77, ptr %arrayidx.i155, align 16
+  %81 = load ptr, ptr %m_data, align 8
+  %82 = load i32, ptr %m_faceOffset, align 4
+  %83 = sext i32 %82 to i64
+  %m_data.i153 = getelementptr inbounds %struct.b3GpuNarrowPhaseInternalData, ptr %81, i64 0, i32 16, i32 5
+  %84 = load ptr, ptr %m_data.i153, align 8
+  %85 = getelementptr %struct.b3GpuFace, ptr %84, i64 %indvars.iv261
+  %arrayidx.i155 = getelementptr %struct.b3GpuFace, ptr %85, i64 %83
+  store <2 x float> %75, ptr %arrayidx.i155, align 16
   %ref.tmp81.sroa.2.0.m_plane.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i155, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i150, ptr %ref.tmp81.sroa.2.0.m_plane.sroa_idx, align 8
-  %88 = load ptr, ptr %m_data, align 8
-  %m_size.i156 = getelementptr inbounds %struct.b3GpuNarrowPhaseInternalData, ptr %88, i64 0, i32 4, i32 2
-  %89 = load i32, ptr %m_size.i156, align 4
-  %90 = load i32, ptr %m_faceOffset, align 4
-  %91 = sext i32 %90 to i64
-  %92 = add nsw i64 %indvars.iv261, %91
-  %m_data.i157 = getelementptr inbounds %struct.b3GpuNarrowPhaseInternalData, ptr %88, i64 0, i32 16, i32 5
-  %93 = load ptr, ptr %m_data.i157, align 8
-  %m_numIndices = getelementptr inbounds %struct.b3GpuFace, ptr %93, i64 %92, i32 2
+  %86 = load ptr, ptr %m_data, align 8
+  %m_size.i156 = getelementptr inbounds %struct.b3GpuNarrowPhaseInternalData, ptr %86, i64 0, i32 4, i32 2
+  %87 = load i32, ptr %m_size.i156, align 4
+  %88 = load i32, ptr %m_faceOffset, align 4
+  %89 = sext i32 %88 to i64
+  %90 = add nsw i64 %indvars.iv261, %89
+  %m_data.i157 = getelementptr inbounds %struct.b3GpuNarrowPhaseInternalData, ptr %86, i64 0, i32 16, i32 5
+  %91 = load ptr, ptr %m_data.i157, align 8
+  %m_numIndices = getelementptr inbounds %struct.b3GpuFace, ptr %91, i64 %90, i32 2
   store i32 3, ptr %m_numIndices, align 4
-  %94 = load ptr, ptr %m_data, align 8
-  %95 = load i32, ptr %m_faceOffset, align 4
-  %96 = sext i32 %95 to i64
-  %97 = add nsw i64 %indvars.iv261, %96
-  %m_data.i160 = getelementptr inbounds %struct.b3GpuNarrowPhaseInternalData, ptr %94, i64 0, i32 16, i32 5
-  %98 = load ptr, ptr %m_data.i160, align 8
-  %m_indexOffset = getelementptr inbounds %struct.b3GpuFace, ptr %98, i64 %97, i32 1
-  store i32 %89, ptr %m_indexOffset, align 16
-  %99 = load ptr, ptr %m_data, align 8
-  %add106 = add nsw i32 %89, 3
-  %m_size.i.i163 = getelementptr inbounds %struct.b3GpuNarrowPhaseInternalData, ptr %99, i64 0, i32 4, i32 2
-  %100 = load i32, ptr %m_size.i.i163, align 4
-  %cmp4.i164 = icmp slt i32 %100, %add106
+  %92 = load ptr, ptr %m_data, align 8
+  %93 = load i32, ptr %m_faceOffset, align 4
+  %94 = sext i32 %93 to i64
+  %95 = add nsw i64 %indvars.iv261, %94
+  %m_data.i160 = getelementptr inbounds %struct.b3GpuNarrowPhaseInternalData, ptr %92, i64 0, i32 16, i32 5
+  %96 = load ptr, ptr %m_data.i160, align 8
+  %m_indexOffset = getelementptr inbounds %struct.b3GpuFace, ptr %96, i64 %95, i32 1
+  store i32 %87, ptr %m_indexOffset, align 16
+  %97 = load ptr, ptr %m_data, align 8
+  %add106 = add nsw i32 %87, 3
+  %m_size.i.i163 = getelementptr inbounds %struct.b3GpuNarrowPhaseInternalData, ptr %97, i64 0, i32 4, i32 2
+  %98 = load i32, ptr %m_size.i.i163, align 4
+  %cmp4.i164 = icmp slt i32 %98, %add106
   br i1 %cmp4.i164, label %for.body9.lr.ph.i165, label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit
 
 for.body9.lr.ph.i165:                             ; preds = %for.body
-  %m_convexIndices105 = getelementptr inbounds %struct.b3GpuNarrowPhaseInternalData, ptr %99, i64 0, i32 4
+  %m_convexIndices105 = getelementptr inbounds %struct.b3GpuNarrowPhaseInternalData, ptr %97, i64 0, i32 4
   tail call void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_convexIndices105, i32 noundef %add106)
-  %m_data10.i166 = getelementptr inbounds %struct.b3GpuNarrowPhaseInternalData, ptr %99, i64 0, i32 4, i32 5
-  %101 = sext i32 %100 to i64
+  %m_data10.i166 = getelementptr inbounds %struct.b3GpuNarrowPhaseInternalData, ptr %97, i64 0, i32 4, i32 5
+  %99 = sext i32 %98 to i64
   %wide.trip.count.i167 = sext i32 %add106 to i64
   br label %for.body9.i169
 
 for.body9.i169:                                   ; preds = %for.body9.i169, %for.body9.lr.ph.i165
-  %indvars.iv.i170 = phi i64 [ %101, %for.body9.lr.ph.i165 ], [ %indvars.iv.next.i172, %for.body9.i169 ]
-  %102 = load ptr, ptr %m_data10.i166, align 8
-  %arrayidx12.i171 = getelementptr inbounds i32, ptr %102, i64 %indvars.iv.i170
+  %indvars.iv.i170 = phi i64 [ %99, %for.body9.lr.ph.i165 ], [ %indvars.iv.next.i172, %for.body9.i169 ]
+  %100 = load ptr, ptr %m_data10.i166, align 8
+  %arrayidx12.i171 = getelementptr inbounds i32, ptr %100, i64 %indvars.iv.i170
   store i32 0, ptr %arrayidx12.i171, align 4
   %indvars.iv.next.i172 = add nsw i64 %indvars.iv.i170, 1
   %exitcond.not.i173 = icmp eq i64 %indvars.iv.next.i172, %wide.trip.count.i167
@@ -5734,61 +5732,61 @@ for.body9.i169:                                   ; preds = %for.body9.i169, %fo
 
 _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit:    ; preds = %for.body9.i169, %for.body
   store i32 %add106, ptr %m_size.i.i163, align 4
-  %103 = sext i32 %89 to i64
+  %101 = sext i32 %87 to i64
   br label %for.body110
 
 for.body110:                                      ; preds = %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit, %for.body110
   %indvars.iv = phi i64 [ 0, %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit ], [ %indvars.iv.next, %for.body110 ]
-  %104 = load ptr, ptr %m_data.i74, align 8
-  %105 = getelementptr i32, ptr %104, i64 %indvars.iv
-  %arrayidx.i176 = getelementptr i32, ptr %105, i64 %35
-  %106 = load i32, ptr %arrayidx.i176, align 4
-  %107 = load ptr, ptr %m_data, align 8
-  %m_data.i177 = getelementptr inbounds %struct.b3GpuNarrowPhaseInternalData, ptr %107, i64 0, i32 4, i32 5
-  %108 = load ptr, ptr %m_data.i177, align 8
-  %109 = getelementptr i32, ptr %108, i64 %indvars.iv
-  %arrayidx.i179 = getelementptr i32, ptr %109, i64 %103
-  store i32 %106, ptr %arrayidx.i179, align 4
+  %102 = load ptr, ptr %m_data.i74, align 8
+  %103 = getelementptr i32, ptr %102, i64 %indvars.iv
+  %arrayidx.i176 = getelementptr i32, ptr %103, i64 %35
+  %104 = load i32, ptr %arrayidx.i176, align 4
+  %105 = load ptr, ptr %m_data, align 8
+  %m_data.i177 = getelementptr inbounds %struct.b3GpuNarrowPhaseInternalData, ptr %105, i64 0, i32 4, i32 5
+  %106 = load ptr, ptr %m_data.i177, align 8
+  %107 = getelementptr i32, ptr %106, i64 %indvars.iv
+  %arrayidx.i179 = getelementptr i32, ptr %107, i64 %101
+  store i32 %104, ptr %arrayidx.i179, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %for.inc118, label %for.body110, !llvm.loop !40
 
 for.inc118:                                       ; preds = %for.body110
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
-  %110 = load i32, ptr %m_numFaces, align 8
-  %111 = sext i32 %110 to i64
-  %cmp = icmp slt i64 %indvars.iv.next262, %111
+  %108 = load i32, ptr %m_numFaces, align 8
+  %109 = sext i32 %108 to i64
+  %cmp = icmp slt i64 %indvars.iv.next262, %109
   br i1 %cmp, label %for.body, label %for.end120, !llvm.loop !41
 
 for.end120:                                       ; preds = %for.inc118, %_ZN20b3AlignedObjectArrayI9b3GpuFaceE6resizeEiRKS0_.exit
   %m_size.i180 = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %vertices, i64 0, i32 2
-  %112 = load i32, ptr %m_size.i180, align 4
+  %110 = load i32, ptr %m_size.i180, align 4
   %m_numVertices = getelementptr %struct.b3ConvexPolyhedronData, ptr %17, i64 -1, i32 7
-  store i32 %112, ptr %m_numVertices, align 4
-  %113 = load ptr, ptr %m_data, align 8
-  %m_size.i181 = getelementptr inbounds %struct.b3GpuNarrowPhaseInternalData, ptr %113, i64 0, i32 3, i32 2
-  %114 = load i32, ptr %m_size.i181, align 4
+  store i32 %110, ptr %m_numVertices, align 4
+  %111 = load ptr, ptr %m_data, align 8
+  %m_size.i181 = getelementptr inbounds %struct.b3GpuNarrowPhaseInternalData, ptr %111, i64 0, i32 3, i32 2
+  %112 = load i32, ptr %m_size.i181, align 4
   %m_vertexOffset = getelementptr %struct.b3ConvexPolyhedronData, ptr %17, i64 -1, i32 8
-  store i32 %114, ptr %m_vertexOffset, align 16
-  %115 = load ptr, ptr %m_data, align 8
-  %add127 = add nsw i32 %114, %112
-  %m_size.i.i182 = getelementptr inbounds %struct.b3GpuNarrowPhaseInternalData, ptr %115, i64 0, i32 3, i32 2
-  %116 = load i32, ptr %m_size.i.i182, align 4
-  %cmp4.i183 = icmp slt i32 %116, %add127
+  store i32 %112, ptr %m_vertexOffset, align 16
+  %113 = load ptr, ptr %m_data, align 8
+  %add127 = add nsw i32 %112, %110
+  %m_size.i.i182 = getelementptr inbounds %struct.b3GpuNarrowPhaseInternalData, ptr %113, i64 0, i32 3, i32 2
+  %114 = load i32, ptr %m_size.i.i182, align 4
+  %cmp4.i183 = icmp slt i32 %114, %add127
   br i1 %cmp4.i183, label %for.body9.lr.ph.i184, label %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit
 
 for.body9.lr.ph.i184:                             ; preds = %for.end120
-  %m_convexVertices125 = getelementptr inbounds %struct.b3GpuNarrowPhaseInternalData, ptr %115, i64 0, i32 3
+  %m_convexVertices125 = getelementptr inbounds %struct.b3GpuNarrowPhaseInternalData, ptr %113, i64 0, i32 3
   tail call void @_ZN20b3AlignedObjectArrayI9b3Vector3E7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_convexVertices125, i32 noundef %add127)
-  %m_data10.i185 = getelementptr inbounds %struct.b3GpuNarrowPhaseInternalData, ptr %115, i64 0, i32 3, i32 5
-  %117 = sext i32 %116 to i64
+  %m_data10.i185 = getelementptr inbounds %struct.b3GpuNarrowPhaseInternalData, ptr %113, i64 0, i32 3, i32 5
+  %115 = sext i32 %114 to i64
   %wide.trip.count.i186 = sext i32 %add127 to i64
   br label %for.body9.i187
 
 for.body9.i187:                                   ; preds = %for.body9.i187, %for.body9.lr.ph.i184
-  %indvars.iv.i188 = phi i64 [ %117, %for.body9.lr.ph.i184 ], [ %indvars.iv.next.i190, %for.body9.i187 ]
-  %118 = load ptr, ptr %m_data10.i185, align 8
-  %arrayidx12.i189 = getelementptr inbounds %class.b3Vector3, ptr %118, i64 %indvars.iv.i188
+  %indvars.iv.i188 = phi i64 [ %115, %for.body9.lr.ph.i184 ], [ %indvars.iv.next.i190, %for.body9.i187 ]
+  %116 = load ptr, ptr %m_data10.i185, align 8
+  %arrayidx12.i189 = getelementptr inbounds %class.b3Vector3, ptr %116, i64 %indvars.iv.i188
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx12.i189, i8 0, i64 16, i1 false)
   %indvars.iv.next.i190 = add nsw i64 %indvars.iv.i188, 1
   %exitcond.not.i191 = icmp eq i64 %indvars.iv.next.i190, %wide.trip.count.i186
@@ -5796,55 +5794,55 @@ for.body9.i187:                                   ; preds = %for.body9.i187, %fo
 
 _ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit: ; preds = %for.body9.i187, %for.end120
   store i32 %add127, ptr %m_size.i.i182, align 4
-  %119 = load i32, ptr %m_size.i180, align 4
-  %cmp132256 = icmp sgt i32 %119, 0
+  %117 = load i32, ptr %m_size.i180, align 4
+  %cmp132256 = icmp sgt i32 %117, 0
   br i1 %cmp132256, label %for.body133.lr.ph, label %for.end145
 
 for.body133.lr.ph:                                ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit
   %m_data.i193 = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %vertices, i64 0, i32 5
-  %120 = sext i32 %114 to i64
+  %118 = sext i32 %112 to i64
   br label %for.body133
 
 for.body133:                                      ; preds = %for.body133.lr.ph, %for.body133
-  %indvars.iv270 = phi i64 [ 0, %for.body133.lr.ph ], [ %indvars.iv.next271, %for.body133 ]
-  %121 = load ptr, ptr %m_data.i193, align 8
-  %arrayidx.i195 = getelementptr inbounds %class.b3Vector3, ptr %121, i64 %indvars.iv270
-  %122 = load <2 x float>, ptr %arrayidx.i195, align 16
-  %123 = fmul <2 x float> %0, %122
+  %indvars.iv268 = phi i64 [ 0, %for.body133.lr.ph ], [ %indvars.iv.next269, %for.body133 ]
+  %119 = load ptr, ptr %m_data.i193, align 8
+  %arrayidx.i195 = getelementptr inbounds %class.b3Vector3, ptr %119, i64 %indvars.iv268
+  %120 = load <2 x float>, ptr %arrayidx.i195, align 16
+  %121 = fmul <2 x float> %0, %120
   %arrayidx5.i200 = getelementptr inbounds [4 x float], ptr %arrayidx.i195, i64 0, i64 2
-  %124 = load float, ptr %arrayidx5.i200, align 8
-  %mul7.i202 = fmul float %1, %124
+  %122 = load float, ptr %arrayidx5.i200, align 8
+  %mul7.i202 = fmul float %1, %122
   %retval.sroa.3.12.vec.insert.i.i205 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul7.i202, i64 0
-  %125 = load ptr, ptr %m_data, align 8
-  %m_data.i208 = getelementptr inbounds %struct.b3GpuNarrowPhaseInternalData, ptr %125, i64 0, i32 3, i32 5
-  %126 = load ptr, ptr %m_data.i208, align 8
-  %127 = getelementptr %class.b3Vector3, ptr %126, i64 %indvars.iv270
-  %arrayidx.i210 = getelementptr %class.b3Vector3, ptr %127, i64 %120
-  store <2 x float> %123, ptr %arrayidx.i210, align 16
+  %123 = load ptr, ptr %m_data, align 8
+  %m_data.i208 = getelementptr inbounds %struct.b3GpuNarrowPhaseInternalData, ptr %123, i64 0, i32 3, i32 5
+  %124 = load ptr, ptr %m_data.i208, align 8
+  %125 = getelementptr %class.b3Vector3, ptr %124, i64 %indvars.iv268
+  %arrayidx.i210 = getelementptr %class.b3Vector3, ptr %125, i64 %118
+  store <2 x float> %121, ptr %arrayidx.i210, align 16
   %ref.tmp134.sroa.2.0.call142.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i210, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i205, ptr %ref.tmp134.sroa.2.0.call142.sroa_idx, align 8
-  %indvars.iv.next271 = add nuw nsw i64 %indvars.iv270, 1
-  %128 = load i32, ptr %m_size.i180, align 4
-  %129 = sext i32 %128 to i64
-  %cmp132 = icmp slt i64 %indvars.iv.next271, %129
+  %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
+  %126 = load i32, ptr %m_size.i180, align 4
+  %127 = sext i32 %126 to i64
+  %cmp132 = icmp slt i64 %indvars.iv.next269, %127
   br i1 %cmp132, label %for.body133, label %for.end145, !llvm.loop !42
 
 for.end145:                                       ; preds = %for.body133, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit
-  %130 = load ptr, ptr %m_data, align 8
-  %131 = load ptr, ptr %130, align 8
-  %m_numAcceleratedShapes149 = getelementptr inbounds %struct.b3GpuNarrowPhaseInternalData, ptr %130, i64 0, i32 27
-  %132 = load i32, ptr %m_numAcceleratedShapes149, align 8
-  %m_data.i211 = getelementptr inbounds %class.b3AlignedObjectArray.82, ptr %131, i64 0, i32 5
-  %133 = load ptr, ptr %m_data.i211, align 8
-  %idxprom.i212 = sext i32 %132 to i64
-  %arrayidx.i213 = getelementptr inbounds ptr, ptr %133, i64 %idxprom.i212
+  %128 = load ptr, ptr %m_data, align 8
+  %129 = load ptr, ptr %128, align 8
+  %m_numAcceleratedShapes149 = getelementptr inbounds %struct.b3GpuNarrowPhaseInternalData, ptr %128, i64 0, i32 27
+  %130 = load i32, ptr %m_numAcceleratedShapes149, align 8
+  %m_data.i211 = getelementptr inbounds %class.b3AlignedObjectArray.82, ptr %129, i64 0, i32 5
+  %131 = load ptr, ptr %m_data.i211, align 8
+  %idxprom.i212 = sext i32 %130 to i64
+  %arrayidx.i213 = getelementptr inbounds ptr, ptr %131, i64 %idxprom.i212
   store ptr null, ptr %arrayidx.i213, align 8
-  %134 = load ptr, ptr %m_data, align 8
-  %m_numAcceleratedShapes152 = getelementptr inbounds %struct.b3GpuNarrowPhaseInternalData, ptr %134, i64 0, i32 27
-  %135 = load i32, ptr %m_numAcceleratedShapes152, align 8
-  %inc153 = add nsw i32 %135, 1
+  %132 = load ptr, ptr %m_data, align 8
+  %m_numAcceleratedShapes152 = getelementptr inbounds %struct.b3GpuNarrowPhaseInternalData, ptr %132, i64 0, i32 27
+  %133 = load i32, ptr %m_numAcceleratedShapes152, align 8
+  %inc153 = add nsw i32 %133, 1
   store i32 %inc153, ptr %m_numAcceleratedShapes152, align 8
-  ret i32 %135
+  ret i32 %133
 }
 
 declare void @_ZN14b3OptimizedBvhC1Ev(ptr noundef nonnull align 16 dereferenceable(252)) unnamed_addr #5

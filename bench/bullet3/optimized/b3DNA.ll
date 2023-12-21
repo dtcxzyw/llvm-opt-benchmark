@@ -2063,7 +2063,6 @@ entry:
 
 for.body.preheader:                               ; preds = %entry
   %wide.trip.count = and i64 %call, 4294967295
-  %invariant.gep = getelementptr i8, ptr %string, i64 1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
@@ -2076,7 +2075,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp3, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
+  %arrayidx5 = getelementptr i8, ptr %arrayidx, i64 1
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
@@ -2091,7 +2090,7 @@ if.then9:                                         ; preds = %if.else
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then, %if.then9, %if.else
-  %next.1 = phi ptr [ %gep, %if.then ], [ %next.010, %if.then9 ], [ %next.010, %if.else ]
+  %next.1 = phi ptr [ %arrayidx5, %if.then ], [ %next.010, %if.then9 ], [ %next.010, %if.else ]
   %ret.1 = phi i32 [ %ret.012, %if.then ], [ %mul, %if.then9 ], [ %ret.012, %if.else ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

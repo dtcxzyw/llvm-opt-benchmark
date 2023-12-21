@@ -3329,7 +3329,7 @@ lor.lhs.false.i147:                               ; preds = %if.then.i145
   br i1 %or.cond14.i150, label %if.then9.i151, label %lor.lhs.false.i147.invoke.cont47_crit_edge
 
 lor.lhs.false.i147.invoke.cont47_crit_edge:       ; preds = %lor.lhs.false.i147
-  %.pre438 = load ptr, ptr %pg, align 8
+  %.pre437 = load ptr, ptr %pg, align 8
   br label %invoke.cont47
 
 if.then9.i151:                                    ; preds = %lor.lhs.false.i147, %if.then.i145
@@ -3358,7 +3358,7 @@ if.then23.i161:                                   ; preds = %lor.lhs.false12.i15
 
 invoke.cont47:                                    ; preds = %lor.lhs.false.i147.invoke.cont47_crit_edge, %lor.lhs.false12.i157
   %42 = phi i8 [ %33, %lor.lhs.false.i147.invoke.cont47_crit_edge ], [ %29, %lor.lhs.false12.i157 ]
-  %43 = phi ptr [ %.pre438, %lor.lhs.false.i147.invoke.cont47_crit_edge ], [ %30, %lor.lhs.false12.i157 ]
+  %43 = phi ptr [ %.pre437, %lor.lhs.false.i147.invoke.cont47_crit_edge ], [ %30, %lor.lhs.false12.i157 ]
   %arrayidx44 = getelementptr inbounds %"struct.ClipperLib::TEdge", ptr %call32, i64 1
   %arrayidx45 = getelementptr inbounds %"struct.ClipperLib::TEdge", ptr %call32, i64 %conv39
   %ref.tmp.sroa.3.0.e.sroa_idx.i = getelementptr inbounds i8, ptr %call32, i64 16
@@ -3388,7 +3388,6 @@ invoke.cont47:                                    ; preds = %lor.lhs.false.i147.
 
 for.body.preheader:                               ; preds = %invoke.cont47
   %44 = zext nneg i32 %sub51 to i64
-  %invariant.gep = getelementptr %"struct.ClipperLib::TEdge", ptr %call32, i64 1
   br label %for.body
 
 for.cond78.preheader:                             ; preds = %for.inc, %invoke.cont47
@@ -3426,7 +3425,7 @@ lor.lhs.false.i175:                               ; preds = %if.then.i173
   br i1 %or.cond14.i178, label %if.then9.i179, label %lor.lhs.false.i175.for.inc_crit_edge
 
 lor.lhs.false.i175.for.inc_crit_edge:             ; preds = %lor.lhs.false.i175
-  %.pre439 = load ptr, ptr %pg, align 8
+  %.pre438 = load ptr, ptr %pg, align 8
   br label %for.inc
 
 if.then9.i179:                                    ; preds = %lor.lhs.false.i175, %if.then.i173
@@ -3462,22 +3461,22 @@ if.then23.i189:                                   ; preds = %lor.lhs.false12.i18
   br label %if.then.i173
 
 for.inc:                                          ; preds = %lor.lhs.false.i175.for.inc_crit_edge, %lor.lhs.false12.i185
-  %60 = phi ptr [ %.pre439, %lor.lhs.false.i175.for.inc_crit_edge ], [ %46, %lor.lhs.false12.i185 ]
+  %60 = phi ptr [ %.pre438, %lor.lhs.false.i175.for.inc_crit_edge ], [ %46, %lor.lhs.false12.i185 ]
   %61 = phi i8 [ %50, %lor.lhs.false.i175.for.inc_crit_edge ], [ %47, %lor.lhs.false12.i185 ]
   %arrayidx64 = getelementptr inbounds %"struct.ClipperLib::TEdge", ptr %call32, i64 %indvars.iv
-  %gep = getelementptr %"struct.ClipperLib::TEdge", ptr %invariant.gep, i64 %indvars.iv
-  %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %arrayidx70 = getelementptr inbounds %"struct.ClipperLib::TEdge", ptr %call32, i64 %indvars.iv.next
+  %arrayidx67 = getelementptr %"struct.ClipperLib::TEdge", ptr %arrayidx64, i64 1
+  %arrayidx70 = getelementptr %"struct.ClipperLib::TEdge", ptr %arrayidx64, i64 -1
   %add.ptr.i194 = getelementptr inbounds %"struct.ClipperLib::IntPoint", ptr %60, i64 %indvars.iv
   %ref.tmp.sroa.3.0.e.sroa_idx.i195 = getelementptr inbounds i8, ptr %arrayidx64, i64 16
   %ref.tmp.sroa.13.0.e.sroa_idx.i196 = getelementptr inbounds i8, ptr %arrayidx64, i64 76
   %ref.tmp.sroa.14.0.e.sroa_idx.i197 = getelementptr inbounds i8, ptr %arrayidx64, i64 80
   %ref.tmp.sroa.15.0.e.sroa_idx.i198 = getelementptr inbounds i8, ptr %arrayidx64, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %arrayidx64, i8 0, i64 136, i1 false)
-  store ptr %gep, ptr %ref.tmp.sroa.14.0.e.sroa_idx.i197, align 8
+  store ptr %arrayidx67, ptr %ref.tmp.sroa.14.0.e.sroa_idx.i197, align 8
   store ptr %arrayidx70, ptr %ref.tmp.sroa.15.0.e.sroa_idx.i198, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.3.0.e.sroa_idx.i195, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i194, i64 16, i1 false)
   store i32 -1, ptr %ref.tmp.sroa.13.0.e.sroa_idx.i196, align 4
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp58 = icmp sgt i64 %indvars.iv, 1
   br i1 %cmp58, label %for.body, label %for.cond78.preheader, !llvm.loop !38
 
@@ -3501,9 +3500,9 @@ lpad75:                                           ; preds = %delete.end
           to label %eh.resume unwind label %terminate.lpad
 
 for.cond78:                                       ; preds = %for.cond78.preheader409, %lor.lhs.false136
-  %66 = phi i64 [ %70, %lor.lhs.false136 ], [ %.pre443, %for.cond78.preheader409 ]
-  %67 = phi i64 [ %69, %lor.lhs.false136 ], [ %.pre442, %for.cond78.preheader409 ]
-  %68 = phi ptr [ %94, %lor.lhs.false136 ], [ %.pre441, %for.cond78.preheader409 ]
+  %66 = phi i64 [ %70, %lor.lhs.false136 ], [ %.pre442, %for.cond78.preheader409 ]
+  %67 = phi i64 [ %69, %lor.lhs.false136 ], [ %.pre441, %for.cond78.preheader409 ]
+  %68 = phi ptr [ %94, %lor.lhs.false136 ], [ %.pre440, %for.cond78.preheader409 ]
   %E.0 = phi ptr [ %68, %lor.lhs.false136 ], [ %eLoopStop.0.ph, %for.cond78.preheader409 ]
   %Curr80 = getelementptr inbounds %"struct.ClipperLib::TEdge", ptr %68, i64 0, i32 1
   %69 = load i64, ptr %Curr80, align 8
@@ -3542,11 +3541,11 @@ if.end91:                                         ; preds = %if.then87
 for.cond78.outer.backedge:                        ; preds = %if.end91, %if.then125.split.us
   %eLoopStop.0.ph.be = phi ptr [ %91, %if.then125.split.us ], [ %74, %if.end91 ]
   %eStart.0.ph.be = phi ptr [ %spec.select370, %if.then125.split.us ], [ %spec.select, %if.end91 ]
-  %.pre440 = load i8, ptr %m_UseFullRange, align 8
+  %.pre439 = load i8, ptr %m_UseFullRange, align 8
   br label %for.cond78.outer, !llvm.loop !39
 
 for.cond78.outer:                                 ; preds = %for.cond78.outer.backedge, %for.cond78.preheader
-  %75 = phi i8 [ %45, %for.cond78.preheader ], [ %.pre440, %for.cond78.outer.backedge ]
+  %75 = phi i8 [ %45, %for.cond78.preheader ], [ %.pre439, %for.cond78.outer.backedge ]
   %eLoopStop.0.ph = phi ptr [ %call32, %for.cond78.preheader ], [ %eLoopStop.0.ph.be, %for.cond78.outer.backedge ]
   %eStart.0.ph = phi ptr [ %call32, %for.cond78.preheader ], [ %eStart.0.ph.be, %for.cond78.outer.backedge ]
   %76 = and i8 %75, 1
@@ -3558,23 +3557,23 @@ for.cond78.outer:                                 ; preds = %for.cond78.outer.ba
 
 for.cond78.preheader409:                          ; preds = %for.cond78.outer
   %Next.phi.trans.insert = getelementptr inbounds %"struct.ClipperLib::TEdge", ptr %eLoopStop.0.ph, i64 0, i32 10
-  %.pre441 = load ptr, ptr %Next.phi.trans.insert, align 8
+  %.pre440 = load ptr, ptr %Next.phi.trans.insert, align 8
   %Curr79.phi.trans.insert = getelementptr inbounds %"struct.ClipperLib::TEdge", ptr %eLoopStop.0.ph, i64 0, i32 1
-  %.pre442 = load i64, ptr %Curr79.phi.trans.insert, align 8
+  %.pre441 = load i64, ptr %Curr79.phi.trans.insert, align 8
   %Y.i200.phi.trans.insert = getelementptr inbounds %"struct.ClipperLib::TEdge", ptr %eLoopStop.0.ph, i64 0, i32 1, i32 1
-  %.pre443 = load i64, ptr %Y.i200.phi.trans.insert, align 8
+  %.pre442 = load i64, ptr %Y.i200.phi.trans.insert, align 8
   br label %for.cond78
 
 for.cond78.us.preheader:                          ; preds = %for.cond78.outer
   %Curr79.us.phi.trans.insert = getelementptr inbounds %"struct.ClipperLib::TEdge", ptr %eLoopStop.0.ph, i64 0, i32 1
-  %.pre444 = load i64, ptr %Curr79.us.phi.trans.insert, align 8
+  %.pre443 = load i64, ptr %Curr79.us.phi.trans.insert, align 8
   %Y.i200.us.phi.trans.insert = getelementptr inbounds %"struct.ClipperLib::TEdge", ptr %eLoopStop.0.ph, i64 0, i32 1, i32 1
-  %.pre445 = load i64, ptr %Y.i200.us.phi.trans.insert, align 8
+  %.pre444 = load i64, ptr %Y.i200.us.phi.trans.insert, align 8
   br label %for.cond78.us
 
 for.cond78.us:                                    ; preds = %for.cond78.us.preheader, %if.end133.us
-  %agg.tmp105.sroa.2.0.copyload.us = phi i64 [ %82, %if.end133.us ], [ %.pre445, %for.cond78.us.preheader ]
-  %79 = phi i64 [ %81, %if.end133.us ], [ %.pre444, %for.cond78.us.preheader ]
+  %agg.tmp105.sroa.2.0.copyload.us = phi i64 [ %82, %if.end133.us ], [ %.pre444, %for.cond78.us.preheader ]
+  %79 = phi i64 [ %81, %if.end133.us ], [ %.pre443, %for.cond78.us.preheader ]
   %E.0.us = phi ptr [ %80, %if.end133.us ], [ %eLoopStop.0.ph, %for.cond78.us.preheader ]
   %Next.us = getelementptr inbounds %"struct.ClipperLib::TEdge", ptr %E.0.us, i64 0, i32 10
   %80 = load ptr, ptr %Next.us, align 8
@@ -15180,7 +15179,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN10ClipperLib13IntersectNod
   %sub.ptr.div.i.i.i.i.i.i34.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33.i, 3
   %.pre.i.i.i.i.i.i35.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i
   %add.ptr.i.i.i.i.i.i36.i = getelementptr inbounds ptr, ptr %add.ptr.i2.i31.i, i64 %.pre.i.i.i.i.i.i35.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i36.i, ptr nonnull align 8 %3, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i, ptr noundef nonnull align 8 dereferenceable(1) %3, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
   br label %for.inc.i21.i
 
 if.else.i19.i:                                    ; preds = %for.body.i15.i
@@ -27243,7 +27242,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN10ClipperLib12LocalMinimumE
   %sub.ptr.sub.i.i.i.i.i.i45 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i44, %sub.ptr.rhs.cast.i
   %sub.ptr.div.neg.i.i.i.i.i.i46 = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i45, -24
   %add.ptr.i.i.i.i.i.i47 = getelementptr inbounds %"struct.ClipperLib::LocalMinimum", ptr %add.ptr.i2.i43, i64 %sub.ptr.div.neg.i.i.i.i.i.i46
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i47, ptr nonnull align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i45, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i47, ptr noundef nonnull align 8 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i45, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(24) %__val.i17, i64 24, i1 false)
   br label %for.inc.i34
 

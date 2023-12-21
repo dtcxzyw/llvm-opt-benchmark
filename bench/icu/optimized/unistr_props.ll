@@ -31,6 +31,7 @@ if.end:                                           ; preds = %entry
   %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this, i64 0, i32 1, i32 0, i32 1
   %4 = load i32, ptr %fLength.i, align 4
   %cond.i29 = select i1 %cmp.i.i, i32 %4, i32 %shr.i.i
+  %invariant.gep = getelementptr i16, ptr %cond.i, i64 -2
   %cmp45 = icmp slt i32 %cond.i29, 1
   br i1 %cmp45, label %return, label %do.body
 
@@ -48,16 +49,16 @@ do.body:                                          ; preds = %if.end, %if.end24
   br i1 %or.cond, label %land.lhs.true, label %do.end
 
 land.lhs.true:                                    ; preds = %do.body
-  %sub = add nsw i32 %i.046, -2
-  %idxprom9 = zext nneg i32 %sub to i64
-  %arrayidx10 = getelementptr inbounds i16, ptr %cond.i, i64 %idxprom9
-  %6 = load i16, ptr %arrayidx10, align 2
-  %conv11 = zext i16 %6 to i32
+  %6 = zext nneg i32 %i.046 to i64
+  %gep = getelementptr i16, ptr %invariant.gep, i64 %6
+  %7 = load i16, ptr %gep, align 2
+  %conv11 = zext i16 %7 to i32
   %and12 = and i32 %conv11, 64512
   %cmp13 = icmp eq i32 %and12, 55296
   br i1 %cmp13, label %if.then14, label %lor.lhs.false
 
 if.then14:                                        ; preds = %land.lhs.true
+  %dec15 = add nsw i32 %i.046, -2
   %shl = shl nuw nsw i32 %conv11, 10
   %add = add nuw nsw i32 %conv, -56613888
   %sub17 = add nsw i32 %add, %shl
@@ -69,7 +70,7 @@ do.end:                                           ; preds = %do.body
 
 lor.lhs.false:                                    ; preds = %land.lhs.true, %if.then14, %do.end
   %c.037 = phi i32 [ %conv, %do.end ], [ %conv, %land.lhs.true ], [ %sub17, %if.then14 ]
-  %i.135 = phi i32 [ %dec, %do.end ], [ %dec, %land.lhs.true ], [ %sub, %if.then14 ]
+  %i.135 = phi i32 [ %dec, %do.end ], [ %dec, %land.lhs.true ], [ %dec15, %if.then14 ]
   %call21 = tail call signext i8 @u_isWhitespace_75(i32 noundef %c.037)
   %tobool22.not = icmp eq i8 %call21, 0
   br i1 %tobool22.not, label %for.end, label %if.end24
@@ -86,19 +87,19 @@ for.end:                                          ; preds = %if.end24, %lor.lhs.
 
 if.then26:                                        ; preds = %for.end
   %cmp.i = icmp slt i32 %i.0.lcssa, 1024
-  %7 = load i16, ptr %fUnion.i, align 8
+  %8 = load i16, ptr %fUnion.i, align 8
   br i1 %cmp.i, label %if.then.i, label %if.end27.thread
 
 if.then.i:                                        ; preds = %if.then26
-  %8 = and i16 %7, 31
+  %9 = and i16 %8, 31
   %len.tr.i.i = trunc i32 %i.0.lcssa to i16
-  %9 = shl i16 %len.tr.i.i, 5
-  %conv2.i.i = or disjoint i16 %8, %9
+  %10 = shl i16 %len.tr.i.i, 5
+  %conv2.i.i = or disjoint i16 %9, %10
   store i16 %conv2.i.i, ptr %fUnion.i, align 8
   br label %if.end27
 
 if.end27.thread:                                  ; preds = %if.then26
-  %or.i = or i16 %7, -32
+  %or.i = or i16 %8, -32
   store i16 %or.i, ptr %fUnion.i, align 8
   store i32 %i.0.lcssa, ptr %fLength.i, align 4
   br label %do.body32.preheader
@@ -115,8 +116,8 @@ do.body32:                                        ; preds = %do.body32.preheader
   %inc = add nsw i32 %i.249, 1
   %idxprom33 = sext i32 %i.249 to i64
   %arrayidx34 = getelementptr inbounds i16, ptr %cond.i, i64 %idxprom33
-  %10 = load i16, ptr %arrayidx34, align 2
-  %conv35 = zext i16 %10 to i32
+  %11 = load i16, ptr %arrayidx34, align 2
+  %conv35 = zext i16 %11 to i32
   %and36 = and i32 %conv35, 64512
   %cmp37 = icmp ne i32 %and36, 55296
   %cmp40.not = icmp eq i32 %inc, %i.0.lcssa
@@ -126,8 +127,8 @@ do.body32:                                        ; preds = %do.body32.preheader
 land.lhs.true41:                                  ; preds = %do.body32
   %idxprom42 = sext i32 %inc to i64
   %arrayidx43 = getelementptr inbounds i16, ptr %cond.i, i64 %idxprom42
-  %11 = load i16, ptr %arrayidx43, align 2
-  %conv44 = zext i16 %11 to i32
+  %12 = load i16, ptr %arrayidx43, align 2
+  %conv44 = zext i16 %12 to i32
   %and45 = and i32 %conv44, 64512
   %cmp46 = icmp eq i32 %and45, 56320
   br i1 %cmp46, label %if.then47, label %lor.lhs.false57
@@ -140,7 +141,7 @@ if.then47:                                        ; preds = %land.lhs.true41
   br label %lor.lhs.false57
 
 do.end55:                                         ; preds = %do.body32
-  %cmp56 = icmp eq i16 %10, 32
+  %cmp56 = icmp eq i16 %11, 32
   br i1 %cmp56, label %if.end61, label %lor.lhs.false57
 
 lor.lhs.false57:                                  ; preds = %land.lhs.true41, %if.then47, %do.end55

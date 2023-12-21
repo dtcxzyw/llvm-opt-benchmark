@@ -902,11 +902,11 @@ if.then4:                                         ; preds = %land.lhs.true
 land.lhs.true5:                                   ; preds = %if.then4
   %conv = zext i16 %12 to i32
   %13 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i64 0, i32 5), align 8
-  %add6 = add nuw nsw i32 %conv, 1
-  %idxprom7 = zext nneg i32 %add6 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %13, i64 %idxprom7
-  %14 = load i16, ptr %arrayidx8, align 2
-  %tobool9.not = icmp eq i16 %14, 0
+  %14 = zext i16 %12 to i64
+  %15 = getelementptr i16, ptr %13, i64 %14
+  %arrayidx8 = getelementptr i16, ptr %15, i64 1
+  %16 = load i16, ptr %arrayidx8, align 2
+  %tobool9.not = icmp eq i16 %16, 0
   br i1 %tobool9.not, label %if.end11, label %return
 
 if.end11:                                         ; preds = %land.lhs.true5, %if.then4
@@ -914,45 +914,46 @@ if.end11:                                         ; preds = %land.lhs.true5, %if
   br i1 %cmp12, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %if.end11
-  %15 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i64 0, i32 13), align 8
-  %cmp1426.not = icmp eq i32 %15, 0
-  br i1 %cmp1426.not, label %return, label %for.body.lr.ph
+  %17 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i64 0, i32 13), align 8
+  %cmp1428.not = icmp eq i32 %17, 0
+  br i1 %cmp1428.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %16 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i64 0, i32 5), align 8
-  %17 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i64 0, i32 7), align 8
-  %wide.trip.count = zext i32 %15 to i64
+  %18 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i64 0, i32 5), align 8
+  %19 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i64 0, i32 7), align 8
+  %invariant.gep = getelementptr i16, ptr %18, i64 1
+  %wide.trip.count = zext i32 %17 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %arrayidx16 = getelementptr inbounds i16, ptr %11, i64 %indvars.iv
-  %18 = load i16, ptr %arrayidx16, align 2
-  %tobool18.not = icmp eq i16 %18, 0
+  %20 = load i16, ptr %arrayidx16, align 2
+  %tobool18.not = icmp eq i16 %20, 0
   br i1 %tobool18.not, label %for.inc, label %land.lhs.true19
 
 land.lhs.true19:                                  ; preds = %for.body
-  %idxprom.i = zext i16 %18 to i64
-  %arrayidx.i16 = getelementptr inbounds i16, ptr %16, i64 %idxprom.i
-  %19 = load i16, ptr %arrayidx.i16, align 2
+  %idxprom.i = zext i16 %20 to i64
+  %arrayidx.i16 = getelementptr inbounds i16, ptr %18, i64 %idxprom.i
+  %21 = load i16, ptr %arrayidx.i16, align 2
   %add.ptr1.i = getelementptr inbounds i16, ptr %arrayidx.i16, i64 1
-  %cmp7.not.i = icmp eq i16 %19, 0
+  %cmp7.not.i = icmp eq i16 %21, 0
   br i1 %cmp7.not.i, label %for.inc, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %land.lhs.true19
-  %wide.trip.count.i = zext i16 %19 to i64
+  %wide.trip.count.i = zext i16 %21 to i64
   br label %for.body.i17
 
 for.body.i17:                                     ; preds = %for.inc.i20, %for.body.lr.ph.i
   %indvars.iv.i18 = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i21, %for.inc.i20 ]
   %arrayidx3.i = getelementptr inbounds i16, ptr %add.ptr1.i, i64 %indvars.iv.i18
-  %20 = load i16, ptr %arrayidx3.i, align 2
-  %tobool4.not.i = icmp eq i16 %20, 0
+  %22 = load i16, ptr %arrayidx3.i, align 2
+  %tobool4.not.i = icmp eq i16 %22, 0
   br i1 %tobool4.not.i, label %for.inc.i20, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i17
-  %idx.ext8.i = zext i16 %20 to i64
-  %add.ptr9.i = getelementptr inbounds i16, ptr %17, i64 %idx.ext8.i
+  %idx.ext8.i = zext i16 %22 to i64
+  %add.ptr9.i = getelementptr inbounds i16, ptr %19, i64 %idx.ext8.i
   %call.i19 = tail call i32 @ucnv_compareNames_75(ptr noundef %alias, ptr noundef nonnull %add.ptr9.i), !range !13
   %cmp10.i = icmp eq i32 %call.i19, 0
   br i1 %cmp10.i, label %if.then22, label %for.inc.i20
@@ -963,31 +964,33 @@ for.inc.i20:                                      ; preds = %land.lhs.true.i, %f
   br i1 %exitcond.not.i, label %for.inc, label %for.body.i17, !llvm.loop !17
 
 if.then22:                                        ; preds = %land.lhs.true.i
-  %21 = trunc i64 %indvars.iv to i32
-  %22 = urem i32 %21, %10
-  %add26 = add i32 %22, %mul
+  %23 = trunc i64 %indvars.iv to i32
+  %24 = urem i32 %23, %10
+  %add26 = add i32 %24, %mul
   %idxprom27 = zext i32 %add26 to i64
   %arrayidx28 = getelementptr inbounds i16, ptr %11, i64 %idxprom27
-  %23 = load i16, ptr %arrayidx28, align 2
-  %tobool30.not = icmp eq i16 %23, 0
+  %25 = load i16, ptr %arrayidx28, align 2
+  %tobool30.not = icmp eq i16 %25, 0
   br i1 %tobool30.not, label %for.inc, label %land.lhs.true31
 
 land.lhs.true31:                                  ; preds = %if.then22
-  %conv29 = zext i16 %23 to i32
-  %add32 = add nuw nsw i32 %conv29, 1
-  %idxprom33 = zext nneg i32 %add32 to i64
-  %arrayidx34 = getelementptr inbounds i16, ptr %16, i64 %idxprom33
-  %24 = load i16, ptr %arrayidx34, align 2
-  %tobool35.not = icmp eq i16 %24, 0
-  br i1 %tobool35.not, label %for.inc, label %return
+  %26 = zext i16 %25 to i64
+  %gep = getelementptr i16, ptr %invariant.gep, i64 %26
+  %27 = load i16, ptr %gep, align 2
+  %tobool35.not = icmp eq i16 %27, 0
+  br i1 %tobool35.not, label %for.inc, label %return.loopexit.split.loop.exit
 
 for.inc:                                          ; preds = %for.inc.i20, %land.lhs.true19, %for.body, %land.lhs.true31, %if.then22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !18
 
-return:                                           ; preds = %land.lhs.true31, %for.inc, %for.cond.preheader, %if.end, %land.lhs.true, %if.end11, %land.lhs.true5
-  %retval.0 = phi i32 [ %conv, %land.lhs.true5 ], [ 0, %if.end11 ], [ -1, %land.lhs.true ], [ -1, %if.end ], [ 0, %for.cond.preheader ], [ %conv29, %land.lhs.true31 ], [ 0, %for.inc ]
+return.loopexit.split.loop.exit:                  ; preds = %land.lhs.true31
+  %conv29.le = zext i16 %25 to i32
+  br label %return
+
+return:                                           ; preds = %for.inc, %return.loopexit.split.loop.exit, %for.cond.preheader, %if.end, %land.lhs.true, %if.end11, %land.lhs.true5
+  %retval.0 = phi i32 [ %conv, %land.lhs.true5 ], [ 0, %if.end11 ], [ -1, %land.lhs.true ], [ -1, %if.end ], [ %conv29.le, %return.loopexit.split.loop.exit ], [ 0, %for.cond.preheader ], [ 0, %for.inc ]
   ret i32 %retval.0
 }
 

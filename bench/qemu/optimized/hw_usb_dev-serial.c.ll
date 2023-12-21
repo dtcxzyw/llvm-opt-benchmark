@@ -999,22 +999,22 @@ if.then19:                                        ; preds = %if.then10
   br label %if.end33
 
 if.else:                                          ; preds = %entry
-  %sub27 = add nsw i32 %add, -496
   %recv_buf28 = getelementptr inbounds %struct.USBSerialState, ptr %opaque, i64 0, i32 2
-  %idx.ext30 = zext nneg i32 %sub27 to i64
-  %add.ptr31 = getelementptr i8, ptr %recv_buf28, i64 %idx.ext30
+  %2 = zext nneg i32 %add to i64
+  %3 = getelementptr i8, ptr %recv_buf28, i64 %2
+  %add.ptr31 = getelementptr i8, ptr %3, i64 -496
   %conv32 = sext i32 %spec.select to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr31, ptr align 1 %buf, i64 %conv32, i1 false)
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then10, %if.then19, %if.else
-  %2 = load i16, ptr %recv_used, align 2
-  %3 = trunc i32 %spec.select to i16
-  %conv37 = add i16 %2, %3
+  %4 = load i16, ptr %recv_used, align 2
+  %5 = trunc i32 %spec.select to i16
+  %conv37 = add i16 %4, %5
   store i16 %conv37, ptr %recv_used, align 2
   %intr = getelementptr inbounds %struct.USBSerialState, ptr %opaque, i64 0, i32 1
-  %4 = load ptr, ptr %intr, align 8
-  tail call void @usb_wakeup(ptr noundef %4, i32 noundef 0) #7
+  %6 = load ptr, ptr %intr, align 8
+  tail call void @usb_wakeup(ptr noundef %6, i32 noundef 0) #7
   ret void
 }
 

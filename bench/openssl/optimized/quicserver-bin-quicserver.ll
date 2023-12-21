@@ -116,20 +116,14 @@ if.then28:                                        ; preds = %while.end
   br label %end2
 
 if.end29:                                         ; preds = %while.end
-  %inc30 = add nuw nsw i32 %argnext.0.lcssa, 1
   %idxprom31 = zext nneg i32 %argnext.0.lcssa to i64
   %arrayidx32 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom31
   %8 = load ptr, ptr %arrayidx32, align 8
-  %inc33 = add nuw nsw i32 %argnext.0.lcssa, 2
-  %idxprom34 = zext nneg i32 %inc30 to i64
-  %arrayidx35 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom34
+  %arrayidx35 = getelementptr ptr, ptr %arrayidx32, i64 1
   %9 = load ptr, ptr %arrayidx35, align 8
-  %inc36 = add nuw nsw i32 %argnext.0.lcssa, 3
-  %idxprom37 = zext nneg i32 %inc33 to i64
-  %arrayidx38 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom37
+  %arrayidx38 = getelementptr ptr, ptr %arrayidx32, i64 2
   %10 = load ptr, ptr %arrayidx38, align 8
-  %idxprom40 = zext nneg i32 %inc36 to i64
-  %arrayidx41 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom40
+  %arrayidx41 = getelementptr ptr, ptr %arrayidx32, i64 3
   %11 = load ptr, ptr %arrayidx41, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %res.i)
   %call.i53 = tail call i32 @BIO_sock_init() #9

@@ -1306,6 +1306,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 while.cond.preheader:                             ; preds = %for.inc
+  %invariant.gep = getelementptr i32, ptr %call.i, i64 -1
   %cmp1680 = icmp sgt i32 %count.1, 1
   br i1 %cmp1680, label %for.cond18.preheader.lr.ph, label %while.end
 
@@ -1473,11 +1474,11 @@ for.end44:                                        ; preds = %for.cond18.loopexit
   store i32 %call53, ptr %45, align 8
   %46 = getelementptr inbounds %struct.b2TreeNode, ptr %15, i64 %idx.ext51, i32 2
   store i32 %call53, ptr %46, align 8
-  %indvars.iv.next92 = add nsw i64 %indvars.iv91, -1
-  %arrayidx68 = getelementptr inbounds i32, ptr %call.i, i64 %indvars.iv.next92
-  %47 = load i32, ptr %arrayidx68, align 4
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv91
+  %47 = load i32, ptr %gep, align 4
   store i32 %47, ptr %arrayidx48, align 4
   store i32 %call53, ptr %arrayidx46, align 4
+  %indvars.iv.next92 = add nsw i64 %indvars.iv91, -1
   %cmp16 = icmp sgt i64 %indvars.iv91, 2
   br i1 %cmp16, label %for.cond18.preheader, label %while.end, !llvm.loop !15
 

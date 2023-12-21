@@ -5552,7 +5552,6 @@ while.body.lr.ph.split.us:                        ; preds = %while.body.lr.ph
   %data_.i.us = getelementptr inbounds %"class.arrow::Buffer", ptr %17, i64 0, i32 3
   %20 = load ptr, ptr %data_.i.us, align 8
   %cond.i.us = select i1 %tobool.not.i.us, ptr null, ptr %20
-  %invariant.gep = getelementptr i32, ptr %cond.i.us, i64 1
   %21 = zext nneg i32 %num_rows to i64
   br label %while.body.us
 
@@ -5562,17 +5561,17 @@ while.body.us:                                    ; preds = %while.body.us, %whi
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %arrayidx.us = getelementptr inbounds i16, ptr %row_ids, i64 %indvars.iv.next
   %22 = load i16, ptr %arrayidx.us, align 2
-  %conv.us = zext i16 %22 to i64
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %conv.us
-  %23 = load i32, ptr %gep, align 4
-  %arrayidx18.us = getelementptr inbounds i32, ptr %cond.i.us, i64 %conv.us
-  %24 = load i32, ptr %arrayidx18.us, align 4
-  %sub19.us = add i32 %23, %num_bytes_skipped.023.us
-  %add20.us = sub i32 %sub19.us, %24
+  %23 = zext i16 %22 to i64
+  %24 = getelementptr i32, ptr %cond.i.us, i64 %23
+  %arrayidx16.us = getelementptr i32, ptr %24, i64 1
+  %25 = load i32, ptr %arrayidx16.us, align 4
+  %26 = load i32, ptr %24, align 4
+  %sub19.us = add i32 %25, %num_bytes_skipped.023.us
+  %add20.us = sub i32 %sub19.us, %26
   %cmp.us = icmp ugt i64 %indvars.iv, 1
   %cmp2.us = icmp slt i32 %add20.us, %num_tail_bytes_to_skip
-  %25 = select i1 %cmp.us, i1 %cmp2.us, i1 false
-  br i1 %25, label %while.body.us, label %while.end.loopexit, !llvm.loop !111
+  %27 = select i1 %cmp.us, i1 %cmp2.us, i1 false
+  br i1 %27, label %while.body.us, label %while.end.loopexit, !llvm.loop !111
 
 while.body.lr.ph.split:                           ; preds = %while.body.lr.ph
   %cmp3 = icmp eq i32 %column_metadata.sroa.26.0.extract.trunc19, 0
@@ -5586,8 +5585,8 @@ while.body.us24:                                  ; preds = %while.body.lr.ph.sp
   %inc.us = add nuw nsw i32 %num_bytes_skipped.023.us25, 1
   %cmp.us30 = icmp ugt i32 %num_rows_left.022.us26, 8
   %cmp2.us31 = icmp slt i32 %inc.us, %num_tail_bytes_to_skip
-  %26 = select i1 %cmp.us30, i1 %cmp2.us31, i1 false
-  br i1 %26, label %while.body.us24, label %while.end, !llvm.loop !111
+  %28 = select i1 %cmp.us30, i1 %cmp2.us31, i1 false
+  br i1 %28, label %while.body.us24, label %while.end, !llvm.loop !111
 
 while.body:                                       ; preds = %while.body.lr.ph.split, %while.body
   %num_bytes_skipped.023 = phi i32 [ %add, %while.body ], [ 0, %while.body.lr.ph.split ]
@@ -5596,21 +5595,21 @@ while.body:                                       ; preds = %while.body.lr.ph.sp
   %add = add i32 %num_bytes_skipped.023, %column_metadata.sroa.26.0.extract.trunc19
   %cmp = icmp ugt i32 %num_rows_left.022, 1
   %cmp2 = icmp slt i32 %add, %num_tail_bytes_to_skip
-  %27 = select i1 %cmp, i1 %cmp2, i1 false
-  br i1 %27, label %while.body, label %while.end, !llvm.loop !111
+  %29 = select i1 %cmp, i1 %cmp2, i1 false
+  br i1 %29, label %while.body, label %while.end, !llvm.loop !111
 
 lpad:                                             ; preds = %if.then.i
-  %28 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5arrow6ResultINS_7compute17KeyColumnMetadataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #17
-  resume { ptr, i32 } %28
+  resume { ptr, i32 } %30
 
 while.end.loopexit:                               ; preds = %while.body.us
-  %29 = trunc i64 %indvars.iv.next to i32
+  %31 = trunc i64 %indvars.iv.next to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.body, %while.body.us24, %while.end.loopexit, %_ZN5arrow6ResultINS_7compute17KeyColumnMetadataEED2Ev.exit
-  %num_rows_left.0.lcssa = phi i32 [ %num_rows, %_ZN5arrow6ResultINS_7compute17KeyColumnMetadataEED2Ev.exit ], [ %29, %while.end.loopexit ], [ %sub.us, %while.body.us24 ], [ %dec, %while.body ]
+  %num_rows_left.0.lcssa = phi i32 [ %num_rows, %_ZN5arrow6ResultINS_7compute17KeyColumnMetadataEED2Ev.exit ], [ %31, %while.end.loopexit ], [ %sub.us, %while.body.us24 ], [ %dec, %while.body ]
   %sub22 = sub nsw i32 %num_rows, %num_rows_left.0.lcssa
   ret i32 %sub22
 }

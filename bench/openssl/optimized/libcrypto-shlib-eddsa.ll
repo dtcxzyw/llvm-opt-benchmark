@@ -319,6 +319,7 @@ entry:
   %challenge_scalar = alloca [1 x %struct.curve448_scalar_s], align 16
   %response_scalar = alloca [1 x %struct.curve448_scalar_s], align 16
   %challenge = alloca [114 x i8], align 16
+  %invariant.gep = getelementptr i8, ptr %signature, i64 57
   br label %for.body
 
 for.cond:                                         ; preds = %if.end
@@ -328,18 +329,16 @@ for.cond:                                         ; preds = %if.end
 
 for.body:                                         ; preds = %entry, %for.cond
   %i.023 = phi i32 [ 56, %entry ], [ %dec, %for.cond ]
-  %add = add nuw nsw i32 %i.023, 57
-  %idxprom = zext nneg i32 %add to i64
-  %arrayidx = getelementptr inbounds i8, ptr %signature, i64 %idxprom
-  %0 = load i8, ptr %arrayidx, align 1
-  %idxprom1 = zext nneg i32 %i.023 to i64
-  %arrayidx2 = getelementptr inbounds [57 x i8], ptr @ossl_c448_ed448_verify.order, i64 0, i64 %idxprom1
-  %1 = load i8, ptr %arrayidx2, align 1
-  %cmp4 = icmp ugt i8 %0, %1
+  %0 = zext nneg i32 %i.023 to i64
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %0
+  %1 = load i8, ptr %gep, align 1
+  %arrayidx2 = getelementptr inbounds [57 x i8], ptr @ossl_c448_ed448_verify.order, i64 0, i64 %0
+  %2 = load i8, ptr %arrayidx2, align 1
+  %cmp4 = icmp ugt i8 %1, %2
   br i1 %cmp4, label %return, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %cmp13 = icmp ult i8 %0, %1
+  %cmp13 = icmp ult i8 %1, %2
   br i1 %cmp13, label %if.end20, label %for.cond
 
 if.end20:                                         ; preds = %if.end
@@ -392,8 +391,7 @@ if.end50:                                         ; preds = %lor.lhs.false45
   call void @ossl_curve448_scalar_decode_long(ptr noundef nonnull %challenge_scalar, ptr noundef nonnull %challenge, i64 noundef 114) #4
   call void @OPENSSL_cleanse(ptr noundef nonnull %challenge, i64 noundef 114) #4
   call void @ossl_curve448_scalar_sub(ptr noundef nonnull %challenge_scalar, ptr noundef nonnull @ossl_curve448_scalar_zero, ptr noundef nonnull %challenge_scalar) #4
-  %arrayidx57 = getelementptr inbounds i8, ptr %signature, i64 57
-  call void @ossl_curve448_scalar_decode_long(ptr noundef nonnull %response_scalar, ptr noundef nonnull %arrayidx57, i64 noundef 57) #4
+  call void @ossl_curve448_scalar_decode_long(ptr noundef nonnull %response_scalar, ptr noundef nonnull %invariant.gep, i64 noundef 57) #4
   call void @ossl_curve448_base_double_scalarmul_non_secret(ptr noundef nonnull %pk_point, ptr noundef nonnull %response_scalar, ptr noundef nonnull %pk_point, ptr noundef nonnull %challenge_scalar) #4
   %call64 = call i64 @ossl_curve448_point_eq(ptr noundef nonnull %pk_point, ptr noundef nonnull %r_point) #4
   %conv.i = trunc i64 %call64 to i32

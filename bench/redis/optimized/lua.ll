@@ -442,11 +442,11 @@ getargs.exit.i:                                   ; preds = %for.body9.i.i, %for
   br i1 %cmp.i110, label %land.lhs.true.i, label %if.end.i111
 
 land.lhs.true.i:                                  ; preds = %getargs.exit.i
-  %sub.i = add nsw i32 %retval.0.i85140153169, -1
-  %idxprom2.i = zext nneg i32 %sub.i to i64
-  %arrayidx3.i = getelementptr inbounds ptr, ptr %0, i64 %idxprom2.i
-  %35 = load ptr, ptr %arrayidx3.i, align 8, !tbaa !4
-  %call4.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(3) @.str.15) #10
+  %35 = sext i32 %retval.0.i85140153169 to i64
+  %36 = getelementptr ptr, ptr %0, i64 %35
+  %arrayidx3.i = getelementptr ptr, ptr %36, i64 -1
+  %37 = load ptr, ptr %arrayidx3.i, align 8, !tbaa !4
+  %call4.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(3) @.str.15) #10
   %cmp5.not.i = icmp eq i32 %call4.i, 0
   %spec.select.i = select i1 %cmp5.not.i, ptr %34, ptr null
   br label %if.end.i111
@@ -481,16 +481,16 @@ if.then42:                                        ; preds = %if.end40
   br label %cleanup
 
 if.else:                                          ; preds = %if.end40
-  %36 = or i32 %has_v.2138155165, %has_e.3139154167
-  %37 = icmp ne i32 %36, 0
-  %or.cond57 = select i1 %tobool31, i1 true, i1 %37
+  %38 = or i32 %has_v.2138155165, %has_e.3139154167
+  %39 = icmp ne i32 %38, 0
+  %or.cond57 = select i1 %tobool31, i1 true, i1 %39
   br i1 %or.cond57, label %cleanup, label %if.then49
 
 if.then49:                                        ; preds = %if.else
-  %38 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %call1.i.i4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.10) #9
-  %39 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %call2.i.i5 = tail call i32 @fflush(ptr noundef %39)
+  %40 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %call1.i.i4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.10) #9
+  %41 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %call2.i.i5 = tail call i32 @fflush(ptr noundef %41)
   tail call fastcc void @dotty(ptr noundef %L)
   br label %cleanup
 

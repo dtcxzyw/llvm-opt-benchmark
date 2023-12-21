@@ -865,45 +865,33 @@ BN_clear.exit:                                    ; preds = %if.end.i44, %if.the
 
 if.end9:                                          ; preds = %if.end6
   %cmp10 = icmp eq i32 %endianness, 1
-  br i1 %cmp10, label %if.then11, label %if.else
-
-if.then11:                                        ; preds = %if.end9
   %idx.ext = zext nneg i32 %len to i64
-  %add.ptr = getelementptr inbounds i8, ptr %s, i64 %idx.ext
-  %add.ptr12 = getelementptr inbounds i8, ptr %add.ptr, i64 -1
-  br label %if.end15
-
-if.else:                                          ; preds = %if.end9
-  %sub = add nsw i32 %len, -1
-  %idx.ext13 = zext nneg i32 %sub to i64
-  %add.ptr14 = getelementptr inbounds i8, ptr %s, i64 %idx.ext13
-  br label %if.end15
-
-if.end15:                                         ; preds = %if.else, %if.then11
-  %inc.0 = phi i64 [ 1, %if.then11 ], [ -1, %if.else ]
-  %s2.0 = phi ptr [ %add.ptr12, %if.then11 ], [ %s, %if.else ]
-  %inc2.0 = phi i64 [ -1, %if.then11 ], [ 1, %if.else ]
-  %s.addr.0 = phi ptr [ %s, %if.then11 ], [ %add.ptr14, %if.else ]
+  %add.ptr = getelementptr i8, ptr %s, i64 %idx.ext
+  %add.ptr12 = getelementptr i8, ptr %add.ptr, i64 -1
+  %. = select i1 %cmp10, i64 1, i64 -1
+  %add.ptr12.s = select i1 %cmp10, ptr %add.ptr12, ptr %s
+  %.87 = select i1 %cmp10, i64 -1, i64 1
+  %s.add.ptr12 = select i1 %cmp10, ptr %s, ptr %add.ptr12
   %cmp16 = icmp eq i32 %signedness, 0
   br i1 %cmp16, label %if.then17, label %land.rhs.preheader
 
-if.then17:                                        ; preds = %if.end15
-  %2 = load i8, ptr %s2.0, align 1
+if.then17:                                        ; preds = %if.end9
+  %2 = load i8, ptr %add.ptr12.s, align 1
   %tobool = icmp slt i8 %2, 0
   %.lobit = lshr i8 %2, 7
   %lnot.ext = zext nneg i8 %.lobit to i32
   %cond = select i1 %tobool, i32 255, i32 0
   br label %land.rhs.preheader
 
-land.rhs.preheader:                               ; preds = %if.end15, %if.then17
-  %xor.0 = phi i32 [ %cond, %if.then17 ], [ 0, %if.end15 ]
-  %carry.0 = phi i32 [ %lnot.ext, %if.then17 ], [ 0, %if.end15 ]
+land.rhs.preheader:                               ; preds = %if.end9, %if.then17
+  %xor.0 = phi i32 [ %cond, %if.then17 ], [ 0, %if.end9 ]
+  %carry.0 = phi i32 [ %lnot.ext, %if.then17 ], [ 0, %if.end9 ]
   %smin = tail call i32 @llvm.smin.i32(i32 %len, i32 1)
   %3 = add nsw i32 %smin, -1
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %for.inc
-  %s2.164 = phi ptr [ %add.ptr27, %for.inc ], [ %s2.0, %land.rhs.preheader ]
+  %s2.164 = phi ptr [ %add.ptr27, %for.inc ], [ %add.ptr12.s, %land.rhs.preheader ]
   %len.addr.063 = phi i32 [ %dec, %for.inc ], [ %len, %land.rhs.preheader ]
   %4 = load i8, ptr %s2.164, align 1
   %conv23 = zext i8 %4 to i32
@@ -911,7 +899,7 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
   br i1 %cmp24, label %for.inc, label %for.end
 
 for.inc:                                          ; preds = %land.rhs
-  %add.ptr27 = getelementptr inbounds i8, ptr %s2.164, i64 %inc2.0
+  %add.ptr27 = getelementptr inbounds i8, ptr %s2.164, i64 %.87
   %dec = add nsw i32 %len.addr.063, -1
   %cmp21 = icmp sgt i32 %len.addr.063, 1
   br i1 %cmp21, label %land.rhs, label %for.end, !llvm.loop !6
@@ -1007,7 +995,7 @@ if.end49:                                         ; preds = %if.end43, %bn_wexpa
 for.cond57.preheader:                             ; preds = %if.end49, %for.end78
   %indvars.iv84 = phi i64 [ 0, %if.end49 ], [ %indvars.iv.next85, %for.end78 ]
   %dec5382 = phi i32 [ %div42, %if.end49 ], [ %dec53, %for.end78 ]
-  %s.addr.181 = phi ptr [ %s.addr.0, %if.end49 ], [ %s.addr.2.lcssa, %for.end78 ]
+  %s.addr.181 = phi ptr [ %s.add.ptr12, %if.end49 ], [ %s.addr.2.lcssa, %for.end78 ]
   %carry.179 = phi i32 [ %carry.0, %if.end49 ], [ %carry.2.lcssa, %for.end78 ]
   %len.addr.278 = phi i32 [ %len.addr.159, %if.end49 ], [ %len.addr.3.lcssa, %for.end78 ]
   %cmp5868 = icmp sgt i32 %len.addr.278, 0
@@ -1031,7 +1019,7 @@ for.body64:                                       ; preds = %for.cond57.preheade
   %shl = shl i64 %and70, %indvars.iv
   %or = or i64 %shl, %l.071
   %dec74 = add nsw i32 %len.addr.369, -1
-  %add.ptr76 = getelementptr inbounds i8, ptr %s.addr.273, i64 %inc.0
+  %add.ptr76 = getelementptr inbounds i8, ptr %s.addr.273, i64 %.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %cmp58 = icmp ugt i32 %len.addr.369, 1
   %cmp61 = icmp ult i64 %indvars.iv, 56

@@ -604,29 +604,31 @@ if.then:                                          ; preds = %if.end35.i.i, %land
 
 for.body.lr.ph:                                   ; preds = %if.then
   %elements = getelementptr inbounds %"class.icu_75::UVector32", ptr %this, i64 0, i32 4
+  %6 = sext i32 %5 to i64
+  %7 = zext nneg i32 %index to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %i.010 = phi i32 [ %5, %for.body.lr.ph ], [ %sub, %for.body ]
-  %6 = load ptr, ptr %elements, align 8
-  %sub = add nsw i32 %i.010, -1
-  %idxprom = zext nneg i32 %sub to i64
-  %arrayidx = getelementptr inbounds i32, ptr %6, i64 %idxprom
-  %7 = load i32, ptr %arrayidx, align 4
-  %idxprom8 = zext nneg i32 %i.010 to i64
-  %arrayidx9 = getelementptr inbounds i32, ptr %6, i64 %idxprom8
-  store i32 %7, ptr %arrayidx9, align 4
-  %cmp6 = icmp sgt i32 %sub, %index
+  %indvars.iv = phi i64 [ %6, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
+  %8 = load ptr, ptr %elements, align 8
+  %9 = getelementptr i32, ptr %8, i64 %indvars.iv
+  %arrayidx = getelementptr i32, ptr %9, i64 -1
+  %10 = load i32, ptr %arrayidx, align 4
+  %idxprom8 = and i64 %indvars.iv, 4294967295
+  %arrayidx9 = getelementptr inbounds i32, ptr %8, i64 %idxprom8
+  store i32 %10, ptr %arrayidx9, align 4
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %cmp6 = icmp sgt i64 %indvars.iv.next, %7
   br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body, %if.then
   %elements10 = getelementptr inbounds %"class.icu_75::UVector32", ptr %this, i64 0, i32 4
-  %8 = load ptr, ptr %elements10, align 8
+  %11 = load ptr, ptr %elements10, align 8
   %idxprom11 = zext nneg i32 %index to i64
-  %arrayidx12 = getelementptr inbounds i32, ptr %8, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds i32, ptr %11, i64 %idxprom11
   store i32 %elem, ptr %arrayidx12, align 4
-  %9 = load i32, ptr %count, align 8
-  %inc = add nsw i32 %9, 1
+  %12 = load i32, ptr %count, align 8
+  %inc = add nsw i32 %12, 1
   store i32 %inc, ptr %count, align 8
   br label %if.end
 

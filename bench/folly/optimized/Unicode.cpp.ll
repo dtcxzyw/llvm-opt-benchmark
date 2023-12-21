@@ -628,9 +628,9 @@ lpad119:                                          ; preds = %if.end117
   br label %ehcleanup126
 
 if.end122:                                        ; preds = %if.end111
-  %add = add nuw nsw i32 %storemerge234.lcssa240, 1
-  %idx.ext123 = zext nneg i32 %add to i64
-  %add.ptr124 = getelementptr inbounds i8, ptr %0, i64 %idx.ext123
+  %29 = zext nneg i32 %storemerge234.lcssa240 to i64
+  %30 = getelementptr i8, ptr %0, i64 %29
+  %add.ptr124 = getelementptr i8, ptr %30, i64 1
   br label %cleanup127
 
 for.inc:                                          ; preds = %if.end51
@@ -640,8 +640,8 @@ for.inc:                                          ; preds = %if.end51
   br i1 %cmp26.1, label %for.body.1, label %for.end
 
 for.body.1:                                       ; preds = %for.inc
-  %29 = load i8, ptr %add.ptr.1, align 1, !tbaa !15
-  %conv27.1 = zext i8 %29 to i32
+  %31 = load i8, ptr %add.ptr.1, align 1, !tbaa !15
+  %conv27.1 = zext i8 %31 to i32
   %and28.1 = and i32 %conv27.1, 192
   %cmp29.not.1 = icmp eq i32 %and28.1, 128
   br i1 %cmp29.not.1, label %if.end51.1, label %if.then30
@@ -662,8 +662,8 @@ for.inc.1:                                        ; preds = %if.end51.1
   br i1 %cmp26.2, label %for.body.2, label %for.end
 
 for.body.2:                                       ; preds = %for.inc.1
-  %30 = load i8, ptr %add.ptr.2, align 1, !tbaa !15
-  %conv27.2 = zext i8 %30 to i32
+  %32 = load i8, ptr %add.ptr.2, align 1, !tbaa !15
+  %conv27.2 = zext i8 %32 to i32
   %and28.2 = and i32 %conv27.2, 192
   %cmp29.not.2 = icmp eq i32 %and28.2, 128
   br i1 %cmp29.not.2, label %if.end51.2, label %if.then30
@@ -707,7 +707,7 @@ invoke.cont136:                                   ; preds = %if.end133
   unreachable
 
 lpad135:                                          ; preds = %if.end133
-  %31 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr %exception134) #8
   br label %ehcleanup139
@@ -718,7 +718,7 @@ cleanup138:                                       ; preds = %if.then131, %cleanu
   br label %cleanup142
 
 ehcleanup139:                                     ; preds = %lpad135, %ehcleanup126, %cleanup.action, %ehcleanup, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  %.pn174.pn = phi { ptr, i32 } [ %.pn174212, %cleanup.action ], [ %5, %ehcleanup ], [ %31, %lpad135 ], [ %.pn171.pn, %ehcleanup126 ], [ %5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn174.pn = phi { ptr, i32 } [ %.pn174212, %cleanup.action ], [ %5, %ehcleanup ], [ %33, %lpad135 ], [ %.pn171.pn, %ehcleanup126 ], [ %5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %d) #8
   br label %ehcleanup143
 

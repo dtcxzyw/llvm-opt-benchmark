@@ -6124,12 +6124,12 @@ if.end364:                                        ; preds = %if.then363, %if.end
   br i1 %cmp365, label %cond.end371, label %cond.end377.thread
 
 cond.end371:                                      ; preds = %if.end364
-  %sub368 = add nsw i32 %141, -2
   %Data.i243 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 166, i32 2
   %142 = load ptr, ptr %Data.i243, align 8
-  %idxprom.i = zext nneg i32 %sub368 to i64
-  %arrayidx.i244 = getelementptr inbounds %struct.ImGuiTableTempData, ptr %142, i64 %idxprom.i
-  %tobool373.not = icmp eq ptr %142, null
+  %143 = zext nneg i32 %141 to i64
+  %144 = getelementptr %struct.ImGuiTableTempData, ptr %142, i64 %143
+  %arrayidx.i244 = getelementptr %struct.ImGuiTableTempData, ptr %144, i64 -2
+  %tobool373.not = icmp eq ptr %arrayidx.i244, null
   br i1 %tobool373.not, label %cond.end377.thread, label %cond.end377
 
 cond.end377.thread:                               ; preds = %cond.end371, %if.end364
@@ -6137,30 +6137,30 @@ cond.end377.thread:                               ; preds = %cond.end371, %if.en
   br label %cond.end396
 
 cond.end377:                                      ; preds = %cond.end371
-  %143 = load i32, ptr %arrayidx.i244, align 8
+  %145 = load i32, ptr %arrayidx.i244, align 8
   %Data.i.i245 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 167, i32 0, i32 2
-  %144 = load ptr, ptr %Data.i.i245, align 8
-  %idxprom.i.i = sext i32 %143 to i64
-  %arrayidx.i.i246 = getelementptr inbounds %struct.ImGuiTable, ptr %144, i64 %idxprom.i.i
+  %146 = load ptr, ptr %Data.i.i245, align 8
+  %idxprom.i.i = sext i32 %145 to i64
+  %arrayidx.i.i246 = getelementptr inbounds %struct.ImGuiTable, ptr %146, i64 %idxprom.i.i
   store ptr %arrayidx.i.i246, ptr %CurrentTable, align 8
-  %tobool381.not = icmp eq ptr %144, null
+  %tobool381.not = icmp eq ptr %146, null
   br i1 %tobool381.not, label %cond.end396, label %if.end388
 
 if.end388:                                        ; preds = %cond.end377
-  %TempData384 = getelementptr inbounds %struct.ImGuiTable, ptr %144, i64 %idxprom.i.i, i32 3
+  %TempData384 = getelementptr inbounds %struct.ImGuiTable, ptr %146, i64 %idxprom.i.i, i32 3
   store ptr %arrayidx.i244, ptr %TempData384, align 8
-  %DrawSplitter385 = getelementptr inbounds %struct.ImGuiTableTempData, ptr %142, i64 %idxprom.i, i32 5
-  %145 = load ptr, ptr %CurrentTable, align 8
-  %DrawSplitter387 = getelementptr inbounds %struct.ImGuiTable, ptr %145, i64 0, i32 58
+  %DrawSplitter385 = getelementptr %struct.ImGuiTableTempData, ptr %144, i64 -2, i32 5
+  %147 = load ptr, ptr %CurrentTable, align 8
+  %DrawSplitter387 = getelementptr inbounds %struct.ImGuiTable, ptr %147, i64 0, i32 58
   store ptr %DrawSplitter385, ptr %DrawSplitter387, align 8
   %.pr = load ptr, ptr %CurrentTable, align 8
   %tobool390.not = icmp eq ptr %.pr, null
   br i1 %tobool390.not, label %cond.end396, label %cond.true391
 
 cond.true391:                                     ; preds = %if.end388
-  %146 = load ptr, ptr %Data.i.i245, align 8
+  %148 = load ptr, ptr %Data.i.i245, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %.pr to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %146 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %148 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 592
   %conv.i248 = trunc i64 %sub.ptr.div.i to i32

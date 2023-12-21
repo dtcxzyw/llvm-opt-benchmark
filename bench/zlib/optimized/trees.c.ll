@@ -2052,109 +2052,109 @@ if.else:                                          ; preds = %if.then14
 if.else65:                                        ; preds = %do.body
   %arrayidx67 = getelementptr inbounds [256 x i8], ptr @_length_code, i64 0, i64 %idxprom15
   %17 = load i8, ptr %arrayidx67, align 1
-  %conv68 = zext i8 %17 to i64
-  %add71 = add nuw nsw i64 %conv68, 257
-  %arrayidx73 = getelementptr inbounds %struct.ct_data_s, ptr %ltree, i64 %add71
-  %dl74 = getelementptr inbounds %struct.ct_data_s, ptr %ltree, i64 %add71, i32 1
-  %18 = load i16, ptr %dl74, align 2
-  %conv75 = zext i16 %18 to i32
-  %19 = load i32, ptr %bi_valid76, align 4
+  %18 = zext i8 %17 to i64
+  %19 = getelementptr %struct.ct_data_s, ptr %ltree, i64 %18
+  %arrayidx73 = getelementptr %struct.ct_data_s, ptr %19, i64 257
+  %dl74 = getelementptr %struct.ct_data_s, ptr %19, i64 257, i32 1
+  %20 = load i16, ptr %dl74, align 2
+  %conv75 = zext i16 %20 to i32
+  %21 = load i32, ptr %bi_valid76, align 4
   %sub77 = sub nsw i32 16, %conv75
-  %cmp78 = icmp sgt i32 %19, %sub77
-  %20 = load i16, ptr %arrayidx73, align 2
-  %conv87 = zext i16 %20 to i32
-  %shl91 = shl i32 %conv87, %19
-  %21 = load i16, ptr %bi_buf131, align 8
-  %22 = trunc i32 %shl91 to i16
-  %conv95 = or i16 %21, %22
+  %cmp78 = icmp sgt i32 %21, %sub77
+  %22 = load i16, ptr %arrayidx73, align 2
+  %conv87 = zext i16 %22 to i32
+  %shl91 = shl i32 %conv87, %21
+  %23 = load i16, ptr %bi_buf131, align 8
+  %24 = trunc i32 %shl91 to i16
+  %conv95 = or i16 %23, %24
   store i16 %conv95, ptr %bi_buf131, align 8
   br i1 %cmp78, label %if.then80, label %if.else122
 
 if.then80:                                        ; preds = %if.else65
   %conv99 = trunc i16 %conv95 to i8
-  %23 = load ptr, ptr %pending_buf100, align 8
-  %24 = load i64, ptr %pending101, align 8
-  %inc102 = add i64 %24, 1
+  %25 = load ptr, ptr %pending_buf100, align 8
+  %26 = load i64, ptr %pending101, align 8
+  %inc102 = add i64 %26, 1
   store i64 %inc102, ptr %pending101, align 8
-  %arrayidx103 = getelementptr inbounds i8, ptr %23, i64 %24
+  %arrayidx103 = getelementptr inbounds i8, ptr %25, i64 %26
   store i8 %conv99, ptr %arrayidx103, align 1
-  %25 = load i16, ptr %bi_buf131, align 8
-  %26 = lshr i16 %25, 8
-  %conv107 = trunc i16 %26 to i8
-  %27 = load ptr, ptr %pending_buf100, align 8
-  %28 = load i64, ptr %pending101, align 8
-  %inc110 = add i64 %28, 1
+  %27 = load i16, ptr %bi_buf131, align 8
+  %28 = lshr i16 %27, 8
+  %conv107 = trunc i16 %28 to i8
+  %29 = load ptr, ptr %pending_buf100, align 8
+  %30 = load i64, ptr %pending101, align 8
+  %inc110 = add i64 %30, 1
   store i64 %inc110, ptr %pending101, align 8
-  %arrayidx111 = getelementptr inbounds i8, ptr %27, i64 %28
+  %arrayidx111 = getelementptr inbounds i8, ptr %29, i64 %30
   store i8 %conv107, ptr %arrayidx111, align 1
-  %29 = load i32, ptr %bi_valid76, align 4
-  %sub115 = sub nsw i32 16, %29
+  %31 = load i32, ptr %bi_valid76, align 4
+  %sub115 = sub nsw i32 16, %31
   %shr116 = lshr i32 %conv87, %sub115
   %conv117 = trunc i32 %shr116 to i16
   store i16 %conv117, ptr %bi_buf131, align 8
   %sub119 = add nsw i32 %conv75, -16
-  %add121 = add nsw i32 %sub119, %29
+  %add121 = add nsw i32 %sub119, %31
   br label %if.end137
 
 if.else122:                                       ; preds = %if.else65
-  %add136 = add nsw i32 %19, %conv75
+  %add136 = add nsw i32 %21, %conv75
   br label %if.end137
 
 if.end137:                                        ; preds = %if.else122, %if.then80
-  %30 = phi i16 [ %conv95, %if.else122 ], [ %conv117, %if.then80 ]
+  %32 = phi i16 [ %conv95, %if.else122 ], [ %conv117, %if.then80 ]
   %storemerge = phi i32 [ %add136, %if.else122 ], [ %add121, %if.then80 ]
   store i32 %storemerge, ptr %bi_valid76, align 4
-  %arrayidx139 = getelementptr inbounds [29 x i32], ptr @extra_lbits, i64 0, i64 %conv68
-  %31 = load i32, ptr %arrayidx139, align 4
-  %32 = add nsw i64 %conv68, -28
-  %cmp140.not = icmp ult i64 %32, -20
+  %arrayidx139 = getelementptr inbounds [29 x i32], ptr @extra_lbits, i64 0, i64 %18
+  %33 = load i32, ptr %arrayidx139, align 4
+  %34 = add nsw i64 %18, -28
+  %cmp140.not = icmp ult i64 %34, -20
   br i1 %cmp140.not, label %if.end199, label %if.then142
 
 if.then142:                                       ; preds = %if.end137
-  %arrayidx144 = getelementptr inbounds [29 x i32], ptr @base_length, i64 0, i64 %conv68
-  %33 = load i32, ptr %arrayidx144, align 4
-  %sub145 = sub nsw i32 %conv11, %33
-  %sub148 = sub nsw i32 16, %31
+  %arrayidx144 = getelementptr inbounds [29 x i32], ptr @base_length, i64 0, i64 %18
+  %35 = load i32, ptr %arrayidx144, align 4
+  %sub145 = sub nsw i32 %conv11, %35
+  %sub148 = sub nsw i32 16, %33
   %cmp149 = icmp sgt i32 %storemerge, %sub148
   br i1 %cmp149, label %if.then151, label %if.else187
 
 if.then151:                                       ; preds = %if.then142
   %conv154 = and i32 %sub145, 65535
   %shl156 = shl i32 %sub145, %storemerge
-  %34 = trunc i32 %shl156 to i16
-  %conv160 = or i16 %30, %34
+  %36 = trunc i32 %shl156 to i16
+  %conv160 = or i16 %32, %36
   store i16 %conv160, ptr %bi_buf131, align 8
   %conv164 = trunc i16 %conv160 to i8
-  %35 = load ptr, ptr %pending_buf100, align 8
-  %36 = load i64, ptr %pending101, align 8
-  %inc167 = add i64 %36, 1
+  %37 = load ptr, ptr %pending_buf100, align 8
+  %38 = load i64, ptr %pending101, align 8
+  %inc167 = add i64 %38, 1
   store i64 %inc167, ptr %pending101, align 8
-  %arrayidx168 = getelementptr inbounds i8, ptr %35, i64 %36
+  %arrayidx168 = getelementptr inbounds i8, ptr %37, i64 %38
   store i8 %conv164, ptr %arrayidx168, align 1
-  %37 = load i16, ptr %bi_buf131, align 8
-  %38 = lshr i16 %37, 8
-  %conv172 = trunc i16 %38 to i8
-  %39 = load ptr, ptr %pending_buf100, align 8
-  %40 = load i64, ptr %pending101, align 8
-  %inc175 = add i64 %40, 1
+  %39 = load i16, ptr %bi_buf131, align 8
+  %40 = lshr i16 %39, 8
+  %conv172 = trunc i16 %40 to i8
+  %41 = load ptr, ptr %pending_buf100, align 8
+  %42 = load i64, ptr %pending101, align 8
+  %inc175 = add i64 %42, 1
   store i64 %inc175, ptr %pending101, align 8
-  %arrayidx176 = getelementptr inbounds i8, ptr %39, i64 %40
+  %arrayidx176 = getelementptr inbounds i8, ptr %41, i64 %42
   store i8 %conv172, ptr %arrayidx176, align 1
-  %41 = load i32, ptr %bi_valid76, align 4
-  %sub180 = sub nsw i32 16, %41
+  %43 = load i32, ptr %bi_valid76, align 4
+  %sub180 = sub nsw i32 16, %43
   %shr181 = lshr i32 %conv154, %sub180
   %conv182 = trunc i32 %shr181 to i16
   store i16 %conv182, ptr %bi_buf131, align 8
-  %sub184 = add nsw i32 %31, -16
-  %add186 = add nsw i32 %sub184, %41
+  %sub184 = add nsw i32 %33, -16
+  %add186 = add nsw i32 %sub184, %43
   br label %if.end199.sink.split
 
 if.else187:                                       ; preds = %if.then142
   %shl191 = shl i32 %sub145, %storemerge
-  %42 = trunc i32 %shl191 to i16
-  %conv195 = or i16 %30, %42
+  %44 = trunc i32 %shl191 to i16
+  %conv195 = or i16 %32, %44
   store i16 %conv195, ptr %bi_buf131, align 8
-  %add197 = add nsw i32 %31, %storemerge
+  %add197 = add nsw i32 %33, %storemerge
   br label %if.end199.sink.split
 
 if.end199.sink.split:                             ; preds = %if.else187, %if.then151
@@ -2164,8 +2164,8 @@ if.end199.sink.split:                             ; preds = %if.else187, %if.the
   br label %if.end199
 
 if.end199:                                        ; preds = %if.end199.sink.split, %if.end137
-  %43 = phi i16 [ %30, %if.end137 ], [ %.ph, %if.end199.sink.split ]
-  %44 = phi i32 [ %storemerge, %if.end137 ], [ %add186.sink, %if.end199.sink.split ]
+  %45 = phi i16 [ %32, %if.end137 ], [ %.ph, %if.end199.sink.split ]
+  %46 = phi i32 [ %storemerge, %if.end137 ], [ %add186.sink, %if.end199.sink.split ]
   %dec = add nsw i32 %add, -1
   %cmp200 = icmp ult i32 %add, 257
   %shr205 = lshr i32 %dec, 7
@@ -2177,102 +2177,102 @@ if.end199:                                        ; preds = %if.end199.sink.spli
   %idxprom211 = zext i8 %cond.in to i64
   %arrayidx212 = getelementptr inbounds %struct.ct_data_s, ptr %dtree, i64 %idxprom211
   %dl213 = getelementptr inbounds %struct.ct_data_s, ptr %dtree, i64 %idxprom211, i32 1
-  %45 = load i16, ptr %dl213, align 2
-  %conv214 = zext i16 %45 to i32
+  %47 = load i16, ptr %dl213, align 2
+  %conv214 = zext i16 %47 to i32
   %sub216 = sub nsw i32 16, %conv214
-  %cmp217 = icmp sgt i32 %44, %sub216
-  %46 = load i16, ptr %arrayidx212, align 2
-  %conv224 = zext i16 %46 to i32
-  %shl228 = shl i32 %conv224, %44
-  %47 = trunc i32 %shl228 to i16
-  %conv232 = or i16 %43, %47
+  %cmp217 = icmp sgt i32 %46, %sub216
+  %48 = load i16, ptr %arrayidx212, align 2
+  %conv224 = zext i16 %48 to i32
+  %shl228 = shl i32 %conv224, %46
+  %49 = trunc i32 %shl228 to i16
+  %conv232 = or i16 %45, %49
   store i16 %conv232, ptr %bi_buf131, align 8
   br i1 %cmp217, label %if.then219, label %if.else259
 
 if.then219:                                       ; preds = %if.end199
   %conv236 = trunc i16 %conv232 to i8
-  %48 = load ptr, ptr %pending_buf100, align 8
-  %49 = load i64, ptr %pending101, align 8
-  %inc239 = add i64 %49, 1
+  %50 = load ptr, ptr %pending_buf100, align 8
+  %51 = load i64, ptr %pending101, align 8
+  %inc239 = add i64 %51, 1
   store i64 %inc239, ptr %pending101, align 8
-  %arrayidx240 = getelementptr inbounds i8, ptr %48, i64 %49
+  %arrayidx240 = getelementptr inbounds i8, ptr %50, i64 %51
   store i8 %conv236, ptr %arrayidx240, align 1
-  %50 = load i16, ptr %bi_buf131, align 8
-  %51 = lshr i16 %50, 8
-  %conv244 = trunc i16 %51 to i8
-  %52 = load ptr, ptr %pending_buf100, align 8
-  %53 = load i64, ptr %pending101, align 8
-  %inc247 = add i64 %53, 1
+  %52 = load i16, ptr %bi_buf131, align 8
+  %53 = lshr i16 %52, 8
+  %conv244 = trunc i16 %53 to i8
+  %54 = load ptr, ptr %pending_buf100, align 8
+  %55 = load i64, ptr %pending101, align 8
+  %inc247 = add i64 %55, 1
   store i64 %inc247, ptr %pending101, align 8
-  %arrayidx248 = getelementptr inbounds i8, ptr %52, i64 %53
+  %arrayidx248 = getelementptr inbounds i8, ptr %54, i64 %55
   store i8 %conv244, ptr %arrayidx248, align 1
-  %54 = load i32, ptr %bi_valid76, align 4
-  %sub252 = sub nsw i32 16, %54
+  %56 = load i32, ptr %bi_valid76, align 4
+  %sub252 = sub nsw i32 16, %56
   %shr253 = lshr i32 %conv224, %sub252
   %conv254 = trunc i32 %shr253 to i16
   store i16 %conv254, ptr %bi_buf131, align 8
   %sub256 = add nsw i32 %conv214, -16
-  %add258 = add nsw i32 %sub256, %54
+  %add258 = add nsw i32 %sub256, %56
   br label %if.end272
 
 if.else259:                                       ; preds = %if.end199
-  %add271 = add nsw i32 %44, %conv214
+  %add271 = add nsw i32 %46, %conv214
   br label %if.end272
 
 if.end272:                                        ; preds = %if.else259, %if.then219
-  %55 = phi i16 [ %conv232, %if.else259 ], [ %conv254, %if.then219 ]
+  %57 = phi i16 [ %conv232, %if.else259 ], [ %conv254, %if.then219 ]
   %storemerge164 = phi i32 [ %add271, %if.else259 ], [ %add258, %if.then219 ]
   store i32 %storemerge164, ptr %bi_valid76, align 4
   %arrayidx274 = getelementptr inbounds [30 x i32], ptr @extra_dbits, i64 0, i64 %idxprom211
-  %56 = load i32, ptr %arrayidx274, align 4
+  %58 = load i32, ptr %arrayidx274, align 4
   %cmp275.not = icmp ult i8 %cond.in, 4
   br i1 %cmp275.not, label %do.cond, label %if.then277
 
 if.then277:                                       ; preds = %if.end272
   %arrayidx279 = getelementptr inbounds [30 x i32], ptr @base_dist, i64 0, i64 %idxprom211
-  %57 = load i32, ptr %arrayidx279, align 4
-  %sub280 = sub i32 %dec, %57
-  %sub283 = sub nsw i32 16, %56
+  %59 = load i32, ptr %arrayidx279, align 4
+  %sub280 = sub i32 %dec, %59
+  %sub283 = sub nsw i32 16, %58
   %cmp284 = icmp sgt i32 %storemerge164, %sub283
   br i1 %cmp284, label %if.then286, label %if.else322
 
 if.then286:                                       ; preds = %if.then277
   %conv289 = and i32 %sub280, 65535
   %shl291 = shl i32 %sub280, %storemerge164
-  %58 = trunc i32 %shl291 to i16
-  %conv295 = or i16 %55, %58
+  %60 = trunc i32 %shl291 to i16
+  %conv295 = or i16 %57, %60
   store i16 %conv295, ptr %bi_buf131, align 8
   %conv299 = trunc i16 %conv295 to i8
-  %59 = load ptr, ptr %pending_buf100, align 8
-  %60 = load i64, ptr %pending101, align 8
-  %inc302 = add i64 %60, 1
+  %61 = load ptr, ptr %pending_buf100, align 8
+  %62 = load i64, ptr %pending101, align 8
+  %inc302 = add i64 %62, 1
   store i64 %inc302, ptr %pending101, align 8
-  %arrayidx303 = getelementptr inbounds i8, ptr %59, i64 %60
+  %arrayidx303 = getelementptr inbounds i8, ptr %61, i64 %62
   store i8 %conv299, ptr %arrayidx303, align 1
-  %61 = load i16, ptr %bi_buf131, align 8
-  %62 = lshr i16 %61, 8
-  %conv307 = trunc i16 %62 to i8
-  %63 = load ptr, ptr %pending_buf100, align 8
-  %64 = load i64, ptr %pending101, align 8
-  %inc310 = add i64 %64, 1
+  %63 = load i16, ptr %bi_buf131, align 8
+  %64 = lshr i16 %63, 8
+  %conv307 = trunc i16 %64 to i8
+  %65 = load ptr, ptr %pending_buf100, align 8
+  %66 = load i64, ptr %pending101, align 8
+  %inc310 = add i64 %66, 1
   store i64 %inc310, ptr %pending101, align 8
-  %arrayidx311 = getelementptr inbounds i8, ptr %63, i64 %64
+  %arrayidx311 = getelementptr inbounds i8, ptr %65, i64 %66
   store i8 %conv307, ptr %arrayidx311, align 1
-  %65 = load i32, ptr %bi_valid76, align 4
-  %sub315 = sub nsw i32 16, %65
+  %67 = load i32, ptr %bi_valid76, align 4
+  %sub315 = sub nsw i32 16, %67
   %shr316 = lshr i32 %conv289, %sub315
   %conv317 = trunc i32 %shr316 to i16
   store i16 %conv317, ptr %bi_buf131, align 8
-  %sub319 = add nsw i32 %56, -16
-  %add321 = add nsw i32 %sub319, %65
+  %sub319 = add nsw i32 %58, -16
+  %add321 = add nsw i32 %sub319, %67
   br label %do.cond.sink.split
 
 if.else322:                                       ; preds = %if.then277
   %shl326 = shl i32 %sub280, %storemerge164
-  %66 = trunc i32 %shl326 to i16
-  %conv330 = or i16 %55, %66
+  %68 = trunc i32 %shl326 to i16
+  %conv330 = or i16 %57, %68
   store i16 %conv330, ptr %bi_buf131, align 8
-  %add332 = add nsw i32 %56, %storemerge164
+  %add332 = add nsw i32 %58, %storemerge164
   br label %do.cond.sink.split
 
 do.cond.sink.split:                               ; preds = %if.else322, %if.then286, %if.then20, %if.else
@@ -2281,60 +2281,60 @@ do.cond.sink.split:                               ; preds = %if.else322, %if.the
   br label %do.cond
 
 do.cond:                                          ; preds = %do.cond.sink.split, %if.end272
-  %67 = phi i32 [ %storemerge164, %if.end272 ], [ %add64.sink, %do.cond.sink.split ]
-  %68 = load i32, ptr %sym_next, align 4
-  %cmp337 = icmp ult i32 %inc8, %68
+  %69 = phi i32 [ %storemerge164, %if.end272 ], [ %add64.sink, %do.cond.sink.split ]
+  %70 = load i32, ptr %sym_next, align 4
+  %cmp337 = icmp ult i32 %inc8, %70
   br i1 %cmp337, label %do.body, label %if.end339, !llvm.loop !26
 
 if.end339:                                        ; preds = %do.cond, %entry.if.end339_crit_edge
-  %69 = phi i32 [ %.pre, %entry.if.end339_crit_edge ], [ %67, %do.cond ]
+  %71 = phi i32 [ %.pre, %entry.if.end339_crit_edge ], [ %69, %do.cond ]
   %arrayidx341 = getelementptr inbounds %struct.ct_data_s, ptr %ltree, i64 256
   %dl342 = getelementptr inbounds %struct.ct_data_s, ptr %ltree, i64 256, i32 1
-  %70 = load i16, ptr %dl342, align 2
-  %conv343 = zext i16 %70 to i32
+  %72 = load i16, ptr %dl342, align 2
+  %conv343 = zext i16 %72 to i32
   %bi_valid344 = getelementptr inbounds %struct.internal_state, ptr %s, i64 0, i32 57
   %sub345 = sub nsw i32 16, %conv343
-  %cmp346 = icmp sgt i32 %69, %sub345
-  %71 = load i16, ptr %arrayidx341, align 2
-  %conv352 = zext i16 %71 to i32
-  %shl356 = shl i32 %conv352, %69
+  %cmp346 = icmp sgt i32 %71, %sub345
+  %73 = load i16, ptr %arrayidx341, align 2
+  %conv352 = zext i16 %73 to i32
+  %shl356 = shl i32 %conv352, %71
   %bi_buf357 = getelementptr inbounds %struct.internal_state, ptr %s, i64 0, i32 56
-  %72 = load i16, ptr %bi_buf357, align 8
-  %73 = trunc i32 %shl356 to i16
-  %conv360 = or i16 %72, %73
+  %74 = load i16, ptr %bi_buf357, align 8
+  %75 = trunc i32 %shl356 to i16
+  %conv360 = or i16 %74, %75
   store i16 %conv360, ptr %bi_buf357, align 8
   br i1 %cmp346, label %if.then348, label %if.else387
 
 if.then348:                                       ; preds = %if.end339
   %conv364 = trunc i16 %conv360 to i8
   %pending_buf365 = getelementptr inbounds %struct.internal_state, ptr %s, i64 0, i32 2
-  %74 = load ptr, ptr %pending_buf365, align 8
+  %76 = load ptr, ptr %pending_buf365, align 8
   %pending366 = getelementptr inbounds %struct.internal_state, ptr %s, i64 0, i32 5
-  %75 = load i64, ptr %pending366, align 8
-  %inc367 = add i64 %75, 1
+  %77 = load i64, ptr %pending366, align 8
+  %inc367 = add i64 %77, 1
   store i64 %inc367, ptr %pending366, align 8
-  %arrayidx368 = getelementptr inbounds i8, ptr %74, i64 %75
+  %arrayidx368 = getelementptr inbounds i8, ptr %76, i64 %77
   store i8 %conv364, ptr %arrayidx368, align 1
-  %76 = load i16, ptr %bi_buf357, align 8
-  %77 = lshr i16 %76, 8
-  %conv372 = trunc i16 %77 to i8
-  %78 = load ptr, ptr %pending_buf365, align 8
-  %79 = load i64, ptr %pending366, align 8
-  %inc375 = add i64 %79, 1
+  %78 = load i16, ptr %bi_buf357, align 8
+  %79 = lshr i16 %78, 8
+  %conv372 = trunc i16 %79 to i8
+  %80 = load ptr, ptr %pending_buf365, align 8
+  %81 = load i64, ptr %pending366, align 8
+  %inc375 = add i64 %81, 1
   store i64 %inc375, ptr %pending366, align 8
-  %arrayidx376 = getelementptr inbounds i8, ptr %78, i64 %79
+  %arrayidx376 = getelementptr inbounds i8, ptr %80, i64 %81
   store i8 %conv372, ptr %arrayidx376, align 1
-  %80 = load i32, ptr %bi_valid344, align 4
-  %sub380 = sub nsw i32 16, %80
+  %82 = load i32, ptr %bi_valid344, align 4
+  %sub380 = sub nsw i32 16, %82
   %shr381 = lshr i32 %conv352, %sub380
   %conv382 = trunc i32 %shr381 to i16
   store i16 %conv382, ptr %bi_buf357, align 8
   %sub384 = add nsw i32 %conv343, -16
-  %add386 = add nsw i32 %sub384, %80
+  %add386 = add nsw i32 %sub384, %82
   br label %if.end399
 
 if.else387:                                       ; preds = %if.end339
-  %add398 = add nsw i32 %69, %conv343
+  %add398 = add nsw i32 %71, %conv343
   br label %if.end399
 
 if.end399:                                        ; preds = %if.else387, %if.then348

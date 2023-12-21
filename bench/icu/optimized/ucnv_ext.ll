@@ -603,9 +603,9 @@ land.lhs.true2:                                   ; preds = %land.lhs.true
   br i1 %cmp4, label %return, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true2, %land.lhs.true
-  %sub = add nsw i32 %call, -2
-  %idx.ext = zext nneg i32 %sub to i64
-  %add.ptr = getelementptr inbounds i16, ptr %0, i64 %idx.ext
+  %6 = zext nneg i32 %call to i64
+  %7 = getelementptr i16, ptr %0, i64 %6
+  %add.ptr = getelementptr i16, ptr %7, i64 -2
   store ptr %add.ptr, ptr %src, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buffer.i)
   %shr.i = lshr i32 %2, 24
@@ -645,8 +645,8 @@ sw.bb7.i:                                         ; preds = %sw.bb3.i, %if.then.
 if.else.i:                                        ; preds = %if.then
   %and1.i = and i32 %2, 16777215
   %arrayidx.i = getelementptr inbounds i32, ptr %cx, i64 8
-  %6 = load i32, ptr %arrayidx.i, align 4
-  %idx.ext.i = sext i32 %6 to i64
+  %8 = load i32, ptr %arrayidx.i, align 4
+  %idx.ext.i = sext i32 %8 to i64
   %add.ptr12.i = getelementptr inbounds i8, ptr %cx, i64 %idx.ext.i
   %idx.ext13.i = zext nneg i32 %and1.i to i64
   %add.ptr14.i = getelementptr inbounds i8, ptr %add.ptr12.i, i64 %idx.ext13.i
@@ -655,18 +655,18 @@ if.else.i:                                        ; preds = %if.then
 if.end.i:                                         ; preds = %if.else.i, %sw.bb7.i, %if.then.i
   %result.0.i = phi ptr [ %add.ptr14.i, %if.else.i ], [ %add.ptr.i, %if.then.i ], [ %add.ptr.i, %sw.bb7.i ]
   %fromUnicodeStatus.i = getelementptr inbounds %struct.UConverter, ptr %cnv, i64 0, i32 16
-  %7 = load i32, ptr %fromUnicodeStatus.i, align 8
-  %cmp15.not.i = icmp eq i32 %7, 0
+  %9 = load i32, ptr %fromUnicodeStatus.i, align 8
+  %cmp15.not.i = icmp eq i32 %9, 0
   br i1 %cmp15.not.i, label %_ZL18ucnv_extWriteFromUP10UConverterPKijPPcPKcPPiiP10UErrorCode.exit, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.end.i
-  %cmp17.i = icmp sgt i32 %7, 1
+  %cmp17.i = icmp sgt i32 %9, 1
   %cmp18.i = icmp eq i32 %and.i, 1
   %or.cond.i = and i1 %cmp18.i, %cmp17.i
   br i1 %or.cond.i, label %if.then32.i, label %if.else21.i
 
 if.else21.i:                                      ; preds = %if.then16.i
-  %cmp22.i = icmp eq i32 %7, 1
+  %cmp22.i = icmp eq i32 %9, 1
   %cmp24.i = icmp ugt i32 %and.i, 1
   %or.cond1.i = and i1 %cmp24.i, %cmp22.i
   br i1 %or.cond1.i, label %if.then32.i, label %_ZL18ucnv_extWriteFromUP10UConverterPKijPPcPKcPPiiP10UErrorCode.exit
@@ -703,7 +703,7 @@ if.else:                                          ; preds = %entry
 if.then6:                                         ; preds = %if.else
   %preFromUFirstCP = getelementptr inbounds %struct.UConverter, ptr %cnv, i64 0, i32 31
   store i32 %cp, ptr %preFromUFirstCP, align 8
-  %8 = load ptr, ptr %src, align 8
+  %10 = load ptr, ptr %src, align 8
   %sub8 = sub nsw i32 -2, %call
   %cmp924 = icmp ult i32 %call, -2
   br i1 %cmp924, label %for.body.preheader, label %for.end
@@ -714,17 +714,17 @@ for.body.preheader:                               ; preds = %if.then6
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %s.025 = phi ptr [ %8, %for.body.preheader ], [ %incdec.ptr, %for.body ]
+  %s.025 = phi ptr [ %10, %for.body.preheader ], [ %incdec.ptr, %for.body ]
   %incdec.ptr = getelementptr inbounds i16, ptr %s.025, i64 1
-  %9 = load i16, ptr %s.025, align 2
+  %11 = load i16, ptr %s.025, align 2
   %arrayidx = getelementptr inbounds %struct.UConverter, ptr %cnv, i64 0, i32 32, i64 %indvars.iv
-  store i16 %9, ptr %arrayidx, align 2
+  store i16 %11, ptr %arrayidx, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body, %if.then6
-  %s.0.lcssa = phi ptr [ %8, %if.then6 ], [ %incdec.ptr, %for.body ]
+  %s.0.lcssa = phi ptr [ %10, %if.then6 ], [ %incdec.ptr, %for.body ]
   store ptr %s.0.lcssa, ptr %src, align 8
   %conv10 = trunc i32 %sub8 to i8
   %preFromULength = getelementptr inbounds %struct.UConverter, ptr %cnv, i64 0, i32 34

@@ -947,15 +947,10 @@ if.then47:                                        ; preds = %if.end42
 
 for.cond.preheader:                               ; preds = %if.then47
   %cmp50636 = icmp sgt i32 %7, 1
-  br i1 %cmp50636, label %for.body.preheader, label %while.cond.backedge.sink.split
+  br i1 %cmp50636, label %for.body, label %while.cond.backedge.sink.split
 
-for.body.preheader:                               ; preds = %for.cond.preheader
-  %invariant.gep = getelementptr ptr, ptr %call38, i64 1
-  %invariant.gep836 = getelementptr ptr, ptr %call38, i64 1
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %indvars.iv732 = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next733, %for.inc ]
+for.body:                                         ; preds = %for.cond.preheader, %for.inc
+  %indvars.iv732 = phi i64 [ %indvars.iv.next733, %for.inc ], [ 1, %for.cond.preheader ]
   %arrayidx52 = getelementptr inbounds ptr, ptr %call38, i64 %indvars.iv732
   %9 = load ptr, ptr %arrayidx52, align 8
   %call53 = call i32 @strcasecmp(ptr noundef %9, ptr noundef nonnull @.str.11) #34
@@ -963,8 +958,8 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp54, label %if.then56, label %if.else60
 
 if.then56:                                        ; preds = %for.body
-  %gep837 = getelementptr ptr, ptr %invariant.gep836, i64 %indvars.iv732
-  %10 = load ptr, ptr %gep837, align 8
+  %arrayidx58 = getelementptr ptr, ptr %arrayidx52, i64 1
+  %10 = load ptr, ptr %arrayidx58, align 8
   %call59 = call i64 @strtoull(ptr nocapture noundef %10, ptr noundef null, i32 noundef 10) #33
   %11 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
   %currentEpoch = getelementptr inbounds %struct.clusterState, ptr %11, i64 0, i32 1
@@ -977,8 +972,8 @@ if.else60:                                        ; preds = %for.body
   br i1 %cmp64, label %if.then66, label %do.body72
 
 if.then66:                                        ; preds = %if.else60
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv732
-  %12 = load ptr, ptr %gep, align 8
+  %arrayidx69 = getelementptr ptr, ptr %arrayidx52, i64 1
+  %12 = load ptr, ptr %arrayidx69, align 8
   %call70 = call i64 @strtoull(ptr nocapture noundef %12, ptr noundef null, i32 noundef 10) #33
   %13 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
   %lastVoteEpoch = getelementptr inbounds %struct.clusterState, ptr %13, i64 0, i32 21
@@ -1313,8 +1308,8 @@ if.end133:                                        ; preds = %if.else125, %sdslen
 
 for.body137:                                      ; preds = %if.end133, %if.end219
   %indvars.iv722 = phi i64 [ %indvars.iv.next723, %if.end219 ], [ 2, %if.end133 ]
-  %aux_tls_port.0625 = phi i32 [ %aux_tls_port.2744750, %if.end219 ], [ 0, %if.end133 ]
-  %aux_tcp_port.0624 = phi i32 [ %aux_tcp_port.2743751, %if.end219 ], [ 0, %if.end133 ]
+  %aux_tls_port.0625 = phi i32 [ %aux_tls_port.2742748, %if.end219 ], [ 0, %if.end133 ]
+  %aux_tcp_port.0624 = phi i32 [ %aux_tcp_port.2741749, %if.end219 ], [ 0, %if.end133 ]
   %arrayidx139 = getelementptr inbounds ptr, ptr %call110, i64 %indvars.iv722
   %56 = load ptr, ptr %arrayidx139, align 8
   %arrayidx.i297 = getelementptr inbounds i8, ptr %56, i64 -1
@@ -1387,7 +1382,7 @@ for.cond173.preheader:                            ; preds = %for.cond156
   br label %for.body177.outer
 
 for.body177.outer:                                ; preds = %for.inc213.thread, %for.cond173.preheader
-  %indvars.iv719.ph = phi i64 [ %indvars.iv.next720741, %for.inc213.thread ], [ 0, %for.cond173.preheader ]
+  %indvars.iv719.ph = phi i64 [ %indvars.iv.next720739, %for.inc213.thread ], [ 0, %for.cond173.preheader ]
   %cmp216 = phi i1 [ false, %for.inc213.thread ], [ true, %for.cond173.preheader ]
   %aux_tls_port.1620.ph = phi i32 [ %or201, %for.inc213.thread ], [ %aux_tls_port.0625, %for.cond173.preheader ]
   %aux_tcp_port.1619.ph = phi i32 [ %or, %for.inc213.thread ], [ %aux_tcp_port.0624, %for.cond173.preheader ]
@@ -1618,9 +1613,9 @@ for.inc213:                                       ; preds = %sdslen.exit353, %sd
   br i1 %exitcond.not, label %for.end215, label %for.body177, !llvm.loop !10
 
 for.inc213.thread:                                ; preds = %sdslen.exit391
-  %indvars.iv.next720741 = add nuw nsw i64 %indvars.iv719, 1
-  %exitcond.not742 = icmp eq i64 %indvars.iv.next720741, 4
-  br i1 %exitcond.not742, label %if.end219, label %for.body177.outer, !llvm.loop !10
+  %indvars.iv.next720739 = add nuw nsw i64 %indvars.iv719, 1
+  %exitcond.not740 = icmp eq i64 %indvars.iv.next720739, 4
+  br i1 %exitcond.not740, label %if.end219, label %for.body177.outer, !llvm.loop !10
 
 for.end215:                                       ; preds = %for.inc213
   br i1 %cmp216, label %if.then218, label %if.end219
@@ -1634,8 +1629,8 @@ if.then218:                                       ; preds = %for.end215
   br label %do.body554.sink.split
 
 if.end219:                                        ; preds = %for.inc213.thread, %for.end215
-  %aux_tcp_port.2743751 = phi i32 [ %aux_tcp_port.1619.ph, %for.end215 ], [ %or, %for.inc213.thread ]
-  %aux_tls_port.2744750 = phi i32 [ %aux_tls_port.1620.ph, %for.end215 ], [ %or201, %for.inc213.thread ]
+  %aux_tcp_port.2741749 = phi i32 [ %aux_tcp_port.1619.ph, %for.end215 ], [ %or, %for.inc213.thread ]
+  %aux_tls_port.2742748 = phi i32 [ %aux_tls_port.1620.ph, %for.end215 ], [ %or201, %for.inc213.thread ]
   %98 = load i32, ptr %field_argc, align 4
   call void @sdsfreesplitres(ptr noundef nonnull %call143, i32 noundef %98) #33
   %indvars.iv.next723 = add nuw nsw i64 %indvars.iv722, 1
@@ -1645,8 +1640,8 @@ if.end219:                                        ; preds = %for.inc213.thread, 
   br i1 %cmp135, label %for.body137, label %for.end222, !llvm.loop !11
 
 for.end222:                                       ; preds = %if.end219, %if.end133
-  %aux_tcp_port.0.lcssa = phi i32 [ 0, %if.end133 ], [ %aux_tcp_port.2743751, %if.end219 ]
-  %aux_tls_port.0.lcssa = phi i32 [ 0, %if.end133 ], [ %aux_tls_port.2744750, %if.end219 ]
+  %aux_tcp_port.0.lcssa = phi i32 [ 0, %if.end133 ], [ %aux_tcp_port.2741749, %if.end219 ]
+  %aux_tls_port.0.lcssa = phi i32 [ 0, %if.end133 ], [ %aux_tls_port.2742748, %if.end219 ]
   %.lcssa = phi i32 [ %55, %if.end133 ], [ %99, %if.end219 ]
   %101 = load ptr, ptr %call110, align 8
   %call224 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %101, i32 noundef 58) #34
@@ -2333,7 +2328,7 @@ while.cond522.preheader:                          ; preds = %if.end508
 while.body525.preheader:                          ; preds = %while.cond522.preheader
   %165 = zext nneg i32 %start.0 to i64
   %166 = add nuw nsw i32 %stop.0, 1
-  %.pre737 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
+  %.pre735 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
   br label %while.body525
 
 if.then520:                                       ; preds = %if.end508
@@ -2341,7 +2336,7 @@ if.then520:                                       ; preds = %if.end508
   br label %do.body554.sink.split
 
 while.body525:                                    ; preds = %while.body525.preheader, %clusterAddSlot.exit
-  %168 = phi ptr [ %.pre737, %while.body525.preheader ], [ %182, %clusterAddSlot.exit ]
+  %168 = phi ptr [ %.pre735, %while.body525.preheader ], [ %182, %clusterAddSlot.exit ]
   %indvars.iv725 = phi i64 [ %165, %while.body525.preheader ], [ %indvars.iv.next726, %clusterAddSlot.exit ]
   %indvars.iv.next726 = add nuw nsw i64 %indvars.iv725, 1
   %arrayidx.i482 = getelementptr inbounds %struct.clusterState, ptr %168, i64 0, i32 9, i64 %indvars.iv725

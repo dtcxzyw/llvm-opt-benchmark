@@ -92,27 +92,31 @@ if.end36:                                         ; preds = %for.body
   br i1 %or.cond2, label %if.then43, label %if.else
 
 if.then43:                                        ; preds = %if.end36
-  %1 = add nuw i64 %indvars.iv, 4294967295
-  %idxprom = and i64 %1, 4294967295
-  %arrayidx = getelementptr inbounds i8, ptr %call12, i64 %idxprom
+  %1 = getelementptr i8, ptr %call12, i64 %indvars.iv
+  %arrayidx = getelementptr i8, ptr %1, i64 -1
   %2 = load i8, ptr %arrayidx, align 1
-  br label %for.inc.sink.split
+  store i8 %2, ptr %1, align 1
+  br label %for.inc
 
 if.else:                                          ; preds = %if.end36
   %cmp48 = icmp ult i8 %0, 42
-  br i1 %cmp48, label %for.inc.sink.split, label %if.else53
+  br i1 %cmp48, label %if.then50, label %if.else53
+
+if.then50:                                        ; preds = %if.else
+  %arrayidx52 = getelementptr inbounds i8, ptr %call12, i64 %indvars.iv
+  store i8 0, ptr %arrayidx52, align 1
+  br label %for.inc
 
 if.else53:                                        ; preds = %if.else
   %cmp55 = icmp ult i8 %0, 84
-  br i1 %cmp55, label %for.inc.sink.split, label %for.inc
+  br i1 %cmp55, label %if.then57, label %for.inc
 
-for.inc.sink.split:                               ; preds = %if.else53, %if.else, %if.then43
-  %.sink = phi i8 [ %2, %if.then43 ], [ 0, %if.else ], [ -1, %if.else53 ]
-  %arrayidx46 = getelementptr inbounds i8, ptr %call12, i64 %indvars.iv
-  store i8 %.sink, ptr %arrayidx46, align 1
+if.then57:                                        ; preds = %if.else53
+  %arrayidx59 = getelementptr inbounds i8, ptr %call12, i64 %indvars.iv
+  store i8 -1, ptr %arrayidx59, align 1
   br label %for.inc
 
-for.inc:                                          ; preds = %for.inc.sink.split, %if.else53
+for.inc:                                          ; preds = %if.then43, %if.else53, %if.then57, %if.then50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end63, label %for.body, !llvm.loop !5

@@ -3367,39 +3367,37 @@ if.end34:                                         ; preds = %if.end30
   br i1 %cmp37, label %if.then38, label %if.end52
 
 if.then38:                                        ; preds = %if.end34
-  %sub = add nsw i32 %14, -2
-  %conv = zext nneg i32 %sub to i64
   %fPool.i = getelementptr inbounds %"class.icu_75::MemoryPool.2", ptr %13, i64 0, i32 1
   %15 = load ptr, ptr %fPool.i, align 8
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %15, i64 %conv
-  %16 = load ptr, ptr %arrayidx.i.i, align 8
-  %sub46 = add nsw i32 %14, -1
-  %conv47 = zext nneg i32 %sub46 to i64
-  %arrayidx.i.i46 = getelementptr inbounds ptr, ptr %15, i64 %conv47
-  %17 = load ptr, ptr %arrayidx.i.i46, align 8
-  %category.i.i = getelementptr inbounds %"class.icu_75::units::UnitPreferenceMetadata", ptr %16, i64 0, i32 1
-  %18 = load ptr, ptr %category.i.i, align 8
-  %category2.i.i = getelementptr inbounds %"class.icu_75::units::UnitPreferenceMetadata", ptr %17, i64 0, i32 1
-  %19 = load ptr, ptr %category2.i.i, align 8
-  %call4.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %19) #18
+  %16 = zext nneg i32 %14 to i64
+  %17 = getelementptr ptr, ptr %15, i64 %16
+  %arrayidx.i.i = getelementptr ptr, ptr %17, i64 -2
+  %18 = load ptr, ptr %arrayidx.i.i, align 8
+  %arrayidx.i.i46 = getelementptr ptr, ptr %17, i64 -1
+  %19 = load ptr, ptr %arrayidx.i.i46, align 8
+  %category.i.i = getelementptr inbounds %"class.icu_75::units::UnitPreferenceMetadata", ptr %18, i64 0, i32 1
+  %20 = load ptr, ptr %category.i.i, align 8
+  %category2.i.i = getelementptr inbounds %"class.icu_75::units::UnitPreferenceMetadata", ptr %19, i64 0, i32 1
+  %21 = load ptr, ptr %category2.i.i, align 8
+  %call4.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %21) #18
   %cmp5.i.i = icmp eq i32 %call4.i.i, 0
   br i1 %cmp5.i.i, label %if.end.i.i, label %_ZN6icu_755units12_GLOBAL__N_1ltERKNS0_22UnitPreferenceMetadataES4_.exit
 
 if.end.i.i:                                       ; preds = %if.then38
-  %usage.i.i = getelementptr inbounds %"class.icu_75::units::UnitPreferenceMetadata", ptr %16, i64 0, i32 2
-  %20 = load ptr, ptr %usage.i.i, align 8
-  %usage7.i.i = getelementptr inbounds %"class.icu_75::units::UnitPreferenceMetadata", ptr %17, i64 0, i32 2
-  %21 = load ptr, ptr %usage7.i.i, align 8
-  %call9.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %21) #18
+  %usage.i.i = getelementptr inbounds %"class.icu_75::units::UnitPreferenceMetadata", ptr %18, i64 0, i32 2
+  %22 = load ptr, ptr %usage.i.i, align 8
+  %usage7.i.i = getelementptr inbounds %"class.icu_75::units::UnitPreferenceMetadata", ptr %19, i64 0, i32 2
+  %23 = load ptr, ptr %usage7.i.i, align 8
+  %call9.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %23) #18
   %cmp10.i.i = icmp eq i32 %call9.i.i, 0
   br i1 %cmp10.i.i, label %if.then11.i.i, label %_ZN6icu_755units12_GLOBAL__N_1ltERKNS0_22UnitPreferenceMetadataES4_.exit
 
 if.then11.i.i:                                    ; preds = %if.end.i.i
-  %region.i.i = getelementptr inbounds %"class.icu_75::units::UnitPreferenceMetadata", ptr %16, i64 0, i32 3
-  %22 = load ptr, ptr %region.i.i, align 8
-  %region13.i.i = getelementptr inbounds %"class.icu_75::units::UnitPreferenceMetadata", ptr %17, i64 0, i32 3
-  %23 = load ptr, ptr %region13.i.i, align 8
-  %call15.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %23) #18
+  %region.i.i = getelementptr inbounds %"class.icu_75::units::UnitPreferenceMetadata", ptr %18, i64 0, i32 3
+  %24 = load ptr, ptr %region.i.i, align 8
+  %region13.i.i = getelementptr inbounds %"class.icu_75::units::UnitPreferenceMetadata", ptr %19, i64 0, i32 3
+  %25 = load ptr, ptr %region13.i.i, align 8
+  %call15.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %25) #18
   br label %_ZN6icu_755units12_GLOBAL__N_1ltERKNS0_22UnitPreferenceMetadataES4_.exit
 
 _ZN6icu_755units12_GLOBAL__N_1ltERKNS0_22UnitPreferenceMetadataES4_.exit: ; preds = %if.then38, %if.end.i.i, %if.then11.i.i
@@ -3414,18 +3412,18 @@ if.end52:                                         ; preds = %_ZN6icu_755units12_
 
 for.body57:                                       ; preds = %if.end52, %for.inc108
   %i53.060 = phi i32 [ %inc109, %for.inc108 ], [ 0, %if.end52 ]
-  %24 = load ptr, ptr %preferences, align 8
-  %call.i48 = call noundef ptr @_ZN6icu_7510MemoryPoolINS_5units14UnitPreferenceELi8EE6createIJEEEPS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(88) %24)
+  %26 = load ptr, ptr %preferences, align 8
+  %call.i48 = call noundef ptr @_ZN6icu_7510MemoryPoolINS_5units14UnitPreferenceELi8EE6createIJEEEPS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(88) %26)
   %tobool60.not = icmp eq ptr %call.i48, null
   br i1 %tobool60.not, label %for.end119.sink.split, label %if.end62
 
 if.end62:                                         ; preds = %for.body57
   %vtable63 = load ptr, ptr %value, align 8
   %vfn64 = getelementptr inbounds ptr, ptr %vtable63, i64 11
-  %25 = load ptr, ptr %vfn64, align 8
-  call void %25(ptr nonnull sret(%"class.icu_75::ResourceTable") align 8 %unitPref, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %26 = load i32, ptr %status, align 4
-  %cmp.i49 = icmp slt i32 %26, 1
+  %27 = load ptr, ptr %vfn64, align 8
+  call void %27(ptr nonnull sret(%"class.icu_75::ResourceTable") align 8 %unitPref, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %28 = load i32, ptr %status, align 4
+  %cmp.i49 = icmp slt i32 %28, 1
   br i1 %cmp.i49, label %for.cond70.preheader, label %for.end119
 
 for.cond70.preheader:                             ; preds = %if.end62
@@ -3441,36 +3439,36 @@ for.body73.lr.ph:                                 ; preds = %for.cond70.preheade
 
 for.body73:                                       ; preds = %for.body73.lr.ph, %for.inc
   %i69.057 = phi i32 [ 0, %for.body73.lr.ph ], [ %inc, %for.inc ]
-  %27 = load ptr, ptr %key.addr, align 8
-  %call74 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(5) @.str.21) #18
+  %29 = load ptr, ptr %key.addr, align 8
+  %call74 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(5) @.str.21) #18
   %cmp75 = icmp eq i32 %call74, 0
   br i1 %cmp75, label %if.then76, label %if.else
 
 if.then76:                                        ; preds = %for.body73
   %vtable77 = load ptr, ptr %value, align 8
   %vfn78 = getelementptr inbounds ptr, ptr %vtable77, i64 4
-  %28 = load ptr, ptr %vfn78, align 8
-  %call79 = call noundef ptr %28(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %length, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %29 = load i32, ptr %length, align 4
-  %call80 = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString20appendInvariantCharsEPKDsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %unit, ptr noundef %call79, i32 noundef %29, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %30 = load ptr, ptr %vfn78, align 8
+  %call79 = call noundef ptr %30(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %length, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %31 = load i32, ptr %length, align 4
+  %call80 = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString20appendInvariantCharsEPKDsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %unit, ptr noundef %call79, i32 noundef %31, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %for.inc
 
 if.else:                                          ; preds = %for.body73
-  %call81 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(4) @.str.22) #18
+  %call81 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(4) @.str.22) #18
   %cmp82 = icmp eq i32 %call81, 0
   br i1 %cmp82, label %if.then83, label %if.else99
 
 if.then83:                                        ; preds = %if.else
   %vtable85 = load ptr, ptr %value, align 8
   %vfn86 = getelementptr inbounds ptr, ptr %vtable85, i64 4
-  %30 = load ptr, ptr %vfn86, align 8
-  %call87 = call noundef ptr %30(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %length84, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %32 = load ptr, ptr %vfn86, align 8
+  %call87 = call noundef ptr %32(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %length84, ptr noundef nonnull align 4 dereferenceable(4) %status)
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %geq)
   store i32 0, ptr %len.i, align 8
-  %31 = load ptr, ptr %geq, align 8
-  store i8 0, ptr %31, align 1
-  %32 = load i32, ptr %length84, align 4
-  %call88 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString20appendInvariantCharsEPKDsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %geq, ptr noundef %call87, i32 noundef %32, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %33 = load ptr, ptr %geq, align 8
+  store i8 0, ptr %33, align 1
+  %34 = load i32, ptr %length84, align 4
+  %call88 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString20appendInvariantCharsEPKDsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %geq, ptr noundef %call87, i32 noundef %34, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then83
@@ -3478,14 +3476,14 @@ invoke.cont:                                      ; preds = %if.then83
           to label %invoke.cont89 unwind label %lpad
 
 invoke.cont89:                                    ; preds = %invoke.cont
-  %33 = load ptr, ptr %geq, align 8
-  invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp, ptr noundef %33)
+  %35 = load ptr, ptr %geq, align 8
+  invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp, ptr noundef %35)
           to label %invoke.cont93 unwind label %lpad90
 
 invoke.cont93:                                    ; preds = %invoke.cont89
-  %34 = load ptr, ptr %agg.tmp, align 8
-  %35 = load i32, ptr %3, align 8
-  %call95 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity14setToDecNumberENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %dq, ptr %34, i32 %35, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %36 = load ptr, ptr %agg.tmp, align 8
+  %37 = load i32, ptr %3, align 8
+  %call95 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity14setToDecNumberENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %dq, ptr %36, i32 %37, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont94 unwind label %lpad90
 
 invoke.cont94:                                    ; preds = %invoke.cont93
@@ -3499,27 +3497,27 @@ invoke.cont96:                                    ; preds = %invoke.cont94
   br label %for.inc
 
 lpad:                                             ; preds = %invoke.cont, %if.then83
-  %36 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad90:                                           ; preds = %invoke.cont94, %invoke.cont93, %invoke.cont89
-  %37 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %dq) #15
   br label %ehcleanup
 
 common.resume:                                    ; preds = %lpad.i, %ehcleanup
-  %common.resume.op = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %40, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %42, %lpad.i ]
   resume { ptr, i32 } %common.resume.op
 
 ehcleanup:                                        ; preds = %lpad90, %lpad
-  %.pn = phi { ptr, i32 } [ %37, %lpad90 ], [ %36, %lpad ]
+  %.pn = phi { ptr, i32 } [ %39, %lpad90 ], [ %38, %lpad ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %geq) #15
   br label %common.resume
 
 if.else99:                                        ; preds = %if.else
-  %call100 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(9) @.str.23) #18
+  %call100 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(9) @.str.23) #18
   %cmp101 = icmp eq i32 %call100, 0
   br i1 %cmp101, label %if.then102, label %for.inc
 
@@ -3529,23 +3527,23 @@ if.then102:                                       ; preds = %if.else99
   store i32 0, ptr %len.i51, align 4, !noalias !50
   %vtable.i = load ptr, ptr %value, align 8, !noalias !50
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
-  %38 = load ptr, ptr %vfn.i, align 8, !noalias !50
-  %call.i52 = call noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %len.i51, ptr noundef nonnull align 4 dereferenceable(4) %status), !noalias !50
+  %40 = load ptr, ptr %vfn.i, align 8, !noalias !50
+  %call.i52 = call noundef ptr %40(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %len.i51, ptr noundef nonnull align 4 dereferenceable(4) %status), !noalias !50
   store ptr %call.i52, ptr %agg.tmp.i, align 8, !noalias !50
-  %39 = load i32, ptr %len.i51, align 4, !noalias !50
-  invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp103, i8 noundef signext 1, ptr noundef nonnull %agg.tmp.i, i32 noundef %39)
+  %41 = load i32, ptr %len.i51, align 4, !noalias !50
+  invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp103, i8 noundef signext 1, ptr noundef nonnull %agg.tmp.i, i32 noundef %41)
           to label %_ZNK6icu_7513ResourceValue16getUnicodeStringER10UErrorCode.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %if.then102
-  %40 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %41 = load ptr, ptr %agg.tmp.i, align 8, !noalias !50
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %41) #15, !srcloc !37
+  %43 = load ptr, ptr %agg.tmp.i, align 8, !noalias !50
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %43) #15, !srcloc !37
   br label %common.resume
 
 _ZNK6icu_7513ResourceValue16getUnicodeStringER10UErrorCode.exit: ; preds = %if.then102
-  %42 = load ptr, ptr %agg.tmp.i, align 8, !noalias !50
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %42) #15, !srcloc !37
+  %44 = load ptr, ptr %agg.tmp.i, align 8, !noalias !50
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %44) #15, !srcloc !37
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i51)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
   %call104 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %skeleton, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp103) #15

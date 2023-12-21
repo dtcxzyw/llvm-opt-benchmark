@@ -409,7 +409,7 @@ if.then2.i:                                       ; preds = %if.end.i
 if.else.i:                                        ; preds = %if.end.i
   %4 = load ptr, ptr @_ZL9g_nfcImpl, align 8
   %idx.ext1.i.i = sext i32 %2 to i64
-  %add.ptr2.i.i = getelementptr inbounds i16, ptr %1, i64 %idx.ext1.i.i
+  %add.ptr2.i.i = getelementptr i16, ptr %1, i64 %idx.ext1.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i16, ptr %1, i64 1
   %5 = load i16, ptr %1, align 2
   %conv.i.i.i = zext i16 %5 to i32
@@ -438,7 +438,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.else.i
 if.end.i.i.i:                                     ; preds = %lor.lhs.false.i.i.i
   %and.i.i.i = and i32 %conv.i.i.i, 64512
   %cmp3.i.i.i = icmp ne i32 %and.i.i.i, 55296
-  %cmp4.not.i.i.i = icmp eq i32 %2, 1
+  %cmp4.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr2.i.i
   %or.cond.i.i.i = select i1 %cmp3.i.i.i, i1 true, i1 %cmp4.not.i.i.i
   br i1 %or.cond.i.i.i, label %if.end12.i.i.i, label %land.lhs.true5.i.i.i
 
@@ -477,13 +477,12 @@ _ZL6getFCDPKDsPii.exit.i:                         ; preds = %if.end12.i.i.i, %lo
   br i1 %or.cond.i, label %land.lhs.true9.i, label %do.end.i
 
 land.lhs.true9.i:                                 ; preds = %_ZL6getFCDPKDsPii.exit.i
-  %sub.i = add nsw i32 %2, -2
-  %idxprom10.i = zext nneg i32 %sub.i to i64
-  %arrayidx11.i = getelementptr inbounds i16, ptr %1, i64 %idxprom10.i
+  %arrayidx11.i = getelementptr i16, ptr %add.ptr2.i.i, i64 -2
   %16 = load i16, ptr %arrayidx11.i, align 2
   %17 = and i16 %16, -1024
   %cmp14.i = icmp eq i16 %17, -10240
-  %spec.select.i = select i1 %cmp14.i, i32 %sub.i, i32 %dec.i
+  %dec16.i = add nsw i32 %2, -2
+  %spec.select.i = select i1 %cmp14.i, i32 %dec16.i, i32 %dec.i
   %.pre.i = zext nneg i32 %spec.select.i to i64
   %add.ptr.i21.phi.trans.insert.i = getelementptr inbounds i16, ptr %1, i64 %.pre.i
   %.pre75.i = load i16, ptr %add.ptr.i21.phi.trans.insert.i, align 2
@@ -1905,32 +1904,33 @@ do.body:                                          ; preds = %if.then23
   br i1 %or.cond43, label %land.lhs.true35, label %do.end
 
 land.lhs.true35:                                  ; preds = %do.body
-  %sub = add nsw i32 %cond, -2
-  %idxprom38 = zext nneg i32 %sub to i64
-  %arrayidx39 = getelementptr inbounds i16, ptr %20, i64 %idxprom38
-  %23 = load i16, ptr %arrayidx39, align 2
-  %24 = and i16 %23, -1024
-  %cmp42 = icmp eq i16 %24, -10240
+  %23 = zext nneg i32 %cond to i64
+  %24 = getelementptr i16, ptr %20, i64 %23
+  %arrayidx39 = getelementptr i16, ptr %24, i64 -2
+  %25 = load i16, ptr %arrayidx39, align 2
+  %26 = and i16 %25, -1024
+  %cmp42 = icmp eq i16 %26, -10240
   br i1 %cmp42, label %if.then43, label %do.end
 
 if.then43:                                        ; preds = %land.lhs.true35
-  store i32 %sub, ptr %matchedIndex, align 8
+  %dec45 = add nsw i32 %cond, -2
+  store i32 %dec45, ptr %matchedIndex, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %land.lhs.true35, %if.then43
-  %25 = phi i32 [ %dec, %do.body ], [ %dec, %land.lhs.true35 ], [ %sub, %if.then43 ]
+  %27 = phi i32 [ %dec, %do.body ], [ %dec, %land.lhs.true35 ], [ %dec45, %if.then43 ]
   %textIter47 = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
-  %26 = load ptr, ptr %textIter47, align 8
-  tail call void @ucol_setOffset_75(ptr noundef %26, i32 noundef %25, ptr noundef nonnull %status)
+  %28 = load ptr, ptr %textIter47, align 8
+  tail call void @ucol_setOffset_75(ptr noundef %28, i32 noundef %27, ptr noundef nonnull %status)
   %matchedLength = getelementptr inbounds %struct.USearch, ptr %1, i64 0, i32 8
   store i32 0, ptr %matchedLength, align 4
   br label %if.end58
 
 if.else50:                                        ; preds = %if.then21
-  %27 = load ptr, ptr %strsrch, align 8
-  %isCanonicalMatch = getelementptr inbounds %struct.USearch, ptr %27, i64 0, i32 3
-  %28 = load i8, ptr %isCanonicalMatch, align 1
-  %tobool52.not = icmp eq i8 %28, 0
+  %29 = load ptr, ptr %strsrch, align 8
+  %isCanonicalMatch = getelementptr inbounds %struct.USearch, ptr %29, i64 0, i32 3
+  %30 = load i8, ptr %isCanonicalMatch, align 1
+  %tobool52.not = icmp eq i8 %30, 0
   br i1 %tobool52.not, label %if.else55, label %if.then53
 
 if.then53:                                        ; preds = %if.else50
@@ -1942,16 +1942,16 @@ if.else55:                                        ; preds = %if.else50
   br label %if.end58
 
 if.end58:                                         ; preds = %if.then53, %if.else55, %if.then28, %do.end
-  %29 = load i32, ptr %status, align 4
-  %cmp.i50 = icmp slt i32 %29, 1
+  %31 = load i32, ptr %status, align 4
+  %cmp.i50 = icmp slt i32 %31, 1
   br i1 %cmp.i50, label %if.end62, label %return
 
 if.end62:                                         ; preds = %if.end58
-  %30 = load i32, ptr %matchedIndex, align 8
+  %32 = load i32, ptr %matchedIndex, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end18, %if.end58, %if.then9, %if.end62, %_ZL16setMatchNotFoundP13UStringSearchR10UErrorCode.exit
-  %retval.0 = phi i32 [ %30, %if.end62 ], [ -1, %_ZL16setMatchNotFoundP13UStringSearchR10UErrorCode.exit ], [ %8, %if.then9 ], [ -1, %if.end58 ], [ -1, %if.end18 ], [ -1, %entry ]
+  %retval.0 = phi i32 [ %32, %if.end62 ], [ -1, %_ZL16setMatchNotFoundP13UStringSearchR10UErrorCode.exit ], [ %8, %if.then9 ], [ -1, %if.end58 ], [ -1, %if.end18 ], [ -1, %entry ]
   ret i32 %retval.0
 }
 
@@ -3106,22 +3106,22 @@ for.cond.preheader:                               ; preds = %if.end12
   br label %for.cond
 
 lpad.loopexit:                                    ; preds = %if.end15.i246
-  %lpad.loopexit439 = landingpad { ptr, i32 }
+  %lpad.loopexit446 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.end15.i144
-  %lpad.loopexit441 = landingpad { ptr, i32 }
+  %lpad.loopexit448 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
-lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.end5.i363, %call11.i.i.noexc375, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i368, %if.end5.i340, %call11.i.i.noexc350, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i344, %if.end5.i316, %call11.i.i.noexc328, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i321, %if.end5.i, %call11.i.i.noexc, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i, %if.end15.i213, %if.end15.i180, %if.end15.i, %if.end207, %lor.rhs, %land.rhs
-  %lpad.loopexit.split-lp442 = landingpad { ptr, i32 }
+lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.end5.i370, %call11.i.i.noexc382, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i375, %if.end5.i347, %call11.i.i.noexc357, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i351, %if.end5.i323, %call11.i.i.noexc335, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i328, %if.end5.i, %call11.i.i.noexc, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i, %if.end15.i213, %if.end15.i180, %if.end15.i, %if.end207, %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.exit, %land.rhs
+  %lpad.loopexit.split-lp449 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit439, %lpad.loopexit ], [ %lpad.loopexit441, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp442, %lpad.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit446, %lpad.loopexit ], [ %lpad.loopexit448, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp449, %lpad.loopexit.split-lp.loopexit.split-lp ]
   call fastcc void @_ZN6icu_7512_GLOBAL__N_19CEIBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(1576) %ceb) #17
   resume { ptr, i32 } %lpad.phi
 
@@ -3194,8 +3194,8 @@ invoke.cont17:                                    ; preds = %call.i.noexc, %if.t
 
 for.cond22.preheader:                             ; preds = %invoke.cont17
   %18 = load i32, ptr %pcesLength, align 8
-  %cmp24464 = icmp sgt i32 %18, 0
-  br i1 %cmp24464, label %for.body, label %if.end57
+  %cmp24471 = icmp sgt i32 %18, 0
+  br i1 %cmp24471, label %for.body, label %if.end57
 
 if.then20:                                        ; preds = %invoke.cont17, %invoke.cont17.thread
   store i32 5, ptr %status, align 4
@@ -3203,14 +3203,14 @@ if.then20:                                        ; preds = %invoke.cont17, %inv
 
 for.body:                                         ; preds = %for.cond22.preheader, %for.inc
   %19 = phi ptr [ %29, %for.inc ], [ %17, %for.cond22.preheader ]
-  %patIx.0466 = phi i32 [ %inc44, %for.inc ], [ 0, %for.cond22.preheader ]
-  %targetIxOffset.0465 = phi i32 [ %targetIxOffset.1, %for.inc ], [ 0, %for.cond22.preheader ]
+  %patIx.0473 = phi i32 [ %inc44, %for.inc ], [ 0, %for.cond22.preheader ]
+  %targetIxOffset.0472 = phi i32 [ %targetIxOffset.1, %for.inc ], [ 0, %for.cond22.preheader ]
   %20 = load ptr, ptr %pces, align 8
-  %idxprom = sext i32 %patIx.0466 to i64
+  %idxprom = sext i32 %patIx.0473 to i64
   %arrayidx = getelementptr inbounds i64, ptr %20, i64 %idxprom
   %21 = load i64, ptr %arrayidx, align 8
-  %add = add i32 %targetIxOffset.0465, %targetIx.0
-  %add27 = add i32 %add, %patIx.0466
+  %add = add i32 %targetIxOffset.0472, %targetIx.0
+  %add27 = add i32 %add, %patIx.0473
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i127)
   %22 = load i32, ptr %bufSize.i, align 8
   %rem.i129 = srem i32 %add27, %22
@@ -3334,17 +3334,17 @@ _ZL12compareCE64slls.exit:                        ; preds = %if.end38.i
   br i1 %narrow25.i, label %for.inc, label %lor.lhs.false50
 
 if.then38:                                        ; preds = %if.then9.i, %if.then24.i
-  %dec = add nsw i32 %patIx.0466, -1
-  %inc = add nsw i32 %targetIxOffset.0465, 1
+  %dec = add nsw i32 %patIx.0473, -1
+  %inc = add nsw i32 %targetIxOffset.0472, 1
   br label %for.inc
 
 if.else39:                                        ; preds = %if.end12.i, %if.end27.i
-  %dec40 = add nsw i32 %targetIxOffset.0465, -1
+  %dec40 = add nsw i32 %targetIxOffset.0472, -1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end33.i, %_ZL12compareCE64slls.exit, %if.end38.i, %invoke.cont28, %if.then38, %if.else39
-  %targetIxOffset.1 = phi i32 [ %inc, %if.then38 ], [ %dec40, %if.else39 ], [ %targetIxOffset.0465, %invoke.cont28 ], [ %targetIxOffset.0465, %if.end38.i ], [ %targetIxOffset.0465, %_ZL12compareCE64slls.exit ], [ %targetIxOffset.0465, %if.end33.i ]
-  %patIx.1 = phi i32 [ %dec, %if.then38 ], [ %patIx.0466, %if.else39 ], [ %patIx.0466, %invoke.cont28 ], [ %patIx.0466, %if.end38.i ], [ %patIx.0466, %_ZL12compareCE64slls.exit ], [ %patIx.0466, %if.end33.i ]
+  %targetIxOffset.1 = phi i32 [ %inc, %if.then38 ], [ %dec40, %if.else39 ], [ %targetIxOffset.0472, %invoke.cont28 ], [ %targetIxOffset.0472, %if.end38.i ], [ %targetIxOffset.0472, %_ZL12compareCE64slls.exit ], [ %targetIxOffset.0472, %if.end33.i ]
+  %patIx.1 = phi i32 [ %dec, %if.then38 ], [ %patIx.0473, %if.else39 ], [ %patIx.0473, %invoke.cont28 ], [ %patIx.0473, %if.end38.i ], [ %patIx.0473, %_ZL12compareCE64slls.exit ], [ %patIx.0473, %if.end33.i ]
   %inc44 = add nsw i32 %patIx.1, 1
   %39 = load i32, ptr %pcesLength, align 8
   %cmp24 = icmp slt i32 %inc44, %39
@@ -3682,7 +3682,7 @@ if.end5.i:                                        ; preds = %call14.i.i.noexc, %
 invoke.cont112.thread:                            ; preds = %if.end5.i
   %call6.i308.fr = freeze i8 %call6.i308
   %tobool114.not = icmp eq i8 %call6.i308.fr, 0
-  %spec.select436 = select i1 %tobool114.not, i8 0, i8 %found.1
+  %spec.select443 = select i1 %tobool114.not, i8 0, i8 %found.1
   %.pre = load i32, ptr %status, align 4
   %cmp.i309 = icmp slt i32 %.pre, 1
   br i1 %cmp.i309, label %if.end121, label %for.end218.loopexit
@@ -3691,7 +3691,7 @@ if.end121:                                        ; preds = %invoke.cont112.thre
   %highIndex122 = getelementptr inbounds %struct.CEI, ptr %retval.0.i, i64 0, i32 2
   %97 = load i32, ptr %highIndex122, align 4
   %cmp123 = icmp eq i32 %50, %97
-  %spec.select115 = select i1 %cmp123, i8 0, i8 %spec.select436
+  %spec.select115 = select i1 %cmp123, i8 0, i8 %spec.select443
   %98 = load ptr, ptr %strsrch, align 8
   %99 = load ptr, ptr %98, align 8
   %cmp127.not = icmp eq ptr %99, null
@@ -3741,22 +3741,52 @@ invoke.cont151:                                   ; preds = %land.rhs
 
 lor.rhs:                                          ; preds = %invoke.cont151
   %107 = load ptr, ptr %nfd, align 8
+  %cmp.i311 = icmp sgt i32 %maxLimit.0, 0
+  br i1 %cmp.i311, label %do.body.i, label %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.exit
+
+do.body.i:                                        ; preds = %lor.rhs
   %108 = load ptr, ptr %strsrch, align 8
   %.val123 = load ptr, ptr %108, align 8
-  %call157 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi(ptr %.val123, i32 noundef %maxLimit.0)
+  %109 = zext nneg i32 %maxLimit.0 to i64
+  %110 = getelementptr i16, ptr %.val123, i64 %109
+  %arrayidx.i313 = getelementptr i16, ptr %110, i64 -1
+  %111 = load i16, ptr %arrayidx.i313, align 2
+  %conv.i314 = zext i16 %111 to i32
+  %and.i = and i32 %conv.i314, 64512
+  %cmp1.i315 = icmp eq i32 %and.i, 56320
+  %cmp3.i = icmp ne i32 %maxLimit.0, 1
+  %or.cond.i316 = and i1 %cmp3.i, %cmp1.i315
+  br i1 %or.cond.i316, label %land.lhs.true.i, label %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.exit
+
+land.lhs.true.i:                                  ; preds = %do.body.i
+  %arrayidx6.i = getelementptr i16, ptr %110, i64 -2
+  %112 = load i16, ptr %arrayidx6.i, align 2
+  %conv7.i317 = zext i16 %112 to i32
+  %and8.i = and i32 %conv7.i317, 64512
+  %cmp9.i = icmp eq i32 %and8.i, 55296
+  br i1 %cmp9.i, label %if.then10.i, label %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.exit
+
+if.then10.i:                                      ; preds = %land.lhs.true.i
+  %shl.i = shl nuw nsw i32 %conv7.i317, 10
+  %add.i = add nuw nsw i32 %conv.i314, -56613888
+  %sub13.i = add nsw i32 %add.i, %shl.i
+  br label %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.exit
+
+_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.exit: ; preds = %lor.rhs, %do.body.i, %land.lhs.true.i, %if.then10.i
+  %retval.0.i312 = phi i32 [ %sub13.i, %if.then10.i ], [ %conv.i314, %land.lhs.true.i ], [ %conv.i314, %do.body.i ], [ -1, %lor.rhs ]
   %vtable158 = load ptr, ptr %107, align 8
   %vfn159 = getelementptr inbounds ptr, ptr %vtable158, i64 16
-  %109 = load ptr, ptr %vfn159, align 8
-  %call161 = invoke noundef signext i8 %109(ptr noundef nonnull align 8 dereferenceable(8) %107, i32 noundef %call157)
+  %113 = load ptr, ptr %vfn159, align 8
+  %call161 = invoke noundef signext i8 %113(ptr noundef nonnull align 8 dereferenceable(8) %107, i32 noundef %retval.0.i312)
           to label %invoke.cont160 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
-invoke.cont160:                                   ; preds = %lor.rhs
+invoke.cont160:                                   ; preds = %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.exit
   %tobool162 = icmp ne i8 %call161, 0
   br label %land.end
 
 land.end:                                         ; preds = %invoke.cont151, %invoke.cont160, %land.lhs.true145, %land.lhs.true142, %land.lhs.true137, %if.then132
-  %110 = phi i1 [ false, %land.lhs.true145 ], [ false, %land.lhs.true142 ], [ false, %land.lhs.true137 ], [ false, %if.then132 ], [ true, %invoke.cont151 ], [ %tobool162, %invoke.cont160 ]
-  %conv163 = zext i1 %110 to i8
+  %114 = phi i1 [ false, %land.lhs.true145 ], [ false, %land.lhs.true142 ], [ false, %land.lhs.true137 ], [ false, %if.then132 ], [ true, %invoke.cont151 ], [ %tobool162, %invoke.cont160 ]
+  %conv163 = zext i1 %114 to i8
   br label %if.end164
 
 if.end164:                                        ; preds = %land.end, %land.lhs.true128, %if.end121
@@ -3766,130 +3796,130 @@ if.end164:                                        ; preds = %land.end, %land.lhs
 
 if.then166:                                       ; preds = %if.end164
   %highIndex167 = getelementptr inbounds %struct.CEI, ptr %retval.0.i174, i64 0, i32 2
-  %111 = load i32, ptr %highIndex167, align 4
-  %cmp168 = icmp eq i32 %51, %111
-  %.pre486 = load i32, ptr %status, align 4
+  %115 = load i32, ptr %highIndex167, align 4
+  %cmp168 = icmp eq i32 %51, %115
+  %.pre493 = load i32, ptr %status, align 4
   br i1 %cmp168, label %land.lhs.true169, label %if.else174
 
 land.lhs.true169:                                 ; preds = %if.then166
-  %cmp.i.i311 = icmp slt i32 %.pre486, 1
-  br i1 %cmp.i.i311, label %if.end.i.i313, label %for.end218.loopexit
+  %cmp.i.i318 = icmp slt i32 %.pre493, 1
+  br i1 %cmp.i.i318, label %if.end.i.i320, label %for.end218.loopexit
 
-if.end.i.i313:                                    ; preds = %land.lhs.true169
-  %112 = load ptr, ptr %strsrch, align 8
-  %breakIter.i.i314 = getelementptr inbounds %struct.USearch, ptr %112, i64 0, i32 6
-  %113 = load ptr, ptr %breakIter.i.i314, align 8
-  %cmp.not.i.i315 = icmp eq ptr %113, null
-  br i1 %cmp.not.i.i315, label %if.end4.i.i318, label %if.end5.i316
-
-if.end4.i.i318:                                   ; preds = %if.end.i.i313
-  %internalBreakIter.i.i319 = getelementptr inbounds %struct.USearch, ptr %112, i64 0, i32 5
-  %114 = load ptr, ptr %internalBreakIter.i.i319, align 8
-  %cmp6.not.i.i320 = icmp eq ptr %114, null
-  br i1 %cmp6.not.i.i320, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i321, label %if.end5.i316
-
-_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i321: ; preds = %if.end4.i.i318
-  %115 = load ptr, ptr %collator.i.i, align 8
-  %call11.i.i329 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %115, i32 noundef 1, ptr noundef nonnull %status)
-          to label %call11.i.i.noexc328 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
-
-call11.i.i.noexc328:                              ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i321
+if.end.i.i320:                                    ; preds = %land.lhs.true169
   %116 = load ptr, ptr %strsrch, align 8
-  %117 = load ptr, ptr %116, align 8
-  %textLength.i.i323 = getelementptr inbounds %struct.USearch, ptr %116, i64 0, i32 1
-  %118 = load i32, ptr %textLength.i.i323, align 8
-  %call14.i.i331 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i329, ptr noundef %117, i32 noundef %118, ptr noundef nonnull %status)
-          to label %call14.i.i.noexc330 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
+  %breakIter.i.i321 = getelementptr inbounds %struct.USearch, ptr %116, i64 0, i32 6
+  %117 = load ptr, ptr %breakIter.i.i321, align 8
+  %cmp.not.i.i322 = icmp eq ptr %117, null
+  br i1 %cmp.not.i.i322, label %if.end4.i.i325, label %if.end5.i323
 
-call14.i.i.noexc330:                              ; preds = %call11.i.i.noexc328
-  %119 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter16.i.i324 = getelementptr inbounds %struct.USearch, ptr %119, i64 0, i32 5
-  store ptr %call14.i.i331, ptr %internalBreakIter16.i.i324, align 8
+if.end4.i.i325:                                   ; preds = %if.end.i.i320
+  %internalBreakIter.i.i326 = getelementptr inbounds %struct.USearch, ptr %116, i64 0, i32 5
+  %118 = load ptr, ptr %internalBreakIter.i.i326, align 8
+  %cmp6.not.i.i327 = icmp eq ptr %118, null
+  br i1 %cmp6.not.i.i327, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i328, label %if.end5.i323
+
+_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i328: ; preds = %if.end4.i.i325
+  %119 = load ptr, ptr %collator.i.i, align 8
+  %call11.i.i336 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %119, i32 noundef 1, ptr noundef nonnull %status)
+          to label %call11.i.i.noexc335 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
+
+call11.i.i.noexc335:                              ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i328
   %120 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter18.i.i325 = getelementptr inbounds %struct.USearch, ptr %120, i64 0, i32 5
-  %121 = load ptr, ptr %internalBreakIter18.i.i325, align 8
-  %.pre.i326 = load i32, ptr %status, align 4
-  %cmp.i3.i327 = icmp slt i32 %.pre.i326, 1
-  br i1 %cmp.i3.i327, label %if.end5.i316, label %for.end218.loopexit
+  %121 = load ptr, ptr %120, align 8
+  %textLength.i.i330 = getelementptr inbounds %struct.USearch, ptr %120, i64 0, i32 1
+  %122 = load i32, ptr %textLength.i.i330, align 8
+  %call14.i.i338 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i336, ptr noundef %121, i32 noundef %122, ptr noundef nonnull %status)
+          to label %call14.i.i.noexc337 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
-if.end5.i316:                                     ; preds = %call14.i.i.noexc330, %if.end4.i.i318, %if.end.i.i313
-  %retval.0.i7.i317 = phi ptr [ %121, %call14.i.i.noexc330 ], [ %114, %if.end4.i.i318 ], [ %113, %if.end.i.i313 ]
-  %call6.i333 = invoke signext i8 @ubrk_isBoundary_75(ptr noundef %retval.0.i7.i317, i32 noundef %51)
+call14.i.i.noexc337:                              ; preds = %call11.i.i.noexc335
+  %123 = load ptr, ptr %strsrch, align 8
+  %internalBreakIter16.i.i331 = getelementptr inbounds %struct.USearch, ptr %123, i64 0, i32 5
+  store ptr %call14.i.i338, ptr %internalBreakIter16.i.i331, align 8
+  %124 = load ptr, ptr %strsrch, align 8
+  %internalBreakIter18.i.i332 = getelementptr inbounds %struct.USearch, ptr %124, i64 0, i32 5
+  %125 = load ptr, ptr %internalBreakIter18.i.i332, align 8
+  %.pre.i333 = load i32, ptr %status, align 4
+  %cmp.i3.i334 = icmp slt i32 %.pre.i333, 1
+  br i1 %cmp.i3.i334, label %if.end5.i323, label %for.end218.loopexit
+
+if.end5.i323:                                     ; preds = %call14.i.i.noexc337, %if.end4.i.i325, %if.end.i.i320
+  %retval.0.i7.i324 = phi ptr [ %125, %call14.i.i.noexc337 ], [ %118, %if.end4.i.i325 ], [ %117, %if.end.i.i320 ]
+  %call6.i340 = invoke signext i8 @ubrk_isBoundary_75(ptr noundef %retval.0.i7.i324, i32 noundef %51)
           to label %invoke.cont170 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
-invoke.cont170:                                   ; preds = %if.end5.i316
-  %tobool172.not = icmp eq i8 %call6.i333, 0
+invoke.cont170:                                   ; preds = %if.end5.i323
+  %tobool172.not = icmp eq i8 %call6.i340, 0
   br i1 %tobool172.not, label %invoke.cont170.if.else174_crit_edge, label %if.end186
 
 invoke.cont170.if.else174_crit_edge:              ; preds = %invoke.cont170
-  %.pre485 = load i32, ptr %status, align 4
+  %.pre492 = load i32, ptr %status, align 4
   br label %if.else174
 
 if.else174:                                       ; preds = %invoke.cont170.if.else174_crit_edge, %if.then166
-  %122 = phi i32 [ %.pre485, %invoke.cont170.if.else174_crit_edge ], [ %.pre486, %if.then166 ]
-  %cmp.i.i335 = icmp slt i32 %122, 1
-  br i1 %cmp.i.i335, label %if.end.i.i337, label %invoke.cont175
+  %126 = phi i32 [ %.pre492, %invoke.cont170.if.else174_crit_edge ], [ %.pre493, %if.then166 ]
+  %cmp.i.i342 = icmp slt i32 %126, 1
+  br i1 %cmp.i.i342, label %if.end.i.i344, label %invoke.cont175
 
-if.end.i.i337:                                    ; preds = %if.else174
-  %123 = load ptr, ptr %strsrch, align 8
-  %breakIter.i.i338 = getelementptr inbounds %struct.USearch, ptr %123, i64 0, i32 6
-  %124 = load ptr, ptr %breakIter.i.i338, align 8
-  %cmp.not.i.i339 = icmp eq ptr %124, null
-  br i1 %cmp.not.i.i339, label %if.end4.i.i341, label %if.end5.i340
-
-if.end4.i.i341:                                   ; preds = %if.end.i.i337
-  %internalBreakIter.i.i342 = getelementptr inbounds %struct.USearch, ptr %123, i64 0, i32 5
-  %125 = load ptr, ptr %internalBreakIter.i.i342, align 8
-  %cmp6.not.i.i343 = icmp eq ptr %125, null
-  br i1 %cmp6.not.i.i343, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i344, label %if.end5.i340
-
-_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i344: ; preds = %if.end4.i.i341
-  %126 = load ptr, ptr %collator.i.i, align 8
-  %call11.i.i351 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %126, i32 noundef 1, ptr noundef nonnull %status)
-          to label %call11.i.i.noexc350 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
-
-call11.i.i.noexc350:                              ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i344
+if.end.i.i344:                                    ; preds = %if.else174
   %127 = load ptr, ptr %strsrch, align 8
-  %128 = load ptr, ptr %127, align 8
-  %textLength.i.i346 = getelementptr inbounds %struct.USearch, ptr %127, i64 0, i32 1
-  %129 = load i32, ptr %textLength.i.i346, align 8
-  %call14.i.i353 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i351, ptr noundef %128, i32 noundef %129, ptr noundef nonnull %status)
-          to label %call14.i.i.noexc352 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
+  %breakIter.i.i345 = getelementptr inbounds %struct.USearch, ptr %127, i64 0, i32 6
+  %128 = load ptr, ptr %breakIter.i.i345, align 8
+  %cmp.not.i.i346 = icmp eq ptr %128, null
+  br i1 %cmp.not.i.i346, label %if.end4.i.i348, label %if.end5.i347
 
-call14.i.i.noexc352:                              ; preds = %call11.i.i.noexc350
-  %130 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter16.i.i347 = getelementptr inbounds %struct.USearch, ptr %130, i64 0, i32 5
-  store ptr %call14.i.i353, ptr %internalBreakIter16.i.i347, align 8
+if.end4.i.i348:                                   ; preds = %if.end.i.i344
+  %internalBreakIter.i.i349 = getelementptr inbounds %struct.USearch, ptr %127, i64 0, i32 5
+  %129 = load ptr, ptr %internalBreakIter.i.i349, align 8
+  %cmp6.not.i.i350 = icmp eq ptr %129, null
+  br i1 %cmp6.not.i.i350, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i351, label %if.end5.i347
+
+_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i351: ; preds = %if.end4.i.i348
+  %130 = load ptr, ptr %collator.i.i, align 8
+  %call11.i.i358 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %130, i32 noundef 1, ptr noundef nonnull %status)
+          to label %call11.i.i.noexc357 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
+
+call11.i.i.noexc357:                              ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i351
   %131 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter18.i.i348 = getelementptr inbounds %struct.USearch, ptr %131, i64 0, i32 5
-  %132 = load ptr, ptr %internalBreakIter18.i.i348, align 8
-  %.pre.i349 = load i32, ptr %status, align 4
-  %cmp.i5.i = icmp slt i32 %.pre.i349, 1
-  br i1 %cmp.i5.i, label %if.end5.i340, label %invoke.cont175
+  %132 = load ptr, ptr %131, align 8
+  %textLength.i.i353 = getelementptr inbounds %struct.USearch, ptr %131, i64 0, i32 1
+  %133 = load i32, ptr %textLength.i.i353, align 8
+  %call14.i.i360 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i358, ptr noundef %132, i32 noundef %133, ptr noundef nonnull %status)
+          to label %call14.i.i.noexc359 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
-if.end5.i340:                                     ; preds = %call14.i.i.noexc352, %if.end4.i.i341, %if.end.i.i337
-  %retval.0.i9.i = phi ptr [ %132, %call14.i.i.noexc352 ], [ %125, %if.end4.i.i341 ], [ %124, %if.end.i.i337 ]
-  %call6.i355 = invoke i32 @ubrk_following_75(ptr noundef %retval.0.i9.i, i32 noundef %51)
+call14.i.i.noexc359:                              ; preds = %call11.i.i.noexc357
+  %134 = load ptr, ptr %strsrch, align 8
+  %internalBreakIter16.i.i354 = getelementptr inbounds %struct.USearch, ptr %134, i64 0, i32 5
+  store ptr %call14.i.i360, ptr %internalBreakIter16.i.i354, align 8
+  %135 = load ptr, ptr %strsrch, align 8
+  %internalBreakIter18.i.i355 = getelementptr inbounds %struct.USearch, ptr %135, i64 0, i32 5
+  %136 = load ptr, ptr %internalBreakIter18.i.i355, align 8
+  %.pre.i356 = load i32, ptr %status, align 4
+  %cmp.i5.i = icmp slt i32 %.pre.i356, 1
+  br i1 %cmp.i5.i, label %if.end5.i347, label %invoke.cont175
+
+if.end5.i347:                                     ; preds = %call14.i.i.noexc359, %if.end4.i.i348, %if.end.i.i344
+  %retval.0.i9.i = phi ptr [ %136, %call14.i.i.noexc359 ], [ %129, %if.end4.i.i348 ], [ %128, %if.end.i.i344 ]
+  %call6.i362 = invoke i32 @ubrk_following_75(ptr noundef %retval.0.i9.i, i32 noundef %51)
           to label %invoke.cont175 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
-invoke.cont175:                                   ; preds = %call14.i.i.noexc352, %if.else174, %if.end5.i340
-  %retval.0.i336 = phi i32 [ %51, %if.else174 ], [ %51, %call14.i.i.noexc352 ], [ %call6.i355, %if.end5.i340 ]
-  %133 = load i32, ptr %highIndex167, align 4
-  %cmp178.not = icmp slt i32 %retval.0.i336, %133
+invoke.cont175:                                   ; preds = %call14.i.i.noexc359, %if.else174, %if.end5.i347
+  %retval.0.i343 = phi i32 [ %51, %if.else174 ], [ %51, %call14.i.i.noexc359 ], [ %call6.i362, %if.end5.i347 ]
+  %137 = load i32, ptr %highIndex167, align 4
+  %cmp178.not = icmp slt i32 %retval.0.i343, %137
   br i1 %cmp178.not, label %if.end186, label %land.lhs.true179
 
 land.lhs.true179:                                 ; preds = %invoke.cont175
   %tobool180.not = icmp eq i8 %allowMidclusterMatch.0, 0
-  %cmp182 = icmp slt i32 %retval.0.i336, %maxLimit.0
+  %cmp182 = icmp slt i32 %retval.0.i343, %maxLimit.0
   %or.cond116 = select i1 %tobool180.not, i1 true, i1 %cmp182
-  %spec.select121 = select i1 %or.cond116, i32 %retval.0.i336, i32 %maxLimit.0
+  %spec.select121 = select i1 %or.cond116, i32 %retval.0.i343, i32 %maxLimit.0
   br label %if.end186
 
 if.end186:                                        ; preds = %land.lhs.true179, %invoke.cont170, %invoke.cont175, %if.end164
   %mLimit.1.ph = phi i32 [ %spec.select121, %land.lhs.true179 ], [ %51, %invoke.cont170 ], [ %maxLimit.0, %if.end164 ], [ %maxLimit.0, %invoke.cont175 ]
   %.pr = load i32, ptr %status, align 4
-  %cmp.i356 = icmp slt i32 %.pr, 1
-  br i1 %cmp.i356, label %if.end191, label %for.end218.loopexit
+  %cmp.i363 = icmp slt i32 %.pr, 1
+  br i1 %cmp.i363, label %if.end191, label %for.end218.loopexit
 
 if.end191:                                        ; preds = %if.end186
   %tobool192.not = icmp eq i8 %allowMidclusterMatch.0, 0
@@ -3898,64 +3928,64 @@ if.end191:                                        ; preds = %if.end186
 if.then193:                                       ; preds = %if.end191
   %cmp194 = icmp sgt i32 %mLimit.1.ph, %maxLimit.0
   %spec.select117 = select i1 %cmp194, i8 0, i8 %spec.select115
-  %134 = load ptr, ptr %strsrch, align 8
-  %breakIter.i.i361 = getelementptr inbounds %struct.USearch, ptr %134, i64 0, i32 6
-  %135 = load ptr, ptr %breakIter.i.i361, align 8
-  %cmp.not.i.i362 = icmp eq ptr %135, null
-  br i1 %cmp.not.i.i362, label %if.end4.i.i365, label %if.end5.i363
-
-if.end4.i.i365:                                   ; preds = %if.then193
-  %internalBreakIter.i.i366 = getelementptr inbounds %struct.USearch, ptr %134, i64 0, i32 5
-  %136 = load ptr, ptr %internalBreakIter.i.i366, align 8
-  %cmp6.not.i.i367 = icmp eq ptr %136, null
-  br i1 %cmp6.not.i.i367, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i368, label %if.end5.i363
-
-_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i368: ; preds = %if.end4.i.i365
-  %137 = load ptr, ptr %collator.i.i, align 8
-  %call11.i.i376 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %137, i32 noundef 1, ptr noundef nonnull %status)
-          to label %call11.i.i.noexc375 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
-
-call11.i.i.noexc375:                              ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i368
   %138 = load ptr, ptr %strsrch, align 8
-  %139 = load ptr, ptr %138, align 8
-  %textLength.i.i370 = getelementptr inbounds %struct.USearch, ptr %138, i64 0, i32 1
-  %140 = load i32, ptr %textLength.i.i370, align 8
-  %call14.i.i378 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i376, ptr noundef %139, i32 noundef %140, ptr noundef nonnull %status)
-          to label %call14.i.i.noexc377 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
+  %breakIter.i.i368 = getelementptr inbounds %struct.USearch, ptr %138, i64 0, i32 6
+  %139 = load ptr, ptr %breakIter.i.i368, align 8
+  %cmp.not.i.i369 = icmp eq ptr %139, null
+  br i1 %cmp.not.i.i369, label %if.end4.i.i372, label %if.end5.i370
 
-call14.i.i.noexc377:                              ; preds = %call11.i.i.noexc375
-  %141 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter16.i.i371 = getelementptr inbounds %struct.USearch, ptr %141, i64 0, i32 5
-  store ptr %call14.i.i378, ptr %internalBreakIter16.i.i371, align 8
+if.end4.i.i372:                                   ; preds = %if.then193
+  %internalBreakIter.i.i373 = getelementptr inbounds %struct.USearch, ptr %138, i64 0, i32 5
+  %140 = load ptr, ptr %internalBreakIter.i.i373, align 8
+  %cmp6.not.i.i374 = icmp eq ptr %140, null
+  br i1 %cmp6.not.i.i374, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i375, label %if.end5.i370
+
+_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i375: ; preds = %if.end4.i.i372
+  %141 = load ptr, ptr %collator.i.i, align 8
+  %call11.i.i383 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %141, i32 noundef 1, ptr noundef nonnull %status)
+          to label %call11.i.i.noexc382 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
+
+call11.i.i.noexc382:                              ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i375
   %142 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter18.i.i372 = getelementptr inbounds %struct.USearch, ptr %142, i64 0, i32 5
-  %143 = load ptr, ptr %internalBreakIter18.i.i372, align 8
-  %.pre.i373 = load i32, ptr %status, align 4
-  %cmp.i3.i374 = icmp slt i32 %.pre.i373, 1
-  br i1 %cmp.i3.i374, label %if.end5.i363, label %for.end218.loopexit
+  %143 = load ptr, ptr %142, align 8
+  %textLength.i.i377 = getelementptr inbounds %struct.USearch, ptr %142, i64 0, i32 1
+  %144 = load i32, ptr %textLength.i.i377, align 8
+  %call14.i.i385 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i383, ptr noundef %143, i32 noundef %144, ptr noundef nonnull %status)
+          to label %call14.i.i.noexc384 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
-if.end5.i363:                                     ; preds = %call14.i.i.noexc377, %if.end4.i.i365, %if.then193
-  %retval.0.i7.i364 = phi ptr [ %143, %call14.i.i.noexc377 ], [ %136, %if.end4.i.i365 ], [ %135, %if.then193 ]
-  %call6.i380 = invoke signext i8 @ubrk_isBoundary_75(ptr noundef %retval.0.i7.i364, i32 noundef %mLimit.1.ph)
+call14.i.i.noexc384:                              ; preds = %call11.i.i.noexc382
+  %145 = load ptr, ptr %strsrch, align 8
+  %internalBreakIter16.i.i378 = getelementptr inbounds %struct.USearch, ptr %145, i64 0, i32 5
+  store ptr %call14.i.i385, ptr %internalBreakIter16.i.i378, align 8
+  %146 = load ptr, ptr %strsrch, align 8
+  %internalBreakIter18.i.i379 = getelementptr inbounds %struct.USearch, ptr %146, i64 0, i32 5
+  %147 = load ptr, ptr %internalBreakIter18.i.i379, align 8
+  %.pre.i380 = load i32, ptr %status, align 4
+  %cmp.i3.i381 = icmp slt i32 %.pre.i380, 1
+  br i1 %cmp.i3.i381, label %if.end5.i370, label %for.end218.loopexit
+
+if.end5.i370:                                     ; preds = %call14.i.i.noexc384, %if.end4.i.i372, %if.then193
+  %retval.0.i7.i371 = phi ptr [ %147, %call14.i.i.noexc384 ], [ %140, %if.end4.i.i372 ], [ %139, %if.then193 ]
+  %call6.i387 = invoke signext i8 @ubrk_isBoundary_75(ptr noundef %retval.0.i7.i371, i32 noundef %mLimit.1.ph)
           to label %invoke.cont197.thread unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
-invoke.cont197.thread:                            ; preds = %if.end5.i363
-  %call6.i380.fr = freeze i8 %call6.i380
-  %tobool199.not = icmp eq i8 %call6.i380.fr, 0
-  %spec.select437 = select i1 %tobool199.not, i8 0, i8 %spec.select117
-  %.pre487 = load i32, ptr %status, align 4
-  %cmp.i382 = icmp slt i32 %.pre487, 1
-  br i1 %cmp.i382, label %if.end207, label %for.end218.loopexit
+invoke.cont197.thread:                            ; preds = %if.end5.i370
+  %call6.i387.fr = freeze i8 %call6.i387
+  %tobool199.not = icmp eq i8 %call6.i387.fr, 0
+  %spec.select444 = select i1 %tobool199.not, i8 0, i8 %spec.select117
+  %.pre494 = load i32, ptr %status, align 4
+  %cmp.i389 = icmp slt i32 %.pre494, 1
+  br i1 %cmp.i389, label %if.end207, label %for.end218.loopexit
 
 if.end207:                                        ; preds = %invoke.cont197.thread, %if.end191
-  %found.6 = phi i8 [ %spec.select115, %if.end191 ], [ %spec.select437, %invoke.cont197.thread ]
+  %found.6 = phi i8 [ %spec.select115, %if.end191 ], [ %spec.select444, %invoke.cont197.thread ]
   %call209 = invoke fastcc noundef signext i8 @_ZL14checkIdenticalPK13UStringSearchii(ptr noundef nonnull %strsrch, i32 noundef %50, i32 noundef %mLimit.1.ph)
           to label %invoke.cont208 unwind label %lpad.loopexit.split-lp.loopexit.split-lp, !range !6
 
 invoke.cont208:                                   ; preds = %if.end207
   %tobool210.not = icmp eq i8 %call209, 0
-  %tobool213.not438 = icmp eq i8 %found.6, 0
-  %tobool213.not = select i1 %tobool210.not, i1 true, i1 %tobool213.not438
+  %tobool213.not445 = icmp eq i8 %found.6, 0
+  %tobool213.not = select i1 %tobool210.not, i1 true, i1 %tobool213.not445
   br i1 %tobool213.not, label %for.inc216, label %for.end218.loopexit
 
 for.inc216:                                       ; preds = %invoke.cont208, %lor.lhs.false50
@@ -3964,20 +3994,20 @@ for.inc216:                                       ; preds = %invoke.cont208, %lo
   %inc217 = add nuw nsw i32 %targetIx.0, 1
   br label %for.cond, !llvm.loop !11
 
-for.end218.loopexit:                              ; preds = %call14.i.i.noexc377, %call14.i.i.noexc, %if.end111, %invoke.cont112.thread, %if.end186, %invoke.cont197.thread, %invoke.cont208, %lor.lhs.false50, %call14.i.i.noexc330, %land.lhs.true169
-  %mLimit.3.ph = phi i32 [ %mLimit.0, %invoke.cont112.thread ], [ %mLimit.1.ph, %if.end186 ], [ %mLimit.1.ph, %invoke.cont208 ], [ %mLimit.1.ph, %invoke.cont197.thread ], [ %mLimit.0, %lor.lhs.false50 ], [ %51, %call14.i.i.noexc330 ], [ %51, %land.lhs.true169 ], [ %mLimit.0, %if.end111 ], [ %mLimit.0, %call14.i.i.noexc ], [ %mLimit.1.ph, %call14.i.i.noexc377 ]
-  %mStart.2.ph = phi i32 [ %50, %invoke.cont112.thread ], [ %50, %if.end186 ], [ %50, %invoke.cont208 ], [ %50, %invoke.cont197.thread ], [ %mStart.0, %lor.lhs.false50 ], [ %50, %call14.i.i.noexc330 ], [ %50, %land.lhs.true169 ], [ %50, %if.end111 ], [ %50, %call14.i.i.noexc ], [ %50, %call14.i.i.noexc377 ]
-  %found.8.ph = phi i8 [ %spec.select436, %invoke.cont112.thread ], [ %spec.select115, %if.end186 ], [ 1, %invoke.cont208 ], [ %spec.select437, %invoke.cont197.thread ], [ 0, %lor.lhs.false50 ], [ %spec.select115, %call14.i.i.noexc330 ], [ %spec.select115, %land.lhs.true169 ], [ %found.1, %if.end111 ], [ %found.1, %call14.i.i.noexc ], [ %spec.select117, %call14.i.i.noexc377 ]
-  %.pre488 = load i32, ptr %status, align 4
-  %144 = icmp slt i32 %.pre488, 1
-  %145 = select i1 %144, i8 %found.8.ph, i8 0
+for.end218.loopexit:                              ; preds = %call14.i.i.noexc384, %call14.i.i.noexc, %if.end111, %invoke.cont112.thread, %if.end186, %invoke.cont197.thread, %invoke.cont208, %lor.lhs.false50, %call14.i.i.noexc337, %land.lhs.true169
+  %mLimit.3.ph = phi i32 [ %mLimit.0, %invoke.cont112.thread ], [ %mLimit.1.ph, %if.end186 ], [ %mLimit.1.ph, %invoke.cont208 ], [ %mLimit.1.ph, %invoke.cont197.thread ], [ %mLimit.0, %lor.lhs.false50 ], [ %51, %call14.i.i.noexc337 ], [ %51, %land.lhs.true169 ], [ %mLimit.0, %if.end111 ], [ %mLimit.0, %call14.i.i.noexc ], [ %mLimit.1.ph, %call14.i.i.noexc384 ]
+  %mStart.2.ph = phi i32 [ %50, %invoke.cont112.thread ], [ %50, %if.end186 ], [ %50, %invoke.cont208 ], [ %50, %invoke.cont197.thread ], [ %mStart.0, %lor.lhs.false50 ], [ %50, %call14.i.i.noexc337 ], [ %50, %land.lhs.true169 ], [ %50, %if.end111 ], [ %50, %call14.i.i.noexc ], [ %50, %call14.i.i.noexc384 ]
+  %found.8.ph = phi i8 [ %spec.select443, %invoke.cont112.thread ], [ %spec.select115, %if.end186 ], [ 1, %invoke.cont208 ], [ %spec.select444, %invoke.cont197.thread ], [ 0, %lor.lhs.false50 ], [ %spec.select115, %call14.i.i.noexc337 ], [ %spec.select115, %land.lhs.true169 ], [ %found.1, %if.end111 ], [ %found.1, %call14.i.i.noexc ], [ %spec.select117, %call14.i.i.noexc384 ]
+  %.pre495 = load i32, ptr %status, align 4
+  %148 = icmp slt i32 %.pre495, 1
+  %149 = select i1 %148, i8 %found.8.ph, i8 0
   br label %for.end218
 
 for.end218:                                       ; preds = %for.end218.loopexit, %if.then20
-  %cmp.i384 = phi i8 [ 0, %if.then20 ], [ %145, %for.end218.loopexit ]
+  %cmp.i391 = phi i8 [ 0, %if.then20 ], [ %149, %for.end218.loopexit ]
   %mLimit.3 = phi i32 [ %mLimit.0, %if.then20 ], [ %mLimit.3.ph, %for.end218.loopexit ]
   %mStart.2 = phi i32 [ %mStart.0, %if.then20 ], [ %mStart.2.ph, %for.end218.loopexit ]
-  %cmp225 = icmp eq i8 %cmp.i384, 0
+  %cmp225 = icmp eq i8 %cmp.i391, 0
   %mLimit.4 = select i1 %cmp225, i32 -1, i32 %mLimit.3
   %cmp228.not = icmp eq ptr %matchStart, null
   br i1 %cmp228.not, label %if.end230, label %if.then229
@@ -3996,25 +4026,25 @@ if.then232:                                       ; preds = %if.end230
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end230, %if.then232, %if.end12
-  %retval.0 = phi i8 [ 0, %if.end12 ], [ %cmp.i384, %if.then232 ], [ %cmp.i384, %if.end230 ]
-  %buf.i386 = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CEIBuffer", ptr %ceb, i64 0, i32 1
-  %146 = load ptr, ptr %buf.i386, align 8
-  %cmp.not.i387 = icmp eq ptr %146, %ceb
-  br i1 %cmp.not.i387, label %return, label %if.then.i388
+  %retval.0 = phi i8 [ 0, %if.end12 ], [ %cmp.i391, %if.then232 ], [ %cmp.i391, %if.end230 ]
+  %buf.i393 = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CEIBuffer", ptr %ceb, i64 0, i32 1
+  %150 = load ptr, ptr %buf.i393, align 8
+  %cmp.not.i394 = icmp eq ptr %150, %ceb
+  br i1 %cmp.not.i394, label %return, label %if.then.i395
 
-if.then.i388:                                     ; preds = %cleanup
-  invoke void @uprv_free_75(ptr noundef %146)
+if.then.i395:                                     ; preds = %cleanup
+  invoke void @uprv_free_75(ptr noundef %150)
           to label %return unwind label %terminate.lpad.i
 
-terminate.lpad.i:                                 ; preds = %if.then.i388
-  %147 = landingpad { ptr, i32 }
+terminate.lpad.i:                                 ; preds = %if.then.i395
+  %151 = landingpad { ptr, i32 }
           catch ptr null
-  %148 = extractvalue { ptr, i32 } %147, 0
-  call void @__clang_call_terminate(ptr %148) #18
+  %152 = extractvalue { ptr, i32 } %151, 0
+  call void @__clang_call_terminate(ptr %152) #18
   unreachable
 
-return:                                           ; preds = %if.then.i388, %cleanup, %entry, %if.then7
-  %retval.1 = phi i8 [ 0, %if.then7 ], [ 0, %entry ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i388 ]
+return:                                           ; preds = %if.then.i395, %cleanup, %entry, %if.then7
+  %retval.1 = phi i8 [ 0, %if.then7 ], [ 0, %entry ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i395 ]
   ret i8 %retval.1
 }
 
@@ -4329,45 +4359,6 @@ return:                                           ; preds = %entry, %land.lhs.tr
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi(ptr nocapture readonly %search.0.val, i32 noundef %index) unnamed_addr #8 {
-entry:
-  %cmp = icmp sgt i32 %index, 0
-  br i1 %cmp, label %do.body, label %return
-
-do.body:                                          ; preds = %entry
-  %dec = add nsw i32 %index, -1
-  %idxprom = zext nneg i32 %dec to i64
-  %arrayidx = getelementptr inbounds i16, ptr %search.0.val, i64 %idxprom
-  %0 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %0 to i32
-  %and = and i32 %conv, 64512
-  %cmp1 = icmp eq i32 %and, 56320
-  %cmp3 = icmp ne i32 %index, 1
-  %or.cond = and i1 %cmp3, %cmp1
-  br i1 %or.cond, label %land.lhs.true, label %return
-
-land.lhs.true:                                    ; preds = %do.body
-  %sub = add nsw i32 %index, -2
-  %idxprom5 = zext nneg i32 %sub to i64
-  %arrayidx6 = getelementptr inbounds i16, ptr %search.0.val, i64 %idxprom5
-  %1 = load i16, ptr %arrayidx6, align 2
-  %conv7 = zext i16 %1 to i32
-  %and8 = and i32 %conv7, 64512
-  %cmp9 = icmp eq i32 %and8, 55296
-  br i1 %cmp9, label %if.then10, label %return
-
-if.then10:                                        ; preds = %land.lhs.true
-  %shl = shl nuw nsw i32 %conv7, 10
-  %add = add nuw nsw i32 %conv, -56613888
-  %sub13 = add nsw i32 %add, %shl
-  br label %return
-
-return:                                           ; preds = %entry, %land.lhs.true, %if.then10, %do.body
-  %retval.0 = phi i32 [ %sub13, %if.then10 ], [ %conv, %land.lhs.true ], [ %conv, %do.body ], [ -1, %entry ]
-  ret i32 %retval.0
-}
-
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef signext i8 @_ZL14checkIdenticalPK13UStringSearchii(ptr nocapture noundef readonly %strsrch, i32 noundef %start, i32 noundef %end) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
@@ -4656,33 +4647,33 @@ invoke.cont:                                      ; preds = %call11.i.noexc
   br i1 %cmp.i120, label %if.end22, label %cleanup
 
 lpad.loopexit:                                    ; preds = %if.end15.i178
-  %lpad.loopexit383 = landingpad { ptr, i32 }
+  %lpad.loopexit390 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
-lpad.loopexit.split-lp.loopexit:                  ; preds = %if.end5.i322, %call11.i.i.noexc334, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i327, %if.end5.i296, %call11.i.i.noexc308, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i301, %if.end5.i275, %call11.i.i.noexc285, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i279, %if.end15.i254, %if.end5.i, %call11.i.i.noexc, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i, %if.end15.i215, %if.end15.i145, %if.end194, %lor.rhs, %land.rhs
-  %lpad.loopexit385 = landingpad { ptr, i32 }
+lpad.loopexit.split-lp.loopexit:                  ; preds = %if.end5.i329, %call11.i.i.noexc341, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i334, %if.end5.i303, %call11.i.i.noexc315, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i308, %if.end5.i282, %call11.i.i.noexc292, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i286, %if.end15.i254, %if.end5.i, %call11.i.i.noexc, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i, %if.end15.i215, %if.end15.i145, %if.end194, %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.exit, %land.rhs
+  %lpad.loopexit392 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.end15.i
-  %lpad.loopexit388 = landingpad { ptr, i32 }
+  %lpad.loopexit395 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.end22, %invoke.cont23, %if.else, %if.end10.i, %call11.i.noexc
-  %lpad.loopexit.split-lp389 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp396 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit383, %lpad.loopexit ], [ %lpad.loopexit385, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit388, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp389, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit390, %lpad.loopexit ], [ %lpad.loopexit392, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit395, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp396, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call fastcc void @_ZN6icu_7512_GLOBAL__N_19CEIBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(1576) %ceb) #17
   resume { ptr, i32 } %lpad.phi
 
 if.end22:                                         ; preds = %if.end4.i, %if.end.i, %invoke.cont
-  %retval.0.i426 = phi ptr [ %17, %invoke.cont ], [ %10, %if.end4.i ], [ %9, %if.end.i ]
-  %call24 = invoke i32 @ubrk_following_75(ptr noundef %retval.0.i426, i32 noundef %startIdx)
+  %retval.0.i433 = phi ptr [ %17, %invoke.cont ], [ %10, %if.end4.i ], [ %9, %if.end.i ]
+  %call24 = invoke i32 @ubrk_following_75(ptr noundef %retval.0.i433, i32 noundef %startIdx)
           to label %invoke.cont23 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont23:                                    ; preds = %if.end22
@@ -4859,21 +4850,21 @@ if.then43:                                        ; preds = %invoke.cont40, %inv
 
 if.end44:                                         ; preds = %invoke.cont40
   %41 = load i32, ptr %pcesLength, align 8
-  %cmp47405 = icmp sgt i32 %41, 0
-  br i1 %cmp47405, label %for.body, label %if.end85
+  %cmp47412 = icmp sgt i32 %41, 0
+  br i1 %cmp47412, label %for.body, label %if.end85
 
 for.body:                                         ; preds = %if.end44, %for.inc73
   %42 = phi ptr [ %53, %for.inc73 ], [ %40, %if.end44 ]
-  %patIx.0.in407 = phi i32 [ %patIx.1, %for.inc73 ], [ %41, %if.end44 ]
-  %targetIxOffset.0406 = phi i32 [ %targetIxOffset.1, %for.inc73 ], [ 0, %if.end44 ]
-  %patIx.0408 = add nsw i32 %patIx.0.in407, -1
+  %patIx.0.in414 = phi i32 [ %patIx.1, %for.inc73 ], [ %41, %if.end44 ]
+  %targetIxOffset.0413 = phi i32 [ %targetIxOffset.1, %for.inc73 ], [ 0, %if.end44 ]
+  %patIx.0415 = add nsw i32 %patIx.0.in414, -1
   %43 = load ptr, ptr %pces, align 8
-  %idxprom = zext nneg i32 %patIx.0408 to i64
+  %idxprom = zext nneg i32 %patIx.0415 to i64
   %arrayidx = getelementptr inbounds i64, ptr %43, i64 %idxprom
   %44 = load i64, ptr %arrayidx, align 8
   %45 = load i32, ptr %pcesLength, align 8
-  %add52 = add i32 %targetIxOffset.0406, %targetIx.2
-  %sub54 = sub i32 %add52, %patIx.0.in407
+  %add52 = add i32 %targetIxOffset.0413, %targetIx.2
+  %sub54 = sub i32 %add52, %patIx.0.in414
   %add55 = add i32 %sub54, %45
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i161)
   %46 = load i32, ptr %bufSize.i129, align 8
@@ -4998,16 +4989,16 @@ _ZL12compareCE64slls.exit:                        ; preds = %if.end38.i
   br i1 %narrow25.i, label %for.inc73, label %lor.lhs.false78
 
 if.then67:                                        ; preds = %if.then9.i, %if.then24.i
-  %inc68 = add nsw i32 %targetIxOffset.0406, 1
+  %inc68 = add nsw i32 %targetIxOffset.0413, 1
   br label %for.inc73
 
 if.else69:                                        ; preds = %if.end12.i, %if.end27.i
-  %dec = add nsw i32 %targetIxOffset.0406, -1
+  %dec = add nsw i32 %targetIxOffset.0413, -1
   br label %for.inc73
 
 for.inc73:                                        ; preds = %if.end33.i, %_ZL12compareCE64slls.exit, %if.end38.i, %invoke.cont56, %if.then67, %if.else69
-  %targetIxOffset.1 = phi i32 [ %inc68, %if.then67 ], [ %dec, %if.else69 ], [ %targetIxOffset.0406, %invoke.cont56 ], [ %targetIxOffset.0406, %if.end38.i ], [ %targetIxOffset.0406, %_ZL12compareCE64slls.exit ], [ %targetIxOffset.0406, %if.end33.i ]
-  %patIx.1 = phi i32 [ %patIx.0.in407, %if.then67 ], [ %patIx.0408, %if.else69 ], [ %patIx.0408, %invoke.cont56 ], [ %patIx.0408, %if.end38.i ], [ %patIx.0408, %_ZL12compareCE64slls.exit ], [ %patIx.0408, %if.end33.i ]
+  %targetIxOffset.1 = phi i32 [ %inc68, %if.then67 ], [ %dec, %if.else69 ], [ %targetIxOffset.0413, %invoke.cont56 ], [ %targetIxOffset.0413, %if.end38.i ], [ %targetIxOffset.0413, %_ZL12compareCE64slls.exit ], [ %targetIxOffset.0413, %if.end33.i ]
+  %patIx.1 = phi i32 [ %patIx.0.in414, %if.then67 ], [ %patIx.0415, %if.else69 ], [ %patIx.0415, %invoke.cont56 ], [ %patIx.0415, %if.end38.i ], [ %patIx.0415, %_ZL12compareCE64slls.exit ], [ %patIx.0415, %if.end33.i ]
   %cmp47 = icmp sgt i32 %patIx.1, 0
   br i1 %cmp47, label %for.body, label %if.end85.loopexit, !llvm.loop !16
 
@@ -5016,12 +5007,12 @@ lor.lhs.false78:                                  ; preds = %if.end33.i, %if.end
   br i1 %cmp80.not, label %for.end205.loopexit, label %for.inc203
 
 if.end85.loopexit:                                ; preds = %for.inc73
-  %.pre421 = load i32, ptr %pcesLength, align 8
+  %.pre428 = load i32, ptr %pcesLength, align 8
   br label %if.end85
 
 if.end85:                                         ; preds = %if.end85.loopexit, %if.end44
   %63 = phi ptr [ %40, %if.end44 ], [ %53, %if.end85.loopexit ]
-  %64 = phi i32 [ %41, %if.end44 ], [ %.pre421, %if.end85.loopexit ]
+  %64 = phi i32 [ %41, %if.end44 ], [ %.pre428, %if.end85.loopexit ]
   %targetIxOffset.0.lcssa = phi i32 [ 0, %if.end44 ], [ %targetIxOffset.1, %if.end85.loopexit ]
   %add88 = add nsw i32 %64, %targetIx.2
   %sub89 = add i32 %targetIxOffset.0.lcssa, -1
@@ -5143,7 +5134,7 @@ if.end103:                                        ; preds = %invoke.cont94
   %lowIndex107 = getelementptr inbounds %struct.CEI, ptr %retval.0.i138, i64 0, i32 1
   %85 = load i32, ptr %lowIndex107, align 8
   %cmp108.not = icmp eq i32 %targetIx.2, 0
-  br i1 %cmp108.not, label %if.end.i.i319, label %if.then109
+  br i1 %cmp108.not, label %if.end.i.i326, label %if.then109
 
 if.then109:                                       ; preds = %if.end103
   %sub110 = add nsw i32 %targetIx.2, -1
@@ -5241,8 +5232,8 @@ land.lhs.true136:                                 ; preds = %land.lhs.true133
   %103 = load i32, ptr %highIndex137, align 4
   %cmp138.not = icmp sge i32 %95, %103
   %cmp141 = icmp sgt i32 %96, %95
-  %or.cond380 = and i1 %cmp141, %cmp138.not
-  br i1 %or.cond380, label %land.rhs, label %land.end
+  %or.cond387 = and i1 %cmp141, %cmp138.not
+  br i1 %or.cond387, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true136
   %104 = load ptr, ptr %nfd, align 8
@@ -5259,22 +5250,52 @@ invoke.cont145:                                   ; preds = %land.rhs
 
 lor.rhs:                                          ; preds = %invoke.cont145
   %106 = load ptr, ptr %nfd, align 8
+  %cmp.i270 = icmp sgt i32 %95, 0
+  br i1 %cmp.i270, label %do.body.i, label %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.exit
+
+do.body.i:                                        ; preds = %lor.rhs
   %107 = load ptr, ptr %strsrch, align 8
   %.val117 = load ptr, ptr %107, align 8
-  %call151 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi(ptr %.val117, i32 noundef %95)
+  %108 = zext nneg i32 %95 to i64
+  %109 = getelementptr i16, ptr %.val117, i64 %108
+  %arrayidx.i272 = getelementptr i16, ptr %109, i64 -1
+  %110 = load i16, ptr %arrayidx.i272, align 2
+  %conv.i273 = zext i16 %110 to i32
+  %and.i = and i32 %conv.i273, 64512
+  %cmp1.i274 = icmp eq i32 %and.i, 56320
+  %cmp3.i = icmp ne i32 %95, 1
+  %or.cond.i275 = and i1 %cmp3.i, %cmp1.i274
+  br i1 %or.cond.i275, label %land.lhs.true.i, label %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.exit
+
+land.lhs.true.i:                                  ; preds = %do.body.i
+  %arrayidx6.i = getelementptr i16, ptr %109, i64 -2
+  %111 = load i16, ptr %arrayidx6.i, align 2
+  %conv7.i276 = zext i16 %111 to i32
+  %and8.i = and i32 %conv7.i276, 64512
+  %cmp9.i = icmp eq i32 %and8.i, 55296
+  br i1 %cmp9.i, label %if.then10.i, label %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.exit
+
+if.then10.i:                                      ; preds = %land.lhs.true.i
+  %shl.i = shl nuw nsw i32 %conv7.i276, 10
+  %add.i = add nuw nsw i32 %conv.i273, -56613888
+  %sub13.i = add nsw i32 %add.i, %shl.i
+  br label %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.exit
+
+_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.exit: ; preds = %lor.rhs, %do.body.i, %land.lhs.true.i, %if.then10.i
+  %retval.0.i271 = phi i32 [ %sub13.i, %if.then10.i ], [ %conv.i273, %land.lhs.true.i ], [ %conv.i273, %do.body.i ], [ -1, %lor.rhs ]
   %vtable152 = load ptr, ptr %106, align 8
   %vfn153 = getelementptr inbounds ptr, ptr %vtable152, i64 16
-  %108 = load ptr, ptr %vfn153, align 8
-  %call155 = invoke noundef signext i8 %108(ptr noundef nonnull align 8 dereferenceable(8) %106, i32 noundef %call151)
+  %112 = load ptr, ptr %vfn153, align 8
+  %call155 = invoke noundef signext i8 %112(ptr noundef nonnull align 8 dereferenceable(8) %106, i32 noundef %retval.0.i271)
           to label %invoke.cont154 unwind label %lpad.loopexit.split-lp.loopexit
 
-invoke.cont154:                                   ; preds = %lor.rhs
+invoke.cont154:                                   ; preds = %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.exit
   %tobool156 = icmp ne i8 %call155, 0
   br label %land.end
 
 land.end:                                         ; preds = %invoke.cont145, %invoke.cont154, %land.lhs.true136, %land.lhs.true133, %if.then128
-  %109 = phi i1 [ false, %land.lhs.true136 ], [ false, %land.lhs.true133 ], [ false, %if.then128 ], [ true, %invoke.cont145 ], [ %tobool156, %invoke.cont154 ]
-  %conv = zext i1 %109 to i8
+  %113 = phi i1 [ false, %land.lhs.true136 ], [ false, %land.lhs.true133 ], [ false, %if.then128 ], [ true, %invoke.cont145 ], [ %tobool156, %invoke.cont154 ]
+  %conv = zext i1 %113 to i8
   br label %if.end157
 
 if.end157:                                        ; preds = %land.end, %land.lhs.true124, %if.end120
@@ -5283,64 +5304,64 @@ if.end157:                                        ; preds = %land.end, %land.lhs
   br i1 %cmp158, label %if.then159, label %if.end170
 
 if.then159:                                       ; preds = %if.end157
-  %110 = load i32, ptr %status, align 4
-  %cmp.i.i270 = icmp slt i32 %110, 1
-  br i1 %cmp.i.i270, label %if.end.i.i272, label %invoke.cont160
+  %114 = load i32, ptr %status, align 4
+  %cmp.i.i277 = icmp slt i32 %114, 1
+  br i1 %cmp.i.i277, label %if.end.i.i279, label %invoke.cont160
 
-if.end.i.i272:                                    ; preds = %if.then159
-  %111 = load ptr, ptr %strsrch, align 8
-  %breakIter.i.i273 = getelementptr inbounds %struct.USearch, ptr %111, i64 0, i32 6
-  %112 = load ptr, ptr %breakIter.i.i273, align 8
-  %cmp.not.i.i274 = icmp eq ptr %112, null
-  br i1 %cmp.not.i.i274, label %if.end4.i.i276, label %if.end5.i275
-
-if.end4.i.i276:                                   ; preds = %if.end.i.i272
-  %internalBreakIter.i.i277 = getelementptr inbounds %struct.USearch, ptr %111, i64 0, i32 5
-  %113 = load ptr, ptr %internalBreakIter.i.i277, align 8
-  %cmp6.not.i.i278 = icmp eq ptr %113, null
-  br i1 %cmp6.not.i.i278, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i279, label %if.end5.i275
-
-_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i279: ; preds = %if.end4.i.i276
-  %114 = load ptr, ptr %collator.i.i, align 8
-  %call11.i.i286 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %114, i32 noundef 1, ptr noundef nonnull %status)
-          to label %call11.i.i.noexc285 unwind label %lpad.loopexit.split-lp.loopexit
-
-call11.i.i.noexc285:                              ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i279
+if.end.i.i279:                                    ; preds = %if.then159
   %115 = load ptr, ptr %strsrch, align 8
-  %116 = load ptr, ptr %115, align 8
-  %textLength.i.i281 = getelementptr inbounds %struct.USearch, ptr %115, i64 0, i32 1
-  %117 = load i32, ptr %textLength.i.i281, align 8
-  %call14.i.i288 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i286, ptr noundef %116, i32 noundef %117, ptr noundef nonnull %status)
-          to label %call14.i.i.noexc287 unwind label %lpad.loopexit.split-lp.loopexit
+  %breakIter.i.i280 = getelementptr inbounds %struct.USearch, ptr %115, i64 0, i32 6
+  %116 = load ptr, ptr %breakIter.i.i280, align 8
+  %cmp.not.i.i281 = icmp eq ptr %116, null
+  br i1 %cmp.not.i.i281, label %if.end4.i.i283, label %if.end5.i282
 
-call14.i.i.noexc287:                              ; preds = %call11.i.i.noexc285
-  %118 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter16.i.i282 = getelementptr inbounds %struct.USearch, ptr %118, i64 0, i32 5
-  store ptr %call14.i.i288, ptr %internalBreakIter16.i.i282, align 8
+if.end4.i.i283:                                   ; preds = %if.end.i.i279
+  %internalBreakIter.i.i284 = getelementptr inbounds %struct.USearch, ptr %115, i64 0, i32 5
+  %117 = load ptr, ptr %internalBreakIter.i.i284, align 8
+  %cmp6.not.i.i285 = icmp eq ptr %117, null
+  br i1 %cmp6.not.i.i285, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i286, label %if.end5.i282
+
+_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i286: ; preds = %if.end4.i.i283
+  %118 = load ptr, ptr %collator.i.i, align 8
+  %call11.i.i293 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %118, i32 noundef 1, ptr noundef nonnull %status)
+          to label %call11.i.i.noexc292 unwind label %lpad.loopexit.split-lp.loopexit
+
+call11.i.i.noexc292:                              ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i286
   %119 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter18.i.i283 = getelementptr inbounds %struct.USearch, ptr %119, i64 0, i32 5
-  %120 = load ptr, ptr %internalBreakIter18.i.i283, align 8
-  %.pre.i284 = load i32, ptr %status, align 4
-  %cmp.i5.i = icmp slt i32 %.pre.i284, 1
-  br i1 %cmp.i5.i, label %if.end5.i275, label %invoke.cont160
+  %120 = load ptr, ptr %119, align 8
+  %textLength.i.i288 = getelementptr inbounds %struct.USearch, ptr %119, i64 0, i32 1
+  %121 = load i32, ptr %textLength.i.i288, align 8
+  %call14.i.i295 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i293, ptr noundef %120, i32 noundef %121, ptr noundef nonnull %status)
+          to label %call14.i.i.noexc294 unwind label %lpad.loopexit.split-lp.loopexit
 
-if.end5.i275:                                     ; preds = %call14.i.i.noexc287, %if.end4.i.i276, %if.end.i.i272
-  %retval.0.i9.i = phi ptr [ %120, %call14.i.i.noexc287 ], [ %113, %if.end4.i.i276 ], [ %112, %if.end.i.i272 ]
-  %call6.i290 = invoke i32 @ubrk_following_75(ptr noundef %retval.0.i9.i, i32 noundef %85)
+call14.i.i.noexc294:                              ; preds = %call11.i.i.noexc292
+  %122 = load ptr, ptr %strsrch, align 8
+  %internalBreakIter16.i.i289 = getelementptr inbounds %struct.USearch, ptr %122, i64 0, i32 5
+  store ptr %call14.i.i295, ptr %internalBreakIter16.i.i289, align 8
+  %123 = load ptr, ptr %strsrch, align 8
+  %internalBreakIter18.i.i290 = getelementptr inbounds %struct.USearch, ptr %123, i64 0, i32 5
+  %124 = load ptr, ptr %internalBreakIter18.i.i290, align 8
+  %.pre.i291 = load i32, ptr %status, align 4
+  %cmp.i5.i = icmp slt i32 %.pre.i291, 1
+  br i1 %cmp.i5.i, label %if.end5.i282, label %invoke.cont160
+
+if.end5.i282:                                     ; preds = %call14.i.i.noexc294, %if.end4.i.i283, %if.end.i.i279
+  %retval.0.i9.i = phi ptr [ %124, %call14.i.i.noexc294 ], [ %117, %if.end4.i.i283 ], [ %116, %if.end.i.i279 ]
+  %call6.i297 = invoke i32 @ubrk_following_75(ptr noundef %retval.0.i9.i, i32 noundef %85)
           to label %invoke.cont160 unwind label %lpad.loopexit.split-lp.loopexit
 
-invoke.cont160:                                   ; preds = %call14.i.i.noexc287, %if.then159, %if.end5.i275
-  %retval.0.i271 = phi i32 [ %85, %if.then159 ], [ %85, %call14.i.i.noexc287 ], [ %call6.i290, %if.end5.i275 ]
+invoke.cont160:                                   ; preds = %call14.i.i.noexc294, %if.then159, %if.end5.i282
+  %retval.0.i278 = phi i32 [ %85, %if.then159 ], [ %85, %call14.i.i.noexc294 ], [ %call6.i297, %if.end5.i282 ]
   %highIndex162 = getelementptr inbounds %struct.CEI, ptr %retval.0.i138, i64 0, i32 2
-  %121 = load i32, ptr %highIndex162, align 4
-  %cmp163.not = icmp slt i32 %retval.0.i271, %121
+  %125 = load i32, ptr %highIndex162, align 4
+  %cmp163.not = icmp slt i32 %retval.0.i278, %125
   br i1 %cmp163.not, label %if.end170, label %land.lhs.true164
 
 land.lhs.true164:                                 ; preds = %invoke.cont160
   %tobool165.not = icmp eq i8 %allowMidclusterMatch.0, 0
-  %cmp167 = icmp slt i32 %retval.0.i271, %95
+  %cmp167 = icmp slt i32 %retval.0.i278, %95
   %or.cond109 = or i1 %tobool165.not, %cmp167
-  %spec.select115 = select i1 %or.cond109, i32 %retval.0.i271, i32 %95
+  %spec.select115 = select i1 %or.cond109, i32 %retval.0.i278, i32 %95
   br label %if.end170
 
 if.end170:                                        ; preds = %land.lhs.true164, %invoke.cont160, %if.end157
@@ -5351,120 +5372,120 @@ if.end170:                                        ; preds = %land.lhs.true164, %
 if.then172:                                       ; preds = %if.end170
   %cmp173 = icmp sgt i32 %mLimit.1, %95
   %spec.select110 = select i1 %cmp173, i8 0, i8 %found.3
-  %122 = load i32, ptr %status, align 4
-  %cmp.i.i291 = icmp slt i32 %122, 1
-  br i1 %cmp.i.i291, label %if.end.i.i293, label %for.end205.loopexit
+  %126 = load i32, ptr %status, align 4
+  %cmp.i.i298 = icmp slt i32 %126, 1
+  br i1 %cmp.i.i298, label %if.end.i.i300, label %for.end205.loopexit
 
-if.end.i.i293:                                    ; preds = %if.then172
-  %123 = load ptr, ptr %strsrch, align 8
-  %breakIter.i.i294 = getelementptr inbounds %struct.USearch, ptr %123, i64 0, i32 6
-  %124 = load ptr, ptr %breakIter.i.i294, align 8
-  %cmp.not.i.i295 = icmp eq ptr %124, null
-  br i1 %cmp.not.i.i295, label %if.end4.i.i298, label %if.end5.i296
-
-if.end4.i.i298:                                   ; preds = %if.end.i.i293
-  %internalBreakIter.i.i299 = getelementptr inbounds %struct.USearch, ptr %123, i64 0, i32 5
-  %125 = load ptr, ptr %internalBreakIter.i.i299, align 8
-  %cmp6.not.i.i300 = icmp eq ptr %125, null
-  br i1 %cmp6.not.i.i300, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i301, label %if.end5.i296
-
-_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i301: ; preds = %if.end4.i.i298
-  %126 = load ptr, ptr %collator.i.i, align 8
-  %call11.i.i309 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %126, i32 noundef 1, ptr noundef nonnull %status)
-          to label %call11.i.i.noexc308 unwind label %lpad.loopexit.split-lp.loopexit
-
-call11.i.i.noexc308:                              ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i301
+if.end.i.i300:                                    ; preds = %if.then172
   %127 = load ptr, ptr %strsrch, align 8
-  %128 = load ptr, ptr %127, align 8
-  %textLength.i.i303 = getelementptr inbounds %struct.USearch, ptr %127, i64 0, i32 1
-  %129 = load i32, ptr %textLength.i.i303, align 8
-  %call14.i.i311 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i309, ptr noundef %128, i32 noundef %129, ptr noundef nonnull %status)
-          to label %call14.i.i.noexc310 unwind label %lpad.loopexit.split-lp.loopexit
+  %breakIter.i.i301 = getelementptr inbounds %struct.USearch, ptr %127, i64 0, i32 6
+  %128 = load ptr, ptr %breakIter.i.i301, align 8
+  %cmp.not.i.i302 = icmp eq ptr %128, null
+  br i1 %cmp.not.i.i302, label %if.end4.i.i305, label %if.end5.i303
 
-call14.i.i.noexc310:                              ; preds = %call11.i.i.noexc308
-  %130 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter16.i.i304 = getelementptr inbounds %struct.USearch, ptr %130, i64 0, i32 5
-  store ptr %call14.i.i311, ptr %internalBreakIter16.i.i304, align 8
+if.end4.i.i305:                                   ; preds = %if.end.i.i300
+  %internalBreakIter.i.i306 = getelementptr inbounds %struct.USearch, ptr %127, i64 0, i32 5
+  %129 = load ptr, ptr %internalBreakIter.i.i306, align 8
+  %cmp6.not.i.i307 = icmp eq ptr %129, null
+  br i1 %cmp6.not.i.i307, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i308, label %if.end5.i303
+
+_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i308: ; preds = %if.end4.i.i305
+  %130 = load ptr, ptr %collator.i.i, align 8
+  %call11.i.i316 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %130, i32 noundef 1, ptr noundef nonnull %status)
+          to label %call11.i.i.noexc315 unwind label %lpad.loopexit.split-lp.loopexit
+
+call11.i.i.noexc315:                              ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i308
   %131 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter18.i.i305 = getelementptr inbounds %struct.USearch, ptr %131, i64 0, i32 5
-  %132 = load ptr, ptr %internalBreakIter18.i.i305, align 8
-  %.pre.i306 = load i32, ptr %status, align 4
-  %cmp.i3.i307 = icmp slt i32 %.pre.i306, 1
-  br i1 %cmp.i3.i307, label %if.end5.i296, label %for.end205.loopexit
+  %132 = load ptr, ptr %131, align 8
+  %textLength.i.i310 = getelementptr inbounds %struct.USearch, ptr %131, i64 0, i32 1
+  %133 = load i32, ptr %textLength.i.i310, align 8
+  %call14.i.i318 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i316, ptr noundef %132, i32 noundef %133, ptr noundef nonnull %status)
+          to label %call14.i.i.noexc317 unwind label %lpad.loopexit.split-lp.loopexit
 
-if.end5.i296:                                     ; preds = %call14.i.i.noexc310, %if.end4.i.i298, %if.end.i.i293
-  %retval.0.i7.i297 = phi ptr [ %132, %call14.i.i.noexc310 ], [ %125, %if.end4.i.i298 ], [ %124, %if.end.i.i293 ]
-  %call6.i313 = invoke signext i8 @ubrk_isBoundary_75(ptr noundef %retval.0.i7.i297, i32 noundef %mLimit.1)
+call14.i.i.noexc317:                              ; preds = %call11.i.i.noexc315
+  %134 = load ptr, ptr %strsrch, align 8
+  %internalBreakIter16.i.i311 = getelementptr inbounds %struct.USearch, ptr %134, i64 0, i32 5
+  store ptr %call14.i.i318, ptr %internalBreakIter16.i.i311, align 8
+  %135 = load ptr, ptr %strsrch, align 8
+  %internalBreakIter18.i.i312 = getelementptr inbounds %struct.USearch, ptr %135, i64 0, i32 5
+  %136 = load ptr, ptr %internalBreakIter18.i.i312, align 8
+  %.pre.i313 = load i32, ptr %status, align 4
+  %cmp.i3.i314 = icmp slt i32 %.pre.i313, 1
+  br i1 %cmp.i3.i314, label %if.end5.i303, label %for.end205.loopexit
+
+if.end5.i303:                                     ; preds = %call14.i.i.noexc317, %if.end4.i.i305, %if.end.i.i300
+  %retval.0.i7.i304 = phi ptr [ %136, %call14.i.i.noexc317 ], [ %129, %if.end4.i.i305 ], [ %128, %if.end.i.i300 ]
+  %call6.i320 = invoke signext i8 @ubrk_isBoundary_75(ptr noundef %retval.0.i7.i304, i32 noundef %mLimit.1)
           to label %invoke.cont176.thread unwind label %lpad.loopexit.split-lp.loopexit
 
-invoke.cont176.thread:                            ; preds = %if.end5.i296
-  %call6.i313.fr = freeze i8 %call6.i313
-  %tobool178.not = icmp eq i8 %call6.i313.fr, 0
-  %spec.select381 = select i1 %tobool178.not, i8 0, i8 %spec.select110
-  %.pre422 = load i32, ptr %status, align 4
-  %cmp.i315 = icmp slt i32 %.pre422, 1
-  br i1 %cmp.i315, label %if.end194, label %for.end205.loopexit
+invoke.cont176.thread:                            ; preds = %if.end5.i303
+  %call6.i320.fr = freeze i8 %call6.i320
+  %tobool178.not = icmp eq i8 %call6.i320.fr, 0
+  %spec.select388 = select i1 %tobool178.not, i8 0, i8 %spec.select110
+  %.pre429 = load i32, ptr %status, align 4
+  %cmp.i322 = icmp slt i32 %.pre429, 1
+  br i1 %cmp.i322, label %if.end194, label %for.end205.loopexit
 
-if.end.i.i319:                                    ; preds = %if.end103
-  %133 = load ptr, ptr %strsrch, align 8
-  %breakIter.i.i320 = getelementptr inbounds %struct.USearch, ptr %133, i64 0, i32 6
-  %134 = load ptr, ptr %breakIter.i.i320, align 8
-  %cmp.not.i.i321 = icmp eq ptr %134, null
-  br i1 %cmp.not.i.i321, label %if.end4.i.i324, label %if.end5.i322
-
-if.end4.i.i324:                                   ; preds = %if.end.i.i319
-  %internalBreakIter.i.i325 = getelementptr inbounds %struct.USearch, ptr %133, i64 0, i32 5
-  %135 = load ptr, ptr %internalBreakIter.i.i325, align 8
-  %cmp6.not.i.i326 = icmp eq ptr %135, null
-  br i1 %cmp6.not.i.i326, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i327, label %if.end5.i322
-
-_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i327: ; preds = %if.end4.i.i324
-  %136 = load ptr, ptr %collator.i.i, align 8
-  %call11.i.i335 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %136, i32 noundef 1, ptr noundef nonnull %status)
-          to label %call11.i.i.noexc334 unwind label %lpad.loopexit.split-lp.loopexit
-
-call11.i.i.noexc334:                              ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i327
+if.end.i.i326:                                    ; preds = %if.end103
   %137 = load ptr, ptr %strsrch, align 8
-  %138 = load ptr, ptr %137, align 8
-  %textLength.i.i329 = getelementptr inbounds %struct.USearch, ptr %137, i64 0, i32 1
-  %139 = load i32, ptr %textLength.i.i329, align 8
-  %call14.i.i337 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i335, ptr noundef %138, i32 noundef %139, ptr noundef nonnull %status)
-          to label %call14.i.i.noexc336 unwind label %lpad.loopexit.split-lp.loopexit
+  %breakIter.i.i327 = getelementptr inbounds %struct.USearch, ptr %137, i64 0, i32 6
+  %138 = load ptr, ptr %breakIter.i.i327, align 8
+  %cmp.not.i.i328 = icmp eq ptr %138, null
+  br i1 %cmp.not.i.i328, label %if.end4.i.i331, label %if.end5.i329
 
-call14.i.i.noexc336:                              ; preds = %call11.i.i.noexc334
-  %140 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter16.i.i330 = getelementptr inbounds %struct.USearch, ptr %140, i64 0, i32 5
-  store ptr %call14.i.i337, ptr %internalBreakIter16.i.i330, align 8
+if.end4.i.i331:                                   ; preds = %if.end.i.i326
+  %internalBreakIter.i.i332 = getelementptr inbounds %struct.USearch, ptr %137, i64 0, i32 5
+  %139 = load ptr, ptr %internalBreakIter.i.i332, align 8
+  %cmp6.not.i.i333 = icmp eq ptr %139, null
+  br i1 %cmp6.not.i.i333, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i334, label %if.end5.i329
+
+_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i334: ; preds = %if.end4.i.i331
+  %140 = load ptr, ptr %collator.i.i, align 8
+  %call11.i.i342 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %140, i32 noundef 1, ptr noundef nonnull %status)
+          to label %call11.i.i.noexc341 unwind label %lpad.loopexit.split-lp.loopexit
+
+call11.i.i.noexc341:                              ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i334
   %141 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter18.i.i331 = getelementptr inbounds %struct.USearch, ptr %141, i64 0, i32 5
-  %142 = load ptr, ptr %internalBreakIter18.i.i331, align 8
-  %.pre.i332 = load i32, ptr %status, align 4
-  %cmp.i5.i333 = icmp slt i32 %.pre.i332, 1
-  br i1 %cmp.i5.i333, label %if.end5.i322, label %invoke.cont189
+  %142 = load ptr, ptr %141, align 8
+  %textLength.i.i336 = getelementptr inbounds %struct.USearch, ptr %141, i64 0, i32 1
+  %143 = load i32, ptr %textLength.i.i336, align 8
+  %call14.i.i344 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i342, ptr noundef %142, i32 noundef %143, ptr noundef nonnull %status)
+          to label %call14.i.i.noexc343 unwind label %lpad.loopexit.split-lp.loopexit
 
-if.end5.i322:                                     ; preds = %call14.i.i.noexc336, %if.end4.i.i324, %if.end.i.i319
-  %retval.0.i9.i323 = phi ptr [ %142, %call14.i.i.noexc336 ], [ %135, %if.end4.i.i324 ], [ %134, %if.end.i.i319 ]
-  %call6.i339 = invoke i32 @ubrk_following_75(ptr noundef %retval.0.i9.i323, i32 noundef %85)
+call14.i.i.noexc343:                              ; preds = %call11.i.i.noexc341
+  %144 = load ptr, ptr %strsrch, align 8
+  %internalBreakIter16.i.i337 = getelementptr inbounds %struct.USearch, ptr %144, i64 0, i32 5
+  store ptr %call14.i.i344, ptr %internalBreakIter16.i.i337, align 8
+  %145 = load ptr, ptr %strsrch, align 8
+  %internalBreakIter18.i.i338 = getelementptr inbounds %struct.USearch, ptr %145, i64 0, i32 5
+  %146 = load ptr, ptr %internalBreakIter18.i.i338, align 8
+  %.pre.i339 = load i32, ptr %status, align 4
+  %cmp.i5.i340 = icmp slt i32 %.pre.i339, 1
+  br i1 %cmp.i5.i340, label %if.end5.i329, label %invoke.cont189
+
+if.end5.i329:                                     ; preds = %call14.i.i.noexc343, %if.end4.i.i331, %if.end.i.i326
+  %retval.0.i9.i330 = phi ptr [ %146, %call14.i.i.noexc343 ], [ %139, %if.end4.i.i331 ], [ %138, %if.end.i.i326 ]
+  %call6.i346 = invoke i32 @ubrk_following_75(ptr noundef %retval.0.i9.i330, i32 noundef %85)
           to label %invoke.cont189 unwind label %lpad.loopexit.split-lp.loopexit
 
-invoke.cont189:                                   ; preds = %call14.i.i.noexc336, %if.end5.i322
-  %retval.0.i318 = phi i32 [ %85, %call14.i.i.noexc336 ], [ %call6.i339, %if.end5.i322 ]
-  %cmp191 = icmp sgt i32 %retval.0.i318, 0
-  %cmp193 = icmp slt i32 %retval.0.i318, %startIdx
+invoke.cont189:                                   ; preds = %call14.i.i.noexc343, %if.end5.i329
+  %retval.0.i325 = phi i32 [ %85, %call14.i.i.noexc343 ], [ %call6.i346, %if.end5.i329 ]
+  %cmp191 = icmp sgt i32 %retval.0.i325, 0
+  %cmp193 = icmp slt i32 %retval.0.i325, %startIdx
   %or.cond112 = and i1 %cmp191, %cmp193
-  %cond = select i1 %or.cond112, i32 %retval.0.i318, i32 %startIdx
+  %cond = select i1 %or.cond112, i32 %retval.0.i325, i32 %startIdx
   br label %if.end194
 
 if.end194:                                        ; preds = %if.end170, %invoke.cont176.thread, %invoke.cont189
   %mLimit.2 = phi i32 [ %mLimit.1, %if.end170 ], [ %mLimit.1, %invoke.cont176.thread ], [ %cond, %invoke.cont189 ]
-  %found.6 = phi i8 [ %found.3, %if.end170 ], [ %spec.select381, %invoke.cont176.thread ], [ %spec.select107, %invoke.cont189 ]
+  %found.6 = phi i8 [ %found.3, %if.end170 ], [ %spec.select388, %invoke.cont176.thread ], [ %spec.select107, %invoke.cont189 ]
   %call196 = invoke fastcc noundef signext i8 @_ZL14checkIdenticalPK13UStringSearchii(ptr noundef nonnull %strsrch, i32 noundef %72, i32 noundef %mLimit.2)
           to label %invoke.cont195 unwind label %lpad.loopexit.split-lp.loopexit, !range !6
 
 invoke.cont195:                                   ; preds = %if.end194
   %tobool197.not = icmp eq i8 %call196, 0
-  %tobool200.not382 = icmp eq i8 %found.6, 0
-  %tobool200.not = select i1 %tobool197.not, i1 true, i1 %tobool200.not382
+  %tobool200.not389 = icmp eq i8 %found.6, 0
+  %tobool200.not = select i1 %tobool197.not, i1 true, i1 %tobool200.not389
   br i1 %tobool200.not, label %for.inc203, label %for.end205.loopexit
 
 for.inc203:                                       ; preds = %invoke.cont195, %lor.lhs.false78
@@ -5473,20 +5494,20 @@ for.inc203:                                       ; preds = %invoke.cont195, %lo
   %add204 = add nuw nsw i32 %targetIx.2, 1
   br label %for.cond39, !llvm.loop !17
 
-for.end205.loopexit:                              ; preds = %call14.i.i.noexc310, %if.then172, %invoke.cont94, %invoke.cont176.thread, %invoke.cont195, %lor.lhs.false78, %call14.i.i.noexc, %invoke.cont91
-  %mLimit.4.ph = phi i32 [ %mLimit.0, %invoke.cont94 ], [ %mLimit.2, %invoke.cont195 ], [ %mLimit.1, %invoke.cont176.thread ], [ %mLimit.0, %lor.lhs.false78 ], [ %mLimit.0, %call14.i.i.noexc ], [ %mLimit.0, %invoke.cont91 ], [ %mLimit.1, %if.then172 ], [ %mLimit.1, %call14.i.i.noexc310 ]
-  %mStart.2.ph = phi i32 [ %72, %invoke.cont94 ], [ %72, %invoke.cont195 ], [ %72, %invoke.cont176.thread ], [ %mStart.0, %lor.lhs.false78 ], [ %72, %call14.i.i.noexc ], [ %72, %invoke.cont91 ], [ %72, %if.then172 ], [ %72, %call14.i.i.noexc310 ]
-  %found.8.ph = phi i8 [ %spec.select, %invoke.cont94 ], [ 1, %invoke.cont195 ], [ %spec.select381, %invoke.cont176.thread ], [ 0, %lor.lhs.false78 ], [ 1, %call14.i.i.noexc ], [ 1, %invoke.cont91 ], [ %spec.select110, %if.then172 ], [ %spec.select110, %call14.i.i.noexc310 ]
-  %.pre423 = load i32, ptr %status, align 4
-  %143 = icmp slt i32 %.pre423, 1
-  %144 = select i1 %143, i8 %found.8.ph, i8 0
+for.end205.loopexit:                              ; preds = %call14.i.i.noexc317, %if.then172, %invoke.cont94, %invoke.cont176.thread, %invoke.cont195, %lor.lhs.false78, %call14.i.i.noexc, %invoke.cont91
+  %mLimit.4.ph = phi i32 [ %mLimit.0, %invoke.cont94 ], [ %mLimit.2, %invoke.cont195 ], [ %mLimit.1, %invoke.cont176.thread ], [ %mLimit.0, %lor.lhs.false78 ], [ %mLimit.0, %call14.i.i.noexc ], [ %mLimit.0, %invoke.cont91 ], [ %mLimit.1, %if.then172 ], [ %mLimit.1, %call14.i.i.noexc317 ]
+  %mStart.2.ph = phi i32 [ %72, %invoke.cont94 ], [ %72, %invoke.cont195 ], [ %72, %invoke.cont176.thread ], [ %mStart.0, %lor.lhs.false78 ], [ %72, %call14.i.i.noexc ], [ %72, %invoke.cont91 ], [ %72, %if.then172 ], [ %72, %call14.i.i.noexc317 ]
+  %found.8.ph = phi i8 [ %spec.select, %invoke.cont94 ], [ 1, %invoke.cont195 ], [ %spec.select388, %invoke.cont176.thread ], [ 0, %lor.lhs.false78 ], [ 1, %call14.i.i.noexc ], [ 1, %invoke.cont91 ], [ %spec.select110, %if.then172 ], [ %spec.select110, %call14.i.i.noexc317 ]
+  %.pre430 = load i32, ptr %status, align 4
+  %147 = icmp slt i32 %.pre430, 1
+  %148 = select i1 %147, i8 %found.8.ph, i8 0
   br label %for.end205
 
 for.end205:                                       ; preds = %for.end205.loopexit, %if.then43
-  %cmp.i341 = phi i8 [ 0, %if.then43 ], [ %144, %for.end205.loopexit ]
+  %cmp.i348 = phi i8 [ 0, %if.then43 ], [ %148, %for.end205.loopexit ]
   %mLimit.4 = phi i32 [ %mLimit.0, %if.then43 ], [ %mLimit.4.ph, %for.end205.loopexit ]
   %mStart.2 = phi i32 [ %mStart.0, %if.then43 ], [ %mStart.2.ph, %for.end205.loopexit ]
-  %cmp212 = icmp eq i8 %cmp.i341, 0
+  %cmp212 = icmp eq i8 %cmp.i348, 0
   %mLimit.5 = select i1 %cmp212, i32 -1, i32 %mLimit.4
   %cmp215.not = icmp eq ptr %matchStart, null
   br i1 %cmp215.not, label %if.end217, label %if.then216
@@ -5505,25 +5526,25 @@ if.then219:                                       ; preds = %if.end217
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then16, %if.end217, %if.then219, %if.end33, %invoke.cont
-  %retval.0 = phi i8 [ 0, %invoke.cont ], [ 0, %if.end33 ], [ %cmp.i341, %if.then219 ], [ %cmp.i341, %if.end217 ], [ 0, %if.then16 ]
-  %buf.i343 = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CEIBuffer", ptr %ceb, i64 0, i32 1
-  %145 = load ptr, ptr %buf.i343, align 8
-  %cmp.not.i344 = icmp eq ptr %145, %ceb
-  br i1 %cmp.not.i344, label %return, label %if.then.i345
+  %retval.0 = phi i8 [ 0, %invoke.cont ], [ 0, %if.end33 ], [ %cmp.i348, %if.then219 ], [ %cmp.i348, %if.end217 ], [ 0, %if.then16 ]
+  %buf.i350 = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CEIBuffer", ptr %ceb, i64 0, i32 1
+  %149 = load ptr, ptr %buf.i350, align 8
+  %cmp.not.i351 = icmp eq ptr %149, %ceb
+  br i1 %cmp.not.i351, label %return, label %if.then.i352
 
-if.then.i345:                                     ; preds = %cleanup
-  invoke void @uprv_free_75(ptr noundef %145)
+if.then.i352:                                     ; preds = %cleanup
+  invoke void @uprv_free_75(ptr noundef %149)
           to label %return unwind label %terminate.lpad.i
 
-terminate.lpad.i:                                 ; preds = %if.then.i345
-  %146 = landingpad { ptr, i32 }
+terminate.lpad.i:                                 ; preds = %if.then.i352
+  %150 = landingpad { ptr, i32 }
           catch ptr null
-  %147 = extractvalue { ptr, i32 } %146, 0
-  call void @__clang_call_terminate(ptr %147) #18
+  %151 = extractvalue { ptr, i32 } %150, 0
+  call void @__clang_call_terminate(ptr %151) #18
   unreachable
 
-return:                                           ; preds = %if.then.i345, %cleanup, %entry, %if.then7
-  %retval.1 = phi i8 [ 0, %if.then7 ], [ 0, %entry ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i345 ]
+return:                                           ; preds = %if.then.i352, %cleanup, %entry, %if.then7
+  %retval.1 = phi i8 [ 0, %if.then7 ], [ 0, %entry ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i352 ]
   ret i8 %retval.1
 }
 

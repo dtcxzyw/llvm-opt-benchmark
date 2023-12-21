@@ -160,20 +160,15 @@ if.then.i:                                        ; preds = %entry
   br label %set_number_format.exit
 
 set_number_format.exit:                           ; preds = %if.then.i, %entry
-  %i.0.i = phi i32 [ 3, %if.then.i ], [ 2, %entry ]
+  %i.0.i = phi i64 [ 3, %if.then.i ], [ 2, %entry ]
   %rem.i = srem i32 %precision, 10
   %1 = trunc i32 %rem.i to i8
   %conv4.i = add nsw i8 %1, 48
-  %inc5.i = add nuw nsw i32 %i.0.i, 1
-  %idxprom6.i = zext nneg i32 %i.0.i to i64
-  %arrayidx7.i = getelementptr inbounds i8, ptr %fmt, i64 %idxprom6.i
+  %arrayidx7.i = getelementptr inbounds i8, ptr %fmt, i64 %i.0.i
   store i8 %conv4.i, ptr %arrayidx7.i, align 1, !tbaa !4
-  %inc8.i = add nuw nsw i32 %i.0.i, 2
-  %idxprom9.i = zext nneg i32 %inc5.i to i64
-  %arrayidx10.i = getelementptr inbounds i8, ptr %fmt, i64 %idxprom9.i
+  %arrayidx10.i = getelementptr i8, ptr %arrayidx7.i, i64 1
   store i8 103, ptr %arrayidx10.i, align 1, !tbaa !4
-  %idxprom11.i = zext nneg i32 %inc8.i to i64
-  %arrayidx12.i = getelementptr inbounds i8, ptr %fmt, i64 %idxprom11.i
+  %arrayidx12.i = getelementptr i8, ptr %arrayidx7.i, i64 2
   store i8 0, ptr %arrayidx12.i, align 1, !tbaa !4
   %2 = load i8, ptr @locale_decimal_point, align 1, !tbaa !4
   %cmp = icmp eq i8 %2, 46

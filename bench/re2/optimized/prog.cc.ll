@@ -3153,7 +3153,7 @@ if.then2.i36.i:                                   ; preds = %for.body.i20.i
   %sub.ptr.div.i.i.i.i.i.i40.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i39.i, 3
   %.pre.i.i.i.i.i.i41.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i40.i
   %add.ptr.i.i.i.i.i.i42.i = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %add.ptr3.i37.i, i64 %.pre.i.i.i.i.i.i41.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i42.i, ptr nonnull align 4 %call5.i3.i1517.i, i64 %sub.ptr.sub.i.i.i.i.i.i39.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i42.i, ptr noundef nonnull align 4 dereferenceable(1) %call5.i3.i1517.i, i64 %sub.ptr.sub.i.i.i.i.i.i39.i, i1 false)
   br label %for.inc.i28.i
 
 if.else.i24.i:                                    ; preds = %for.body.i20.i
@@ -5838,9 +5838,7 @@ while.end.i:                                      ; preds = %while.cond.i
   br i1 %or.cond.i, label %if.then100.i, label %for.inc110.i
 
 if.then100.i:                                     ; preds = %while.end.i
-  %sub.i = add nsw i8 %16, -32
-  %idxprom106.i = zext nneg i8 %sub.i to i64
-  %arrayidx107.i = getelementptr inbounds i64, ptr %call60.i8, i64 %idxprom106.i
+  %arrayidx107.i = getelementptr i64, ptr %arrayidx94.i, i64 -32
   %21 = load i64, ptr %arrayidx107.i, align 8
   %or108.i = or i64 %21, %shl92.i
   store i64 %or108.i, ptr %arrayidx107.i, align 8
@@ -6320,7 +6318,7 @@ for.body.i15.i:                                   ; preds = %for.cond.preheader.
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ET0_T_SB_SA_.exit.i30.i: ; preds = %for.body.i15.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i31.i = ptrtoint ptr %__i.sroa.0.013.i16.i to i64
   %sub.ptr.sub.i.i.i.i.i.i32.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i31.i, %sub.ptr.rhs.cast.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %__i.sroa.0.010.i.ptr.i, ptr nonnull align 1 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i32.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %__i.sroa.0.010.i.ptr.i, ptr noundef nonnull align 1 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i32.i, i1 false)
   br label %for.inc.i21.i
 
 if.else.i19.i:                                    ; preds = %for.body.i15.i

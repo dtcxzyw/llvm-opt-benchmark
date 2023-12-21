@@ -6203,15 +6203,15 @@ entry:
 
 if.then:                                          ; preds = %if.end32, %entry
   %dst.addr.0.lcssa = phi ptr [ %dst, %entry ], [ %dst.addr.2, %if.end32 ]
-  %.lcssa = phi i32 [ %2, %entry ], [ %50, %if.end32 ]
+  %.lcssa = phi i32 [ %2, %entry ], [ %51, %if.end32 ]
   %3 = tail call noundef i32 @llvm.cttz.i32(i32 %.lcssa, i1 true), !range !41
   %idx.ext = zext nneg i32 %3 to i64
   %add.ptr = getelementptr inbounds i8, ptr %dst.addr.0.lcssa, i64 %idx.ext
   br label %return
 
 if.end:                                           ; preds = %entry, %if.end32
-  %4 = phi i32 [ %50, %if.end32 ], [ %2, %entry ]
-  %5 = phi i32 [ %49, %if.end32 ], [ %1, %entry ]
+  %4 = phi i32 [ %51, %if.end32 ], [ %2, %entry ]
+  %5 = phi i32 [ %50, %if.end32 ], [ %1, %entry ]
   %src.addr.059 = phi ptr [ %src.addr.5, %if.end32 ], [ %src, %entry ]
   %dst.addr.058 = phi ptr [ %dst.addr.2, %if.end32 ], [ %dst, %entry ]
   %sub.i13 = add i32 %4, -1
@@ -6414,9 +6414,8 @@ if.end19:                                         ; preds = %if.else
   %idxprom20 = zext nneg i32 %6 to i64
   %arrayidx21 = getelementptr inbounds i8, ptr %dst.addr.058, i64 %idxprom20
   store i8 %47, ptr %arrayidx21, align 1
-  %add22 = add nuw nsw i32 %6, 2
-  %idx.ext23 = zext nneg i32 %add22 to i64
-  %add.ptr24 = getelementptr inbounds i8, ptr %src.addr.059, i64 %idx.ext23
+  %48 = getelementptr i8, ptr %src.addr.059, i64 %idxprom20
+  %add.ptr24 = getelementptr i8, ptr %48, i64 2
   %add.ptr27 = getelementptr inbounds i8, ptr %dst.addr.058, i64 %idxprom
   br label %if.end32
 
@@ -6430,13 +6429,13 @@ if.end32:                                         ; preds = %_ZN8simdjson7haswel
   %src.addr.5 = phi ptr [ %add.ptr24, %if.end19 ], [ %add.ptr30, %if.else29 ], [ %src.addr.3.ph, %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread45 ]
   %.val = load <4 x i64>, ptr %src.addr.5, align 1
   store <4 x i64> %.val, ptr %dst.addr.2, align 1
-  %48 = bitcast <4 x i64> %.val to <32 x i8>
-  %cmp.i.i = icmp eq <32 x i8> %48, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
-  %49 = bitcast <32 x i1> %cmp.i.i to i32
-  %cmp.i24.i = icmp eq <32 x i8> %48, <i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34>
-  %50 = bitcast <32 x i1> %cmp.i24.i to i32
-  %sub.i = add i32 %49, -1
-  %and.i = and i32 %sub.i, %50
+  %49 = bitcast <4 x i64> %.val to <32 x i8>
+  %cmp.i.i = icmp eq <32 x i8> %49, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
+  %50 = bitcast <32 x i1> %cmp.i.i to i32
+  %cmp.i24.i = icmp eq <32 x i8> %49, <i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34>
+  %51 = bitcast <32 x i1> %cmp.i24.i to i32
+  %sub.i = add i32 %50, -1
+  %and.i = and i32 %sub.i, %51
   %cmp.i.not = icmp eq i32 %and.i, 0
   br i1 %cmp.i.not, label %if.end, label %if.then, !llvm.loop !42
 
@@ -6462,15 +6461,15 @@ entry:
 
 if.then.i:                                        ; preds = %if.end32.i, %entry
   %dst.addr.0.lcssa.i = phi ptr [ %dst, %entry ], [ %dst.addr.1.i, %if.end32.i ]
-  %.lcssa.i = phi i32 [ %2, %entry ], [ %50, %if.end32.i ]
+  %.lcssa.i = phi i32 [ %2, %entry ], [ %51, %if.end32.i ]
   %3 = tail call noundef i32 @llvm.cttz.i32(i32 %.lcssa.i, i1 true), !range !41
   %idx.ext.i = zext nneg i32 %3 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %dst.addr.0.lcssa.i, i64 %idx.ext.i
   br label %invoke.cont
 
 if.end.i:                                         ; preds = %entry, %if.end32.i
-  %4 = phi i32 [ %50, %if.end32.i ], [ %2, %entry ]
-  %5 = phi i32 [ %49, %if.end32.i ], [ %1, %entry ]
+  %4 = phi i32 [ %51, %if.end32.i ], [ %2, %entry ]
+  %5 = phi i32 [ %50, %if.end32.i ], [ %1, %entry ]
   %src.addr.054.i = phi ptr [ %src.addr.4.i, %if.end32.i ], [ %src, %entry ]
   %dst.addr.053.i = phi ptr [ %dst.addr.1.i, %if.end32.i ], [ %dst, %entry ]
   %sub.i13.i = add i32 %4, -1
@@ -6660,9 +6659,8 @@ if.end19.i:                                       ; preds = %if.else.i
   %idxprom20.i = zext nneg i32 %6 to i64
   %arrayidx21.i = getelementptr inbounds i8, ptr %dst.addr.053.i, i64 %idxprom20.i
   store i8 %47, ptr %arrayidx21.i, align 1
-  %add22.i = add nuw nsw i32 %6, 2
-  %idx.ext23.i = zext nneg i32 %add22.i to i64
-  %add.ptr24.i = getelementptr inbounds i8, ptr %src.addr.054.i, i64 %idx.ext23.i
+  %48 = getelementptr i8, ptr %src.addr.054.i, i64 %idxprom20.i
+  %add.ptr24.i = getelementptr i8, ptr %48, i64 2
   %add.ptr27.i = getelementptr inbounds i8, ptr %dst.addr.053.i, i64 %idxprom.i
   br label %if.end32.i
 
@@ -6676,13 +6674,13 @@ if.end32.i:                                       ; preds = %if.else29.i, %if.en
   %src.addr.4.i = phi ptr [ %add.ptr24.i, %if.end19.i ], [ %add.ptr30.i, %if.else29.i ], [ %src.addr.3.ph.i, %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i ]
   %.val.i = load <4 x i64>, ptr %src.addr.4.i, align 1
   store <4 x i64> %.val.i, ptr %dst.addr.1.i, align 1
-  %48 = bitcast <4 x i64> %.val.i to <32 x i8>
-  %cmp.i.i.i = icmp eq <32 x i8> %48, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
-  %49 = bitcast <32 x i1> %cmp.i.i.i to i32
-  %cmp.i24.i.i = icmp eq <32 x i8> %48, <i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34>
-  %50 = bitcast <32 x i1> %cmp.i24.i.i to i32
-  %sub.i.i = add i32 %49, -1
-  %and.i.i = and i32 %sub.i.i, %50
+  %49 = bitcast <4 x i64> %.val.i to <32 x i8>
+  %cmp.i.i.i = icmp eq <32 x i8> %49, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
+  %50 = bitcast <32 x i1> %cmp.i.i.i to i32
+  %cmp.i24.i.i = icmp eq <32 x i8> %49, <i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34>
+  %51 = bitcast <32 x i1> %cmp.i24.i.i to i32
+  %sub.i.i = add i32 %50, -1
+  %and.i.i = and i32 %sub.i.i, %51
   %cmp.i.not.i = icmp eq i32 %and.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i, !llvm.loop !43
 
@@ -8443,14 +8441,14 @@ entry:
 
 if.then:                                          ; preds = %if.end32, %entry
   %dst.addr.0.lcssa = phi ptr [ %dst, %entry ], [ %dst.addr.2, %if.end32 ]
-  %.lcssa = phi i64 [ %4, %entry ], [ %54, %if.end32 ]
+  %.lcssa = phi i64 [ %4, %entry ], [ %55, %if.end32 ]
   %5 = tail call i64 @llvm.cttz.i64(i64 %.lcssa, i1 true), !range !45
   %add.ptr = getelementptr inbounds i8, ptr %dst.addr.0.lcssa, i64 %5
   br label %return
 
 if.end:                                           ; preds = %entry, %if.end32
-  %6 = phi i64 [ %54, %if.end32 ], [ %4, %entry ]
-  %7 = phi i64 [ %52, %if.end32 ], [ %2, %entry ]
+  %6 = phi i64 [ %55, %if.end32 ], [ %4, %entry ]
+  %7 = phi i64 [ %53, %if.end32 ], [ %2, %entry ]
   %src.addr.061 = phi ptr [ %src.addr.5, %if.end32 ], [ %src, %entry ]
   %dst.addr.060 = phi ptr [ %dst.addr.2, %if.end32 ], [ %dst, %entry ]
   %sub.i13 = add i64 %6, -1
@@ -8650,8 +8648,8 @@ if.else:                                          ; preds = %if.then4
 if.end19:                                         ; preds = %if.else
   %arrayidx21 = getelementptr inbounds i8, ptr %dst.addr.060, i64 %8
   store i8 %49, ptr %arrayidx21, align 1
-  %add22 = add nuw nsw i64 %8, 2
-  %add.ptr24 = getelementptr inbounds i8, ptr %src.addr.061, i64 %add22
+  %50 = getelementptr i8, ptr %src.addr.061, i64 %8
+  %add.ptr24 = getelementptr i8, ptr %50, i64 2
   %add.ptr27 = getelementptr inbounds i8, ptr %dst.addr.060, i64 %add
   br label %if.end32
 
@@ -8665,13 +8663,13 @@ if.end32:                                         ; preds = %_ZN8simdjson7icelak
   %src.addr.5 = phi ptr [ %add.ptr24, %if.end19 ], [ %add.ptr30, %if.else29 ], [ %src.addr.3.ph, %_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread49 ]
   %.val = load <8 x i64>, ptr %src.addr.5, align 1
   store <8 x i64> %.val, ptr %dst.addr.2, align 1
-  %50 = bitcast <8 x i64> %.val to <64 x i8>
-  %51 = icmp eq <64 x i8> %50, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
-  %52 = bitcast <64 x i1> %51 to i64
-  %53 = icmp eq <64 x i8> %50, <i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34>
-  %54 = bitcast <64 x i1> %53 to i64
-  %sub.i = add i64 %52, -1
-  %and.i = and i64 %sub.i, %54
+  %51 = bitcast <8 x i64> %.val to <64 x i8>
+  %52 = icmp eq <64 x i8> %51, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
+  %53 = bitcast <64 x i1> %52 to i64
+  %54 = icmp eq <64 x i8> %51, <i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34>
+  %55 = bitcast <64 x i1> %54 to i64
+  %sub.i = add i64 %53, -1
+  %and.i = and i64 %sub.i, %55
   %cmp.i.not = icmp eq i64 %and.i, 0
   br i1 %cmp.i.not, label %if.end, label %if.then, !llvm.loop !52
 
@@ -8697,14 +8695,14 @@ entry:
 
 if.then.i:                                        ; preds = %if.end32.i, %entry
   %dst.addr.0.lcssa.i = phi ptr [ %dst, %entry ], [ %dst.addr.1.i, %if.end32.i ]
-  %.lcssa.i = phi i64 [ %4, %entry ], [ %54, %if.end32.i ]
+  %.lcssa.i = phi i64 [ %4, %entry ], [ %55, %if.end32.i ]
   %5 = tail call i64 @llvm.cttz.i64(i64 %.lcssa.i, i1 true), !range !45
   %add.ptr.i = getelementptr inbounds i8, ptr %dst.addr.0.lcssa.i, i64 %5
   br label %invoke.cont
 
 if.end.i:                                         ; preds = %entry, %if.end32.i
-  %6 = phi i64 [ %54, %if.end32.i ], [ %4, %entry ]
-  %7 = phi i64 [ %52, %if.end32.i ], [ %2, %entry ]
+  %6 = phi i64 [ %55, %if.end32.i ], [ %4, %entry ]
+  %7 = phi i64 [ %53, %if.end32.i ], [ %2, %entry ]
   %src.addr.056.i = phi ptr [ %src.addr.4.i, %if.end32.i ], [ %src, %entry ]
   %dst.addr.055.i = phi ptr [ %dst.addr.1.i, %if.end32.i ], [ %dst, %entry ]
   %sub.i13.i = add i64 %6, -1
@@ -8891,8 +8889,8 @@ if.else.i:                                        ; preds = %if.then4.i
 if.end19.i:                                       ; preds = %if.else.i
   %arrayidx21.i = getelementptr inbounds i8, ptr %dst.addr.055.i, i64 %8
   store i8 %49, ptr %arrayidx21.i, align 1
-  %add22.i = add nuw nsw i64 %8, 2
-  %add.ptr24.i = getelementptr inbounds i8, ptr %src.addr.056.i, i64 %add22.i
+  %50 = getelementptr i8, ptr %src.addr.056.i, i64 %8
+  %add.ptr24.i = getelementptr i8, ptr %50, i64 2
   %add.ptr27.i = getelementptr inbounds i8, ptr %dst.addr.055.i, i64 %add.i
   br label %if.end32.i
 
@@ -8906,13 +8904,13 @@ if.end32.i:                                       ; preds = %if.else29.i, %if.en
   %src.addr.4.i = phi ptr [ %add.ptr24.i, %if.end19.i ], [ %add.ptr30.i, %if.else29.i ], [ %src.addr.3.ph.i, %_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i ]
   %.val.i = load <8 x i64>, ptr %src.addr.4.i, align 1
   store <8 x i64> %.val.i, ptr %dst.addr.1.i, align 1
-  %50 = bitcast <8 x i64> %.val.i to <64 x i8>
-  %51 = icmp eq <64 x i8> %50, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
-  %52 = bitcast <64 x i1> %51 to i64
-  %53 = icmp eq <64 x i8> %50, <i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34>
-  %54 = bitcast <64 x i1> %53 to i64
-  %sub.i.i = add i64 %52, -1
-  %and.i.i = and i64 %sub.i.i, %54
+  %51 = bitcast <8 x i64> %.val.i to <64 x i8>
+  %52 = icmp eq <64 x i8> %51, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
+  %53 = bitcast <64 x i1> %52 to i64
+  %54 = icmp eq <64 x i8> %51, <i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34>
+  %55 = bitcast <64 x i1> %54 to i64
+  %sub.i.i = add i64 %53, -1
+  %and.i.i = and i64 %sub.i.i, %55
   %cmp.i.not.i = icmp eq i64 %and.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i, !llvm.loop !53
 
@@ -11267,9 +11265,8 @@ if.end19:                                         ; preds = %if.else
   %idxprom20 = zext nneg i32 %8 to i64
   %arrayidx21 = getelementptr inbounds i8, ptr %dst.addr.0, i64 %idxprom20
   store i8 %49, ptr %arrayidx21, align 1
-  %add22 = add nuw nsw i32 %8, 2
-  %idx.ext23 = zext nneg i32 %add22 to i64
-  %add.ptr24 = getelementptr inbounds i8, ptr %src.addr.0, i64 %idx.ext23
+  %50 = getelementptr i8, ptr %src.addr.0, i64 %idxprom20
+  %add.ptr24 = getelementptr i8, ptr %50, i64 2
   %add.ptr27 = getelementptr inbounds i8, ptr %dst.addr.0, i64 %idxprom
   br label %while.body.backedge
 
@@ -11512,9 +11509,8 @@ if.end19.i:                                       ; preds = %if.else.i
   %idxprom20.i = zext nneg i32 %8 to i64
   %arrayidx21.i = getelementptr inbounds i8, ptr %dst.addr.0.i, i64 %idxprom20.i
   store i8 %49, ptr %arrayidx21.i, align 1
-  %add22.i = add nuw nsw i32 %8, 2
-  %idx.ext23.i = zext nneg i32 %add22.i to i64
-  %add.ptr24.i = getelementptr inbounds i8, ptr %src.addr.0.i, i64 %idx.ext23.i
+  %50 = getelementptr i8, ptr %src.addr.0.i, i64 %idxprom20.i
+  %add.ptr24.i = getelementptr i8, ptr %50, i64 2
   %add.ptr27.i = getelementptr inbounds i8, ptr %dst.addr.0.i, i64 %idxprom.i
   br label %while.body.i.backedge
 

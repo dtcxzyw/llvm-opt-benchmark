@@ -836,18 +836,18 @@ cond.true23.i:                                    ; preds = %cond.false20.i
 cond.false25.i:                                   ; preds = %cond.false20.i
   %21 = load ptr, ptr %13, align 8
   %shr30.i = lshr i32 %8, 11
-  %add31.i = add nuw nsw i32 %shr30.i, 2080
-  %idxprom32.i = zext nneg i32 %add31.i to i64
-  %arrayidx33.i = getelementptr inbounds i16, ptr %21, i64 %idxprom32.i
-  %22 = load i16, ptr %arrayidx33.i, align 2
-  %conv34.i = zext i16 %22 to i32
+  %22 = zext nneg i32 %shr30.i to i64
+  %23 = getelementptr i16, ptr %21, i64 %22
+  %arrayidx33.i = getelementptr i16, ptr %23, i64 2080
+  %24 = load i16, ptr %arrayidx33.i, align 2
+  %conv34.i = zext i16 %24 to i32
   %shr35.i = lshr i32 %8, 5
   %and36.i = and i32 %shr35.i, 63
   %add37.i = add nuw nsw i32 %and36.i, %conv34.i
   %idxprom38.i = zext nneg i32 %add37.i to i64
   %arrayidx39.i = getelementptr inbounds i16, ptr %21, i64 %idxprom38.i
-  %23 = load i16, ptr %arrayidx39.i, align 2
-  %conv40.i = zext i16 %23 to i32
+  %25 = load i16, ptr %arrayidx39.i, align 2
+  %conv40.i = zext i16 %25 to i32
   %shl41.i = shl nuw nsw i32 %conv40.i, 2
   %and42.i = and i32 %8, 31
   %add43.i = add nuw nsw i32 %shl41.i, %and42.i
@@ -857,19 +857,19 @@ _ZNK6icu_7513CollationData7getCE32Ei.exit:        ; preds = %cond.true.i, %cond.
   %cond50.i = phi i32 [ %add3.i, %cond.true.i ], [ %add16.i, %cond.true5.i ], [ 128, %cond.false17.i ], [ %20, %cond.true23.i ], [ %add43.i, %cond.false25.i ]
   %idxprom51.i = sext i32 %cond50.i to i64
   %arrayidx52.i = getelementptr inbounds i32, ptr %14, i64 %idxprom51.i
-  %24 = load i32, ptr %arrayidx52.i, align 4
-  %and33 = and i32 %24, 255
+  %26 = load i32, ptr %arrayidx52.i, align 4
+  %and33 = and i32 %26, 255
   %cmp34 = icmp ult i32 %and33, 192
   br i1 %cmp34, label %if.then35, label %if.end52
 
 if.then35:                                        ; preds = %_ZNK6icu_7513CollationData7getCE32Ei.exit
-  %25 = load i32, ptr %cesIndex, align 8
-  %inc38 = add nsw i32 %25, 1
+  %27 = load i32, ptr %cesIndex, align 8
+  %inc38 = add nsw i32 %27, 1
   store i32 %inc38, ptr %cesIndex, align 8
-  %and39 = and i32 %24, -65536
+  %and39 = and i32 %26, -65536
   %conv40 = zext i32 %and39 to i64
   %shl41 = shl nuw i64 %conv40, 32
-  %and42 = shl i32 %24, 16
+  %and42 = shl i32 %26, 16
   %shl43 = and i32 %and42, -16777216
   %conv44 = zext i32 %shl43 to i64
   %or45 = or disjoint i64 %shl41, %conv44
@@ -877,42 +877,42 @@ if.then35:                                        ; preds = %_ZNK6icu_7513Collat
   %conv47 = zext nneg i32 %shl46 to i64
   %or48 = or disjoint i64 %or45, %conv47
   %buffer.i26 = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %this, i64 0, i32 3, i32 1
-  %conv.i27 = sext i32 %25 to i64
-  %26 = load ptr, ptr %buffer.i26, align 8
-  %arrayidx.i.i28 = getelementptr inbounds i64, ptr %26, i64 %conv.i27
+  %conv.i27 = sext i32 %27 to i64
+  %28 = load ptr, ptr %buffer.i26, align 8
+  %arrayidx.i.i28 = getelementptr inbounds i64, ptr %28, i64 %conv.i27
   store i64 %or48, ptr %arrayidx.i.i28, align 8
   br label %return
 
 if.else:                                          ; preds = %if.end22
   %data51 = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %this, i64 0, i32 2
-  %27 = load ptr, ptr %data51, align 8
+  %29 = load ptr, ptr %data51, align 8
   br label %if.end52
 
 if.end52:                                         ; preds = %_ZNK6icu_7513CollationData7getCE32Ei.exit, %if.else
-  %ce32.0 = phi i32 [ %24, %_ZNK6icu_7513CollationData7getCE32Ei.exit ], [ %call8, %if.else ]
+  %ce32.0 = phi i32 [ %26, %_ZNK6icu_7513CollationData7getCE32Ei.exit ], [ %call8, %if.else ]
   %t.0 = phi i32 [ %and33, %_ZNK6icu_7513CollationData7getCE32Ei.exit ], [ %and, %if.else ]
-  %d.0 = phi ptr [ %12, %_ZNK6icu_7513CollationData7getCE32Ei.exit ], [ %27, %if.else ]
+  %d.0 = phi ptr [ %12, %_ZNK6icu_7513CollationData7getCE32Ei.exit ], [ %29, %if.else ]
   %cmp53 = icmp eq i32 %t.0, 193
   br i1 %cmp53, label %if.then54, label %if.end62
 
 if.then54:                                        ; preds = %if.end52
-  %28 = load i32, ptr %cesIndex, align 8
-  %inc57 = add nsw i32 %28, 1
+  %30 = load i32, ptr %cesIndex, align 8
+  %inc57 = add nsw i32 %30, 1
   store i32 %inc57, ptr %cesIndex, align 8
   %sub = add i32 %ce32.0, -193
   %conv58 = zext i32 %sub to i64
   %shl59 = shl nuw i64 %conv58, 32
   %or60 = or disjoint i64 %shl59, 83887360
   %buffer.i29 = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %this, i64 0, i32 3, i32 1
-  %conv.i30 = sext i32 %28 to i64
-  %29 = load ptr, ptr %buffer.i29, align 8
-  %arrayidx.i.i31 = getelementptr inbounds i64, ptr %29, i64 %conv.i30
+  %conv.i30 = sext i32 %30 to i64
+  %31 = load ptr, ptr %buffer.i29, align 8
+  %arrayidx.i.i31 = getelementptr inbounds i64, ptr %31, i64 %conv.i30
   store i64 %or60, ptr %arrayidx.i.i31, align 8
   br label %return
 
 if.end62:                                         ; preds = %if.end52
-  %30 = load i32, ptr %c, align 4
-  %call63 = call noundef i64 @_ZN6icu_7517CollationIterator14nextCEFromCE32EPKNS_13CollationDataEijR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %this, ptr noundef %d.0, i32 noundef %30, i32 noundef %ce32.0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %32 = load i32, ptr %c, align 4
+  %call63 = call noundef i64 @_ZN6icu_7517CollationIterator14nextCEFromCE32EPKNS_13CollationDataEijR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %this, ptr noundef %d.0, i32 noundef %32, i32 noundef %ce32.0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %return
 
 return:                                           ; preds = %lor.lhs.false.i, %if.end62, %if.then54, %if.then35, %if.then26, %if.then10, %if.then

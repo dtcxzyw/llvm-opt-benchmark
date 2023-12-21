@@ -388,7 +388,7 @@ entry:
   %0 = load i32, ptr %hashCapacity_, align 4
   %sub = add i32 %0, -1
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.hermes::vm::DictPropertyMap", ptr %self, i64 1
-  %descriptorCapacity_.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::DictPropertyMap", ptr %self, i64 0, i32 1
+  %descriptorCapacity_.i.i.i.i.i = getelementptr %"class.hermes::vm::DictPropertyMap", ptr %self, i64 0, i32 1
   %1 = load i32, ptr %descriptorCapacity_.i.i.i.i.i, align 4
   %conv.i.i.i.i.i = zext i32 %1 to i64
   %add.ptr.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %add.ptr.i.i.i.i, i64 %conv.i.i.i.i.i
@@ -413,11 +413,10 @@ if.then:                                          ; preds = %for.cond
 
 _ZNK6hermes2vm15DictPropertyMap7isMatchEPKNS0_6detail11DPMHashPairENS0_8SymbolIDE.exit: ; preds = %if.then
   %bf.lshr.i.i = lshr i32 %bf.load.i, 8
-  %sub.i.i = add nsw i32 %bf.lshr.i.i, -2
-  %idxprom.i = zext nneg i32 %sub.i.i to i64
-  %arrayidx.i = getelementptr inbounds %"struct.std::pair", ptr %add.ptr.i.i.i.i, i64 %idxprom.i
-  %4 = load i32, ptr %arrayidx.i, align 4
-  %cmp.i4.i = icmp eq i32 %4, %symbolID.coerce
+  %4 = zext nneg i32 %bf.lshr.i.i to i64
+  %gep = getelementptr %"struct.std::pair", ptr %descriptorCapacity_.i.i.i.i.i, i64 %4
+  %5 = load i32, ptr %gep, align 4
+  %cmp.i4.i = icmp eq i32 %5, %symbolID.coerce
   br i1 %cmp.i4.i, label %return, label %if.end17
 
 if.else:                                          ; preds = %for.cond
@@ -471,7 +470,7 @@ if.end:                                           ; preds = %entry
 
 for.body.lr.ph:                                   ; preds = %if.end
   %hashCapacity_.i = getelementptr inbounds %"class.hermes::vm::DictPropertyMap", ptr %call, i64 0, i32 2
-  %descriptorCapacity_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::DictPropertyMap", ptr %call, i64 0, i32 1
+  %descriptorCapacity_.i.i.i.i.i.i = getelementptr %"class.hermes::vm::DictPropertyMap", ptr %call, i64 0, i32 1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -514,11 +513,10 @@ if.then.i:                                        ; preds = %for.cond.i
 
 _ZNK6hermes2vm15DictPropertyMap7isMatchEPKNS0_6detail11DPMHashPairENS0_8SymbolIDE.exit.i: ; preds = %if.then.i
   %bf.lshr.i.i.i = lshr i32 %bf.load.i.i, 8
-  %sub.i.i.i = add nsw i32 %bf.lshr.i.i.i, -2
-  %idxprom.i.i = zext nneg i32 %sub.i.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds %"struct.std::pair", ptr %add.ptr.i.i.i, i64 %idxprom.i.i
-  %11 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp.i4.i.i = icmp eq i32 %11, %5
+  %11 = zext nneg i32 %bf.lshr.i.i.i to i64
+  %gep.i = getelementptr %"struct.std::pair", ptr %descriptorCapacity_.i.i.i.i.i.i, i64 %11
+  %12 = load i32, ptr %gep.i, align 4
+  %cmp.i4.i.i = icmp eq i32 %12, %5
   br i1 %cmp.i4.i.i, label %_ZN6hermes2vm15DictPropertyMap14lookupEntryForEPS1_NS0_8SymbolIDE.exit, label %if.end17.i
 
 if.else.i:                                        ; preds = %for.cond.i
@@ -537,8 +535,8 @@ _ZN6hermes2vm15DictPropertyMap14lookupEntryForEPS1_NS0_8SymbolIDE.exit: ; preds 
   %retval.sroa.3.0.i = phi ptr [ %.sroa.speculated.i, %if.else.i ], [ %add.ptr.i, %_ZNK6hermes2vm15DictPropertyMap7isMatchEPKNS0_6detail11DPMHashPairENS0_8SymbolIDE.exit.i ]
   %add.i44 = shl i32 %count.052, 8
   %bf.value.i = add i32 %add.i44, 512
-  %12 = and i32 %5, 255
-  %bf.set7.i = or disjoint i32 %12, %bf.value.i
+  %13 = and i32 %5, 255
+  %bf.set7.i = or disjoint i32 %13, %bf.value.i
   store i32 %bf.set7.i, ptr %retval.sroa.3.0.i, align 4
   %incdec.ptr = getelementptr inbounds %"struct.std::pair", ptr %dst.053, i64 1
   %inc = add i32 %count.052, 1
@@ -557,32 +555,32 @@ for.end:                                          ; preds = %for.inc, %if.end
   %numProperties_ = getelementptr inbounds %"class.hermes::vm::DictPropertyMap", ptr %call, i64 0, i32 4
   store i32 %count.0.lcssa, ptr %numProperties_, align 4
   %deletedListHead_ = getelementptr inbounds %"class.hermes::vm::DictPropertyMap", ptr %1, i64 0, i32 5
-  %13 = load i32, ptr %deletedListHead_, align 4
-  %cmp25.not = icmp eq i32 %13, -1
+  %14 = load i32, ptr %deletedListHead_, align 4
+  %cmp25.not = icmp eq i32 %14, -1
   br i1 %cmp25.not, label %if.end46, label %if.then26
 
 if.then26:                                        ; preds = %for.end
   %deletedListHead_27 = getelementptr inbounds %"class.hermes::vm::DictPropertyMap", ptr %call, i64 0, i32 5
   store i32 %count.0.lcssa, ptr %deletedListHead_27, align 4
   %deletedListSize_ = getelementptr inbounds %"class.hermes::vm::DictPropertyMap", ptr %1, i64 0, i32 6
-  %14 = load i32, ptr %deletedListSize_, align 4
+  %15 = load i32, ptr %deletedListSize_, align 4
   %deletedListSize_28 = getelementptr inbounds %"class.hermes::vm::DictPropertyMap", ptr %call, i64 0, i32 6
-  store i32 %14, ptr %deletedListSize_28, align 4
+  store i32 %15, ptr %deletedListSize_28, align 4
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %if.then26
   %count.2 = phi i32 [ %count.0.lcssa, %if.then26 ], [ %add, %do.body ]
   %dst.2 = phi ptr [ %dst.0.lcssa, %if.then26 ], [ %incdec.ptr43, %do.body ]
-  %deletedIndex.0 = phi i32 [ %13, %if.then26 ], [ %16, %do.body ]
+  %deletedIndex.0 = phi i32 [ %14, %if.then26 ], [ %17, %do.body ]
   %idx.ext31 = zext i32 %deletedIndex.0 to i64
   store i32 536870910, ptr %dst.2, align 4
   %slot = getelementptr inbounds %"struct.std::pair", ptr %add.ptr.i.i.i39.ptr, i64 %idx.ext31, i32 1, i32 0, i32 1
-  %15 = load i32, ptr %slot, align 4
+  %16 = load i32, ptr %slot, align 4
   %slot40 = getelementptr inbounds %"struct.std::pair", ptr %dst.2, i64 0, i32 1, i32 0, i32 1
-  store i32 %15, ptr %slot40, align 4
+  store i32 %16, ptr %slot40, align 4
   %second.i = getelementptr inbounds %"struct.std::pair", ptr %add.ptr.i.i.i39.ptr, i64 %idx.ext31, i32 1
-  %16 = load i32, ptr %second.i, align 4
-  %cmp42.not = icmp eq i32 %16, -1
+  %17 = load i32, ptr %second.i, align 4
+  %cmp42.not = icmp eq i32 %17, -1
   %add = add i32 %count.2, 1
   %cond = select i1 %cmp42.not, i32 -1, i32 %add
   %second.i46 = getelementptr inbounds %"struct.std::pair", ptr %dst.2, i64 0, i32 1
@@ -614,7 +612,7 @@ entry:
   %3 = load i32, ptr %hashCapacity_.i, align 4
   %sub.i = add i32 %3, -1
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::DictPropertyMap", ptr %1, i64 1
-  %descriptorCapacity_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::DictPropertyMap", ptr %1, i64 0, i32 1
+  %descriptorCapacity_.i.i.i.i.i.i = getelementptr %"class.hermes::vm::DictPropertyMap", ptr %1, i64 0, i32 1
   %4 = load i32, ptr %descriptorCapacity_.i.i.i.i.i.i, align 4
   %conv.i.i.i.i.i.i = zext i32 %4 to i64
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %add.ptr.i.i.i.i.i, i64 %conv.i.i.i.i.i.i
@@ -639,11 +637,10 @@ if.then.i:                                        ; preds = %for.cond.i
 
 _ZNK6hermes2vm15DictPropertyMap7isMatchEPKNS0_6detail11DPMHashPairENS0_8SymbolIDE.exit.i: ; preds = %if.then.i
   %bf.lshr.i.i.i = lshr i32 %bf.load.i.i, 8
-  %sub.i.i.i = add nsw i32 %bf.lshr.i.i.i, -2
-  %idxprom.i.i = zext nneg i32 %sub.i.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds %"struct.std::pair", ptr %add.ptr.i.i.i.i.i, i64 %idxprom.i.i
-  %7 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp.i4.i.i = icmp eq i32 %7, %id.coerce
+  %7 = zext nneg i32 %bf.lshr.i.i.i to i64
+  %gep.i = getelementptr %"struct.std::pair", ptr %descriptorCapacity_.i.i.i.i.i.i, i64 %7
+  %8 = load i32, ptr %gep.i, align 4
+  %cmp.i4.i.i = icmp eq i32 %8, %id.coerce
   br i1 %cmp.i4.i.i, label %if.then, label %if.end17.i
 
 if.else.i:                                        ; preds = %for.cond.i
@@ -659,7 +656,9 @@ if.end17.i:                                       ; preds = %if.else.i, %_ZNK6he
   br label %for.cond.i, !llvm.loop !14
 
 if.then:                                          ; preds = %_ZNK6hermes2vm15DictPropertyMap7isMatchEPKNS0_6detail11DPMHashPairENS0_8SymbolIDE.exit.i
-  %second7 = getelementptr inbounds %"struct.std::pair", ptr %add.ptr.i.i.i.i.i, i64 %idxprom.i.i, i32 1
+  %sub.i33 = add nsw i32 %bf.lshr.i.i.i, -2
+  %idxprom = zext nneg i32 %sub.i33 to i64
+  %second7 = getelementptr inbounds %"struct.std::pair", ptr %add.ptr.i.i.i.i.i, i64 %idxprom, i32 1
   %hasVal.i.i.i = getelementptr inbounds %"struct.llvh::optional_detail::OptionalStorage", ptr %agg.result, i64 0, i32 1
   store i8 1, ptr %hasVal.i.i.i, align 8
   store ptr %second7, ptr %agg.result, align 8
@@ -673,8 +672,8 @@ if.end:                                           ; preds = %if.else.i
 
 if.then10:                                        ; preds = %if.end
   %numProperties_ = getelementptr inbounds %"class.hermes::vm::DictPropertyMap", ptr %1, i64 0, i32 4
-  %8 = load i32, ptr %numProperties_, align 4
-  %cmp12 = icmp eq i32 %8, %2
+  %9 = load i32, ptr %numProperties_, align 4
+  %cmp12 = icmp eq i32 %9, %2
   br i1 %cmp12, label %if.then13, label %if.else
 
 if.then13:                                        ; preds = %if.then10
@@ -688,10 +687,10 @@ if.then16:                                        ; preds = %if.then13
   br label %if.end26
 
 if.else:                                          ; preds = %if.then10
-  %add24 = add i32 %8, 1
+  %add24 = add i32 %9, 1
   %deletedListSize_ = getelementptr inbounds %"class.hermes::vm::DictPropertyMap", ptr %1, i64 0, i32 6
-  %9 = load i32, ptr %deletedListSize_, align 4
-  %add25 = add i32 %add24, %9
+  %10 = load i32, ptr %deletedListSize_, align 4
+  %add25 = add i32 %add24, %10
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then13, %if.then16, %if.else
@@ -706,19 +705,19 @@ if.then29:                                        ; preds = %if.end26
   br label %return
 
 if.end30:                                         ; preds = %if.end26
-  %10 = load ptr, ptr %selfHandleRef, align 8
-  %retval.sroa.0.0.copyload.i.i.i37 = load i64, ptr %10, align 8
+  %11 = load ptr, ptr %selfHandleRef, align 8
+  %retval.sroa.0.0.copyload.i.i.i37 = load i64, ptr %11, align 8
   %and.i.i.i.i.i38 = and i64 %retval.sroa.0.0.copyload.i.i.i37, 281474976710655
-  %11 = inttoptr i64 %and.i.i.i.i.i38 to ptr
-  %numDescriptors_32 = getelementptr inbounds %"class.hermes::vm::DictPropertyMap", ptr %11, i64 0, i32 3
-  %12 = load atomic i32, ptr %numDescriptors_32 monotonic, align 4
-  %hashCapacity_.i39 = getelementptr inbounds %"class.hermes::vm::DictPropertyMap", ptr %11, i64 0, i32 2
-  %13 = load i32, ptr %hashCapacity_.i39, align 4
-  %sub.i40 = add i32 %13, -1
-  %add.ptr.i.i.i.i.i41 = getelementptr inbounds %"class.hermes::vm::DictPropertyMap", ptr %11, i64 1
-  %descriptorCapacity_.i.i.i.i.i.i42 = getelementptr inbounds %"class.hermes::vm::DictPropertyMap", ptr %11, i64 0, i32 1
-  %14 = load i32, ptr %descriptorCapacity_.i.i.i.i.i.i42, align 4
-  %conv.i.i.i.i.i.i43 = zext i32 %14 to i64
+  %12 = inttoptr i64 %and.i.i.i.i.i38 to ptr
+  %numDescriptors_32 = getelementptr inbounds %"class.hermes::vm::DictPropertyMap", ptr %12, i64 0, i32 3
+  %13 = load atomic i32, ptr %numDescriptors_32 monotonic, align 4
+  %hashCapacity_.i39 = getelementptr inbounds %"class.hermes::vm::DictPropertyMap", ptr %12, i64 0, i32 2
+  %14 = load i32, ptr %hashCapacity_.i39, align 4
+  %sub.i40 = add i32 %14, -1
+  %add.ptr.i.i.i.i.i41 = getelementptr inbounds %"class.hermes::vm::DictPropertyMap", ptr %12, i64 1
+  %descriptorCapacity_.i.i.i.i.i.i42 = getelementptr %"class.hermes::vm::DictPropertyMap", ptr %12, i64 0, i32 1
+  %15 = load i32, ptr %descriptorCapacity_.i.i.i.i.i.i42, align 4
+  %conv.i.i.i.i.i.i43 = zext i32 %15 to i64
   %add.ptr.i.i.i.i44 = getelementptr inbounds %"struct.std::pair", ptr %add.ptr.i.i.i.i.i41, i64 %conv.i.i.i.i.i.i43
   br label %for.cond.i45
 
@@ -734,19 +733,18 @@ for.cond.i45:                                     ; preds = %if.end17.i59, %if.e
   br i1 %cmp.i.i53, label %if.then.i70, label %if.else.i54
 
 if.then.i70:                                      ; preds = %for.cond.i45
-  %15 = xor i32 %bf.load.i.i52, %id.coerce
-  %16 = and i32 %15, 255
-  %cmp.i.i.i71 = icmp eq i32 %16, 0
+  %16 = xor i32 %bf.load.i.i52, %id.coerce
+  %17 = and i32 %16, 255
+  %cmp.i.i.i71 = icmp eq i32 %17, 0
   br i1 %cmp.i.i.i71, label %_ZNK6hermes2vm15DictPropertyMap7isMatchEPKNS0_6detail11DPMHashPairENS0_8SymbolIDE.exit.i72, label %if.end17.i59
 
 _ZNK6hermes2vm15DictPropertyMap7isMatchEPKNS0_6detail11DPMHashPairENS0_8SymbolIDE.exit.i72: ; preds = %if.then.i70
   %bf.lshr.i.i.i73 = lshr i32 %bf.load.i.i52, 8
-  %sub.i.i.i74 = add nsw i32 %bf.lshr.i.i.i73, -2
-  %idxprom.i.i75 = zext nneg i32 %sub.i.i.i74 to i64
-  %arrayidx.i.i76 = getelementptr inbounds %"struct.std::pair", ptr %add.ptr.i.i.i.i.i41, i64 %idxprom.i.i75
-  %17 = load i32, ptr %arrayidx.i.i76, align 4
-  %cmp.i4.i.i77 = icmp eq i32 %17, %id.coerce
-  br i1 %cmp.i4.i.i77, label %if.end39, label %if.end17.i59
+  %18 = zext nneg i32 %bf.lshr.i.i.i73 to i64
+  %gep.i74 = getelementptr %"struct.std::pair", ptr %descriptorCapacity_.i.i.i.i.i.i42, i64 %18
+  %19 = load i32, ptr %gep.i74, align 4
+  %cmp.i4.i.i75 = icmp eq i32 %19, %id.coerce
+  br i1 %cmp.i4.i.i75, label %if.end39, label %if.end17.i59
 
 if.else.i54:                                      ; preds = %for.cond.i45
   %cmp.i9.i55 = icmp ult i32 %bf.load.i.i52, 256
@@ -762,34 +760,34 @@ if.end17.i59:                                     ; preds = %if.else.i54, %_ZNK6
 
 if.end39:                                         ; preds = %_ZNK6hermes2vm15DictPropertyMap7isMatchEPKNS0_6detail11DPMHashPairENS0_8SymbolIDE.exit.i72, %if.else.i54, %if.end
   %found.sroa.2.0 = phi ptr [ %.sroa.speculated.i, %if.end ], [ %add.ptr.i51, %_ZNK6hermes2vm15DictPropertyMap7isMatchEPKNS0_6detail11DPMHashPairENS0_8SymbolIDE.exit.i72 ], [ %.sroa.speculated.i65, %if.else.i54 ]
-  %numDescriptors.0 = phi i32 [ %2, %if.end ], [ %12, %if.else.i54 ], [ %12, %_ZNK6hermes2vm15DictPropertyMap7isMatchEPKNS0_6detail11DPMHashPairENS0_8SymbolIDE.exit.i72 ]
-  %self.0 = phi ptr [ %1, %if.end ], [ %11, %if.else.i54 ], [ %11, %_ZNK6hermes2vm15DictPropertyMap7isMatchEPKNS0_6detail11DPMHashPairENS0_8SymbolIDE.exit.i72 ]
+  %numDescriptors.0 = phi i32 [ %2, %if.end ], [ %13, %if.else.i54 ], [ %13, %_ZNK6hermes2vm15DictPropertyMap7isMatchEPKNS0_6detail11DPMHashPairENS0_8SymbolIDE.exit.i72 ]
+  %self.0 = phi ptr [ %1, %if.end ], [ %12, %if.else.i54 ], [ %12, %_ZNK6hermes2vm15DictPropertyMap7isMatchEPKNS0_6detail11DPMHashPairENS0_8SymbolIDE.exit.i72 ]
   %numProperties_40 = getelementptr inbounds %"class.hermes::vm::DictPropertyMap", ptr %self.0, i64 0, i32 4
-  %18 = load i32, ptr %numProperties_40, align 4
-  %inc = add i32 %18, 1
+  %20 = load i32, ptr %numProperties_40, align 4
+  %inc = add i32 %20, 1
   store i32 %inc, ptr %numProperties_40, align 4
-  %add.i83 = shl i32 %numDescriptors.0, 8
-  %bf.value.i = add i32 %add.i83, 512
-  %19 = and i32 %id.coerce, 255
-  %bf.set7.i = or disjoint i32 %bf.value.i, %19
+  %add.i81 = shl i32 %numDescriptors.0, 8
+  %bf.value.i = add i32 %add.i81, 512
+  %21 = and i32 %id.coerce, 255
+  %bf.set7.i = or disjoint i32 %bf.value.i, %21
   store i32 %bf.set7.i, ptr %found.sroa.2.0, align 4
-  %add.ptr.i.i.i84 = getelementptr inbounds %"class.hermes::vm::DictPropertyMap", ptr %self.0, i64 1
+  %add.ptr.i.i.i82 = getelementptr inbounds %"class.hermes::vm::DictPropertyMap", ptr %self.0, i64 1
   %idx.ext = zext i32 %numDescriptors.0 to i64
-  %add.ptr = getelementptr inbounds %"struct.std::pair", ptr %add.ptr.i.i.i84, i64 %idx.ext
+  %add.ptr = getelementptr inbounds %"struct.std::pair", ptr %add.ptr.i.i.i82, i64 %idx.ext
   %heapStorage_.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 97
   %youngGen_.i.i.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 97, i32 0, i32 5
-  %20 = load ptr, ptr %youngGen_.i.i.i, align 8
-  %21 = ptrtoint ptr %add.ptr to i64
-  %and.i.i.i.i = and i64 %21, -4194304
-  %22 = inttoptr i64 %and.i.i.i.i to ptr
-  %cmp.i.i.i85 = icmp eq ptr %20, %22
-  br i1 %cmp.i.i.i85, label %_ZN6hermes2vm10GCSymbolID3setENS0_8SymbolIDERNS0_7HadesGCE.exit, label %land.rhs.i.i
+  %22 = load ptr, ptr %youngGen_.i.i.i, align 8
+  %23 = ptrtoint ptr %add.ptr to i64
+  %and.i.i.i.i = and i64 %23, -4194304
+  %24 = inttoptr i64 %and.i.i.i.i to ptr
+  %cmp.i.i.i83 = icmp eq ptr %22, %24
+  br i1 %cmp.i.i.i83, label %_ZN6hermes2vm10GCSymbolID3setENS0_8SymbolIDERNS0_7HadesGCE.exit, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %if.end39
   %ogMarkingBarriers_.i.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 97, i32 0, i32 14
-  %23 = load i8, ptr %ogMarkingBarriers_.i.i, align 1
-  %24 = and i8 %23, 1
-  %tobool.not.i.i = icmp eq i8 %24, 0
+  %25 = load i8, ptr %ogMarkingBarriers_.i.i, align 1
+  %26 = and i8 %25, 1
+  %tobool.not.i.i = icmp eq i8 %26, 0
   br i1 %tobool.not.i.i, label %_ZN6hermes2vm10GCSymbolID3setENS0_8SymbolIDERNS0_7HadesGCE.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.rhs.i.i
@@ -800,10 +798,10 @@ if.then.i.i:                                      ; preds = %land.rhs.i.i
 _ZN6hermes2vm10GCSymbolID3setENS0_8SymbolIDERNS0_7HadesGCE.exit: ; preds = %if.end39, %land.rhs.i.i, %if.then.i.i
   store i32 %id.coerce, ptr %add.ptr, align 4
   %numDescriptors_55 = getelementptr inbounds %"class.hermes::vm::DictPropertyMap", ptr %self.0, i64 0, i32 3
-  %25 = atomicrmw add ptr %numDescriptors_55, i32 1 acq_rel, align 4
-  %second59 = getelementptr inbounds %"struct.std::pair", ptr %add.ptr.i.i.i84, i64 %idx.ext, i32 1
-  %hasVal.i.i.i88 = getelementptr inbounds %"struct.llvh::optional_detail::OptionalStorage", ptr %agg.result, i64 0, i32 1
-  store i8 1, ptr %hasVal.i.i.i88, align 8
+  %27 = atomicrmw add ptr %numDescriptors_55, i32 1 acq_rel, align 4
+  %second59 = getelementptr inbounds %"struct.std::pair", ptr %add.ptr.i.i.i82, i64 %idx.ext, i32 1
+  %hasVal.i.i.i86 = getelementptr inbounds %"struct.llvh::optional_detail::OptionalStorage", ptr %agg.result, i64 0, i32 1
+  store i8 1, ptr %hasVal.i.i.i86, align 8
   store ptr %second59, ptr %agg.result, align 8
   %ref.tmp57.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 1, ptr %ref.tmp57.sroa.2.0.agg.result.sroa_idx, align 8

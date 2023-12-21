@@ -839,6 +839,7 @@ lpad:                                             ; preds = %if.then
 
 if.end:                                           ; preds = %entry
   %sub = add nsw i32 %numSrcBits, -128
+  %invariant.gep = getelementptr i16, ptr %dst, i64 -1
   %cmp4178 = icmp sgt i32 %numDstElems, 0
   br i1 %cmp4178, label %while.body.lr.ph, label %while.end94
 
@@ -1176,12 +1177,10 @@ if.end66:                                         ; preds = %if.end59
   br i1 %cmp67, label %if.then68, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end66
-  %sub74 = add nsw i32 %dstIdx.0184, -1
-  %idxprom75 = zext nneg i32 %sub74 to i64
-  %arrayidx76 = getelementptr inbounds i16, ptr %dst, i64 %idxprom75
   %31 = zext nneg i32 %dstIdx.0184 to i64
-  %.pre = load i16, ptr %arrayidx76, align 2
-  %invariant.gep = getelementptr i16, ptr %dst, i64 %31
+  %gep = getelementptr i16, ptr %invariant.gep, i64 %31
+  %.pre = load i16, ptr %gep, align 2
+  %invariant.gep199 = getelementptr i16, ptr %dst, i64 %31
   br label %for.body
 
 if.then68:                                        ; preds = %if.end66
@@ -1200,8 +1199,8 @@ lpad70:                                           ; preds = %if.then68
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv190 = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next191, %for.body ]
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv190
-  store i16 %.pre, ptr %gep, align 2
+  %gep200 = getelementptr i16, ptr %invariant.gep199, i64 %indvars.iv190
+  store i16 %.pre, ptr %gep200, align 2
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next191, %shr52
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20

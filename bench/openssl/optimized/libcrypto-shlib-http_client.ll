@@ -2870,26 +2870,26 @@ if.then117:                                       ; preds = %if.end112
   %tobool120.not = icmp eq i32 %call119, 0
   %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 9
   %spec.select = select i1 %tobool120.not, ptr %add.ptr113, ptr %incdec.ptr
+  %invariant.gep = getelementptr i8, ptr %call, i64 -1
   %4 = zext nneg i32 %call94 to i64
-  br label %while.cond
+  br label %land.rhs
 
-while.cond:                                       ; preds = %land.rhs, %if.then117
-  %indvars.iv = phi i64 [ %indvars.iv.next, %land.rhs ], [ %4, %if.then117 ]
-  %cmp123 = icmp sgt i64 %indvars.iv, 0
-  br i1 %cmp123, label %land.rhs, label %while.end
-
-land.rhs:                                         ; preds = %while.cond
-  %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %idxprom = and i64 %indvars.iv.next, 4294967295
-  %arrayidx = getelementptr inbounds i8, ptr %call, i64 %idxprom
-  %5 = load i8, ptr %arrayidx, align 1
+land.rhs:                                         ; preds = %if.then117, %while.body
+  %indvars.iv = phi i64 [ %4, %if.then117 ], [ %indvars.iv.next, %while.body ]
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
+  %5 = load i8, ptr %gep, align 1
   %conv125 = sext i8 %5 to i32
   %call126 = tail call i32 @ossl_ctype_check(i32 noundef %conv125, i32 noundef 8) #9
   %tobool127.not = icmp eq i32 %call126, 0
-  br i1 %tobool127.not, label %while.end, label %while.cond, !llvm.loop !17
+  br i1 %tobool127.not, label %while.end, label %while.body
 
-while.end:                                        ; preds = %while.cond, %land.rhs
-  %read_len.0.lcssa = phi i64 [ 0, %while.cond ], [ %indvars.iv, %land.rhs ]
+while.body:                                       ; preds = %land.rhs
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %cmp123 = icmp sgt i64 %indvars.iv, 1
+  br i1 %cmp123, label %land.rhs, label %while.end, !llvm.loop !17
+
+while.end:                                        ; preds = %while.body, %land.rhs
+  %read_len.0.lcssa = phi i64 [ 0, %while.body ], [ %indvars.iv, %land.rhs ]
   %sext = shl i64 %read_len.0.lcssa, 32
   %idxprom128 = ashr exact i64 %sext, 32
   %arrayidx129 = getelementptr inbounds i8, ptr %call, i64 %idxprom128

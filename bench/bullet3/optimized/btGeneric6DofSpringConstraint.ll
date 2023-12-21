@@ -254,18 +254,17 @@ entry:
   tail call void @_ZN23btGeneric6DofConstraint19calculateTransformsEv(ptr noundef nonnull align 8 dereferenceable(1333) %this)
   %cmp = icmp slt i32 %index, 3
   %m_calculatedAxisAngleDiff = getelementptr inbounds %class.btGeneric6DofConstraint, ptr %this, i64 0, i32 10
-  %sub = add nsw i32 %index, -3
-  %idxprom5 = zext nneg i32 %sub to i64
-  %arrayidx6 = getelementptr inbounds float, ptr %m_calculatedAxisAngleDiff, i64 %idxprom5
-  %idxprom8 = zext nneg i32 %index to i64
+  %0 = zext nneg i32 %index to i64
+  %1 = getelementptr float, ptr %m_calculatedAxisAngleDiff, i64 %0
+  %arrayidx6 = getelementptr float, ptr %1, i64 -3
   %m_calculatedLinearDiff = getelementptr inbounds %class.btGeneric6DofConstraint, ptr %this, i64 0, i32 12
   %idxprom = sext i32 %index to i64
   %arrayidx = getelementptr inbounds float, ptr %m_calculatedLinearDiff, i64 %idxprom
-  %idxprom8.sink = select i1 %cmp, i64 %idxprom, i64 %idxprom8
-  %.sink.in = select i1 %cmp, ptr %arrayidx, ptr %arrayidx6
-  %.sink = load float, ptr %.sink.in, align 4
-  %arrayidx9 = getelementptr inbounds %class.btGeneric6DofSpringConstraint, ptr %this, i64 0, i32 2, i64 %idxprom8.sink
-  store float %.sink, ptr %arrayidx9, align 4
+  %arrayidx6.sink = select i1 %cmp, ptr %arrayidx, ptr %arrayidx6
+  %.sink5 = select i1 %cmp, i64 %idxprom, i64 %0
+  %2 = load float, ptr %arrayidx6.sink, align 4
+  %arrayidx9 = getelementptr inbounds %class.btGeneric6DofSpringConstraint, ptr %this, i64 0, i32 2, i64 %.sink5
+  store float %2, ptr %arrayidx9, align 4
   ret void
 }
 

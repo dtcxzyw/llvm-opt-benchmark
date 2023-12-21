@@ -11932,28 +11932,27 @@ for.body:                                         ; preds = %for.body.preheader,
 
 while.body:                                       ; preds = %for.body, %if.end
   %indvars.iv20 = phi i64 [ %indvars.iv, %for.body ], [ %indvars.iv.next21, %if.end ]
-  %indvars.iv.next21 = add nsw i64 %indvars.iv20, -1
-  %idxprom2 = and i64 %indvars.iv.next21, 4294967295
-  %y04 = getelementptr inbounds %struct.stbtt__edge, ptr %p, i64 %idxprom2, i32 1
-  %2 = load float, ptr %y04, align 4
-  %cmp5 = fcmp olt float %1, %2
+  %2 = getelementptr %struct.stbtt__edge, ptr %p, i64 %indvars.iv20
+  %y04 = getelementptr %struct.stbtt__edge, ptr %2, i64 -1, i32 1
+  %3 = load float, ptr %y04, align 4
+  %cmp5 = fcmp olt float %1, %3
   br i1 %cmp5, label %if.end, label %while.end.split.loop.exit
 
 if.end:                                           ; preds = %while.body
-  %arrayidx3 = getelementptr inbounds %struct.stbtt__edge, ptr %p, i64 %idxprom2
-  %arrayidx7 = getelementptr inbounds %struct.stbtt__edge, ptr %p, i64 %indvars.iv20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %arrayidx7, ptr noundef nonnull align 4 dereferenceable(20) %arrayidx3, i64 20, i1 false)
-  %3 = icmp sgt i64 %indvars.iv20, 1
-  br i1 %3, label %while.body, label %while.end, !llvm.loop !49
+  %arrayidx3 = getelementptr %struct.stbtt__edge, ptr %2, i64 -1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2, ptr noundef nonnull align 4 dereferenceable(20) %arrayidx3, i64 20, i1 false)
+  %indvars.iv.next21 = add nsw i64 %indvars.iv20, -1
+  %4 = icmp sgt i64 %indvars.iv20, 1
+  br i1 %4, label %while.body, label %while.end, !llvm.loop !49
 
 while.end.split.loop.exit:                        ; preds = %while.body
-  %4 = trunc i64 %indvars.iv20 to i32
+  %5 = trunc i64 %indvars.iv20 to i32
   br label %while.end
 
 while.end:                                        ; preds = %if.end, %while.end.split.loop.exit
-  %j.0.lcssa = phi i32 [ %4, %while.end.split.loop.exit ], [ 0, %if.end ]
-  %5 = zext i32 %j.0.lcssa to i64
-  %cmp11.not = icmp eq i64 %indvars.iv, %5
+  %j.0.lcssa = phi i32 [ %5, %while.end.split.loop.exit ], [ 0, %if.end ]
+  %6 = zext i32 %j.0.lcssa to i64
+  %cmp11.not = icmp eq i64 %indvars.iv, %6
   br i1 %cmp11.not, label %for.inc, label %if.then13
 
 if.then13:                                        ; preds = %while.end
@@ -12106,28 +12105,27 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 while.body.i:                                     ; preds = %if.end.i, %for.body.i
   %indvars.iv20.i = phi i64 [ %indvars.iv.i, %for.body.i ], [ %indvars.iv.next21.i, %if.end.i ]
-  %indvars.iv.next21.i = add nsw i64 %indvars.iv20.i, -1
-  %idxprom2.i = and i64 %indvars.iv.next21.i, 4294967295
-  %y04.i = getelementptr inbounds %struct.stbtt__edge, ptr %p, i64 %idxprom2.i, i32 1
-  %2 = load float, ptr %y04.i, align 4
-  %cmp5.i = fcmp olt float %1, %2
+  %2 = getelementptr %struct.stbtt__edge, ptr %p, i64 %indvars.iv20.i
+  %y04.i = getelementptr %struct.stbtt__edge, ptr %2, i64 -1, i32 1
+  %3 = load float, ptr %y04.i, align 4
+  %cmp5.i = fcmp olt float %1, %3
   br i1 %cmp5.i, label %if.end.i, label %while.end.split.loop.exit.i
 
 if.end.i:                                         ; preds = %while.body.i
-  %arrayidx3.i = getelementptr inbounds %struct.stbtt__edge, ptr %p, i64 %idxprom2.i
-  %arrayidx7.i = getelementptr inbounds %struct.stbtt__edge, ptr %p, i64 %indvars.iv20.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %arrayidx7.i, ptr noundef nonnull align 4 dereferenceable(20) %arrayidx3.i, i64 20, i1 false)
-  %3 = icmp sgt i64 %indvars.iv20.i, 1
-  br i1 %3, label %while.body.i, label %while.end.i, !llvm.loop !49
+  %arrayidx3.i = getelementptr %struct.stbtt__edge, ptr %2, i64 -1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2, ptr noundef nonnull align 4 dereferenceable(20) %arrayidx3.i, i64 20, i1 false)
+  %indvars.iv.next21.i = add nsw i64 %indvars.iv20.i, -1
+  %4 = icmp sgt i64 %indvars.iv20.i, 1
+  br i1 %4, label %while.body.i, label %while.end.i, !llvm.loop !49
 
 while.end.split.loop.exit.i:                      ; preds = %while.body.i
-  %4 = trunc i64 %indvars.iv20.i to i32
+  %5 = trunc i64 %indvars.iv20.i to i32
   br label %while.end.i
 
 while.end.i:                                      ; preds = %if.end.i, %while.end.split.loop.exit.i
-  %j.0.lcssa.i = phi i32 [ %4, %while.end.split.loop.exit.i ], [ 0, %if.end.i ]
-  %5 = zext i32 %j.0.lcssa.i to i64
-  %cmp11.not.i = icmp eq i64 %indvars.iv.i, %5
+  %j.0.lcssa.i = phi i32 [ %5, %while.end.split.loop.exit.i ], [ 0, %if.end.i ]
+  %6 = zext i32 %j.0.lcssa.i to i64
+  %cmp11.not.i = icmp eq i64 %indvars.iv.i, %6
   br i1 %cmp11.not.i, label %for.inc.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %while.end.i
@@ -12386,28 +12384,27 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %for.body.i.i
   %indvars.iv20.i.i = phi i64 [ %indvars.iv.i.i, %for.body.i.i ], [ %indvars.iv.next21.i.i, %if.end.i.i ]
-  %indvars.iv.next21.i.i = add nsw i64 %indvars.iv20.i.i, -1
-  %idxprom2.i.i = and i64 %indvars.iv.next21.i.i, 4294967295
-  %y04.i.i = getelementptr inbounds %struct.stbtt__edge, ptr %call, i64 %idxprom2.i.i, i32 1
-  %38 = load float, ptr %y04.i.i, align 4
-  %cmp5.i.i = fcmp olt float %37, %38
+  %38 = getelementptr %struct.stbtt__edge, ptr %call, i64 %indvars.iv20.i.i
+  %y04.i.i = getelementptr %struct.stbtt__edge, ptr %38, i64 -1, i32 1
+  %39 = load float, ptr %y04.i.i, align 4
+  %cmp5.i.i = fcmp olt float %37, %39
   br i1 %cmp5.i.i, label %if.end.i.i, label %while.end.split.loop.exit.i.i
 
 if.end.i.i:                                       ; preds = %while.body.i.i
-  %arrayidx3.i.i = getelementptr inbounds %struct.stbtt__edge, ptr %call, i64 %idxprom2.i.i
-  %arrayidx7.i.i = getelementptr inbounds %struct.stbtt__edge, ptr %call, i64 %indvars.iv20.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %arrayidx7.i.i, ptr noundef nonnull align 4 dereferenceable(20) %arrayidx3.i.i, i64 20, i1 false)
-  %39 = icmp sgt i64 %indvars.iv20.i.i, 1
-  br i1 %39, label %while.body.i.i, label %while.end.i.i, !llvm.loop !49
+  %arrayidx3.i.i = getelementptr %struct.stbtt__edge, ptr %38, i64 -1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %38, ptr noundef nonnull align 4 dereferenceable(20) %arrayidx3.i.i, i64 20, i1 false)
+  %indvars.iv.next21.i.i = add nsw i64 %indvars.iv20.i.i, -1
+  %40 = icmp sgt i64 %indvars.iv20.i.i, 1
+  br i1 %40, label %while.body.i.i, label %while.end.i.i, !llvm.loop !49
 
 while.end.split.loop.exit.i.i:                    ; preds = %while.body.i.i
-  %40 = trunc i64 %indvars.iv20.i.i to i32
+  %41 = trunc i64 %indvars.iv20.i.i to i32
   br label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %if.end.i.i, %while.end.split.loop.exit.i.i
-  %j.0.lcssa.i.i = phi i32 [ %40, %while.end.split.loop.exit.i.i ], [ 0, %if.end.i.i ]
-  %41 = zext i32 %j.0.lcssa.i.i to i64
-  %cmp11.not.i.i = icmp eq i64 %indvars.iv.i.i, %41
+  %j.0.lcssa.i.i = phi i32 [ %41, %while.end.split.loop.exit.i.i ], [ 0, %if.end.i.i ]
+  %42 = zext i32 %j.0.lcssa.i.i to i64
+  %cmp11.not.i.i = icmp eq i64 %indvars.iv.i.i, %42
   br i1 %cmp11.not.i.i, label %for.inc.i.i, label %if.then13.i.i
 
 if.then13.i.i:                                    ; preds = %while.end.i.i

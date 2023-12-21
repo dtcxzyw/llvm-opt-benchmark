@@ -296,48 +296,48 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr_stack.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr_stack.exit
 
 if.else3.i:                                       ; preds = %entry
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr_stack.exit
 
 index2adr_stack.exit:                             ; preds = %if.then.i, %if.else.i, %if.else3.i
-  %5 = phi ptr [ %1, %if.else.i ], [ %4, %if.else3.i ], [ %1, %if.then.i ]
+  %7 = phi ptr [ %3, %if.else.i ], [ %6, %if.else3.i ], [ %3, %if.then.i ]
   %retval.0.i = phi ptr [ %nilnode.i, %if.else.i ], [ %add.ptr6.i, %if.else3.i ], [ %add.ptr.i, %if.then.i ]
   %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
   %incdec.ptr7 = getelementptr inbounds %union.TValue, ptr %retval.0.i, i64 1
-  %cmp8 = icmp ult ptr %incdec.ptr7, %5
+  %cmp8 = icmp ult ptr %incdec.ptr7, %7
   br i1 %cmp8, label %while.body, label %while.end
 
 while.body:                                       ; preds = %index2adr_stack.exit, %while.body
   %incdec.ptr10 = phi ptr [ %incdec.ptr, %while.body ], [ %incdec.ptr7, %index2adr_stack.exit ]
   %p.09 = phi ptr [ %incdec.ptr10, %while.body ], [ %retval.0.i, %index2adr_stack.exit ]
-  %6 = load i64, ptr %incdec.ptr10, align 8
-  store i64 %6, ptr %p.09, align 8
+  %8 = load i64, ptr %incdec.ptr10, align 8
+  store i64 %8, ptr %p.09, align 8
   %incdec.ptr = getelementptr inbounds %union.TValue, ptr %incdec.ptr10, i64 1
-  %7 = load ptr, ptr %top, align 8
-  %cmp = icmp ult ptr %incdec.ptr, %7
+  %9 = load ptr, ptr %top, align 8
+  %cmp = icmp ult ptr %incdec.ptr, %9
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %while.body, %index2adr_stack.exit
-  %.lcssa = phi ptr [ %5, %index2adr_stack.exit ], [ %7, %while.body ]
+  %.lcssa = phi ptr [ %7, %index2adr_stack.exit ], [ %9, %while.body ]
   %incdec.ptr2 = getelementptr inbounds %union.TValue, ptr %.lcssa, i64 -1
   store ptr %incdec.ptr2, ptr %top, align 8
   ret void
@@ -352,40 +352,40 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr_stack.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr_stack.exit
 
 if.else3.i:                                       ; preds = %entry
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr_stack.exit
 
 index2adr_stack.exit:                             ; preds = %if.then.i, %if.else.i, %if.else3.i
-  %5 = phi ptr [ %1, %if.else.i ], [ %4, %if.else3.i ], [ %1, %if.then.i ]
+  %7 = phi ptr [ %3, %if.else.i ], [ %6, %if.else3.i ], [ %3, %if.then.i ]
   %retval.0.i = phi ptr [ %nilnode.i, %if.else.i ], [ %add.ptr6.i, %if.else3.i ], [ %add.ptr.i, %if.then.i ]
   %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %cmp11 = icmp ugt ptr %5, %retval.0.i
+  %cmp11 = icmp ugt ptr %7, %retval.0.i
   br i1 %cmp11, label %for.body, label %for.end
 
 for.body:                                         ; preds = %index2adr_stack.exit, %for.body
-  %q.012 = phi ptr [ %add.ptr, %for.body ], [ %5, %index2adr_stack.exit ]
+  %q.012 = phi ptr [ %add.ptr, %for.body ], [ %7, %index2adr_stack.exit ]
   %add.ptr = getelementptr inbounds %union.TValue, ptr %q.012, i64 -1
-  %6 = load i64, ptr %add.ptr, align 8
-  store i64 %6, ptr %q.012, align 8
+  %8 = load i64, ptr %add.ptr, align 8
+  store i64 %8, ptr %q.012, align 8
   %cmp = icmp ugt ptr %add.ptr, %retval.0.i
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !8
 
@@ -394,9 +394,9 @@ for.end.loopexit:                                 ; preds = %for.body
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %index2adr_stack.exit
-  %7 = phi ptr [ %.pre, %for.end.loopexit ], [ %5, %index2adr_stack.exit ]
-  %8 = load i64, ptr %7, align 8
-  store i64 %8, ptr %retval.0.i, align 8
+  %9 = phi ptr [ %.pre, %for.end.loopexit ], [ %7, %index2adr_stack.exit ]
+  %10 = load i64, ptr %9, align 8
+  store i64 %10, ptr %retval.0.i, align 8
   ret void
 }
 
@@ -486,19 +486,19 @@ if.else29:                                        ; preds = %entry
 if.then.i:                                        ; preds = %if.else29
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %15 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %15, i64 %idx.ext.i
+  %16 = zext nneg i32 %idx to i64
+  %17 = getelementptr %union.TValue, ptr %15, i64 %16
+  %add.ptr.i = getelementptr %union.TValue, ptr %17, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %16 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %16
+  %18 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %18
   br i1 %cmp1.i, label %index2adr.exit.thread, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit.thread
 
 if.else.i:                                        ; preds = %if.else29
@@ -507,9 +507,9 @@ if.else.i:                                        ; preds = %if.else29
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %19 = load ptr, ptr %top4.i, align 8
+  %21 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %19, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %21, i64 %idx.ext5.i
   br label %index2adr.exit.thread
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -520,110 +520,110 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %20 = load i64, ptr %glref11.i, align 8
-  %21 = inttoptr i64 %20 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %21, i64 0, i32 12
+  %22 = load i64, ptr %glref11.i, align 8
+  %23 = inttoptr i64 %22 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %23, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %22 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %22, -1688849860263936
+  %24 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %24, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit.thread
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %23 = load i64, ptr %glref16.i, align 8
-  %24 = inttoptr i64 %23 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %24, i64 0, i32 15
+  %25 = load i64, ptr %glref16.i, align 8
+  %26 = inttoptr i64 %25 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %26, i64 0, i32 15
   br label %index2adr.exit.thread
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %25 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %25, i64 -2
-  %26 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %26, 140737488355327
-  %27 = inttoptr i64 %and.i to ptr
+  %27 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %27, i64 -2
+  %28 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %28, 140737488355327
+  %29 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %28 = load i64, ptr %glref25.i, align 8
-  %29 = inttoptr i64 %28 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %29, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %27, i64 0, i32 5
-  %30 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %30, -1688849860263936
+  %30 = load i64, ptr %glref25.i, align 8
+  %31 = inttoptr i64 %30 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %31, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %29, i64 0, i32 5
+  %32 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %32, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit.thread
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %27, i64 0, i32 4
-  %31 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %31 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %29, i64 0, i32 4
+  %33 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %33 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %27, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %29, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %32 = load i64, ptr %glref37.i, align 8
-  %33 = inttoptr i64 %32 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %33, i64 0, i32 14
+  %34 = load i64, ptr %glref37.i, align 8
+  %35 = inttoptr i64 %34 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %35, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit.thread:                            ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i
   %retval.0.i.ph = phi ptr [ %add.ptr.i, %if.then.i ], [ %nilnode.i, %cond.false.i ], [ %tmptv27.i, %if.then23.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv.i, %if.then9.i ], [ %add.ptr6.i, %if.then3.i ]
-  %34 = load i64, ptr %f, align 8
-  store i64 %34, ptr %retval.0.i.ph, align 8
+  %36 = load i64, ptr %f, align 8
+  store i64 %36, ptr %retval.0.i.ph, align 8
   br label %if.end66
 
 index2adr.exit:                                   ; preds = %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
-  %35 = load i64, ptr %f, align 8
-  store i64 %35, ptr %retval.0.i, align 8
+  %37 = load i64, ptr %f, align 8
+  store i64 %37, ptr %retval.0.i, align 8
   %cmp30 = icmp ult i32 %idx, -10002
   br i1 %cmp30, label %if.then32, label %if.end66
 
 if.then32:                                        ; preds = %index2adr.exit
-  %shr33 = ashr i64 %35, 47
+  %shr33 = ashr i64 %37, 47
   %conv34 = trunc i64 %shr33 to i32
-  %36 = add nsw i32 %conv34, 13
-  %cmp36 = icmp ult i32 %36, 9
+  %38 = add nsw i32 %conv34, 13
+  %cmp36 = icmp ult i32 %38, 9
   br i1 %cmp36, label %land.lhs.true38, label %if.end66
 
 land.lhs.true38:                                  ; preds = %if.then32
-  %and40 = and i64 %35, 140737488355327
-  %37 = inttoptr i64 %and40 to ptr
-  %marked41 = getelementptr inbounds %struct.GChead, ptr %37, i64 0, i32 1
-  %38 = load i8, ptr %marked41, align 8
-  %39 = and i8 %38, 3
-  %tobool44.not = icmp eq i8 %39, 0
+  %and40 = and i64 %37, 140737488355327
+  %39 = inttoptr i64 %and40 to ptr
+  %marked41 = getelementptr inbounds %struct.GChead, ptr %39, i64 0, i32 1
+  %40 = load i8, ptr %marked41, align 8
+  %41 = and i8 %40, 3
+  %tobool44.not = icmp eq i8 %41, 0
   br i1 %tobool44.not, label %if.end66, label %land.lhs.true45
 
 land.lhs.true45:                                  ; preds = %land.lhs.true38
-  %40 = load ptr, ptr %base19.i, align 8
-  %add.ptr47 = getelementptr inbounds %union.TValue, ptr %40, i64 -2
-  %41 = load i64, ptr %add.ptr47, align 8
-  %and49 = and i64 %41, 140737488355327
-  %42 = inttoptr i64 %and49 to ptr
-  %marked50 = getelementptr inbounds %struct.GChead, ptr %42, i64 0, i32 1
-  %43 = load i8, ptr %marked50, align 8
-  %44 = and i8 %43, 4
-  %tobool53.not = icmp eq i8 %44, 0
+  %42 = load ptr, ptr %base19.i, align 8
+  %add.ptr47 = getelementptr inbounds %union.TValue, ptr %42, i64 -2
+  %43 = load i64, ptr %add.ptr47, align 8
+  %and49 = and i64 %43, 140737488355327
+  %44 = inttoptr i64 %and49 to ptr
+  %marked50 = getelementptr inbounds %struct.GChead, ptr %44, i64 0, i32 1
+  %45 = load i8, ptr %marked50, align 8
+  %46 = and i8 %45, 4
+  %tobool53.not = icmp eq i8 %46, 0
   br i1 %tobool53.not, label %if.end66, label %if.then54
 
 if.then54:                                        ; preds = %land.lhs.true45
   %glref55 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %45 = load i64, ptr %glref55, align 8
-  %46 = inttoptr i64 %45 to ptr
-  tail call void @lj_gc_barrierf(ptr noundef %46, ptr noundef nonnull %42, ptr noundef nonnull %37) #13
+  %47 = load i64, ptr %glref55, align 8
+  %48 = inttoptr i64 %47 to ptr
+  tail call void @lj_gc_barrierf(ptr noundef %48, ptr noundef nonnull %44, ptr noundef nonnull %39) #13
   br label %if.end66
 
 if.end66:                                         ; preds = %index2adr.exit.thread, %if.then25, %land.lhs.true20, %land.lhs.true, %if.end, %if.then32, %land.lhs.true38, %land.lhs.true45, %if.then54, %index2adr.exit, %if.then
@@ -639,19 +639,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %fromidx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %fromidx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -660,9 +660,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %fromidx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -673,62 +673,62 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %fromidx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %fromidx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %fromidx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
@@ -748,17 +748,17 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %1 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %1, i64 %idx.ext.i
+  %2 = zext nneg i32 %idx to i64
+  %3 = getelementptr %union.TValue, ptr %1, i64 %2
+  %add.ptr.i = getelementptr %union.TValue, ptr %3, i64 -1
   %cmp1.i = icmp ult ptr %add.ptr.i, %0
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -778,75 +778,75 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %4 = load i64, ptr %glref11.i, align 8
-  %5 = inttoptr i64 %4 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 12
+  %6 = load i64, ptr %glref11.i, align 8
+  %7 = inttoptr i64 %6 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %7, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %6 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %6, -1688849860263936
+  %8 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %8, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %7 = load i64, ptr %glref16.i, align 8
-  %8 = inttoptr i64 %7 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 15
+  %9 = load i64, ptr %glref16.i, align 8
+  %10 = inttoptr i64 %9 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %10, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %9 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %9, i64 -2
-  %10 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %10, 140737488355327
-  %11 = inttoptr i64 %and.i to ptr
+  %11 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %11, i64 -2
+  %12 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %12, 140737488355327
+  %13 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %12 = load i64, ptr %glref25.i, align 8
-  %13 = inttoptr i64 %12 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %13, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %11, i64 0, i32 5
-  %14 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %14, -1688849860263936
+  %14 = load i64, ptr %glref25.i, align 8
+  %15 = inttoptr i64 %14 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %15, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %13, i64 0, i32 5
+  %16 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %16, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %11, i64 0, i32 4
-  %15 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %15 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %13, i64 0, i32 4
+  %17 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %17 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %11, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %13, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %16 = load i64, ptr %glref37.i, align 8
-  %17 = inttoptr i64 %16 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %17, i64 0, i32 14
+  %18 = load i64, ptr %glref37.i, align 8
+  %19 = inttoptr i64 %18 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %19, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
-  %18 = load i64, ptr %retval.0.i, align 8
-  store i64 %18, ptr %0, align 8
-  %19 = load ptr, ptr %top, align 8
-  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %19, i64 1
+  %20 = load i64, ptr %retval.0.i, align 8
+  store i64 %20, ptr %0, align 8
+  %21 = load ptr, ptr %top, align 8
+  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %21, i64 1
   store ptr %incdec.ptr, ptr %top, align 8
   %maxstack = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 9
-  %20 = load i64, ptr %maxstack, align 8
-  %21 = inttoptr i64 %20 to ptr
-  %cmp.not = icmp ult ptr %incdec.ptr, %21
+  %22 = load i64, ptr %maxstack, align 8
+  %23 = inttoptr i64 %22 to ptr
+  %cmp.not = icmp ult ptr %incdec.ptr, %23
   br i1 %cmp.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %index2adr.exit
@@ -868,19 +868,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -889,9 +889,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -902,77 +902,77 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
-  %19 = load i64, ptr %retval.0.i, align 8
-  %shr = ashr i64 %19, 47
+  %21 = load i64, ptr %retval.0.i, align 8
+  %shr = ashr i64 %21, 47
   %conv = trunc i64 %shr to i32
   %cmp = icmp ult i32 %conv, -13
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %index2adr.exit
   %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %20 = load i64, ptr %glref, align 8
-  %21 = inttoptr i64 %20 to ptr
-  %nilnode = getelementptr inbounds %struct.global_State, ptr %21, i64 0, i32 14
+  %22 = load i64, ptr %glref, align 8
+  %23 = inttoptr i64 %22 to ptr
+  %nilnode = getelementptr inbounds %struct.global_State, ptr %23, i64 0, i32 14
   %cmp2 = icmp eq ptr %retval.0.i, %nilnode
   br i1 %cmp2, label %return, label %if.else5
 
@@ -981,8 +981,8 @@ if.else5:                                         ; preds = %if.else
   %mul = and i64 %not, 4294967292
   %sh_prom = xor i64 %mul, 4294967292
   %shr8 = lshr i64 2069309203685648, %sh_prom
-  %22 = trunc i64 %shr8 to i32
-  %conv9 = and i32 %22, 15
+  %24 = trunc i64 %shr8 to i32
+  %conv9 = and i32 %24, 15
   br label %return
 
 return:                                           ; preds = %if.else, %index2adr.exit, %if.else5
@@ -999,19 +999,19 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %base.i.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i.i, align 8
-  %sub.i.i = add nsw i32 %idx, -1
-  %idx.ext.i.i = zext nneg i32 %sub.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i.i, align 8
-  %cmp1.i.i = icmp ult ptr %add.ptr.i.i, %1
+  %3 = load ptr, ptr %top.i.i, align 8
+  %cmp1.i.i = icmp ult ptr %add.ptr.i.i, %3
   br i1 %cmp1.i.i, label %index2adr.exit.i, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %if.then.i.i
   %glref.i.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit.i
 
 if.else.i.i:                                      ; preds = %entry
@@ -1020,9 +1020,9 @@ if.else.i.i:                                      ; preds = %entry
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
   %top4.i.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i.i, align 8
+  %6 = load ptr, ptr %top4.i.i, align 8
   %idx.ext5.i.i = sext i32 %idx to i64
-  %add.ptr6.i.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i.i
+  %add.ptr6.i.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i.i
   br label %index2adr.exit.i
 
 if.else7.i.i:                                     ; preds = %if.else.i.i
@@ -1033,77 +1033,77 @@ if.else7.i.i:                                     ; preds = %if.else.i.i
 
 if.then9.i.i:                                     ; preds = %if.else7.i.i
   %glref11.i.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i.i, align 8
-  %or.i.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i.i, align 8
+  %or.i.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i.i, ptr %tmptv.i.i, align 8
   br label %index2adr.exit.i
 
 if.then15.i.i:                                    ; preds = %if.else7.i.i
   %glref16.i.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit.i
 
 if.else18.i.i:                                    ; preds = %if.else7.i.i
   %base19.i.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i.i, align 8
-  %add.ptr20.i.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i.i, align 8
-  %and.i.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i.i to ptr
+  %12 = load ptr, ptr %base19.i.i, align 8
+  %add.ptr20.i.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i.i, align 8
+  %and.i.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i.i to ptr
   %cmp22.i.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i.i, label %if.then23.i.i, label %if.else30.i.i
 
 if.then23.i.i:                                    ; preds = %if.else18.i.i
   %glref25.i.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i.i, align 8
-  %or.i.i61.i.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i.i, align 8
+  %or.i.i61.i.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i.i, ptr %tmptv27.i.i, align 8
   br label %index2adr.exit.i
 
 if.else30.i.i:                                    ; preds = %if.else18.i.i
   %sub31.i.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i.i, align 1
-  %conv.i.i = zext i8 %16 to i32
+  %nupvalues.i.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i.i, align 1
+  %conv.i.i = zext i8 %18 to i32
   %cmp32.not.i.i = icmp ugt i32 %sub31.i.i, %conv.i.i
   br i1 %cmp32.not.i.i, label %cond.false36.i.i, label %cond.true34.i.i
 
 cond.true34.i.i:                                  ; preds = %if.else30.i.i
   %sub35.i.i = sub nsw i32 -10003, %idx
   %idxprom.i.i = sext i32 %sub35.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i.i
   br label %index2adr.exit.i
 
 cond.false36.i.i:                                 ; preds = %if.else30.i.i
   %glref37.i.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit.i
 
 index2adr.exit.i:                                 ; preds = %cond.false36.i.i, %cond.true34.i.i, %if.then23.i.i, %if.then15.i.i, %if.then9.i.i, %if.then3.i.i, %cond.false.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %add.ptr6.i.i, %if.then3.i.i ], [ %tmptv.i.i, %if.then9.i.i ], [ %registrytv.i.i, %if.then15.i.i ], [ %tmptv27.i.i, %if.then23.i.i ], [ %nilnode.i.i, %cond.false.i.i ], [ %add.ptr.i.i, %if.then.i.i ], [ %arrayidx.i.i, %cond.true34.i.i ], [ %nilnode39.i.i, %cond.false36.i.i ]
-  %19 = load i64, ptr %retval.0.i.i, align 8
-  %shr.i = ashr i64 %19, 47
+  %21 = load i64, ptr %retval.0.i.i, align 8
+  %shr.i = ashr i64 %21, 47
   %conv.i = trunc i64 %shr.i to i32
   %cmp.i = icmp ult i32 %conv.i, -13
   br i1 %cmp.i, label %lua_type.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %index2adr.exit.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %20 = load i64, ptr %glref.i, align 8
-  %21 = inttoptr i64 %20 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %21, i64 0, i32 14
+  %22 = load i64, ptr %glref.i, align 8
+  %23 = inttoptr i64 %22 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %23, i64 0, i32 14
   %cmp2.i = icmp eq ptr %retval.0.i.i, %nilnode.i
   br i1 %cmp2.i, label %lua_type.exit, label %if.else5.i
 
@@ -1112,8 +1112,8 @@ if.else5.i:                                       ; preds = %if.else.i
   %mul.i = and i64 %not.i, 4294967292
   %sh_prom.i = xor i64 %mul.i, 4294967292
   %shr8.i = lshr i64 2069309203685648, %sh_prom.i
-  %22 = trunc i64 %shr8.i to i32
-  %conv9.i = and i32 %22, 15
+  %24 = trunc i64 %shr8.i to i32
+  %conv9.i = and i32 %24, 15
   br label %lua_type.exit
 
 lua_type.exit:                                    ; preds = %index2adr.exit.i, %if.else.i, %if.else5.i
@@ -1141,19 +1141,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -1162,9 +1162,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -1175,70 +1175,70 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
   %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %19 = load i64, ptr %glref, align 8
-  %20 = inttoptr i64 %19 to ptr
-  %nilnode = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
+  %21 = load i64, ptr %glref, align 8
+  %22 = inttoptr i64 %21 to ptr
+  %nilnode = getelementptr inbounds %struct.global_State, ptr %22, i64 0, i32 14
   %cmp = icmp eq ptr %retval.0.i, %nilnode
   br i1 %cmp, label %if.then, label %if.end
 
@@ -1272,19 +1272,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -1293,9 +1293,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -1306,83 +1306,83 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
-  %19 = load i64, ptr %retval.0.i, align 8
-  %shr = ashr i64 %19, 47
-  %20 = and i64 %shr, 4294967295
-  %cmp = icmp eq i64 %20, 4294967287
+  %21 = load i64, ptr %retval.0.i, align 8
+  %shr = ashr i64 %21, 47
+  %22 = and i64 %shr, 4294967295
+  %cmp = icmp eq i64 %22, 4294967287
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %index2adr.exit
-  %and = and i64 %19, 140737488355327
-  %21 = inttoptr i64 %and to ptr
-  %ffid = getelementptr inbounds %struct.GCfuncC, ptr %21, i64 0, i32 3
-  %22 = load i8, ptr %ffid, align 2
-  %cmp3 = icmp ne i8 %22, 0
-  %23 = zext i1 %cmp3 to i32
+  %and = and i64 %21, 140737488355327
+  %23 = inttoptr i64 %and to ptr
+  %ffid = getelementptr inbounds %struct.GCfuncC, ptr %23, i64 0, i32 3
+  %24 = load i8, ptr %ffid, align 2
+  %cmp3 = icmp ne i8 %24, 0
+  %25 = zext i1 %cmp3 to i32
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %index2adr.exit
-  %land.ext = phi i32 [ 0, %index2adr.exit ], [ %23, %land.rhs ]
+  %land.ext = phi i32 [ 0, %index2adr.exit ], [ %25, %land.rhs ]
   ret i32 %land.ext
 }
 
@@ -1396,19 +1396,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -1417,9 +1417,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -1430,68 +1430,68 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
-  %19 = load i64, ptr %retval.0.i, align 8
-  %shr = ashr i64 %19, 47
+  %21 = load i64, ptr %retval.0.i, align 8
+  %shr = ashr i64 %21, 47
   %conv = trunc i64 %shr to i32
   %cmp = icmp ult i32 %conv, -13
   br i1 %cmp, label %lor.end, label %lor.rhs
@@ -1501,15 +1501,15 @@ lor.rhs:                                          ; preds = %index2adr.exit
   br i1 %cmp4, label %land.rhs, label %lor.end
 
 land.rhs:                                         ; preds = %lor.rhs
-  %and = and i64 %19, 140737488355327
-  %20 = inttoptr i64 %and to ptr
-  %call6 = call i32 @lj_strscan_num(ptr noundef %20, ptr noundef nonnull %tmp) #13
+  %and = and i64 %21, 140737488355327
+  %22 = inttoptr i64 %and to ptr
+  %call6 = call i32 @lj_strscan_num(ptr noundef %22, ptr noundef nonnull %tmp) #13
   %tobool = icmp ne i32 %call6, 0
-  %21 = zext i1 %tobool to i32
+  %23 = zext i1 %tobool to i32
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %land.rhs, %index2adr.exit
-  %lor.ext = phi i32 [ 1, %index2adr.exit ], [ 0, %lor.rhs ], [ %21, %land.rhs ]
+  %lor.ext = phi i32 [ 1, %index2adr.exit ], [ 0, %lor.rhs ], [ %23, %land.rhs ]
   ret i32 %lor.ext
 }
 
@@ -1524,19 +1524,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -1545,9 +1545,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -1558,68 +1558,68 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
-  %19 = load i64, ptr %retval.0.i, align 8
-  %shr = ashr i64 %19, 47
+  %21 = load i64, ptr %retval.0.i, align 8
+  %shr = ashr i64 %21, 47
   %conv = trunc i64 %shr to i32
   %cmp = icmp eq i32 %conv, -5
   %cmp4 = icmp ult i32 %conv, -13
@@ -1637,19 +1637,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -1658,9 +1658,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -1671,68 +1671,68 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
-  %19 = load i64, ptr %retval.0.i, align 8
-  %shr = ashr i64 %19, 47
+  %21 = load i64, ptr %retval.0.i, align 8
+  %shr = ashr i64 %21, 47
   %conv = trunc i64 %shr to i32
   %cmp = icmp eq i32 %conv, -13
   %cmp4 = icmp eq i32 %conv, -4
@@ -1750,19 +1750,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx1, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx1 to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -1771,9 +1771,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx1 to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -1784,62 +1784,62 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx1, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx1
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx1
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
@@ -1849,21 +1849,21 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
 
 if.then.i45:                                      ; preds = %index2adr.exit
   %base.i46 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %19 = load ptr, ptr %base.i46, align 8
-  %sub.i47 = add nsw i32 %idx2, -1
-  %idx.ext.i48 = zext nneg i32 %sub.i47 to i64
-  %add.ptr.i49 = getelementptr inbounds %union.TValue, ptr %19, i64 %idx.ext.i48
-  %top.i50 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %20 = load ptr, ptr %top.i50, align 8
-  %cmp1.i51 = icmp ult ptr %add.ptr.i49, %20
-  br i1 %cmp1.i51, label %index2adr.exit55, label %cond.false.i52
+  %21 = load ptr, ptr %base.i46, align 8
+  %22 = zext nneg i32 %idx2 to i64
+  %23 = getelementptr %union.TValue, ptr %21, i64 %22
+  %add.ptr.i47 = getelementptr %union.TValue, ptr %23, i64 -1
+  %top.i48 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %24 = load ptr, ptr %top.i48, align 8
+  %cmp1.i49 = icmp ult ptr %add.ptr.i47, %24
+  br i1 %cmp1.i49, label %index2adr.exit53, label %cond.false.i50
 
-cond.false.i52:                                   ; preds = %if.then.i45
-  %glref.i53 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %21 = load i64, ptr %glref.i53, align 8
-  %22 = inttoptr i64 %21 to ptr
-  %nilnode.i54 = getelementptr inbounds %struct.global_State, ptr %22, i64 0, i32 14
-  br label %index2adr.exit55
+cond.false.i50:                                   ; preds = %if.then.i45
+  %glref.i51 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
+  %25 = load i64, ptr %glref.i51, align 8
+  %26 = inttoptr i64 %25 to ptr
+  %nilnode.i52 = getelementptr inbounds %struct.global_State, ptr %26, i64 0, i32 14
+  br label %index2adr.exit53
 
 if.else.i7:                                       ; preds = %index2adr.exit
   %cmp2.i8 = icmp sgt i32 %idx2, -10000
@@ -1871,10 +1871,10 @@ if.else.i7:                                       ; preds = %index2adr.exit
 
 if.then3.i41:                                     ; preds = %if.else.i7
   %top4.i42 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %23 = load ptr, ptr %top4.i42, align 8
+  %27 = load ptr, ptr %top4.i42, align 8
   %idx.ext5.i43 = sext i32 %idx2 to i64
-  %add.ptr6.i44 = getelementptr inbounds %union.TValue, ptr %23, i64 %idx.ext5.i43
-  br label %index2adr.exit55
+  %add.ptr6.i44 = getelementptr inbounds %union.TValue, ptr %27, i64 %idx.ext5.i43
+  br label %index2adr.exit53
 
 if.else7.i9:                                      ; preds = %if.else.i7
   switch i32 %idx2, label %if.else18.i19 [
@@ -1884,81 +1884,81 @@ if.else7.i9:                                      ; preds = %if.else.i7
 
 if.then9.i14:                                     ; preds = %if.else7.i9
   %glref11.i15 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %24 = load i64, ptr %glref11.i15, align 8
-  %25 = inttoptr i64 %24 to ptr
-  %tmptv.i16 = getelementptr inbounds %struct.global_State, ptr %25, i64 0, i32 12
+  %28 = load i64, ptr %glref11.i15, align 8
+  %29 = inttoptr i64 %28 to ptr
+  %tmptv.i16 = getelementptr inbounds %struct.global_State, ptr %29, i64 0, i32 12
   %env.i17 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %26 = load i64, ptr %env.i17, align 8
-  %or.i.i.i18 = or i64 %26, -1688849860263936
+  %30 = load i64, ptr %env.i17, align 8
+  %or.i.i.i18 = or i64 %30, -1688849860263936
   store i64 %or.i.i.i18, ptr %tmptv.i16, align 8
-  br label %index2adr.exit55
+  br label %index2adr.exit53
 
 if.then15.i10:                                    ; preds = %if.else7.i9
   %glref16.i11 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %27 = load i64, ptr %glref16.i11, align 8
-  %28 = inttoptr i64 %27 to ptr
-  %registrytv.i12 = getelementptr inbounds %struct.global_State, ptr %28, i64 0, i32 15
-  br label %index2adr.exit55
+  %31 = load i64, ptr %glref16.i11, align 8
+  %32 = inttoptr i64 %31 to ptr
+  %registrytv.i12 = getelementptr inbounds %struct.global_State, ptr %32, i64 0, i32 15
+  br label %index2adr.exit53
 
 if.else18.i19:                                    ; preds = %if.else7.i9
   %base19.i20 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %29 = load ptr, ptr %base19.i20, align 8
-  %add.ptr20.i21 = getelementptr inbounds %union.TValue, ptr %29, i64 -2
-  %30 = load i64, ptr %add.ptr20.i21, align 8
-  %and.i22 = and i64 %30, 140737488355327
-  %31 = inttoptr i64 %and.i22 to ptr
+  %33 = load ptr, ptr %base19.i20, align 8
+  %add.ptr20.i21 = getelementptr inbounds %union.TValue, ptr %33, i64 -2
+  %34 = load i64, ptr %add.ptr20.i21, align 8
+  %and.i22 = and i64 %34, 140737488355327
+  %35 = inttoptr i64 %and.i22 to ptr
   %cmp22.i23 = icmp eq i32 %idx2, -10001
   br i1 %cmp22.i23, label %if.then23.i36, label %if.else30.i24
 
 if.then23.i36:                                    ; preds = %if.else18.i19
   %glref25.i37 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %32 = load i64, ptr %glref25.i37, align 8
-  %33 = inttoptr i64 %32 to ptr
-  %tmptv27.i38 = getelementptr inbounds %struct.global_State, ptr %33, i64 0, i32 12
-  %env28.i39 = getelementptr inbounds %struct.GCfuncC, ptr %31, i64 0, i32 5
-  %34 = load i64, ptr %env28.i39, align 8
-  %or.i.i61.i40 = or i64 %34, -1688849860263936
+  %36 = load i64, ptr %glref25.i37, align 8
+  %37 = inttoptr i64 %36 to ptr
+  %tmptv27.i38 = getelementptr inbounds %struct.global_State, ptr %37, i64 0, i32 12
+  %env28.i39 = getelementptr inbounds %struct.GCfuncC, ptr %35, i64 0, i32 5
+  %38 = load i64, ptr %env28.i39, align 8
+  %or.i.i61.i40 = or i64 %38, -1688849860263936
   store i64 %or.i.i61.i40, ptr %tmptv27.i38, align 8
-  br label %index2adr.exit55
+  br label %index2adr.exit53
 
 if.else30.i24:                                    ; preds = %if.else18.i19
   %sub31.i25 = sub nuw nsw i32 -10002, %idx2
-  %nupvalues.i26 = getelementptr inbounds %struct.GCfuncC, ptr %31, i64 0, i32 4
-  %35 = load i8, ptr %nupvalues.i26, align 1
-  %conv.i27 = zext i8 %35 to i32
+  %nupvalues.i26 = getelementptr inbounds %struct.GCfuncC, ptr %35, i64 0, i32 4
+  %39 = load i8, ptr %nupvalues.i26, align 1
+  %conv.i27 = zext i8 %39 to i32
   %cmp32.not.i28 = icmp ugt i32 %sub31.i25, %conv.i27
   br i1 %cmp32.not.i28, label %cond.false36.i33, label %cond.true34.i29
 
 cond.true34.i29:                                  ; preds = %if.else30.i24
   %sub35.i30 = sub nsw i32 -10003, %idx2
   %idxprom.i31 = sext i32 %sub35.i30 to i64
-  %arrayidx.i32 = getelementptr inbounds %struct.GCfuncC, ptr %31, i64 0, i32 9, i64 %idxprom.i31
-  br label %index2adr.exit55
+  %arrayidx.i32 = getelementptr inbounds %struct.GCfuncC, ptr %35, i64 0, i32 9, i64 %idxprom.i31
+  br label %index2adr.exit53
 
 cond.false36.i33:                                 ; preds = %if.else30.i24
   %glref37.i34 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %36 = load i64, ptr %glref37.i34, align 8
-  %37 = inttoptr i64 %36 to ptr
-  %nilnode39.i35 = getelementptr inbounds %struct.global_State, ptr %37, i64 0, i32 14
-  br label %index2adr.exit55
+  %40 = load i64, ptr %glref37.i34, align 8
+  %41 = inttoptr i64 %40 to ptr
+  %nilnode39.i35 = getelementptr inbounds %struct.global_State, ptr %41, i64 0, i32 14
+  br label %index2adr.exit53
 
-index2adr.exit55:                                 ; preds = %if.then.i45, %cond.false.i52, %if.then3.i41, %if.then9.i14, %if.then15.i10, %if.then23.i36, %cond.true34.i29, %cond.false36.i33
-  %retval.0.i13 = phi ptr [ %add.ptr6.i44, %if.then3.i41 ], [ %tmptv.i16, %if.then9.i14 ], [ %registrytv.i12, %if.then15.i10 ], [ %tmptv27.i38, %if.then23.i36 ], [ %nilnode.i54, %cond.false.i52 ], [ %add.ptr.i49, %if.then.i45 ], [ %arrayidx.i32, %cond.true34.i29 ], [ %nilnode39.i35, %cond.false36.i33 ]
+index2adr.exit53:                                 ; preds = %if.then.i45, %cond.false.i50, %if.then3.i41, %if.then9.i14, %if.then15.i10, %if.then23.i36, %cond.true34.i29, %cond.false36.i33
+  %retval.0.i13 = phi ptr [ %add.ptr6.i44, %if.then3.i41 ], [ %tmptv.i16, %if.then9.i14 ], [ %registrytv.i12, %if.then15.i10 ], [ %tmptv27.i38, %if.then23.i36 ], [ %nilnode.i52, %cond.false.i50 ], [ %add.ptr.i47, %if.then.i45 ], [ %arrayidx.i32, %cond.true34.i29 ], [ %nilnode39.i35, %cond.false36.i33 ]
   %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %38 = load i64, ptr %glref, align 8
-  %39 = inttoptr i64 %38 to ptr
-  %nilnode = getelementptr inbounds %struct.global_State, ptr %39, i64 0, i32 14
+  %42 = load i64, ptr %glref, align 8
+  %43 = inttoptr i64 %42 to ptr
+  %nilnode = getelementptr inbounds %struct.global_State, ptr %43, i64 0, i32 14
   %cmp = icmp eq ptr %retval.0.i, %nilnode
   %cmp6 = icmp eq ptr %retval.0.i13, %nilnode
   %or.cond = select i1 %cmp, i1 true, i1 %cmp6
   br i1 %or.cond, label %cond.end, label %cond.false
 
-cond.false:                                       ; preds = %index2adr.exit55
+cond.false:                                       ; preds = %index2adr.exit53
   %call7 = tail call i32 @lj_obj_equal(ptr noundef %retval.0.i, ptr noundef %retval.0.i13) #13
   br label %cond.end
 
-cond.end:                                         ; preds = %index2adr.exit55, %cond.false
-  %cond = phi i32 [ %call7, %cond.false ], [ 0, %index2adr.exit55 ]
+cond.end:                                         ; preds = %index2adr.exit53, %cond.false
+  %cond = phi i32 [ %call7, %cond.false ], [ 0, %index2adr.exit53 ]
   ret i32 %cond
 }
 
@@ -1973,19 +1973,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx1, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx1 to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -1994,9 +1994,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx1 to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -2007,62 +2007,62 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx1, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx1
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx1
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
@@ -2072,21 +2072,21 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
 
 if.then.i65:                                      ; preds = %index2adr.exit
   %base.i66 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %19 = load ptr, ptr %base.i66, align 8
-  %sub.i67 = add nsw i32 %idx2, -1
-  %idx.ext.i68 = zext nneg i32 %sub.i67 to i64
-  %add.ptr.i69 = getelementptr inbounds %union.TValue, ptr %19, i64 %idx.ext.i68
-  %top.i70 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %20 = load ptr, ptr %top.i70, align 8
-  %cmp1.i71 = icmp ult ptr %add.ptr.i69, %20
-  br i1 %cmp1.i71, label %index2adr.exit75, label %cond.false.i72
+  %21 = load ptr, ptr %base.i66, align 8
+  %22 = zext nneg i32 %idx2 to i64
+  %23 = getelementptr %union.TValue, ptr %21, i64 %22
+  %add.ptr.i67 = getelementptr %union.TValue, ptr %23, i64 -1
+  %top.i68 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %24 = load ptr, ptr %top.i68, align 8
+  %cmp1.i69 = icmp ult ptr %add.ptr.i67, %24
+  br i1 %cmp1.i69, label %index2adr.exit73, label %cond.false.i70
 
-cond.false.i72:                                   ; preds = %if.then.i65
-  %glref.i73 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %21 = load i64, ptr %glref.i73, align 8
-  %22 = inttoptr i64 %21 to ptr
-  %nilnode.i74 = getelementptr inbounds %struct.global_State, ptr %22, i64 0, i32 14
-  br label %index2adr.exit75
+cond.false.i70:                                   ; preds = %if.then.i65
+  %glref.i71 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
+  %25 = load i64, ptr %glref.i71, align 8
+  %26 = inttoptr i64 %25 to ptr
+  %nilnode.i72 = getelementptr inbounds %struct.global_State, ptr %26, i64 0, i32 14
+  br label %index2adr.exit73
 
 if.else.i27:                                      ; preds = %index2adr.exit
   %cmp2.i28 = icmp sgt i32 %idx2, -10000
@@ -2094,10 +2094,10 @@ if.else.i27:                                      ; preds = %index2adr.exit
 
 if.then3.i61:                                     ; preds = %if.else.i27
   %top4.i62 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %23 = load ptr, ptr %top4.i62, align 8
+  %27 = load ptr, ptr %top4.i62, align 8
   %idx.ext5.i63 = sext i32 %idx2 to i64
-  %add.ptr6.i64 = getelementptr inbounds %union.TValue, ptr %23, i64 %idx.ext5.i63
-  br label %index2adr.exit75
+  %add.ptr6.i64 = getelementptr inbounds %union.TValue, ptr %27, i64 %idx.ext5.i63
+  br label %index2adr.exit73
 
 if.else7.i29:                                     ; preds = %if.else.i27
   switch i32 %idx2, label %if.else18.i39 [
@@ -2107,68 +2107,68 @@ if.else7.i29:                                     ; preds = %if.else.i27
 
 if.then9.i34:                                     ; preds = %if.else7.i29
   %glref11.i35 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %24 = load i64, ptr %glref11.i35, align 8
-  %25 = inttoptr i64 %24 to ptr
-  %tmptv.i36 = getelementptr inbounds %struct.global_State, ptr %25, i64 0, i32 12
+  %28 = load i64, ptr %glref11.i35, align 8
+  %29 = inttoptr i64 %28 to ptr
+  %tmptv.i36 = getelementptr inbounds %struct.global_State, ptr %29, i64 0, i32 12
   %env.i37 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %26 = load i64, ptr %env.i37, align 8
-  %or.i.i.i38 = or i64 %26, -1688849860263936
+  %30 = load i64, ptr %env.i37, align 8
+  %or.i.i.i38 = or i64 %30, -1688849860263936
   store i64 %or.i.i.i38, ptr %tmptv.i36, align 8
-  br label %index2adr.exit75
+  br label %index2adr.exit73
 
 if.then15.i30:                                    ; preds = %if.else7.i29
   %glref16.i31 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %27 = load i64, ptr %glref16.i31, align 8
-  %28 = inttoptr i64 %27 to ptr
-  %registrytv.i32 = getelementptr inbounds %struct.global_State, ptr %28, i64 0, i32 15
-  br label %index2adr.exit75
+  %31 = load i64, ptr %glref16.i31, align 8
+  %32 = inttoptr i64 %31 to ptr
+  %registrytv.i32 = getelementptr inbounds %struct.global_State, ptr %32, i64 0, i32 15
+  br label %index2adr.exit73
 
 if.else18.i39:                                    ; preds = %if.else7.i29
   %base19.i40 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %29 = load ptr, ptr %base19.i40, align 8
-  %add.ptr20.i41 = getelementptr inbounds %union.TValue, ptr %29, i64 -2
-  %30 = load i64, ptr %add.ptr20.i41, align 8
-  %and.i42 = and i64 %30, 140737488355327
-  %31 = inttoptr i64 %and.i42 to ptr
+  %33 = load ptr, ptr %base19.i40, align 8
+  %add.ptr20.i41 = getelementptr inbounds %union.TValue, ptr %33, i64 -2
+  %34 = load i64, ptr %add.ptr20.i41, align 8
+  %and.i42 = and i64 %34, 140737488355327
+  %35 = inttoptr i64 %and.i42 to ptr
   %cmp22.i43 = icmp eq i32 %idx2, -10001
   br i1 %cmp22.i43, label %if.then23.i56, label %if.else30.i44
 
 if.then23.i56:                                    ; preds = %if.else18.i39
   %glref25.i57 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %32 = load i64, ptr %glref25.i57, align 8
-  %33 = inttoptr i64 %32 to ptr
-  %tmptv27.i58 = getelementptr inbounds %struct.global_State, ptr %33, i64 0, i32 12
-  %env28.i59 = getelementptr inbounds %struct.GCfuncC, ptr %31, i64 0, i32 5
-  %34 = load i64, ptr %env28.i59, align 8
-  %or.i.i61.i60 = or i64 %34, -1688849860263936
+  %36 = load i64, ptr %glref25.i57, align 8
+  %37 = inttoptr i64 %36 to ptr
+  %tmptv27.i58 = getelementptr inbounds %struct.global_State, ptr %37, i64 0, i32 12
+  %env28.i59 = getelementptr inbounds %struct.GCfuncC, ptr %35, i64 0, i32 5
+  %38 = load i64, ptr %env28.i59, align 8
+  %or.i.i61.i60 = or i64 %38, -1688849860263936
   store i64 %or.i.i61.i60, ptr %tmptv27.i58, align 8
-  br label %index2adr.exit75
+  br label %index2adr.exit73
 
 if.else30.i44:                                    ; preds = %if.else18.i39
   %sub31.i45 = sub nuw nsw i32 -10002, %idx2
-  %nupvalues.i46 = getelementptr inbounds %struct.GCfuncC, ptr %31, i64 0, i32 4
-  %35 = load i8, ptr %nupvalues.i46, align 1
-  %conv.i47 = zext i8 %35 to i32
+  %nupvalues.i46 = getelementptr inbounds %struct.GCfuncC, ptr %35, i64 0, i32 4
+  %39 = load i8, ptr %nupvalues.i46, align 1
+  %conv.i47 = zext i8 %39 to i32
   %cmp32.not.i48 = icmp ugt i32 %sub31.i45, %conv.i47
   br i1 %cmp32.not.i48, label %cond.false36.i53, label %cond.true34.i49
 
 cond.true34.i49:                                  ; preds = %if.else30.i44
   %sub35.i50 = sub nsw i32 -10003, %idx2
   %idxprom.i51 = sext i32 %sub35.i50 to i64
-  %arrayidx.i52 = getelementptr inbounds %struct.GCfuncC, ptr %31, i64 0, i32 9, i64 %idxprom.i51
-  br label %index2adr.exit75
+  %arrayidx.i52 = getelementptr inbounds %struct.GCfuncC, ptr %35, i64 0, i32 9, i64 %idxprom.i51
+  br label %index2adr.exit73
 
 cond.false36.i53:                                 ; preds = %if.else30.i44
   %glref37.i54 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %36 = load i64, ptr %glref37.i54, align 8
-  %37 = inttoptr i64 %36 to ptr
-  %nilnode39.i55 = getelementptr inbounds %struct.global_State, ptr %37, i64 0, i32 14
-  br label %index2adr.exit75
+  %40 = load i64, ptr %glref37.i54, align 8
+  %41 = inttoptr i64 %40 to ptr
+  %nilnode39.i55 = getelementptr inbounds %struct.global_State, ptr %41, i64 0, i32 14
+  br label %index2adr.exit73
 
-index2adr.exit75:                                 ; preds = %if.then.i65, %cond.false.i72, %if.then3.i61, %if.then9.i34, %if.then15.i30, %if.then23.i56, %cond.true34.i49, %cond.false36.i53
-  %retval.0.i33 = phi ptr [ %add.ptr6.i64, %if.then3.i61 ], [ %tmptv.i36, %if.then9.i34 ], [ %registrytv.i32, %if.then15.i30 ], [ %tmptv27.i58, %if.then23.i56 ], [ %nilnode.i74, %cond.false.i72 ], [ %add.ptr.i69, %if.then.i65 ], [ %arrayidx.i52, %cond.true34.i49 ], [ %nilnode39.i55, %cond.false36.i53 ]
-  %38 = load i64, ptr %retval.0.i, align 8
-  %shr = ashr i64 %38, 47
+index2adr.exit73:                                 ; preds = %if.then.i65, %cond.false.i70, %if.then3.i61, %if.then9.i34, %if.then15.i30, %if.then23.i56, %cond.true34.i49, %cond.false36.i53
+  %retval.0.i33 = phi ptr [ %add.ptr6.i64, %if.then3.i61 ], [ %tmptv.i36, %if.then9.i34 ], [ %registrytv.i32, %if.then15.i30 ], [ %tmptv27.i58, %if.then23.i56 ], [ %nilnode.i72, %cond.false.i70 ], [ %add.ptr.i67, %if.then.i65 ], [ %arrayidx.i52, %cond.true34.i49 ], [ %nilnode39.i55, %cond.false36.i53 ]
+  %42 = load i64, ptr %retval.0.i, align 8
+  %shr = ashr i64 %42, 47
   %conv = trunc i64 %shr to i32
   %cmp = icmp ult i32 %conv, -13
   %.pre = load i64, ptr %retval.0.i33, align 8
@@ -2178,14 +2178,14 @@ index2adr.exit75:                                 ; preds = %if.then.i65, %cond.
   %or.cond = select i1 %cmp, i1 %cmp5, i1 false
   br i1 %or.cond, label %if.then, label %if.else
 
-if.then:                                          ; preds = %index2adr.exit75
-  %39 = bitcast i64 %.pre to double
-  %40 = bitcast i64 %38 to double
-  %cmp9 = fcmp oeq double %40, %39
+if.then:                                          ; preds = %index2adr.exit73
+  %43 = bitcast i64 %.pre to double
+  %44 = bitcast i64 %42 to double
+  %cmp9 = fcmp oeq double %44, %43
   %conv10 = zext i1 %cmp9 to i32
   br label %return
 
-if.else:                                          ; preds = %index2adr.exit75
+if.else:                                          ; preds = %index2adr.exit73
   %cmp15.not = icmp eq i32 %conv4, %conv
   br i1 %cmp15.not, label %if.else18, label %return
 
@@ -2195,9 +2195,9 @@ if.else18:                                        ; preds = %if.else
 
 if.then23:                                        ; preds = %if.else18
   %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %41 = load i64, ptr %glref, align 8
-  %42 = inttoptr i64 %41 to ptr
-  %nilnode = getelementptr inbounds %struct.global_State, ptr %42, i64 0, i32 14
+  %45 = load i64, ptr %glref, align 8
+  %46 = inttoptr i64 %45 to ptr
+  %nilnode = getelementptr inbounds %struct.global_State, ptr %46, i64 0, i32 14
   %cmp24.not = icmp ne ptr %retval.0.i, %nilnode
   %cmp30 = icmp ne ptr %retval.0.i33, %nilnode
   %narrow = and i1 %cmp24.not, %cmp30
@@ -2205,7 +2205,7 @@ if.then23:                                        ; preds = %if.else18
   br label %return
 
 if.else32:                                        ; preds = %if.else18
-  %cmp34 = icmp eq i64 %38, %.pre
+  %cmp34 = icmp eq i64 %42, %.pre
   br i1 %cmp34, label %return, label %if.else37
 
 if.else37:                                        ; preds = %if.else32
@@ -2213,17 +2213,17 @@ if.else37:                                        ; preds = %if.else32
   br i1 %cmp40, label %if.else43, label %return
 
 if.else43:                                        ; preds = %if.else37
-  %and = and i64 %38, 140737488355327
-  %43 = inttoptr i64 %and to ptr
+  %and = and i64 %42, 140737488355327
+  %47 = inttoptr i64 %and to ptr
   %and46 = and i64 %.pre, 140737488355327
-  %44 = inttoptr i64 %and46 to ptr
-  %call47 = tail call ptr @lj_meta_equal(ptr noundef nonnull %L, ptr noundef %43, ptr noundef %44, i32 noundef 0) #13
+  %48 = inttoptr i64 %and46 to ptr
+  %call47 = tail call ptr @lj_meta_equal(ptr noundef nonnull %L, ptr noundef %47, ptr noundef %48, i32 noundef 0) #13
   %cmp48 = icmp ult ptr %call47, inttoptr (i64 2 to ptr)
   br i1 %cmp48, label %if.then50, label %if.else52
 
 if.then50:                                        ; preds = %if.else43
-  %45 = ptrtoint ptr %call47 to i64
-  %conv51 = trunc i64 %45 to i32
+  %49 = ptrtoint ptr %call47 to i64
+  %conv51 = trunc i64 %49 to i32
   br label %return
 
 if.else52:                                        ; preds = %if.else43
@@ -2231,14 +2231,14 @@ if.else52:                                        ; preds = %if.else43
   %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
   store ptr %add.ptr, ptr %top, align 8
   tail call void @lj_vm_call(ptr noundef nonnull %L, ptr noundef %call47, i32 noundef 2) #13
-  %46 = load ptr, ptr %top, align 8
-  %add.ptr54 = getelementptr inbounds %union.TValue, ptr %46, i64 -3
+  %50 = load ptr, ptr %top, align 8
+  %add.ptr54 = getelementptr inbounds %union.TValue, ptr %50, i64 -3
   store ptr %add.ptr54, ptr %top, align 8
-  %add.ptr57 = getelementptr inbounds %union.TValue, ptr %46, i64 -1
-  %47 = load i64, ptr %add.ptr57, align 8
-  %shr58 = ashr i64 %47, 47
-  %48 = and i64 %shr58, 4294967294
-  %cmp60 = icmp ne i64 %48, 4294967294
+  %add.ptr57 = getelementptr inbounds %union.TValue, ptr %50, i64 -1
+  %51 = load i64, ptr %add.ptr57, align 8
+  %shr58 = ashr i64 %51, 47
+  %52 = and i64 %shr58, 4294967294
+  %cmp60 = icmp ne i64 %52, 4294967294
   %conv61 = zext i1 %cmp60 to i32
   br label %return
 
@@ -2260,19 +2260,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx1, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx1 to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -2281,9 +2281,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx1 to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -2294,62 +2294,62 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx1, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx1
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx1
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
@@ -2359,21 +2359,21 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
 
 if.then.i57:                                      ; preds = %index2adr.exit
   %base.i58 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %19 = load ptr, ptr %base.i58, align 8
-  %sub.i59 = add nsw i32 %idx2, -1
-  %idx.ext.i60 = zext nneg i32 %sub.i59 to i64
-  %add.ptr.i61 = getelementptr inbounds %union.TValue, ptr %19, i64 %idx.ext.i60
-  %top.i62 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %20 = load ptr, ptr %top.i62, align 8
-  %cmp1.i63 = icmp ult ptr %add.ptr.i61, %20
-  br i1 %cmp1.i63, label %index2adr.exit67, label %cond.false.i64
+  %21 = load ptr, ptr %base.i58, align 8
+  %22 = zext nneg i32 %idx2 to i64
+  %23 = getelementptr %union.TValue, ptr %21, i64 %22
+  %add.ptr.i59 = getelementptr %union.TValue, ptr %23, i64 -1
+  %top.i60 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %24 = load ptr, ptr %top.i60, align 8
+  %cmp1.i61 = icmp ult ptr %add.ptr.i59, %24
+  br i1 %cmp1.i61, label %index2adr.exit65, label %cond.false.i62
 
-cond.false.i64:                                   ; preds = %if.then.i57
-  %glref.i65 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %21 = load i64, ptr %glref.i65, align 8
-  %22 = inttoptr i64 %21 to ptr
-  %nilnode.i66 = getelementptr inbounds %struct.global_State, ptr %22, i64 0, i32 14
-  br label %index2adr.exit67
+cond.false.i62:                                   ; preds = %if.then.i57
+  %glref.i63 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
+  %25 = load i64, ptr %glref.i63, align 8
+  %26 = inttoptr i64 %25 to ptr
+  %nilnode.i64 = getelementptr inbounds %struct.global_State, ptr %26, i64 0, i32 14
+  br label %index2adr.exit65
 
 if.else.i19:                                      ; preds = %index2adr.exit
   %cmp2.i20 = icmp sgt i32 %idx2, -10000
@@ -2381,10 +2381,10 @@ if.else.i19:                                      ; preds = %index2adr.exit
 
 if.then3.i53:                                     ; preds = %if.else.i19
   %top4.i54 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %23 = load ptr, ptr %top4.i54, align 8
+  %27 = load ptr, ptr %top4.i54, align 8
   %idx.ext5.i55 = sext i32 %idx2 to i64
-  %add.ptr6.i56 = getelementptr inbounds %union.TValue, ptr %23, i64 %idx.ext5.i55
-  br label %index2adr.exit67
+  %add.ptr6.i56 = getelementptr inbounds %union.TValue, ptr %27, i64 %idx.ext5.i55
+  br label %index2adr.exit65
 
 if.else7.i21:                                     ; preds = %if.else.i19
   switch i32 %idx2, label %if.else18.i31 [
@@ -2394,93 +2394,93 @@ if.else7.i21:                                     ; preds = %if.else.i19
 
 if.then9.i26:                                     ; preds = %if.else7.i21
   %glref11.i27 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %24 = load i64, ptr %glref11.i27, align 8
-  %25 = inttoptr i64 %24 to ptr
-  %tmptv.i28 = getelementptr inbounds %struct.global_State, ptr %25, i64 0, i32 12
+  %28 = load i64, ptr %glref11.i27, align 8
+  %29 = inttoptr i64 %28 to ptr
+  %tmptv.i28 = getelementptr inbounds %struct.global_State, ptr %29, i64 0, i32 12
   %env.i29 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %26 = load i64, ptr %env.i29, align 8
-  %or.i.i.i30 = or i64 %26, -1688849860263936
+  %30 = load i64, ptr %env.i29, align 8
+  %or.i.i.i30 = or i64 %30, -1688849860263936
   store i64 %or.i.i.i30, ptr %tmptv.i28, align 8
-  br label %index2adr.exit67
+  br label %index2adr.exit65
 
 if.then15.i22:                                    ; preds = %if.else7.i21
   %glref16.i23 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %27 = load i64, ptr %glref16.i23, align 8
-  %28 = inttoptr i64 %27 to ptr
-  %registrytv.i24 = getelementptr inbounds %struct.global_State, ptr %28, i64 0, i32 15
-  br label %index2adr.exit67
+  %31 = load i64, ptr %glref16.i23, align 8
+  %32 = inttoptr i64 %31 to ptr
+  %registrytv.i24 = getelementptr inbounds %struct.global_State, ptr %32, i64 0, i32 15
+  br label %index2adr.exit65
 
 if.else18.i31:                                    ; preds = %if.else7.i21
   %base19.i32 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %29 = load ptr, ptr %base19.i32, align 8
-  %add.ptr20.i33 = getelementptr inbounds %union.TValue, ptr %29, i64 -2
-  %30 = load i64, ptr %add.ptr20.i33, align 8
-  %and.i34 = and i64 %30, 140737488355327
-  %31 = inttoptr i64 %and.i34 to ptr
+  %33 = load ptr, ptr %base19.i32, align 8
+  %add.ptr20.i33 = getelementptr inbounds %union.TValue, ptr %33, i64 -2
+  %34 = load i64, ptr %add.ptr20.i33, align 8
+  %and.i34 = and i64 %34, 140737488355327
+  %35 = inttoptr i64 %and.i34 to ptr
   %cmp22.i35 = icmp eq i32 %idx2, -10001
   br i1 %cmp22.i35, label %if.then23.i48, label %if.else30.i36
 
 if.then23.i48:                                    ; preds = %if.else18.i31
   %glref25.i49 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %32 = load i64, ptr %glref25.i49, align 8
-  %33 = inttoptr i64 %32 to ptr
-  %tmptv27.i50 = getelementptr inbounds %struct.global_State, ptr %33, i64 0, i32 12
-  %env28.i51 = getelementptr inbounds %struct.GCfuncC, ptr %31, i64 0, i32 5
-  %34 = load i64, ptr %env28.i51, align 8
-  %or.i.i61.i52 = or i64 %34, -1688849860263936
+  %36 = load i64, ptr %glref25.i49, align 8
+  %37 = inttoptr i64 %36 to ptr
+  %tmptv27.i50 = getelementptr inbounds %struct.global_State, ptr %37, i64 0, i32 12
+  %env28.i51 = getelementptr inbounds %struct.GCfuncC, ptr %35, i64 0, i32 5
+  %38 = load i64, ptr %env28.i51, align 8
+  %or.i.i61.i52 = or i64 %38, -1688849860263936
   store i64 %or.i.i61.i52, ptr %tmptv27.i50, align 8
-  br label %index2adr.exit67
+  br label %index2adr.exit65
 
 if.else30.i36:                                    ; preds = %if.else18.i31
   %sub31.i37 = sub nuw nsw i32 -10002, %idx2
-  %nupvalues.i38 = getelementptr inbounds %struct.GCfuncC, ptr %31, i64 0, i32 4
-  %35 = load i8, ptr %nupvalues.i38, align 1
-  %conv.i39 = zext i8 %35 to i32
+  %nupvalues.i38 = getelementptr inbounds %struct.GCfuncC, ptr %35, i64 0, i32 4
+  %39 = load i8, ptr %nupvalues.i38, align 1
+  %conv.i39 = zext i8 %39 to i32
   %cmp32.not.i40 = icmp ugt i32 %sub31.i37, %conv.i39
   br i1 %cmp32.not.i40, label %cond.false36.i45, label %cond.true34.i41
 
 cond.true34.i41:                                  ; preds = %if.else30.i36
   %sub35.i42 = sub nsw i32 -10003, %idx2
   %idxprom.i43 = sext i32 %sub35.i42 to i64
-  %arrayidx.i44 = getelementptr inbounds %struct.GCfuncC, ptr %31, i64 0, i32 9, i64 %idxprom.i43
-  br label %index2adr.exit67
+  %arrayidx.i44 = getelementptr inbounds %struct.GCfuncC, ptr %35, i64 0, i32 9, i64 %idxprom.i43
+  br label %index2adr.exit65
 
 cond.false36.i45:                                 ; preds = %if.else30.i36
   %glref37.i46 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %36 = load i64, ptr %glref37.i46, align 8
-  %37 = inttoptr i64 %36 to ptr
-  %nilnode39.i47 = getelementptr inbounds %struct.global_State, ptr %37, i64 0, i32 14
-  br label %index2adr.exit67
+  %40 = load i64, ptr %glref37.i46, align 8
+  %41 = inttoptr i64 %40 to ptr
+  %nilnode39.i47 = getelementptr inbounds %struct.global_State, ptr %41, i64 0, i32 14
+  br label %index2adr.exit65
 
-index2adr.exit67:                                 ; preds = %if.then.i57, %cond.false.i64, %if.then3.i53, %if.then9.i26, %if.then15.i22, %if.then23.i48, %cond.true34.i41, %cond.false36.i45
-  %retval.0.i25 = phi ptr [ %add.ptr6.i56, %if.then3.i53 ], [ %tmptv.i28, %if.then9.i26 ], [ %registrytv.i24, %if.then15.i22 ], [ %tmptv27.i50, %if.then23.i48 ], [ %nilnode.i66, %cond.false.i64 ], [ %add.ptr.i61, %if.then.i57 ], [ %arrayidx.i44, %cond.true34.i41 ], [ %nilnode39.i47, %cond.false36.i45 ]
+index2adr.exit65:                                 ; preds = %if.then.i57, %cond.false.i62, %if.then3.i53, %if.then9.i26, %if.then15.i22, %if.then23.i48, %cond.true34.i41, %cond.false36.i45
+  %retval.0.i25 = phi ptr [ %add.ptr6.i56, %if.then3.i53 ], [ %tmptv.i28, %if.then9.i26 ], [ %registrytv.i24, %if.then15.i22 ], [ %tmptv27.i50, %if.then23.i48 ], [ %nilnode.i64, %cond.false.i62 ], [ %add.ptr.i59, %if.then.i57 ], [ %arrayidx.i44, %cond.true34.i41 ], [ %nilnode39.i47, %cond.false36.i45 ]
   %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %38 = load i64, ptr %glref, align 8
-  %39 = inttoptr i64 %38 to ptr
-  %nilnode = getelementptr inbounds %struct.global_State, ptr %39, i64 0, i32 14
+  %42 = load i64, ptr %glref, align 8
+  %43 = inttoptr i64 %42 to ptr
+  %nilnode = getelementptr inbounds %struct.global_State, ptr %43, i64 0, i32 14
   %cmp = icmp eq ptr %retval.0.i, %nilnode
   %cmp6 = icmp eq ptr %retval.0.i25, %nilnode
   %or.cond = select i1 %cmp, i1 true, i1 %cmp6
   br i1 %or.cond, label %return, label %if.else
 
-if.else:                                          ; preds = %index2adr.exit67
-  %40 = load i64, ptr %retval.0.i, align 8
-  %shr = ashr i64 %40, 47
+if.else:                                          ; preds = %index2adr.exit65
+  %44 = load i64, ptr %retval.0.i, align 8
+  %shr = ashr i64 %44, 47
   %conv = trunc i64 %shr to i32
   %cmp7 = icmp ult i32 %conv, -13
-  %41 = bitcast i64 %40 to double
+  %45 = bitcast i64 %44 to double
   br i1 %cmp7, label %land.lhs.true, label %if.else18
 
 land.lhs.true:                                    ; preds = %if.else
-  %42 = load i64, ptr %retval.0.i25, align 8
-  %shr9 = ashr i64 %42, 47
+  %46 = load i64, ptr %retval.0.i25, align 8
+  %shr9 = ashr i64 %46, 47
   %conv10 = trunc i64 %shr9 to i32
   %cmp11 = icmp ult i32 %conv10, -13
   br i1 %cmp11, label %if.then13, label %if.else18
 
 if.then13:                                        ; preds = %land.lhs.true
-  %43 = bitcast i64 %42 to double
-  %cmp16 = fcmp olt double %41, %43
+  %47 = bitcast i64 %46 to double
+  %cmp16 = fcmp olt double %45, %47
   %conv17 = zext i1 %cmp16 to i32
   br label %return
 
@@ -2490,8 +2490,8 @@ if.else18:                                        ; preds = %land.lhs.true, %if.
   br i1 %cmp20, label %if.then22, label %if.else24
 
 if.then22:                                        ; preds = %if.else18
-  %44 = ptrtoint ptr %call19 to i64
-  %conv23 = trunc i64 %44 to i32
+  %48 = ptrtoint ptr %call19 to i64
+  %conv23 = trunc i64 %48 to i32
   br label %return
 
 if.else24:                                        ; preds = %if.else18
@@ -2499,19 +2499,19 @@ if.else24:                                        ; preds = %if.else18
   %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
   store ptr %add.ptr, ptr %top, align 8
   tail call void @lj_vm_call(ptr noundef nonnull %L, ptr noundef %call19, i32 noundef 2) #13
-  %45 = load ptr, ptr %top, align 8
-  %add.ptr26 = getelementptr inbounds %union.TValue, ptr %45, i64 -3
+  %49 = load ptr, ptr %top, align 8
+  %add.ptr26 = getelementptr inbounds %union.TValue, ptr %49, i64 -3
   store ptr %add.ptr26, ptr %top, align 8
-  %add.ptr29 = getelementptr inbounds %union.TValue, ptr %45, i64 -1
-  %46 = load i64, ptr %add.ptr29, align 8
-  %shr30 = ashr i64 %46, 47
-  %47 = and i64 %shr30, 4294967294
-  %cmp32 = icmp ne i64 %47, 4294967294
+  %add.ptr29 = getelementptr inbounds %union.TValue, ptr %49, i64 -1
+  %50 = load i64, ptr %add.ptr29, align 8
+  %shr30 = ashr i64 %50, 47
+  %51 = and i64 %shr30, 4294967294
+  %cmp32 = icmp ne i64 %51, 4294967294
   %conv33 = zext i1 %cmp32 to i32
   br label %return
 
-return:                                           ; preds = %index2adr.exit67, %if.else24, %if.then22, %if.then13
-  %retval.0 = phi i32 [ %conv17, %if.then13 ], [ %conv23, %if.then22 ], [ %conv33, %if.else24 ], [ 0, %index2adr.exit67 ]
+return:                                           ; preds = %index2adr.exit65, %if.else24, %if.then22, %if.then13
+  %retval.0 = phi i32 [ %conv17, %if.then13 ], [ %conv23, %if.then22 ], [ %conv33, %if.else24 ], [ 0, %index2adr.exit65 ]
   ret i32 %retval.0
 }
 
@@ -2527,19 +2527,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -2548,9 +2548,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -2561,74 +2561,74 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
-  %19 = load i64, ptr %retval.0.i, align 8
-  %shr = ashr i64 %19, 47
+  %21 = load i64, ptr %retval.0.i, align 8
+  %shr = ashr i64 %21, 47
   %conv = trunc i64 %shr to i32
   %cmp = icmp ult i32 %conv, -13
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %index2adr.exit
-  %20 = bitcast i64 %19 to double
+  %22 = bitcast i64 %21 to double
   br label %return
 
 if.else:                                          ; preds = %index2adr.exit
@@ -2636,18 +2636,18 @@ if.else:                                          ; preds = %index2adr.exit
   br i1 %cmp7, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.else
-  %and = and i64 %19, 140737488355327
-  %21 = inttoptr i64 %and to ptr
-  %call9 = call i32 @lj_strscan_num(ptr noundef %21, ptr noundef nonnull %tmp) #13
+  %and = and i64 %21, 140737488355327
+  %23 = inttoptr i64 %and to ptr
+  %call9 = call i32 @lj_strscan_num(ptr noundef %23, ptr noundef nonnull %tmp) #13
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %return, label %if.then11
 
 if.then11:                                        ; preds = %land.lhs.true
-  %22 = load double, ptr %tmp, align 8
+  %24 = load double, ptr %tmp, align 8
   br label %return
 
 return:                                           ; preds = %if.else, %land.lhs.true, %if.then11, %if.then
-  %retval.0 = phi double [ %20, %if.then ], [ %22, %if.then11 ], [ 0.000000e+00, %land.lhs.true ], [ 0.000000e+00, %if.else ]
+  %retval.0 = phi double [ %22, %if.then ], [ %24, %if.then11 ], [ 0.000000e+00, %land.lhs.true ], [ 0.000000e+00, %if.else ]
   ret double %retval.0
 }
 
@@ -2661,19 +2661,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -2682,9 +2682,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -2695,74 +2695,74 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
-  %19 = load i64, ptr %retval.0.i, align 8
-  %shr = ashr i64 %19, 47
+  %21 = load i64, ptr %retval.0.i, align 8
+  %shr = ashr i64 %21, 47
   %conv = trunc i64 %shr to i32
   %cmp = icmp ult i32 %conv, -13
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %index2adr.exit
-  %20 = bitcast i64 %19 to double
+  %22 = bitcast i64 %21 to double
   %tobool4.not = icmp eq ptr %ok, null
   br i1 %tobool4.not, label %return, label %if.then5
 
@@ -2776,9 +2776,9 @@ if.else:                                          ; preds = %index2adr.exit
   br i1 %cmp9, label %land.lhs.true, label %if.else17
 
 land.lhs.true:                                    ; preds = %if.else
-  %and = and i64 %19, 140737488355327
-  %21 = inttoptr i64 %and to ptr
-  %call11 = call i32 @lj_strscan_num(ptr noundef %21, ptr noundef nonnull %tmp) #13
+  %and = and i64 %21, 140737488355327
+  %23 = inttoptr i64 %and to ptr
+  %call11 = call i32 @lj_strscan_num(ptr noundef %23, ptr noundef nonnull %tmp) #13
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %if.else17, label %if.then13
 
@@ -2791,7 +2791,7 @@ if.then15:                                        ; preds = %if.then13
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then15, %if.then13
-  %22 = load double, ptr %tmp, align 8
+  %24 = load double, ptr %tmp, align 8
   br label %return
 
 if.else17:                                        ; preds = %land.lhs.true, %if.else
@@ -2803,7 +2803,7 @@ if.then19:                                        ; preds = %if.else17
   br label %return
 
 return:                                           ; preds = %if.then, %if.then5, %if.else17, %if.then19, %if.end16
-  %retval.0 = phi double [ %22, %if.end16 ], [ 0.000000e+00, %if.then19 ], [ 0.000000e+00, %if.else17 ], [ %.pre, %if.then5 ], [ %20, %if.then ]
+  %retval.0 = phi double [ %24, %if.end16 ], [ 0.000000e+00, %if.then19 ], [ 0.000000e+00, %if.else17 ], [ %.pre, %if.then5 ], [ %22, %if.then ]
   ret double %retval.0
 }
 
@@ -2817,19 +2817,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -2838,9 +2838,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -2851,71 +2851,71 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
-  %19 = load i64, ptr %retval.0.i, align 8
-  %shr = ashr i64 %19, 47
+  %21 = load i64, ptr %retval.0.i, align 8
+  %shr = ashr i64 %21, 47
   %conv = trunc i64 %shr to i32
   %cmp = icmp ult i32 %conv, -13
-  %20 = bitcast i64 %19 to double
+  %22 = bitcast i64 %21 to double
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %index2adr.exit
@@ -2923,9 +2923,9 @@ if.else:                                          ; preds = %index2adr.exit
   br i1 %cmp7, label %land.lhs.true, label %if.then11
 
 land.lhs.true:                                    ; preds = %if.else
-  %and = and i64 %19, 140737488355327
-  %21 = inttoptr i64 %and to ptr
-  %call9 = call i32 @lj_strscan_num(ptr noundef %21, ptr noundef nonnull %tmp) #13
+  %and = and i64 %21, 140737488355327
+  %23 = inttoptr i64 %and to ptr
+  %call9 = call i32 @lj_strscan_num(ptr noundef %23, ptr noundef nonnull %tmp) #13
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %if.then11, label %land.lhs.true.return_crit_edge
 
@@ -2938,7 +2938,7 @@ if.then11:                                        ; preds = %land.lhs.true, %if.
   unreachable
 
 return:                                           ; preds = %land.lhs.true.return_crit_edge, %index2adr.exit
-  %retval.0 = phi double [ %20, %index2adr.exit ], [ %retval.0.pre, %land.lhs.true.return_crit_edge ]
+  %retval.0 = phi double [ %22, %index2adr.exit ], [ %retval.0.pre, %land.lhs.true.return_crit_edge ]
   ret double %retval.0
 }
 
@@ -2952,19 +2952,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exitthread-pre-split, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exitthread-pre-split
 
 if.else.i:                                        ; preds = %entry
@@ -2973,9 +2973,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exitthread-pre-split
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -2986,62 +2986,62 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exitthread-pre-split
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exitthread-pre-split
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exitthread-pre-split
 
 index2adr.exitthread-pre-split:                   ; preds = %cond.false36.i, %cond.true34.i, %if.then15.i, %if.then3.i, %cond.false.i, %if.then.i
@@ -3050,18 +3050,18 @@ index2adr.exitthread-pre-split:                   ; preds = %cond.false36.i, %co
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %index2adr.exitthread-pre-split, %if.then9.i, %if.then23.i
-  %19 = phi i64 [ %.pr, %index2adr.exitthread-pre-split ], [ %or.i.i.i, %if.then9.i ], [ %or.i.i61.i, %if.then23.i ]
-  %shr = ashr i64 %19, 47
+  %21 = phi i64 [ %.pr, %index2adr.exitthread-pre-split ], [ %or.i.i.i, %if.then9.i ], [ %or.i.i61.i, %if.then23.i ]
+  %shr = ashr i64 %21, 47
   %conv = trunc i64 %shr to i32
   %cmp = icmp ult i32 %conv, -13
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %index2adr.exit
-  %20 = bitcast i64 %19 to double
+  %22 = bitcast i64 %21 to double
   br label %return
 
 if.else:                                          ; preds = %index2adr.exit
-  %cmp5 = icmp eq i64 %19, -1
+  %cmp5 = icmp eq i64 %21, -1
   br i1 %cmp5, label %return, label %if.else8
 
 if.else8:                                         ; preds = %if.else
@@ -3069,9 +3069,9 @@ if.else8:                                         ; preds = %if.else
   br i1 %cmp11, label %land.lhs.true, label %if.then15
 
 land.lhs.true:                                    ; preds = %if.else8
-  %and = and i64 %19, 140737488355327
-  %21 = inttoptr i64 %and to ptr
-  %call13 = call i32 @lj_strscan_num(ptr noundef %21, ptr noundef nonnull %tmp) #13
+  %and = and i64 %21, 140737488355327
+  %23 = inttoptr i64 %and to ptr
+  %call13 = call i32 @lj_strscan_num(ptr noundef %23, ptr noundef nonnull %tmp) #13
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %if.then15, label %if.end17
 
@@ -3080,11 +3080,11 @@ if.then15:                                        ; preds = %land.lhs.true, %if.
   unreachable
 
 if.end17:                                         ; preds = %land.lhs.true
-  %22 = load double, ptr %tmp, align 8
+  %24 = load double, ptr %tmp, align 8
   br label %return
 
 return:                                           ; preds = %if.else, %if.end17, %if.then
-  %retval.0 = phi double [ %20, %if.then ], [ %22, %if.end17 ], [ %def, %if.else ]
+  %retval.0 = phi double [ %22, %if.then ], [ %24, %if.end17 ], [ %def, %if.else ]
   ret double %retval.0
 }
 
@@ -3098,19 +3098,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -3119,9 +3119,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -3132,71 +3132,71 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
-  %19 = load i64, ptr %retval.0.i, align 8
-  %shr = ashr i64 %19, 47
+  %21 = load i64, ptr %retval.0.i, align 8
+  %shr = ashr i64 %21, 47
   %conv = trunc i64 %shr to i32
   %cmp = icmp ult i32 %conv, -14
-  %20 = bitcast i64 %19 to double
+  %22 = bitcast i64 %21 to double
   br i1 %cmp, label %if.end11, label %if.else
 
 if.else:                                          ; preds = %index2adr.exit
@@ -3204,9 +3204,9 @@ if.else:                                          ; preds = %index2adr.exit
   br i1 %cmp6, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.else
-  %and = and i64 %19, 140737488355327
-  %21 = inttoptr i64 %and to ptr
-  %call8 = call i32 @lj_strscan_num(ptr noundef %21, ptr noundef nonnull %tmp) #13
+  %and = and i64 %21, 140737488355327
+  %23 = inttoptr i64 %and to ptr
+  %call8 = call i32 @lj_strscan_num(ptr noundef %23, ptr noundef nonnull %tmp) #13
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %return, label %land.lhs.true.if.end11_crit_edge
 
@@ -3215,7 +3215,7 @@ land.lhs.true.if.end11_crit_edge:                 ; preds = %land.lhs.true
   br label %if.end11
 
 if.end11:                                         ; preds = %land.lhs.true.if.end11_crit_edge, %index2adr.exit
-  %n.0 = phi double [ %20, %index2adr.exit ], [ %n.0.pre, %land.lhs.true.if.end11_crit_edge ]
+  %n.0 = phi double [ %22, %index2adr.exit ], [ %n.0.pre, %land.lhs.true.if.end11_crit_edge ]
   %conv12 = fptosi double %n.0 to i64
   br label %return
 
@@ -3234,19 +3234,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -3255,9 +3255,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -3268,71 +3268,71 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
-  %19 = load i64, ptr %retval.0.i, align 8
-  %shr = ashr i64 %19, 47
+  %21 = load i64, ptr %retval.0.i, align 8
+  %shr = ashr i64 %21, 47
   %conv = trunc i64 %shr to i32
   %cmp = icmp ult i32 %conv, -14
-  %20 = bitcast i64 %19 to double
+  %22 = bitcast i64 %21 to double
   br i1 %cmp, label %if.end14, label %if.else
 
 if.else:                                          ; preds = %index2adr.exit
@@ -3340,9 +3340,9 @@ if.else:                                          ; preds = %index2adr.exit
   br i1 %cmp6, label %land.lhs.true, label %if.then10
 
 land.lhs.true:                                    ; preds = %if.else
-  %and = and i64 %19, 140737488355327
-  %21 = inttoptr i64 %and to ptr
-  %call8 = call i32 @lj_strscan_num(ptr noundef %21, ptr noundef nonnull %tmp) #13
+  %and = and i64 %21, 140737488355327
+  %23 = inttoptr i64 %and to ptr
+  %call8 = call i32 @lj_strscan_num(ptr noundef %23, ptr noundef nonnull %tmp) #13
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %if.then10, label %land.lhs.true.if.end14_crit_edge
 
@@ -3359,7 +3359,7 @@ if.then12:                                        ; preds = %if.then10
   br label %return
 
 if.end14:                                         ; preds = %land.lhs.true.if.end14_crit_edge, %index2adr.exit
-  %n.0 = phi double [ %20, %index2adr.exit ], [ %n.0.pre, %land.lhs.true.if.end14_crit_edge ]
+  %n.0 = phi double [ %22, %index2adr.exit ], [ %n.0.pre, %land.lhs.true.if.end14_crit_edge ]
   %tobool15.not = icmp eq ptr %ok, null
   br i1 %tobool15.not, label %if.end17, label %if.then16
 
@@ -3386,19 +3386,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -3407,9 +3407,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -3420,71 +3420,71 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
-  %19 = load i64, ptr %retval.0.i, align 8
-  %shr = ashr i64 %19, 47
+  %21 = load i64, ptr %retval.0.i, align 8
+  %shr = ashr i64 %21, 47
   %conv = trunc i64 %shr to i32
   %cmp = icmp ult i32 %conv, -14
-  %20 = bitcast i64 %19 to double
+  %22 = bitcast i64 %21 to double
   br i1 %cmp, label %if.end11, label %if.else
 
 if.else:                                          ; preds = %index2adr.exit
@@ -3492,9 +3492,9 @@ if.else:                                          ; preds = %index2adr.exit
   br i1 %cmp6, label %land.lhs.true, label %if.then10
 
 land.lhs.true:                                    ; preds = %if.else
-  %and = and i64 %19, 140737488355327
-  %21 = inttoptr i64 %and to ptr
-  %call8 = call i32 @lj_strscan_num(ptr noundef %21, ptr noundef nonnull %tmp) #13
+  %and = and i64 %21, 140737488355327
+  %23 = inttoptr i64 %and to ptr
+  %call8 = call i32 @lj_strscan_num(ptr noundef %23, ptr noundef nonnull %tmp) #13
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %if.then10, label %land.lhs.true.if.end11_crit_edge
 
@@ -3507,7 +3507,7 @@ if.then10:                                        ; preds = %land.lhs.true, %if.
   unreachable
 
 if.end11:                                         ; preds = %land.lhs.true.if.end11_crit_edge, %index2adr.exit
-  %n.0 = phi double [ %20, %index2adr.exit ], [ %n.0.pre, %land.lhs.true.if.end11_crit_edge ]
+  %n.0 = phi double [ %22, %index2adr.exit ], [ %n.0.pre, %land.lhs.true.if.end11_crit_edge ]
   %conv12 = fptosi double %n.0 to i64
   ret i64 %conv12
 }
@@ -3522,19 +3522,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exitthread-pre-split, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exitthread-pre-split
 
 if.else.i:                                        ; preds = %entry
@@ -3543,9 +3543,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exitthread-pre-split
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -3556,62 +3556,62 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exitthread-pre-split
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exitthread-pre-split
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exitthread-pre-split
 
 index2adr.exitthread-pre-split:                   ; preds = %cond.false36.i, %cond.true34.i, %if.then15.i, %if.then3.i, %cond.false.i, %if.then.i
@@ -3620,15 +3620,15 @@ index2adr.exitthread-pre-split:                   ; preds = %cond.false36.i, %co
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %index2adr.exitthread-pre-split, %if.then9.i, %if.then23.i
-  %19 = phi i64 [ %.pr, %index2adr.exitthread-pre-split ], [ %or.i.i.i, %if.then9.i ], [ %or.i.i61.i, %if.then23.i ]
-  %n.08 = bitcast i64 %19 to double
-  %shr = ashr i64 %19, 47
+  %21 = phi i64 [ %.pr, %index2adr.exitthread-pre-split ], [ %or.i.i.i, %if.then9.i ], [ %or.i.i61.i, %if.then23.i ]
+  %n.08 = bitcast i64 %21 to double
+  %shr = ashr i64 %21, 47
   %conv = trunc i64 %shr to i32
   %cmp = icmp ult i32 %conv, -14
   br i1 %cmp, label %if.end16, label %if.else
 
 if.else:                                          ; preds = %index2adr.exit
-  %cmp4 = icmp eq i64 %19, -1
+  %cmp4 = icmp eq i64 %21, -1
   br i1 %cmp4, label %return, label %if.else7
 
 if.else7:                                         ; preds = %if.else
@@ -3636,9 +3636,9 @@ if.else7:                                         ; preds = %if.else
   br i1 %cmp10, label %land.lhs.true, label %if.then14
 
 land.lhs.true:                                    ; preds = %if.else7
-  %and = and i64 %19, 140737488355327
-  %20 = inttoptr i64 %and to ptr
-  %call12 = call i32 @lj_strscan_num(ptr noundef %20, ptr noundef nonnull %tmp) #13
+  %and = and i64 %21, 140737488355327
+  %22 = inttoptr i64 %and to ptr
+  %call12 = call i32 @lj_strscan_num(ptr noundef %22, ptr noundef nonnull %tmp) #13
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %if.then14, label %land.lhs.true.if.end16_crit_edge
 
@@ -3669,19 +3669,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -3690,9 +3690,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -3703,70 +3703,70 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
-  %19 = load i64, ptr %retval.0.i, align 8
-  %shr = ashr i64 %19, 47
-  %20 = and i64 %shr, 4294967294
-  %cmp = icmp ne i64 %20, 4294967294
+  %21 = load i64, ptr %retval.0.i, align 8
+  %shr = ashr i64 %21, 47
+  %22 = and i64 %shr, 4294967294
+  %cmp = icmp ne i64 %22, 4294967294
   %conv1 = zext i1 %cmp to i32
   ret i32 %conv1
 }
@@ -3780,19 +3780,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -3801,9 +3801,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -3814,75 +3814,75 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
-  %19 = load i64, ptr %retval.0.i, align 8
-  %shr = ashr i64 %19, 47
+  %21 = load i64, ptr %retval.0.i, align 8
+  %shr = ashr i64 %21, 47
   %conv = trunc i64 %shr to i32
   %cmp = icmp eq i32 %conv, -5
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %index2adr.exit
-  %and = and i64 %19, 140737488355327
-  %20 = inttoptr i64 %and to ptr
+  %and = and i64 %21, 140737488355327
+  %22 = inttoptr i64 %and to ptr
   br label %if.end30
 
 if.else:                                          ; preds = %index2adr.exit
@@ -3891,13 +3891,13 @@ if.else:                                          ; preds = %index2adr.exit
 
 if.then8:                                         ; preds = %if.else
   %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %21 = load i64, ptr %glref, align 8
-  %22 = inttoptr i64 %21 to ptr
-  %gc = getelementptr inbounds %struct.global_State, ptr %22, i64 0, i32 2
-  %23 = load i64, ptr %gc, align 8
-  %threshold = getelementptr inbounds %struct.global_State, ptr %22, i64 0, i32 2, i32 1
-  %24 = load i64, ptr %threshold, align 8
-  %cmp12.not = icmp ult i64 %23, %24
+  %23 = load i64, ptr %glref, align 8
+  %24 = inttoptr i64 %23 to ptr
+  %gc = getelementptr inbounds %struct.global_State, ptr %24, i64 0, i32 2
+  %25 = load i64, ptr %gc, align 8
+  %threshold = getelementptr inbounds %struct.global_State, ptr %24, i64 0, i32 2, i32 1
+  %26 = load i64, ptr %threshold, align 8
+  %cmp12.not = icmp ult i64 %25, %26
   br i1 %cmp12.not, label %if.end, label %if.then20
 
 if.then20:                                        ; preds = %if.then8
@@ -3909,20 +3909,20 @@ if.end:                                           ; preds = %if.then20, %if.then
 
 if.then.i57:                                      ; preds = %if.end
   %base.i58 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %25 = load ptr, ptr %base.i58, align 8
-  %sub.i59 = add nsw i32 %idx, -1
-  %idx.ext.i60 = zext nneg i32 %sub.i59 to i64
-  %add.ptr.i61 = getelementptr inbounds %union.TValue, ptr %25, i64 %idx.ext.i60
-  %top.i62 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %26 = load ptr, ptr %top.i62, align 8
-  %cmp1.i63 = icmp ult ptr %add.ptr.i61, %26
-  br i1 %cmp1.i63, label %index2adr.exit67, label %cond.false.i64
+  %27 = load ptr, ptr %base.i58, align 8
+  %28 = zext nneg i32 %idx to i64
+  %29 = getelementptr %union.TValue, ptr %27, i64 %28
+  %add.ptr.i59 = getelementptr %union.TValue, ptr %29, i64 -1
+  %top.i60 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %30 = load ptr, ptr %top.i60, align 8
+  %cmp1.i61 = icmp ult ptr %add.ptr.i59, %30
+  br i1 %cmp1.i61, label %index2adr.exit65, label %cond.false.i62
 
-cond.false.i64:                                   ; preds = %if.then.i57
-  %27 = load i64, ptr %glref, align 8
-  %28 = inttoptr i64 %27 to ptr
-  %nilnode.i66 = getelementptr inbounds %struct.global_State, ptr %28, i64 0, i32 14
-  br label %index2adr.exit67
+cond.false.i62:                                   ; preds = %if.then.i57
+  %31 = load i64, ptr %glref, align 8
+  %32 = inttoptr i64 %31 to ptr
+  %nilnode.i64 = getelementptr inbounds %struct.global_State, ptr %32, i64 0, i32 14
+  br label %index2adr.exit65
 
 if.else.i19:                                      ; preds = %if.end
   %cmp2.i20 = icmp sgt i32 %idx, -10000
@@ -3930,10 +3930,10 @@ if.else.i19:                                      ; preds = %if.end
 
 if.then3.i53:                                     ; preds = %if.else.i19
   %top4.i54 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %29 = load ptr, ptr %top4.i54, align 8
+  %33 = load ptr, ptr %top4.i54, align 8
   %idx.ext5.i55 = sext i32 %idx to i64
-  %add.ptr6.i56 = getelementptr inbounds %union.TValue, ptr %29, i64 %idx.ext5.i55
-  br label %index2adr.exit67
+  %add.ptr6.i56 = getelementptr inbounds %union.TValue, ptr %33, i64 %idx.ext5.i55
+  br label %index2adr.exit65
 
 if.else7.i21:                                     ; preds = %if.else.i19
   switch i32 %idx, label %if.else18.i31 [
@@ -3942,66 +3942,66 @@ if.else7.i21:                                     ; preds = %if.else.i19
   ]
 
 if.then9.i26:                                     ; preds = %if.else7.i21
-  %30 = load i64, ptr %glref, align 8
-  %31 = inttoptr i64 %30 to ptr
-  %tmptv.i28 = getelementptr inbounds %struct.global_State, ptr %31, i64 0, i32 12
+  %34 = load i64, ptr %glref, align 8
+  %35 = inttoptr i64 %34 to ptr
+  %tmptv.i28 = getelementptr inbounds %struct.global_State, ptr %35, i64 0, i32 12
   %env.i29 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %32 = load i64, ptr %env.i29, align 8
-  %or.i.i.i30 = or i64 %32, -1688849860263936
+  %36 = load i64, ptr %env.i29, align 8
+  %or.i.i.i30 = or i64 %36, -1688849860263936
   store i64 %or.i.i.i30, ptr %tmptv.i28, align 8
-  br label %index2adr.exit67
+  br label %index2adr.exit65
 
 if.then15.i22:                                    ; preds = %if.else7.i21
-  %33 = load i64, ptr %glref, align 8
-  %34 = inttoptr i64 %33 to ptr
-  %registrytv.i24 = getelementptr inbounds %struct.global_State, ptr %34, i64 0, i32 15
-  br label %index2adr.exit67
+  %37 = load i64, ptr %glref, align 8
+  %38 = inttoptr i64 %37 to ptr
+  %registrytv.i24 = getelementptr inbounds %struct.global_State, ptr %38, i64 0, i32 15
+  br label %index2adr.exit65
 
 if.else18.i31:                                    ; preds = %if.else7.i21
   %base19.i32 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %35 = load ptr, ptr %base19.i32, align 8
-  %add.ptr20.i33 = getelementptr inbounds %union.TValue, ptr %35, i64 -2
-  %36 = load i64, ptr %add.ptr20.i33, align 8
-  %and.i34 = and i64 %36, 140737488355327
-  %37 = inttoptr i64 %and.i34 to ptr
+  %39 = load ptr, ptr %base19.i32, align 8
+  %add.ptr20.i33 = getelementptr inbounds %union.TValue, ptr %39, i64 -2
+  %40 = load i64, ptr %add.ptr20.i33, align 8
+  %and.i34 = and i64 %40, 140737488355327
+  %41 = inttoptr i64 %and.i34 to ptr
   %cmp22.i35 = icmp eq i32 %idx, -10001
   br i1 %cmp22.i35, label %if.then23.i48, label %if.else30.i36
 
 if.then23.i48:                                    ; preds = %if.else18.i31
-  %38 = load i64, ptr %glref, align 8
-  %39 = inttoptr i64 %38 to ptr
-  %tmptv27.i50 = getelementptr inbounds %struct.global_State, ptr %39, i64 0, i32 12
-  %env28.i51 = getelementptr inbounds %struct.GCfuncC, ptr %37, i64 0, i32 5
-  %40 = load i64, ptr %env28.i51, align 8
-  %or.i.i61.i52 = or i64 %40, -1688849860263936
+  %42 = load i64, ptr %glref, align 8
+  %43 = inttoptr i64 %42 to ptr
+  %tmptv27.i50 = getelementptr inbounds %struct.global_State, ptr %43, i64 0, i32 12
+  %env28.i51 = getelementptr inbounds %struct.GCfuncC, ptr %41, i64 0, i32 5
+  %44 = load i64, ptr %env28.i51, align 8
+  %or.i.i61.i52 = or i64 %44, -1688849860263936
   store i64 %or.i.i61.i52, ptr %tmptv27.i50, align 8
-  br label %index2adr.exit67
+  br label %index2adr.exit65
 
 if.else30.i36:                                    ; preds = %if.else18.i31
   %sub31.i37 = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i38 = getelementptr inbounds %struct.GCfuncC, ptr %37, i64 0, i32 4
-  %41 = load i8, ptr %nupvalues.i38, align 1
-  %conv.i39 = zext i8 %41 to i32
+  %nupvalues.i38 = getelementptr inbounds %struct.GCfuncC, ptr %41, i64 0, i32 4
+  %45 = load i8, ptr %nupvalues.i38, align 1
+  %conv.i39 = zext i8 %45 to i32
   %cmp32.not.i40 = icmp ugt i32 %sub31.i37, %conv.i39
   br i1 %cmp32.not.i40, label %cond.false36.i45, label %cond.true34.i41
 
 cond.true34.i41:                                  ; preds = %if.else30.i36
   %sub35.i42 = sub nsw i32 -10003, %idx
   %idxprom.i43 = sext i32 %sub35.i42 to i64
-  %arrayidx.i44 = getelementptr inbounds %struct.GCfuncC, ptr %37, i64 0, i32 9, i64 %idxprom.i43
-  br label %index2adr.exit67
+  %arrayidx.i44 = getelementptr inbounds %struct.GCfuncC, ptr %41, i64 0, i32 9, i64 %idxprom.i43
+  br label %index2adr.exit65
 
 cond.false36.i45:                                 ; preds = %if.else30.i36
-  %42 = load i64, ptr %glref, align 8
-  %43 = inttoptr i64 %42 to ptr
-  %nilnode39.i47 = getelementptr inbounds %struct.global_State, ptr %43, i64 0, i32 14
-  br label %index2adr.exit67
+  %46 = load i64, ptr %glref, align 8
+  %47 = inttoptr i64 %46 to ptr
+  %nilnode39.i47 = getelementptr inbounds %struct.global_State, ptr %47, i64 0, i32 14
+  br label %index2adr.exit65
 
-index2adr.exit67:                                 ; preds = %if.then.i57, %cond.false.i64, %if.then3.i53, %if.then9.i26, %if.then15.i22, %if.then23.i48, %cond.true34.i41, %cond.false36.i45
-  %retval.0.i25 = phi ptr [ %add.ptr6.i56, %if.then3.i53 ], [ %tmptv.i28, %if.then9.i26 ], [ %registrytv.i24, %if.then15.i22 ], [ %tmptv27.i50, %if.then23.i48 ], [ %nilnode.i66, %cond.false.i64 ], [ %add.ptr.i61, %if.then.i57 ], [ %arrayidx.i44, %cond.true34.i41 ], [ %nilnode39.i47, %cond.false36.i45 ]
+index2adr.exit65:                                 ; preds = %if.then.i57, %cond.false.i62, %if.then3.i53, %if.then9.i26, %if.then15.i22, %if.then23.i48, %cond.true34.i41, %cond.false36.i45
+  %retval.0.i25 = phi ptr [ %add.ptr6.i56, %if.then3.i53 ], [ %tmptv.i28, %if.then9.i26 ], [ %registrytv.i24, %if.then15.i22 ], [ %tmptv27.i50, %if.then23.i48 ], [ %nilnode.i64, %cond.false.i62 ], [ %add.ptr.i59, %if.then.i57 ], [ %arrayidx.i44, %cond.true34.i41 ], [ %nilnode39.i47, %cond.false36.i45 ]
   %call23 = tail call ptr @lj_strfmt_number(ptr noundef nonnull %L, ptr noundef %retval.0.i25) #13
-  %44 = ptrtoint ptr %call23 to i64
-  %or.i.i = or i64 %44, -703687441776640
+  %48 = ptrtoint ptr %call23 to i64
+  %or.i.i = or i64 %48, -703687441776640
   store i64 %or.i.i, ptr %retval.0.i25, align 8
   br label %if.end30
 
@@ -4013,15 +4013,15 @@ if.then27:                                        ; preds = %if.else24
   store i64 0, ptr %len, align 8
   br label %return
 
-if.end30:                                         ; preds = %index2adr.exit67, %if.then
-  %s.0 = phi ptr [ %20, %if.then ], [ %call23, %index2adr.exit67 ]
+if.end30:                                         ; preds = %index2adr.exit65, %if.then
+  %s.0 = phi ptr [ %22, %if.then ], [ %call23, %index2adr.exit65 ]
   %cmp31.not = icmp eq ptr %len, null
   br i1 %cmp31.not, label %if.end36, label %if.then33
 
 if.then33:                                        ; preds = %if.end30
   %len34 = getelementptr inbounds %struct.GCstr, ptr %s.0, i64 0, i32 7
-  %45 = load i32, ptr %len34, align 4
-  %conv35 = zext i32 %45 to i64
+  %49 = load i32, ptr %len34, align 4
+  %conv35 = zext i32 %49 to i64
   store i64 %conv35, ptr %len, align 8
   br label %if.end36
 
@@ -4047,19 +4047,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -4068,9 +4068,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -4081,75 +4081,75 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
-  %19 = load i64, ptr %retval.0.i, align 8
-  %shr = ashr i64 %19, 47
+  %21 = load i64, ptr %retval.0.i, align 8
+  %shr = ashr i64 %21, 47
   %conv = trunc i64 %shr to i32
   %cmp = icmp eq i32 %conv, -5
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %index2adr.exit
-  %and = and i64 %19, 140737488355327
-  %20 = inttoptr i64 %and to ptr
+  %and = and i64 %21, 140737488355327
+  %22 = inttoptr i64 %and to ptr
   br label %if.end26
 
 if.else:                                          ; preds = %index2adr.exit
@@ -4158,13 +4158,13 @@ if.else:                                          ; preds = %index2adr.exit
 
 if.then8:                                         ; preds = %if.else
   %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %21 = load i64, ptr %glref, align 8
-  %22 = inttoptr i64 %21 to ptr
-  %gc = getelementptr inbounds %struct.global_State, ptr %22, i64 0, i32 2
-  %23 = load i64, ptr %gc, align 8
-  %threshold = getelementptr inbounds %struct.global_State, ptr %22, i64 0, i32 2, i32 1
-  %24 = load i64, ptr %threshold, align 8
-  %cmp12.not = icmp ult i64 %23, %24
+  %23 = load i64, ptr %glref, align 8
+  %24 = inttoptr i64 %23 to ptr
+  %gc = getelementptr inbounds %struct.global_State, ptr %24, i64 0, i32 2
+  %25 = load i64, ptr %gc, align 8
+  %threshold = getelementptr inbounds %struct.global_State, ptr %24, i64 0, i32 2, i32 1
+  %26 = load i64, ptr %threshold, align 8
+  %cmp12.not = icmp ult i64 %25, %26
   br i1 %cmp12.not, label %if.end, label %if.then20
 
 if.then20:                                        ; preds = %if.then8
@@ -4176,20 +4176,20 @@ if.end:                                           ; preds = %if.then20, %if.then
 
 if.then.i57:                                      ; preds = %if.end
   %base.i58 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %25 = load ptr, ptr %base.i58, align 8
-  %sub.i59 = add nsw i32 %idx, -1
-  %idx.ext.i60 = zext nneg i32 %sub.i59 to i64
-  %add.ptr.i61 = getelementptr inbounds %union.TValue, ptr %25, i64 %idx.ext.i60
-  %top.i62 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %26 = load ptr, ptr %top.i62, align 8
-  %cmp1.i63 = icmp ult ptr %add.ptr.i61, %26
-  br i1 %cmp1.i63, label %index2adr.exit67, label %cond.false.i64
+  %27 = load ptr, ptr %base.i58, align 8
+  %28 = zext nneg i32 %idx to i64
+  %29 = getelementptr %union.TValue, ptr %27, i64 %28
+  %add.ptr.i59 = getelementptr %union.TValue, ptr %29, i64 -1
+  %top.i60 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %30 = load ptr, ptr %top.i60, align 8
+  %cmp1.i61 = icmp ult ptr %add.ptr.i59, %30
+  br i1 %cmp1.i61, label %index2adr.exit65, label %cond.false.i62
 
-cond.false.i64:                                   ; preds = %if.then.i57
-  %27 = load i64, ptr %glref, align 8
-  %28 = inttoptr i64 %27 to ptr
-  %nilnode.i66 = getelementptr inbounds %struct.global_State, ptr %28, i64 0, i32 14
-  br label %index2adr.exit67
+cond.false.i62:                                   ; preds = %if.then.i57
+  %31 = load i64, ptr %glref, align 8
+  %32 = inttoptr i64 %31 to ptr
+  %nilnode.i64 = getelementptr inbounds %struct.global_State, ptr %32, i64 0, i32 14
+  br label %index2adr.exit65
 
 if.else.i19:                                      ; preds = %if.end
   %cmp2.i20 = icmp sgt i32 %idx, -10000
@@ -4197,10 +4197,10 @@ if.else.i19:                                      ; preds = %if.end
 
 if.then3.i53:                                     ; preds = %if.else.i19
   %top4.i54 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %29 = load ptr, ptr %top4.i54, align 8
+  %33 = load ptr, ptr %top4.i54, align 8
   %idx.ext5.i55 = sext i32 %idx to i64
-  %add.ptr6.i56 = getelementptr inbounds %union.TValue, ptr %29, i64 %idx.ext5.i55
-  br label %index2adr.exit67
+  %add.ptr6.i56 = getelementptr inbounds %union.TValue, ptr %33, i64 %idx.ext5.i55
+  br label %index2adr.exit65
 
 if.else7.i21:                                     ; preds = %if.else.i19
   switch i32 %idx, label %if.else18.i31 [
@@ -4209,66 +4209,66 @@ if.else7.i21:                                     ; preds = %if.else.i19
   ]
 
 if.then9.i26:                                     ; preds = %if.else7.i21
-  %30 = load i64, ptr %glref, align 8
-  %31 = inttoptr i64 %30 to ptr
-  %tmptv.i28 = getelementptr inbounds %struct.global_State, ptr %31, i64 0, i32 12
+  %34 = load i64, ptr %glref, align 8
+  %35 = inttoptr i64 %34 to ptr
+  %tmptv.i28 = getelementptr inbounds %struct.global_State, ptr %35, i64 0, i32 12
   %env.i29 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %32 = load i64, ptr %env.i29, align 8
-  %or.i.i.i30 = or i64 %32, -1688849860263936
+  %36 = load i64, ptr %env.i29, align 8
+  %or.i.i.i30 = or i64 %36, -1688849860263936
   store i64 %or.i.i.i30, ptr %tmptv.i28, align 8
-  br label %index2adr.exit67
+  br label %index2adr.exit65
 
 if.then15.i22:                                    ; preds = %if.else7.i21
-  %33 = load i64, ptr %glref, align 8
-  %34 = inttoptr i64 %33 to ptr
-  %registrytv.i24 = getelementptr inbounds %struct.global_State, ptr %34, i64 0, i32 15
-  br label %index2adr.exit67
+  %37 = load i64, ptr %glref, align 8
+  %38 = inttoptr i64 %37 to ptr
+  %registrytv.i24 = getelementptr inbounds %struct.global_State, ptr %38, i64 0, i32 15
+  br label %index2adr.exit65
 
 if.else18.i31:                                    ; preds = %if.else7.i21
   %base19.i32 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %35 = load ptr, ptr %base19.i32, align 8
-  %add.ptr20.i33 = getelementptr inbounds %union.TValue, ptr %35, i64 -2
-  %36 = load i64, ptr %add.ptr20.i33, align 8
-  %and.i34 = and i64 %36, 140737488355327
-  %37 = inttoptr i64 %and.i34 to ptr
+  %39 = load ptr, ptr %base19.i32, align 8
+  %add.ptr20.i33 = getelementptr inbounds %union.TValue, ptr %39, i64 -2
+  %40 = load i64, ptr %add.ptr20.i33, align 8
+  %and.i34 = and i64 %40, 140737488355327
+  %41 = inttoptr i64 %and.i34 to ptr
   %cmp22.i35 = icmp eq i32 %idx, -10001
   br i1 %cmp22.i35, label %if.then23.i48, label %if.else30.i36
 
 if.then23.i48:                                    ; preds = %if.else18.i31
-  %38 = load i64, ptr %glref, align 8
-  %39 = inttoptr i64 %38 to ptr
-  %tmptv27.i50 = getelementptr inbounds %struct.global_State, ptr %39, i64 0, i32 12
-  %env28.i51 = getelementptr inbounds %struct.GCfuncC, ptr %37, i64 0, i32 5
-  %40 = load i64, ptr %env28.i51, align 8
-  %or.i.i61.i52 = or i64 %40, -1688849860263936
+  %42 = load i64, ptr %glref, align 8
+  %43 = inttoptr i64 %42 to ptr
+  %tmptv27.i50 = getelementptr inbounds %struct.global_State, ptr %43, i64 0, i32 12
+  %env28.i51 = getelementptr inbounds %struct.GCfuncC, ptr %41, i64 0, i32 5
+  %44 = load i64, ptr %env28.i51, align 8
+  %or.i.i61.i52 = or i64 %44, -1688849860263936
   store i64 %or.i.i61.i52, ptr %tmptv27.i50, align 8
-  br label %index2adr.exit67
+  br label %index2adr.exit65
 
 if.else30.i36:                                    ; preds = %if.else18.i31
   %sub31.i37 = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i38 = getelementptr inbounds %struct.GCfuncC, ptr %37, i64 0, i32 4
-  %41 = load i8, ptr %nupvalues.i38, align 1
-  %conv.i39 = zext i8 %41 to i32
+  %nupvalues.i38 = getelementptr inbounds %struct.GCfuncC, ptr %41, i64 0, i32 4
+  %45 = load i8, ptr %nupvalues.i38, align 1
+  %conv.i39 = zext i8 %45 to i32
   %cmp32.not.i40 = icmp ugt i32 %sub31.i37, %conv.i39
   br i1 %cmp32.not.i40, label %cond.false36.i45, label %cond.true34.i41
 
 cond.true34.i41:                                  ; preds = %if.else30.i36
   %sub35.i42 = sub nsw i32 -10003, %idx
   %idxprom.i43 = sext i32 %sub35.i42 to i64
-  %arrayidx.i44 = getelementptr inbounds %struct.GCfuncC, ptr %37, i64 0, i32 9, i64 %idxprom.i43
-  br label %index2adr.exit67
+  %arrayidx.i44 = getelementptr inbounds %struct.GCfuncC, ptr %41, i64 0, i32 9, i64 %idxprom.i43
+  br label %index2adr.exit65
 
 cond.false36.i45:                                 ; preds = %if.else30.i36
-  %42 = load i64, ptr %glref, align 8
-  %43 = inttoptr i64 %42 to ptr
-  %nilnode39.i47 = getelementptr inbounds %struct.global_State, ptr %43, i64 0, i32 14
-  br label %index2adr.exit67
+  %46 = load i64, ptr %glref, align 8
+  %47 = inttoptr i64 %46 to ptr
+  %nilnode39.i47 = getelementptr inbounds %struct.global_State, ptr %47, i64 0, i32 14
+  br label %index2adr.exit65
 
-index2adr.exit67:                                 ; preds = %if.then.i57, %cond.false.i64, %if.then3.i53, %if.then9.i26, %if.then15.i22, %if.then23.i48, %cond.true34.i41, %cond.false36.i45
-  %retval.0.i25 = phi ptr [ %add.ptr6.i56, %if.then3.i53 ], [ %tmptv.i28, %if.then9.i26 ], [ %registrytv.i24, %if.then15.i22 ], [ %tmptv27.i50, %if.then23.i48 ], [ %nilnode.i66, %cond.false.i64 ], [ %add.ptr.i61, %if.then.i57 ], [ %arrayidx.i44, %cond.true34.i41 ], [ %nilnode39.i47, %cond.false36.i45 ]
+index2adr.exit65:                                 ; preds = %if.then.i57, %cond.false.i62, %if.then3.i53, %if.then9.i26, %if.then15.i22, %if.then23.i48, %cond.true34.i41, %cond.false36.i45
+  %retval.0.i25 = phi ptr [ %add.ptr6.i56, %if.then3.i53 ], [ %tmptv.i28, %if.then9.i26 ], [ %registrytv.i24, %if.then15.i22 ], [ %tmptv27.i50, %if.then23.i48 ], [ %nilnode.i64, %cond.false.i62 ], [ %add.ptr.i59, %if.then.i57 ], [ %arrayidx.i44, %cond.true34.i41 ], [ %nilnode39.i47, %cond.false36.i45 ]
   %call23 = tail call ptr @lj_strfmt_number(ptr noundef nonnull %L, ptr noundef %retval.0.i25) #13
-  %44 = ptrtoint ptr %call23 to i64
-  %or.i.i = or i64 %44, -703687441776640
+  %48 = ptrtoint ptr %call23 to i64
+  %or.i.i = or i64 %48, -703687441776640
   store i64 %or.i.i, ptr %retval.0.i25, align 8
   br label %if.end26
 
@@ -4276,15 +4276,15 @@ if.else24:                                        ; preds = %if.else
   tail call void @lj_err_argt(ptr noundef nonnull %L, i32 noundef %idx, i32 noundef 4) #14
   unreachable
 
-if.end26:                                         ; preds = %index2adr.exit67, %if.then
-  %s.0 = phi ptr [ %20, %if.then ], [ %call23, %index2adr.exit67 ]
+if.end26:                                         ; preds = %index2adr.exit65, %if.then
+  %s.0 = phi ptr [ %22, %if.then ], [ %call23, %index2adr.exit65 ]
   %cmp27.not = icmp eq ptr %len, null
   br i1 %cmp27.not, label %if.end32, label %if.then29
 
 if.then29:                                        ; preds = %if.end26
   %len30 = getelementptr inbounds %struct.GCstr, ptr %s.0, i64 0, i32 7
-  %45 = load i32, ptr %len30, align 4
-  %conv31 = zext i32 %45 to i64
+  %49 = load i32, ptr %len30, align 4
+  %conv31 = zext i32 %49 to i64
   store i64 %conv31, ptr %len, align 8
   br label %if.end32
 
@@ -4302,19 +4302,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exitthread-pre-split, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exitthread-pre-split
 
 if.else.i:                                        ; preds = %entry
@@ -4323,9 +4323,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exitthread-pre-split
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -4336,62 +4336,62 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exitthread-pre-split
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exitthread-pre-split
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exitthread-pre-split
 
 index2adr.exitthread-pre-split:                   ; preds = %cond.false36.i, %cond.true34.i, %if.then15.i, %if.then3.i, %cond.false.i, %if.then.i
@@ -4400,19 +4400,19 @@ index2adr.exitthread-pre-split:                   ; preds = %cond.false36.i, %co
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %index2adr.exitthread-pre-split, %if.then9.i, %if.then23.i
-  %19 = phi i64 [ %.pr, %index2adr.exitthread-pre-split ], [ %or.i.i.i, %if.then9.i ], [ %or.i.i61.i, %if.then23.i ]
-  %shr = ashr i64 %19, 47
+  %21 = phi i64 [ %.pr, %index2adr.exitthread-pre-split ], [ %or.i.i.i, %if.then9.i ], [ %or.i.i61.i, %if.then23.i ]
+  %shr = ashr i64 %21, 47
   %conv = trunc i64 %shr to i32
   %cmp = icmp eq i32 %conv, -5
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %index2adr.exit
-  %and = and i64 %19, 140737488355327
-  %20 = inttoptr i64 %and to ptr
+  %and = and i64 %21, 140737488355327
+  %22 = inttoptr i64 %and to ptr
   br label %if.end37
 
 if.else:                                          ; preds = %index2adr.exit
-  %cmp4 = icmp eq i64 %19, -1
+  %cmp4 = icmp eq i64 %21, -1
   br i1 %cmp4, label %if.then6, label %if.else12
 
 if.then6:                                         ; preds = %if.else
@@ -4438,13 +4438,13 @@ if.else12:                                        ; preds = %if.else
 
 if.then17:                                        ; preds = %if.else12
   %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %21 = load i64, ptr %glref, align 8
-  %22 = inttoptr i64 %21 to ptr
-  %gc = getelementptr inbounds %struct.global_State, ptr %22, i64 0, i32 2
-  %23 = load i64, ptr %gc, align 8
-  %threshold = getelementptr inbounds %struct.global_State, ptr %22, i64 0, i32 2, i32 1
-  %24 = load i64, ptr %threshold, align 8
-  %cmp21.not = icmp ult i64 %23, %24
+  %23 = load i64, ptr %glref, align 8
+  %24 = inttoptr i64 %23 to ptr
+  %gc = getelementptr inbounds %struct.global_State, ptr %24, i64 0, i32 2
+  %25 = load i64, ptr %gc, align 8
+  %threshold = getelementptr inbounds %struct.global_State, ptr %24, i64 0, i32 2, i32 1
+  %26 = load i64, ptr %threshold, align 8
+  %cmp21.not = icmp ult i64 %25, %26
   br i1 %cmp21.not, label %if.end31, label %if.then29
 
 if.then29:                                        ; preds = %if.then17
@@ -4456,20 +4456,20 @@ if.end31:                                         ; preds = %if.then29, %if.then
 
 if.then.i62:                                      ; preds = %if.end31
   %base.i63 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %25 = load ptr, ptr %base.i63, align 8
-  %sub.i64 = add nsw i32 %idx, -1
-  %idx.ext.i65 = zext nneg i32 %sub.i64 to i64
-  %add.ptr.i66 = getelementptr inbounds %union.TValue, ptr %25, i64 %idx.ext.i65
-  %top.i67 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %26 = load ptr, ptr %top.i67, align 8
-  %cmp1.i68 = icmp ult ptr %add.ptr.i66, %26
-  br i1 %cmp1.i68, label %index2adr.exit72, label %cond.false.i69
+  %27 = load ptr, ptr %base.i63, align 8
+  %28 = zext nneg i32 %idx to i64
+  %29 = getelementptr %union.TValue, ptr %27, i64 %28
+  %add.ptr.i64 = getelementptr %union.TValue, ptr %29, i64 -1
+  %top.i65 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %30 = load ptr, ptr %top.i65, align 8
+  %cmp1.i66 = icmp ult ptr %add.ptr.i64, %30
+  br i1 %cmp1.i66, label %index2adr.exit70, label %cond.false.i67
 
-cond.false.i69:                                   ; preds = %if.then.i62
-  %27 = load i64, ptr %glref, align 8
-  %28 = inttoptr i64 %27 to ptr
-  %nilnode.i71 = getelementptr inbounds %struct.global_State, ptr %28, i64 0, i32 14
-  br label %index2adr.exit72
+cond.false.i67:                                   ; preds = %if.then.i62
+  %31 = load i64, ptr %glref, align 8
+  %32 = inttoptr i64 %31 to ptr
+  %nilnode.i69 = getelementptr inbounds %struct.global_State, ptr %32, i64 0, i32 14
+  br label %index2adr.exit70
 
 if.else.i24:                                      ; preds = %if.end31
   %cmp2.i25 = icmp sgt i32 %idx, -10000
@@ -4477,10 +4477,10 @@ if.else.i24:                                      ; preds = %if.end31
 
 if.then3.i58:                                     ; preds = %if.else.i24
   %top4.i59 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %29 = load ptr, ptr %top4.i59, align 8
+  %33 = load ptr, ptr %top4.i59, align 8
   %idx.ext5.i60 = sext i32 %idx to i64
-  %add.ptr6.i61 = getelementptr inbounds %union.TValue, ptr %29, i64 %idx.ext5.i60
-  br label %index2adr.exit72
+  %add.ptr6.i61 = getelementptr inbounds %union.TValue, ptr %33, i64 %idx.ext5.i60
+  br label %index2adr.exit70
 
 if.else7.i26:                                     ; preds = %if.else.i24
   switch i32 %idx, label %if.else18.i36 [
@@ -4489,66 +4489,66 @@ if.else7.i26:                                     ; preds = %if.else.i24
   ]
 
 if.then9.i31:                                     ; preds = %if.else7.i26
-  %30 = load i64, ptr %glref, align 8
-  %31 = inttoptr i64 %30 to ptr
-  %tmptv.i33 = getelementptr inbounds %struct.global_State, ptr %31, i64 0, i32 12
+  %34 = load i64, ptr %glref, align 8
+  %35 = inttoptr i64 %34 to ptr
+  %tmptv.i33 = getelementptr inbounds %struct.global_State, ptr %35, i64 0, i32 12
   %env.i34 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %32 = load i64, ptr %env.i34, align 8
-  %or.i.i.i35 = or i64 %32, -1688849860263936
+  %36 = load i64, ptr %env.i34, align 8
+  %or.i.i.i35 = or i64 %36, -1688849860263936
   store i64 %or.i.i.i35, ptr %tmptv.i33, align 8
-  br label %index2adr.exit72
+  br label %index2adr.exit70
 
 if.then15.i27:                                    ; preds = %if.else7.i26
-  %33 = load i64, ptr %glref, align 8
-  %34 = inttoptr i64 %33 to ptr
-  %registrytv.i29 = getelementptr inbounds %struct.global_State, ptr %34, i64 0, i32 15
-  br label %index2adr.exit72
+  %37 = load i64, ptr %glref, align 8
+  %38 = inttoptr i64 %37 to ptr
+  %registrytv.i29 = getelementptr inbounds %struct.global_State, ptr %38, i64 0, i32 15
+  br label %index2adr.exit70
 
 if.else18.i36:                                    ; preds = %if.else7.i26
   %base19.i37 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %35 = load ptr, ptr %base19.i37, align 8
-  %add.ptr20.i38 = getelementptr inbounds %union.TValue, ptr %35, i64 -2
-  %36 = load i64, ptr %add.ptr20.i38, align 8
-  %and.i39 = and i64 %36, 140737488355327
-  %37 = inttoptr i64 %and.i39 to ptr
+  %39 = load ptr, ptr %base19.i37, align 8
+  %add.ptr20.i38 = getelementptr inbounds %union.TValue, ptr %39, i64 -2
+  %40 = load i64, ptr %add.ptr20.i38, align 8
+  %and.i39 = and i64 %40, 140737488355327
+  %41 = inttoptr i64 %and.i39 to ptr
   %cmp22.i40 = icmp eq i32 %idx, -10001
   br i1 %cmp22.i40, label %if.then23.i53, label %if.else30.i41
 
 if.then23.i53:                                    ; preds = %if.else18.i36
-  %38 = load i64, ptr %glref, align 8
-  %39 = inttoptr i64 %38 to ptr
-  %tmptv27.i55 = getelementptr inbounds %struct.global_State, ptr %39, i64 0, i32 12
-  %env28.i56 = getelementptr inbounds %struct.GCfuncC, ptr %37, i64 0, i32 5
-  %40 = load i64, ptr %env28.i56, align 8
-  %or.i.i61.i57 = or i64 %40, -1688849860263936
+  %42 = load i64, ptr %glref, align 8
+  %43 = inttoptr i64 %42 to ptr
+  %tmptv27.i55 = getelementptr inbounds %struct.global_State, ptr %43, i64 0, i32 12
+  %env28.i56 = getelementptr inbounds %struct.GCfuncC, ptr %41, i64 0, i32 5
+  %44 = load i64, ptr %env28.i56, align 8
+  %or.i.i61.i57 = or i64 %44, -1688849860263936
   store i64 %or.i.i61.i57, ptr %tmptv27.i55, align 8
-  br label %index2adr.exit72
+  br label %index2adr.exit70
 
 if.else30.i41:                                    ; preds = %if.else18.i36
   %sub31.i42 = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i43 = getelementptr inbounds %struct.GCfuncC, ptr %37, i64 0, i32 4
-  %41 = load i8, ptr %nupvalues.i43, align 1
-  %conv.i44 = zext i8 %41 to i32
+  %nupvalues.i43 = getelementptr inbounds %struct.GCfuncC, ptr %41, i64 0, i32 4
+  %45 = load i8, ptr %nupvalues.i43, align 1
+  %conv.i44 = zext i8 %45 to i32
   %cmp32.not.i45 = icmp ugt i32 %sub31.i42, %conv.i44
   br i1 %cmp32.not.i45, label %cond.false36.i50, label %cond.true34.i46
 
 cond.true34.i46:                                  ; preds = %if.else30.i41
   %sub35.i47 = sub nsw i32 -10003, %idx
   %idxprom.i48 = sext i32 %sub35.i47 to i64
-  %arrayidx.i49 = getelementptr inbounds %struct.GCfuncC, ptr %37, i64 0, i32 9, i64 %idxprom.i48
-  br label %index2adr.exit72
+  %arrayidx.i49 = getelementptr inbounds %struct.GCfuncC, ptr %41, i64 0, i32 9, i64 %idxprom.i48
+  br label %index2adr.exit70
 
 cond.false36.i50:                                 ; preds = %if.else30.i41
-  %42 = load i64, ptr %glref, align 8
-  %43 = inttoptr i64 %42 to ptr
-  %nilnode39.i52 = getelementptr inbounds %struct.global_State, ptr %43, i64 0, i32 14
-  br label %index2adr.exit72
+  %46 = load i64, ptr %glref, align 8
+  %47 = inttoptr i64 %46 to ptr
+  %nilnode39.i52 = getelementptr inbounds %struct.global_State, ptr %47, i64 0, i32 14
+  br label %index2adr.exit70
 
-index2adr.exit72:                                 ; preds = %if.then.i62, %cond.false.i69, %if.then3.i58, %if.then9.i31, %if.then15.i27, %if.then23.i53, %cond.true34.i46, %cond.false36.i50
-  %retval.0.i30 = phi ptr [ %add.ptr6.i61, %if.then3.i58 ], [ %tmptv.i33, %if.then9.i31 ], [ %registrytv.i29, %if.then15.i27 ], [ %tmptv27.i55, %if.then23.i53 ], [ %nilnode.i71, %cond.false.i69 ], [ %add.ptr.i66, %if.then.i62 ], [ %arrayidx.i49, %cond.true34.i46 ], [ %nilnode39.i52, %cond.false36.i50 ]
+index2adr.exit70:                                 ; preds = %if.then.i62, %cond.false.i67, %if.then3.i58, %if.then9.i31, %if.then15.i27, %if.then23.i53, %cond.true34.i46, %cond.false36.i50
+  %retval.0.i30 = phi ptr [ %add.ptr6.i61, %if.then3.i58 ], [ %tmptv.i33, %if.then9.i31 ], [ %registrytv.i29, %if.then15.i27 ], [ %tmptv27.i55, %if.then23.i53 ], [ %nilnode.i69, %cond.false.i67 ], [ %add.ptr.i64, %if.then.i62 ], [ %arrayidx.i49, %cond.true34.i46 ], [ %nilnode39.i52, %cond.false36.i50 ]
   %call33 = tail call ptr @lj_strfmt_number(ptr noundef nonnull %L, ptr noundef %retval.0.i30) #13
-  %44 = ptrtoint ptr %call33 to i64
-  %or.i.i = or i64 %44, -703687441776640
+  %48 = ptrtoint ptr %call33 to i64
+  %or.i.i = or i64 %48, -703687441776640
   store i64 %or.i.i, ptr %retval.0.i30, align 8
   br label %if.end37
 
@@ -4556,15 +4556,15 @@ if.else34:                                        ; preds = %if.else12
   tail call void @lj_err_argt(ptr noundef nonnull %L, i32 noundef %idx, i32 noundef 4) #14
   unreachable
 
-if.end37:                                         ; preds = %index2adr.exit72, %if.then
-  %s.0 = phi ptr [ %20, %if.then ], [ %call33, %index2adr.exit72 ]
+if.end37:                                         ; preds = %index2adr.exit70, %if.then
+  %s.0 = phi ptr [ %22, %if.then ], [ %call33, %index2adr.exit70 ]
   %cmp38.not = icmp eq ptr %len, null
   br i1 %cmp38.not, label %if.end43, label %if.then40
 
 if.then40:                                        ; preds = %if.end37
   %len41 = getelementptr inbounds %struct.GCstr, ptr %s.0, i64 0, i32 7
-  %45 = load i32, ptr %len41, align 4
-  %conv42 = zext i32 %45 to i64
+  %49 = load i32, ptr %len41, align 4
+  %conv42 = zext i32 %49 to i64
   store i64 %conv42, ptr %len, align 8
   br label %if.end43
 
@@ -4639,19 +4639,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -4660,9 +4660,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -4673,68 +4673,68 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
-  %19 = load i64, ptr %retval.0.i, align 8
-  %shr = ashr i64 %19, 47
+  %21 = load i64, ptr %retval.0.i, align 8
+  %shr = ashr i64 %21, 47
   %conv = trunc i64 %shr to i32
   switch i32 %conv, label %if.else22 [
     i32 -5, label %if.then
@@ -4743,23 +4743,23 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
   ]
 
 if.then:                                          ; preds = %index2adr.exit
-  %and = and i64 %19, 140737488355327
-  %20 = inttoptr i64 %and to ptr
-  %len = getelementptr inbounds %struct.GCstr, ptr %20, i64 0, i32 7
-  %21 = load i32, ptr %len, align 4
+  %and = and i64 %21, 140737488355327
+  %22 = inttoptr i64 %and to ptr
+  %len = getelementptr inbounds %struct.GCstr, ptr %22, i64 0, i32 7
+  %23 = load i32, ptr %len, align 4
   br label %return
 
 if.then7:                                         ; preds = %index2adr.exit
-  %and9 = and i64 %19, 140737488355327
-  %22 = inttoptr i64 %and9 to ptr
-  %call10 = tail call i32 @lj_tab_len(ptr noundef %22) #13
+  %and9 = and i64 %21, 140737488355327
+  %24 = inttoptr i64 %and9 to ptr
+  %call10 = tail call i32 @lj_tab_len(ptr noundef %24) #13
   br label %return
 
 if.then17:                                        ; preds = %index2adr.exit
-  %and19 = and i64 %19, 140737488355327
-  %23 = inttoptr i64 %and19 to ptr
-  %len20 = getelementptr inbounds %struct.GCudata, ptr %23, i64 0, i32 6
-  %24 = load i32, ptr %len20, align 8
+  %and19 = and i64 %21, 140737488355327
+  %25 = inttoptr i64 %and19 to ptr
+  %len20 = getelementptr inbounds %struct.GCudata, ptr %25, i64 0, i32 6
+  %26 = load i32, ptr %len20, align 8
   br label %return
 
 if.else22:                                        ; preds = %index2adr.exit
@@ -4768,15 +4768,15 @@ if.else22:                                        ; preds = %index2adr.exit
 
 if.then27:                                        ; preds = %if.else22
   %call28 = tail call ptr @lj_strfmt_number(ptr noundef nonnull %L, ptr noundef nonnull %retval.0.i) #13
-  %25 = ptrtoint ptr %call28 to i64
-  %or.i.i = or i64 %25, -703687441776640
+  %27 = ptrtoint ptr %call28 to i64
+  %or.i.i = or i64 %27, -703687441776640
   store i64 %or.i.i, ptr %retval.0.i, align 8
   %len29 = getelementptr inbounds %struct.GCstr, ptr %call28, i64 0, i32 7
-  %26 = load i32, ptr %len29, align 4
+  %28 = load i32, ptr %len29, align 4
   br label %return
 
 return:                                           ; preds = %if.else22, %if.then27, %if.then17, %if.then7, %if.then
-  %retval.0.shrunk = phi i32 [ %21, %if.then ], [ %call10, %if.then7 ], [ %24, %if.then17 ], [ %26, %if.then27 ], [ 0, %if.else22 ]
+  %retval.0.shrunk = phi i32 [ %23, %if.then ], [ %call10, %if.then7 ], [ %26, %if.then17 ], [ %28, %if.then27 ], [ 0, %if.else22 ]
   %retval.0 = zext i32 %retval.0.shrunk to i64
   ret i64 %retval.0
 }
@@ -4792,19 +4792,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -4813,9 +4813,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -4826,91 +4826,91 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
-  %19 = load i64, ptr %retval.0.i, align 8
-  %shr = ashr i64 %19, 47
-  %20 = and i64 %shr, 4294967295
-  %cmp = icmp eq i64 %20, 4294967287
+  %21 = load i64, ptr %retval.0.i, align 8
+  %shr = ashr i64 %21, 47
+  %22 = and i64 %shr, 4294967295
+  %cmp = icmp eq i64 %22, 4294967287
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %index2adr.exit
-  %and = and i64 %19, 140737488355327
-  %21 = inttoptr i64 %and to ptr
-  %pc = getelementptr inbounds %struct.GCfuncC, ptr %21, i64 0, i32 7
-  %22 = load i64, ptr %pc, align 8
-  %23 = inttoptr i64 %22 to ptr
-  %24 = load i32, ptr %23, align 4
-  %and2 = and i32 %24, 255
-  %25 = add nsw i32 %and2, -95
-  %or.cond = icmp ult i32 %25, 2
+  %and = and i64 %21, 140737488355327
+  %23 = inttoptr i64 %and to ptr
+  %pc = getelementptr inbounds %struct.GCfuncC, ptr %23, i64 0, i32 7
+  %24 = load i64, ptr %pc, align 8
+  %25 = inttoptr i64 %24 to ptr
+  %26 = load i32, ptr %25, align 4
+  %and2 = and i32 %26, 255
+  %27 = add nsw i32 %and2, -95
+  %or.cond = icmp ult i32 %27, 2
   br i1 %or.cond, label %if.then7, label %return
 
 if.then7:                                         ; preds = %if.then
-  %f = getelementptr inbounds %struct.GCfuncC, ptr %21, i64 0, i32 8
-  %26 = load ptr, ptr %f, align 8
+  %f = getelementptr inbounds %struct.GCfuncC, ptr %23, i64 0, i32 8
+  %28 = load ptr, ptr %f, align 8
   br label %return
 
 return:                                           ; preds = %index2adr.exit, %if.then, %if.then7
-  %retval.0 = phi ptr [ %26, %if.then7 ], [ null, %if.then ], [ null, %index2adr.exit ]
+  %retval.0 = phi ptr [ %28, %if.then7 ], [ null, %if.then ], [ null, %index2adr.exit ]
   ret ptr %retval.0
 }
 
@@ -4923,19 +4923,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -4944,9 +4944,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -4957,68 +4957,68 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i8 = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i8 to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i8 = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i8 to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i9 = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i9 = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i9
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i10 = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i10 = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i10, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
-  %19 = load i64, ptr %retval.0.i, align 8
-  %shr = ashr i64 %19, 47
+  %21 = load i64, ptr %retval.0.i, align 8
+  %shr = ashr i64 %21, 47
   %conv = trunc i64 %shr to i32
   switch i32 %conv, label %return [
     i32 -13, label %if.then
@@ -5026,35 +5026,35 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
   ]
 
 if.then:                                          ; preds = %index2adr.exit
-  %and = and i64 %19, 140737488355327
-  %20 = inttoptr i64 %and to ptr
-  %add.ptr = getelementptr inbounds %struct.GCudata, ptr %20, i64 1
+  %and = and i64 %21, 140737488355327
+  %22 = inttoptr i64 %and to ptr
+  %add.ptr = getelementptr inbounds %struct.GCudata, ptr %22, i64 1
   br label %return
 
 if.then6:                                         ; preds = %index2adr.exit
-  %shr.i = lshr i64 %19, 39
+  %shr.i = lshr i64 %21, 39
   %and.i = and i64 %shr.i, 255
   %cmp.i = icmp eq i64 %and.i, 255
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
   %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %21 = load i64, ptr %glref, align 8
-  %22 = inttoptr i64 %21 to ptr
-  %lightudseg.i = getelementptr inbounds %struct.global_State, ptr %22, i64 0, i32 2, i32 17
-  %23 = load i64, ptr %lightudseg.i, align 8
+  %23 = load i64, ptr %glref, align 8
   %24 = inttoptr i64 %23 to ptr
-  %arrayidx.i = getelementptr inbounds i32, ptr %24, i64 %and.i
-  %25 = load i32, ptr %arrayidx.i, align 4
-  %conv.i = zext i32 %25 to i64
+  %lightudseg.i = getelementptr inbounds %struct.global_State, ptr %24, i64 0, i32 2, i32 17
+  %25 = load i64, ptr %lightudseg.i, align 8
+  %26 = inttoptr i64 %25 to ptr
+  %arrayidx.i = getelementptr inbounds i32, ptr %26, i64 %and.i
+  %27 = load i32, ptr %arrayidx.i, align 4
+  %conv.i = zext i32 %27 to i64
   %shl.i = shl nuw i64 %conv.i, 32
-  %and1.i = and i64 %19, 549755813887
+  %and1.i = and i64 %21, 549755813887
   %or.i = or i64 %shl.i, %and1.i
-  %26 = inttoptr i64 %or.i to ptr
+  %28 = inttoptr i64 %or.i to ptr
   br label %return
 
 return:                                           ; preds = %index2adr.exit, %if.end.i, %if.then6, %if.then
-  %retval.0 = phi ptr [ %add.ptr, %if.then ], [ %26, %if.end.i ], [ null, %if.then6 ], [ null, %index2adr.exit ]
+  %retval.0 = phi ptr [ %add.ptr, %if.then ], [ %28, %if.end.i ], [ null, %if.then6 ], [ null, %index2adr.exit ]
   ret ptr %retval.0
 }
 
@@ -5067,19 +5067,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -5088,9 +5088,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -5101,73 +5101,73 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
-  %19 = load i64, ptr %retval.0.i, align 8
-  %shr = ashr i64 %19, 47
-  %20 = and i64 %shr, 4294967295
-  %cmp = icmp eq i64 %20, 4294967289
-  %and = and i64 %19, 140737488355327
-  %21 = inttoptr i64 %and to ptr
-  %cond = select i1 %cmp, ptr %21, ptr null
+  %21 = load i64, ptr %retval.0.i, align 8
+  %shr = ashr i64 %21, 47
+  %22 = and i64 %shr, 4294967295
+  %cmp = icmp eq i64 %22, 4294967289
+  %and = and i64 %21, 140737488355327
+  %23 = inttoptr i64 %and to ptr
+  %cond = select i1 %cmp, ptr %23, ptr null
   ret ptr %cond
 }
 
@@ -5183,12 +5183,12 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %2 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %2, i64 %idx.ext.i
+  %3 = zext nneg i32 %idx to i64
+  %4 = getelementptr %union.TValue, ptr %2, i64 %3
+  %add.ptr.i = getelementptr %union.TValue, ptr %4, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %3 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %3
+  %5 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %5
   %nilnode.i = getelementptr inbounds %struct.global_State, ptr %1, i64 0, i32 14
   %spec.select = select i1 %cmp1.i, ptr %add.ptr.i, ptr %nilnode.i
   br label %index2adr.exit
@@ -5199,9 +5199,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -5213,8 +5213,8 @@ if.else7.i:                                       ; preds = %if.else.i
 if.then9.i:                                       ; preds = %if.else7.i
   %tmptv.i = getelementptr inbounds %struct.global_State, ptr %1, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %5 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %5, -1688849860263936
+  %7 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %7, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
@@ -5224,34 +5224,34 @@ if.then15.i:                                      ; preds = %if.else7.i
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %6 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %6, i64 -2
-  %7 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %7, 140737488355327
-  %8 = inttoptr i64 %and.i to ptr
+  %8 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %8, i64 -2
+  %9 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %9, 140737488355327
+  %10 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %1, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %8, i64 0, i32 5
-  %9 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %9, -1688849860263936
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %10, i64 0, i32 5
+  %11 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %11, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %8, i64 0, i32 4
-  %10 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %10 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %10, i64 0, i32 4
+  %12 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %12 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %8, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %10, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
@@ -5982,19 +5982,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -6003,9 +6003,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -6016,69 +6016,69 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
   %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %19 = load ptr, ptr %top, align 8
-  %add.ptr = getelementptr inbounds %union.TValue, ptr %19, i64 -1
+  %21 = load ptr, ptr %top, align 8
+  %add.ptr = getelementptr inbounds %union.TValue, ptr %21, i64 -1
   %call1 = tail call ptr @lj_meta_tget(ptr noundef nonnull %L, ptr noundef %retval.0.i, ptr noundef nonnull %add.ptr) #13
   %cmp = icmp eq ptr %call1, null
   %.pre = load ptr, ptr %top, align 8
@@ -6088,18 +6088,18 @@ if.then:                                          ; preds = %index2adr.exit
   %add.ptr3 = getelementptr inbounds %union.TValue, ptr %.pre, i64 2
   store ptr %add.ptr3, ptr %top, align 8
   tail call void @lj_vm_call(ptr noundef nonnull %L, ptr noundef %.pre, i32 noundef 2) #13
-  %20 = load ptr, ptr %top, align 8
-  %add.ptr7 = getelementptr inbounds %union.TValue, ptr %20, i64 -3
+  %22 = load ptr, ptr %top, align 8
+  %add.ptr7 = getelementptr inbounds %union.TValue, ptr %22, i64 -3
   store ptr %add.ptr7, ptr %top, align 8
-  %add.ptr10 = getelementptr inbounds %union.TValue, ptr %20, i64 -1
+  %add.ptr10 = getelementptr inbounds %union.TValue, ptr %22, i64 -1
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %index2adr.exit
-  %21 = phi ptr [ %add.ptr7, %if.then ], [ %.pre, %index2adr.exit ]
+  %23 = phi ptr [ %add.ptr7, %if.then ], [ %.pre, %index2adr.exit ]
   %v.0 = phi ptr [ %add.ptr10, %if.then ], [ %call1, %index2adr.exit ]
-  %add.ptr12 = getelementptr inbounds %union.TValue, ptr %21, i64 -1
-  %22 = load i64, ptr %v.0, align 8
-  store i64 %22, ptr %add.ptr12, align 8
+  %add.ptr12 = getelementptr inbounds %union.TValue, ptr %23, i64 -1
+  %24 = load i64, ptr %v.0, align 8
+  store i64 %24, ptr %add.ptr12, align 8
   ret void
 }
 
@@ -6115,19 +6115,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -6136,9 +6136,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -6149,100 +6149,100 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %k) #15
   %call2 = tail call ptr @lj_str_new(ptr noundef nonnull %L, ptr noundef %k, i64 noundef %call1) #13
-  %19 = ptrtoint ptr %call2 to i64
-  %or.i.i = or i64 %19, -703687441776640
+  %21 = ptrtoint ptr %call2 to i64
+  %or.i.i = or i64 %21, -703687441776640
   store i64 %or.i.i, ptr %key, align 8
   %call3 = call ptr @lj_meta_tget(ptr noundef nonnull %L, ptr noundef %retval.0.i, ptr noundef nonnull %key) #13
   %cmp = icmp eq ptr %call3, null
   %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %20 = load ptr, ptr %top, align 8
+  %22 = load ptr, ptr %top, align 8
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %index2adr.exit
-  %add.ptr = getelementptr inbounds %union.TValue, ptr %20, i64 2
+  %add.ptr = getelementptr inbounds %union.TValue, ptr %22, i64 2
   store ptr %add.ptr, ptr %top, align 8
-  call void @lj_vm_call(ptr noundef nonnull %L, ptr noundef %20, i32 noundef 2) #13
-  %21 = load ptr, ptr %top, align 8
-  %add.ptr7 = getelementptr inbounds %union.TValue, ptr %21, i64 -3
+  call void @lj_vm_call(ptr noundef nonnull %L, ptr noundef %22, i32 noundef 2) #13
+  %23 = load ptr, ptr %top, align 8
+  %add.ptr7 = getelementptr inbounds %union.TValue, ptr %23, i64 -3
   store ptr %add.ptr7, ptr %top, align 8
-  %add.ptr10 = getelementptr inbounds %union.TValue, ptr %21, i64 -1
+  %add.ptr10 = getelementptr inbounds %union.TValue, ptr %23, i64 -1
   br label %if.end
 
 if.end:                                           ; preds = %index2adr.exit, %if.then
-  %22 = phi ptr [ %add.ptr7, %if.then ], [ %20, %index2adr.exit ]
+  %24 = phi ptr [ %add.ptr7, %if.then ], [ %22, %index2adr.exit ]
   %v.0 = phi ptr [ %add.ptr10, %if.then ], [ %call3, %index2adr.exit ]
   %top11 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %23 = load i64, ptr %v.0, align 8
-  store i64 %23, ptr %22, align 8
-  %24 = load ptr, ptr %top11, align 8
-  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %24, i64 1
+  %25 = load i64, ptr %v.0, align 8
+  store i64 %25, ptr %24, align 8
+  %26 = load ptr, ptr %top11, align 8
+  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %26, i64 1
   store ptr %incdec.ptr, ptr %top11, align 8
   %maxstack = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 9
-  %25 = load i64, ptr %maxstack, align 8
-  %26 = inttoptr i64 %25 to ptr
-  %cmp13.not = icmp ult ptr %incdec.ptr, %26
+  %27 = load i64, ptr %maxstack, align 8
+  %28 = inttoptr i64 %27 to ptr
+  %cmp13.not = icmp ult ptr %incdec.ptr, %28
   br i1 %cmp13.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end
@@ -6262,19 +6262,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -6283,9 +6283,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -6296,75 +6296,75 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
   %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %19 = load ptr, ptr %top, align 8
-  %add.ptr = getelementptr inbounds %union.TValue, ptr %19, i64 -1
-  %20 = load i64, ptr %retval.0.i, align 8
-  %and = and i64 %20, 140737488355327
-  %21 = inttoptr i64 %and to ptr
-  %call3 = tail call ptr @lj_tab_get(ptr noundef nonnull %L, ptr noundef %21, ptr noundef nonnull %add.ptr) #13
-  %22 = load i64, ptr %call3, align 8
-  store i64 %22, ptr %add.ptr, align 8
+  %21 = load ptr, ptr %top, align 8
+  %add.ptr = getelementptr inbounds %union.TValue, ptr %21, i64 -1
+  %22 = load i64, ptr %retval.0.i, align 8
+  %and = and i64 %22, 140737488355327
+  %23 = inttoptr i64 %and to ptr
+  %call3 = tail call ptr @lj_tab_get(ptr noundef nonnull %L, ptr noundef %23, ptr noundef nonnull %add.ptr) #13
+  %24 = load i64, ptr %call3, align 8
+  store i64 %24, ptr %add.ptr, align 8
   ret void
 }
 
@@ -6379,19 +6379,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -6400,9 +6400,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -6413,108 +6413,108 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
-  %19 = load i64, ptr %retval.0.i, align 8
-  %and = and i64 %19, 140737488355327
-  %20 = inttoptr i64 %and to ptr
-  %asize = getelementptr inbounds %struct.GCtab, ptr %20, i64 0, i32 9
-  %21 = load i32, ptr %asize, align 8
-  %cmp = icmp ugt i32 %21, %n
+  %21 = load i64, ptr %retval.0.i, align 8
+  %and = and i64 %21, 140737488355327
+  %22 = inttoptr i64 %and to ptr
+  %asize = getelementptr inbounds %struct.GCtab, ptr %22, i64 0, i32 9
+  %23 = load i32, ptr %asize, align 8
+  %cmp = icmp ugt i32 %23, %n
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %index2adr.exit
-  %array = getelementptr inbounds %struct.GCtab, ptr %20, i64 0, i32 5
-  %22 = load i64, ptr %array, align 8
-  %23 = inttoptr i64 %22 to ptr
+  %array = getelementptr inbounds %struct.GCtab, ptr %22, i64 0, i32 5
+  %24 = load i64, ptr %array, align 8
+  %25 = inttoptr i64 %24 to ptr
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds %union.TValue, ptr %23, i64 %idxprom
+  %arrayidx = getelementptr inbounds %union.TValue, ptr %25, i64 %idxprom
   br label %cond.end
 
 cond.false:                                       ; preds = %index2adr.exit
-  %call5 = tail call ptr @lj_tab_getinth(ptr noundef nonnull %20, i32 noundef %n) #13
+  %call5 = tail call ptr @lj_tab_getinth(ptr noundef nonnull %22, i32 noundef %n) #13
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %arrayidx, %cond.true ], [ %call5, %cond.false ]
   %tobool.not = icmp eq ptr %cond, null
   %top6 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %24 = load ptr, ptr %top6, align 8
+  %26 = load ptr, ptr %top6, align 8
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %cond.end
-  %25 = load i64, ptr %cond, align 8
+  %27 = load i64, ptr %cond, align 8
   br label %if.end
 
 if.end:                                           ; preds = %cond.end, %if.then
-  %.sink = phi i64 [ %25, %if.then ], [ -1, %cond.end ]
-  store i64 %.sink, ptr %24, align 8
+  %.sink = phi i64 [ %27, %if.then ], [ -1, %cond.end ]
+  store i64 %.sink, ptr %26, align 8
   %top7 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %26 = load ptr, ptr %top7, align 8
-  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %26, i64 1
+  %28 = load ptr, ptr %top7, align 8
+  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %28, i64 1
   store ptr %incdec.ptr, ptr %top7, align 8
   %maxstack = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 9
-  %27 = load i64, ptr %maxstack, align 8
-  %28 = inttoptr i64 %27 to ptr
-  %cmp9.not = icmp ult ptr %incdec.ptr, %28
+  %29 = load i64, ptr %maxstack, align 8
+  %30 = inttoptr i64 %29 to ptr
+  %cmp9.not = icmp ult ptr %incdec.ptr, %30
   br i1 %cmp9.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end
@@ -6536,19 +6536,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -6557,9 +6557,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -6570,68 +6570,68 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
-  %19 = load i64, ptr %retval.0.i, align 8
-  %shr = ashr i64 %19, 47
+  %21 = load i64, ptr %retval.0.i, align 8
+  %shr = ashr i64 %21, 47
   %conv = trunc i64 %shr to i32
   switch i32 %conv, label %if.else12 [
     i32 -12, label %if.then
@@ -6639,26 +6639,26 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
   ]
 
 if.then:                                          ; preds = %index2adr.exit
-  %and = and i64 %19, 140737488355327
-  %20 = inttoptr i64 %and to ptr
-  %metatable = getelementptr inbounds %struct.GCtab, ptr %20, i64 0, i32 7
+  %and = and i64 %21, 140737488355327
+  %22 = inttoptr i64 %and to ptr
+  %metatable = getelementptr inbounds %struct.GCtab, ptr %22, i64 0, i32 7
   br label %if.end20
 
 if.then7:                                         ; preds = %index2adr.exit
-  %and9 = and i64 %19, 140737488355327
-  %21 = inttoptr i64 %and9 to ptr
-  %metatable10 = getelementptr inbounds %struct.GCudata, ptr %21, i64 0, i32 7
+  %and9 = and i64 %21, 140737488355327
+  %23 = inttoptr i64 %and9 to ptr
+  %metatable10 = getelementptr inbounds %struct.GCudata, ptr %23, i64 0, i32 7
   br label %if.end20
 
 if.else12:                                        ; preds = %index2adr.exit
   %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %22 = load i64, ptr %glref, align 8
-  %23 = inttoptr i64 %22 to ptr
+  %24 = load i64, ptr %glref, align 8
+  %25 = inttoptr i64 %24 to ptr
   %cmp15 = icmp ult i32 %conv, -13
-  %24 = sub nsw i64 21, %shr
-  %25 = and i64 %24, 4294967295
-  %cond = select i1 %cmp15, i64 35, i64 %25
-  %arrayidx = getelementptr inbounds %struct.global_State, ptr %23, i64 0, i32 28, i64 %cond
+  %26 = sub nsw i64 21, %shr
+  %27 = and i64 %26, 4294967295
+  %cond = select i1 %cmp15, i64 35, i64 %27
+  %arrayidx = getelementptr inbounds %struct.global_State, ptr %25, i64 0, i32 28, i64 %cond
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then7, %if.else12, %if.then
@@ -6669,16 +6669,16 @@ if.end20:                                         ; preds = %if.then7, %if.else1
 
 if.end24:                                         ; preds = %if.end20
   %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %26 = load ptr, ptr %top, align 8
+  %28 = load ptr, ptr %top, align 8
   %or.i.i = or i64 %mt.0.in, -1688849860263936
-  store i64 %or.i.i, ptr %26, align 8
-  %27 = load ptr, ptr %top, align 8
-  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %27, i64 1
+  store i64 %or.i.i, ptr %28, align 8
+  %29 = load ptr, ptr %top, align 8
+  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %29, i64 1
   store ptr %incdec.ptr, ptr %top, align 8
   %maxstack = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 9
-  %28 = load i64, ptr %maxstack, align 8
-  %29 = inttoptr i64 %28 to ptr
-  %cmp27.not = icmp ult ptr %incdec.ptr, %29
+  %30 = load i64, ptr %maxstack, align 8
+  %31 = inttoptr i64 %30 to ptr
+  %cmp27.not = icmp ult ptr %incdec.ptr, %31
   br i1 %cmp27.not, label %return, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end24
@@ -6743,19 +6743,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -6764,9 +6764,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -6777,71 +6777,71 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
-  %19 = load i64, ptr %retval.0.i, align 8
-  %shr = ashr i64 %19, 47
+  %21 = load i64, ptr %retval.0.i, align 8
+  %shr = ashr i64 %21, 47
   %conv = trunc i64 %shr to i32
   %top25 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %20 = load ptr, ptr %top25, align 8
+  %22 = load ptr, ptr %top25, align 8
   switch i32 %conv, label %if.end27 [
     i32 -9, label %if.then
     i32 -13, label %if.then7
@@ -6849,40 +6849,40 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
   ]
 
 if.then:                                          ; preds = %index2adr.exit
-  %and = and i64 %19, 140737488355327
-  %21 = inttoptr i64 %and to ptr
-  %env = getelementptr inbounds %struct.GCfuncC, ptr %21, i64 0, i32 5
+  %and = and i64 %21, 140737488355327
+  %23 = inttoptr i64 %and to ptr
+  %env = getelementptr inbounds %struct.GCfuncC, ptr %23, i64 0, i32 5
   br label %if.end27.sink.split
 
 if.then7:                                         ; preds = %index2adr.exit
-  %and10 = and i64 %19, 140737488355327
-  %22 = inttoptr i64 %and10 to ptr
-  %env11 = getelementptr inbounds %struct.GCudata, ptr %22, i64 0, i32 5
+  %and10 = and i64 %21, 140737488355327
+  %24 = inttoptr i64 %and10 to ptr
+  %env11 = getelementptr inbounds %struct.GCudata, ptr %24, i64 0, i32 5
   br label %if.end27.sink.split
 
 if.then18:                                        ; preds = %index2adr.exit
-  %and21 = and i64 %19, 140737488355327
-  %23 = inttoptr i64 %and21 to ptr
-  %env22 = getelementptr inbounds %struct.lua_State, ptr %23, i64 0, i32 12
+  %and21 = and i64 %21, 140737488355327
+  %25 = inttoptr i64 %and21 to ptr
+  %env22 = getelementptr inbounds %struct.lua_State, ptr %25, i64 0, i32 12
   br label %if.end27.sink.split
 
 if.end27.sink.split:                              ; preds = %if.then, %if.then18, %if.then7
   %env11.sink = phi ptr [ %env11, %if.then7 ], [ %env22, %if.then18 ], [ %env, %if.then ]
-  %24 = load i64, ptr %env11.sink, align 8
-  %or.i.i53 = or i64 %24, -1688849860263936
+  %26 = load i64, ptr %env11.sink, align 8
+  %or.i.i53 = or i64 %26, -1688849860263936
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end27.sink.split, %index2adr.exit
   %or.i.i53.sink = phi i64 [ -1, %index2adr.exit ], [ %or.i.i53, %if.end27.sink.split ]
-  store i64 %or.i.i53.sink, ptr %20, align 8
+  store i64 %or.i.i53.sink, ptr %22, align 8
   %top28 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %25 = load ptr, ptr %top28, align 8
-  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %25, i64 1
+  %27 = load ptr, ptr %top28, align 8
+  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %27, i64 1
   store ptr %incdec.ptr, ptr %top28, align 8
   %maxstack = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 9
-  %26 = load i64, ptr %maxstack, align 8
-  %27 = inttoptr i64 %26 to ptr
-  %cmp29.not = icmp ult ptr %incdec.ptr, %27
+  %28 = load i64, ptr %maxstack, align 8
+  %29 = inttoptr i64 %28 to ptr
+  %cmp29.not = icmp ult ptr %incdec.ptr, %29
   br i1 %cmp29.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end27
@@ -6902,19 +6902,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -6923,9 +6923,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -6936,84 +6936,84 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
-  %19 = load i64, ptr %retval.0.i, align 8
-  %and = and i64 %19, 140737488355327
-  %20 = inttoptr i64 %and to ptr
+  %21 = load i64, ptr %retval.0.i, align 8
+  %and = and i64 %21, 140737488355327
+  %22 = inttoptr i64 %and to ptr
   %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %21 = load ptr, ptr %top, align 8
-  %add.ptr = getelementptr inbounds %union.TValue, ptr %21, i64 -1
-  %call3 = tail call i32 @lj_tab_next(ptr noundef %20, ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr) #13
+  %23 = load ptr, ptr %top, align 8
+  %add.ptr = getelementptr inbounds %union.TValue, ptr %23, i64 -1
+  %call3 = tail call i32 @lj_tab_next(ptr noundef %22, ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr) #13
   %cmp = icmp sgt i32 %call3, 0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %index2adr.exit
-  %22 = load ptr, ptr %top, align 8
-  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %22, i64 1
+  %24 = load ptr, ptr %top, align 8
+  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %24, i64 1
   store ptr %incdec.ptr, ptr %top, align 8
   %maxstack = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 9
-  %23 = load i64, ptr %maxstack, align 8
-  %24 = inttoptr i64 %23 to ptr
-  %cmp5.not = icmp ult ptr %incdec.ptr, %24
+  %25 = load i64, ptr %maxstack, align 8
+  %26 = inttoptr i64 %25 to ptr
+  %cmp5.not = icmp ult ptr %incdec.ptr, %26
   br i1 %cmp5.not, label %if.end10, label %land.rhs
 
 land.rhs:                                         ; preds = %if.then
@@ -7025,8 +7025,8 @@ if.else:                                          ; preds = %index2adr.exit
   br i1 %tobool.not, label %if.then6, label %if.else9
 
 if.then6:                                         ; preds = %if.else
-  %25 = load ptr, ptr %top, align 8
-  %incdec.ptr8 = getelementptr inbounds %union.TValue, ptr %25, i64 -1
+  %27 = load ptr, ptr %top, align 8
+  %incdec.ptr8 = getelementptr inbounds %union.TValue, ptr %27, i64 -1
   store ptr %incdec.ptr8, ptr %top, align 8
   br label %if.end10
 
@@ -7051,19 +7051,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -7072,9 +7072,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -7085,62 +7085,62 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
@@ -7152,17 +7152,17 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
 
 if.then:                                          ; preds = %index2adr.exit
   %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %19 = load ptr, ptr %top, align 8
-  %20 = load ptr, ptr %val, align 8
-  %21 = load i64, ptr %20, align 8
-  store i64 %21, ptr %19, align 8
-  %22 = load ptr, ptr %top, align 8
-  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %22, i64 1
+  %21 = load ptr, ptr %top, align 8
+  %22 = load ptr, ptr %val, align 8
+  %23 = load i64, ptr %22, align 8
+  store i64 %23, ptr %21, align 8
+  %24 = load ptr, ptr %top, align 8
+  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %24, i64 1
   store ptr %incdec.ptr, ptr %top, align 8
   %maxstack = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 9
-  %23 = load i64, ptr %maxstack, align 8
-  %24 = inttoptr i64 %23 to ptr
-  %cmp.not = icmp ult ptr %incdec.ptr, %24
+  %25 = load i64, ptr %maxstack, align 8
+  %26 = inttoptr i64 %25 to ptr
+  %cmp.not = icmp ult ptr %incdec.ptr, %26
   br i1 %cmp.not, label %if.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.then
@@ -7184,19 +7184,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -7205,9 +7205,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -7218,88 +7218,88 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
-  %19 = load i64, ptr %retval.0.i, align 8
-  %and = and i64 %19, 140737488355327
-  %20 = inttoptr i64 %and to ptr
+  %21 = load i64, ptr %retval.0.i, align 8
+  %and = and i64 %21, 140737488355327
+  %22 = inttoptr i64 %and to ptr
   %dec = add nsw i32 %n, -1
-  %ffid = getelementptr inbounds %struct.GCfuncC, ptr %20, i64 0, i32 3
-  %21 = load i8, ptr %ffid, align 2
-  %cmp = icmp eq i8 %21, 0
+  %ffid = getelementptr inbounds %struct.GCfuncC, ptr %22, i64 0, i32 3
+  %23 = load i8, ptr %ffid, align 2
+  %cmp = icmp eq i8 %23, 0
   %idxprom = sext i32 %dec to i64
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %index2adr.exit
-  %arrayidx = getelementptr inbounds %struct.GCfuncL, ptr %20, i64 0, i32 8, i64 %idxprom
-  %22 = load i64, ptr %arrayidx, align 8
-  %23 = inttoptr i64 %22 to ptr
+  %arrayidx = getelementptr inbounds %struct.GCfuncL, ptr %22, i64 0, i32 8, i64 %idxprom
+  %24 = load i64, ptr %arrayidx, align 8
+  %25 = inttoptr i64 %24 to ptr
   br label %cond.end
 
 cond.false:                                       ; preds = %index2adr.exit
-  %arrayidx4 = getelementptr inbounds %struct.GCfuncC, ptr %20, i64 0, i32 9, i64 %idxprom
+  %arrayidx4 = getelementptr inbounds %struct.GCfuncC, ptr %22, i64 0, i32 9, i64 %idxprom
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %23, %cond.true ], [ %arrayidx4, %cond.false ]
+  %cond = phi ptr [ %25, %cond.true ], [ %arrayidx4, %cond.false ]
   ret ptr %cond
 }
 
@@ -7312,19 +7312,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx1, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx1 to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -7333,9 +7333,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx1 to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -7346,89 +7346,89 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx1, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx1
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx1
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
-  %19 = load i64, ptr %retval.0.i, align 8
-  %and = and i64 %19, 140737488355327
-  %20 = inttoptr i64 %and to ptr
+  %21 = load i64, ptr %retval.0.i, align 8
+  %and = and i64 %21, 140737488355327
+  %22 = inttoptr i64 %and to ptr
   %cmp.i11 = icmp sgt i32 %idx2, 0
   br i1 %cmp.i11, label %if.then.i50, label %if.else.i12
 
 if.then.i50:                                      ; preds = %index2adr.exit
   %base.i51 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %21 = load ptr, ptr %base.i51, align 8
-  %sub.i52 = add nsw i32 %idx2, -1
-  %idx.ext.i53 = zext nneg i32 %sub.i52 to i64
-  %add.ptr.i54 = getelementptr inbounds %union.TValue, ptr %21, i64 %idx.ext.i53
-  %top.i55 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %22 = load ptr, ptr %top.i55, align 8
-  %cmp1.i56 = icmp ult ptr %add.ptr.i54, %22
-  br i1 %cmp1.i56, label %index2adr.exit60, label %cond.false.i57
+  %23 = load ptr, ptr %base.i51, align 8
+  %24 = zext nneg i32 %idx2 to i64
+  %25 = getelementptr %union.TValue, ptr %23, i64 %24
+  %add.ptr.i52 = getelementptr %union.TValue, ptr %25, i64 -1
+  %top.i53 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %26 = load ptr, ptr %top.i53, align 8
+  %cmp1.i54 = icmp ult ptr %add.ptr.i52, %26
+  br i1 %cmp1.i54, label %index2adr.exit58, label %cond.false.i55
 
-cond.false.i57:                                   ; preds = %if.then.i50
-  %glref.i58 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %23 = load i64, ptr %glref.i58, align 8
-  %24 = inttoptr i64 %23 to ptr
-  %nilnode.i59 = getelementptr inbounds %struct.global_State, ptr %24, i64 0, i32 14
-  br label %index2adr.exit60
+cond.false.i55:                                   ; preds = %if.then.i50
+  %glref.i56 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
+  %27 = load i64, ptr %glref.i56, align 8
+  %28 = inttoptr i64 %27 to ptr
+  %nilnode.i57 = getelementptr inbounds %struct.global_State, ptr %28, i64 0, i32 14
+  br label %index2adr.exit58
 
 if.else.i12:                                      ; preds = %index2adr.exit
   %cmp2.i13 = icmp sgt i32 %idx2, -10000
@@ -7436,10 +7436,10 @@ if.else.i12:                                      ; preds = %index2adr.exit
 
 if.then3.i46:                                     ; preds = %if.else.i12
   %top4.i47 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %25 = load ptr, ptr %top4.i47, align 8
+  %29 = load ptr, ptr %top4.i47, align 8
   %idx.ext5.i48 = sext i32 %idx2 to i64
-  %add.ptr6.i49 = getelementptr inbounds %union.TValue, ptr %25, i64 %idx.ext5.i48
-  br label %index2adr.exit60
+  %add.ptr6.i49 = getelementptr inbounds %union.TValue, ptr %29, i64 %idx.ext5.i48
+  br label %index2adr.exit58
 
 if.else7.i14:                                     ; preds = %if.else.i12
   switch i32 %idx2, label %if.else18.i24 [
@@ -7449,99 +7449,99 @@ if.else7.i14:                                     ; preds = %if.else.i12
 
 if.then9.i19:                                     ; preds = %if.else7.i14
   %glref11.i20 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %26 = load i64, ptr %glref11.i20, align 8
-  %27 = inttoptr i64 %26 to ptr
-  %tmptv.i21 = getelementptr inbounds %struct.global_State, ptr %27, i64 0, i32 12
+  %30 = load i64, ptr %glref11.i20, align 8
+  %31 = inttoptr i64 %30 to ptr
+  %tmptv.i21 = getelementptr inbounds %struct.global_State, ptr %31, i64 0, i32 12
   %env.i22 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %28 = load i64, ptr %env.i22, align 8
-  %or.i.i.i23 = or i64 %28, -1688849860263936
+  %32 = load i64, ptr %env.i22, align 8
+  %or.i.i.i23 = or i64 %32, -1688849860263936
   store i64 %or.i.i.i23, ptr %tmptv.i21, align 8
-  br label %index2adr.exit60
+  br label %index2adr.exit58
 
 if.then15.i15:                                    ; preds = %if.else7.i14
   %glref16.i16 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %29 = load i64, ptr %glref16.i16, align 8
-  %30 = inttoptr i64 %29 to ptr
-  %registrytv.i17 = getelementptr inbounds %struct.global_State, ptr %30, i64 0, i32 15
-  br label %index2adr.exit60
+  %33 = load i64, ptr %glref16.i16, align 8
+  %34 = inttoptr i64 %33 to ptr
+  %registrytv.i17 = getelementptr inbounds %struct.global_State, ptr %34, i64 0, i32 15
+  br label %index2adr.exit58
 
 if.else18.i24:                                    ; preds = %if.else7.i14
   %base19.i25 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %31 = load ptr, ptr %base19.i25, align 8
-  %add.ptr20.i26 = getelementptr inbounds %union.TValue, ptr %31, i64 -2
-  %32 = load i64, ptr %add.ptr20.i26, align 8
-  %and.i27 = and i64 %32, 140737488355327
-  %33 = inttoptr i64 %and.i27 to ptr
+  %35 = load ptr, ptr %base19.i25, align 8
+  %add.ptr20.i26 = getelementptr inbounds %union.TValue, ptr %35, i64 -2
+  %36 = load i64, ptr %add.ptr20.i26, align 8
+  %and.i27 = and i64 %36, 140737488355327
+  %37 = inttoptr i64 %and.i27 to ptr
   %cmp22.i28 = icmp eq i32 %idx2, -10001
   br i1 %cmp22.i28, label %if.then23.i41, label %if.else30.i29
 
 if.then23.i41:                                    ; preds = %if.else18.i24
   %glref25.i42 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %34 = load i64, ptr %glref25.i42, align 8
-  %35 = inttoptr i64 %34 to ptr
-  %tmptv27.i43 = getelementptr inbounds %struct.global_State, ptr %35, i64 0, i32 12
-  %env28.i44 = getelementptr inbounds %struct.GCfuncC, ptr %33, i64 0, i32 5
-  %36 = load i64, ptr %env28.i44, align 8
-  %or.i.i61.i45 = or i64 %36, -1688849860263936
+  %38 = load i64, ptr %glref25.i42, align 8
+  %39 = inttoptr i64 %38 to ptr
+  %tmptv27.i43 = getelementptr inbounds %struct.global_State, ptr %39, i64 0, i32 12
+  %env28.i44 = getelementptr inbounds %struct.GCfuncC, ptr %37, i64 0, i32 5
+  %40 = load i64, ptr %env28.i44, align 8
+  %or.i.i61.i45 = or i64 %40, -1688849860263936
   store i64 %or.i.i61.i45, ptr %tmptv27.i43, align 8
-  br label %index2adr.exit60
+  br label %index2adr.exit58
 
 if.else30.i29:                                    ; preds = %if.else18.i24
   %sub31.i30 = sub nuw nsw i32 -10002, %idx2
-  %nupvalues.i31 = getelementptr inbounds %struct.GCfuncC, ptr %33, i64 0, i32 4
-  %37 = load i8, ptr %nupvalues.i31, align 1
-  %conv.i32 = zext i8 %37 to i32
+  %nupvalues.i31 = getelementptr inbounds %struct.GCfuncC, ptr %37, i64 0, i32 4
+  %41 = load i8, ptr %nupvalues.i31, align 1
+  %conv.i32 = zext i8 %41 to i32
   %cmp32.not.i33 = icmp ugt i32 %sub31.i30, %conv.i32
   br i1 %cmp32.not.i33, label %cond.false36.i38, label %cond.true34.i34
 
 cond.true34.i34:                                  ; preds = %if.else30.i29
   %sub35.i35 = sub nsw i32 -10003, %idx2
   %idxprom.i36 = sext i32 %sub35.i35 to i64
-  %arrayidx.i37 = getelementptr inbounds %struct.GCfuncC, ptr %33, i64 0, i32 9, i64 %idxprom.i36
-  br label %index2adr.exit60
+  %arrayidx.i37 = getelementptr inbounds %struct.GCfuncC, ptr %37, i64 0, i32 9, i64 %idxprom.i36
+  br label %index2adr.exit58
 
 cond.false36.i38:                                 ; preds = %if.else30.i29
   %glref37.i39 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %38 = load i64, ptr %glref37.i39, align 8
-  %39 = inttoptr i64 %38 to ptr
-  %nilnode39.i40 = getelementptr inbounds %struct.global_State, ptr %39, i64 0, i32 14
-  br label %index2adr.exit60
+  %42 = load i64, ptr %glref37.i39, align 8
+  %43 = inttoptr i64 %42 to ptr
+  %nilnode39.i40 = getelementptr inbounds %struct.global_State, ptr %43, i64 0, i32 14
+  br label %index2adr.exit58
 
-index2adr.exit60:                                 ; preds = %if.then.i50, %cond.false.i57, %if.then3.i46, %if.then9.i19, %if.then15.i15, %if.then23.i41, %cond.true34.i34, %cond.false36.i38
-  %retval.0.i18 = phi ptr [ %add.ptr6.i49, %if.then3.i46 ], [ %tmptv.i21, %if.then9.i19 ], [ %registrytv.i17, %if.then15.i15 ], [ %tmptv27.i43, %if.then23.i41 ], [ %nilnode.i59, %cond.false.i57 ], [ %add.ptr.i54, %if.then.i50 ], [ %arrayidx.i37, %cond.true34.i34 ], [ %nilnode39.i40, %cond.false36.i38 ]
-  %40 = load i64, ptr %retval.0.i18, align 8
-  %and3 = and i64 %40, 140737488355327
-  %41 = inttoptr i64 %and3 to ptr
+index2adr.exit58:                                 ; preds = %if.then.i50, %cond.false.i55, %if.then3.i46, %if.then9.i19, %if.then15.i15, %if.then23.i41, %cond.true34.i34, %cond.false36.i38
+  %retval.0.i18 = phi ptr [ %add.ptr6.i49, %if.then3.i46 ], [ %tmptv.i21, %if.then9.i19 ], [ %registrytv.i17, %if.then15.i15 ], [ %tmptv27.i43, %if.then23.i41 ], [ %nilnode.i57, %cond.false.i55 ], [ %add.ptr.i52, %if.then.i50 ], [ %arrayidx.i37, %cond.true34.i34 ], [ %nilnode39.i40, %cond.false36.i38 ]
+  %44 = load i64, ptr %retval.0.i18, align 8
+  %and3 = and i64 %44, 140737488355327
+  %45 = inttoptr i64 %and3 to ptr
   %dec = add nsw i32 %n1, -1
   %dec4 = add nsw i32 %n2, -1
   %idxprom = sext i32 %dec4 to i64
-  %arrayidx = getelementptr inbounds %struct.GCfuncL, ptr %41, i64 0, i32 8, i64 %idxprom
-  %42 = load i64, ptr %arrayidx, align 8
+  %arrayidx = getelementptr inbounds %struct.GCfuncL, ptr %45, i64 0, i32 8, i64 %idxprom
+  %46 = load i64, ptr %arrayidx, align 8
   %idxprom7 = sext i32 %dec to i64
-  %arrayidx8 = getelementptr inbounds %struct.GCfuncL, ptr %20, i64 0, i32 8, i64 %idxprom7
-  store i64 %42, ptr %arrayidx8, align 8
-  %43 = inttoptr i64 %42 to ptr
-  %marked = getelementptr inbounds %struct.GChead, ptr %43, i64 0, i32 1
-  %44 = load i8, ptr %marked, align 8
-  %45 = and i8 %44, 3
-  %tobool.not = icmp eq i8 %45, 0
+  %arrayidx8 = getelementptr inbounds %struct.GCfuncL, ptr %22, i64 0, i32 8, i64 %idxprom7
+  store i64 %46, ptr %arrayidx8, align 8
+  %47 = inttoptr i64 %46 to ptr
+  %marked = getelementptr inbounds %struct.GChead, ptr %47, i64 0, i32 1
+  %48 = load i8, ptr %marked, align 8
+  %49 = and i8 %48, 3
+  %tobool.not = icmp eq i8 %49, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %index2adr.exit60
-  %marked15 = getelementptr inbounds %struct.GChead, ptr %20, i64 0, i32 1
-  %46 = load i8, ptr %marked15, align 8
-  %47 = and i8 %46, 4
-  %tobool18.not = icmp eq i8 %47, 0
+land.lhs.true:                                    ; preds = %index2adr.exit58
+  %marked15 = getelementptr inbounds %struct.GChead, ptr %22, i64 0, i32 1
+  %50 = load i8, ptr %marked15, align 8
+  %51 = and i8 %50, 4
+  %tobool18.not = icmp eq i8 %51, 0
   br i1 %tobool18.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %48 = load i64, ptr %glref, align 8
-  %49 = inttoptr i64 %48 to ptr
-  tail call void @lj_gc_barrierf(ptr noundef %49, ptr noundef nonnull %20, ptr noundef nonnull %43) #13
+  %52 = load i64, ptr %glref, align 8
+  %53 = inttoptr i64 %52 to ptr
+  tail call void @lj_gc_barrierf(ptr noundef %53, ptr noundef nonnull %22, ptr noundef nonnull %47) #13
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %land.lhs.true, %index2adr.exit60
+if.end:                                           ; preds = %if.then, %land.lhs.true, %index2adr.exit58
   ret void
 }
 
@@ -7556,19 +7556,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -7577,9 +7577,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -7590,103 +7590,103 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
-  %19 = load i64, ptr %retval.0.i, align 8
-  %shr = ashr i64 %19, 47
-  %20 = and i64 %shr, 4294967295
-  %cmp = icmp eq i64 %20, 4294967283
+  %21 = load i64, ptr %retval.0.i, align 8
+  %shr = ashr i64 %21, 47
+  %22 = and i64 %shr, 4294967295
+  %cmp = icmp eq i64 %22, 4294967283
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %index2adr.exit
-  %and = and i64 %19, 140737488355327
-  %21 = inttoptr i64 %and to ptr
+  %and = and i64 %21, 140737488355327
+  %23 = inttoptr i64 %and to ptr
   %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %22 = load i64, ptr %glref, align 8
-  %23 = inttoptr i64 %22 to ptr
-  %registrytv = getelementptr inbounds %struct.global_State, ptr %23, i64 0, i32 15
-  %24 = load i64, ptr %registrytv, align 8
-  %and3 = and i64 %24, 140737488355327
-  %25 = inttoptr i64 %and3 to ptr
+  %24 = load i64, ptr %glref, align 8
+  %25 = inttoptr i64 %24 to ptr
+  %registrytv = getelementptr inbounds %struct.global_State, ptr %25, i64 0, i32 15
+  %26 = load i64, ptr %registrytv, align 8
+  %and3 = and i64 %26, 140737488355327
+  %27 = inttoptr i64 %and3 to ptr
   %call4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %tname) #15
   %call5 = tail call ptr @lj_str_new(ptr noundef nonnull %L, ptr noundef %tname, i64 noundef %call4) #13
-  %call6 = tail call ptr @lj_tab_getstr(ptr noundef %25, ptr noundef %call5) #13
+  %call6 = tail call ptr @lj_tab_getstr(ptr noundef %27, ptr noundef %call5) #13
   %tobool.not = icmp eq ptr %call6, null
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then
-  %26 = load i64, ptr %call6, align 8
-  %shr7 = ashr i64 %26, 47
-  %27 = and i64 %shr7, 4294967295
-  %cmp9 = icmp eq i64 %27, 4294967284
+  %28 = load i64, ptr %call6, align 8
+  %shr7 = ashr i64 %28, 47
+  %29 = and i64 %shr7, 4294967295
+  %cmp9 = icmp eq i64 %29, 4294967284
   br i1 %cmp9, label %land.lhs.true11, label %return
 
 land.lhs.true11:                                  ; preds = %land.lhs.true
-  %and13 = and i64 %26, 140737488355327
-  %28 = inttoptr i64 %and13 to ptr
-  %metatable = getelementptr inbounds %struct.GCudata, ptr %21, i64 0, i32 7
-  %29 = load i64, ptr %metatable, align 8
-  %30 = inttoptr i64 %29 to ptr
-  %cmp15 = icmp eq ptr %28, %30
-  %add.ptr = getelementptr inbounds %struct.GCudata, ptr %21, i64 1
+  %and13 = and i64 %28, 140737488355327
+  %30 = inttoptr i64 %and13 to ptr
+  %metatable = getelementptr inbounds %struct.GCudata, ptr %23, i64 0, i32 7
+  %31 = load i64, ptr %metatable, align 8
+  %32 = inttoptr i64 %31 to ptr
+  %cmp15 = icmp eq ptr %30, %32
+  %add.ptr = getelementptr inbounds %struct.GCudata, ptr %23, i64 1
   %spec.select = select i1 %cmp15, ptr %add.ptr, ptr null
   br label %return
 
@@ -7722,19 +7722,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -7743,9 +7743,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -7756,92 +7756,92 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
   %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %19 = load ptr, ptr %top, align 8
-  %add.ptr = getelementptr inbounds %union.TValue, ptr %19, i64 -2
+  %21 = load ptr, ptr %top, align 8
+  %add.ptr = getelementptr inbounds %union.TValue, ptr %21, i64 -2
   %call1 = tail call ptr @lj_meta_tset(ptr noundef nonnull %L, ptr noundef %retval.0.i, ptr noundef nonnull %add.ptr) #13
   %tobool.not = icmp eq ptr %call1, null
-  %20 = load ptr, ptr %top, align 8
+  %22 = load ptr, ptr %top, align 8
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %index2adr.exit
-  %add.ptr3 = getelementptr inbounds %union.TValue, ptr %20, i64 -2
+  %add.ptr3 = getelementptr inbounds %union.TValue, ptr %22, i64 -2
   store ptr %add.ptr3, ptr %top, align 8
-  %add.ptr5 = getelementptr inbounds %union.TValue, ptr %20, i64 -1
-  %21 = load i64, ptr %add.ptr5, align 8
-  store i64 %21, ptr %call1, align 8
+  %add.ptr5 = getelementptr inbounds %union.TValue, ptr %22, i64 -1
+  %23 = load i64, ptr %add.ptr5, align 8
+  store i64 %23, ptr %call1, align 8
   br label %if.end
 
 if.else:                                          ; preds = %index2adr.exit
-  %add.ptr7 = getelementptr inbounds %union.TValue, ptr %20, i64 2
-  %add.ptr9 = getelementptr inbounds %union.TValue, ptr %20, i64 -5
-  %22 = load i64, ptr %add.ptr9, align 8
-  store i64 %22, ptr %add.ptr7, align 8
-  %add.ptr10 = getelementptr inbounds %union.TValue, ptr %20, i64 3
+  %add.ptr7 = getelementptr inbounds %union.TValue, ptr %22, i64 2
+  %add.ptr9 = getelementptr inbounds %union.TValue, ptr %22, i64 -5
+  %24 = load i64, ptr %add.ptr9, align 8
+  store i64 %24, ptr %add.ptr7, align 8
+  %add.ptr10 = getelementptr inbounds %union.TValue, ptr %22, i64 3
   store ptr %add.ptr10, ptr %top, align 8
-  tail call void @lj_vm_call(ptr noundef nonnull %L, ptr noundef %20, i32 noundef 1) #13
-  %23 = load ptr, ptr %top, align 8
-  %add.ptr13 = getelementptr inbounds %union.TValue, ptr %23, i64 -4
+  tail call void @lj_vm_call(ptr noundef nonnull %L, ptr noundef %22, i32 noundef 1) #13
+  %25 = load ptr, ptr %top, align 8
+  %add.ptr13 = getelementptr inbounds %union.TValue, ptr %25, i64 -4
   store ptr %add.ptr13, ptr %top, align 8
   br label %if.end
 
@@ -7861,19 +7861,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -7882,9 +7882,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -7895,94 +7895,94 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %k) #15
   %call2 = tail call ptr @lj_str_new(ptr noundef nonnull %L, ptr noundef %k, i64 noundef %call1) #13
-  %19 = ptrtoint ptr %call2 to i64
-  %or.i.i = or i64 %19, -703687441776640
+  %21 = ptrtoint ptr %call2 to i64
+  %or.i.i = or i64 %21, -703687441776640
   store i64 %or.i.i, ptr %key, align 8
   %call3 = call ptr @lj_meta_tset(ptr noundef nonnull %L, ptr noundef %retval.0.i, ptr noundef nonnull %key) #13
   %tobool.not = icmp eq ptr %call3, null
   %top4 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %20 = load ptr, ptr %top4, align 8
+  %22 = load ptr, ptr %top4, align 8
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %index2adr.exit
-  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %20, i64 -1
+  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %22, i64 -1
   store ptr %incdec.ptr, ptr %top4, align 8
-  %21 = load i64, ptr %incdec.ptr, align 8
-  store i64 %21, ptr %call3, align 8
+  %23 = load i64, ptr %incdec.ptr, align 8
+  store i64 %23, ptr %call3, align 8
   br label %if.end
 
 if.else:                                          ; preds = %index2adr.exit
-  %add.ptr = getelementptr inbounds %union.TValue, ptr %20, i64 2
-  %add.ptr6 = getelementptr inbounds %union.TValue, ptr %20, i64 -5
-  %22 = load i64, ptr %add.ptr6, align 8
-  store i64 %22, ptr %add.ptr, align 8
-  %add.ptr7 = getelementptr inbounds %union.TValue, ptr %20, i64 3
+  %add.ptr = getelementptr inbounds %union.TValue, ptr %22, i64 2
+  %add.ptr6 = getelementptr inbounds %union.TValue, ptr %22, i64 -5
+  %24 = load i64, ptr %add.ptr6, align 8
+  store i64 %24, ptr %add.ptr, align 8
+  %add.ptr7 = getelementptr inbounds %union.TValue, ptr %22, i64 3
   store ptr %add.ptr7, ptr %top4, align 8
-  call void @lj_vm_call(ptr noundef nonnull %L, ptr noundef %20, i32 noundef 1) #13
-  %23 = load ptr, ptr %top4, align 8
-  %add.ptr10 = getelementptr inbounds %union.TValue, ptr %23, i64 -3
+  call void @lj_vm_call(ptr noundef nonnull %L, ptr noundef %22, i32 noundef 1) #13
+  %25 = load ptr, ptr %top4, align 8
+  %add.ptr10 = getelementptr inbounds %union.TValue, ptr %25, i64 -3
   store ptr %add.ptr10, ptr %top4, align 8
   br label %if.end
 
@@ -7999,19 +7999,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -8020,9 +8020,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -8033,92 +8033,92 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i14 = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i14 to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i14 = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i14 to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
-  %19 = load i64, ptr %retval.0.i, align 8
-  %and = and i64 %19, 140737488355327
-  %20 = inttoptr i64 %and to ptr
+  %21 = load i64, ptr %retval.0.i, align 8
+  %and = and i64 %21, 140737488355327
+  %22 = inttoptr i64 %and to ptr
   %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %21 = load ptr, ptr %top, align 8
-  %add.ptr = getelementptr inbounds %union.TValue, ptr %21, i64 -2
-  %call1 = tail call ptr @lj_tab_set(ptr noundef nonnull %L, ptr noundef %20, ptr noundef nonnull %add.ptr) #13
-  %add.ptr2 = getelementptr inbounds %union.TValue, ptr %21, i64 -1
-  %22 = load i64, ptr %add.ptr2, align 8
-  store i64 %22, ptr %call1, align 8
-  %marked = getelementptr inbounds %struct.GChead, ptr %20, i64 0, i32 1
-  %23 = load i8, ptr %marked, align 8
-  %24 = and i8 %23, 4
-  %tobool.not = icmp eq i8 %24, 0
+  %23 = load ptr, ptr %top, align 8
+  %add.ptr = getelementptr inbounds %union.TValue, ptr %23, i64 -2
+  %call1 = tail call ptr @lj_tab_set(ptr noundef nonnull %L, ptr noundef %22, ptr noundef nonnull %add.ptr) #13
+  %add.ptr2 = getelementptr inbounds %union.TValue, ptr %23, i64 -1
+  %24 = load i64, ptr %add.ptr2, align 8
+  store i64 %24, ptr %call1, align 8
+  %marked = getelementptr inbounds %struct.GChead, ptr %22, i64 0, i32 1
+  %25 = load i8, ptr %marked, align 8
+  %26 = and i8 %25, 4
+  %tobool.not = icmp eq i8 %26, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %index2adr.exit
   %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %25 = load i64, ptr %glref, align 8
-  %26 = inttoptr i64 %25 to ptr
-  %and.i = and i8 %23, -5
+  %27 = load i64, ptr %glref, align 8
+  %28 = inttoptr i64 %27 to ptr
+  %and.i = and i8 %25, -5
   store i8 %and.i, ptr %marked, align 8
-  %grayagain.i = getelementptr inbounds %struct.global_State, ptr %26, i64 0, i32 2, i32 10
-  %27 = load i64, ptr %grayagain.i, align 8
-  %gclist.i = getelementptr inbounds %struct.GCtab, ptr %20, i64 0, i32 6
-  store i64 %27, ptr %gclist.i, align 8
+  %grayagain.i = getelementptr inbounds %struct.global_State, ptr %28, i64 0, i32 2, i32 10
+  %29 = load i64, ptr %grayagain.i, align 8
+  %gclist.i = getelementptr inbounds %struct.GCtab, ptr %22, i64 0, i32 6
+  store i64 %29, ptr %gclist.i, align 8
   store i64 %and, ptr %grayagain.i, align 8
   br label %if.end
 
@@ -8138,19 +8138,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -8159,9 +8159,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -8172,125 +8172,125 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i19 = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i19 to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i19 = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i19 to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
-  %19 = load i64, ptr %retval.0.i, align 8
-  %and = and i64 %19, 140737488355327
-  %20 = inttoptr i64 %and to ptr
-  %asize = getelementptr inbounds %struct.GCtab, ptr %20, i64 0, i32 9
-  %21 = load i32, ptr %asize, align 8
-  %cmp = icmp ugt i32 %21, %n
+  %21 = load i64, ptr %retval.0.i, align 8
+  %and = and i64 %21, 140737488355327
+  %22 = inttoptr i64 %and to ptr
+  %asize = getelementptr inbounds %struct.GCtab, ptr %22, i64 0, i32 9
+  %23 = load i32, ptr %asize, align 8
+  %cmp = icmp ugt i32 %23, %n
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %index2adr.exit
-  %array = getelementptr inbounds %struct.GCtab, ptr %20, i64 0, i32 5
-  %22 = load i64, ptr %array, align 8
-  %23 = inttoptr i64 %22 to ptr
+  %array = getelementptr inbounds %struct.GCtab, ptr %22, i64 0, i32 5
+  %24 = load i64, ptr %array, align 8
+  %25 = inttoptr i64 %24 to ptr
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds %union.TValue, ptr %23, i64 %idxprom
+  %arrayidx = getelementptr inbounds %union.TValue, ptr %25, i64 %idxprom
   br label %cond.end
 
 cond.false:                                       ; preds = %index2adr.exit
-  %call1 = tail call ptr @lj_tab_setinth(ptr noundef nonnull %L, ptr noundef nonnull %20, i32 noundef %n) #13
+  %call1 = tail call ptr @lj_tab_setinth(ptr noundef nonnull %L, ptr noundef nonnull %22, i32 noundef %n) #13
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %arrayidx, %cond.true ], [ %call1, %cond.false ]
   %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %24 = load ptr, ptr %top, align 8
-  %add.ptr = getelementptr inbounds %union.TValue, ptr %24, i64 -1
-  %25 = load i64, ptr %add.ptr, align 8
-  store i64 %25, ptr %cond, align 8
-  %shr = ashr i64 %25, 47
+  %26 = load ptr, ptr %top, align 8
+  %add.ptr = getelementptr inbounds %union.TValue, ptr %26, i64 -1
+  %27 = load i64, ptr %add.ptr, align 8
+  store i64 %27, ptr %cond, align 8
+  %shr = ashr i64 %27, 47
   %conv = trunc i64 %shr to i32
-  %26 = add nsw i32 %conv, 13
-  %cmp2 = icmp ult i32 %26, 9
+  %28 = add nsw i32 %conv, 13
+  %cmp2 = icmp ult i32 %28, 9
   br i1 %cmp2, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %cond.end
-  %and5 = and i64 %25, 140737488355327
-  %27 = inttoptr i64 %and5 to ptr
-  %marked = getelementptr inbounds %struct.GChead, ptr %27, i64 0, i32 1
-  %28 = load i8, ptr %marked, align 8
-  %29 = and i8 %28, 3
-  %tobool.not = icmp eq i8 %29, 0
+  %and5 = and i64 %27, 140737488355327
+  %29 = inttoptr i64 %and5 to ptr
+  %marked = getelementptr inbounds %struct.GChead, ptr %29, i64 0, i32 1
+  %30 = load i8, ptr %marked, align 8
+  %31 = and i8 %30, 3
+  %tobool.not = icmp eq i8 %31, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true8
 
 land.lhs.true8:                                   ; preds = %land.lhs.true
-  %marked9 = getelementptr inbounds %struct.GChead, ptr %20, i64 0, i32 1
-  %30 = load i8, ptr %marked9, align 8
-  %31 = and i8 %30, 4
-  %tobool12.not = icmp eq i8 %31, 0
+  %marked9 = getelementptr inbounds %struct.GChead, ptr %22, i64 0, i32 1
+  %32 = load i8, ptr %marked9, align 8
+  %33 = and i8 %32, 4
+  %tobool12.not = icmp eq i8 %33, 0
   br i1 %tobool12.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true8
   %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %32 = load i64, ptr %glref, align 8
-  %33 = inttoptr i64 %32 to ptr
-  %and.i = and i8 %30, -5
+  %34 = load i64, ptr %glref, align 8
+  %35 = inttoptr i64 %34 to ptr
+  %and.i = and i8 %32, -5
   store i8 %and.i, ptr %marked9, align 8
-  %grayagain.i = getelementptr inbounds %struct.global_State, ptr %33, i64 0, i32 2, i32 10
-  %34 = load i64, ptr %grayagain.i, align 8
-  %gclist.i = getelementptr inbounds %struct.GCtab, ptr %20, i64 0, i32 6
-  store i64 %34, ptr %gclist.i, align 8
+  %grayagain.i = getelementptr inbounds %struct.global_State, ptr %35, i64 0, i32 2, i32 10
+  %36 = load i64, ptr %grayagain.i, align 8
+  %gclist.i = getelementptr inbounds %struct.GCtab, ptr %22, i64 0, i32 6
+  store i64 %36, ptr %gclist.i, align 8
   store i64 %and, ptr %grayagain.i, align 8
   br label %if.end
 
@@ -8310,19 +8310,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -8331,9 +8331,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -8344,79 +8344,79 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i34 = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i34 to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i34 = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i34 to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
   %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %19 = load ptr, ptr %top, align 8
-  %add.ptr = getelementptr inbounds %union.TValue, ptr %19, i64 -1
-  %20 = load i64, ptr %add.ptr, align 8
-  %cmp = icmp eq i64 %20, -1
-  %and = and i64 %20, 140737488355327
-  %21 = inttoptr i64 %and to ptr
-  %mt.0 = select i1 %cmp, ptr null, ptr %21
+  %21 = load ptr, ptr %top, align 8
+  %add.ptr = getelementptr inbounds %union.TValue, ptr %21, i64 -1
+  %22 = load i64, ptr %add.ptr, align 8
+  %cmp = icmp eq i64 %22, -1
+  %and = and i64 %22, 140737488355327
+  %23 = inttoptr i64 %and to ptr
+  %mt.0 = select i1 %cmp, ptr null, ptr %23
   %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %22 = load i64, ptr %glref, align 8
-  %23 = inttoptr i64 %22 to ptr
-  %24 = load i64, ptr %retval.0.i, align 8
-  %shr = ashr i64 %24, 47
+  %24 = load i64, ptr %glref, align 8
+  %25 = inttoptr i64 %24 to ptr
+  %26 = load i64, ptr %retval.0.i, align 8
+  %shr = ashr i64 %26, 47
   %conv = trunc i64 %shr to i32
   switch i32 %conv, label %if.else56 [
     i32 -12, label %if.then5
@@ -8424,73 +8424,73 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
   ]
 
 if.then5:                                         ; preds = %index2adr.exit
-  %25 = ptrtoint ptr %mt.0 to i64
-  %and7 = and i64 %24, 140737488355327
-  %26 = inttoptr i64 %and7 to ptr
-  %metatable = getelementptr inbounds %struct.GCtab, ptr %26, i64 0, i32 7
-  store i64 %25, ptr %metatable, align 8
+  %27 = ptrtoint ptr %mt.0 to i64
+  %and7 = and i64 %26, 140737488355327
+  %28 = inttoptr i64 %and7 to ptr
+  %metatable = getelementptr inbounds %struct.GCtab, ptr %28, i64 0, i32 7
+  store i64 %27, ptr %metatable, align 8
   %tobool.not = icmp eq ptr %mt.0, null
   br i1 %tobool.not, label %if.end86, label %if.then9
 
 if.then9:                                         ; preds = %if.then5
   %marked = getelementptr inbounds %struct.GChead, ptr %mt.0, i64 0, i32 1
-  %27 = load i8, ptr %marked, align 8
-  %28 = and i8 %27, 3
-  %tobool12.not = icmp eq i8 %28, 0
+  %29 = load i8, ptr %marked, align 8
+  %30 = and i8 %29, 3
+  %tobool12.not = icmp eq i8 %30, 0
   br i1 %tobool12.not, label %if.end86, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then9
-  %29 = load i64, ptr %retval.0.i, align 8
-  %and14 = and i64 %29, 140737488355327
-  %30 = inttoptr i64 %and14 to ptr
-  %marked15 = getelementptr inbounds %struct.GChead, ptr %30, i64 0, i32 1
-  %31 = load i8, ptr %marked15, align 8
-  %32 = and i8 %31, 4
-  %tobool18.not = icmp eq i8 %32, 0
+  %31 = load i64, ptr %retval.0.i, align 8
+  %and14 = and i64 %31, 140737488355327
+  %32 = inttoptr i64 %and14 to ptr
+  %marked15 = getelementptr inbounds %struct.GChead, ptr %32, i64 0, i32 1
+  %33 = load i8, ptr %marked15, align 8
+  %34 = and i8 %33, 4
+  %tobool18.not = icmp eq i8 %34, 0
   br i1 %tobool18.not, label %if.end86, label %if.then19
 
 if.then19:                                        ; preds = %land.lhs.true
-  %33 = load i64, ptr %glref, align 8
-  %34 = inttoptr i64 %33 to ptr
-  %and.i = and i8 %31, -5
+  %35 = load i64, ptr %glref, align 8
+  %36 = inttoptr i64 %35 to ptr
+  %and.i = and i8 %33, -5
   store i8 %and.i, ptr %marked15, align 8
-  %grayagain.i = getelementptr inbounds %struct.global_State, ptr %34, i64 0, i32 2, i32 10
-  %35 = load i64, ptr %grayagain.i, align 8
-  %gclist.i = getelementptr inbounds %struct.GCtab, ptr %30, i64 0, i32 6
-  store i64 %35, ptr %gclist.i, align 8
+  %grayagain.i = getelementptr inbounds %struct.global_State, ptr %36, i64 0, i32 2, i32 10
+  %37 = load i64, ptr %grayagain.i, align 8
+  %gclist.i = getelementptr inbounds %struct.GCtab, ptr %32, i64 0, i32 6
+  store i64 %37, ptr %gclist.i, align 8
   store i64 %and14, ptr %grayagain.i, align 8
   br label %if.end86
 
 if.then31:                                        ; preds = %index2adr.exit
-  %36 = ptrtoint ptr %mt.0 to i64
-  %and33 = and i64 %24, 140737488355327
-  %37 = inttoptr i64 %and33 to ptr
-  %metatable34 = getelementptr inbounds %struct.GCudata, ptr %37, i64 0, i32 7
-  store i64 %36, ptr %metatable34, align 8
+  %38 = ptrtoint ptr %mt.0 to i64
+  %and33 = and i64 %26, 140737488355327
+  %39 = inttoptr i64 %and33 to ptr
+  %metatable34 = getelementptr inbounds %struct.GCudata, ptr %39, i64 0, i32 7
+  store i64 %38, ptr %metatable34, align 8
   %tobool36.not = icmp eq ptr %mt.0, null
   br i1 %tobool36.not, label %if.end86, label %if.then37
 
 if.then37:                                        ; preds = %if.then31
   %marked38 = getelementptr inbounds %struct.GChead, ptr %mt.0, i64 0, i32 1
-  %38 = load i8, ptr %marked38, align 8
-  %39 = and i8 %38, 3
-  %tobool41.not = icmp eq i8 %39, 0
+  %40 = load i8, ptr %marked38, align 8
+  %41 = and i8 %40, 3
+  %tobool41.not = icmp eq i8 %41, 0
   br i1 %tobool41.not, label %if.end86, label %land.lhs.true42
 
 land.lhs.true42:                                  ; preds = %if.then37
-  %40 = load i64, ptr %retval.0.i, align 8
-  %and44 = and i64 %40, 140737488355327
-  %41 = inttoptr i64 %and44 to ptr
-  %marked45 = getelementptr inbounds %struct.GChead, ptr %41, i64 0, i32 1
-  %42 = load i8, ptr %marked45, align 8
-  %43 = and i8 %42, 4
-  %tobool48.not = icmp eq i8 %43, 0
+  %42 = load i64, ptr %retval.0.i, align 8
+  %and44 = and i64 %42, 140737488355327
+  %43 = inttoptr i64 %and44 to ptr
+  %marked45 = getelementptr inbounds %struct.GChead, ptr %43, i64 0, i32 1
+  %44 = load i8, ptr %marked45, align 8
+  %45 = and i8 %44, 4
+  %tobool48.not = icmp eq i8 %45, 0
   br i1 %tobool48.not, label %if.end86, label %if.then49
 
 if.then49:                                        ; preds = %land.lhs.true42
-  %44 = load i64, ptr %glref, align 8
-  %45 = inttoptr i64 %44 to ptr
-  tail call void @lj_gc_barrierf(ptr noundef %45, ptr noundef nonnull %41, ptr noundef nonnull %mt.0) #13
+  %46 = load i64, ptr %glref, align 8
+  %47 = inttoptr i64 %46 to ptr
+  tail call void @lj_gc_barrierf(ptr noundef %47, ptr noundef nonnull %43, ptr noundef nonnull %mt.0) #13
   br label %if.end86
 
 if.else56:                                        ; preds = %index2adr.exit
@@ -8503,33 +8503,33 @@ if.then59:                                        ; preds = %if.else56
   unreachable
 
 if.end60:                                         ; preds = %if.else56
-  %46 = load i64, ptr %retval.0.i, align 8
-  %shr61 = ashr i64 %46, 47
+  %48 = load i64, ptr %retval.0.i, align 8
+  %shr61 = ashr i64 %48, 47
   %conv62 = trunc i64 %shr61 to i32
   %conv62.off = add nsw i32 %conv62, 3
   %switch = icmp ult i32 %conv62.off, 2
-  %47 = ptrtoint ptr %mt.0 to i64
+  %49 = ptrtoint ptr %mt.0 to i64
   br i1 %switch, label %if.then69, label %if.else74
 
 if.then69:                                        ; preds = %if.end60
-  %arrayidx = getelementptr inbounds %struct.global_State, ptr %23, i64 0, i32 28, i64 24
-  store i64 %47, ptr %arrayidx, align 8
-  %arrayidx72 = getelementptr inbounds %struct.global_State, ptr %23, i64 0, i32 28, i64 23
-  store i64 %47, ptr %arrayidx72, align 8
+  %arrayidx = getelementptr inbounds %struct.global_State, ptr %25, i64 0, i32 28, i64 24
+  store i64 %49, ptr %arrayidx, align 8
+  %arrayidx72 = getelementptr inbounds %struct.global_State, ptr %25, i64 0, i32 28, i64 23
+  store i64 %49, ptr %arrayidx72, align 8
   br label %if.end86
 
 if.else74:                                        ; preds = %if.end60
   %cmp78 = icmp ult i32 %conv62, -13
-  %48 = sub nsw i64 21, %shr61
-  %49 = and i64 %48, 4294967295
-  %cond = select i1 %cmp78, i64 35, i64 %49
-  %arrayidx82 = getelementptr inbounds %struct.global_State, ptr %23, i64 0, i32 28, i64 %cond
-  store i64 %47, ptr %arrayidx82, align 8
+  %50 = sub nsw i64 21, %shr61
+  %51 = and i64 %50, 4294967295
+  %cond = select i1 %cmp78, i64 35, i64 %51
+  %arrayidx82 = getelementptr inbounds %struct.global_State, ptr %25, i64 0, i32 28, i64 %cond
+  store i64 %49, ptr %arrayidx82, align 8
   br label %if.end86
 
 if.end86:                                         ; preds = %if.then37, %land.lhs.true42, %if.then49, %if.then31, %if.else74, %if.then69, %if.then5, %if.then19, %land.lhs.true, %if.then9
-  %50 = load ptr, ptr %top, align 8
-  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %50, i64 -1
+  %52 = load ptr, ptr %top, align 8
+  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %52, i64 -1
   store ptr %incdec.ptr, ptr %top, align 8
   ret i32 1
 }
@@ -8602,19 +8602,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -8623,9 +8623,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -8636,74 +8636,74 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
   %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %19 = load ptr, ptr %top, align 8
-  %add.ptr = getelementptr inbounds %union.TValue, ptr %19, i64 -1
-  %20 = load i64, ptr %add.ptr, align 8
-  %and = and i64 %20, 140737488355327
-  %21 = inttoptr i64 %and to ptr
-  %22 = load i64, ptr %retval.0.i, align 8
-  %shr = ashr i64 %22, 47
+  %21 = load ptr, ptr %top, align 8
+  %add.ptr = getelementptr inbounds %union.TValue, ptr %21, i64 -1
+  %22 = load i64, ptr %add.ptr, align 8
+  %and = and i64 %22, 140737488355327
+  %23 = inttoptr i64 %and to ptr
+  %24 = load i64, ptr %retval.0.i, align 8
+  %shr = ashr i64 %24, 47
   %conv = trunc i64 %shr to i32
   switch i32 %conv, label %return [
     i32 -9, label %if.then
@@ -8712,52 +8712,52 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
   ]
 
 if.then:                                          ; preds = %index2adr.exit
-  %and3 = and i64 %22, 140737488355327
-  %23 = inttoptr i64 %and3 to ptr
-  %env = getelementptr inbounds %struct.GCfuncC, ptr %23, i64 0, i32 5
+  %and3 = and i64 %24, 140737488355327
+  %25 = inttoptr i64 %and3 to ptr
+  %env = getelementptr inbounds %struct.GCfuncC, ptr %25, i64 0, i32 5
   br label %if.end27
 
 if.then9:                                         ; preds = %index2adr.exit
-  %and11 = and i64 %22, 140737488355327
-  %24 = inttoptr i64 %and11 to ptr
-  %env12 = getelementptr inbounds %struct.GCudata, ptr %24, i64 0, i32 5
+  %and11 = and i64 %24, 140737488355327
+  %26 = inttoptr i64 %and11 to ptr
+  %env12 = getelementptr inbounds %struct.GCudata, ptr %26, i64 0, i32 5
   br label %if.end27
 
 if.then19:                                        ; preds = %index2adr.exit
-  %and21 = and i64 %22, 140737488355327
-  %25 = inttoptr i64 %and21 to ptr
-  %env22 = getelementptr inbounds %struct.lua_State, ptr %25, i64 0, i32 12
+  %and21 = and i64 %24, 140737488355327
+  %27 = inttoptr i64 %and21 to ptr
+  %env22 = getelementptr inbounds %struct.lua_State, ptr %27, i64 0, i32 12
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then9, %if.then19, %if.then
   %env12.sink = phi ptr [ %env12, %if.then9 ], [ %env22, %if.then19 ], [ %env, %if.then ]
   store i64 %and, ptr %env12.sink, align 8
-  %marked = getelementptr inbounds %struct.GChead, ptr %21, i64 0, i32 1
-  %26 = load i8, ptr %marked, align 8
-  %27 = and i8 %26, 3
-  %tobool.not = icmp eq i8 %27, 0
+  %marked = getelementptr inbounds %struct.GChead, ptr %23, i64 0, i32 1
+  %28 = load i8, ptr %marked, align 8
+  %29 = and i8 %28, 3
+  %tobool.not = icmp eq i8 %29, 0
   br i1 %tobool.not, label %if.end39, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end27
-  %28 = load i64, ptr %retval.0.i, align 8
-  %and31 = and i64 %28, 140737488355327
-  %29 = inttoptr i64 %and31 to ptr
-  %marked32 = getelementptr inbounds %struct.GChead, ptr %29, i64 0, i32 1
-  %30 = load i8, ptr %marked32, align 8
-  %31 = and i8 %30, 4
-  %tobool35.not = icmp eq i8 %31, 0
+  %30 = load i64, ptr %retval.0.i, align 8
+  %and31 = and i64 %30, 140737488355327
+  %31 = inttoptr i64 %and31 to ptr
+  %marked32 = getelementptr inbounds %struct.GChead, ptr %31, i64 0, i32 1
+  %32 = load i8, ptr %marked32, align 8
+  %33 = and i8 %32, 4
+  %tobool35.not = icmp eq i8 %33, 0
   br i1 %tobool35.not, label %if.end39, label %if.then36
 
 if.then36:                                        ; preds = %land.lhs.true
   %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %32 = load i64, ptr %glref, align 8
-  %33 = inttoptr i64 %32 to ptr
-  tail call void @lj_gc_barrierf(ptr noundef %33, ptr noundef nonnull %29, ptr noundef nonnull %21) #13
+  %34 = load i64, ptr %glref, align 8
+  %35 = inttoptr i64 %34 to ptr
+  tail call void @lj_gc_barrierf(ptr noundef %35, ptr noundef nonnull %31, ptr noundef nonnull %23) #13
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then36, %land.lhs.true, %if.end27
-  %34 = load ptr, ptr %top, align 8
-  %incdec.ptr41 = getelementptr inbounds %union.TValue, ptr %34, i64 -1
+  %36 = load ptr, ptr %top, align 8
+  %incdec.ptr41 = getelementptr inbounds %union.TValue, ptr %36, i64 -1
   br label %return
 
 return:                                           ; preds = %index2adr.exit, %if.end39
@@ -8778,19 +8778,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 %idx.ext.i
+  %1 = zext nneg i32 %idx to i64
+  %2 = getelementptr %union.TValue, ptr %0, i64 %1
+  %add.ptr.i = getelementptr %union.TValue, ptr %2, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %1
+  %3 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %2 = load i64, ptr %glref.i, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 14
+  %4 = load i64, ptr %glref.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %entry
@@ -8799,9 +8799,9 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %4 = load ptr, ptr %top4.i, align 8
+  %6 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -8812,62 +8812,62 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %5 = load i64, ptr %glref11.i, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 12
+  %7 = load i64, ptr %glref11.i, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %7 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %7, -1688849860263936
+  %9 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %9, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %8 = load i64, ptr %glref16.i, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 15
+  %10 = load i64, ptr %glref16.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %10 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %10, i64 -2
-  %11 = load i64, ptr %add.ptr20.i, align 8
-  %and.i = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and.i to ptr
+  %12 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %12, i64 -2
+  %13 = load i64, ptr %add.ptr20.i, align 8
+  %and.i = and i64 %13, 140737488355327
+  %14 = inttoptr i64 %and.i to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref25.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 5
-  %15 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %15, -1688849860263936
+  %15 = load i64, ptr %glref25.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 5
+  %17 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %17, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 4
-  %16 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 4
+  %18 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %18 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %12, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %14, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %17 = load i64, ptr %glref37.i, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 14
+  %19 = load i64, ptr %glref37.i, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
@@ -8879,42 +8879,42 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
 
 if.then:                                          ; preds = %index2adr.exit
   %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %19 = load ptr, ptr %top, align 8
-  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %19, i64 -1
+  %21 = load ptr, ptr %top, align 8
+  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %21, i64 -1
   store ptr %incdec.ptr, ptr %top, align 8
-  %20 = load ptr, ptr %val, align 8
-  %21 = load i64, ptr %incdec.ptr, align 8
-  store i64 %21, ptr %20, align 8
-  %22 = load ptr, ptr %top, align 8
-  %23 = load i64, ptr %22, align 8
-  %shr = ashr i64 %23, 47
+  %22 = load ptr, ptr %val, align 8
+  %23 = load i64, ptr %incdec.ptr, align 8
+  store i64 %23, ptr %22, align 8
+  %24 = load ptr, ptr %top, align 8
+  %25 = load i64, ptr %24, align 8
+  %shr = ashr i64 %25, 47
   %conv = trunc i64 %shr to i32
-  %24 = add nsw i32 %conv, 13
-  %cmp = icmp ult i32 %24, 9
+  %26 = add nsw i32 %conv, 13
+  %cmp = icmp ult i32 %26, 9
   br i1 %cmp, label %land.lhs.true, label %if.end19
 
 land.lhs.true:                                    ; preds = %if.then
-  %and = and i64 %23, 140737488355327
-  %25 = inttoptr i64 %and to ptr
-  %marked = getelementptr inbounds %struct.GChead, ptr %25, i64 0, i32 1
-  %26 = load i8, ptr %marked, align 8
-  %27 = and i8 %26, 3
-  %tobool9.not = icmp eq i8 %27, 0
+  %and = and i64 %25, 140737488355327
+  %27 = inttoptr i64 %and to ptr
+  %marked = getelementptr inbounds %struct.GChead, ptr %27, i64 0, i32 1
+  %28 = load i8, ptr %marked, align 8
+  %29 = and i8 %28, 3
+  %tobool9.not = icmp eq i8 %29, 0
   br i1 %tobool9.not, label %if.end19, label %land.lhs.true10
 
 land.lhs.true10:                                  ; preds = %land.lhs.true
-  %28 = load ptr, ptr %o, align 8
-  %marked11 = getelementptr inbounds %struct.GChead, ptr %28, i64 0, i32 1
-  %29 = load i8, ptr %marked11, align 8
-  %30 = and i8 %29, 4
-  %tobool14.not = icmp eq i8 %30, 0
+  %30 = load ptr, ptr %o, align 8
+  %marked11 = getelementptr inbounds %struct.GChead, ptr %30, i64 0, i32 1
+  %31 = load i8, ptr %marked11, align 8
+  %32 = and i8 %31, 4
+  %tobool14.not = icmp eq i8 %32, 0
   br i1 %tobool14.not, label %if.end19, label %if.then15
 
 if.then15:                                        ; preds = %land.lhs.true10
   %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %31 = load i64, ptr %glref, align 8
-  %32 = inttoptr i64 %31 to ptr
-  call void @lj_gc_barrierf(ptr noundef %32, ptr noundef nonnull %28, ptr noundef nonnull %25) #13
+  %33 = load i64, ptr %glref, align 8
+  %34 = inttoptr i64 %33 to ptr
+  call void @lj_gc_barrierf(ptr noundef %34, ptr noundef nonnull %30, ptr noundef nonnull %27) #13
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then, %land.lhs.true, %land.lhs.true10, %if.then15, %index2adr.exit
@@ -8975,54 +8975,54 @@ if.else:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.else
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %4 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %errfunc, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %4, i64 %idx.ext.i
+  %5 = zext nneg i32 %errfunc to i64
+  %6 = getelementptr %union.TValue, ptr %4, i64 %5
+  %add.ptr.i = getelementptr %union.TValue, ptr %6, i64 -1
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %5 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i, %5
+  %7 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i, %7
   %nilnode.i = getelementptr inbounds %struct.global_State, ptr %1, i64 0, i32 14
   %spec.select = select i1 %cmp1.i, ptr %add.ptr.i, ptr %nilnode.i
   br label %index2adr_stack.exit
 
 if.else3.i:                                       ; preds = %if.else
   %top4.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %6 = load ptr, ptr %top4.i, align 8
+  %8 = load ptr, ptr %top4.i, align 8
   %idx.ext5.i = sext i32 %errfunc to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %6, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %8, i64 %idx.ext5.i
   br label %index2adr_stack.exit
 
 index2adr_stack.exit:                             ; preds = %if.then.i, %if.else3.i
-  %7 = phi ptr [ %6, %if.else3.i ], [ %5, %if.then.i ]
+  %9 = phi ptr [ %8, %if.else3.i ], [ %7, %if.then.i ]
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.else3.i ], [ %spec.select, %if.then.i ]
   %stack = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 10
-  %8 = load i64, ptr %stack, align 8
+  %10 = load i64, ptr %stack, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %retval.0.i to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %8
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %10
   br label %if.end
 
 if.end:                                           ; preds = %entry.if.end_crit_edge, %index2adr_stack.exit
-  %9 = phi ptr [ %7, %index2adr_stack.exit ], [ %.pre, %entry.if.end_crit_edge ]
+  %11 = phi ptr [ %9, %index2adr_stack.exit ], [ %.pre, %entry.if.end_crit_edge ]
   %ef.0 = phi i64 [ %sub.ptr.sub, %index2adr_stack.exit ], [ 0, %entry.if.end_crit_edge ]
   %top.i10 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %idx.ext.i11 = sext i32 %nargs to i64
-  %idx.neg.i = sub nsw i64 0, %idx.ext.i11
-  %add.ptr.i12 = getelementptr inbounds %union.TValue, ptr %9, i64 %idx.neg.i
-  %add.ptr1.i = getelementptr inbounds %union.TValue, ptr %9, i64 1
+  %idx.ext.i = sext i32 %nargs to i64
+  %idx.neg.i = sub nsw i64 0, %idx.ext.i
+  %add.ptr.i11 = getelementptr inbounds %union.TValue, ptr %11, i64 %idx.neg.i
+  %add.ptr1.i = getelementptr inbounds %union.TValue, ptr %11, i64 1
   store ptr %add.ptr1.i, ptr %top.i10, align 8
   %cmp11.i = icmp sgt i32 %nargs, 0
   br i1 %cmp11.i, label %for.body.i, label %api_call_base.exit
 
 for.body.i:                                       ; preds = %if.end, %for.body.i
-  %o.012.i = phi ptr [ %add.ptr3.i, %for.body.i ], [ %9, %if.end ]
+  %o.012.i = phi ptr [ %add.ptr3.i, %for.body.i ], [ %11, %if.end ]
   %add.ptr3.i = getelementptr inbounds %union.TValue, ptr %o.012.i, i64 -1
-  %10 = load i64, ptr %add.ptr3.i, align 8
-  store i64 %10, ptr %o.012.i, align 8
-  %cmp.i13 = icmp ugt ptr %add.ptr3.i, %add.ptr.i12
-  br i1 %cmp.i13, label %for.body.i, label %api_call_base.exit, !llvm.loop !13
+  %12 = load i64, ptr %add.ptr3.i, align 8
+  store i64 %12, ptr %o.012.i, align 8
+  %cmp.i12 = icmp ugt ptr %add.ptr3.i, %add.ptr.i11
+  br i1 %cmp.i12, label %for.body.i, label %api_call_base.exit, !llvm.loop !13
 
 api_call_base.exit:                               ; preds = %for.body.i, %if.end
-  %o.0.lcssa.i = phi ptr [ %9, %if.end ], [ %add.ptr3.i, %for.body.i ]
+  %o.0.lcssa.i = phi ptr [ %11, %if.end ], [ %add.ptr3.i, %for.body.i ]
   store i64 -1, ptr %o.0.lcssa.i, align 8
   %add.ptr4.i = getelementptr inbounds %union.TValue, ptr %o.0.lcssa.i, i64 1
   %add = add nsw i32 %nresults, 1
@@ -9031,9 +9031,9 @@ api_call_base.exit:                               ; preds = %for.body.i, %if.end
   br i1 %tobool.not, label %if.end13, label %if.then6
 
 if.then6:                                         ; preds = %api_call_base.exit
-  %11 = load i8, ptr %hookmask, align 1
-  %12 = and i8 %11, 15
-  %or9 = or disjoint i8 %12, %3
+  %13 = load i8, ptr %hookmask, align 1
+  %14 = and i8 %13, 15
+  %or9 = or disjoint i8 %14, %3
   store i8 %or9, ptr %hookmask, align 1
   br label %if.end13
 
@@ -9157,18 +9157,18 @@ if.then:                                          ; preds = %land.lhs.true.i
 if.then.i14:                                      ; preds = %if.then
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %7 = load ptr, ptr %base.i, align 8
-  %sub.i = add nsw i32 %idx, -1
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i15 = getelementptr inbounds %union.TValue, ptr %7, i64 %idx.ext.i
-  %8 = load ptr, ptr %top.i, align 8
-  %cmp1.i = icmp ult ptr %add.ptr.i15, %8
+  %8 = zext nneg i32 %idx to i64
+  %9 = getelementptr %union.TValue, ptr %7, i64 %8
+  %add.ptr.i15 = getelementptr %union.TValue, ptr %9, i64 -1
+  %10 = load ptr, ptr %top.i, align 8
+  %cmp1.i = icmp ult ptr %add.ptr.i15, %10
   br i1 %cmp1.i, label %index2adr.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i14
   %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %9 = load i64, ptr %glref.i, align 8
-  %10 = inttoptr i64 %9 to ptr
-  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %10, i64 0, i32 14
+  %11 = load i64, ptr %glref.i, align 8
+  %12 = inttoptr i64 %11 to ptr
+  %nilnode.i = getelementptr inbounds %struct.global_State, ptr %12, i64 0, i32 14
   br label %index2adr.exit
 
 if.else.i:                                        ; preds = %if.then
@@ -9176,9 +9176,9 @@ if.else.i:                                        ; preds = %if.then
   br i1 %cmp2.i, label %if.then3.i, label %if.else7.i
 
 if.then3.i:                                       ; preds = %if.else.i
-  %11 = load ptr, ptr %top.i, align 8
+  %13 = load ptr, ptr %top.i, align 8
   %idx.ext5.i = sext i32 %idx to i64
-  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %11, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds %union.TValue, ptr %13, i64 %idx.ext5.i
   br label %index2adr.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -9189,68 +9189,68 @@ if.else7.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else7.i
   %glref11.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %12 = load i64, ptr %glref11.i, align 8
-  %13 = inttoptr i64 %12 to ptr
-  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %13, i64 0, i32 12
+  %14 = load i64, ptr %glref11.i, align 8
+  %15 = inttoptr i64 %14 to ptr
+  %tmptv.i = getelementptr inbounds %struct.global_State, ptr %15, i64 0, i32 12
   %env.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  %14 = load i64, ptr %env.i, align 8
-  %or.i.i.i = or i64 %14, -1688849860263936
+  %16 = load i64, ptr %env.i, align 8
+  %or.i.i.i = or i64 %16, -1688849860263936
   store i64 %or.i.i.i, ptr %tmptv.i, align 8
   br label %index2adr.exit
 
 if.then15.i:                                      ; preds = %if.else7.i
   %glref16.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %15 = load i64, ptr %glref16.i, align 8
-  %16 = inttoptr i64 %15 to ptr
-  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 15
+  %17 = load i64, ptr %glref16.i, align 8
+  %18 = inttoptr i64 %17 to ptr
+  %registrytv.i = getelementptr inbounds %struct.global_State, ptr %18, i64 0, i32 15
   br label %index2adr.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
   %base19.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %17 = load ptr, ptr %base19.i, align 8
-  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %17, i64 -2
-  %18 = load i64, ptr %add.ptr20.i, align 8
-  %and.i13 = and i64 %18, 140737488355327
-  %19 = inttoptr i64 %and.i13 to ptr
+  %19 = load ptr, ptr %base19.i, align 8
+  %add.ptr20.i = getelementptr inbounds %union.TValue, ptr %19, i64 -2
+  %20 = load i64, ptr %add.ptr20.i, align 8
+  %and.i13 = and i64 %20, 140737488355327
+  %21 = inttoptr i64 %and.i13 to ptr
   %cmp22.i = icmp eq i32 %idx, -10001
   br i1 %cmp22.i, label %if.then23.i, label %if.else30.i
 
 if.then23.i:                                      ; preds = %if.else18.i
   %glref25.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %20 = load i64, ptr %glref25.i, align 8
-  %21 = inttoptr i64 %20 to ptr
-  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %21, i64 0, i32 12
-  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %19, i64 0, i32 5
-  %22 = load i64, ptr %env28.i, align 8
-  %or.i.i61.i = or i64 %22, -1688849860263936
+  %22 = load i64, ptr %glref25.i, align 8
+  %23 = inttoptr i64 %22 to ptr
+  %tmptv27.i = getelementptr inbounds %struct.global_State, ptr %23, i64 0, i32 12
+  %env28.i = getelementptr inbounds %struct.GCfuncC, ptr %21, i64 0, i32 5
+  %24 = load i64, ptr %env28.i, align 8
+  %or.i.i61.i = or i64 %24, -1688849860263936
   store i64 %or.i.i61.i, ptr %tmptv27.i, align 8
   br label %index2adr.exit
 
 if.else30.i:                                      ; preds = %if.else18.i
   %sub31.i = sub nuw nsw i32 -10002, %idx
-  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %19, i64 0, i32 4
-  %23 = load i8, ptr %nupvalues.i, align 1
-  %conv.i = zext i8 %23 to i32
+  %nupvalues.i = getelementptr inbounds %struct.GCfuncC, ptr %21, i64 0, i32 4
+  %25 = load i8, ptr %nupvalues.i, align 1
+  %conv.i = zext i8 %25 to i32
   %cmp32.not.i = icmp ugt i32 %sub31.i, %conv.i
   br i1 %cmp32.not.i, label %cond.false36.i, label %cond.true34.i
 
 cond.true34.i:                                    ; preds = %if.else30.i
   %sub35.i = sub nsw i32 -10003, %idx
   %idxprom.i = sext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %19, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.GCfuncC, ptr %21, i64 0, i32 9, i64 %idxprom.i
   br label %index2adr.exit
 
 cond.false36.i:                                   ; preds = %if.else30.i
   %glref37.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %24 = load i64, ptr %glref37.i, align 8
-  %25 = inttoptr i64 %24 to ptr
-  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %25, i64 0, i32 14
+  %26 = load i64, ptr %glref37.i, align 8
+  %27 = inttoptr i64 %26 to ptr
+  %nilnode39.i = getelementptr inbounds %struct.global_State, ptr %27, i64 0, i32 14
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %if.then.i14, %cond.false.i, %if.then3.i, %if.then9.i, %if.then15.i, %if.then23.i, %cond.true34.i, %cond.false36.i
   %retval.0.i12 = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i15, %if.then.i14 ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
-  %26 = load i64, ptr %retval.0.i12, align 8
-  store i64 %26, ptr %incdec.ptr2, align 8
+  %28 = load i64, ptr %retval.0.i12, align 8
+  store i64 %28, ptr %incdec.ptr2, align 8
   store ptr %incdec.ptr3, ptr %top.i, align 8
   tail call void @lj_vm_call(ptr noundef nonnull %L, ptr noundef nonnull %incdec.ptr2, i32 noundef 2) #13
   br label %return

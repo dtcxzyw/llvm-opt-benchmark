@@ -23398,28 +23398,33 @@ if.then4:                                         ; preds = %if.end
 if.end10:                                         ; preds = %if.then4, %if.end
   %3 = phi i32 [ %.pre, %if.then4 ], [ %0, %if.end ]
   %cmp1219 = icmp sgt i32 %3, %pos
-  br i1 %cmp1219, label %for.body, label %for.end
+  br i1 %cmp1219, label %for.body.preheader, label %for.end
 
-for.body:                                         ; preds = %if.end10, %for.body
-  %i.020 = phi i32 [ %sub, %for.body ], [ %3, %if.end10 ]
-  %4 = load ptr, ptr %fctx, align 8
-  %sub = add nsw i32 %i.020, -1
-  %idxprom = zext nneg i32 %sub to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
-  %5 = load ptr, ptr %arrayidx, align 8
-  %idxprom16 = zext nneg i32 %i.020 to i64
-  %arrayidx17 = getelementptr inbounds ptr, ptr %4, i64 %idxprom16
-  store ptr %5, ptr %arrayidx17, align 8
-  %cmp12 = icmp sgt i32 %sub, %pos
+for.body.preheader:                               ; preds = %if.end10
+  %4 = sext i32 %3 to i64
+  %5 = zext nneg i32 %pos to i64
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.preheader, %for.body
+  %indvars.iv = phi i64 [ %4, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
+  %6 = load ptr, ptr %fctx, align 8
+  %7 = getelementptr ptr, ptr %6, i64 %indvars.iv
+  %arrayidx = getelementptr ptr, ptr %7, i64 -1
+  %8 = load ptr, ptr %arrayidx, align 8
+  %idxprom16 = and i64 %indvars.iv, 4294967295
+  %arrayidx17 = getelementptr inbounds ptr, ptr %6, i64 %idxprom16
+  store ptr %8, ptr %arrayidx17, align 8
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %cmp12 = icmp sgt i64 %indvars.iv.next, %5
   br i1 %cmp12, label %for.body, label %for.end, !llvm.loop !63
 
 for.end:                                          ; preds = %for.body, %if.end10
-  %6 = load ptr, ptr %fctx, align 8
+  %9 = load ptr, ptr %fctx, align 8
   %idxprom19 = zext nneg i32 %pos to i64
-  %arrayidx20 = getelementptr inbounds ptr, ptr %6, i64 %idxprom19
+  %arrayidx20 = getelementptr inbounds ptr, ptr %9, i64 %idxprom19
   store ptr %arg, ptr %arrayidx20, align 8
-  %7 = load i32, ptr %argc, align 4
-  %inc = add nsw i32 %7, 1
+  %10 = load i32, ptr %argc, align 4
+  %inc = add nsw i32 %10, 1
   store i32 %inc, ptr %argc, align 4
   br label %return
 

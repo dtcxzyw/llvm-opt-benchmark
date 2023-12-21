@@ -559,13 +559,11 @@ entry:
 
 for.body.preheader:                               ; preds = %entry
   %.pre = load i32, ptr %state, align 4
-  %invariant.gep = getelementptr %struct.RandomObject, ptr %self, i64 0, i32 2, i64 397
   br label %for.body
 
 for.body16.preheader:                             ; preds = %for.body
   %arrayidx18.phi.trans.insert = getelementptr %struct.RandomObject, ptr %self, i64 0, i32 2, i64 227
-  %.pre51 = load i32, ptr %arrayidx18.phi.trans.insert, align 4
-  %invariant.gep52 = getelementptr %struct.RandomObject, ptr %self, i64 -1, i32 2, i64 403
+  %.pre49 = load i32, ptr %arrayidx18.phi.trans.insert, align 4
   br label %for.body16
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -578,8 +576,8 @@ for.body:                                         ; preds = %for.body.preheader,
   %2 = load i32, ptr %arrayidx3, align 4
   %and4 = and i32 %2, 2147483646
   %or = or disjoint i32 %and4, %and
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
-  %3 = load i32, ptr %gep, align 4
+  %arrayidx7 = getelementptr i32, ptr %arrayidx, i64 397
+  %3 = load i32, ptr %arrayidx7, align 4
   %shr = lshr exact i32 %or, 1
   %and8 = and i32 %2, 1
   %idxprom9 = zext nneg i32 %and8 to i64
@@ -592,17 +590,17 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %exitcond.not, label %for.body16.preheader, label %for.body, !llvm.loop !8
 
 for.body16:                                       ; preds = %for.body16.preheader, %for.body16
-  %5 = phi i32 [ %.pre51, %for.body16.preheader ], [ %6, %for.body16 ]
-  %indvars.iv46 = phi i64 [ 227, %for.body16.preheader ], [ %indvars.iv.next47, %for.body16 ]
-  %arrayidx18 = getelementptr i32, ptr %state, i64 %indvars.iv46
+  %5 = phi i32 [ %.pre49, %for.body16.preheader ], [ %6, %for.body16 ]
+  %indvars.iv45 = phi i64 [ 227, %for.body16.preheader ], [ %indvars.iv.next46, %for.body16 ]
+  %arrayidx18 = getelementptr i32, ptr %state, i64 %indvars.iv45
   %and19 = and i32 %5, -2147483648
-  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %arrayidx22 = getelementptr i32, ptr %state, i64 %indvars.iv.next47
+  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
+  %arrayidx22 = getelementptr i32, ptr %state, i64 %indvars.iv.next46
   %6 = load i32, ptr %arrayidx22, align 4
   %and23 = and i32 %6, 2147483646
   %or24 = or disjoint i32 %and23, %and19
-  %gep53 = getelementptr i32, ptr %invariant.gep52, i64 %indvars.iv46
-  %7 = load i32, ptr %gep53, align 4
+  %arrayidx27 = getelementptr i32, ptr %arrayidx18, i64 -227
+  %7 = load i32, ptr %arrayidx27, align 4
   %shr28 = lshr exact i32 %or24, 1
   %and30 = and i32 %6, 1
   %idxprom31 = zext nneg i32 %and30 to i64
@@ -611,8 +609,8 @@ for.body16:                                       ; preds = %for.body16.preheade
   %xor29 = xor i32 %8, %7
   %xor33 = xor i32 %xor29, %shr28
   store i32 %xor33, ptr %arrayidx18, align 4
-  %exitcond50.not = icmp eq i64 %indvars.iv.next47, 623
-  br i1 %exitcond50.not, label %for.end38, label %for.body16, !llvm.loop !9
+  %exitcond48.not = icmp eq i64 %indvars.iv.next46, 623
+  br i1 %exitcond48.not, label %for.end38, label %for.body16, !llvm.loop !9
 
 for.end38:                                        ; preds = %for.body16
   %arrayidx39 = getelementptr %struct.RandomObject, ptr %self, i64 0, i32 2, i64 623

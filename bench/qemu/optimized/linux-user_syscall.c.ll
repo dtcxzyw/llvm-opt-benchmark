@@ -18243,16 +18243,15 @@ if.then11:                                        ; preds = %if.end6
   br i1 %or.cond, label %if.then16, label %if.end30.thread
 
 if.then16:                                        ; preds = %if.then11
-  %idxprom = zext nneg i32 %13 to i64
-  %arrayidx = getelementptr i8, ptr %call3, i64 %idxprom
-  %14 = load i8, ptr %arrayidx, align 1
-  %tobool18.not = icmp eq i8 %14, 0
+  %14 = getelementptr i8, ptr %call3, i64 %conv
+  %arrayidx = getelementptr i8, ptr %14, i64 -1
+  %15 = load i8, ptr %arrayidx, align 1
+  %tobool18.not = icmp eq i8 %15, 0
   br i1 %tobool18.not, label %if.end30.thread, label %land.lhs.true19
 
 land.lhs.true19:                                  ; preds = %if.then16
-  %arrayidx21 = getelementptr i8, ptr %call3, i64 %conv
-  %15 = load i8, ptr %arrayidx21, align 1
-  %tobool22.not = icmp eq i8 %15, 0
+  %16 = load i8, ptr %14, align 1
+  %tobool22.not = icmp eq i8 %16, 0
   %inc = zext i1 %tobool22.not to i32
   %spec.select = add nuw nsw i32 %inc, %len
   br label %if.end30.thread

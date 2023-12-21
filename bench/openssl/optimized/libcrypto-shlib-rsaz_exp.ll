@@ -111,19 +111,12 @@ while.body:                                       ; preds = %entry, %while.body
   %index.0280 = phi i32 [ 1014, %entry ], [ %sub19, %while.body ]
   call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %m.0, i64 noundef %k0, i32 noundef 5) #2
   %div279 = lshr i32 %index.0280, 3
-  %add9 = add nuw nsw i32 %div279, 1
-  %idxprom = zext nneg i32 %add9 to i64
-  %arrayidx10 = getelementptr inbounds i8, ptr %exponent, i64 %idxprom
-  %4 = load i8, ptr %arrayidx10, align 1
-  %conv11 = zext i8 %4 to i32
-  %shl = shl nuw nsw i32 %conv11, 8
-  %idxprom13 = zext nneg i32 %div279 to i64
-  %arrayidx14 = getelementptr inbounds i8, ptr %exponent, i64 %idxprom13
-  %5 = load i8, ptr %arrayidx14, align 1
-  %conv15 = zext i8 %5 to i32
-  %or = or disjoint i32 %shl, %conv15
+  %4 = zext nneg i32 %div279 to i64
+  %5 = getelementptr i8, ptr %exponent, i64 %4
+  %6 = load i16, ptr %5, align 1
+  %7 = zext i16 %6 to i32
   %rem16 = and i32 %index.0280, 7
-  %shr17 = lshr i32 %or, %rem16
+  %shr17 = lshr i32 %7, %rem16
   %and18 = and i32 %shr17, 31
   %sub19 = add nsw i32 %index.0280, -5
   call void @rsaz_1024_gather5_avx2(ptr noundef nonnull %a_inv.0, ptr noundef nonnull %add.ptr2, i32 noundef %and18) #2
@@ -133,28 +126,28 @@ while.body:                                       ; preds = %entry, %while.body
 
 while.end:                                        ; preds = %while.body
   call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %m.0, i64 noundef %k0, i32 noundef 4) #2
-  %6 = load i8, ptr %exponent, align 1
-  %7 = and i8 %6, 15
-  %and22 = zext nneg i8 %7 to i32
+  %8 = load i8, ptr %exponent, align 1
+  %9 = and i8 %8, 15
+  %and22 = zext nneg i8 %9 to i32
   call void @rsaz_1024_gather5_avx2(ptr noundef nonnull %a_inv.0, ptr noundef nonnull %add.ptr2, i32 noundef %and22) #2
   call void @rsaz_1024_mul_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %a_inv.0, ptr noundef nonnull %m.0, i64 noundef %k0) #2
   call void @rsaz_1024_mul_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull @one, ptr noundef nonnull %m.0, i64 noundef %k0) #2
   call void @rsaz_1024_red2norm_avx2(ptr noundef %result_norm, ptr noundef nonnull %result.0) #2
   %call.i = call i64 @bn_sub_words(ptr noundef nonnull %tmp, ptr noundef %result_norm, ptr noundef %m_norm, i32 noundef 16) #2
   %sub.i = sub i64 0, %call.i
-  %8 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %sub.i) #3, !srcloc !6
+  %10 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %sub.i) #3, !srcloc !6
   %not.i.i.i = add i64 %call.i, -1
-  %9 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %not.i.i.i) #3, !srcloc !6
+  %11 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %not.i.i.i) #3, !srcloc !6
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %while.end
   %i.06.i.i = phi i64 [ 0, %while.end ], [ %inc.i.i, %for.body.i.i ]
   %arrayidx.i.i = getelementptr inbounds i64, ptr %result_norm, i64 %i.06.i.i
-  %10 = load i64, ptr %arrayidx.i.i, align 8
+  %12 = load i64, ptr %arrayidx.i.i, align 8
   %arrayidx1.i.i = getelementptr inbounds i64, ptr %tmp, i64 %i.06.i.i
-  %11 = load i64, ptr %arrayidx1.i.i, align 8
-  %and.i.i.i = and i64 %10, %8
-  %and2.i.i.i = and i64 %11, %9
+  %13 = load i64, ptr %arrayidx1.i.i, align 8
+  %and.i.i.i = and i64 %12, %10
+  %and2.i.i.i = and i64 %13, %11
   %or.i.i.i = or i64 %and2.i.i.i, %and.i.i.i
   store i64 %or.i.i.i, ptr %arrayidx.i.i, align 8
   %inc.i.i = add nuw nsw i64 %i.06.i.i, 1

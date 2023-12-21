@@ -1804,25 +1804,26 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %conv.i = zext i8 %3 to i32
   %and3.i = lshr i32 %conv.i, 4
   %and3.lobit.i = and i32 %and3.i, 1
+  %add.i = add nuw nsw i32 %and3.lobit.i, 1
   %and8.i = lshr i32 %conv.i, 5
   %and8.lobit.i = and i32 %and8.i, 1
+  %add14.i = add nuw nsw i32 %add.i, %and8.lobit.i
   %and17.i = lshr i32 %conv.i, 6
   %and17.lobit.i = and i32 %and17.i, 1
-  %add14.i = or disjoint i32 %and3.lobit.i, 2
-  %add23.i = add nuw nsw i32 %add14.i, %and8.lobit.i
-  %add32.i = add nuw nsw i32 %add23.i, %and17.lobit.i
-  %idxprom.i = zext nneg i32 %add32.i to i64
-  %arrayidx33.i = getelementptr i8, ptr %call2.i, i64 %idxprom.i
-  %4 = load i8, ptr %arrayidx33.i, align 1
-  %5 = and i8 %4, 15
+  %add23.i = add nuw nsw i32 %add14.i, %and17.lobit.i
+  %4 = zext nneg i32 %add23.i to i64
+  %5 = getelementptr i8, ptr %call2.i, i64 %4
+  %arrayidx33.i = getelementptr i8, ptr %5, i64 1
+  %6 = load i8, ptr %arrayidx33.i, align 1
+  %7 = and i8 %6, 15
   br label %atr_get_protocol_num.exit
 
 atr_get_protocol_num.exit:                        ; preds = %if.then, %entry, %if.end, %lor.lhs.false.i, %if.end.i
   %atr.029 = phi ptr [ %call2.i, %if.end.i ], [ %call2.i, %lor.lhs.false.i ], [ %call2.i, %if.end ], [ null, %entry ], [ null, %if.then ]
-  %retval.0.i26 = phi i8 [ %5, %if.end.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.end ], [ 0, %entry ], [ 0, %if.then ]
+  %retval.0.i26 = phi i8 [ %7, %if.end.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.end ], [ 0, %entry ], [ 0, %if.then ]
   %debug = getelementptr inbounds %struct.USBCCIDState, ptr %s, i64 0, i32 26
-  %6 = load i8, ptr %debug, align 1
-  %cmp = icmp ugt i8 %6, 3
+  %8 = load i8, ptr %debug, align 1
+  %cmp = icmp ugt i8 %8, 3
   %conv6 = zext nneg i8 %retval.0.i26 to i32
   br i1 %cmp, label %if.then5, label %do.end
 
@@ -1836,11 +1837,11 @@ do.end:                                           ; preds = %atr_get_protocol_nu
 
 cond.false:                                       ; preds = %do.end
   %bProtocolNum = getelementptr inbounds %struct.USBCCIDState, ptr %s, i64 0, i32 19
-  %7 = load i8, ptr %bProtocolNum, align 2
+  %9 = load i8, ptr %bProtocolNum, align 2
   br label %cond.end
 
 cond.end:                                         ; preds = %do.end, %cond.false
-  %cond = phi i8 [ %7, %cond.false ], [ %retval.0.i26, %do.end ]
+  %cond = phi i8 [ %9, %cond.false ], [ %retval.0.i26, %do.end ]
   %bProtocolNum15 = getelementptr inbounds %struct.USBCCIDState, ptr %s, i64 0, i32 19
   store i8 %cond, ptr %bProtocolNum15, align 2
   switch i32 %conv6, label %do.body20 [
@@ -1857,8 +1858,8 @@ sw.bb17:                                          ; preds = %cond.end
   br label %sw.epilog
 
 do.body20:                                        ; preds = %cond.end
-  %8 = load i8, ptr %debug, align 1
-  %cmp23.not = icmp eq i8 %8, 0
+  %10 = load i8, ptr %debug, align 1
+  %cmp23.not = icmp eq i8 %10, 0
   br i1 %cmp23.not, label %sw.epilog, label %if.then25
 
 if.then25:                                        ; preds = %do.body20
@@ -1867,11 +1868,11 @@ if.then25:                                        ; preds = %do.body20
 
 sw.epilog:                                        ; preds = %if.then25, %do.body20, %sw.bb17, %sw.bb
   %bSlot = getelementptr inbounds %struct.CCID_Header, ptr %recv, i64 0, i32 2
-  %9 = load i8, ptr %bSlot, align 1
+  %11 = load i8, ptr %bSlot, align 1
   %bSeq = getelementptr inbounds %struct.CCID_Header, ptr %recv, i64 0, i32 3
-  %10 = load i8, ptr %bSeq, align 1
-  %11 = load i32, ptr %len, align 4
-  call fastcc void @ccid_write_data_block(ptr noundef nonnull %s, i8 noundef zeroext %9, i8 noundef zeroext %10, ptr noundef %atr.029, i32 noundef %11)
+  %12 = load i8, ptr %bSeq, align 1
+  %13 = load i32, ptr %len, align 4
+  call fastcc void @ccid_write_data_block(ptr noundef nonnull %s, i8 noundef zeroext %11, i8 noundef zeroext %12, ptr noundef %atr.029, i32 noundef %13)
   ret void
 }
 

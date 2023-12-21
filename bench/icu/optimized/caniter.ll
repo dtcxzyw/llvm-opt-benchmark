@@ -1666,9 +1666,7 @@ if.else:                                          ; preds = %if.then8
   br i1 %cmp23.not, label %do.end, label %land.lhs.true24
 
 land.lhs.true24:                                  ; preds = %if.else
-  %sub25 = add nsw i32 %i.083, -1
-  %idxprom26 = zext nneg i32 %sub25 to i64
-  %arrayidx27 = getelementptr inbounds i16, ptr %segment, i64 %idxprom26
+  %arrayidx27 = getelementptr i16, ptr %arrayidx, i64 -1
   %7 = load i16, ptr %arrayidx27, align 2
   %conv28 = zext i16 %7 to i32
   %and29 = and i32 %conv28, 64512
