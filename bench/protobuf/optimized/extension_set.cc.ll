@@ -11817,7 +11817,7 @@ for.cond313.preheader:                            ; preds = %if.else
 for.body316.lr.ph:                                ; preds = %for.cond313.preheader
   %shl.i937 = shl i32 %number, 3
   %or.i938 = or disjoint i32 %shl.i937, 1
-  %cmp.i7.i939 = icmp ugt i32 %shl.i937, 126
+  %cmp.i7.i939 = icmp ugt i32 %or.i938, 127
   br label %for.body316
 
 for.cond301.preheader:                            ; preds = %if.else
@@ -11841,7 +11841,7 @@ for.cond289.preheader:                            ; preds = %if.else
 for.body292.lr.ph:                                ; preds = %for.cond289.preheader
   %shl.i889 = shl i32 %number, 3
   %or.i890 = or disjoint i32 %shl.i889, 1
-  %cmp.i7.i891 = icmp ugt i32 %shl.i889, 126
+  %cmp.i7.i891 = icmp ugt i32 %or.i890, 127
   br label %for.body292
 
 for.cond277.preheader:                            ; preds = %if.else
@@ -11865,7 +11865,7 @@ for.cond265.preheader:                            ; preds = %if.else
 for.body268.lr.ph:                                ; preds = %for.cond265.preheader
   %shl.i841 = shl i32 %number, 3
   %or.i842 = or disjoint i32 %shl.i841, 1
-  %cmp.i7.i843 = icmp ugt i32 %shl.i841, 126
+  %cmp.i7.i843 = icmp ugt i32 %or.i842, 127
   br label %for.body268
 
 for.cond253.preheader:                            ; preds = %if.else
@@ -13392,7 +13392,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1290: ; preds = 
   %414 = load i64, ptr %this, align 8
   %shl.i1291 = shl i32 %number, 3
   %or.i1292 = or disjoint i32 %shl.i1291, 1
-  %cmp.i7.i1293 = icmp ugt i32 %shl.i1291, 126
+  %cmp.i7.i1293 = icmp ugt i32 %or.i1292, 127
   br i1 %cmp.i7.i1293, label %while.body.i.i1298, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit1305
 
 while.body.i.i1298:                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1290, %while.body.i.i1298
@@ -13468,7 +13468,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1332: ; preds = 
   %420 = load i64, ptr %this, align 8
   %shl.i1333 = shl i32 %number, 3
   %or.i1334 = or disjoint i32 %shl.i1333, 1
-  %cmp.i7.i1335 = icmp ugt i32 %shl.i1333, 126
+  %cmp.i7.i1335 = icmp ugt i32 %or.i1334, 127
   br i1 %cmp.i7.i1335, label %while.body.i.i1340, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit1347
 
 while.body.i.i1340:                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1332, %while.body.i.i1340
@@ -13544,7 +13544,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1374: ; preds = 
   %426 = load i64, ptr %this, align 8
   %shl.i1375 = shl i32 %number, 3
   %or.i1376 = or disjoint i32 %shl.i1375, 1
-  %cmp.i7.i1377 = icmp ugt i32 %shl.i1375, 126
+  %cmp.i7.i1377 = icmp ugt i32 %or.i1376, 127
   br i1 %cmp.i7.i1377, label %while.body.i.i1382, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit1389
 
 while.body.i.i1382:                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1374, %while.body.i.i1382

@@ -26081,7 +26081,7 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i: ; preds = %if.then.i.i.i, %entry
   %retval.0.i.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %2, %entry ]
-  %cmp.i7.i.i.i = icmp ugt i32 %shl, 126
+  %cmp.i7.i.i.i = icmp ugt i32 %or, 127
   br i1 %cmp.i7.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
 
 while.body.i.i.i.i:                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, %while.body.i.i.i.i
@@ -28613,7 +28613,7 @@ if.then.i.i.i15:                                  ; preds = %sw.bb7
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i17: ; preds = %if.then.i.i.i15, %sw.bb7
   %retval.0.i.i.i18 = phi ptr [ %call.i.i.i16, %if.then.i.i.i15 ], [ %9, %sw.bb7 ]
-  %cmp.i7.i.i.i19 = icmp ugt i32 %shl11, 126
+  %cmp.i7.i.i.i19 = icmp ugt i32 %or12, 127
   br i1 %cmp.i7.i.i.i19, label %while.body.i.i.i.i24, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit31
 
 while.body.i.i.i.i24:                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i17, %while.body.i.i.i.i24
@@ -28761,7 +28761,7 @@ if.then.i.i.i15:                                  ; preds = %sw.bb7
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i17: ; preds = %if.then.i.i.i15, %sw.bb7
   %retval.0.i.i.i18 = phi ptr [ %call.i.i.i16, %if.then.i.i.i15 ], [ %9, %sw.bb7 ]
-  %cmp.i7.i.i.i19 = icmp ugt i32 %shl11, 126
+  %cmp.i7.i.i.i19 = icmp ugt i32 %or12, 127
   br i1 %cmp.i7.i.i.i19, label %while.body.i.i.i.i24, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit31
 
 while.body.i.i.i.i24:                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i17, %while.body.i.i.i.i24
@@ -29744,7 +29744,7 @@ if.then.i.i.i.i28.i:                              ; preds = %sw.bb1.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i30.i: ; preds = %if.then.i.i.i.i28.i, %sw.bb1.i
   %retval.0.i.i.i.i31.i = phi ptr [ %call.i.i.i.i29.i, %if.then.i.i.i.i28.i ], [ %51, %sw.bb1.i ]
-  %cmp.i7.i.i.i.i32.i = icmp ugt i32 %shl.i24.i, 126
+  %cmp.i7.i.i.i.i32.i = icmp ugt i32 %or.i25.i, 127
   br i1 %cmp.i7.i.i.i.i32.i, label %while.body.i.i.i.i.i43.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit.i33.i
 
 while.body.i.i.i.i.i43.i:                         ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i30.i, %while.body.i.i.i.i.i43.i

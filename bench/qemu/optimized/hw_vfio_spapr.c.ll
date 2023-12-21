@@ -144,41 +144,41 @@ if.then2:                                         ; preds = %for.inc.i, %int128_
 
 if.end7:                                          ; preds = %entry
   %hostwin_list = getelementptr inbounds %struct.VFIOContainer, ptr %container, i64 0, i32 13
-  %hostwin.068 = load ptr, ptr %hostwin_list, align 8
-  %tobool8.not69 = icmp eq ptr %hostwin.068, null
-  br i1 %tobool8.not69, label %for.end, label %for.body.lr.ph
+  %hostwin.080 = load ptr, ptr %hostwin_list, align 8
+  %tobool8.not81 = icmp eq ptr %hostwin.080, null
+  br i1 %tobool8.not81, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end7
   %offset_within_address_space12 = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 4
   %5 = load i64, ptr %offset_within_address_space12, align 8
   %6 = load i128, ptr %section, align 16
   %coerce14.sroa.0.0.extract.trunc = trunc i128 %6 to i64
-  %cmp.i30 = icmp ult i128 %6, 18446744073709551616
+  %cmp.i34 = icmp ult i128 %6, 18446744073709551616
   %add.i3.i = add i64 %5, -1
   %sub.i4.i = add i64 %add.i3.i, %coerce14.sroa.0.0.extract.trunc
-  br i1 %cmp.i30, label %for.body, label %if.else.i31
+  br i1 %cmp.i34, label %for.body, label %if.else.i35
 
 for.cond:                                         ; preds = %for.body
-  %hostwin_next = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %hostwin.070, i64 0, i32 3
+  %hostwin_next = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %hostwin.082, i64 0, i32 3
   %hostwin.0 = load ptr, ptr %hostwin_next, align 8
   %tobool8.not = icmp eq ptr %hostwin.0, null
   br i1 %tobool8.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
-  %hostwin.070 = phi ptr [ %hostwin.0, %for.cond ], [ %hostwin.068, %for.body.lr.ph ]
-  %7 = load i64, ptr %hostwin.070, align 8
-  %max_iova = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %hostwin.070, i64 0, i32 1
+  %hostwin.082 = phi ptr [ %hostwin.0, %for.cond ], [ %hostwin.080, %for.body.lr.ph ]
+  %7 = load i64, ptr %hostwin.082, align 8
+  %max_iova = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %hostwin.082, i64 0, i32 1
   %8 = load i64, ptr %max_iova, align 8
-  %cmp.i33 = icmp ult i64 %sub.i4.i, %7
+  %cmp.i37 = icmp ult i64 %sub.i4.i, %7
   %cmp2.i = icmp ult i64 %8, %5
-  %.not.i.not = or i1 %cmp2.i, %cmp.i33
-  br i1 %.not.i.not, label %for.cond, label %int128_get64.exit36
+  %.not.i.not = or i1 %cmp2.i, %cmp.i37
+  br i1 %.not.i.not, label %for.cond, label %int128_get64.exit44
 
-if.else.i31:                                      ; preds = %for.body.lr.ph
+if.else.i35:                                      ; preds = %for.body.lr.ph
   tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #13
   unreachable
 
-int128_get64.exit36:                              ; preds = %for.body
+int128_get64.exit44:                              ; preds = %for.body
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 360, ptr noundef nonnull @__func__.vfio_container_add_section_window, ptr noundef nonnull @.str.2, i64 noundef %5, i64 noundef %sub.i4.i, i64 noundef %7, i64 noundef %8) #14
   br label %return
 
@@ -252,22 +252,22 @@ int128_get64.exit.i:                              ; preds = %cond.end.i
 
 for.body.lr.ph.i:                                 ; preds = %int128_get64.exit.i
   %fd.i = getelementptr inbounds %struct.VFIOContainer, ptr %container, i64 0, i32 1
-  br label %for.body.i37
+  br label %for.body.i45
 
-for.body.i37:                                     ; preds = %for.inc.i38, %for.body.lr.ph.i
+for.body.i45:                                     ; preds = %for.inc.i46, %for.body.lr.ph.i
   %18 = load i32, ptr %fd.i, align 8
   %call31.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %18, i64 noundef 15223, ptr noundef nonnull %create.i) #14
   %tobool32.not.i = icmp eq i32 %call31.i, 0
-  br i1 %tobool32.not.i, label %if.end41.i.loopexit, label %for.inc.i38
+  br i1 %tobool32.not.i, label %if.end41.i.loopexit, label %for.inc.i46
 
-for.inc.i38:                                      ; preds = %for.body.i37
+for.inc.i46:                                      ; preds = %for.body.i45
   %19 = load i32, ptr %levels.i, align 8
   %inc36.i = add i32 %19, 1
   store i32 %inc36.i, ptr %levels.i, align 8
   %cmp29.not.i = icmp ugt i32 %inc36.i, %div27.zext.i
-  br i1 %cmp29.not.i, label %vfio_spapr_create_window.exit, label %for.body.i37, !llvm.loop !9
+  br i1 %cmp29.not.i, label %vfio_spapr_create_window.exit, label %for.body.i45, !llvm.loop !9
 
-if.end41.i.loopexit:                              ; preds = %for.body.i37
+if.end41.i.loopexit:                              ; preds = %for.body.i45
   %start_addr.i.phi.trans.insert = getelementptr inbounds %struct.vfio_iommu_spapr_tce_create, ptr %create.i, i64 0, i32 7
   %.pre = load i64, ptr %start_addr.i.phi.trans.insert, align 8
   br label %if.end41.i
@@ -299,13 +299,13 @@ if.end49.i:                                       ; preds = %if.end41.i
   %30 = load i16, ptr @_TRACE_VFIO_SPAPR_CREATE_WINDOW_DSTATE, align 2
   %tobool4.i.i.i = icmp ne i16 %30, 0
   %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
-  br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %vfio_spapr_create_window.exit.thread56
+  br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %vfio_spapr_create_window.exit.thread68
 
 land.lhs.true5.i.i.i:                             ; preds = %if.end49.i
   %31 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i.i = and i32 %31, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i, label %vfio_spapr_create_window.exit.thread56, label %if.then.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %vfio_spapr_create_window.exit.thread68, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
   %32 = load i8, ptr @message_with_timestamp, align 1
@@ -320,13 +320,13 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
   %35 = load i64, ptr %tv_usec.i.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i.i, i64 noundef %34, i64 noundef %35, i32 noundef %26, i32 noundef %27, i64 noundef %28, i64 noundef %20) #14
-  br label %vfio_spapr_create_window.exit.thread56
+  br label %vfio_spapr_create_window.exit.thread68
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %26, i32 noundef %27, i64 noundef %28, i64 noundef %20) #14
-  br label %vfio_spapr_create_window.exit.thread56
+  br label %vfio_spapr_create_window.exit.thread68
 
-vfio_spapr_create_window.exit.thread56:           ; preds = %if.end49.i, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
+vfio_spapr_create_window.exit.thread68:           ; preds = %if.end49.i, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %create.i)
   br label %if.end33
@@ -335,7 +335,7 @@ vfio_spapr_create_window.exit.thread:             ; preds = %if.then44.i, %if.th
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %create.i)
   br label %if.then31
 
-vfio_spapr_create_window.exit:                    ; preds = %for.inc.i38
+vfio_spapr_create_window.exit:                    ; preds = %for.inc.i46
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.12, i32 noundef %call31.i) #14
   %call39.i = tail call ptr @__errno_location() #15
   %36 = load i32, ptr %call39.i, align 4
@@ -345,63 +345,63 @@ vfio_spapr_create_window.exit:                    ; preds = %for.inc.i38
   br i1 %tobool30.not, label %if.end33, label %if.then31
 
 if.then31:                                        ; preds = %vfio_spapr_create_window.exit.thread, %vfio_spapr_create_window.exit
-  %retval.0.i55 = phi i32 [ -22, %vfio_spapr_create_window.exit.thread ], [ %sub40.i, %vfio_spapr_create_window.exit ]
-  %sub32 = sub i32 0, %retval.0.i55
+  %retval.0.i67 = phi i32 [ -22, %vfio_spapr_create_window.exit.thread ], [ %sub40.i, %vfio_spapr_create_window.exit ]
+  %sub32 = sub i32 0, %retval.0.i67
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 367, ptr noundef nonnull @__func__.vfio_container_add_section_window, i32 noundef %sub32, ptr noundef nonnull @.str.3) #14
   br label %return
 
-if.end33:                                         ; preds = %vfio_spapr_create_window.exit.thread56, %vfio_spapr_create_window.exit
-  %pgsize.060 = phi i64 [ %shl.i, %vfio_spapr_create_window.exit.thread56 ], [ 0, %vfio_spapr_create_window.exit ]
+if.end33:                                         ; preds = %vfio_spapr_create_window.exit.thread68, %vfio_spapr_create_window.exit
+  %pgsize.072 = phi i64 [ %shl.i, %vfio_spapr_create_window.exit.thread68 ], [ 0, %vfio_spapr_create_window.exit ]
   %offset_within_address_space34 = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 4
   %37 = load i64, ptr %offset_within_address_space34, align 8
   %38 = load i128, ptr %section, align 16
-  %cmp.i39 = icmp ult i128 %38, 18446744073709551616
-  br i1 %cmp.i39, label %int128_get64.exit41, label %if.else.i40
+  %cmp.i51 = icmp ult i128 %38, 18446744073709551616
+  br i1 %cmp.i51, label %int128_get64.exit53, label %if.else.i52
 
-if.else.i40:                                      ; preds = %if.end33
+if.else.i52:                                      ; preds = %if.end33
   call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #13
   unreachable
 
-int128_get64.exit41:                              ; preds = %if.end33
+int128_get64.exit53:                              ; preds = %if.end33
   %coerce37.sroa.0.0.extract.trunc = trunc i128 %38 to i64
   %add39 = add i64 %37, -1
   %sub40 = add i64 %add39, %coerce37.sroa.0.0.extract.trunc
   %hostwin.019.i = load ptr, ptr %hostwin_list, align 8
   %tobool.not20.i = icmp eq ptr %hostwin.019.i, null
-  br i1 %tobool.not20.i, label %for.end.i, label %for.body.i43
+  br i1 %tobool.not20.i, label %for.end.i, label %for.body.i55
 
-for.cond.i:                                       ; preds = %for.body.i43
-  %hostwin_next.i45 = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %hostwin.021.i, i64 0, i32 3
-  %hostwin.0.i46 = load ptr, ptr %hostwin_next.i45, align 8
-  %tobool.not.i47 = icmp eq ptr %hostwin.0.i46, null
-  br i1 %tobool.not.i47, label %for.end.i, label %for.body.i43, !llvm.loop !10
+for.cond.i:                                       ; preds = %for.body.i55
+  %hostwin_next.i57 = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %hostwin.021.i, i64 0, i32 3
+  %hostwin.0.i58 = load ptr, ptr %hostwin_next.i57, align 8
+  %tobool.not.i59 = icmp eq ptr %hostwin.0.i58, null
+  br i1 %tobool.not.i59, label %for.end.i, label %for.body.i55, !llvm.loop !10
 
-for.body.i43:                                     ; preds = %int128_get64.exit41, %for.cond.i
-  %hostwin.021.i = phi ptr [ %hostwin.0.i46, %for.cond.i ], [ %hostwin.019.i, %int128_get64.exit41 ]
+for.body.i55:                                     ; preds = %int128_get64.exit53, %for.cond.i
+  %hostwin.021.i = phi ptr [ %hostwin.0.i58, %for.cond.i ], [ %hostwin.019.i, %int128_get64.exit53 ]
   %39 = load i64, ptr %hostwin.021.i, align 8
   %max_iova2.i = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %hostwin.021.i, i64 0, i32 1
   %40 = load i64, ptr %max_iova2.i, align 8
-  %cmp.i.i44 = icmp ugt i64 %39, %sub40
+  %cmp.i.i56 = icmp ugt i64 %39, %sub40
   %cmp2.i.i = icmp ult i64 %40, %37
-  %.not.i.not.i = or i1 %cmp.i.i44, %cmp2.i.i
+  %.not.i.not.i = or i1 %cmp.i.i56, %cmp2.i.i
   br i1 %.not.i.not.i, label %for.cond.i, label %if.then.i
 
-if.then.i:                                        ; preds = %for.body.i43
+if.then.i:                                        ; preds = %for.body.i55
   call void (ptr, ...) @hw_error(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.vfio_host_win_add) #13
   unreachable
 
-for.end.i:                                        ; preds = %for.cond.i, %int128_get64.exit41
-  %call7.i48 = call noalias dereferenceable_or_null(40) ptr @g_malloc0(i64 noundef 40) #16
-  store i64 %37, ptr %call7.i48, align 8
-  %max_iova9.i = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %call7.i48, i64 0, i32 1
+for.end.i:                                        ; preds = %for.cond.i, %int128_get64.exit53
+  %call7.i60 = call noalias dereferenceable_or_null(40) ptr @g_malloc0(i64 noundef 40) #16
+  store i64 %37, ptr %call7.i60, align 8
+  %max_iova9.i = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %call7.i60, i64 0, i32 1
   store i64 %sub40, ptr %max_iova9.i, align 8
-  %iova_pgsizes10.i = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %call7.i48, i64 0, i32 2
-  store i64 %pgsize.060, ptr %iova_pgsizes10.i, align 8
+  %iova_pgsizes10.i = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %call7.i60, i64 0, i32 2
+  store i64 %pgsize.072, ptr %iova_pgsizes10.i, align 8
   %41 = load ptr, ptr %hostwin_list, align 8
-  %hostwin_next13.i = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %call7.i48, i64 0, i32 3
+  %hostwin_next13.i = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %call7.i60, i64 0, i32 3
   store ptr %41, ptr %hostwin_next13.i, align 8
-  %cmp.not.i49 = icmp eq ptr %41, null
-  br i1 %cmp.not.i49, label %vfio_host_win_add.exit, label %if.then15.i
+  %cmp.not.i61 = icmp eq ptr %41, null
+  br i1 %cmp.not.i61, label %vfio_host_win_add.exit, label %if.then15.i
 
 if.then15.i:                                      ; preds = %for.end.i
   %le_prev.i = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %41, i64 0, i32 3, i32 1
@@ -409,13 +409,13 @@ if.then15.i:                                      ; preds = %for.end.i
   br label %vfio_host_win_add.exit
 
 vfio_host_win_add.exit:                           ; preds = %for.end.i, %if.then15.i
-  store ptr %call7.i48, ptr %hostwin_list, align 8
-  %le_prev27.i = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %call7.i48, i64 0, i32 3, i32 1
+  store ptr %call7.i60, ptr %hostwin_list, align 8
+  %le_prev27.i = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %call7.i60, i64 0, i32 3, i32 1
   store ptr %hostwin_list, ptr %le_prev27.i, align 8
   br label %return
 
-return:                                           ; preds = %land.lhs.true.i, %entry, %vfio_host_win_add.exit, %if.then31, %int128_get64.exit36, %if.then2
-  %retval.0 = phi i32 [ -22, %if.then2 ], [ -22, %int128_get64.exit36 ], [ %retval.0.i55, %if.then31 ], [ 0, %vfio_host_win_add.exit ], [ 0, %entry ], [ 0, %land.lhs.true.i ]
+return:                                           ; preds = %land.lhs.true.i, %entry, %vfio_host_win_add.exit, %if.then31, %int128_get64.exit44, %if.then2
+  %retval.0 = phi i32 [ -22, %if.then2 ], [ -22, %int128_get64.exit44 ], [ %retval.0.i67, %if.then31 ], [ 0, %vfio_host_win_add.exit ], [ 0, %entry ], [ 0, %land.lhs.true.i ]
   ret i32 %retval.0
 }
 
@@ -878,8 +878,12 @@ if.then:                                          ; preds = %if.end.i, %vfio_pre
   %a.sroa.0.0.insert.insert.i = add nsw i128 %a.sroa.0.0.insert.ext.i, -1
   %9 = lshr i128 %a.sroa.0.0.insert.insert.i, 64
   %.tr.i = trunc i128 %9 to i64
-  %.narrow.i = sub i64 0, %coerce5.sroa.2.0.extract.trunc
-  %cmp.i = icmp eq i64 %.tr.i, %.narrow.i
+  %.narrow.i = add i64 %.tr.i, %coerce5.sroa.2.0.extract.trunc
+  %a.sroa.2.0.insert.ext.i = zext i64 %.narrow.i to i128
+  %a.sroa.2.0.insert.shift.i = shl nuw i128 %a.sroa.2.0.insert.ext.i, 64
+  %a.sroa.0.0.insert.ext.i22 = and i128 %a.sroa.0.0.insert.insert.i, 18446744073709551615
+  %a.sroa.0.0.insert.insert.i23 = or disjoint i128 %a.sroa.2.0.insert.shift.i, %a.sroa.0.0.insert.ext.i22
+  %cmp.i = icmp eq i128 %a.sroa.0.0.insert.insert.i23, %a.sroa.0.0.insert.ext.i22
   br i1 %cmp.i, label %int128_get64.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then
@@ -942,28 +946,28 @@ lor.lhs.false:                                    ; preds = %if.end
 lor.rhs:                                          ; preds = %lor.lhs.false
   %18 = load i128, ptr %section, align 16
   %coerce16.sroa.0.0.extract.trunc = trunc i128 %18 to i64
-  %cmp.i23 = icmp ult i128 %18, 18446744073709551616
-  br i1 %cmp.i23, label %int128_get64.exit26, label %if.else.i24
+  %cmp.i29 = icmp ult i128 %18, 18446744073709551616
+  br i1 %cmp.i29, label %int128_get64.exit32, label %if.else.i30
 
-if.else.i24:                                      ; preds = %lor.rhs
+if.else.i30:                                      ; preds = %lor.rhs
   tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #13
   unreachable
 
-int128_get64.exit26:                              ; preds = %lor.rhs
+int128_get64.exit32:                              ; preds = %lor.rhs
   %and19 = and i64 %not, %coerce16.sroa.0.0.extract.trunc
   %tobool20.not = icmp eq i64 %and19, 0
-  br i1 %tobool20.not, label %int128_get64.exit30, label %if.then23
+  br i1 %tobool20.not, label %int128_get64.exit40, label %if.then23
 
-if.then23:                                        ; preds = %lor.lhs.false, %if.end, %int128_get64.exit26
+if.then23:                                        ; preds = %lor.lhs.false, %if.end, %int128_get64.exit32
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.23, ptr noundef nonnull @__func__.vfio_prereg_listener_region_add) #14
   br label %if.end51
 
-int128_get64.exit30:                              ; preds = %int128_get64.exit26
+int128_get64.exit40:                              ; preds = %int128_get64.exit32
   %add29 = add i64 %.pre, %coerce16.sroa.0.0.extract.trunc
   %cmp.not = icmp ult i64 %0, %add29
   br i1 %cmp.not, label %if.end32, label %if.end51
 
-if.end32:                                         ; preds = %int128_get64.exit30
+if.end32:                                         ; preds = %int128_get64.exit40
   %19 = load ptr, ptr %1, align 16
   tail call void @memory_region_ref(ptr noundef %19) #14
   %20 = load ptr, ptr %1, align 16
@@ -971,8 +975,8 @@ if.end32:                                         ; preds = %int128_get64.exit30
   %21 = load i64, ptr %offset_within_region, align 16
   %add.ptr.i = getelementptr i8, ptr %call.i, i64 %21
   %22 = load i64, ptr %offset_within_address_space, align 8
-  %sub.i31 = sub i64 %0, %22
-  %add.ptr1.i = getelementptr i8, ptr %add.ptr.i, i64 %sub.i31
+  %sub.i41 = sub i64 %0, %22
+  %add.ptr1.i = getelementptr i8, ptr %add.ptr.i, i64 %sub.i41
   %23 = ptrtoint ptr %add.ptr1.i to i64
   %vaddr = getelementptr inbounds %struct.vfio_iommu_spapr_register_memory, ptr %reg, i64 0, i32 2
   store i64 %23, ptr %vaddr, align 8
@@ -1017,7 +1021,7 @@ if.end51.critedge:                                ; preds = %if.end32
   call fastcc void @trace_vfio_prereg_register(i64 noundef %25, i64 noundef %26, i32 noundef 0)
   br label %if.end51
 
-if.end51:                                         ; preds = %if.end51.critedge, %if.then46, %if.then44, %int128_get64.exit30, %if.then23, %trace_vfio_prereg_listener_region_add_skip.exit
+if.end51:                                         ; preds = %if.end51.critedge, %if.then46, %if.then44, %int128_get64.exit40, %if.then23, %trace_vfio_prereg_listener_region_add_skip.exit
   ret void
 }
 
@@ -1074,8 +1078,12 @@ if.then:                                          ; preds = %if.end.i, %vfio_pre
   %a.sroa.0.0.insert.insert.i = add nsw i128 %a.sroa.0.0.insert.ext.i, -1
   %9 = lshr i128 %a.sroa.0.0.insert.insert.i, 64
   %.tr.i = trunc i128 %9 to i64
-  %.narrow.i = sub i64 0, %coerce5.sroa.2.0.extract.trunc
-  %cmp.i = icmp eq i64 %.tr.i, %.narrow.i
+  %.narrow.i = add i64 %.tr.i, %coerce5.sroa.2.0.extract.trunc
+  %a.sroa.2.0.insert.ext.i = zext i64 %.narrow.i to i128
+  %a.sroa.2.0.insert.shift.i = shl nuw i128 %a.sroa.2.0.insert.ext.i, 64
+  %a.sroa.0.0.insert.ext.i16 = and i128 %a.sroa.0.0.insert.insert.i, 18446744073709551615
+  %a.sroa.0.0.insert.insert.i17 = or disjoint i128 %a.sroa.2.0.insert.shift.i, %a.sroa.0.0.insert.ext.i16
+  %cmp.i = icmp eq i128 %a.sroa.0.0.insert.insert.i17, %a.sroa.0.0.insert.ext.i16
   br i1 %cmp.i, label %int128_get64.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then
@@ -1138,35 +1146,35 @@ lor.lhs.false:                                    ; preds = %if.end
 lor.rhs:                                          ; preds = %lor.lhs.false
   %18 = load i128, ptr %section, align 16
   %coerce16.sroa.0.0.extract.trunc = trunc i128 %18 to i64
-  %cmp.i17 = icmp ult i128 %18, 18446744073709551616
-  br i1 %cmp.i17, label %int128_get64.exit20, label %if.else.i18
+  %cmp.i23 = icmp ult i128 %18, 18446744073709551616
+  br i1 %cmp.i23, label %int128_get64.exit26, label %if.else.i24
 
-if.else.i18:                                      ; preds = %lor.rhs
+if.else.i24:                                      ; preds = %lor.rhs
   tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #13
   unreachable
 
-int128_get64.exit20:                              ; preds = %lor.rhs
+int128_get64.exit26:                              ; preds = %lor.rhs
   %and19 = and i64 %not, %coerce16.sroa.0.0.extract.trunc
   %tobool20.not = icmp eq i64 %and19, 0
-  br i1 %tobool20.not, label %int128_get64.exit24, label %if.then23
+  br i1 %tobool20.not, label %int128_get64.exit34, label %if.then23
 
-if.then23:                                        ; preds = %lor.lhs.false, %if.end, %int128_get64.exit20
+if.then23:                                        ; preds = %lor.lhs.false, %if.end, %int128_get64.exit26
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.23, ptr noundef nonnull @__func__.vfio_prereg_listener_region_del) #14
   br label %return
 
-int128_get64.exit24:                              ; preds = %int128_get64.exit20
+int128_get64.exit34:                              ; preds = %int128_get64.exit26
   %add29 = add i64 %.pre, %coerce16.sroa.0.0.extract.trunc
   %cmp.not = icmp ult i64 %0, %add29
   br i1 %cmp.not, label %if.end32, label %return
 
-if.end32:                                         ; preds = %int128_get64.exit24
+if.end32:                                         ; preds = %int128_get64.exit34
   %19 = load ptr, ptr %1, align 16
   %call.i = tail call ptr @memory_region_get_ram_ptr(ptr noundef %19) #14
   %20 = load i64, ptr %offset_within_region, align 16
   %add.ptr.i = getelementptr i8, ptr %call.i, i64 %20
   %21 = load i64, ptr %offset_within_address_space, align 8
-  %sub.i25 = sub i64 %0, %21
-  %add.ptr1.i = getelementptr i8, ptr %add.ptr.i, i64 %sub.i25
+  %sub.i35 = sub i64 %0, %21
+  %add.ptr1.i = getelementptr i8, ptr %add.ptr.i, i64 %sub.i35
   %22 = ptrtoint ptr %add.ptr1.i to i64
   %vaddr = getelementptr inbounds %struct.vfio_iommu_spapr_register_memory, ptr %reg, i64 0, i32 2
   store i64 %22, ptr %vaddr, align 8
@@ -1192,7 +1200,7 @@ cond.end:                                         ; preds = %if.end32, %cond.tru
   call fastcc void @trace_vfio_prereg_unregister(i64 noundef %24, i64 noundef %25, i32 noundef %cond)
   br label %return
 
-return:                                           ; preds = %int128_get64.exit24, %cond.end, %if.then23, %trace_vfio_prereg_listener_region_del_skip.exit
+return:                                           ; preds = %int128_get64.exit34, %cond.end, %if.then23, %trace_vfio_prereg_listener_region_del_skip.exit
   ret void
 }
 

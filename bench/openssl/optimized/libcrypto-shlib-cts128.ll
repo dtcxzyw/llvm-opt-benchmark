@@ -272,6 +272,10 @@ if.end6:                                          ; preds = %if.then4, %if.end3
   call void %block(ptr noundef nonnull %tmp, ptr noundef nonnull %tmp, ptr noundef %key) #4
   br label %for.body
 
+for.cond26.preheader:                             ; preds = %for.body
+  %cmp2752.not = icmp eq i64 %add, 16
+  br i1 %cmp2752.not, label %for.end40, label %for.body29
+
 for.body:                                         ; preds = %if.end6, %for.body
   %n.051 = phi i64 [ 0, %if.end6 ], [ %inc, %for.body ]
   %arrayidx = getelementptr inbounds i8, ptr %in.addr.0, i64 %n.051
@@ -290,10 +294,10 @@ for.body:                                         ; preds = %if.end6, %for.body
   store i8 %0, ptr %arrayidx16, align 1
   %inc = add nuw nsw i64 %n.051, 1
   %exitcond.not = icmp eq i64 %inc, 16
-  br i1 %exitcond.not, label %for.body29, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %for.cond26.preheader, label %for.body, !llvm.loop !9
 
-for.body29:                                       ; preds = %for.body, %for.body29
-  %n.153 = phi i64 [ %inc39, %for.body29 ], [ 16, %for.body ]
+for.body29:                                       ; preds = %for.cond26.preheader, %for.body29
+  %n.153 = phi i64 [ %inc39, %for.body29 ], [ 16, %for.cond26.preheader ]
   %arrayidx30 = getelementptr inbounds [32 x i8], ptr %tmp, i64 0, i64 %n.153
   %4 = load i8, ptr %arrayidx30, align 1
   %sub32 = add nsw i64 %n.153, -16
@@ -306,7 +310,7 @@ for.body29:                                       ; preds = %for.body, %for.body
   %exitcond54.not = icmp eq i64 %inc39, %add
   br i1 %exitcond54.not, label %for.end40, label %for.body29, !llvm.loop !10
 
-for.end40:                                        ; preds = %for.body29
+for.end40:                                        ; preds = %for.body29, %for.cond26.preheader
   %add42 = add i64 %len, 16
   br label %return
 

@@ -5330,13 +5330,17 @@ if.else.i.i:                                      ; preds = %lor.lhs.false.i
   %add10.i.i = add i32 %mul9.i.i, 1
   %shr.i.i = lshr i32 %add10.i.i, 1
   %mul12.i.i = shl i32 %shr.i.i, 4
+  %add13.i.i = or disjoint i32 %mul12.i.i, 8
   %cmp15.not.i.i = icmp ugt i32 %shr.i.i, %1
-  %mul6.i.i = shl i32 %1, 4
-  %cmp16.not.i.i = icmp ugt i32 %mul12.i.i, %mul6.i.i
-  %or.cond.i.i = and i1 %cmp15.not.i.i, %cmp16.not.i.i
-  br i1 %or.cond.i.i, label %if.end.i.i, label %if.then17.i.i
+  br i1 %cmp15.not.i.i, label %lor.lhs.false.i.i, label %if.then17.i.i
 
-if.then17.i.i:                                    ; preds = %if.else.i.i
+lor.lhs.false.i.i:                                ; preds = %if.else.i.i
+  %mul6.i.i = shl i32 %1, 4
+  %add7.i.i = or disjoint i32 %mul6.i.i, 8
+  %cmp16.not.i.i = icmp ugt i32 %add13.i.i, %add7.i.i
+  br i1 %cmp16.not.i.i, label %if.end.i.i, label %if.then17.i.i
+
+if.then17.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.else.i.i
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 40) #22
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18.i.i) #22
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18.i.i)
@@ -5363,8 +5367,7 @@ cleanup.action.i.i:                               ; preds = %if.then17.i.i
   call void @__cxa_free_exception(ptr %exception.i.i) #22
   br label %eh.resume.i.i
 
-if.end.i.i:                                       ; preds = %if.else.i.i
-  %add13.i.i = or disjoint i32 %mul12.i.i, 8
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %conv24.i.i = zext i32 %add13.i.i to i64
   %call25.i.i = tail call noalias noundef ptr @_ZN6memory10reallocateEPvm(ptr noundef nonnull %arrayidx4.i, i64 noundef %conv24.i.i)
   %add.ptr26.i.i = getelementptr inbounds i32, ptr %call25.i.i, i64 2
@@ -10268,13 +10271,17 @@ if.else.i.i:                                      ; preds = %lor.lhs.false.i
   %add10.i.i = add i32 %mul9.i.i, 1
   %shr.i.i = lshr i32 %add10.i.i, 1
   %mul12.i.i = shl i32 %shr.i.i, 4
+  %add13.i.i = or disjoint i32 %mul12.i.i, 8
   %cmp15.not.i.i = icmp ugt i32 %shr.i.i, %2
-  %mul6.i.i = shl i32 %2, 4
-  %cmp16.not.i.i = icmp ugt i32 %mul12.i.i, %mul6.i.i
-  %or.cond.i.i = and i1 %cmp15.not.i.i, %cmp16.not.i.i
-  br i1 %or.cond.i.i, label %if.end.i.i, label %if.then17.i.i
+  br i1 %cmp15.not.i.i, label %lor.lhs.false.i.i, label %if.then17.i.i
 
-if.then17.i.i:                                    ; preds = %if.else.i.i
+lor.lhs.false.i.i:                                ; preds = %if.else.i.i
+  %mul6.i.i = shl i32 %2, 4
+  %add7.i.i = or disjoint i32 %mul6.i.i, 8
+  %cmp16.not.i.i = icmp ugt i32 %add13.i.i, %add7.i.i
+  br i1 %cmp16.not.i.i, label %if.end.i.i, label %if.then17.i.i
+
+if.then17.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.else.i.i
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 40) #22
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18.i.i) #22
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18.i.i)
@@ -10301,8 +10308,7 @@ cleanup.action.i.i:                               ; preds = %if.then17.i.i
   call void @__cxa_free_exception(ptr %exception.i.i) #22
   br label %eh.resume.i.i
 
-if.end.i.i:                                       ; preds = %if.else.i.i
-  %add13.i.i = or disjoint i32 %mul12.i.i, 8
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %conv24.i.i = zext i32 %add13.i.i to i64
   %call25.i.i = tail call noalias noundef ptr @_ZN6memory10reallocateEPvm(ptr noundef nonnull %arrayidx4.i, i64 noundef %conv24.i.i)
   %add.ptr26.i.i = getelementptr inbounds i32, ptr %call25.i.i, i64 2
@@ -10425,26 +10431,26 @@ _ZNK6vectorIiLb0EjE4sizeEv.exit.i11:              ; preds = %if.end.i.i9, %_ZN4h
   store i32 %retval.0.i.i, ptr %arrayidx.i2.i, align 4
   %21 = load ptr, ptr %m_values.i, align 8
   %cmp.i3.i = icmp eq ptr %21, null
-  br i1 %cmp.i3.i, label %if.then.i.i14, label %lor.lhs.false.i.i
+  br i1 %cmp.i3.i, label %if.then.i.i15, label %lor.lhs.false.i.i13
 
-lor.lhs.false.i.i:                                ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i11
+lor.lhs.false.i.i13:                              ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i11
   %arrayidx.i4.i = getelementptr inbounds i32, ptr %21, i64 -1
   %22 = load i32, ptr %arrayidx.i4.i, align 4
   %arrayidx4.i.i = getelementptr inbounds i32, ptr %21, i64 -2
   %23 = load i32, ptr %arrayidx4.i.i, align 4
   %cmp5.i.i = icmp eq i32 %22, %23
-  br i1 %cmp5.i.i, label %if.then.i.i14, label %_ZN6vectorIiLb0EjE9push_backERKi.exit.i
+  br i1 %cmp5.i.i, label %if.then.i.i15, label %_ZN6vectorIiLb0EjE9push_backERKi.exit.i
 
-if.then.i.i14:                                    ; preds = %lor.lhs.false.i.i, %_ZNK6vectorIiLb0EjE4sizeEv.exit.i11
+if.then.i.i15:                                    ; preds = %lor.lhs.false.i.i13, %_ZNK6vectorIiLb0EjE4sizeEv.exit.i11
   tail call void @_ZN6vectorIiLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_values.i)
   %.pre.i.i = load ptr, ptr %m_values.i, align 8
   %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i32, ptr %.pre.i.i, i64 -1
   %.pre1.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i, align 4
   br label %_ZN6vectorIiLb0EjE9push_backERKi.exit.i
 
-_ZN6vectorIiLb0EjE9push_backERKi.exit.i:          ; preds = %if.then.i.i14, %lor.lhs.false.i.i
-  %24 = phi i32 [ %.pre1.i.i, %if.then.i.i14 ], [ %22, %lor.lhs.false.i.i ]
-  %25 = phi ptr [ %.pre.i.i, %if.then.i.i14 ], [ %21, %lor.lhs.false.i.i ]
+_ZN6vectorIiLb0EjE9push_backERKi.exit.i:          ; preds = %if.then.i.i15, %lor.lhs.false.i.i13
+  %24 = phi i32 [ %.pre1.i.i, %if.then.i.i15 ], [ %22, %lor.lhs.false.i.i13 ]
+  %25 = phi ptr [ %.pre.i.i, %if.then.i.i15 ], [ %21, %lor.lhs.false.i.i13 ]
   %idx.ext.i.i = zext i32 %24 to i64
   %add.ptr.i.i = getelementptr inbounds i32, ptr %25, i64 %idx.ext.i.i
   store i32 %retval.0.i, ptr %add.ptr.i.i, align 4
@@ -10455,8 +10461,8 @@ _ZN6vectorIiLb0EjE9push_backERKi.exit.i:          ; preds = %if.then.i.i14, %lor
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
   %28 = load ptr, ptr %m_values.i, align 8
   %idxprom.i.i.i = zext i32 %retval.0.i.i to i64
-  %arrayidx.i.i.i13 = getelementptr inbounds i32, ptr %28, i64 %idxprom.i.i.i
-  %29 = load i32, ptr %arrayidx.i.i.i13, align 4
+  %arrayidx.i.i.i14 = getelementptr inbounds i32, ptr %28, i64 %idxprom.i.i.i
+  %29 = load i32, ptr %arrayidx.i.i.i14, align 4
   %cmp27.i.i = icmp ult i32 %retval.0.i.i, 2
   %.pre34.i.i = zext i32 %29 to i64
   br i1 %cmp27.i.i, label %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE6insertEi.exit, label %lor.lhs.false.i6.i

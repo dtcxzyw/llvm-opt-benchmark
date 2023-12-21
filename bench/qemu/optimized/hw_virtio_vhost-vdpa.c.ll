@@ -2990,7 +2990,7 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @vhost_vdpa_listener_region_add(ptr noundef %listener, ptr nocapture noundef readonly %section) #0 {
 entry:
-  %_now.i.i56 = alloca %struct.timeval, align 8
+  %_now.i.i57 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %mem_region = alloca %struct.DMAMap, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %mem_region, i8 0, i64 28, i1 false)
@@ -3055,8 +3055,8 @@ if.else.i.i:                                      ; preds = %if.then5
   unreachable
 
 int128_get64.exit.i:                              ; preds = %if.then5
-  %9 = load i64, ptr %offset_within_region.i, align 16
   %retval.sroa.0.0.extract.trunc.i38.i = trunc i128 %a.sroa.0.0.insert.insert.i37.i to i64
+  %9 = load i64, ptr %offset_within_region.i, align 16
   store ptr @vhost_vdpa_iommu_map_notify, ptr %n.i, align 8
   %notifier_flags.i.i = getelementptr inbounds %struct.vdpa_iommu, ptr %call1.i, i64 0, i32 3, i32 1
   store i32 3, ptr %notifier_flags.i.i, align 8
@@ -3171,35 +3171,29 @@ if.end25:                                         ; preds = %if.end6
   %.tr.i.i51 = trunc i128 %24 to i64
   %.narrow.i.i52 = add i64 %.tr.i.i51, %coerce2.sroa.2.0.extract.trunc.i
   %conv.i = sext i32 %sub to i64
-  %25 = ashr i64 %conv.i, 63
-  %a.sroa.2.0.insert.ext.i.i53 = zext i64 %.narrow.i.i52 to i128
-  %a.sroa.2.0.insert.shift.i.i54 = shl nuw i128 %a.sroa.2.0.insert.ext.i.i53, 64
-  %a.sroa.0.0.insert.ext.i8.i = and i128 %a.sroa.0.0.insert.insert.i.i50, 18446744073709551615
-  %a.sroa.0.0.insert.insert.i9.i = or disjoint i128 %a.sroa.2.0.insert.shift.i.i54, %a.sroa.0.0.insert.ext.i8.i
-  %b.sroa.2.0.insert.ext.i.i = zext i64 %25 to i128
-  %b.sroa.2.0.insert.shift.i.i = shl nuw i128 %b.sroa.2.0.insert.ext.i.i, 64
-  %b.sroa.0.0.insert.ext.i10.i = zext i64 %conv.i to i128
-  %b.sroa.0.0.insert.insert.i.i = or disjoint i128 %b.sroa.2.0.insert.shift.i.i, %b.sroa.0.0.insert.ext.i10.i
-  %and.i.i = and i128 %a.sroa.0.0.insert.insert.i9.i, %b.sroa.0.0.insert.insert.i.i
-  %retval.sroa.0.0.extract.trunc.i11.i = trunc i128 %and.i.i to i64
+  %25 = trunc i128 %a.sroa.0.0.insert.insert.i.i50 to i64
+  %retval.sroa.0.0.extract.trunc.i11.i = and i64 %25, %conv.i
+  %isneg = icmp slt i32 %sub, 0
+  %26 = zext i64 %.narrow.i.i52 to i128
+  %27 = shl nuw i128 %26, 64
+  %retval.sroa.2.0.extract.shift.i.i = select i1 %isneg, i128 %27, i128 0
   %a.sroa.0.0.insert.ext.i = zext i64 %and31 to i128
-  %b.sroa.2.0.insert.shift.i = and i128 %a.sroa.2.0.insert.shift.i.i54, %b.sroa.2.0.insert.shift.i.i
-  %b.sroa.0.0.insert.ext.i = and i128 %a.sroa.0.0.insert.insert.i.i50, %b.sroa.0.0.insert.ext.i10.i
-  %b.sroa.0.0.insert.insert.i = or disjoint i128 %b.sroa.2.0.insert.shift.i, %b.sroa.0.0.insert.ext.i
+  %b.sroa.0.0.insert.ext.i = zext i64 %retval.sroa.0.0.extract.trunc.i11.i to i128
+  %b.sroa.0.0.insert.insert.i = or disjoint i128 %retval.sroa.2.0.extract.shift.i.i, %b.sroa.0.0.insert.ext.i
   %cmp.i.not = icmp sgt i128 %b.sroa.0.0.insert.insert.i, %a.sroa.0.0.insert.ext.i
   br i1 %cmp.i.not, label %if.end39, label %return
 
 if.end39:                                         ; preds = %if.end25
   tail call void @memory_region_ref(ptr noundef %2) #12
-  %26 = load ptr, ptr %mr, align 16
-  %call42 = tail call ptr @memory_region_get_ram_ptr(ptr noundef %26) #12
-  %27 = load i64, ptr %offset_within_region, align 16
-  %add.ptr44 = getelementptr i8, ptr %call42, i64 %27
-  %28 = load i64, ptr %offset_within_address_space, align 8
-  %sub46 = sub i64 %and31, %28
+  %28 = load ptr, ptr %mr, align 16
+  %call42 = tail call ptr @memory_region_get_ram_ptr(ptr noundef %28) #12
+  %29 = load i64, ptr %offset_within_region, align 16
+  %add.ptr44 = getelementptr i8, ptr %call42, i64 %29
+  %30 = load i64, ptr %offset_within_address_space, align 8
+  %sub46 = sub i64 %and31, %30
   %add.ptr47 = getelementptr i8, ptr %add.ptr44, i64 %sub46
-  %cmp.i55 = icmp ult i128 %and.i.i, 18446744073709551616
-  br i1 %cmp.i55, label %int128_get64.exit, label %if.else.i
+  %cmp.i56 = icmp eq i128 %b.sroa.0.0.insert.insert.i, %b.sroa.0.0.insert.ext.i
+  br i1 %cmp.i56, label %int128_get64.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end39
   tail call void @__assert_fail(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #14
@@ -3207,135 +3201,133 @@ if.else.i:                                        ; preds = %if.end39
 
 int128_get64.exit:                                ; preds = %if.end39
   %readonly = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 5
-  %29 = load i8, ptr %readonly, align 16
-  %30 = and i8 %29, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i56)
-  %31 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i57 = icmp ne i32 %31, 0
-  %32 = load i16, ptr @_TRACE_VHOST_VDPA_LISTENER_REGION_ADD_DSTATE, align 2
-  %tobool4.i.i58 = icmp ne i16 %32, 0
-  %or.cond.i.i59 = select i1 %tobool.i.i57, i1 %tobool4.i.i58, i1 false
-  br i1 %or.cond.i.i59, label %land.lhs.true5.i.i60, label %trace_vhost_vdpa_listener_region_add.exit
+  %31 = load i8, ptr %readonly, align 16
+  %32 = and i8 %31, 1
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i57)
+  %33 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i58 = icmp ne i32 %33, 0
+  %34 = load i16, ptr @_TRACE_VHOST_VDPA_LISTENER_REGION_ADD_DSTATE, align 2
+  %tobool4.i.i59 = icmp ne i16 %34, 0
+  %or.cond.i.i60 = select i1 %tobool.i.i58, i1 %tobool4.i.i59, i1 false
+  br i1 %or.cond.i.i60, label %land.lhs.true5.i.i61, label %trace_vhost_vdpa_listener_region_add.exit
 
-land.lhs.true5.i.i60:                             ; preds = %int128_get64.exit
-  %33 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i61 = and i32 %33, 32768
-  %cmp.i.not.i.i62 = icmp eq i32 %and.i.i.i61, 0
-  br i1 %cmp.i.not.i.i62, label %trace_vhost_vdpa_listener_region_add.exit, label %if.then.i.i63
+land.lhs.true5.i.i61:                             ; preds = %int128_get64.exit
+  %35 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i62 = and i32 %35, 32768
+  %cmp.i.not.i.i63 = icmp eq i32 %and.i.i.i62, 0
+  br i1 %cmp.i.not.i.i63, label %trace_vhost_vdpa_listener_region_add.exit, label %if.then.i.i64
 
-if.then.i.i63:                                    ; preds = %land.lhs.true5.i.i60
-  %34 = load i8, ptr @message_with_timestamp, align 1
-  %35 = and i8 %34, 1
-  %tobool7.not.i.i64 = icmp eq i8 %35, 0
-  br i1 %tobool7.not.i.i64, label %if.else.i.i69, label %if.then8.i.i65
+if.then.i.i64:                                    ; preds = %land.lhs.true5.i.i61
+  %36 = load i8, ptr @message_with_timestamp, align 1
+  %37 = and i8 %36, 1
+  %tobool7.not.i.i65 = icmp eq i8 %37, 0
+  br i1 %tobool7.not.i.i65, label %if.else.i.i70, label %if.then8.i.i66
 
-if.then8.i.i65:                                   ; preds = %if.then.i.i63
-  %call9.i.i66 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i56, ptr noundef null) #12
-  %call10.i.i67 = tail call i32 @qemu_get_thread_id() #12
-  %36 = load i64, ptr %_now.i.i56, align 8
-  %tv_usec.i.i68 = getelementptr inbounds %struct.timeval, ptr %_now.i.i56, i64 0, i32 1
-  %37 = load i64, ptr %tv_usec.i.i68, align 8
-  %conv12.i.i = zext nneg i8 %30 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i67, i64 noundef %36, i64 noundef %37, ptr noundef %add.ptr, i64 noundef %and31, i64 noundef %retval.sroa.0.0.extract.trunc.i11.i, ptr noundef %add.ptr47, i32 noundef %conv12.i.i) #12
+if.then8.i.i66:                                   ; preds = %if.then.i.i64
+  %call9.i.i67 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i57, ptr noundef null) #12
+  %call10.i.i68 = tail call i32 @qemu_get_thread_id() #12
+  %38 = load i64, ptr %_now.i.i57, align 8
+  %tv_usec.i.i69 = getelementptr inbounds %struct.timeval, ptr %_now.i.i57, i64 0, i32 1
+  %39 = load i64, ptr %tv_usec.i.i69, align 8
+  %conv12.i.i = zext nneg i8 %32 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i68, i64 noundef %38, i64 noundef %39, ptr noundef %add.ptr, i64 noundef %and31, i64 noundef %retval.sroa.0.0.extract.trunc.i11.i, ptr noundef %add.ptr47, i32 noundef %conv12.i.i) #12
   br label %trace_vhost_vdpa_listener_region_add.exit
 
-if.else.i.i69:                                    ; preds = %if.then.i.i63
-  %conv14.i.i = zext nneg i8 %30 to i32
+if.else.i.i70:                                    ; preds = %if.then.i.i64
+  %conv14.i.i = zext nneg i8 %32 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, ptr noundef %add.ptr, i64 noundef %and31, i64 noundef %retval.sroa.0.0.extract.trunc.i11.i, ptr noundef %add.ptr47, i32 noundef %conv14.i.i) #12
   br label %trace_vhost_vdpa_listener_region_add.exit
 
-trace_vhost_vdpa_listener_region_add.exit:        ; preds = %int128_get64.exit, %land.lhs.true5.i.i60, %if.then8.i.i65, %if.else.i.i69
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i56)
-  %sub.i74 = sub i128 %b.sroa.0.0.insert.insert.i, %a.sroa.0.0.insert.ext.i
-  %retval.sroa.0.0.extract.trunc.i = trunc i128 %sub.i74 to i64
-  %retval.sroa.2.0.extract.shift.i = lshr i128 %sub.i74, 64
-  %retval.sroa.2.0.extract.trunc.i = trunc i128 %retval.sroa.2.0.extract.shift.i to i64
+trace_vhost_vdpa_listener_region_add.exit:        ; preds = %int128_get64.exit, %land.lhs.true5.i.i61, %if.then8.i.i66, %if.else.i.i70
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i57)
+  %sub.i78 = sub nsw i128 %b.sroa.0.0.insert.ext.i, %a.sroa.0.0.insert.ext.i
+  %retval.sroa.0.0.extract.trunc.i = trunc i128 %sub.i78 to i64
   %shadow_data = getelementptr i8, ptr %listener, i64 217
-  %38 = load i8, ptr %shadow_data, align 1
-  %39 = and i8 %38, 1
-  %tobool57.not = icmp eq i8 %39, 0
+  %40 = load i8, ptr %shadow_data, align 1
+  %41 = and i8 %40, 1
+  %tobool57.not = icmp eq i8 %41, 0
   br i1 %tobool57.not, label %if.end77, label %if.then58
 
 if.then58:                                        ; preds = %trace_vhost_vdpa_listener_region_add.exit
-  %40 = ptrtoint ptr %add.ptr47 to i64
+  %42 = ptrtoint ptr %add.ptr47 to i64
   %translated_addr = getelementptr inbounds %struct.DMAMap, ptr %mem_region, i64 0, i32 1
-  store i64 %40, ptr %translated_addr, align 8
-  %cmp.i77 = icmp eq i64 %retval.sroa.2.0.extract.trunc.i, 0
-  br i1 %cmp.i77, label %int128_get64.exit79, label %if.else.i78
+  store i64 %42, ptr %translated_addr, align 8
+  %cmp.i85 = icmp ult i128 %sub.i78, 18446744073709551616
+  br i1 %cmp.i85, label %int128_get64.exit87, label %if.else.i86
 
-if.else.i78:                                      ; preds = %if.then58
+if.else.i86:                                      ; preds = %if.then58
   tail call void @__assert_fail(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #14
   unreachable
 
-int128_get64.exit79:                              ; preds = %if.then58
+int128_get64.exit87:                              ; preds = %if.then58
   %sub61 = add i64 %retval.sroa.0.0.extract.trunc.i, -1
   %size = getelementptr inbounds %struct.DMAMap, ptr %mem_region, i64 0, i32 2
   store i64 %sub61, ptr %size, align 8
-  %41 = load i8, ptr %readonly, align 16
-  %42 = shl i8 %41, 1
-  %43 = and i8 %42, 2
-  %44 = or disjoint i8 %43, 1
-  %or = zext nneg i8 %44 to i32
+  %43 = load i8, ptr %readonly, align 16
+  %44 = shl i8 %43, 1
+  %45 = and i8 %44, 2
+  %46 = or disjoint i8 %45, 1
+  %or = zext nneg i8 %46 to i32
   %perm = getelementptr inbounds %struct.DMAMap, ptr %mem_region, i64 0, i32 3
   store i32 %or, ptr %perm, align 8
   %iova_tree = getelementptr i8, ptr %listener, i64 224
-  %45 = load ptr, ptr %iova_tree, align 8
-  %call65 = call i32 @vhost_iova_tree_map_alloc(ptr noundef %45, ptr noundef nonnull %mem_region) #12
+  %47 = load ptr, ptr %iova_tree, align 8
+  %call65 = call i32 @vhost_iova_tree_map_alloc(ptr noundef %47, ptr noundef nonnull %mem_region) #12
   %cmp66.not = icmp eq i32 %call65, 0
   br i1 %cmp66.not, label %if.end77.thread, label %if.then74
 
-if.then74:                                        ; preds = %int128_get64.exit79
+if.then74:                                        ; preds = %int128_get64.exit87
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.16, i32 noundef %call65) #12
   br label %fail
 
-if.end77.thread:                                  ; preds = %int128_get64.exit79
-  %46 = load i64, ptr %mem_region, align 8
+if.end77.thread:                                  ; preds = %int128_get64.exit87
+  %48 = load i64, ptr %mem_region, align 8
   call fastcc void @vhost_vdpa_iotlb_batch_begin_once(ptr noundef %add.ptr)
-  br label %int128_get64.exit82
+  br label %int128_get64.exit94
 
 if.end77:                                         ; preds = %trace_vhost_vdpa_listener_region_add.exit
   tail call fastcc void @vhost_vdpa_iotlb_batch_begin_once(ptr noundef %add.ptr)
-  %cmp.i80 = icmp eq i64 %retval.sroa.2.0.extract.trunc.i, 0
-  br i1 %cmp.i80, label %int128_get64.exit82, label %if.else.i81
+  %cmp.i92 = icmp ult i128 %sub.i78, 18446744073709551616
+  br i1 %cmp.i92, label %int128_get64.exit94, label %if.else.i93
 
-if.else.i81:                                      ; preds = %if.end77
+if.else.i93:                                      ; preds = %if.end77
   tail call void @__assert_fail(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #14
   unreachable
 
-int128_get64.exit82:                              ; preds = %if.end77.thread, %if.end77
-  %iova.085 = phi i64 [ %46, %if.end77.thread ], [ %and31, %if.end77 ]
-  %47 = load i8, ptr %readonly, align 16
-  %48 = and i8 %47, 1
-  %tobool81 = icmp ne i8 %48, 0
-  %call82 = call i32 @vhost_vdpa_dma_map(ptr noundef %add.ptr, i32 noundef 0, i64 noundef %iova.085, i64 noundef %retval.sroa.0.0.extract.trunc.i, ptr noundef %add.ptr47, i1 noundef zeroext %tobool81), !range !14
+int128_get64.exit94:                              ; preds = %if.end77.thread, %if.end77
+  %iova.0100 = phi i64 [ %48, %if.end77.thread ], [ %and31, %if.end77 ]
+  %49 = load i8, ptr %readonly, align 16
+  %50 = and i8 %49, 1
+  %tobool81 = icmp ne i8 %50, 0
+  %call82 = call i32 @vhost_vdpa_dma_map(ptr noundef %add.ptr, i32 noundef 0, i64 noundef %iova.0100, i64 noundef %retval.sroa.0.0.extract.trunc.i, ptr noundef %add.ptr47, i1 noundef zeroext %tobool81), !range !14
   %tobool83.not = icmp eq i32 %call82, 0
   br i1 %tobool83.not, label %return, label %if.then84
 
-if.then84:                                        ; preds = %int128_get64.exit82
+if.then84:                                        ; preds = %int128_get64.exit94
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.17) #12
-  %49 = load i8, ptr %shadow_data, align 1
-  %50 = and i8 %49, 1
-  %tobool87.not = icmp eq i8 %50, 0
+  %51 = load i8, ptr %shadow_data, align 1
+  %52 = and i8 %51, 1
+  %tobool87.not = icmp eq i8 %52, 0
   br i1 %tobool87.not, label %fail, label %if.then88
 
 if.then88:                                        ; preds = %if.then84
   %iova_tree89 = getelementptr i8, ptr %listener, i64 224
-  %51 = load ptr, ptr %iova_tree89, align 8
-  call void @vhost_iova_tree_remove(ptr noundef %51, ptr noundef nonnull byval(%struct.DMAMap) align 8 %mem_region) #12
+  %53 = load ptr, ptr %iova_tree89, align 8
+  call void @vhost_iova_tree_remove(ptr noundef %53, ptr noundef nonnull byval(%struct.DMAMap) align 8 %mem_region) #12
   br label %fail
 
 fail:                                             ; preds = %if.then84, %if.then88, %if.then74
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.18) #12
   br label %return
 
-return:                                           ; preds = %if.end55.i, %if.then.i, %int128_get64.exit82, %if.end25, %entry, %fail, %trace_vhost_vdpa_listener_region_add_unaligned.exit
+return:                                           ; preds = %if.end55.i, %if.then.i, %int128_get64.exit94, %if.end25, %entry, %fail, %trace_vhost_vdpa_listener_region_add_unaligned.exit
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @vhost_vdpa_listener_region_del(ptr noundef %listener, ptr nocapture noundef readonly %section) #0 {
 entry:
-  %_now.i.i64 = alloca %struct.timeval, align 8
+  %_now.i.i68 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %mem_region = alloca %struct.DMAMap, align 8
   %byval-temp = alloca %struct.DMAMap, align 8
@@ -3504,58 +3496,58 @@ if.end25:                                         ; preds = %if.end6
   %a.sroa.0.0.insert.insert.i = or disjoint i128 %retval.sroa.2.0.extract.shift.i.i, %a.sroa.0.0.insert.ext.i
   %sub.i = add i128 %a.sroa.0.0.insert.insert.i, -1
   %retval.sroa.0.0.extract.trunc.i = trunc i128 %sub.i to i64
-  %cmp.i62 = icmp ult i128 %sub.i, 18446744073709551616
-  br i1 %cmp.i62, label %int128_get64.exit, label %if.else.i
+  %cmp.i66 = icmp ult i128 %sub.i, 18446744073709551616
+  br i1 %cmp.i66, label %int128_get64.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end25
   tail call void @__assert_fail(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #14
   unreachable
 
 int128_get64.exit:                                ; preds = %if.end25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i64)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i68)
   %27 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i65 = icmp ne i32 %27, 0
+  %tobool.i.i69 = icmp ne i32 %27, 0
   %28 = load i16, ptr @_TRACE_VHOST_VDPA_LISTENER_REGION_DEL_DSTATE, align 2
-  %tobool4.i.i66 = icmp ne i16 %28, 0
-  %or.cond.i.i67 = select i1 %tobool.i.i65, i1 %tobool4.i.i66, i1 false
-  br i1 %or.cond.i.i67, label %land.lhs.true5.i.i68, label %trace_vhost_vdpa_listener_region_del.exit
+  %tobool4.i.i70 = icmp ne i16 %28, 0
+  %or.cond.i.i71 = select i1 %tobool.i.i69, i1 %tobool4.i.i70, i1 false
+  br i1 %or.cond.i.i71, label %land.lhs.true5.i.i72, label %trace_vhost_vdpa_listener_region_del.exit
 
-land.lhs.true5.i.i68:                             ; preds = %int128_get64.exit
+land.lhs.true5.i.i72:                             ; preds = %int128_get64.exit
   %29 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i69 = and i32 %29, 32768
-  %cmp.i.not.i.i70 = icmp eq i32 %and.i.i.i69, 0
-  br i1 %cmp.i.not.i.i70, label %trace_vhost_vdpa_listener_region_del.exit, label %if.then.i.i71
+  %and.i.i.i73 = and i32 %29, 32768
+  %cmp.i.not.i.i74 = icmp eq i32 %and.i.i.i73, 0
+  br i1 %cmp.i.not.i.i74, label %trace_vhost_vdpa_listener_region_del.exit, label %if.then.i.i75
 
-if.then.i.i71:                                    ; preds = %land.lhs.true5.i.i68
+if.then.i.i75:                                    ; preds = %land.lhs.true5.i.i72
   %30 = load i8, ptr @message_with_timestamp, align 1
   %31 = and i8 %30, 1
-  %tobool7.not.i.i72 = icmp eq i8 %31, 0
-  br i1 %tobool7.not.i.i72, label %if.else.i.i77, label %if.then8.i.i73
+  %tobool7.not.i.i76 = icmp eq i8 %31, 0
+  br i1 %tobool7.not.i.i76, label %if.else.i.i81, label %if.then8.i.i77
 
-if.then8.i.i73:                                   ; preds = %if.then.i.i71
-  %call9.i.i74 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i64, ptr noundef null) #12
-  %call10.i.i75 = tail call i32 @qemu_get_thread_id() #12
-  %32 = load i64, ptr %_now.i.i64, align 8
-  %tv_usec.i.i76 = getelementptr inbounds %struct.timeval, ptr %_now.i.i64, i64 0, i32 1
-  %33 = load i64, ptr %tv_usec.i.i76, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %call10.i.i75, i64 noundef %32, i64 noundef %33, ptr noundef %add.ptr, i64 noundef %and31, i64 noundef %retval.sroa.0.0.extract.trunc.i) #12
+if.then8.i.i77:                                   ; preds = %if.then.i.i75
+  %call9.i.i78 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i68, ptr noundef null) #12
+  %call10.i.i79 = tail call i32 @qemu_get_thread_id() #12
+  %32 = load i64, ptr %_now.i.i68, align 8
+  %tv_usec.i.i80 = getelementptr inbounds %struct.timeval, ptr %_now.i.i68, i64 0, i32 1
+  %33 = load i64, ptr %tv_usec.i.i80, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %call10.i.i79, i64 noundef %32, i64 noundef %33, ptr noundef %add.ptr, i64 noundef %and31, i64 noundef %retval.sroa.0.0.extract.trunc.i) #12
   br label %trace_vhost_vdpa_listener_region_del.exit
 
-if.else.i.i77:                                    ; preds = %if.then.i.i71
+if.else.i.i81:                                    ; preds = %if.then.i.i75
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, ptr noundef %add.ptr, i64 noundef %and31, i64 noundef %retval.sroa.0.0.extract.trunc.i) #12
   br label %trace_vhost_vdpa_listener_region_del.exit
 
-trace_vhost_vdpa_listener_region_del.exit:        ; preds = %int128_get64.exit, %land.lhs.true5.i.i68, %if.then8.i.i73, %if.else.i.i77
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i64)
-  %a.sroa.0.0.insert.ext.i80 = zext i64 %and31 to i128
-  %cmp.i81.not = icmp ugt i128 %a.sroa.0.0.insert.insert.i, %a.sroa.0.0.insert.ext.i80
-  br i1 %cmp.i81.not, label %if.end47, label %return
+trace_vhost_vdpa_listener_region_del.exit:        ; preds = %int128_get64.exit, %land.lhs.true5.i.i72, %if.then8.i.i77, %if.else.i.i81
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i68)
+  %a.sroa.0.0.insert.ext.i84 = zext i64 %and31 to i128
+  %cmp.i85.not = icmp ugt i128 %a.sroa.0.0.insert.insert.i, %a.sroa.0.0.insert.ext.i84
+  br i1 %cmp.i85.not, label %if.end47, label %return
 
 if.end47:                                         ; preds = %trace_vhost_vdpa_listener_region_del.exit
-  %sub.i89 = sub nsw i128 %a.sroa.0.0.insert.insert.i, %a.sroa.0.0.insert.ext.i80
-  %retval.sroa.0.0.extract.trunc.i90 = trunc i128 %sub.i89 to i64
-  %retval.sroa.2.0.extract.shift.i91 = lshr i128 %sub.i89, 64
-  %retval.sroa.2.0.extract.trunc.i92 = trunc i128 %retval.sroa.2.0.extract.shift.i91 to i64
+  %sub.i93 = sub nsw i128 %a.sroa.0.0.insert.insert.i, %a.sroa.0.0.insert.ext.i84
+  %retval.sroa.0.0.extract.trunc.i94 = trunc i128 %sub.i93 to i64
+  %retval.sroa.2.0.extract.shift.i95 = lshr i128 %sub.i93, 64
+  %retval.sroa.2.0.extract.trunc.i96 = trunc i128 %retval.sroa.2.0.extract.shift.i95 to i64
   %shadow_data = getelementptr i8, ptr %listener, i64 217
   %34 = load i8, ptr %shadow_data, align 1
   %35 = and i8 %34, 1
@@ -3574,16 +3566,16 @@ if.then55:                                        ; preds = %if.end47
   %translated_addr = getelementptr inbounds %struct.DMAMap, ptr %mem_region, i64 0, i32 1
   %39 = ptrtoint ptr %add.ptr62 to i64
   store i64 %39, ptr %translated_addr, align 8
-  %cmp.i95 = icmp eq i64 %retval.sroa.2.0.extract.trunc.i92, 0
-  br i1 %cmp.i95, label %int128_get64.exit98, label %if.else.i96
+  %cmp.i103 = icmp ult i128 %sub.i93, 18446744073709551616
+  br i1 %cmp.i103, label %int128_get64.exit106, label %if.else.i104
 
-if.else.i96:                                      ; preds = %if.then55
+if.else.i104:                                     ; preds = %if.then55
   tail call void @__assert_fail(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #14
   unreachable
 
-int128_get64.exit98:                              ; preds = %if.then55
+int128_get64.exit106:                             ; preds = %if.then55
   %size = getelementptr inbounds %struct.DMAMap, ptr %mem_region, i64 0, i32 2
-  %sub66 = add i64 %retval.sroa.0.0.extract.trunc.i90, -1
+  %sub66 = add i64 %retval.sroa.0.0.extract.trunc.i94, -1
   store i64 %sub66, ptr %size, align 8
   %perm = getelementptr inbounds %struct.DMAMap, ptr %mem_region, i64 0, i32 3
   store i32 0, ptr %perm, align 8
@@ -3593,59 +3585,62 @@ int128_get64.exit98:                              ; preds = %if.then55
   %tobool68.not = icmp eq ptr %call67, null
   br i1 %tobool68.not, label %return, label %if.end73.thread
 
-if.end73:                                         ; preds = %if.end47
-  tail call fastcc void @vhost_vdpa_iotlb_batch_begin_once(ptr noundef %add.ptr)
-  %cmp.i103 = icmp eq i128 %sub.i89, 18446744073709551616
-  br i1 %cmp.i103, label %int128_get64.exit116, label %if.end94
-
-if.end73.thread:                                  ; preds = %int128_get64.exit98
+if.end73.thread:                                  ; preds = %int128_get64.exit106
   %41 = load i64, ptr %call67, align 1
   %42 = load ptr, ptr %iova_tree, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %byval-temp, ptr noundef nonnull align 1 dereferenceable(28) %call67, i64 28, i1 false)
   call void @vhost_iova_tree_remove(ptr noundef %42, ptr noundef nonnull byval(%struct.DMAMap) align 8 %byval-temp) #12
   call fastcc void @vhost_vdpa_iotlb_batch_begin_once(ptr noundef %add.ptr)
-  %cmp.i103147 = icmp eq i128 %sub.i89, 18446744073709551616
-  br i1 %cmp.i103147, label %int128_get64.exit116, label %int128_get64.exit128
+  br label %if.end94
 
-int128_get64.exit116:                             ; preds = %if.end73.thread, %if.end73
-  %iova.0148 = phi i64 [ %41, %if.end73.thread ], [ %and31, %if.end73 ]
-  %call85 = call i32 @vhost_vdpa_dma_unmap(ptr noundef %add.ptr, i32 noundef 0, i64 noundef %iova.0148, i64 noundef -9223372036854775808), !range !14
+if.end73:                                         ; preds = %if.end47
+  tail call fastcc void @vhost_vdpa_iotlb_batch_begin_once(ptr noundef %add.ptr)
+  %cmp.i111 = icmp eq i128 %sub.i93, 18446744073709551616
+  br i1 %cmp.i111, label %if.then79, label %if.end94
+
+if.then79:                                        ; preds = %if.end73
+  %call85 = tail call i32 @vhost_vdpa_dma_unmap(ptr noundef %add.ptr, i32 noundef 0, i64 noundef %and31, i64 noundef -9223372036854775808), !range !14
   %tobool86.not = icmp eq i32 %call85, 0
-  br i1 %tobool86.not, label %if.end94.thread, label %int128_get64.exit120
+  br i1 %tobool86.not, label %int128_get64.exit144, label %int128_get64.exit136
 
-int128_get64.exit120:                             ; preds = %int128_get64.exit116
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.26, ptr noundef %add.ptr, i64 noundef %iova.0148, i64 noundef -9223372036854775808, i32 noundef %call85) #12
-  br label %if.end94.thread
+int128_get64.exit136:                             ; preds = %if.then79
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.26, ptr noundef %add.ptr, i64 noundef %and31, i64 noundef -9223372036854775808, i32 noundef %call85) #12
+  br label %int128_get64.exit144
 
-if.end94.thread:                                  ; preds = %int128_get64.exit120, %int128_get64.exit116
-  %add93 = xor i64 %iova.0148, -9223372036854775808
-  br label %int128_get64.exit128
+int128_get64.exit144:                             ; preds = %if.then79, %int128_get64.exit136
+  %add93 = xor i64 %and31, -9223372036854775808
+  br label %if.end94
 
-if.end94:                                         ; preds = %if.end73
-  %cmp.i125 = icmp eq i64 %retval.sroa.2.0.extract.trunc.i92, 0
-  br i1 %cmp.i125, label %int128_get64.exit128, label %if.else.i126
+if.end94:                                         ; preds = %if.end73.thread, %int128_get64.exit144, %if.end73
+  %llsize.0.off0 = phi i64 [ -9223372036854775808, %int128_get64.exit144 ], [ %retval.sroa.0.0.extract.trunc.i94, %if.end73 ], [ %retval.sroa.0.0.extract.trunc.i94, %if.end73.thread ]
+  %llsize.0.off64 = phi i64 [ 0, %int128_get64.exit144 ], [ %retval.sroa.2.0.extract.trunc.i96, %if.end73 ], [ %retval.sroa.2.0.extract.trunc.i96, %if.end73.thread ]
+  %iova.1 = phi i64 [ %add93, %int128_get64.exit144 ], [ %and31, %if.end73 ], [ %41, %if.end73.thread ]
+  %a.sroa.2.0.insert.ext.i145 = zext i64 %llsize.0.off64 to i128
+  %a.sroa.2.0.insert.shift.i146 = shl nuw i128 %a.sroa.2.0.insert.ext.i145, 64
+  %a.sroa.0.0.insert.ext.i147 = zext i64 %llsize.0.off0 to i128
+  %a.sroa.0.0.insert.insert.i148 = or disjoint i128 %a.sroa.2.0.insert.shift.i146, %a.sroa.0.0.insert.ext.i147
+  %cmp.i149 = icmp eq i128 %a.sroa.0.0.insert.insert.i148, %a.sroa.0.0.insert.ext.i147
+  br i1 %cmp.i149, label %int128_get64.exit152, label %if.else.i150
 
-if.else.i126:                                     ; preds = %if.end94
-  tail call void @__assert_fail(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #14
+if.else.i150:                                     ; preds = %if.end94
+  call void @__assert_fail(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #14
   unreachable
 
-int128_get64.exit128:                             ; preds = %if.end73.thread, %if.end94.thread, %if.end94
-  %iova.1138 = phi i64 [ %add93, %if.end94.thread ], [ %and31, %if.end94 ], [ %41, %if.end73.thread ]
-  %llsize.0.off0137 = phi i64 [ -9223372036854775808, %if.end94.thread ], [ %retval.sroa.0.0.extract.trunc.i90, %if.end94 ], [ %retval.sroa.0.0.extract.trunc.i90, %if.end73.thread ]
-  %call97 = call i32 @vhost_vdpa_dma_unmap(ptr noundef %add.ptr, i32 noundef 0, i64 noundef %iova.1138, i64 noundef %llsize.0.off0137), !range !14
+int128_get64.exit152:                             ; preds = %if.end94
+  %call97 = call i32 @vhost_vdpa_dma_unmap(ptr noundef %add.ptr, i32 noundef 0, i64 noundef %iova.1, i64 noundef %llsize.0.off0), !range !14
   %tobool98.not = icmp eq i32 %call97, 0
-  br i1 %tobool98.not, label %if.end102, label %int128_get64.exit132
+  br i1 %tobool98.not, label %if.end102, label %int128_get64.exit160
 
-int128_get64.exit132:                             ; preds = %int128_get64.exit128
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.26, ptr noundef %add.ptr, i64 noundef %iova.1138, i64 noundef %llsize.0.off0137, i32 noundef %call97) #12
+int128_get64.exit160:                             ; preds = %int128_get64.exit152
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.26, ptr noundef %add.ptr, i64 noundef %iova.1, i64 noundef %llsize.0.off0, i32 noundef %call97) #12
   br label %if.end102
 
-if.end102:                                        ; preds = %int128_get64.exit132, %int128_get64.exit128
+if.end102:                                        ; preds = %int128_get64.exit160, %int128_get64.exit152
   %43 = load ptr, ptr %mr, align 16
   call void @memory_region_unref(ptr noundef %43) #12
   br label %return
 
-return:                                           ; preds = %int128_get64.exit98, %trace_vhost_vdpa_listener_region_del.exit, %entry, %if.end102, %trace_vhost_vdpa_listener_region_del_unaligned.exit
+return:                                           ; preds = %int128_get64.exit106, %trace_vhost_vdpa_listener_region_del.exit, %entry, %if.end102, %trace_vhost_vdpa_listener_region_del_unaligned.exit
   ret void
 }
 
@@ -3724,27 +3719,21 @@ if.then15:                                        ; preds = %memory_region_get_i
   %.tr.i.i = trunc i128 %12 to i64
   %.narrow.i.i = add i64 %.tr.i.i, %coerce2.sroa.2.0.extract.trunc.i
   %conv.i = sext i32 %page_mask to i64
-  %13 = ashr i64 %conv.i, 63
-  %a.sroa.2.0.insert.ext.i.i = zext i64 %.narrow.i.i to i128
-  %a.sroa.2.0.insert.shift.i.i = shl nuw i128 %a.sroa.2.0.insert.ext.i.i, 64
-  %a.sroa.0.0.insert.ext.i8.i = and i128 %a.sroa.0.0.insert.insert.i.i, 18446744073709551615
-  %a.sroa.0.0.insert.insert.i9.i = or disjoint i128 %a.sroa.2.0.insert.shift.i.i, %a.sroa.0.0.insert.ext.i8.i
-  %b.sroa.2.0.insert.ext.i.i = zext i64 %13 to i128
-  %b.sroa.2.0.insert.shift.i.i = shl nuw i128 %b.sroa.2.0.insert.ext.i.i, 64
-  %b.sroa.0.0.insert.ext.i10.i = zext i64 %conv.i to i128
-  %b.sroa.0.0.insert.insert.i.i = or disjoint i128 %b.sroa.2.0.insert.shift.i.i, %b.sroa.0.0.insert.ext.i10.i
-  %and.i.i = and i128 %a.sroa.0.0.insert.insert.i9.i, %b.sroa.0.0.insert.insert.i.i
-  %retval.sroa.0.0.extract.trunc.i11.i = trunc i128 %and.i.i to i64
-  %a.sroa.2.0.insert.shift.i = and i128 %a.sroa.2.0.insert.shift.i.i, %b.sroa.2.0.insert.shift.i.i
-  %a.sroa.0.0.insert.ext.i = and i128 %a.sroa.0.0.insert.insert.i.i, %b.sroa.0.0.insert.ext.i10.i
-  %a.sroa.0.0.insert.insert.i = or disjoint i128 %a.sroa.2.0.insert.shift.i, %a.sroa.0.0.insert.ext.i
+  %13 = trunc i128 %a.sroa.0.0.insert.insert.i.i to i64
+  %retval.sroa.0.0.extract.trunc.i11.i = and i64 %13, %conv.i
+  %isneg = icmp slt i32 %page_mask, 0
+  %14 = zext i64 %.narrow.i.i to i128
+  %15 = shl nuw i128 %14, 64
+  %retval.sroa.2.0.extract.shift.i.i = select i1 %isneg, i128 %15, i128 0
+  %a.sroa.0.0.insert.ext.i = zext i64 %retval.sroa.0.0.extract.trunc.i11.i to i128
+  %a.sroa.0.0.insert.insert.i = or disjoint i128 %retval.sroa.2.0.extract.shift.i.i, %a.sroa.0.0.insert.ext.i
   %b.sroa.0.0.insert.ext.i = zext i64 %iova_max to i128
   %cmp.i = icmp sgt i128 %a.sroa.0.0.insert.insert.i, %b.sroa.0.0.insert.ext.i
   br i1 %cmp.i, label %if.then22, label %return
 
 if.then22:                                        ; preds = %if.then15
-  %cmp.i20 = icmp ult i128 %and.i.i, 18446744073709551616
-  br i1 %cmp.i20, label %int128_get64.exit, label %if.else.i
+  %cmp.i24 = icmp eq i128 %a.sroa.0.0.insert.insert.i, %a.sroa.0.0.insert.ext.i
+  br i1 %cmp.i24, label %int128_get64.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then22
   tail call void @__assert_fail(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #14
@@ -3926,8 +3915,8 @@ rcu_read_auto_lock.exit:                          ; preds = %if.end, %while.end.
   br i1 %cmp.i, label %if.then17, label %if.end22
 
 if.then17:                                        ; preds = %rcu_read_auto_lock.exit
-  %cmp.i37 = icmp eq i64 %.narrow.i, 0
-  br i1 %cmp.i37, label %int128_get64.exit, label %if.else.i
+  %cmp.i41 = icmp eq i128 %a.sroa.0.0.insert.insert.i35, %a.sroa.0.0.insert.ext.i34
+  br i1 %cmp.i41, label %int128_get64.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then17
   tail call void @__assert_fail(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #14

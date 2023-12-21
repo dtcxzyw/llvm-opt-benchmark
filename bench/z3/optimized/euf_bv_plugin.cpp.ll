@@ -2795,13 +2795,17 @@ if.else.i:                                        ; preds = %while.body.i.i.i
   %add10.i = add i32 %mul9.i, 1
   %shr.i = lshr i32 %add10.i, 1
   %mul12.i = shl i32 %shr.i, 5
+  %add13.i = or disjoint i32 %mul12.i, 8
   %cmp15.not.i = icmp ugt i32 %shr.i, %13
-  %mul6.i = shl i32 %13, 5
-  %cmp16.not.i = icmp ugt i32 %mul12.i, %mul6.i
-  %or.cond.i = and i1 %cmp15.not.i, %cmp16.not.i
-  br i1 %or.cond.i, label %if.end.i, label %if.then17.i
+  br i1 %cmp15.not.i, label %lor.lhs.false.i, label %if.then17.i
 
-if.then17.i:                                      ; preds = %if.else.i
+lor.lhs.false.i:                                  ; preds = %if.else.i
+  %mul6.i = shl i32 %13, 5
+  %add7.i = or disjoint i32 %mul6.i, 8
+  %cmp16.not.i = icmp ugt i32 %add13.i, %add7.i
+  br i1 %cmp16.not.i, label %if.end.i, label %if.then17.i
+
+if.then17.i:                                      ; preds = %lor.lhs.false.i, %if.else.i
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 40) #16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18.i) #16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull @.str.10, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18.i)
@@ -2828,8 +2832,7 @@ cleanup.action.i:                                 ; preds = %if.then17.i
   call void @__cxa_free_exception(ptr %exception.i) #16
   br label %eh.resume.i
 
-if.end.i:                                         ; preds = %if.else.i
-  %add13.i = or disjoint i32 %mul12.i, 8
+if.end.i:                                         ; preds = %lor.lhs.false.i
   %conv24.i = zext i32 %add13.i to i64
   %call25.i = tail call noalias noundef ptr @_ZN6memory10reallocateEPvm(ptr noundef nonnull %arrayidx.i, i64 noundef %conv24.i)
   %add.ptr26.i = getelementptr inbounds i32, ptr %call25.i, i64 2
@@ -4269,13 +4272,17 @@ if.else:                                          ; preds = %entry
   %add10 = add i32 %mul9, 1
   %shr = lshr i32 %add10, 1
   %mul12 = shl i32 %shr, 5
+  %add13 = or disjoint i32 %mul12, 8
   %cmp15.not = icmp ugt i32 %shr, %1
-  %mul6 = shl i32 %1, 5
-  %cmp16.not = icmp ugt i32 %mul12, %mul6
-  %or.cond = and i1 %cmp15.not, %cmp16.not
-  br i1 %or.cond, label %if.end, label %if.then17
+  br i1 %cmp15.not, label %lor.lhs.false, label %if.then17
 
-if.then17:                                        ; preds = %if.else
+lor.lhs.false:                                    ; preds = %if.else
+  %mul6 = shl i32 %1, 5
+  %add7 = or disjoint i32 %mul6, 8
+  %cmp16.not = icmp ugt i32 %add13, %add7
+  br i1 %cmp16.not, label %if.end, label %if.then17
+
+if.then17:                                        ; preds = %lor.lhs.false, %if.else
   %exception = tail call ptr @__cxa_allocate_exception(i64 40) #16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.10, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
@@ -4302,8 +4309,7 @@ cleanup.action:                                   ; preds = %if.then17
   call void @__cxa_free_exception(ptr %exception) #16
   br label %eh.resume
 
-if.end:                                           ; preds = %if.else
-  %add13 = or disjoint i32 %mul12, 8
+if.end:                                           ; preds = %lor.lhs.false
   %conv24 = zext i32 %add13 to i64
   %call25 = tail call noalias noundef ptr @_ZN6memory10reallocateEPvm(ptr noundef nonnull %arrayidx, i64 noundef %conv24)
   %add.ptr26 = getelementptr inbounds i32, ptr %call25, i64 2

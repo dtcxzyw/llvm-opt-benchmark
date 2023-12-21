@@ -1119,7 +1119,7 @@ sw.bb11:                                          ; preds = %_ZN6google8protobuf
   %13 = load i64, ptr %data_.i83, align 8
   %shl.i84 = shl i32 %12, 3
   %or.i85 = or disjoint i32 %shl.i84, 1
-  %cmp.i7.i86 = icmp ugt i32 %shl.i84, 126
+  %cmp.i7.i86 = icmp ugt i32 %or.i85, 127
   br i1 %cmp.i7.i86, label %while.body.i.i91, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit98
 
 while.body.i.i91:                                 ; preds = %sw.bb11, %while.body.i.i91
@@ -8830,7 +8830,7 @@ cond.end394:                                      ; preds = %cond.false391, %con
   %306 = load i32, ptr %number_.i1734, align 4
   %shl.i1513 = shl i32 %306, 3
   %or.i1514 = or disjoint i32 %shl.i1513, 1
-  %cmp.i7.i1515 = icmp ugt i32 %shl.i1513, 126
+  %cmp.i7.i1515 = icmp ugt i32 %or.i1514, 127
   br i1 %cmp.i7.i1515, label %while.body.i.i1521, label %call.i.noexc602
 
 while.body.i.i1521:                               ; preds = %cond.end394, %while.body.i.i1521
@@ -8918,7 +8918,7 @@ cond.end426:                                      ; preds = %cond.false423, %con
   %314 = load i32, ptr %number_.i1734, align 4
   %shl.i1555 = shl i32 %314, 3
   %or.i1556 = or disjoint i32 %shl.i1555, 1
-  %cmp.i7.i1557 = icmp ugt i32 %shl.i1555, 126
+  %cmp.i7.i1557 = icmp ugt i32 %or.i1556, 127
   br i1 %cmp.i7.i1557, label %while.body.i.i1563, label %_ZN6google8protobuf8internal14WireFormatLite20WriteSFixed64ToArrayEilPh.exit
 
 while.body.i.i1563:                               ; preds = %cond.end426, %while.body.i.i1563
@@ -9006,7 +9006,7 @@ cond.end458:                                      ; preds = %cond.false455, %con
   %322 = load i32, ptr %number_.i1734, align 4
   %shl.i1598 = shl i32 %322, 3
   %or.i1599 = or disjoint i32 %shl.i1598, 1
-  %cmp.i7.i1600 = icmp ugt i32 %shl.i1598, 126
+  %cmp.i7.i1600 = icmp ugt i32 %or.i1599, 127
   br i1 %cmp.i7.i1600, label %while.body.i.i1606, label %_ZN6google8protobuf8internal14WireFormatLite23WriteDoubleNoTagToArrayEdPh.exit
 
 while.body.i.i1606:                               ; preds = %cond.end458, %while.body.i.i1606

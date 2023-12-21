@@ -2471,7 +2471,7 @@ if.end.i24:                                       ; preds = %sw.bb3
   %mul.i25 = shl i32 %conv, 3
   %add.i = or disjoint i32 %mul.i25, 1
   %conv.i26 = zext i32 %add.i to i64
-  %cmp5.i.i27 = icmp ugt i32 %mul.i25, 126
+  %cmp5.i.i27 = icmp ugt i32 %add.i, 127
   br i1 %cmp5.i.i27, label %while.body.i.i31, label %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i28
 
 while.body.i.i31:                                 ; preds = %if.end.i24, %while.body.i.i31

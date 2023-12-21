@@ -19629,8 +19629,8 @@ if.then1088:                                      ; preds = %if.else1049, %invok
   %add1094 = or disjoint i32 %mul1093, 1
   %Capacity.i1090 = getelementptr inbounds %struct.ImGuiInputTextState, ptr %state.01482, i64 0, i32 6, i32 1
   %309 = load i32, ptr %Capacity.i1090, align 4
-  %cmp.i1091.not = icmp sgt i32 %309, %mul1093
-  br i1 %cmp.i1091.not, label %if.then1088._ZN8ImVectorIcE6resizeEi.exit1107_crit_edge, label %if.then.i1092
+  %cmp.i1091 = icmp slt i32 %309, %add1094
+  br i1 %cmp.i1091, label %if.then.i1092, label %if.then1088._ZN8ImVectorIcE6resizeEi.exit1107_crit_edge
 
 if.then1088._ZN8ImVectorIcE6resizeEi.exit1107_crit_edge: ; preds = %if.then1088
   %Data1096.phi.trans.insert = getelementptr inbounds %struct.ImGuiInputTextState, ptr %state.01482, i64 0, i32 6, i32 2

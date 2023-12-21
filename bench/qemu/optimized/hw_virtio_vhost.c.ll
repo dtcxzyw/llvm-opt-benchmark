@@ -2696,14 +2696,14 @@ if.then21.i:                                      ; preds = %land.lhs.true.i
   %offset_within_address_space24.i = getelementptr %struct.MemoryRegionSection, ptr %63, i64 %idx.ext.i, i32 4
   %64 = load i64, ptr %offset_within_address_space24.i, align 8
   %65 = load i128, ptr %add.ptr.i, align 16
-  %cmp.i97.i = icmp ult i128 %65, 18446744073709551616
-  br i1 %cmp.i97.i, label %int128_get64.exit99.i, label %if.else.i98.i
+  %cmp.i101.i = icmp ult i128 %65, 18446744073709551616
+  br i1 %cmp.i101.i, label %int128_get64.exit103.i, label %if.else.i102.i
 
-if.else.i98.i:                                    ; preds = %if.then21.i
+if.else.i102.i:                                   ; preds = %if.then21.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #19
   unreachable
 
-int128_get64.exit99.i:                            ; preds = %if.then21.i
+int128_get64.exit103.i:                           ; preds = %if.then21.i
   %coerce26.sroa.0.0.extract.trunc.i = trunc i128 %65 to i64
   %mr29.i = getelementptr %struct.MemoryRegionSection, ptr %63, i64 %idx.ext.i, i32 1
   %66 = load ptr, ptr %mr29.i, align 16
@@ -2712,13 +2712,13 @@ int128_get64.exit99.i:                            ; preds = %if.then21.i
   %offset_within_region31.i = getelementptr %struct.MemoryRegionSection, ptr %63, i64 %idx.ext.i, i32 3
   %68 = load i64, ptr %offset_within_region31.i, align 16
   %add32.i = add i64 %68, %67
-  %add.i100.i = add i64 %coerce26.sroa.0.0.extract.trunc.i, -1
-  %sub.i101.i = add i64 %add.i100.i, %add32.i
+  %add.i104.i = add i64 %coerce26.sroa.0.0.extract.trunc.i, -1
+  %sub.i105.i = add i64 %add.i104.i, %add32.i
   %add34.i = add i64 %64, %coerce26.sroa.0.0.extract.trunc.i
   %cmp35.not.i = icmp ugt i64 %mrs_gpa.1.i, %add34.i
   br i1 %cmp35.not.i, label %if.then99.critedge.i, label %if.then36.i
 
-if.then36.i:                                      ; preds = %int128_get64.exit99.i
+if.then36.i:                                      ; preds = %int128_get64.exit103.i
   %cmp37.i = icmp ult i64 %mrs_gpa.1.i, %64
   br i1 %cmp37.i, label %if.then38.i, label %if.end43.i
 
@@ -2753,7 +2753,7 @@ land.lhs.true51.i:                                ; preds = %land.lhs.true47.i
 
 if.then54.i:                                      ; preds = %land.lhs.true51.i
   %add55.i = add i64 %mrs_size.2.i, %mrs_host.1.i
-  %cond.i = tail call i64 @llvm.umax.i64(i64 %sub.i101.i, i64 %add55.i)
+  %cond.i = tail call i64 @llvm.umax.i64(i64 %sub.i105.i, i64 %add55.i)
   %cond62.i = tail call i64 @llvm.umin.i64(i64 %64, i64 %mrs_gpa.1.i)
   store i64 %cond62.i, ptr %offset_within_address_space24.i, align 8
   %cond69.i = tail call i64 @llvm.umin.i64(i64 %add32.i, i64 %mrs_host.1.i)
@@ -2779,7 +2779,7 @@ if.then93.i:                                      ; preds = %if.else.i11
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.80, ptr noundef nonnull @__func__.vhost_region_add_section, i64 noundef %mrs_gpa.1.i) #18
   br label %return
 
-if.then99.critedge.i:                             ; preds = %if.else.i11, %int128_get64.exit99.i, %land.lhs.true.i, %if.end18.i10
+if.then99.critedge.i:                             ; preds = %if.else.i11, %int128_get64.exit103.i, %land.lhs.true.i, %if.end18.i10
   %81 = load i32, ptr %n_tmp_sections.i, align 8
   %inc.i = add i32 %81, 1
   store i32 %inc.i, ptr %n_tmp_sections.i, align 8
@@ -2898,9 +2898,13 @@ if.end:                                           ; preds = %memory_region_get_i
   %a.sroa.0.0.insert.insert.i = add nsw i128 %a.sroa.0.0.insert.ext.i, -1
   %6 = lshr i128 %a.sroa.0.0.insert.insert.i, 64
   %.tr.i35 = trunc i128 %6 to i64
+  %.narrow.i36 = add i64 %.narrow.i, %.tr.i35
   %call42 = tail call i32 @memory_region_iommu_attrs_to_index(ptr noundef %call.i, i32 1) #18
-  %.narrow.i36 = sub i64 0, %.tr.i35
-  %cmp.i = icmp eq i64 %.narrow.i, %.narrow.i36
+  %a.sroa.2.0.insert.ext.i = zext i64 %.narrow.i36 to i128
+  %a.sroa.2.0.insert.shift.i = shl nuw i128 %a.sroa.2.0.insert.ext.i, 64
+  %a.sroa.0.0.insert.ext.i39 = and i128 %a.sroa.0.0.insert.insert.i, 18446744073709551615
+  %a.sroa.0.0.insert.insert.i40 = or disjoint i128 %a.sroa.2.0.insert.shift.i, %a.sroa.0.0.insert.ext.i39
+  %cmp.i = icmp eq i128 %a.sroa.0.0.insert.insert.i40, %a.sroa.0.0.insert.ext.i39
   br i1 %cmp.i, label %int128_get64.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end
@@ -2908,6 +2912,7 @@ if.else.i:                                        ; preds = %if.end
   unreachable
 
 int128_get64.exit:                                ; preds = %if.end
+  %retval.sroa.0.0.extract.trunc.i = trunc i128 %a.sroa.0.0.insert.insert.i to i64
   %7 = load i64, ptr %offset_within_region, align 16
   %add.ptr = getelementptr i8, ptr %listener, i64 -200
   %8 = load ptr, ptr %add.ptr, align 8
@@ -2917,7 +2922,6 @@ int128_get64.exit:                                ; preds = %if.end
   %tobool.not = icmp eq i8 %10, 0
   %cond = select i1 %tobool.not, i32 1, i32 4
   %n = getelementptr inbounds %struct.vhost_iommu, ptr %call3, i64 0, i32 3
-  %retval.sroa.0.0.extract.trunc.i = trunc i128 %a.sroa.0.0.insert.insert.i to i64
   store ptr @vhost_iommu_unmap_notify, ptr %n, align 8
   %notifier_flags.i = getelementptr inbounds %struct.vhost_iommu, ptr %call3, i64 0, i32 3, i32 1
   store i32 %cond, ptr %notifier_flags.i, align 8

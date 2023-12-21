@@ -5511,7 +5511,11 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %cmp.i = icmp eq i64 %start.coerce1, 0
+  %a.sroa.2.0.insert.ext.i = zext i64 %start.coerce1 to i128
+  %a.sroa.2.0.insert.shift.i = shl nuw i128 %a.sroa.2.0.insert.ext.i, 64
+  %a.sroa.0.0.insert.ext.i = zext i64 %start.coerce0 to i128
+  %a.sroa.0.0.insert.insert.i = or disjoint i128 %a.sroa.2.0.insert.shift.i, %a.sroa.0.0.insert.ext.i
+  %cmp.i = icmp eq i128 %a.sroa.0.0.insert.insert.i, %a.sroa.0.0.insert.ext.i
   br i1 %cmp.i, label %int128_get64.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end

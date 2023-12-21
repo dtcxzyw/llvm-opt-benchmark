@@ -702,8 +702,9 @@ cond.true.i:                                      ; preds = %for.body
 _ZNK6icu_759UVector3210elementAtiEi.exit:         ; preds = %for.body, %cond.true.i
   %cond.i = phi i32 [ %5, %cond.true.i ], [ 0, %for.body ]
   %add = or disjoint i32 %mul, 1
+  %cmp.i18 = icmp sgt i32 %add, -1
   %cmp5.i20 = icmp sgt i32 %3, %add
-  %or.cond.i21 = select i1 %cmp.i, i1 %cmp5.i20, i1 false
+  %or.cond.i21 = select i1 %cmp.i18, i1 %cmp5.i20, i1 false
   br i1 %or.cond.i21, label %cond.true.i23, label %_ZNK6icu_759UVector3210elementAtiEi.exit27
 
 cond.true.i23:                                    ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit

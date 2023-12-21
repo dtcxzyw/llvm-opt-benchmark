@@ -10267,17 +10267,17 @@ if.then:                                          ; preds = %_ZN4cvc58internal7M
   br label %cleanup
 
 lpad.loopexit:                                    ; preds = %cond.end38, %invoke.cont43
-  %lpad.loopexit181 = landingpad { ptr, i32 }
+  %lpad.loopexit182 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %invoke.cont70, %while.end
-  %lpad.loopexit.split-lp182 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp183 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit181, %lpad.loopexit ], [ %lpad.loopexit.split-lp182, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit182, %lpad.loopexit ], [ %lpad.loopexit.split-lp183, %lpad.loopexit.split-lp ]
   store i8 %1, ptr %minisat_busy, align 1
   resume { ptr, i32 } %lpad.phi
 
@@ -10326,13 +10326,13 @@ if.end26:                                         ; preds = %if.then17, %invoke.
   br label %while.body
 
 while.cond:                                       ; preds = %land.rhs.i
-  %inc50 = add nuw nsw i32 %curr_restarts.0183, 1
+  %inc50 = add nuw nsw i32 %curr_restarts.0184, 1
   %and53.i = and i8 %call44, 2
   %tobool16.i.not = icmp eq i8 %and53.i, 0
   br i1 %tobool16.i.not, label %while.end, label %while.body, !llvm.loop !59
 
 while.body:                                       ; preds = %if.end26, %while.cond
-  %curr_restarts.0183 = phi i32 [ 0, %if.end26 ], [ %inc50, %while.cond ]
+  %curr_restarts.0184 = phi i32 [ 0, %if.end26 ], [ %inc50, %while.cond ]
   %11 = load i8, ptr %luby_restart, align 8
   %12 = and i8 %11, 1
   %tobool30.not = icmp eq i8 %12, 0
@@ -10340,13 +10340,13 @@ while.body:                                       ; preds = %if.end26, %while.co
   br i1 %tobool30.not, label %cond.end38, label %cond.true31
 
 cond.true31:                                      ; preds = %while.body
-  %cmp.not9.i = icmp eq i32 %curr_restarts.0183, 0
+  %cmp.not9.i = icmp eq i32 %curr_restarts.0184, 0
   br i1 %cmp.not9.i, label %while.cond.preheader.i, label %for.inc.i
 
 while.cond.preheader.i:                           ; preds = %for.inc.i, %cond.true31
   %size.0.lcssa.i = phi i32 [ 0, %cond.true31 ], [ %mul.i, %for.inc.i ]
   %seq.0.lcssa.i = phi i32 [ 0, %cond.true31 ], [ %inc.i48, %for.inc.i ]
-  %cmp2.not14.i = icmp eq i32 %size.0.lcssa.i, %curr_restarts.0183
+  %cmp2.not14.i = icmp eq i32 %size.0.lcssa.i, %curr_restarts.0184
   br i1 %cmp2.not14.i, label %cond.end38, label %while.body.i
 
 for.inc.i:                                        ; preds = %cond.true31, %for.inc.i
@@ -10355,13 +10355,13 @@ for.inc.i:                                        ; preds = %cond.true31, %for.i
   %inc.i48 = add nuw nsw i32 %seq.011.i, 1
   %mul.i = shl nsw i32 %size.010.i, 1
   %add1.i = or disjoint i32 %mul.i, 1
-  %cmp.not.not.i = icmp slt i32 %mul.i, %curr_restarts.0183
-  br i1 %cmp.not.not.i, label %for.inc.i, label %while.cond.preheader.i, !llvm.loop !60
+  %cmp.not.i49 = icmp sgt i32 %add1.i, %curr_restarts.0184
+  br i1 %cmp.not.i49, label %while.cond.preheader.i, label %for.inc.i, !llvm.loop !60
 
 while.body.i:                                     ; preds = %while.cond.preheader.i, %while.body.i
   %sub17.i = phi i32 [ %sub.i, %while.body.i ], [ %size.0.lcssa.i, %while.cond.preheader.i ]
   %seq.116.i = phi i32 [ %dec.i, %while.body.i ], [ %seq.0.lcssa.i, %while.cond.preheader.i ]
-  %x.addr.015.i = phi i32 [ %rem.i, %while.body.i ], [ %curr_restarts.0183, %while.cond.preheader.i ]
+  %x.addr.015.i = phi i32 [ %rem.i, %while.body.i ], [ %curr_restarts.0184, %while.cond.preheader.i ]
   %shr.i = ashr i32 %sub17.i, 1
   %dec.i = add nsw i32 %seq.116.i, -1
   %rem.i = srem i32 %x.addr.015.i, %shr.i
@@ -10370,12 +10370,12 @@ while.body.i:                                     ; preds = %while.cond.preheade
   br i1 %cmp2.not.i, label %cond.end38, label %while.body.i, !llvm.loop !61
 
 cond.end38:                                       ; preds = %while.body.i, %while.body, %while.cond.preheader.i
-  %curr_restarts.0183.sink = phi i32 [ %seq.0.lcssa.i, %while.cond.preheader.i ], [ %curr_restarts.0183, %while.body ], [ %dec.i, %while.body.i ]
-  %conv.i = sitofp i32 %curr_restarts.0183.sink to double
-  %call.i50 = tail call noundef double @pow(double noundef %13, double noundef %conv.i) #29
+  %curr_restarts.0184.sink = phi i32 [ %seq.0.lcssa.i, %while.cond.preheader.i ], [ %curr_restarts.0184, %while.body ], [ %dec.i, %while.body.i ]
+  %conv.i = sitofp i32 %curr_restarts.0184.sink to double
+  %call.i51 = tail call noundef double @pow(double noundef %13, double noundef %conv.i) #29
   %14 = load i32, ptr %restart_first, align 8
   %conv40 = sitofp i32 %14 to double
-  %mul41 = fmul double %call.i50, %conv40
+  %mul41 = fmul double %call.i51, %conv40
   %conv42 = fptosi double %mul41 to i32
   %call44 = invoke i8 @_ZN4cvc58internal7Minisat6Solver6searchEi(ptr noundef nonnull align 8 dereferenceable(850) %this, i32 noundef %conv42)
           to label %invoke.cont43 unwind label %lpad.loopexit
@@ -10388,57 +10388,57 @@ invoke.cont43:                                    ; preds = %cond.end38
 .noexc:                                           ; preds = %invoke.cont43
   %16 = load i8, ptr %asynch_interrupt.i, align 8
   %17 = and i8 %16, 1
-  %tobool.not.i51 = icmp eq i8 %17, 0
-  br i1 %tobool.not.i51, label %land.lhs.true.i, label %while.end
+  %tobool.not.i52 = icmp eq i8 %17, 0
+  br i1 %tobool.not.i52, label %land.lhs.true.i, label %while.end
 
 land.lhs.true.i:                                  ; preds = %.noexc
   %18 = load i64, ptr %conflict_budget.i, align 8
-  %cmp.i52 = icmp slt i64 %18, 0
+  %cmp.i53 = icmp slt i64 %18, 0
   %19 = load i64, ptr %conflicts.i, align 8
   %cmp3.i = icmp slt i64 %19, %18
-  %or.cond.i = select i1 %cmp.i52, i1 true, i1 %cmp3.i
+  %or.cond.i = select i1 %cmp.i53, i1 true, i1 %cmp3.i
   br i1 %or.cond.i, label %land.rhs.i, label %while.end
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %20 = load i64, ptr %propagation_budget.i, align 8
-  %cmp4.i53 = icmp slt i64 %20, 0
+  %cmp4.i54 = icmp slt i64 %20, 0
   %21 = load i64, ptr %propagations.i, align 8
   %cmp6.i = icmp slt i64 %21, %20
-  %or.cond = select i1 %cmp4.i53, i1 true, i1 %cmp6.i
+  %or.cond = select i1 %cmp4.i54, i1 true, i1 %cmp6.i
   br i1 %or.cond, label %while.cond, label %while.end
 
 while.end:                                        ; preds = %land.rhs.i, %land.lhs.true.i, %.noexc, %while.cond
   %22 = load ptr, ptr %d_proxy.i, align 8
   invoke void @_ZN4cvc58internal4prop11TheoryProxy13spendResourceENS0_8ResourceE(ptr noundef nonnull align 8 dereferenceable(521) %22, i32 noundef 14)
-          to label %.noexc69 unwind label %lpad.loopexit.split-lp
+          to label %.noexc70 unwind label %lpad.loopexit.split-lp
 
-.noexc69:                                         ; preds = %while.end
+.noexc70:                                         ; preds = %while.end
   %23 = load i8, ptr %asynch_interrupt.i, align 8
   %24 = and i8 %23, 1
-  %tobool.not.i56 = icmp eq i8 %24, 0
-  br i1 %tobool.not.i56, label %land.lhs.true.i57, label %if.then53
+  %tobool.not.i57 = icmp eq i8 %24, 0
+  br i1 %tobool.not.i57, label %land.lhs.true.i58, label %if.then53
 
-land.lhs.true.i57:                                ; preds = %.noexc69
+land.lhs.true.i58:                                ; preds = %.noexc70
   %25 = load i64, ptr %conflict_budget.i, align 8
-  %cmp.i59 = icmp slt i64 %25, 0
+  %cmp.i60 = icmp slt i64 %25, 0
   %26 = load i64, ptr %conflicts.i, align 8
-  %cmp3.i61 = icmp slt i64 %26, %25
-  %or.cond.i62 = select i1 %cmp.i59, i1 true, i1 %cmp3.i61
-  br i1 %or.cond.i62, label %land.rhs.i63, label %if.then53
+  %cmp3.i62 = icmp slt i64 %26, %25
+  %or.cond.i63 = select i1 %cmp.i60, i1 true, i1 %cmp3.i62
+  br i1 %or.cond.i63, label %land.rhs.i64, label %if.then53
 
-land.rhs.i63:                                     ; preds = %land.lhs.true.i57
+land.rhs.i64:                                     ; preds = %land.lhs.true.i58
   %27 = load i64, ptr %propagation_budget.i, align 8
-  %cmp4.i65 = icmp slt i64 %27, 0
+  %cmp4.i66 = icmp slt i64 %27, 0
   %28 = load i64, ptr %propagations.i, align 8
-  %cmp6.i68 = icmp slt i64 %28, %27
-  %or.cond180 = select i1 %cmp4.i65, i1 true, i1 %cmp6.i68
-  br i1 %or.cond180, label %if.end56, label %if.then53
+  %cmp6.i69 = icmp slt i64 %28, %27
+  %or.cond181 = select i1 %cmp4.i66, i1 true, i1 %cmp6.i69
+  br i1 %or.cond181, label %if.end56, label %if.then53
 
-if.then53:                                        ; preds = %land.rhs.i63, %land.lhs.true.i57, %.noexc69
+if.then53:                                        ; preds = %land.rhs.i64, %land.lhs.true.i58, %.noexc70
   br label %if.end56
 
-if.end56:                                         ; preds = %land.rhs.i63, %if.then53
-  %retval.sroa.0.2 = phi i8 [ 2, %if.then53 ], [ %call44, %land.rhs.i63 ]
+if.end56:                                         ; preds = %land.rhs.i64, %if.then53
+  %retval.sroa.0.2 = phi i8 [ 2, %if.then53 ], [ %call44, %land.rhs.i64 ]
   %29 = load i32, ptr %verbosity, align 8
   %cmp58 = icmp sgt i32 %29, 0
   br i1 %cmp58, label %if.then59, label %if.end62
@@ -10454,15 +10454,15 @@ if.end62:                                         ; preds = %if.then59, %if.end5
   ]
 
 invoke.cont70:                                    ; preds = %if.end62
-  %sz.i.i75 = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this, i64 0, i32 67, i32 1
-  %30 = load i32, ptr %sz.i.i75, align 8
+  %sz.i.i76 = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this, i64 0, i32 67, i32 1
+  %30 = load i32, ptr %sz.i.i76, align 8
   invoke void @_ZN4cvc58internal7Minisat3vecINS1_5lboolEE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %model, i32 noundef %30)
           to label %invoke.cont73.preheader unwind label %lpad.loopexit.split-lp
 
 invoke.cont73.preheader:                          ; preds = %invoke.cont70
-  %31 = load i32, ptr %sz.i.i75, align 8
-  %cmp75185 = icmp sgt i32 %31, 0
-  br i1 %cmp75185, label %cond.true86.lr.ph, label %cleanup
+  %31 = load i32, ptr %sz.i.i76, align 8
+  %cmp75186 = icmp sgt i32 %31, 0
+  br i1 %cmp75186, label %cond.true86.lr.ph, label %cleanup
 
 cond.true86.lr.ph:                                ; preds = %invoke.cont73.preheader
   %assigns.i = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this, i64 0, i32 59
@@ -10471,13 +10471,13 @@ cond.true86.lr.ph:                                ; preds = %invoke.cont73.prehe
 cond.true86:                                      ; preds = %cond.true86.lr.ph, %cond.true86
   %indvars.iv = phi i64 [ 0, %cond.true86.lr.ph ], [ %indvars.iv.next, %cond.true86 ]
   %32 = load ptr, ptr %assigns.i, align 8
-  %arrayidx.i.i78 = getelementptr inbounds %"class.cvc5::internal::Minisat::lbool", ptr %32, i64 %indvars.iv
-  %retval.sroa.0.0.copyload.i = load i8, ptr %arrayidx.i.i78, align 1
+  %arrayidx.i.i79 = getelementptr inbounds %"class.cvc5::internal::Minisat::lbool", ptr %32, i64 %indvars.iv
+  %retval.sroa.0.0.copyload.i = load i8, ptr %arrayidx.i.i79, align 1
   %33 = load ptr, ptr %model, align 8
   %arrayidx.i = getelementptr inbounds %"class.cvc5::internal::Minisat::lbool", ptr %33, i64 %indvars.iv
   store i8 %retval.sroa.0.0.copyload.i, ptr %arrayidx.i, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = load i32, ptr %sz.i.i75, align 8
+  %34 = load i32, ptr %sz.i.i76, align 8
   %35 = sext i32 %34 to i64
   %cmp75 = icmp slt i64 %indvars.iv.next, %35
   br i1 %cmp75, label %cond.true86, label %cleanup, !llvm.loop !62
