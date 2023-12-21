@@ -2036,9 +2036,9 @@ if.then4.i:                                       ; preds = %if.then.i
   %mul11.i39.i = mul nsw i64 %conv4.i33.i, %conv10.i38.i
   %conv13.i40.i = sext i32 %sub.i.i.i to i64
   %mul16.i41.i = mul nsw i64 %conv2.i30.i, %conv13.i40.i
-  %sub17.i42.i = sub nsw i64 %mul11.i39.i, %mul16.i41.i
+  %sub17.i42.i.neg = sub nsw i64 %mul16.i41.i, %mul11.i39.i
   %mul.i48.i = mul nsw i64 %sub.i37.i, %conv6.i
-  %mul4.i.i = mul nsw i64 %sub17.i42.i, %mul11.i
+  %mul4.i.i = mul i64 %sub17.i42.i.neg, %conv10.i
   %add7.i.i = add i64 %mul.i48.i, %mul4.i.i
   %cmp12.i = icmp sgt i64 %add7.i.i, 0
   br i1 %cmp12.i, label %if.end25, label %if.then23
@@ -2151,9 +2151,9 @@ if.then4.i245:                                    ; preds = %if.then.i244
   %mul11.i39.i292 = mul nsw i64 %conv4.i33.i287, %conv10.i38.i291
   %conv13.i40.i293 = sext i32 %sub.i.i.i270 to i64
   %mul16.i41.i294 = mul nsw i64 %conv2.i30.i285, %conv13.i40.i293
-  %sub17.i42.i295 = sub nsw i64 %mul11.i39.i292, %mul16.i41.i294
+  %sub17.i42.i295.neg = sub nsw i64 %mul16.i41.i294, %mul11.i39.i292
   %mul.i48.i299 = mul nsw i64 %sub.i37.i290, %conv6.i
-  %mul4.i.i300 = mul nsw i64 %sub17.i42.i295, %mul11.i
+  %mul4.i.i300 = mul i64 %sub17.i42.i295.neg, %conv10.i
   %add7.i.i303 = add i64 %mul.i48.i299, %mul4.i.i300
   %cmp12.i304 = icmp sgt i64 %add7.i.i303, 0
   br i1 %cmp12.i304, label %if.then53, label %if.end55
